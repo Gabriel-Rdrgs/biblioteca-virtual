@@ -1,0 +1,5 @@
+.next/
+node_modules/
+docs/extracao-planos/
+public/planos/
+package-lock.json
