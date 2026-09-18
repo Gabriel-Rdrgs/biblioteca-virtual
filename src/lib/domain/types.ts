@@ -11,11 +11,33 @@ export type MaterialKind =
   "livro" | "norma" | "documento" | "apostila" | "artigo" | "roteiro" | "plano_de_ensino";
 
 /**
- * How a reader may reach the item. Nothing under copyright is ever served as
- * a download: commercial titles are `institutional` and link out.
+ * How a reader may reach the item.
+ *
+ * - `class_only`: a PDF posted by the class, served only behind the class
+ *   password, with its origin and authorisation recorded on the file.
+ * - `public`: an open-access document linked at its official source.
+ * - `reference_only`: catalogued from the plan, no file available.
+ * - `restricted`: needs case-by-case authorisation.
  */
-export type AccessType =
-  "public" | "class_only" | "institutional" | "restricted" | "reference_only";
+export type AccessType = "public" | "class_only" | "restricted" | "reference_only";
+
+/** The library hides rather than deletes, so provenance is never lost. */
+export type Visibility = "visivel" | "oculto";
+
+/**
+ * A file the class posted for a book. Every file names who supplied it and
+ * on what basis, so a questioned upload can be traced and removed quickly.
+ */
+export interface BookFile {
+  /** File name inside storage/livros — never a public URL. */
+  readonly path: string;
+  /** Where the file came from, e.g. "Enviado pela turma, cópia própria". */
+  readonly origin: string;
+  /** The basis for sharing it with the class. */
+  readonly authorization: string;
+  readonly sizeBytes?: number;
+  readonly addedAt: string;
+}
 
 export type ReviewStatus = "ok" | "pendente" | "corrigido";
 
@@ -59,10 +81,11 @@ export interface Book {
   readonly description?: string;
   readonly kind: MaterialKind;
   readonly accessType: AccessType;
-  /** Institutional reader (Minha Biblioteca) or a public PDF. Never a mirror. */
+  readonly visibility: Visibility;
+  /** Official open-access source, for `public` items only. */
   readonly externalUrl?: string;
-  /** Set only when Atlas itself hosts an authorised file. */
-  readonly fileUrl?: string;
+  /** Present when the class has posted a PDF for this book. */
+  readonly file?: BookFile;
   readonly coverSource: CoverSource;
   readonly coverUrl?: string;
   readonly coverMotif: CoverMotif;
@@ -154,5 +177,5 @@ export interface LibraryStats {
   readonly teachingPlans: number;
   readonly sharedBooks: number;
   readonly pendingReview: number;
-  readonly institutionalAccess: number;
+  readonly withFile: number;
 }

@@ -52,9 +52,9 @@ describe("BookCard", () => {
     expect(screen.getByRole("link", { name: /ética em pesquisa/i })).toBeInTheDocument();
   });
 
-  it("shows the institutional access indicator for licensed titles", () => {
+  it("shows a book without a posted file as reference only", () => {
     render(<BookCard entry={entryOf("bates-propedeutica-medica-essencial")} />);
-    expect(screen.getByText("Biblioteca institucional")).toBeInTheDocument();
+    expect(screen.getByText("Somente referência")).toBeInTheDocument();
   });
 
   it("labels reference-only items honestly", () => {
@@ -71,8 +71,19 @@ describe("AccessNotice", () => {
     ).toBeInTheDocument();
   });
 
-  it("explains institutional access without offering a download", () => {
-    render(<AccessNotice access="institutional" />);
-    expect(screen.getByText(/nenhum arquivo é hospedado aqui/i)).toBeInTheDocument();
+  it("names origin and authorisation for a class-posted file", () => {
+    render(
+      <AccessNotice
+        access="class_only"
+        file={{
+          path: "x.pdf",
+          origin: "Enviado por A.",
+          authorization: "Cópia própria",
+          addedAt: "2026-09-20",
+        }}
+      />,
+    );
+    expect(screen.getByText(/origem: enviado por a./i)).toBeInTheDocument();
+    expect(screen.getByText(/autorização: cópia própria/i)).toBeInTheDocument();
   });
 });

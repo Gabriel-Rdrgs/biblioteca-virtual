@@ -40,10 +40,9 @@ export function Footer() {
         </div>
 
         <p className="border-line text-ink-faint mt-10 border-t pt-6 text-xs leading-relaxed">
-          Atlas cataloga <strong className="text-ink-muted font-medium">referências</strong>, não
-          cópias. Os livros sob direito autoral são lidos pela biblioteca institucional, com o seu
-          login — nenhum arquivo comercial é hospedado aqui. Os planos de ensino são documentos
-          institucionais do curso.{" "}
+          Biblioteca fechada para a turma. Os PDFs aqui postados são de uso interno, com origem e
+          autorização registradas em cada arquivo — não redistribua fora do grupo. Livros sem
+          arquivo aparecem como referência catalogada.{" "}
           <Link href="/uso-responsavel" className="hover:text-primary underline">
             Leia as regras de uso
           </Link>

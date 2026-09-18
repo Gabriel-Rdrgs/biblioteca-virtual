@@ -2,8 +2,7 @@ import type { TeachingPlan } from "@/lib/domain/types";
 
 /**
  * The seven official plans, served from public/planos. These are
- * institutional course documents — unlike the commercial titles they cite,
- * they can be viewed and downloaded directly.
+ * institutional course documents, viewable and downloadable by the class.
  *
  * `pages` is the real page count reported by the extractor.
  */

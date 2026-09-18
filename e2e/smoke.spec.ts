@@ -1,5 +1,17 @@
 import { expect, test } from "@playwright/test";
 
+// When the class password is set, every test starts logged in; the gate test
+// clears cookies itself to exercise the login flow.
+test.beforeEach(async ({ page }) => {
+  const senha = process.env.ATLAS_SENHA_TURMA;
+  if (!senha) return;
+  const response = await page.request.post("/api/entrar", {
+    form: { senha, proximo: "/" },
+    maxRedirects: 0,
+  });
+  expect(response.status()).toBe(303);
+});
+
 test("home leads to the catalogue and back to a discipline", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("bibliografia do semestre");
@@ -37,11 +49,31 @@ test("global search reads the query from the URL", async ({ page }) => {
   await expect(page.getByRole("link", { name: /propedêutica médica essencial/i })).toBeVisible();
 });
 
-test("licensed titles link out instead of downloading", async ({ page }) => {
+test("a book without a posted file offers no download", async ({ page }) => {
   await page.goto("/livros/bates-propedeutica-medica-essencial");
-  const link = page.getByRole("link", { name: "Acessar pela biblioteca institucional" });
-  await expect(link).toHaveAttribute("href", /minhabiblioteca\.com\.br/);
-  await expect(page.getByRole("link", { name: /baixar/i })).toHaveCount(0);
+  await expect(page.getByText("Arquivo ainda não disponibilizado", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: /baixar|ler pdf/i })).toHaveCount(0);
+  await expect(page.locator('a[href*="minhabiblioteca"]')).toHaveCount(0);
+});
+
+test("the class password gates every page and the plans", async ({ page, request }) => {
+  test.skip(!process.env.ATLAS_SENHA_TURMA, "gate is open when ATLAS_SENHA_TURMA is unset");
+
+  await page.context().clearCookies();
+  await page.goto("/livros");
+  await expect(page).toHaveURL(/\/entrar\?proximo=%2Flivros/);
+
+  const plan = await request.get("/planos/ha-1.pdf", { maxRedirects: 0 });
+  expect(plan.status()).toBe(307);
+
+  await page.getByLabel("Senha da turma").fill("senha-errada");
+  await page.getByRole("button", { name: "Entrar" }).click();
+  await expect(page.getByRole("alert")).toContainText("Senha incorreta");
+
+  await page.getByLabel("Senha da turma").fill(process.env.ATLAS_SENHA_TURMA ?? "");
+  await page.getByRole("button", { name: "Entrar" }).click();
+  await expect(page).toHaveURL(/\/livros$/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Todos os livros");
 });
 
 test("teaching plans are downloadable", async ({ page }) => {

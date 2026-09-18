@@ -38,17 +38,25 @@ export function SectionHeading({
   title,
   description,
   action,
+  numeral,
   as: Tag = "h2",
 }: {
   title: string;
   description?: string;
   action?: ReactNode;
+  /** Plate-style numbering ("I", "II"…), as in an atlas. */
+  numeral?: string;
   as?: "h1" | "h2" | "h3";
 }) {
   return (
-    <div className="mb-6 flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
+    <div className="border-line mb-8 flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b pb-4">
       <div className="max-w-2xl">
-        <Tag className="text-2xl font-semibold sm:text-[1.75rem]">{title}</Tag>
+        {numeral ? (
+          <span className="text-ink-faint font-display block text-sm tracking-[0.2em]">
+            {numeral}
+          </span>
+        ) : null}
+        <Tag className="mt-1 text-2xl font-semibold sm:text-[1.75rem]">{title}</Tag>
         {description ? (
           <p className="text-ink-muted mt-2 text-[0.95rem] leading-relaxed text-pretty">
             {description}

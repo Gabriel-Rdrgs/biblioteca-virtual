@@ -14,6 +14,8 @@ export default defineConfig({
   },
   webServer: {
     command: "npm run build && npm start",
+    // The gate test needs a known password; it is skipped when unset.
+    env: { ...process.env, ATLAS_SENHA_TURMA: process.env.ATLAS_SENHA_TURMA ?? "" },
     url: "http://localhost:3000",
     reuseExistingServer: true,
     timeout: 240_000,

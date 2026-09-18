@@ -11,7 +11,7 @@ import { normalizeText, tokenize } from "./normalize";
 
 export type SortKey = "relevancia" | "titulo" | "ano" | "disciplinas" | "recentes";
 
-export type AvailabilityFilter = "todos" | "institucional" | "publico" | "somente_referencia";
+export type AvailabilityFilter = "todos" | "com_pdf" | "publico" | "somente_referencia";
 
 export interface CatalogFilters {
   readonly query: string;
@@ -97,8 +97,8 @@ function matchesFilters(entry: CatalogEntry, filters: CatalogFilters): boolean {
   if (filters.sharedOnly && links.length < 2) return false;
 
   switch (filters.availability) {
-    case "institucional":
-      return book.accessType === "institutional";
+    case "com_pdf":
+      return book.accessType === "class_only";
     case "publico":
       return book.accessType === "public";
     case "somente_referencia":

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ExternalLink, FileWarning } from "lucide-react";
+import { BookOpen, Download, ExternalLink, FileWarning } from "lucide-react";
 import { BookCover } from "@/components/book/book-cover";
 import { BookCardCompact } from "@/components/book/book-card";
 import {
@@ -106,7 +106,24 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
           ) : null}
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            {book.externalUrl ? (
+            {book.file ? (
+              <>
+                <Link
+                  href={`/livros/${book.slug}/ler`}
+                  className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium transition-colors"
+                >
+                  <BookOpen className="size-4" aria-hidden="true" />
+                  Ler PDF
+                </Link>
+                <a
+                  href={`/api/arquivos/${book.id}?baixar=1`}
+                  className="border-line hover:border-line-strong hover:bg-surface-sunken inline-flex items-center gap-2 rounded-md border px-4 py-2.5 text-sm font-medium transition-colors"
+                >
+                  <Download className="size-4" aria-hidden="true" />
+                  Baixar
+                </a>
+              </>
+            ) : book.externalUrl ? (
               <a
                 href={book.externalUrl}
                 target="_blank"
@@ -114,20 +131,18 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
                 className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium transition-colors"
               >
                 <ExternalLink className="size-4" aria-hidden="true" />
-                {book.accessType === "public"
-                  ? "Abrir documento"
-                  : "Acessar pela biblioteca institucional"}
+                Abrir na fonte oficial
               </a>
             ) : (
               <span className="border-line-strong text-ink-muted inline-flex items-center gap-2 rounded-md border border-dashed px-5 py-2.5 text-sm">
                 <FileWarning className="size-4" aria-hidden="true" />
-                Arquivo não disponibilizado
+                Arquivo ainda não disponibilizado
               </span>
             )}
             <FavoriteButton bookId={book.id} title={book.title} />
           </div>
 
-          <AccessNotice access={book.accessType} className="mt-6" />
+          <AccessNotice access={book.accessType} file={book.file} className="mt-6" />
 
           <section className="mt-10">
             <h2 className="text-lg font-semibold">Onde este livro é usado</h2>

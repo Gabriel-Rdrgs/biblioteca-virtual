@@ -86,12 +86,14 @@ describe("combined filters", () => {
   });
 
   it("filters by availability", () => {
-    const institutional = find("", { availability: "institucional" });
+    const withPdf = find("", { availability: "com_pdf" });
+    const open = find("", { availability: "publico" });
     const referenceOnly = find("", { availability: "somente_referencia" });
 
-    expect(institutional).toContain("bates-propedeutica-medica-essencial");
+    expect(open).toContain("codigo-de-etica-medica-2019");
     expect(referenceOnly).toContain("medicina-antiga");
-    expect(institutional.some((id) => referenceOnly.includes(id))).toBe(false);
+    expect(referenceOnly).not.toContain("codigo-de-etica-medica-2019");
+    expect(withPdf.every((id) => !referenceOnly.includes(id))).toBe(true);
   });
 
   it("returns nothing when filters cannot be satisfied together", () => {

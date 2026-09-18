@@ -6,7 +6,7 @@ import { getStats } from "@/lib/repository";
 export const metadata: Metadata = {
   title: "Uso responsável",
   description:
-    "Como o Atlas trata direitos autorais, acesso institucional, privacidade e material sensível.",
+    "Como o Atlas trata acesso da turma, PDFs postados, direitos autorais, privacidade e material sensível.",
 };
 
 function Rule({ title, children }: { title: string; children: React.ReactNode }) {
@@ -41,16 +41,26 @@ export default function ResponsibleUsePage() {
         </p>
       </Rule>
 
-      <Rule title="Livros sob direito autoral">
+      <Rule title="Biblioteca fechada">
         <p>
-          Os {stats.institutionalAccess} títulos licenciados aparecem no catálogo com a referência
-          completa e um botão que leva à plataforma{" "}
-          <strong className="text-ink font-medium">Minha Biblioteca</strong>, onde a leitura
-          acontece com o seu login do UNIEURO.
+          O Atlas é protegido por uma senha combinada em sala. Páginas, planos de ensino e PDFs só
+          são servidos a quem entrou com ela. Não há cadastro individual nesta versão.
+        </p>
+      </Rule>
+
+      <Rule title="PDFs postados pela turma">
+        <p>
+          {stats.withFile === 0
+            ? "Nenhum PDF foi postado ainda."
+            : `${stats.withFile} ${stats.withFile === 1 ? "título tem" : "títulos têm"} PDF postado.`}{" "}
+          Cada arquivo registra <strong className="text-ink font-medium">quem o forneceu</strong> e{" "}
+          <strong className="text-ink font-medium">em que base</strong> a turma pode usá-lo. Esses
+          dois campos são obrigatórios: sem eles o arquivo não entra.
         </p>
         <p>
-          Nenhum desses arquivos é hospedado, copiado ou redistribuído pelo Atlas. Não há botão de
-          download para eles, e isso é uma decisão de projeto, não uma limitação técnica.
+          Os PDFs ficam fora da pasta pública do site e são servidos somente atrás da senha. Ainda
+          assim, livros de editoras comerciais continuam sob direito autoral — o uso é interno, para
+          estudo, e a responsabilidade pela origem é de quem posta. Não redistribua fora do grupo.
         </p>
       </Rule>
 
@@ -63,8 +73,7 @@ export default function ResponsibleUsePage() {
 
       <Rule title="Referências sem arquivo">
         <p>
-          Quando uma obra consta na bibliografia mas não tem link institucional nem arquivo
-          autorizado, o Atlas mostra{" "}
+          Quando uma obra consta na bibliografia mas ninguém postou o arquivo, o Atlas mostra{" "}
           <em>“Referência catalogada — arquivo ainda não disponibilizado”</em>. A obra continua
           visível, porque saber que ela existe já é útil — mas o estado fica explícito, em vez de
           parecer um link quebrado.

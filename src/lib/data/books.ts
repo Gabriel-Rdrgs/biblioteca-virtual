@@ -1,18 +1,16 @@
 import type {
+  AccessType,
   Book,
+  BookFile,
   CoverMotif,
   DisciplineId,
   MaterialKind,
   ReviewStatus,
+  Visibility,
 } from "@/lib/domain/types";
-import type { AccessType } from "@/lib/domain/types";
 
 /** Date the seven teaching plans were transcribed into the catalogue. */
 const CATALOGUED_AT = "2026-09-18";
-
-/** Institutional reader links, exactly as spelled in each plan. */
-const mb = (isbn: string) => `https://integrada.minhabiblioteca.com.br/#/books/${isbn}/`;
-const mbReader = (isbn: string) => `https://integrada.minhabiblioteca.com.br/reader/books/${isbn}/`;
 
 interface BookSeed {
   id: string;
@@ -25,7 +23,10 @@ interface BookSeed {
   isbn?: string;
   kind?: MaterialKind;
   accessType?: AccessType;
+  visibility?: Visibility;
   externalUrl?: string;
+  /** Set when the class posts a PDF; the record then becomes `class_only`. */
+  file?: BookFile;
   motif: CoverMotif;
   topics: string[];
   source: {
@@ -53,8 +54,12 @@ function defineBook(seed: BookSeed): Book {
     ...(seed.edition ? { edition: seed.edition } : {}),
     ...(seed.isbn ? { isbn: seed.isbn } : {}),
     kind: seed.kind ?? "livro",
-    accessType: seed.accessType ?? "institutional",
+    // A posted file makes the book readable by the class; otherwise it is a
+    // catalogued reference until someone posts one.
+    accessType: seed.accessType ?? (seed.file ? "class_only" : "reference_only"),
+    visibility: seed.visibility ?? "visivel",
     ...(seed.externalUrl ? { externalUrl: seed.externalUrl } : {}),
+    ...(seed.file ? { file: seed.file } : {}),
     coverSource: "placeholder",
     coverMotif: seed.motif,
     topics: seed.topics,
@@ -80,7 +85,6 @@ const seeds: BookSeed[] = [
     publicationYear: 2024,
     edition: "9. ed.",
     isbn: "9788527740128",
-    externalUrl: mbReader("9788527740128"),
     motif: "anatomia",
     topics: ["anatomia", "anatomia clínica", "musculoesquelético"],
     source: {
@@ -100,7 +104,6 @@ const seeds: BookSeed[] = [
     publicationYear: 2022,
     edition: "5. ed.",
     isbn: "9788595159003",
-    externalUrl: mbReader("9788595159003"),
     motif: "histologia",
     topics: ["histologia", "tecidos", "microscopia"],
     source: {
@@ -118,7 +121,6 @@ const seeds: BookSeed[] = [
     publicationYear: 2020,
     edition: "2. ed.",
     isbn: "9788527737166",
-    externalUrl: mbReader("9788527737166"),
     motif: "histologia",
     topics: ["parasitologia", "protozoários", "helmintos"],
     source: {
@@ -138,7 +140,6 @@ const seeds: BookSeed[] = [
     publicationYear: 2019,
     edition: "4. ed.",
     isbn: "9788535292084",
-    externalUrl: mbReader("9788535292084"),
     motif: "anatomia",
     topics: ["anatomia", "atlas", "anatomia clínica"],
     source: {
@@ -156,7 +157,6 @@ const seeds: BookSeed[] = [
     publicationYear: 2024,
     edition: "7. ed.",
     isbn: "9788527740357",
-    externalUrl: mbReader("9788527740357"),
     motif: "anatomia",
     topics: ["cinesiologia", "anatomia", "movimento"],
     source: {
@@ -176,7 +176,6 @@ const seeds: BookSeed[] = [
     publicationYear: 2022,
     edition: "10. ed.",
     isbn: "9788595159020",
-    externalUrl: mbReader("9788595159020"),
     motif: "histologia",
     topics: ["embriologia", "desenvolvimento embrionário"],
     source: {
@@ -194,7 +193,6 @@ const seeds: BookSeed[] = [
     publicationYear: 2008,
     edition: "4. ed.",
     isbn: "978-85-277-2027-4",
-    externalUrl: mbReader("978-85-277-2027-4"),
     motif: "histologia",
     topics: ["parasitologia"],
     source: {
@@ -211,7 +209,6 @@ const seeds: BookSeed[] = [
     publisher: "Guanabara Koogan",
     publicationYear: 2016,
     isbn: "9788527730105",
-    externalUrl: mbReader("9788527730105"),
     motif: "histologia",
     topics: ["histologia", "tecidos"],
     source: {
@@ -230,7 +227,6 @@ const seeds: BookSeed[] = [
     publisher: "Artmed",
     publicationYear: 2017,
     isbn: "9788582714232",
-    externalUrl: mb("9788582714232"),
     motif: "bioquimica",
     topics: ["biologia celular", "biologia molecular"],
     source: {
@@ -247,7 +243,6 @@ const seeds: BookSeed[] = [
     publisher: "Guanabara Koogan",
     publicationYear: 2023,
     isbn: "9788527739344",
-    externalUrl: mb("9788527739344"),
     motif: "bioquimica",
     topics: ["biologia celular", "citologia"],
     source: {
@@ -264,7 +259,6 @@ const seeds: BookSeed[] = [
     publisher: "Editora Manole",
     publicationYear: 2019,
     isbn: "9786555762396",
-    externalUrl: mb("9786555762396"),
     motif: "bioquimica",
     topics: ["biologia celular", "citologia"],
     source: {
@@ -281,7 +275,6 @@ const seeds: BookSeed[] = [
     publisher: "Artmed",
     publicationYear: 2019,
     isbn: "9788582715147",
-    externalUrl: mb("9788582715147"),
     motif: "histologia",
     topics: ["desenvolvimento", "diferenciação celular"],
     source: {
@@ -298,7 +291,6 @@ const seeds: BookSeed[] = [
     publisher: "Guanabara Koogan",
     publicationYear: 2022,
     isbn: "9788527738682",
-    externalUrl: mb("9788527738682"),
     motif: "bioquimica",
     topics: ["genética", "hereditariedade"],
     source: {
@@ -315,7 +307,6 @@ const seeds: BookSeed[] = [
     publisher: "Guanabara Koogan",
     publicationYear: 2021,
     isbn: "9788595158696",
-    externalUrl: mb("9788595158696"),
     motif: "bioquimica",
     topics: ["fisiologia"],
     source: {
@@ -332,7 +323,6 @@ const seeds: BookSeed[] = [
     publisher: "Artmed",
     publicationYear: 2022,
     isbn: "9786558820680",
-    externalUrl: mb("9786558820680"),
     motif: "bioquimica",
     topics: ["biologia geral", "biologia celular"],
     source: {
@@ -352,7 +342,6 @@ const seeds: BookSeed[] = [
     publisher: "Guanabara Koogan",
     publicationYear: 2022,
     isbn: "9788527738446",
-    externalUrl: mb("9788527738446"),
     motif: "semiologia",
     topics: ["semiologia", "anamnese", "exame físico", "propedêutica"],
     source: {
@@ -369,7 +358,6 @@ const seeds: BookSeed[] = [
     publisher: "Guanabara Koogan",
     publicationYear: 2021,
     isbn: "9788527731034",
-    externalUrl: mb("9788527731034"),
     motif: "semiologia",
     topics: ["semiologia", "exame físico"],
     source: {
@@ -386,7 +374,6 @@ const seeds: BookSeed[] = [
     publisher: "Guanabara Koogan",
     publicationYear: 2022,
     isbn: "9788595159136",
-    externalUrl: mb("9788595159136"),
     motif: "semiologia",
     topics: ["semiologia"],
     source: {
@@ -403,7 +390,6 @@ const seeds: BookSeed[] = [
     authors: ["HINRICHSEN, Sylvia L."],
     publisher: "Guanabara Koogan",
     publicationYear: 2023,
-    accessType: "reference_only",
     motif: "semiologia",
     topics: ["biossegurança", "controle de infecção", "segurança do paciente"],
     source: {
@@ -419,7 +405,6 @@ const seeds: BookSeed[] = [
     authors: ["MARTINS, Mílton de A.", "et al."],
     publisher: "Editora Manole",
     publicationYear: 2021,
-    accessType: "reference_only",
     motif: "semiologia",
     topics: ["semiologia"],
     source: {
@@ -437,7 +422,6 @@ const seeds: BookSeed[] = [
     publisher: "MedBook Editora",
     publicationYear: 2017,
     isbn: "9786557830253",
-    externalUrl: mb("9786557830253"),
     motif: "semiologia",
     topics: ["semiologia", "diagnóstico", "medicina baseada em evidências"],
     source: {
@@ -453,7 +437,6 @@ const seeds: BookSeed[] = [
     authors: ["PORTO, Celmo Celeno"],
     publisher: "Guanabara Koogan",
     publicationYear: 2019,
-    accessType: "reference_only",
     motif: "semiologia",
     topics: ["semiologia"],
     source: {
@@ -469,7 +452,6 @@ const seeds: BookSeed[] = [
     authors: ["SOUSA, Lucila Medeiros Minichello de"],
     publisher: "SRV Editora LTDA",
     publicationYear: 2014,
-    accessType: "reference_only",
     motif: "semiologia",
     topics: ["emergência", "suporte básico de vida"],
     source: {
@@ -489,7 +471,6 @@ const seeds: BookSeed[] = [
     publisher: "Editora Manole",
     publicationYear: 2021,
     isbn: "9786555761900",
-    externalUrl: mb("9786555761900"),
     motif: "metodologia",
     topics: ["ética em pesquisa", "bioética", "metodologia científica"],
     source: {
@@ -506,7 +487,6 @@ const seeds: BookSeed[] = [
     publisher: "Guanabara Koogan",
     publicationYear: 2021,
     isbn: "9788527728843",
-    externalUrl: mb("9788527728843"),
     motif: "metodologia",
     topics: ["medicina baseada em evidências", "epidemiologia"],
     source: {
@@ -523,7 +503,6 @@ const seeds: BookSeed[] = [
     publisher: "Guanabara Koogan",
     publicationYear: 2021,
     isbn: "9788595158658",
-    externalUrl: mb("9788595158658"),
     motif: "metodologia",
     topics: ["metodologia científica", "pesquisa em saúde"],
     source: {
@@ -540,7 +519,6 @@ const seeds: BookSeed[] = [
     publisher: "Editora Manole",
     publicationYear: 2020,
     isbn: "9788520458587",
-    externalUrl: mb("9788520458587"),
     motif: "metodologia",
     topics: ["bioética", "direito médico"],
     source: {
@@ -558,7 +536,6 @@ const seeds: BookSeed[] = [
     publisher: "Elsevier",
     publicationYear: 2016,
     isbn: "9788595151338",
-    externalUrl: mb("9788595151338"),
     motif: "metodologia",
     topics: ["medicina baseada em evidências", "leitura crítica"],
     source: {
@@ -575,7 +552,6 @@ const seeds: BookSeed[] = [
     publisher: "Atlas",
     publicationYear: 2021,
     isbn: "9788597026580",
-    externalUrl: mb("9788597026580"),
     motif: "metodologia",
     topics: ["metodologia científica"],
     source: {
@@ -592,7 +568,6 @@ const seeds: BookSeed[] = [
     publisher: "Atlas",
     publicationYear: 2021,
     isbn: "9788597026610",
-    externalUrl: mb("9788597026610"),
     motif: "metodologia",
     topics: ["metodologia científica", "técnicas de pesquisa"],
     source: {
@@ -610,7 +585,6 @@ const seeds: BookSeed[] = [
     publisher: "Atlas",
     publicationYear: 2021,
     isbn: "9788597026641",
-    externalUrl: mb("9788597026641"),
     motif: "metodologia",
     topics: ["redação científica", "publicação"],
     source: {
@@ -630,7 +604,6 @@ const seeds: BookSeed[] = [
     publisher: "Artmed",
     publicationYear: 2019,
     isbn: "9788582715369",
-    externalUrl: mb("9788582715369"),
     motif: "saude-coletiva",
     topics: ["medicina de família", "atenção primária", "APS"],
     source: {
@@ -648,7 +621,6 @@ const seeds: BookSeed[] = [
     publisher: "Elsevier",
     publicationYear: 2018,
     isbn: "9788595151956",
-    externalUrl: mb("9788595151956"),
     motif: "saude-coletiva",
     topics: ["medicina de família", "terapêutica"],
     source: {
@@ -665,7 +637,6 @@ const seeds: BookSeed[] = [
     publisher: "Guanabara Koogan",
     publicationYear: 2022,
     isbn: "9788527738903",
-    externalUrl: mb("9788527738903"),
     motif: "semiologia",
     topics: ["clínica médica", "prática clínica"],
     source: {
@@ -682,7 +653,6 @@ const seeds: BookSeed[] = [
     publisher: "Editora Manole",
     publicationYear: 2014,
     isbn: "9788520455265",
-    externalUrl: mb("9788520455265"),
     motif: "saude-coletiva",
     topics: ["populações vulneráveis", "equidade", "saúde coletiva"],
     source: {
@@ -700,7 +670,6 @@ const seeds: BookSeed[] = [
     authors: ["BEAGLEHOLE, R.", "BONITA, R.", "KJELLSTRÖM, A."],
     publisher: "Santos",
     publicationYear: 2017,
-    accessType: "reference_only",
     motif: "saude-coletiva",
     topics: ["epidemiologia", "saúde coletiva"],
     source: {
@@ -716,7 +685,6 @@ const seeds: BookSeed[] = [
     authors: ["GAMA, A. S."],
     publisher: "Ferreira",
     publicationYear: 2017,
-    accessType: "reference_only",
     motif: "saude-coletiva",
     topics: ["SUS", "políticas públicas de saúde"],
     source: {
@@ -732,7 +700,6 @@ const seeds: BookSeed[] = [
     authors: ["ZUGNO, P. L."],
     publisher: "Educs",
     publicationYear: 2012,
-    accessType: "reference_only",
     motif: "saude-coletiva",
     topics: ["sociologia", "saúde coletiva"],
     source: {
@@ -748,7 +715,6 @@ const seeds: BookSeed[] = [
     authors: ["FERRAZ, C. V."],
     publisher: "Atlas",
     publicationYear: 2015,
-    accessType: "reference_only",
     motif: "humanidades",
     topics: ["diversidade", "direitos humanos"],
     source: {
@@ -764,7 +730,6 @@ const seeds: BookSeed[] = [
     authors: ["MATTOS, R."],
     publisher: "Contexto",
     publicationYear: 2007,
-    accessType: "reference_only",
     motif: "humanidades",
     topics: ["história", "cultura afro-brasileira", "equidade"],
     source: {
@@ -781,7 +746,6 @@ const seeds: BookSeed[] = [
     authors: ["WALSH, F."],
     publisher: "Artmed",
     publicationYear: 2016,
-    accessType: "reference_only",
     motif: "saude-coletiva",
     topics: ["família", "diversidade"],
     source: {
@@ -798,7 +762,6 @@ const seeds: BookSeed[] = [
     publisher: "Artmed",
     publicationYear: 2017,
     edition: "4. ed.",
-    accessType: "reference_only",
     motif: "saude-coletiva",
     topics: ["medicina de família", "atenção primária"],
     source: {
@@ -822,7 +785,6 @@ const seeds: BookSeed[] = [
     publisher: "Artmed",
     publicationYear: 2013,
     edition: "4. ed.",
-    accessType: "reference_only",
     motif: "saude-coletiva",
     topics: ["atenção primária", "medicina baseada em evidências"],
     source: {
@@ -864,7 +826,6 @@ const seeds: BookSeed[] = [
     publisher: "Artmed",
     publicationYear: 2022,
     isbn: "9786558820727",
-    externalUrl: mb("9786558820727"),
     motif: "humanidades",
     topics: ["saúde mental", "profissionalismo", "humanidades médicas"],
     source: {
@@ -882,7 +843,6 @@ const seeds: BookSeed[] = [
     publisher: "Diário Oficial da União",
     publicationYear: 2026,
     kind: "norma",
-    accessType: "reference_only",
     motif: "humanidades",
     topics: ["direitos do paciente", "legislação"],
     source: {
@@ -899,7 +859,6 @@ const seeds: BookSeed[] = [
     authors: ["BRASIL. Ministério da Educação"],
     publicationYear: 2025,
     kind: "norma",
-    accessType: "reference_only",
     motif: "humanidades",
     topics: ["diretrizes curriculares", "legislação", "formação médica"],
     source: {
@@ -919,7 +878,6 @@ const seeds: BookSeed[] = [
     publisher: "Editora Saraiva",
     publicationYear: 2013,
     isbn: "9788502208803",
-    externalUrl: mb("9788502208803"),
     motif: "humanidades",
     topics: ["direitos humanos", "minorias", "grupos vulneráveis"],
     source: {
@@ -937,7 +895,6 @@ const seeds: BookSeed[] = [
     publisher: "Editora Manole",
     publicationYear: 2019,
     isbn: "9788520463475",
-    externalUrl: mb("9788520463475"),
     motif: "humanidades",
     topics: ["relação médico-paciente", "humanidades médicas"],
     source: {
@@ -954,7 +911,6 @@ const seeds: BookSeed[] = [
     publisher: "Artmed",
     publicationYear: 2017,
     isbn: "9788582714256",
-    externalUrl: mb("9788582714256"),
     motif: "humanidades",
     topics: ["cuidado centrado na pessoa", "relação médico-paciente"],
     source: {
@@ -972,7 +928,6 @@ const seeds: BookSeed[] = [
     authors: ["PORTER, R. C."],
     publisher: "Revinter",
     publicationYear: 2008,
-    accessType: "reference_only",
     motif: "humanidades",
     topics: ["história da medicina"],
     source: {
@@ -988,7 +943,6 @@ const seeds: BookSeed[] = [
     authors: ["ROCHA, A. A.", "GALVÃO, C. C. L."],
     publisher: "Atheneu",
     publicationYear: 2013,
-    accessType: "reference_only",
     motif: "saude-coletiva",
     topics: ["saúde pública", "saúde coletiva"],
     source: {
@@ -1005,7 +959,6 @@ const seeds: BookSeed[] = [
     publisher: "Guanabara Koogan",
     publicationYear: 2019,
     edition: "14. ed.",
-    accessType: "reference_only",
     motif: "anatomia",
     topics: ["anatomia", "fisiologia"],
     source: {
@@ -1023,7 +976,6 @@ const seeds: BookSeed[] = [
     authors: ["LUZ, P."],
     publisher: "Manole",
     publicationYear: 2014,
-    accessType: "reference_only",
     motif: "humanidades",
     topics: ["prática médica", "humanidades médicas"],
     source: {
@@ -1040,7 +992,6 @@ const seeds: BookSeed[] = [
     authors: ["MIRANDA-SÁ JUNIOR, L. S."],
     publisher: "Conselho Federal de Medicina",
     publicationYear: 2013,
-    accessType: "reference_only",
     motif: "humanidades",
     topics: ["introdução à medicina", "profissão médica"],
     source: {
@@ -1059,7 +1010,6 @@ const seeds: BookSeed[] = [
     publisher: "Conselho Federal de Medicina",
     publicationYear: 2010,
     kind: "norma",
-    accessType: "reference_only",
     motif: "humanidades",
     topics: ["ética médica", "deontologia", "norma"],
     source: {
@@ -1077,7 +1027,6 @@ const seeds: BookSeed[] = [
     authors: ["FORTES, P. A. C."],
     publisher: "Manole",
     publicationYear: 2014,
-    accessType: "reference_only",
     motif: "saude-coletiva",
     topics: ["saúde global", "saúde coletiva"],
     source: {
@@ -1094,7 +1043,6 @@ const seeds: BookSeed[] = [
     authors: ["FREIRE, C."],
     publisher: "Érica",
     publicationYear: 2015,
-    accessType: "reference_only",
     motif: "saude-coletiva",
     topics: ["políticas públicas de saúde", "SUS"],
     source: {
@@ -1110,7 +1058,6 @@ const seeds: BookSeed[] = [
     authors: ["NUTTON, V. A."],
     publisher: "Forense",
     publicationYear: 2017,
-    accessType: "reference_only",
     motif: "humanidades",
     topics: ["história da medicina", "medicina antiga"],
     source: {
@@ -1126,7 +1073,6 @@ const seeds: BookSeed[] = [
     authors: ["PORTO, C. C."],
     publisher: "Guanabara Koogan",
     publicationYear: 2018,
-    accessType: "reference_only",
     motif: "humanidades",
     topics: ["formação médica", "humanidades médicas"],
     source: {
@@ -1142,7 +1088,6 @@ const seeds: BookSeed[] = [
     authors: ["BHARDWAJ, P."],
     publisher: "Jaypee",
     publicationYear: 2015,
-    accessType: "reference_only",
     motif: "saude-coletiva",
     topics: ["gestão em saúde"],
     source: {

@@ -24,8 +24,11 @@ const disciplineById = new Map<DisciplineId, Discipline>(
   disciplines.map((discipline) => [discipline.id, discipline]),
 );
 
+/** Only what the class should see; hidden records keep their provenance. */
+const visibleBooks = books.filter((book) => book.visibility === "visivel");
+
 /** Books joined to their disciplines, built once per process. */
-const catalog: readonly BookWithLinks[] = books.map((book) => ({
+const catalog: readonly BookWithLinks[] = visibleBooks.map((book) => ({
   book,
   links: bookDisciplines
     .filter((link) => link.bookId === book.id)
@@ -148,12 +151,13 @@ export function getTopics(): { topic: string; count: number }[] {
 
 export function getStats(): LibraryStats {
   return {
-    books: books.length,
+    books: visibleBooks.length,
     disciplines: disciplines.length,
     teachingPlans: teachingPlans.length,
     sharedBooks: catalog.filter((entry) => entry.links.length > 1).length,
-    pendingReview: books.filter((book) => book.provenance.reviewStatus === "pendente").length,
-    institutionalAccess: books.filter((book) => book.accessType === "institutional").length,
+    pendingReview: visibleBooks.filter((book) => book.provenance.reviewStatus === "pendente")
+      .length,
+    withFile: visibleBooks.filter((book) => book.file !== undefined).length,
   };
 }
 
@@ -161,7 +165,9 @@ export function getStats(): LibraryStats {
 export function getDisciplineBookCounts(): Map<DisciplineId, number> {
   const counts = new Map<DisciplineId, number>();
   for (const discipline of disciplines) counts.set(discipline.id, 0);
+  const visible = new Set(visibleBooks.map((book) => book.id));
   for (const link of bookDisciplines) {
+    if (!visible.has(link.bookId)) continue;
     counts.set(link.disciplineId, (counts.get(link.disciplineId) ?? 0) + 1);
   }
   return counts;

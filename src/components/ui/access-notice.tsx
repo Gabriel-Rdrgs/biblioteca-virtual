@@ -1,18 +1,21 @@
 import { Info, ShieldAlert } from "lucide-react";
-import type { AccessType } from "@/lib/domain/types";
+import type { AccessType, BookFile } from "@/lib/domain/types";
 import { cn } from "@/lib/utils";
 
 /**
  * States plainly how a given item may be reached. Shown on every book detail
  * page so no one has to guess whether a title can be downloaded.
  */
-export function AccessNotice({ access, className }: { access: AccessType; className?: string }) {
+export function AccessNotice({
+  access,
+  file,
+  className,
+}: {
+  access: AccessType;
+  file?: BookFile;
+  className?: string;
+}) {
   const copy: Record<AccessType, { title: string; body: string; tone: "info" | "warn" }> = {
-    institutional: {
-      title: "Leitura pela biblioteca institucional",
-      body: "Este título é licenciado e lido na plataforma Minha Biblioteca com o seu login do UNIEURO. O Atlas guarda apenas a referência e o link de acesso — nenhum arquivo é hospedado aqui.",
-      tone: "info",
-    },
     public: {
       title: "Documento de acesso livre",
       body: "Publicação oficial de acesso aberto. Pode ser lida e baixada diretamente na fonte.",
@@ -20,13 +23,15 @@ export function AccessNotice({ access, className }: { access: AccessType; classN
     },
     reference_only: {
       title: "Referência catalogada — arquivo ainda não disponibilizado",
-      body: "Esta obra consta na bibliografia do plano de ensino, mas não há link institucional nem arquivo autorizado registrado. Consulte a biblioteca do UNIEURO para verificar a disponibilidade.",
+      body: "Esta obra consta na bibliografia do plano de ensino, mas ninguém da turma postou o arquivo ainda. Se você tiver uma cópia com direito de uso, fale com quem administra o Atlas.",
       tone: "warn",
     },
     class_only: {
-      title: "Material compartilhado pela turma",
-      body: "Conteúdo de uso interno, restrito aos estudantes da turma. Não redistribua fora deste grupo.",
-      tone: "warn",
+      title: "PDF postado pela turma",
+      body: file
+        ? `Origem: ${file.origin}. Autorização: ${file.authorization}. Uso interno da turma — não redistribua fora deste grupo.`
+        : "Uso interno da turma — não redistribua fora deste grupo.",
+      tone: "info",
     },
     restricted: {
       title: "Acesso restrito",

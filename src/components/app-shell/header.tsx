@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search } from "lucide-react";
+import { LogOut, Search } from "lucide-react";
 import { AtlasMark } from "@/components/ui/atlas-mark";
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
@@ -13,7 +13,7 @@ const links = [
   { href: "/planos-de-ensino", label: "Planos de ensino" },
 ] as const;
 
-export function Header() {
+export function Header({ gated }: { gated: boolean }) {
   const pathname = usePathname();
 
   return (
@@ -63,6 +63,18 @@ export function Header() {
             <span className="sr-only lg:hidden">Buscar no acervo</span>
           </Link>
           <ThemeToggle />
+          {gated ? (
+            <form method="post" action="/api/sair">
+              <button
+                type="submit"
+                className="border-line text-ink-muted hover:border-line-strong hover:text-ink inline-flex size-9 items-center justify-center rounded-md border transition-colors"
+                aria-label="Sair da biblioteca"
+                title="Sair"
+              >
+                <LogOut className="size-4" aria-hidden="true" />
+              </button>
+            </form>
+          ) : null}
         </div>
       </div>
     </header>

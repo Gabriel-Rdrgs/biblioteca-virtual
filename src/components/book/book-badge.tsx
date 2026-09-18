@@ -1,4 +1,4 @@
-import { BookOpen, ExternalLink, FileWarning, Globe, Scale } from "lucide-react";
+import { FileText, FileWarning, Globe, Scale } from "lucide-react";
 import type { AccessType, BibliographyType, MaterialKind } from "@/lib/domain/types";
 import { cn } from "@/lib/utils";
 
@@ -38,32 +38,28 @@ export function BibliographyBadge({
 
 export const accessLabels: Record<AccessType, string> = {
   public: "Acesso livre",
-  class_only: "Somente a turma",
-  institutional: "Biblioteca institucional",
+  class_only: "PDF disponível",
   restricted: "Acesso restrito",
   reference_only: "Somente referência",
 };
 
 const accessDescriptions: Record<AccessType, string> = {
-  public: "Documento público, disponível para leitura e download.",
-  class_only: "Material compartilhado internamente pela turma.",
-  institutional: "Leitura pela Minha Biblioteca, com seu login do UNIEURO.",
+  public: "Documento público, disponível para leitura e download na fonte.",
+  class_only: "PDF postado pela turma. Leitura e download atrás da senha da turma.",
   restricted: "Acesso sob autorização.",
   reference_only: "Referência catalogada — arquivo ainda não disponibilizado.",
 };
 
 const accessIcons: Record<AccessType, typeof Globe> = {
   public: Globe,
-  class_only: BookOpen,
-  institutional: ExternalLink,
+  class_only: FileText,
   restricted: Scale,
   reference_only: FileWarning,
 };
 
 const accessStyles: Record<AccessType, string> = {
   public: "text-sage",
-  class_only: "text-primary",
-  institutional: "text-primary",
+  class_only: "text-primary font-medium",
   restricted: "text-danger",
   reference_only: "text-ink-faint",
 };

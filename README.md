@@ -11,15 +11,24 @@ e se relaciona com as disciplinas por `src/lib/data/book-disciplines.ts`, que re
 de bibliografia (básica, básica virtual, complementar, outras referências) em cada uma.
 Quatro títulos aparecem em dois planos e têm um só registro.
 
-## Direitos autorais
+## Acesso fechado e PDFs da turma
 
-O Atlas cataloga **referências**, não cópias.
+O Atlas é **fechado para a turma**: uma senha compartilhada (`ATLAS_SENHA_TURMA`) protege todas
+as páginas, os planos de ensino e os PDFs. Enquanto a variável estiver vazia o site fica aberto
+e mostra um aviso no topo.
 
-- Títulos licenciados (`accessType: "institutional"`) mostram a referência completa e um botão
-  para a plataforma Minha Biblioteca. Nenhum arquivo comercial é hospedado.
-- Títulos sem link nem arquivo (`reference_only`) mostram _"Referência catalogada — arquivo
-  ainda não disponibilizado"_.
-- Os planos de ensino, em `public/planos/`, são documentos institucionais e podem ser baixados.
+```bash
+cp .env.example .env.local   # preencha ATLAS_SENHA_TURMA e ATLAS_COOKIE_SECRET
+```
+
+PDFs dos livros ficam em `storage/livros/` (fora de `public/`, nunca versionados) e são servidos
+só por `/api/arquivos/<id>`, atrás da senha. Cada arquivo registra **origem** e **autorização**
+no registro do livro — veja `storage/livros/README.md` para publicar um.
+
+- Livro com PDF → `class_only`: "Ler PDF" e "Baixar".
+- Livro sem PDF → `reference_only`: _"Referência catalogada — arquivo ainda não disponibilizado"_.
+- Documento aberto (ex.: Código de Ética Médica no site do CFM) → `public`, link para a fonte.
+- Para tirar um livro do catálogo sem perder a proveniência: `visibility: "oculto"`.
 
 Regras completas em `/uso-responsavel`.
 
@@ -39,7 +48,7 @@ npm run dev          # servidor de desenvolvimento
 npm run build        # build de produção (77 páginas estáticas)
 npm start            # serve o build
 npm test             # testes unitários e de componentes (Vitest)
-npm run e2e          # testes end-to-end (requer: npx playwright install chromium)
+npm run e2e          # end-to-end (npx playwright install chromium); com ATLAS_SENHA_TURMA definida testa também o login
 npm run lint         # ESLint
 npm run typecheck    # tsc --noEmit
 npm run format       # Prettier
@@ -61,11 +70,13 @@ src/
   lib/
     data/                 seeds: books, disciplines, book-disciplines, teaching-plans
     domain/               types, normalize, search, dedupe
+    auth.ts               senha da turma, cookie HMAC
     repository/           a fronteira de dados
 tests/                    Vitest
 e2e/                      Playwright
 docs/extracao-planos/     texto extraído de cada PDF, para auditoria
-public/planos/            os 7 planos de ensino
+public/planos/            os 7 planos de ensino (também atrás da senha)
+storage/livros/           PDFs postados pela turma (não versionados)
 tools/                    extrator de texto dos PDFs
 ```
 
@@ -82,7 +93,7 @@ linguagem visual por área. A página do livro deixa isso explícito.
 
 ## Próximos passos previstos
 
-1. Área administrativa com formulários (Zod + React Hook Form) e upload desacoplado.
-2. Supabase: schema equivalente ao modelo de domínio, RLS, storage com URLs assinadas.
-3. Importação de PDF com tela de revisão humana antes de salvar.
-4. Autenticação, favoritos persistidos e histórico de leitura.
+1. Publicar os PDFs que a turma tem direito de usar e ocultar os demais.
+2. Área administrativa com upload pelo navegador (Zod + React Hook Form), em vez de copiar arquivos à mão.
+3. Contas individuais (Supabase Auth) no lugar da senha única, com favoritos e histórico persistidos.
+4. Importação de novos planos com tela de revisão humana antes de salvar.

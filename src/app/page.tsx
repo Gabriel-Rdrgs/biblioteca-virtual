@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { ArrowRight, BookMarked, FileText, Layers, Search, Sparkles } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import { BookGrid } from "@/components/book/book-grid";
 import { DisciplineCard } from "@/components/discipline/discipline-card";
-import { SectionHeading, StatsCard } from "@/components/ui/primitives";
+import { SectionHeading } from "@/components/ui/primitives";
 import { BibliographyBadge } from "@/components/book/book-badge";
-import { AtlasMark } from "@/components/ui/atlas-mark";
 import {
   getCoreBibliography,
   getDisciplineBookCounts,
@@ -16,24 +15,9 @@ import {
 } from "@/lib/repository";
 
 const shortcuts = [
-  {
-    href: "/livros",
-    label: "Todos os livros",
-    description: "O catálogo inteiro, com filtros",
-    icon: BookMarked,
-  },
-  {
-    href: "/disciplinas",
-    label: "Disciplinas",
-    description: "As sete unidades curriculares",
-    icon: Layers,
-  },
-  {
-    href: "/planos-de-ensino",
-    label: "Planos de ensino",
-    description: "Os documentos oficiais em PDF",
-    icon: FileText,
-  },
+  { href: "/livros", label: "Todos os livros", description: "o catálogo inteiro, com filtros" },
+  { href: "/disciplinas", label: "Disciplinas", description: "as sete unidades curriculares" },
+  { href: "/planos-de-ensino", label: "Planos de ensino", description: "os documentos oficiais" },
 ] as const;
 
 export default function HomePage() {
@@ -57,24 +41,22 @@ export default function HomePage() {
           aria-hidden="true"
         />
 
-        <div className="relative mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:px-8">
-          <span className="border-line bg-surface/70 text-ink-muted inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-medium tracking-wide backdrop-blur">
-            <AtlasMark className="text-primary size-3.5" />
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+          <p className="text-ink-faint text-xs font-medium tracking-[0.22em] uppercase">
             Medicina · 1º período · UNIEURO · 2026.2
-          </span>
+          </p>
 
-          <h1 className="mx-auto mt-7 max-w-4xl text-[2.4rem] leading-[1.08] font-semibold sm:text-6xl">
-            Toda a bibliografia do semestre,
-            <span className="text-primary"> em um só lugar</span>.
+          <h1 className="mt-5 max-w-4xl text-[2.6rem] leading-[1.04] font-semibold sm:text-6xl lg:text-7xl">
+            Toda a bibliografia do semestre, em um só lugar.
           </h1>
 
-          <p className="text-ink-muted mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-pretty">
+          <p className="text-ink-muted mt-6 max-w-2xl text-lg leading-relaxed text-pretty">
             {stats.books} títulos lidos diretamente dos {stats.teachingPlans} planos de ensino
             oficiais. Cada livro sabe em quais disciplinas é usado e de qual página do plano ele
             veio.
           </p>
 
-          <form action="/busca" className="mx-auto mt-9 flex max-w-xl items-center gap-2">
+          <form action="/busca" className="mt-9 flex max-w-xl items-center gap-2">
             <label htmlFor="hero-search" className="sr-only">
               Buscar no acervo
             </label>
@@ -99,26 +81,27 @@ export default function HomePage() {
             </button>
           </form>
 
-          <div className="mx-auto mt-10 grid max-w-3xl gap-3 sm:grid-cols-3">
-            {shortcuts.map((shortcut) => {
-              const Icon = shortcut.icon;
-              return (
+          <ul className="border-line mt-12 flex flex-col divide-y divide-[var(--line)] border-y sm:flex-row sm:divide-x sm:divide-y-0">
+            {shortcuts.map((shortcut) => (
+              <li key={shortcut.href} className="flex-1">
                 <Link
-                  key={shortcut.href}
                   href={shortcut.href}
-                  className="group border-line bg-surface flex items-center gap-3 rounded-[var(--radius-card)] border p-4 text-left transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] motion-reduce:transform-none"
+                  className="group hover:bg-surface/60 flex items-baseline justify-between gap-4 px-1 py-4 transition-colors sm:px-5"
                 >
-                  <Icon className="text-primary size-5 shrink-0" aria-hidden="true" />
-                  <span className="min-w-0">
-                    <span className="block text-sm font-semibold">{shortcut.label}</span>
-                    <span className="text-ink-faint block truncate text-xs">
-                      {shortcut.description}
+                  <span>
+                    <span className="font-display block text-lg font-semibold">
+                      {shortcut.label}
                     </span>
+                    <span className="text-ink-faint block text-sm">{shortcut.description}</span>
                   </span>
+                  <ArrowRight
+                    className="text-ink-faint group-hover:text-primary size-4 shrink-0 self-center transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none"
+                    aria-hidden="true"
+                  />
                 </Link>
-              );
-            })}
-          </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -126,6 +109,7 @@ export default function HomePage() {
         {/* ------------------------------------------- bibliografia básica */}
         <section className="py-16">
           <SectionHeading
+            numeral="I"
             title="Mais usados no semestre"
             description="Os títulos que os planos de ensino marcam como bibliografia básica — o que a turma abre primeiro."
             action={
@@ -144,6 +128,7 @@ export default function HomePage() {
         {/* ------------------------------------------ livros compartilhados */}
         <section className="border-line border-t py-16">
           <SectionHeading
+            numeral="II"
             title="Compartilhados entre disciplinas"
             description="Um mesmo livro serve a mais de uma unidade curricular. Aqui ele tem um único registro — e mostra o papel que cumpre em cada uma."
           />
@@ -155,7 +140,6 @@ export default function HomePage() {
                 className="border-line bg-surface rounded-[var(--radius-card)] border p-5"
               >
                 <div className="flex items-start gap-2">
-                  <Sparkles className="text-accent mt-1 size-4 shrink-0" aria-hidden="true" />
                   <h3 className="text-base leading-snug font-semibold text-pretty">
                     <Link href={`/livros/${entry.book.slug}`} className="hover:text-primary">
                       {entry.book.title}
@@ -192,6 +176,7 @@ export default function HomePage() {
         {/* --------------------------------------------------- disciplinas */}
         <section className="border-line border-t py-16">
           <SectionHeading
+            numeral="III"
             title="Explorar por disciplina"
             description="Ementa oficial, conteúdos por unidade, bibliografia separada por tipo e o plano de ensino completo."
           />
@@ -211,6 +196,7 @@ export default function HomePage() {
         {/* ------------------------------------------------------ recentes */}
         <section className="border-line border-t py-16">
           <SectionHeading
+            numeral="IV"
             title="Adicionados recentemente"
             description="Catalogados em 18 de setembro de 2026, a partir da primeira leitura completa dos planos de ensino."
           />
@@ -220,37 +206,44 @@ export default function HomePage() {
         {/* -------------------------------------------------- estatísticas */}
         <section className="border-line border-t py-16">
           <SectionHeading
+            numeral="V"
             title="O acervo em números"
             description="Tudo conferido contra os documentos oficiais — inclusive o que ainda precisa de revisão."
           />
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <StatsCard value={stats.books} label="Livros catalogados" hint="Sem duplicatas" />
-            <StatsCard
-              value={stats.disciplines}
-              label="Disciplinas"
-              hint="1º período, semestre 2026.2"
-            />
-            <StatsCard
-              value={stats.sharedBooks}
-              label="Usados em mais de uma"
-              hint="Um registro, várias relações"
-            />
-            <StatsCard
-              value={stats.pendingReview}
-              label="Pendentes de revisão"
-              hint="Erros vindos do próprio plano"
-            />
-          </div>
+          <dl className="grid grid-cols-2 gap-x-8 gap-y-8 lg:grid-cols-4">
+            {[
+              { value: stats.books, label: "livros catalogados", hint: "sem duplicatas" },
+              { value: stats.disciplines, label: "disciplinas", hint: "1º período, 2026.2" },
+              {
+                value: stats.sharedBooks,
+                label: "usados em mais de uma",
+                hint: "um registro, várias relações",
+              },
+              {
+                value: stats.pendingReview,
+                label: "pendentes de revisão",
+                hint: "erros vindos do próprio plano",
+              },
+            ].map((item) => (
+              <div key={item.label} className="border-line border-t pt-4">
+                <dd className="font-display text-primary text-5xl font-semibold tabular-nums sm:text-6xl">
+                  {item.value}
+                </dd>
+                <dt className="mt-2 text-sm font-medium">{item.label}</dt>
+                <p className="text-ink-faint mt-0.5 text-xs">{item.hint}</p>
+              </div>
+            ))}
+          </dl>
 
           <div className="border-line bg-surface-sunken mt-6 rounded-[var(--radius-card)] border p-5">
             <h3 className="text-sm font-semibold">Direitos autorais e uso acadêmico</h3>
             <p className="text-ink-muted mt-2 max-w-3xl text-sm leading-relaxed text-pretty">
-              O Atlas é um catálogo de <strong className="text-ink font-medium">referências</strong>
-              . Os {stats.institutionalAccess} títulos licenciados são lidos na plataforma Minha
-              Biblioteca com o seu login do UNIEURO — nenhum arquivo comercial é hospedado ou
-              redistribuído aqui. Apenas os planos de ensino, documentos institucionais do curso,
-              ficam disponíveis para download.
+              Biblioteca fechada para a turma.{" "}
+              {stats.withFile === 0
+                ? "Nenhum PDF foi postado ainda: os títulos aparecem como referência catalogada até alguém publicar o arquivo."
+                : `${stats.withFile} ${stats.withFile === 1 ? "título tem" : "títulos têm"} PDF postado pela turma, cada um com origem e autorização registradas.`}{" "}
+              Tudo o que está aqui é de uso interno — não redistribua fora do grupo.
             </p>
             <Link
               href="/uso-responsavel"

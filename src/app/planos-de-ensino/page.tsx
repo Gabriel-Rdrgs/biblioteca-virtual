@@ -111,10 +111,8 @@ export default function TeachingPlansPage() {
       </ul>
 
       <p className="border-line bg-surface-sunken text-ink-muted mt-8 rounded-[var(--radius-card)] border p-4 text-sm leading-relaxed">
-        Os planos de ensino são documentos institucionais do curso de Medicina do UNIEURO e podem
-        ser lidos e baixados aqui. Os <strong className="text-ink font-medium">livros</strong> que
-        eles citam seguem regra diferente: são obras sob direito autoral, lidas pela biblioteca
-        institucional.
+        Os planos de ensino são documentos institucionais do curso de Medicina do UNIEURO. Como todo
+        o Atlas, ficam atrás da senha da turma.
       </p>
     </div>
   );

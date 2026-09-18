@@ -15,3 +15,7 @@ next-env.d.ts
 
 .DS_Store
 Thumbs.db
+
+# PDFs postados pela turma — nunca versionados
+storage/livros/*
+!storage/livros/README.md

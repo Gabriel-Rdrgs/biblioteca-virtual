@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/app-shell/header";
 import { MobileNav } from "@/components/app-shell/mobile-nav";
 import { Footer } from "@/components/app-shell/footer";
+import { gateConfigured } from "@/lib/auth";
 
 // Variable weight, so headings can use the full range; SOFT and WONK give
 // Fraunces its editorial warmth.
@@ -48,6 +49,8 @@ try {
 `;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const gated = gateConfigured();
+
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
@@ -62,7 +65,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
 
         <div className="flex min-h-dvh flex-col">
-          <Header />
+          {!gated ? (
+            <p
+              role="status"
+              className="bg-accent-soft text-accent border-line border-b px-4 py-1.5 text-center text-xs font-medium"
+            >
+              Acesso aberto: a senha da turma (ATLAS_SENHA_TURMA) ainda não foi configurada.
+            </p>
+          ) : null}
+          <Header gated={gated} />
           <main id="conteudo" className="flex-1 pb-20 md:pb-0">
             {children}
           </main>

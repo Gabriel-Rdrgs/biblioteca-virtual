@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 const availabilityOptions: { value: AvailabilityFilter; label: string }[] = [
   { value: "todos", label: "Qualquer acesso" },
-  { value: "institucional", label: "Biblioteca institucional" },
+  { value: "com_pdf", label: "Com PDF" },
   { value: "publico", label: "Acesso livre" },
   { value: "somente_referencia", label: "Somente referência" },
 ];
