@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Atlas — Biblioteca Médica
+   Paleta editorial: marfim quente + azul-petróleo clínico,
+   com sálvia e ocre como apoios. Escuro = azul-marinho profundo.
+   --------------------------------------------------------------- */
+
+:root {
+  --canvas: #faf7f1;
+  --canvas-deep: #f2ece1;
+  --surface: #ffffff;
+  --surface-sunken: #f6f1e8;
+
+  --ink: #141e21;
+  --ink-muted: #55666c;
+  --ink-faint: #8b9aa0;
+
+  --line: #e4dacb;
+  --line-strong: #d2c4b0;
+
+  --primary: #0f5563;
+  --primary-hover: #0b414c;
+  --primary-soft: #e0eef1;
+  --on-primary: #f6fbfc;
+
+  --accent: #9c5f22;
+  --accent-soft: #f7ecdd;
+
+  --sage: #5f8465;
+  --sage-soft: #e6eee7;
+
+  --danger: #9c3025;
+  --danger-soft: #f8e6e3;
+
+  --ring: #0f5563;
+  --shadow-color: 32 28 20;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --canvas: #081720;
+    --canvas-deep: #050f16;
+    --surface: #0e2530;
+    --surface-sunken: #0a1c25;
+
+    --ink: #e9efec;
+    --ink-muted: #a0b3b9;
+    --ink-faint: #6f858d;
+
+    --line: #1b3744;
+    --line-strong: #2a4d5c;
+
+    --primary: #58c2d4;
+    --primary-hover: #7ad3e2;
+    --primary-soft: #0d2f39;
+    --on-primary: #04161c;
+
+    --accent: #d9a05e;
+    --accent-soft: #2c2113;
+
+    --sage: #8fb894;
+    --sage-soft: #16291a;
+
+    --danger: #e98276;
+    --danger-soft: #331512;
+
+    --ring: #58c2d4;
+    --shadow-color: 0 0 0;
+  }
+}
+
+:root[data-theme="dark"] {
+  --canvas: #081720;
+  --canvas-deep: #050f16;
+  --surface: #0e2530;
+  --surface-sunken: #0a1c25;
+
+  --ink: #e9efec;
+  --ink-muted: #a0b3b9;
+  --ink-faint: #6f858d;
+
+  --line: #1b3744;
+  --line-strong: #2a4d5c;
+
+  --primary: #58c2d4;
+  --primary-hover: #7ad3e2;
+  --primary-soft: #0d2f39;
+  --on-primary: #04161c;
+
+  --accent: #d9a05e;
+  --accent-soft: #2c2113;
+
+  --sage: #8fb894;
+  --sage-soft: #16291a;
+
+  --danger: #e98276;
+  --danger-soft: #331512;
+
+  --ring: #58c2d4;
+  --shadow-color: 0 0 0;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-canvas-deep: var(--canvas-deep);
+  --color-surface: var(--surface);
+  --color-surface-sunken: var(--surface-sunken);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-soft: var(--primary-soft);
+  --color-on-primary: var(--on-primary);
+
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+
+  --color-sage: var(--sage);
+  --color-sage-soft: var(--sage-soft);
+
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 0.625rem;
+
+  --shadow-raise:
+    0 1px 2px rgb(var(--shadow-color) / 0.06), 0 4px 12px rgb(var(--shadow-color) / 0.05);
+  --shadow-lift:
+    0 2px 4px rgb(var(--shadow-color) / 0.08), 0 12px 28px rgb(var(--shadow-color) / 0.1);
+  --shadow-book:
+    0 1px 1px rgb(var(--shadow-color) / 0.1), 0 8px 20px rgb(var(--shadow-color) / 0.16);
+}
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  /* Visible, high-contrast focus for every interactive element. */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--primary-soft);
+    color: var(--ink);
+  }
+}
+
+@layer utilities {
+  /* Paper grain — a faint fibre texture over the canvas, not a pattern. */
+  .texture-paper {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+
+  /* Contour lines, as on an anatomical plate. */
+  .texture-contour {
+    background-image: radial-gradient(
+      ellipse 72% 58% at 50% 50%,
+      transparent 0,
+      transparent 38%,
+      color-mix(in oklab, var(--primary) 10%, transparent) 38.4%,
+      transparent 39%,
+      transparent 50%,
+      color-mix(in oklab, var(--primary) 8%, transparent) 50.4%,
+      transparent 51%,
+      transparent 62%,
+      color-mix(in oklab, var(--primary) 6%, transparent) 62.4%,
+      transparent 63%
+    );
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* Honour the reader's motion preference across every animation. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
