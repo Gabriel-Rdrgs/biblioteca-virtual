@@ -1,0 +1,294 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { ArrowLeft, ArrowRight, Download, FileText, Users } from "lucide-react";
+import { BookGrid } from "@/components/book/book-grid";
+import { bibliographyLabels } from "@/components/book/book-badge";
+import { Breadcrumbs } from "@/components/ui/primitives";
+import { MotifArtwork, motifPalettes, seedOf } from "@/components/book/cover-motifs";
+import type { BibliographyType } from "@/lib/domain/types";
+import {
+  getBooksForDiscipline,
+  getDisciplineBySlug,
+  getDisciplines,
+  getTeachingPlanForDiscipline,
+  toCatalogEntries,
+} from "@/lib/repository";
+
+export function generateStaticParams() {
+  return getDisciplines().map((discipline) => ({ slug: discipline.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const discipline = getDisciplineBySlug(slug);
+  if (!discipline) return { title: "Disciplina não encontrada" };
+
+  return {
+    title: discipline.name,
+    description: discipline.description.slice(0, 180),
+  };
+}
+
+const order: BibliographyType[] = [
+  "basica",
+  "basica_virtual",
+  "complementar",
+  "outras_referencias",
+];
+
+export default async function DisciplinePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const discipline = getDisciplineBySlug(slug);
+  if (!discipline) notFound();
+
+  const all = getDisciplines();
+  const index = all.findIndex((d) => d.id === discipline.id);
+  const previous = index > 0 ? all[index - 1] : all[all.length - 1];
+  const next = index < all.length - 1 ? all[index + 1] : all[0];
+
+  const books = getBooksForDiscipline(discipline.id);
+  const plan = getTeachingPlanForDiscipline(discipline.id);
+  const palette = motifPalettes[discipline.motif];
+
+  const grouped = order
+    .map((type) => ({
+      type,
+      entries: toCatalogEntries(
+        books.filter((entry) =>
+          entry.links.some(
+            (link) => link.disciplineId === discipline.id && link.bibliographyType === type,
+          ),
+        ),
+      ),
+    }))
+    .filter((group) => group.entries.length > 0);
+
+  return (
+    <div>
+      {/* Themed header, coloured by the discipline itself. */}
+      <header
+        className="border-line relative overflow-hidden border-b"
+        style={{ backgroundColor: discipline.color }}
+      >
+        <svg
+          viewBox="0 0 300 450"
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-25"
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden="true"
+        >
+          <g style={{ color: palette.art }}>
+            <MotifArtwork motif={discipline.motif} seed={seedOf(discipline.id)} />
+          </g>
+        </svg>
+
+        <div className="relative mx-auto max-w-6xl px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium tracking-[0.14em] text-white/75 uppercase">
+            <span>{discipline.shortName}</span>
+            {discipline.code ? <span>· {discipline.code}</span> : null}
+            <span>· {discipline.period}</span>
+            <span>· {discipline.semester}</span>
+            {discipline.workload ? <span>· {discipline.workload}</span> : null}
+          </div>
+
+          <h1 className="mt-3 max-w-3xl text-3xl font-semibold text-white sm:text-[2.6rem]">
+            {discipline.name}
+          </h1>
+
+          {discipline.teachers.length > 0 ? (
+            <p className="mt-4 flex items-start gap-2 text-sm text-white/85">
+              <Users className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+              {discipline.teachers.join(" · ")}
+            </p>
+          ) : null}
+
+          <div className="mt-7 flex flex-wrap gap-3">
+            {plan ? (
+              <>
+                <a
+                  href={plan.fileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ink inline-flex items-center gap-2 rounded-md bg-white px-4 py-2.5 text-sm font-medium transition-opacity hover:opacity-90"
+                  style={{ color: discipline.color }}
+                >
+                  <FileText className="size-4" aria-hidden="true" />
+                  Ver plano de ensino
+                </a>
+                <a
+                  href={plan.fileUrl}
+                  download
+                  className="inline-flex items-center gap-2 rounded-md border border-white/40 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
+                >
+                  <Download className="size-4" aria-hidden="true" />
+                  Baixar PDF
+                </a>
+              </>
+            ) : null}
+          </div>
+        </div>
+      </header>
+
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+        <Breadcrumbs
+          trail={[
+            { label: "Início", href: "/" },
+            { label: "Disciplinas", href: "/disciplinas" },
+            { label: discipline.shortName },
+          ]}
+        />
+
+        <div className="grid gap-10 lg:grid-cols-[1fr_18rem] lg:gap-14">
+          <div className="min-w-0">
+            <section>
+              <h2 className="text-xl font-semibold">Ementa</h2>
+              <p className="text-ink-muted mt-3 leading-relaxed text-pretty">
+                {discipline.description}
+              </p>
+            </section>
+
+            {discipline.syllabus.length > 0 ? (
+              <section className="mt-10">
+                <h2 className="text-xl font-semibold">Conteúdos</h2>
+                <div className="mt-4 space-y-5">
+                  {discipline.syllabus.map((unit) => (
+                    <div
+                      key={unit.title}
+                      className="border-line bg-surface rounded-[var(--radius-card)] border p-5"
+                    >
+                      <h3 className="font-semibold">{unit.title}</h3>
+                      <ul className="mt-3 space-y-1.5">
+                        {unit.items.map((item) => (
+                          <li
+                            key={item}
+                            className="text-ink-muted flex gap-2.5 text-sm leading-relaxed"
+                          >
+                            <span
+                              className="mt-[0.5rem] size-1 shrink-0 rounded-full"
+                              style={{ backgroundColor: discipline.color }}
+                              aria-hidden="true"
+                            />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            ) : null}
+
+            <section className="mt-12">
+              <h2 className="text-xl font-semibold">Bibliografia</h2>
+              <p className="text-ink-muted mt-2 text-sm">
+                {books.length} {books.length === 1 ? "título" : "títulos"}, conforme o plano de
+                ensino de {discipline.semester}.
+              </p>
+
+              <div className="mt-6 space-y-12">
+                {grouped.map((group) => (
+                  <div key={group.type}>
+                    <h3 className="border-line mb-4 flex items-baseline gap-2 border-b pb-2 text-lg font-semibold">
+                      {bibliographyLabels[group.type]}
+                      <span className="text-ink-faint text-sm font-normal">
+                        {group.entries.length}
+                      </span>
+                    </h3>
+                    <BookGrid
+                      entries={group.entries}
+                      hideDisciplines
+                      className="sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4"
+                      label={`Bibliografia ${bibliographyLabels[group.type].toLowerCase()}`}
+                    />
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+            <div className="border-line bg-surface rounded-[var(--radius-card)] border p-5">
+              <h2 className="text-sm font-semibold">Resumo</h2>
+              <dl className="mt-3 space-y-2.5 text-sm">
+                <div className="flex justify-between gap-3">
+                  <dt className="text-ink-faint">Período</dt>
+                  <dd className="text-right">{discipline.period}</dd>
+                </div>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-ink-faint">Semestre</dt>
+                  <dd className="text-right">{discipline.semester}</dd>
+                </div>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-ink-faint">Carga horária</dt>
+                  <dd className="text-right">{discipline.workload ?? "Não informada"}</dd>
+                </div>
+                {discipline.weeklyWorkload ? (
+                  <div className="flex justify-between gap-3">
+                    <dt className="text-ink-faint">CH semanal</dt>
+                    <dd className="text-right">{discipline.weeklyWorkload}</dd>
+                  </div>
+                ) : null}
+                <div className="flex justify-between gap-3">
+                  <dt className="text-ink-faint">Código</dt>
+                  <dd className="text-right">{discipline.code ?? "Não informado"}</dd>
+                </div>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-ink-faint">Títulos</dt>
+                  <dd className="text-right">{books.length}</dd>
+                </div>
+              </dl>
+            </div>
+
+            {discipline.notes && discipline.notes.length > 0 ? (
+              <div className="border-line bg-surface-sunken rounded-[var(--radius-card)] border p-5">
+                <h2 className="text-sm font-semibold">Observações do plano</h2>
+                <ul className="mt-3 space-y-2.5">
+                  {discipline.notes.map((note) => (
+                    <li key={note} className="text-ink-muted text-sm leading-relaxed text-pretty">
+                      {note}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+
+            <nav aria-label="Outras disciplinas" className="flex flex-col gap-2">
+              {previous ? (
+                <Link
+                  href={`/disciplinas/${previous.slug}`}
+                  className="group border-line bg-surface hover:border-line-strong flex items-center gap-2 rounded-[var(--radius-card)] border p-3 text-sm transition-colors"
+                >
+                  <ArrowLeft className="text-ink-faint size-4 shrink-0" aria-hidden="true" />
+                  <span className="min-w-0">
+                    <span className="text-ink-faint block text-xs">Anterior</span>
+                    <span className="group-hover:text-primary block truncate font-medium">
+                      {previous.shortName}
+                    </span>
+                  </span>
+                </Link>
+              ) : null}
+              {next ? (
+                <Link
+                  href={`/disciplinas/${next.slug}`}
+                  className="group border-line bg-surface hover:border-line-strong flex items-center gap-2 rounded-[var(--radius-card)] border p-3 text-sm transition-colors"
+                >
+                  <span className="min-w-0 flex-1">
+                    <span className="text-ink-faint block text-xs">Próxima</span>
+                    <span className="group-hover:text-primary block truncate font-medium">
+                      {next.shortName}
+                    </span>
+                  </span>
+                  <ArrowRight className="text-ink-faint size-4 shrink-0" aria-hidden="true" />
+                </Link>
+              ) : null}
+            </nav>
+          </aside>
+        </div>
+      </div>
+    </div>
+  );
+}
