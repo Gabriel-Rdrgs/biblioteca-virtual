@@ -1,0 +1,116 @@
+﻿import Link from "next/link";
+import type { CatalogEntry } from "@/lib/domain/types";
+import { cn, formatAuthors } from "@/lib/utils";
+import { highlightSegments } from "@/lib/domain/search";
+import { BookCover } from "./book-cover";
+import { AccessBadge, BibliographyBadge, ReviewBadge, SharedBadge } from "./book-badge";
+
+/** Renders text with query matches marked, without dangerouslySetInnerHTML. */
+function Highlighted({ text, query }: { text: string; query: string }) {
+  if (!query) return <>{text}</>;
+  return (
+    <>
+      {highlightSegments(text, query).map((segment, i) =>
+        segment.match ? (
+          <mark key={i} className="bg-accent-soft text-accent rounded-[2px]">
+            {segment.text}
+          </mark>
+        ) : (
+          <span key={i}>{segment.text}</span>
+        ),
+      )}
+    </>
+  );
+}
+
+interface BookCardProps {
+  readonly entry: CatalogEntry;
+  readonly query?: string;
+  /** Hides the discipline chips on pages that already scope by discipline. */
+  readonly hideDisciplines?: boolean;
+  readonly className?: string;
+}
+
+export function BookCard({ entry, query = "", hideDisciplines, className }: BookCardProps) {
+  const { book, links } = entry;
+  const primary = links[0];
+
+  return (
+    <article
+      className={cn(
+        "group relative flex flex-col gap-3 rounded-[var(--radius-card)] focus-within:outline-none",
+        className,
+      )}
+    >
+      <div className="relative transition-transform duration-200 ease-out group-hover:-translate-y-1 motion-reduce:transform-none">
+        <BookCover book={book} size="md" decorative />
+        {book.provenance.reviewStatus === "pendente" ? (
+          <ReviewBadge className="absolute top-2 right-2 shadow-[var(--shadow-raise)]" />
+        ) : null}
+      </div>
+
+      <div className="flex min-w-0 flex-col gap-1.5">
+        <h3 className="text-[0.98rem] leading-snug font-semibold text-pretty">
+          <Link
+            href={`/livros/${book.slug}`}
+            className="hover:text-primary after:absolute after:inset-0 after:content-['']"
+          >
+            <Highlighted text={book.title} query={query} />
+          </Link>
+        </h3>
+
+        <p className="text-ink-muted text-sm">
+          <Highlighted text={formatAuthors(book.authors)} query={query} />
+        </p>
+
+        <div className="mt-0.5 flex flex-wrap items-center gap-1.5">
+          {primary ? <BibliographyBadge type={primary.bibliographyType} /> : null}
+          <SharedBadge count={links.length} />
+        </div>
+
+        {!hideDisciplines && links.length > 0 ? (
+          <p className="text-ink-faint text-xs leading-relaxed">
+            {links.map((link) => link.discipline.shortName).join(" · ")}
+          </p>
+        ) : null}
+
+        <AccessBadge access={book.accessType} className="mt-0.5" />
+      </div>
+    </article>
+  );
+}
+
+/**
+ * Dense horizontal variant for sidebars and "related" rails, where a full
+ * cover grid would crowd the page.
+ */
+export function BookCardCompact({ entry, className }: { entry: CatalogEntry; className?: string }) {
+  const { book, links } = entry;
+
+  return (
+    <article
+      className={cn(
+        "group hover:bg-surface-sunken relative flex items-start gap-3 rounded-[var(--radius-card)] p-2 transition-colors",
+        className,
+      )}
+    >
+      <div className="w-14 shrink-0">
+        <BookCover book={book} size="sm" decorative />
+      </div>
+      <div className="min-w-0 flex-1">
+        <h3 className="text-sm leading-snug font-semibold text-pretty">
+          <Link
+            href={`/livros/${book.slug}`}
+            className="after:absolute after:inset-0 after:content-['']"
+          >
+            {book.title}
+          </Link>
+        </h3>
+        <p className="text-ink-muted mt-0.5 truncate text-xs">{formatAuthors(book.authors, 1)}</p>
+        <p className="text-ink-faint mt-1 text-xs">
+          {links.map((link) => link.discipline.shortName).join(" · ")}
+        </p>
+      </div>
+    </article>
+  );
+}
