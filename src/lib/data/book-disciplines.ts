@@ -406,4 +406,42 @@ export const bookDisciplines: readonly BookDisciplineLink[] = [
     bibliographyType: "complementar",
     priority: 2,
   },
+  // ------------------------------------------------- acervo da turma
+  // Posted by the class; linked to the discipline they support, not cited by its plan.
+  {
+    bookId: "netter-atlas-de-anatomia-humana",
+    disciplineId: "mac-1",
+    bibliographyType: "acervo_da_turma",
+    priority: 4,
+  },
+  {
+    bookId: "netter-anatomia-para-colorir",
+    disciplineId: "mac-1",
+    bibliographyType: "acervo_da_turma",
+    priority: 4,
+  },
+  {
+    bookId: "netter-flash-cards-de-anatomia",
+    disciplineId: "mac-1",
+    bibliographyType: "acervo_da_turma",
+    priority: 4,
+  },
+  {
+    bookId: "parasitologia-humana-neves",
+    disciplineId: "mac-1",
+    bibliographyType: "acervo_da_turma",
+    priority: 4,
+  },
+  {
+    bookId: "fundamentos-de-genetica",
+    disciplineId: "aes-2",
+    bibliographyType: "acervo_da_turma",
+    priority: 4,
+  },
+  {
+    bookId: "genetica-humana-borges-osorio",
+    disciplineId: "aes-2",
+    bibliographyType: "acervo_da_turma",
+    priority: 4,
+  },
 ];

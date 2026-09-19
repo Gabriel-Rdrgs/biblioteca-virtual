@@ -39,6 +39,7 @@ const order: BibliographyType[] = [
   "basica_virtual",
   "complementar",
   "outras_referencias",
+  "acervo_da_turma",
 ];
 
 export default async function DisciplinePage({ params }: { params: Promise<{ slug: string }> }) {

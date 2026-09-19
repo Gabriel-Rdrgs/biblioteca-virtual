@@ -218,12 +218,25 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
 
           <section className="mt-10">
             <h2 className="text-lg font-semibold">Origem do registro</h2>
-            <p className="text-ink-muted mt-2 text-sm leading-relaxed text-pretty">
-              Transcrito da seção{" "}
-              <strong className="text-ink font-medium">{book.provenance.sourceSection}</strong>{" "}
-              (página {book.provenance.sourcePage}) do plano de ensino, onde consta como{" "}
-              {bibliographyLabels[links[0]?.bibliographyType ?? "basica"].toLowerCase()}.
-            </p>
+            {book.provenance.sourceKind === "plano_de_ensino" ? (
+              <p className="text-ink-muted mt-2 text-sm leading-relaxed text-pretty">
+                Transcrito da seção{" "}
+                <strong className="text-ink font-medium">{book.provenance.sourceSection}</strong>{" "}
+                (página {book.provenance.sourcePage}) do plano de ensino, onde consta como{" "}
+                {bibliographyLabels[links[0]?.bibliographyType ?? "basica"].toLowerCase()}.
+              </p>
+            ) : (
+              <p className="text-ink-muted mt-2 text-sm leading-relaxed text-pretty">
+                Não consta em nenhum plano de ensino. Foi adicionado ao{" "}
+                <strong className="text-ink font-medium">acervo da turma</strong> e os dados
+                bibliográficos foram lidos do próprio arquivo.
+              </p>
+            )}
+            {book.file?.note ? (
+              <p className="text-accent mt-2 text-sm leading-relaxed text-pretty">
+                Sobre o arquivo: {book.file.note}
+              </p>
+            ) : null}
             <blockquote className="border-line-strong bg-surface-sunken text-ink-muted mt-3 border-l-2 px-4 py-3 font-mono text-xs leading-relaxed">
               {book.provenance.rawCitation}
             </blockquote>

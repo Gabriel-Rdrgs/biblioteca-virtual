@@ -29,15 +29,23 @@ interface BookSeed {
   file?: BookFile;
   motif: CoverMotif;
   topics: string[];
-  source: {
-    plan: DisciplineId;
-    section: string;
-    page: number;
-    raw: string;
-    status?: ReviewStatus;
-    note?: string;
-  };
+  source:
+    | {
+        kind?: "plano_de_ensino";
+        plan: DisciplineId;
+        section: string;
+        page: number;
+        raw: string;
+        status?: ReviewStatus;
+        note?: string;
+      }
+    | { kind: "acervo_da_turma"; raw: string; status?: ReviewStatus; note?: string };
 }
+
+/** Who supplied the class files and on what basis — edit in one place. */
+export const CLASS_FILE_ORIGIN = "Enviado pela administração da turma (pasta Documentos/livros)";
+export const CLASS_FILE_AUTHORIZATION =
+  "Direito de uso para estudo declarado pela turma em 18/09/2026";
 
 function defineBook(seed: BookSeed): Book {
   return {
@@ -63,14 +71,23 @@ function defineBook(seed: BookSeed): Book {
     coverSource: "placeholder",
     coverMotif: seed.motif,
     topics: seed.topics,
-    provenance: {
-      sourcePlanId: seed.source.plan,
-      sourceSection: seed.source.section,
-      sourcePage: seed.source.page,
-      rawCitation: seed.source.raw,
-      reviewStatus: seed.source.status ?? "ok",
-      ...(seed.source.note ? { reviewNote: seed.source.note } : {}),
-    },
+    provenance:
+      seed.source.kind === "acervo_da_turma"
+        ? {
+            sourceKind: "acervo_da_turma",
+            rawCitation: seed.source.raw,
+            reviewStatus: seed.source.status ?? "ok",
+            ...(seed.source.note ? { reviewNote: seed.source.note } : {}),
+          }
+        : {
+            sourceKind: "plano_de_ensino",
+            sourcePlanId: seed.source.plan,
+            sourceSection: seed.source.section,
+            sourcePage: seed.source.page,
+            rawCitation: seed.source.raw,
+            reviewStatus: seed.source.status ?? "ok",
+            ...(seed.source.note ? { reviewNote: seed.source.note } : {}),
+          },
     addedAt: CATALOGUED_AT,
   };
 }
@@ -79,6 +96,13 @@ const seeds: BookSeed[] = [
   // ---------------------------------------------------------------- MAC I
   {
     id: "moore-anatomia-clinica",
+    file: {
+      path: "moore-anatomia-clinica.pdf",
+      origin: CLASS_FILE_ORIGIN,
+      authorization: CLASS_FILE_AUTHORIZATION,
+      sizeBytes: 73557053,
+      addedAt: "2026-09-18",
+    },
     title: "Moore Anatomia Orientada para a Clínica",
     authors: ["MOORE, Keith L.", "DALLEY, Arthur F. II", "AGUR, Anne M. R."],
     publisher: "Guanabara Koogan",
@@ -222,6 +246,13 @@ const seeds: BookSeed[] = [
   // ---------------------------------------------------------------- AES 2
   {
     id: "biologia-molecular-da-celula",
+    file: {
+      path: "biologia-molecular-da-celula.pdf",
+      origin: CLASS_FILE_ORIGIN,
+      authorization: CLASS_FILE_AUTHORIZATION,
+      sizeBytes: 62609176,
+      addedAt: "2026-09-18",
+    },
     title: "Biologia Molecular da Célula",
     authors: ["ALBERTS, Bruce"],
     publisher: "Artmed",
@@ -286,6 +317,14 @@ const seeds: BookSeed[] = [
   },
   {
     id: "introducao-a-genetica",
+    file: {
+      path: "introducao-a-genetica.pdf",
+      origin: CLASS_FILE_ORIGIN,
+      authorization: CLASS_FILE_AUTHORIZATION,
+      sizeBytes: 74551820,
+      addedAt: "2026-09-18",
+      note: "O arquivo é a 11ª edição (Guanabara Koogan, 2016, ISBN 978-85-277-2995-6); o plano de ensino cita a edição de 2022.",
+    },
     title: "Introdução à Genética",
     authors: ["GRIFFITHS, Anthony J. F."],
     publisher: "Guanabara Koogan",
@@ -1095,6 +1134,139 @@ const seeds: BookSeed[] = [
       section: "Bibliografia Complementar",
       page: 9,
       raw: "BHARDWAJ, P. Latest in healthcare management. Londres: Jaypee, 2015.",
+    },
+  },
+  // ------------------------------------------------- acervo da turma
+  // Files the class posted that no teaching plan cites. Their bibliographic
+  // data was read from each file's own front matter, not from a plan.
+  {
+    id: "netter-atlas-de-anatomia-humana",
+    title: "Netter Atlas de Anatomia Humana",
+    authors: ["NETTER, Frank H."],
+    publisher: "Elsevier",
+    edition: "6. ed.",
+    file: {
+      path: "netter-atlas-de-anatomia-humana.pdf",
+      origin: CLASS_FILE_ORIGIN,
+      authorization: CLASS_FILE_AUTHORIZATION,
+      sizeBytes: 98237493,
+      addedAt: "2026-09-18",
+    },
+    motif: "anatomia",
+    topics: ["anatomia", "atlas"],
+    source: {
+      kind: "acervo_da_turma",
+      raw: "NETTER, Frank H. Atlas de Anatomia Humana. 6. ed. Elsevier. (Dados lidos da folha de rosto do arquivo.)",
+      status: "pendente",
+      note: "Ano e ISBN não constam na abertura do arquivo. Obra diferente do “Netter Anatomia Clínica” (Hansen) citado no plano de MAC I.",
+    },
+  },
+  {
+    id: "netter-anatomia-para-colorir",
+    title: "Netter Anatomia para Colorir",
+    authors: ["HANSEN, John T."],
+    publisher: "Elsevier",
+    publicationYear: 2010,
+    isbn: "978-85-352-3551-7",
+    file: {
+      path: "netter-anatomia-para-colorir.pdf",
+      origin: CLASS_FILE_ORIGIN,
+      authorization: CLASS_FILE_AUTHORIZATION,
+      sizeBytes: 56970760,
+      addedAt: "2026-09-18",
+    },
+    motif: "anatomia",
+    topics: ["anatomia", "estudo ativo"],
+    source: {
+      kind: "acervo_da_turma",
+      raw: "HANSEN, John T. Netter Anatomia para Colorir. Rio de Janeiro: Elsevier, 2010. ISBN 978-85-352-3551-7. (Dados lidos da página de créditos do arquivo.)",
+    },
+  },
+  {
+    id: "netter-flash-cards-de-anatomia",
+    title: "Netter Flash Cards de Anatomia",
+    authors: ["HANSEN, John T."],
+    publisher: "Elsevier",
+    publicationYear: 2011,
+    edition: "3. ed.",
+    isbn: "978-85-352-6230-8",
+    file: {
+      path: "netter-flash-cards-de-anatomia.pdf",
+      origin: CLASS_FILE_ORIGIN,
+      authorization: CLASS_FILE_AUTHORIZATION,
+      sizeBytes: 104509488,
+      addedAt: "2026-09-18",
+    },
+    motif: "anatomia",
+    topics: ["anatomia", "estudo ativo", "revisão"],
+    source: {
+      kind: "acervo_da_turma",
+      raw: "HANSEN, John T. Netter Flash Cards de Anatomia. 3. ed. Rio de Janeiro: Elsevier, 2011. ISBN 978-85-352-6230-8. (Dados lidos da página de créditos do arquivo.)",
+    },
+  },
+  {
+    id: "parasitologia-humana-neves",
+    title: "Parasitologia Humana",
+    authors: ["NEVES, David Pereira", "et al."],
+    edition: "11. ed.",
+    file: {
+      path: "parasitologia-humana-neves.pdf",
+      origin: CLASS_FILE_ORIGIN,
+      authorization: CLASS_FILE_AUTHORIZATION,
+      sizeBytes: 39516855,
+      addedAt: "2026-09-18",
+    },
+    motif: "histologia",
+    topics: ["parasitologia", "protozoários", "helmintos"],
+    source: {
+      kind: "acervo_da_turma",
+      raw: "NEVES, David Pereira et al. Parasitologia Humana. 11. ed. (Autoria lida do sumário do arquivo; edição, do nome do arquivo.)",
+      status: "pendente",
+      note: "Editora, ano e ISBN não localizados na abertura do arquivo (o sumário é a primeira página com texto).",
+    },
+  },
+  {
+    id: "fundamentos-de-genetica",
+    title: "Fundamentos de Genética",
+    authors: ["SNUSTAD, D. Peter", "SIMMONS, Michael J."],
+    publisher: "Guanabara Koogan",
+    publicationYear: 2017,
+    edition: "7. ed.",
+    isbn: "978-85-277-3100-3",
+    file: {
+      path: "fundamentos-de-genetica.pdf",
+      origin: CLASS_FILE_ORIGIN,
+      authorization: CLASS_FILE_AUTHORIZATION,
+      sizeBytes: 62070169,
+      addedAt: "2026-09-18",
+    },
+    motif: "bioquimica",
+    topics: ["genética", "hereditariedade"],
+    source: {
+      kind: "acervo_da_turma",
+      raw: "SNUSTAD, D. Peter; SIMMONS, Michael J. Fundamentos de Genética. 7. ed. Rio de Janeiro: Guanabara Koogan, 2017. ISBN 978-85-277-3100-3. (Dados lidos da página de créditos do arquivo.)",
+    },
+  },
+  {
+    id: "genetica-humana-borges-osorio",
+    title: "Genética Humana",
+    authors: ["BORGES-OSÓRIO, Maria Regina", "ROBINSON, Wanyce Miriam"],
+    publisher: "Artmed",
+    publicationYear: 2013,
+    edition: "3. ed.",
+    isbn: "978-85-65852-90-6",
+    file: {
+      path: "genetica-humana-borges-osorio.pdf",
+      origin: CLASS_FILE_ORIGIN,
+      authorization: CLASS_FILE_AUTHORIZATION,
+      sizeBytes: 60382410,
+      addedAt: "2026-09-18",
+    },
+    motif: "bioquimica",
+    topics: ["genética", "genética humana"],
+    source: {
+      kind: "acervo_da_turma",
+      raw: "BORGES-OSÓRIO, Maria Regina; ROBINSON, Wanyce Miriam. Genética Humana. 3. ed. Porto Alegre: Artmed, 2013. ISBN 978-85-65852-90-6. (Dados lidos da ficha catalográfica do arquivo.)",
     },
   },
 ];

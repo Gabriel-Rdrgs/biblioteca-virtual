@@ -29,7 +29,7 @@ export function AccessNotice({
     class_only: {
       title: "PDF postado pela turma",
       body: file
-        ? `Origem: ${file.origin}. Autorização: ${file.authorization}. Uso interno da turma — não redistribua fora deste grupo.`
+        ? `Origem: ${file.origin}. Autorização: ${file.authorization}.${file.note ? ` ${file.note}` : ""} Uso interno da turma — não redistribua fora deste grupo.`
         : "Uso interno da turma — não redistribua fora deste grupo.",
       tone: "info",
     },

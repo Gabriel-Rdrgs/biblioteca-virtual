@@ -56,19 +56,19 @@ test("a book without a posted file offers no download", async ({ page }) => {
   await expect(page.locator('a[href*="minhabiblioteca"]')).toHaveCount(0);
 });
 
-test("the class password gates every page and the plans", async ({ page, request }) => {
+test("the class password gates every page and the plans", async ({ page }) => {
   test.skip(!process.env.ATLAS_SENHA_TURMA, "gate is open when ATLAS_SENHA_TURMA is unset");
 
   await page.context().clearCookies();
   await page.goto("/livros");
   await expect(page).toHaveURL(/\/entrar\?proximo=%2Flivros/);
 
-  const plan = await request.get("/planos/ha-1.pdf", { maxRedirects: 0 });
+  const plan = await page.request.get("/planos/ha-1.pdf", { maxRedirects: 0 });
   expect(plan.status()).toBe(307);
 
   await page.getByLabel("Senha da turma").fill("senha-errada");
   await page.getByRole("button", { name: "Entrar" }).click();
-  await expect(page.getByRole("alert")).toContainText("Senha incorreta");
+  await expect(page.getByText("Senha incorreta")).toBeVisible();
 
   await page.getByLabel("Senha da turma").fill(process.env.ATLAS_SENHA_TURMA ?? "");
   await page.getByRole("button", { name: "Entrar" }).click();
@@ -81,5 +81,29 @@ test("teaching plans are downloadable", async ({ page }) => {
   await expect(page.getByRole("link", { name: "Baixar" }).first()).toHaveAttribute(
     "href",
     /\/planos\/.+\.pdf$/,
+  );
+});
+
+test("a class-posted book can be read and downloaded behind the password", async ({ page }) => {
+  await page.goto("/livros/moore-anatomia-clinica");
+  await expect(page.getByRole("link", { name: "Ler PDF" })).toBeVisible();
+  await expect(page.getByText(/origem: enviado pela administração da turma/i)).toBeVisible();
+
+  const file = await page.request.get("/api/arquivos/moore-anatomia-clinica", {
+    maxRedirects: 0,
+    headers: { Range: "bytes=0-0" },
+  });
+  // A fresh clone has no files in storage/livros; the route must then 404,
+  // never redirect or serve something that is not a PDF.
+  expect([200, 404]).toContain(file.status());
+  if (file.status() === 200) {
+    expect(file.headers()["content-type"]).toBe("application/pdf");
+  }
+
+  await page.getByRole("link", { name: "Ler PDF" }).click();
+  await expect(page).toHaveURL(/\/livros\/moore-anatomia-clinica\/ler$/);
+  await expect(page.locator("iframe[title^='Leitura de']")).toHaveAttribute(
+    "src",
+    "/api/arquivos/moore-anatomia-clinica",
   );
 });

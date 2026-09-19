@@ -48,12 +48,32 @@ describe("catalogue integrity", () => {
     }
   });
 
-  it("traces every book back to the plan it was read from", () => {
+  it("traces every plan-sourced book back to a section and page", () => {
     const disciplineIds = new Set(disciplines.map((d) => d.id));
     for (const book of books) {
-      expect(disciplineIds).toContain(book.provenance.sourcePlanId);
       expect(book.provenance.rawCitation.length).toBeGreaterThan(20);
+      if (book.provenance.sourceKind !== "plano_de_ensino") continue;
+      expect(disciplineIds).toContain(book.provenance.sourcePlanId);
       expect(book.provenance.sourcePage).toBeGreaterThan(0);
+    }
+  });
+
+  it("only lets class-posted books skip the plan and always with a file", () => {
+    for (const book of books) {
+      if (book.provenance.sourceKind !== "acervo_da_turma") continue;
+      expect(book.file, `sem arquivo: ${book.id}`).toBeDefined();
+      const links = bookDisciplines.filter((l) => l.bookId === book.id);
+      expect(links.length).toBeGreaterThan(0);
+      expect(links.every((l) => l.bibliographyType === "acervo_da_turma")).toBe(true);
+    }
+  });
+
+  it("records origin and authorisation on every posted file", () => {
+    for (const book of books) {
+      if (!book.file) continue;
+      expect(book.file.origin.length).toBeGreaterThan(5);
+      expect(book.file.authorization.length).toBeGreaterThan(5);
+      expect(book.accessType).toBe("class_only");
     }
   });
 

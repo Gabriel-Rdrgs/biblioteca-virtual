@@ -7,6 +7,7 @@ export const bibliographyLabels: Record<BibliographyType, string> = {
   basica_virtual: "Básica virtual",
   complementar: "Complementar",
   outras_referencias: "Outras referências",
+  acervo_da_turma: "Acervo da turma",
 };
 
 const bibliographyStyles: Record<BibliographyType, string> = {
@@ -14,6 +15,7 @@ const bibliographyStyles: Record<BibliographyType, string> = {
   basica_virtual: "bg-primary-soft text-primary",
   complementar: "bg-sage-soft text-sage",
   outras_referencias: "bg-surface-sunken text-ink-muted",
+  acervo_da_turma: "bg-accent-soft text-accent",
 };
 
 export function BibliographyBadge({

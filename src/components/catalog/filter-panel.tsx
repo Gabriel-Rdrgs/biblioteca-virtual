@@ -18,6 +18,7 @@ const bibliographyOptions: BibliographyType[] = [
   "basica_virtual",
   "complementar",
   "outras_referencias",
+  "acervo_da_turma",
 ];
 
 interface FilterPanelProps {

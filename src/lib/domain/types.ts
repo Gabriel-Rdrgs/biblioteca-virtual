@@ -5,7 +5,13 @@
  * by three disciplines is stored once and linked three times — never copied.
  */
 
-export type BibliographyType = "basica" | "basica_virtual" | "complementar" | "outras_referencias";
+export type BibliographyType =
+  | "basica"
+  | "basica_virtual"
+  | "complementar"
+  | "outras_referencias"
+  /** Posted by the class; not cited by any teaching plan. */
+  | "acervo_da_turma";
 
 export type MaterialKind =
   "livro" | "norma" | "documento" | "apostila" | "artigo" | "roteiro" | "plano_de_ensino";
@@ -37,6 +43,8 @@ export interface BookFile {
   readonly authorization: string;
   readonly sizeBytes?: number;
   readonly addedAt: string;
+  /** Anything a reader should know, e.g. the file is an older edition. */
+  readonly note?: string;
 }
 
 export type ReviewStatus = "ok" | "pendente" | "corrigido";
@@ -53,11 +61,16 @@ export type CoverMotif =
   | "saude-coletiva"
   | "metodologia";
 
-/** Where a reference came from in the source PDF, so any claim is auditable. */
+/**
+ * Where a record came from, so any claim is auditable: a section and page of
+ * a teaching plan, or a file the class added on its own initiative.
+ */
 export interface Provenance {
-  readonly sourcePlanId: DisciplineId;
-  readonly sourceSection: string;
-  readonly sourcePage: number;
+  readonly sourceKind: "plano_de_ensino" | "acervo_da_turma";
+  readonly sourcePlanId?: DisciplineId;
+  readonly sourceSection?: string;
+  readonly sourcePage?: number;
+  /** The plan's literal citation, or the description built from the file itself. */
   readonly rawCitation: string;
   readonly reviewStatus: ReviewStatus;
   /** Why this needs a human look. Present only when reviewStatus is not "ok". */
