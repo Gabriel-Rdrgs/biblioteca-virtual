@@ -3,6 +3,7 @@ import {
   SESSION_COOKIE,
   createSessionToken,
   passwordMatches,
+  requestIsHttps,
   sessionCookieOptions,
 } from "@/lib/auth";
 
@@ -27,6 +28,10 @@ export async function POST(request: NextRequest) {
   }
 
   const response = NextResponse.redirect(new URL(next, request.nextUrl.origin), { status: 303 });
-  response.cookies.set(SESSION_COOKIE, await createSessionToken(), sessionCookieOptions);
+  response.cookies.set(
+    SESSION_COOKIE,
+    await createSessionToken(),
+    sessionCookieOptions(requestIsHttps(request)),
+  );
   return response;
 }

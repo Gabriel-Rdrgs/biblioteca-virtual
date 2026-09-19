@@ -70,10 +70,25 @@ export async function verifySessionToken(token: string | undefined): Promise<boo
   return timingSafeEqual(signature, await hmac(payload));
 }
 
-export const sessionCookieOptions = {
-  httpOnly: true,
-  sameSite: "lax" as const,
-  secure: process.env.NODE_ENV === "production",
-  path: "/",
-  maxAge: SESSION_DAYS * 24 * 60 * 60,
-};
+/**
+ * The Secure flag follows the request's own protocol, not NODE_ENV: a
+ * production build served over plain http (a LAN machine, a first deploy
+ * without TLS) would otherwise have its cookie dropped by the browser and
+ * loop back to the login page forever.
+ */
+export function sessionCookieOptions(secure: boolean) {
+  return {
+    httpOnly: true,
+    sameSite: "lax" as const,
+    secure,
+    path: "/",
+    maxAge: SESSION_DAYS * 24 * 60 * 60,
+  };
+}
+
+/** True when the request arrived over TLS, directly or via a proxy. */
+export function requestIsHttps(request: { nextUrl: URL; headers: Headers }): boolean {
+  const forwarded = request.headers.get("x-forwarded-proto");
+  if (forwarded) return forwarded.split(",")[0]?.trim() === "https";
+  return request.nextUrl.protocol === "https:";
+}
