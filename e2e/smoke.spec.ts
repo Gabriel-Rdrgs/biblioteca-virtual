@@ -98,7 +98,7 @@ test("a class-posted book can be read and downloaded behind the password", async
   expect([206, 404]).toContain(file.status());
   if (file.status() === 206) {
     expect(file.headers()["content-type"]).toBe("application/pdf");
-    expect(file.headers()["content-range"]).toMatch(/^bytes 0-0/d+$/);
+    expect(file.headers()["content-range"]).toMatch(/^bytes 0-0\/\d+$/);
   }
 
   await page.getByRole("link", { name: "Ler PDF" }).click();
