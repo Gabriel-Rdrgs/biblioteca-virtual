@@ -122,6 +122,14 @@ const seeds: BookSeed[] = [
   },
   {
     id: "gartner-tratado-de-histologia",
+    file: {
+      path: "gartner-tratado-de-histologia.pdf",
+      origin: CLASS_FILE_ORIGIN,
+      authorization: CLASS_FILE_AUTHORIZATION,
+      sizeBytes: 112033736,
+      addedAt: "2026-09-18",
+      note: "O arquivo é a 2ª edição do “Tratado de Histologia em Cores” (Gartner & Hiatt); o plano de ensino cita a 5ª edição, de 2022.",
+    },
     title: "Tratado de Histologia",
     authors: ["GARTNER, Leslie P."],
     publisher: "GEN Guanabara Koogan",
@@ -891,6 +899,14 @@ const seeds: BookSeed[] = [
   },
   {
     id: "lei-15378-2026-estatuto-direitos-do-paciente",
+    file: {
+      path: "lei-15378-2026.pdf",
+      origin:
+        "Enviado pela administração da turma; texto oficial publicado no Diário Oficial da União",
+      authorization: "Domínio público — texto de lei federal",
+      sizeBytes: 1545205,
+      addedAt: "2026-09-18",
+    },
     title: "Lei nº 15.378, de 12 de março de 2026",
     subtitle: "Institui o Estatuto dos Direitos do Paciente",
     authors: ["BRASIL"],
