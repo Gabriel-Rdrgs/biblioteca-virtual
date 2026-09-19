@@ -50,10 +50,10 @@ export function FavoriteButton({ bookId, title }: { bookId: string; title: strin
       disabled={!ready}
       aria-pressed={favorite}
       className={cn(
-        "inline-flex items-center gap-2 rounded-md border px-4 py-2.5 text-sm font-medium transition-colors",
+        "inline-flex items-center gap-2 rounded-full border px-4 py-3 text-sm font-medium transition-colors",
         favorite
           ? "border-accent bg-accent-soft text-accent"
-          : "border-line text-ink-muted hover:border-line-strong hover:text-ink",
+          : "glass text-ink-muted hover:glass-strong hover:text-ink border-transparent",
       )}
     >
       <Bookmark className={cn("size-4", favorite && "fill-current")} aria-hidden="true" />

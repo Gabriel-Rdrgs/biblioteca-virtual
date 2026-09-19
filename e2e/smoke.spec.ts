@@ -14,9 +14,9 @@ test.beforeEach(async ({ page }) => {
 
 test("home leads to the catalogue and back to a discipline", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("bibliografia do semestre");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("estante da nossa turma");
 
-  await page.getByRole("link", { name: "Todos os livros" }).first().click();
+  await page.getByRole("link", { name: "Abrir a estante" }).click();
   await expect(page).toHaveURL(/\/livros$/);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Todos os livros");
 
@@ -24,8 +24,8 @@ test("home leads to the catalogue and back to a discipline", async ({ page }) =>
     .getByRole("link", { name: /tratado de histologia/i })
     .first()
     .click();
-  await expect(page.getByText("Usado em 2 disciplinas").first()).toBeVisible();
-  await expect(page.getByText("Capa ilustrativa gerada pelo Atlas")).toBeVisible();
+  await expect(page.getByText("Vale para 2 matérias")).toBeVisible();
+  await expect(page.getByText("Capa ilustrativa — não é a da editora.")).toBeVisible();
 
   await page
     .getByRole("link", { name: /morfofuncional aplicado/i })
@@ -53,7 +53,7 @@ test("a book without a posted file offers no download", async ({ page }) => {
   // The only visible book without a file is the open-access CFM code.
   await page.goto("/livros/codigo-de-etica-medica-2019");
   await expect(page.getByRole("link", { name: "Abrir na fonte oficial" })).toBeVisible();
-  await expect(page.getByRole("link", { name: /baixar|ler pdf/i })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: /baixar|ler agora/i })).toHaveCount(0);
   await expect(page.locator('a[href*="minhabiblioteca"]')).toHaveCount(0);
 
   // Books with no file are hidden from the class entirely. (Dynamic pages
@@ -92,8 +92,9 @@ test("teaching plans are downloadable", async ({ page }) => {
 
 test("a class-posted book can be read and downloaded behind the password", async ({ page }) => {
   await page.goto("/livros/moore-anatomia-clinica");
-  await expect(page.getByRole("link", { name: "Ler PDF" })).toBeVisible();
-  await expect(page.getByText(/origem: enviado pela administração da turma/i)).toBeVisible();
+  await expect(page.getByRole("link", { name: "Ler agora" })).toBeVisible();
+  // Provenance is admin-only: the class never sees who supplied a file.
+  await expect(page.getByText(/origem:/i)).toHaveCount(0);
 
   const file = await page.request.get("/api/arquivos/moore-anatomia-clinica", {
     maxRedirects: 0,
@@ -107,7 +108,7 @@ test("a class-posted book can be read and downloaded behind the password", async
     expect(file.headers()["content-range"]).toMatch(/^bytes 0-0\/\d+$/);
   }
 
-  await expect(page.getByRole("link", { name: "Ler PDF" })).toHaveAttribute(
+  await expect(page.getByRole("link", { name: "Ler agora" })).toHaveAttribute(
     "href",
     "/livros/moore-anatomia-clinica/ler",
   );

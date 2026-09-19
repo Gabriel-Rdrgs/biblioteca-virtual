@@ -1,9 +1,10 @@
-﻿import Link from "next/link";
+import Link from "next/link";
+import { FileText } from "lucide-react";
 import type { CatalogEntry } from "@/lib/domain/types";
 import { cn, formatAuthors } from "@/lib/utils";
 import { highlightSegments } from "@/lib/domain/search";
 import { BookCover } from "./book-cover";
-import { AccessBadge, BibliographyBadge, ReviewBadge, SharedBadge } from "./book-badge";
+import { BibliographyBadge, ReviewBadge } from "./book-badge";
 
 /** Renders text with query matches marked, without dangerouslySetInnerHTML. */
 function Highlighted({ text, query }: { text: string; query: string }) {
@@ -31,6 +32,11 @@ interface BookCardProps {
   readonly className?: string;
 }
 
+/**
+ * A cover with a caption. Kept quiet on purpose: title, author, one badge
+ * for the bibliography type and a small PDF mark. The review badge only
+ * exists on rows an admin is looking at — public rows never carry it.
+ */
 export function BookCard({ entry, query = "", hideDisciplines, className }: BookCardProps) {
   const { book, links } = entry;
   const primary = links[0];
@@ -38,19 +44,26 @@ export function BookCard({ entry, query = "", hideDisciplines, className }: Book
   return (
     <article
       className={cn(
-        "group relative flex flex-col gap-3 rounded-[var(--radius-card)] focus-within:outline-none",
+        "group relative flex flex-col gap-3 rounded-2xl p-2 transition-colors",
+        "hover:glass",
         className,
       )}
     >
-      <div className="relative transition-transform duration-200 ease-out group-hover:-translate-y-1 motion-reduce:transform-none">
+      <div className="relative transition-transform duration-300 ease-out group-hover:-translate-y-1 motion-reduce:transform-none">
         <BookCover book={book} size="md" decorative />
         {book.provenance.reviewStatus === "pendente" ? (
           <ReviewBadge className="absolute top-2 right-2 shadow-[var(--shadow-raise)]" />
         ) : null}
+        {book.file ? (
+          <span className="glass-strong text-primary absolute bottom-2 left-2 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[0.68rem] font-semibold backdrop-blur">
+            <FileText className="size-3" aria-hidden="true" />
+            PDF
+          </span>
+        ) : null}
       </div>
 
-      <div className="flex min-w-0 flex-col gap-1.5">
-        <h3 className="text-[0.98rem] leading-snug font-semibold text-pretty">
+      <div className="flex min-w-0 flex-col gap-1 px-1">
+        <h3 className="text-[0.95rem] leading-snug font-semibold text-pretty">
           <Link
             href={`/livros/${book.slug}`}
             className="hover:text-primary after:absolute after:inset-0 after:content-['']"
@@ -63,9 +76,11 @@ export function BookCard({ entry, query = "", hideDisciplines, className }: Book
           <Highlighted text={formatAuthors(book.authors)} query={query} />
         </p>
 
-        <div className="mt-0.5 flex flex-wrap items-center gap-1.5">
+        <div className="mt-1 flex flex-wrap items-center gap-1.5">
           {primary ? <BibliographyBadge type={primary.bibliographyType} /> : null}
-          <SharedBadge count={links.length} />
+          {links.length > 1 ? (
+            <span className="text-ink-faint text-xs">{links.length} matérias</span>
+          ) : null}
         </div>
 
         {!hideDisciplines && links.length > 0 ? (
@@ -73,8 +88,6 @@ export function BookCard({ entry, query = "", hideDisciplines, className }: Book
             {links.map((link) => link.discipline.shortName).join(" · ")}
           </p>
         ) : null}
-
-        <AccessBadge access={book.accessType} className="mt-0.5" />
       </div>
     </article>
   );
@@ -90,7 +103,7 @@ export function BookCardCompact({ entry, className }: { entry: CatalogEntry; cla
   return (
     <article
       className={cn(
-        "group hover:bg-surface-sunken relative flex items-start gap-3 rounded-[var(--radius-card)] p-2 transition-colors",
+        "group hover:glass relative flex items-start gap-3 rounded-2xl p-2 transition-colors",
         className,
       )}
     >

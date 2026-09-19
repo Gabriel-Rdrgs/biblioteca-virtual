@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { ArrowRight, Search } from "lucide-react";
+import { BookCover } from "@/components/book/book-cover";
 import { BookGrid } from "@/components/book/book-grid";
 import { DisciplineCard } from "@/components/discipline/discipline-card";
 import { SectionHeading } from "@/components/ui/primitives";
-import { BibliographyBadge } from "@/components/book/book-badge";
+import { isAdminRequest } from "@/lib/audience";
 import {
+  getCatalog,
   getCoreBibliography,
   getDisciplineBookCounts,
   getDisciplines,
@@ -14,250 +16,225 @@ import {
   toCatalogEntries,
 } from "@/lib/repository";
 
-const shortcuts = [
-  { href: "/livros", label: "Todos os livros", description: "o catálogo inteiro, com filtros" },
-  { href: "/disciplinas", label: "Disciplinas", description: "as sete unidades curriculares" },
-  { href: "/planos-de-ensino", label: "Planos de ensino", description: "os documentos oficiais" },
-] as const;
-
 // The catalogue is edited at runtime by the admin area; render per request.
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const stats = await getStats();
+  const admin = await isAdminRequest();
+  const [stats, counts, shared, catalog, core, recent] = await Promise.all([
+    getStats(),
+    getDisciplineBookCounts(),
+    getSharedBooks(),
+    getCatalog(),
+    getCoreBibliography(),
+    getRecentlyAdded(5),
+  ]);
   const disciplines = getDisciplines();
-  const counts = await getDisciplineBookCounts();
-  const shared = await getSharedBooks();
-  const core = toCatalogEntries((await getCoreBibliography()).slice(0, 10));
-  const recent = toCatalogEntries(await getRecentlyAdded(5));
+
+  // Five real covers for the shelf — the books the class actually opens.
+  const shelf = toCatalogEntries(catalog.filter((entry) => entry.book.file).slice(0, 5), {
+    admin,
+  });
+  const mostUsed = toCatalogEntries(core.slice(0, 10), { admin });
+  const latest = toCatalogEntries(recent, { admin });
 
   return (
-    <>
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       {/* ---------------------------------------------------------- hero */}
-      <section className="border-line bg-canvas-deep relative overflow-hidden border-b">
-        <div
-          className="texture-contour pointer-events-none absolute inset-0 opacity-70"
-          aria-hidden="true"
-        />
-        <div
-          className="texture-paper pointer-events-none absolute inset-0 opacity-[0.035] mix-blend-multiply"
-          aria-hidden="true"
-        />
-
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <p className="text-ink-faint text-xs font-medium tracking-[0.22em] uppercase">
+      <section className="grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:py-24">
+        <div>
+          <p className="text-ink-muted text-sm font-medium">
             Medicina · 1º período · UNIEURO · 2026.2
           </p>
-
-          <h1 className="mt-5 max-w-4xl text-[2.6rem] leading-[1.04] font-semibold sm:text-6xl lg:text-7xl">
-            Toda a bibliografia do semestre, em um só lugar.
+          <h1 className="mt-4 text-[2.75rem] leading-[1.02] font-semibold sm:text-6xl lg:text-[4.25rem]">
+            A estante da nossa turma.
           </h1>
-
-          <p className="text-ink-muted mt-6 max-w-2xl text-lg leading-relaxed text-pretty">
-            {stats.books} títulos lidos diretamente dos {stats.teachingPlans} planos de ensino
-            oficiais. Cada livro sabe em quais disciplinas é usado e de qual página do plano ele
-            veio.
+          <p className="text-ink-muted mt-5 max-w-lg text-lg leading-relaxed text-pretty">
+            {stats.withFile} livros do semestre em PDF, prontos para abrir no celular. Sem cadastro,
+            sem enrolação — só a senha da turma.
           </p>
 
-          <form action="/busca" className="mt-9 flex max-w-xl items-center gap-2">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Link
+              href="/livros"
+              className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold shadow-[var(--shadow-raise)] transition-colors"
+            >
+              Abrir a estante
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+            <Link
+              href="/disciplinas"
+              className="glass hover:glass-strong inline-flex items-center rounded-full px-5 py-3 text-sm font-medium transition-colors"
+            >
+              Ver por matéria
+            </Link>
+          </div>
+
+          <form action="/busca" className="mt-6 flex max-w-md items-center">
             <label htmlFor="hero-search" className="sr-only">
-              Buscar no acervo
+              Buscar na estante
             </label>
-            <div className="relative flex-1">
+            <div className="glass relative w-full rounded-full">
               <Search
-                className="text-ink-faint pointer-events-none absolute top-1/2 left-4 size-5 -translate-y-1/2"
+                className="text-ink-faint pointer-events-none absolute top-1/2 left-4 size-4 -translate-y-1/2"
                 aria-hidden="true"
               />
               <input
                 id="hero-search"
                 name="q"
                 type="search"
-                placeholder="Bates, anamnese, saúde coletiva…"
-                className="border-line bg-surface placeholder:text-ink-faint focus:border-primary w-full rounded-lg border py-3.5 pr-4 pl-12 text-base shadow-[var(--shadow-raise)]"
+                placeholder="Procurar um livro, autor ou tema…"
+                className="placeholder:text-ink-faint w-full rounded-full bg-transparent py-3 pr-4 pl-11 text-sm outline-none"
               />
             </div>
-            <button
-              type="submit"
-              className="bg-primary text-on-primary hover:bg-primary-hover shrink-0 rounded-lg px-6 py-3.5 text-sm font-medium transition-colors"
-            >
-              Buscar
-            </button>
           </form>
+        </div>
 
-          <ul className="border-line mt-12 flex flex-col divide-y divide-[var(--line)] border-y sm:flex-row sm:divide-x sm:divide-y-0">
-            {shortcuts.map((shortcut) => (
-              <li key={shortcut.href} className="flex-1">
-                <Link
-                  href={shortcut.href}
-                  className="group hover:bg-surface/60 flex items-baseline justify-between gap-4 px-1 py-4 transition-colors sm:px-5"
-                >
-                  <span>
-                    <span className="font-display block text-lg font-semibold">
-                      {shortcut.label}
-                    </span>
-                    <span className="text-ink-faint block text-sm">{shortcut.description}</span>
-                  </span>
-                  <ArrowRight
-                    className="text-ink-faint group-hover:text-primary size-4 shrink-0 self-center transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none"
-                    aria-hidden="true"
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
+        {/* A fanned shelf of real covers. */}
+        <div
+          className="relative mx-auto h-[19rem] w-full max-w-lg sm:h-[22rem] lg:h-[26rem]"
+          aria-hidden="true"
+        >
+          <div className="glass absolute inset-x-6 bottom-0 h-3 rounded-full" />
+          {shelf.map((entry, i) => {
+            const n = shelf.length;
+            const offset = i - (n - 1) / 2;
+            return (
+              <div
+                key={entry.book.id}
+                className="absolute bottom-3 w-[34%] transition-transform duration-300 hover:-translate-y-3 motion-reduce:transform-none sm:w-[32%]"
+                style={{
+                  left: `${50 + offset * 19}%`,
+                  transform: `translateX(-50%) rotate(${offset * 5}deg)`,
+                  zIndex: n - Math.abs(Math.round(offset)),
+                }}
+              >
+                <BookCover book={entry.book} size="md" decorative />
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* ------------------------------------------- bibliografia básica */}
-        <section className="py-16">
+      {/* --------------------------------------------------- mais usados */}
+      <section className="py-12">
+        <SectionHeading
+          title="O que mais cai"
+          description="Os livros que os planos de ensino colocam como bibliografia básica."
+          action={
+            <Link
+              href="/livros"
+              className="text-primary inline-flex shrink-0 items-center gap-1.5 text-sm font-medium hover:underline"
+            >
+              Ver tudo
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          }
+        />
+        <BookGrid entries={mostUsed} label="Bibliografia básica" />
+      </section>
+
+      {/* --------------------------------------------------- disciplinas */}
+      <section className="py-12">
+        <SectionHeading
+          title="Por matéria"
+          description="Ementa, conteúdos, livros e o plano de ensino de cada uma."
+        />
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {disciplines.map((discipline) => (
+            <li key={discipline.id} className="flex">
+              <DisciplineCard
+                discipline={discipline}
+                bookCount={counts.get(discipline.id) ?? 0}
+                className="w-full"
+              />
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* ------------------------------------------- compartilhados + novos */}
+      <section className="grid gap-10 py-12 lg:grid-cols-[1fr_1.4fr] lg:gap-14">
+        <div>
           <SectionHeading
-            numeral="I"
-            title="Mais usados no semestre"
-            description="Os títulos que os planos de ensino marcam como bibliografia básica — o que a turma abre primeiro."
-            action={
-              <Link
-                href="/livros"
-                className="text-primary inline-flex shrink-0 items-center gap-1.5 text-sm font-medium hover:underline"
-              >
-                Ver todos
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
-            }
+            title="Vale para mais de uma matéria"
+            description="Um livro só, várias disciplinas."
           />
-          <BookGrid entries={core} label="Bibliografia básica do semestre" />
-        </section>
-
-        {/* ------------------------------------------ livros compartilhados */}
-        <section className="border-line border-t py-16">
-          <SectionHeading
-            numeral="II"
-            title="Compartilhados entre disciplinas"
-            description="Um mesmo livro serve a mais de uma unidade curricular. Aqui ele tem um único registro — e mostra o papel que cumpre em cada uma."
-          />
-
-          <ul className="grid gap-4 sm:grid-cols-2">
-            {shared.map((entry) => (
-              <li
-                key={entry.book.id}
-                className="border-line bg-surface rounded-[var(--radius-card)] border p-5"
-              >
-                <div className="flex items-start gap-2">
-                  <h3 className="text-base leading-snug font-semibold text-pretty">
-                    <Link href={`/livros/${entry.book.slug}`} className="hover:text-primary">
-                      {entry.book.title}
-                    </Link>
-                  </h3>
-                </div>
-
-                <ul className="mt-4 space-y-2">
+          <ul className="space-y-3">
+            {shared.slice(0, 4).map((entry) => (
+              <li key={entry.book.id} className="glass rounded-2xl p-4">
+                <Link
+                  href={`/livros/${entry.book.slug}`}
+                  className="hover:text-primary leading-snug font-semibold"
+                >
+                  {entry.book.title}
+                </Link>
+                <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
                   {entry.links.map((link) => (
                     <li
                       key={link.disciplineId}
-                      className="border-line flex flex-wrap items-center justify-between gap-2 border-t pt-2 text-sm"
+                      className="text-ink-muted flex items-center gap-1.5 text-sm"
                     >
-                      <Link
-                        href={`/disciplinas/${link.discipline.slug}`}
-                        className="text-ink-muted hover:text-primary flex items-center gap-2"
-                      >
-                        <span
-                          className="size-2 rounded-full"
-                          style={{ backgroundColor: link.discipline.color }}
-                          aria-hidden="true"
-                        />
-                        {link.discipline.name}
-                      </Link>
-                      <BibliographyBadge type={link.bibliographyType} />
+                      <span
+                        className="size-2 rounded-full"
+                        style={{ backgroundColor: link.discipline.color }}
+                        aria-hidden="true"
+                      />
+                      {link.discipline.shortName}
                     </li>
                   ))}
                 </ul>
               </li>
             ))}
           </ul>
-        </section>
+        </div>
 
-        {/* --------------------------------------------------- disciplinas */}
-        <section className="border-line border-t py-16">
+        <div>
           <SectionHeading
-            numeral="III"
-            title="Explorar por disciplina"
-            description="Ementa oficial, conteúdos por unidade, bibliografia separada por tipo e o plano de ensino completo."
+            title="Chegou agora"
+            description="Os últimos PDFs adicionados à estante."
           />
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {disciplines.map((discipline) => (
-              <li key={discipline.id} className="flex">
-                <DisciplineCard
-                  discipline={discipline}
-                  bookCount={counts.get(discipline.id) ?? 0}
-                  className="w-full"
-                />
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* ------------------------------------------------------ recentes */}
-        <section className="border-line border-t py-16">
-          <SectionHeading
-            numeral="IV"
-            title="Adicionados recentemente"
-            description="Catalogados em 18 de setembro de 2026, a partir da primeira leitura completa dos planos de ensino."
+          <BookGrid
+            entries={latest}
+            label="Adicionados recentemente"
+            className="grid-cols-3 sm:grid-cols-5 lg:grid-cols-5"
           />
-          <BookGrid entries={recent} label="Livros adicionados recentemente" />
-        </section>
+        </div>
+      </section>
 
-        {/* -------------------------------------------------- estatísticas */}
-        <section className="border-line border-t py-16">
-          <SectionHeading
-            numeral="V"
-            title="O acervo em números"
-            description="Tudo conferido contra os documentos oficiais — inclusive o que ainda precisa de revisão."
-          />
-
-          <dl className="grid grid-cols-2 gap-x-8 gap-y-8 lg:grid-cols-4">
-            {[
-              { value: stats.books, label: "livros catalogados", hint: "sem duplicatas" },
-              { value: stats.disciplines, label: "disciplinas", hint: "1º período, 2026.2" },
-              {
-                value: stats.sharedBooks,
-                label: "usados em mais de uma",
-                hint: "um registro, várias relações",
-              },
-              {
-                value: stats.pendingReview,
-                label: "pendentes de revisão",
-                hint: "erros vindos do próprio plano",
-              },
-            ].map((item) => (
-              <div key={item.label} className="border-line border-t pt-4">
-                <dd className="font-display text-primary text-5xl font-semibold tabular-nums sm:text-6xl">
-                  {item.value}
-                </dd>
-                <dt className="mt-2 text-sm font-medium">{item.label}</dt>
-                <p className="text-ink-faint mt-0.5 text-xs">{item.hint}</p>
-              </div>
-            ))}
-          </dl>
-
-          <div className="border-line bg-surface-sunken mt-6 rounded-[var(--radius-card)] border p-5">
-            <h3 className="text-sm font-semibold">Direitos autorais e uso acadêmico</h3>
-            <p className="text-ink-muted mt-2 max-w-3xl text-sm leading-relaxed text-pretty">
-              Biblioteca fechada para a turma.{" "}
-              {stats.withFile === 0
-                ? "Nenhum PDF foi postado ainda: os títulos aparecem como referência catalogada até alguém publicar o arquivo."
-                : `${stats.withFile} ${stats.withFile === 1 ? "título tem" : "títulos têm"} PDF postado pela turma, cada um com origem e autorização registradas.`}{" "}
-              Tudo o que está aqui é de uso interno — não redistribua fora do grupo.
-            </p>
-            <Link
-              href="/uso-responsavel"
-              className="text-primary mt-3 inline-flex items-center gap-1.5 text-sm font-medium hover:underline"
-            >
-              Ler as regras de uso responsável
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
+      {/* -------------------------------------------------------- rodapé */}
+      <section className="pt-6 pb-16">
+        <div className="glass rounded-3xl p-6 sm:p-8">
+          <div className="grid gap-6 sm:grid-cols-3">
+            <div>
+              <p className="font-display text-primary text-4xl font-semibold tabular-nums">
+                {stats.withFile}
+              </p>
+              <p className="mt-1 text-sm font-medium">livros em PDF</p>
+            </div>
+            <div>
+              <p className="font-display text-primary text-4xl font-semibold tabular-nums">
+                {stats.disciplines}
+              </p>
+              <p className="mt-1 text-sm font-medium">matérias do semestre</p>
+            </div>
+            <div>
+              <p className="font-display text-primary text-4xl font-semibold tabular-nums">
+                {stats.teachingPlans}
+              </p>
+              <p className="mt-1 text-sm font-medium">planos de ensino</p>
+            </div>
           </div>
-        </section>
-      </div>
-    </>
+          <p className="text-ink-muted mt-6 max-w-2xl text-sm leading-relaxed text-pretty">
+            Isto aqui é da turma, para a turma. Os PDFs são de uso interno — não repasse fora do
+            grupo.{" "}
+            <Link href="/uso-responsavel" className="text-primary hover:underline">
+              Combinados de uso
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+    </div>
   );
 }

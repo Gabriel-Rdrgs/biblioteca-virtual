@@ -44,15 +44,15 @@ export function SectionHeading({
   title: string;
   description?: string;
   action?: ReactNode;
-  /** Plate-style numbering ("I", "II"…), as in an atlas. */
+  /** Small uppercase kicker above the title. */
   numeral?: string;
   as?: "h1" | "h2" | "h3";
 }) {
   return (
-    <div className="border-line mb-8 flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b pb-4">
+    <div className="mb-6 flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
       <div className="max-w-2xl">
         {numeral ? (
-          <span className="text-ink-faint font-display block text-sm tracking-[0.2em]">
+          <span className="text-ink-faint block text-xs font-medium tracking-[0.18em] uppercase">
             {numeral}
           </span>
         ) : null}

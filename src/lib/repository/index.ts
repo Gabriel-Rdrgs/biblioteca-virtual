@@ -4,6 +4,7 @@ import { disciplines } from "@/lib/data/disciplines";
 import { teachingPlans } from "@/lib/data/teaching-plans";
 import { findDuplicateCandidates } from "@/lib/domain/dedupe";
 import { readManifest } from "@/lib/catalog-store";
+import { publicBook } from "@/lib/domain/public-view";
 import type {
   Book,
   BookDisciplineLink,
@@ -255,13 +256,16 @@ export async function getDisciplineBookCounts(): Promise<Map<DisciplineId, numbe
 }
 
 /**
- * Strips each link's discipline down to what a card renders. Server
- * components call this before handing rows to a client component, so the
- * syllabus is not serialised once per book.
+ * Prepares rows for a client component: each link's discipline is cut down
+ * to what a card renders (never the whole syllabus), and unless the caller
+ * is an admin the book loses its provenance and review notes.
  */
-export function toCatalogEntries(entries: readonly BookWithLinks[]): CatalogEntry[] {
+export function toCatalogEntries(
+  entries: readonly BookWithLinks[],
+  options: { admin?: boolean } = {},
+): CatalogEntry[] {
   return entries.map(({ book, links }) => ({
-    book,
+    book: options.admin ? book : publicBook(book),
     links: links.map((link) => ({
       bookId: link.bookId,
       disciplineId: link.disciplineId,

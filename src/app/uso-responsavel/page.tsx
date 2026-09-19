@@ -31,8 +31,8 @@ export default async function ResponsibleUsePage() {
       <Breadcrumbs trail={[{ label: "Início", href: "/" }, { label: "Uso responsável" }]} />
       <SectionHeading
         as="h1"
-        title="Uso responsável"
-        description="O Atlas existe para ajudar a turma a encontrar o que estudar — não para distribuir livros. Estas são as regras que o projeto segue."
+        title="Combinados de uso"
+        description="O Atlas existe para a turma achar o que estudar. Estes são os combinados."
       />
 
       <Rule title="O que o Atlas guarda">
@@ -111,18 +111,6 @@ export default async function ResponsibleUsePage() {
         <p>
           O Atlas não pede cadastro nem coleta dados pessoais. Os livros que você salva ficam
           guardados apenas no seu próprio navegador e não são enviados a lugar nenhum.
-        </p>
-      </Rule>
-
-      <Rule title="Erros e correções">
-        <p>
-          {stats.pendingReview} registros estão marcados como pendentes de revisão. São erros que
-          vêm dos próprios planos de ensino — citações automáticas quebradas, grafias incorretas,
-          links ausentes — e estão sinalizados no catálogo em vez de corrigidos em silêncio.
-        </p>
-        <p>
-          Se encontrar um erro, avise: é melhor um registro marcado como duvidoso do que um registro
-          errado com aparência de certo.
         </p>
       </Rule>
 

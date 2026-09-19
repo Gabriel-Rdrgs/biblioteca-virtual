@@ -82,7 +82,8 @@ test.describe("admin area", () => {
     await expect(link).toBeVisible();
     await link.click();
     await expect(page.getByText("Usado em", { exact: false })).toHaveCount(0);
-    await expect(page.getByRole("link", { name: "Ler PDF" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Ler agora" })).toBeVisible();
+    // The admin session sees the file's provenance; the class would not.
     await expect(page.getByText(/gerado pelo teste automatizado/i)).toBeVisible();
     const slug = new URL(page.url()).pathname.split("/").pop() ?? "";
 
@@ -96,7 +97,7 @@ test.describe("admin area", () => {
     await row.getByRole("button", { name: "Mostrar" }).click();
     await expect(page.getByText(`“${title}” visível.`)).toBeVisible();
     const shown = await page.request.get(`/livros/${slug}`);
-    expect(await shown.text()).toContain("Ler PDF");
+    expect(await shown.text()).toContain("Ler agora");
 
     // 5. delete the record and its file
     page.once("dialog", (dialog) => dialog.accept());

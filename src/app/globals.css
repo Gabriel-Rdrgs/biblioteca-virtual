@@ -35,6 +35,16 @@
 
   --ring: #0f5563;
   --shadow-color: 32 28 20;
+
+  /* Liquid glass */
+  --glass: rgb(255 255 255 / 0.55);
+  --glass-strong: rgb(255 255 255 / 0.75);
+  --glass-border: rgb(255 255 255 / 0.7);
+  --glass-edge: rgb(20 30 33 / 0.08);
+  --glass-highlight: rgb(255 255 255 / 0.9);
+  --glow-a: rgb(15 85 99 / 0.22);
+  --glow-b: rgb(95 132 101 / 0.2);
+  --glow-c: rgb(156 95 34 / 0.16);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -67,6 +77,15 @@
 
     --ring: #58c2d4;
     --shadow-color: 0 0 0;
+
+    --glass: rgb(255 255 255 / 0.06);
+    --glass-strong: rgb(255 255 255 / 0.1);
+    --glass-border: rgb(255 255 255 / 0.14);
+    --glass-edge: rgb(0 0 0 / 0.35);
+    --glass-highlight: rgb(255 255 255 / 0.22);
+    --glow-a: rgb(88 194 212 / 0.2);
+    --glow-b: rgb(143 184 148 / 0.14);
+    --glow-c: rgb(217 160 94 / 0.12);
   }
 }
 
@@ -99,6 +118,33 @@
 
   --ring: #58c2d4;
   --shadow-color: 0 0 0;
+
+  --glass: rgb(255 255 255 / 0.06);
+  --glass-strong: rgb(255 255 255 / 0.1);
+  --glass-border: rgb(255 255 255 / 0.14);
+  --glass-edge: rgb(0 0 0 / 0.35);
+  --glass-highlight: rgb(255 255 255 / 0.22);
+  --glow-a: rgb(88 194 212 / 0.2);
+  --glow-b: rgb(143 184 148 / 0.14);
+  --glow-c: rgb(217 160 94 / 0.12);
+}
+
+/* Liquid glass: translucent surface, soft blur, a bright inner rim on top
+   and a faint dark edge below — the depth cue Apple's recent UI leans on.
+   Declared with @utility so variants like hover:glass work. */
+@utility glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    inset 0 -1px 0 var(--glass-edge),
+    0 12px 40px -12px rgb(var(--shadow-color) / 0.25);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+}
+
+@utility glass-strong {
+  background: var(--glass-strong);
 }
 
 @theme inline {
@@ -185,6 +231,18 @@
 }
 
 @layer utilities {
+  /* Ambient light: three soft colour fields, fixed behind everything. */
+  .ambient {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(60rem 40rem at 8% -10%, var(--glow-a), transparent 60%),
+      radial-gradient(50rem 36rem at 100% 20%, var(--glow-b), transparent 60%),
+      radial-gradient(44rem 40rem at 50% 110%, var(--glow-c), transparent 60%);
+  }
+
   /* Paper grain — a faint fibre texture over the canvas, not a pattern. */
   .texture-paper {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");

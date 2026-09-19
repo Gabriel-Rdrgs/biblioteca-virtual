@@ -64,6 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Pular para o conteúdo
         </a>
 
+        <div className="ambient" aria-hidden="true" />
         <div className="flex min-h-dvh flex-col">
           {!gated ? (
             <p
@@ -74,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </p>
           ) : null}
           <Header gated={gated} />
-          <main id="conteudo" className="flex-1 pb-20 md:pb-0">
+          <main id="conteudo" className="flex-1 pt-2 pb-24 md:pb-4">
             {children}
           </main>
           <Footer />

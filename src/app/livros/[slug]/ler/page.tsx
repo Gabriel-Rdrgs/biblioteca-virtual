@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { PdfReader } from "@/components/book/pdf-reader";
+import { isAdminRequest } from "@/lib/audience";
 import { getBookBySlug } from "@/lib/repository";
 import { signedFileUrl, storageMode } from "@/lib/storage";
 
@@ -23,7 +24,7 @@ export async function generateMetadata({
 /** Full-height reader; PdfReader draws the pages itself. */
 export default async function ReadPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const entry = await getBookBySlug(slug);
+  const [entry, admin] = await Promise.all([getBookBySlug(slug), isAdminRequest()]);
   if (!entry?.book.file) notFound();
 
   const route = `/api/arquivos/${entry.book.id}`;
@@ -51,7 +52,7 @@ export default async function ReadPage({ params }: { params: Promise<{ slug: str
         <h1 className="min-w-0 flex-1 truncate text-sm font-semibold">{entry.book.title}</h1>
       </div>
       <PdfReader src={src} title={entry.book.title} downloadHref={`${route}?baixar=1`} />
-      {entry.book.file.note ? (
+      {admin && entry.book.file.note ? (
         <p className="text-accent border-line border-t px-4 py-1.5 text-xs sm:px-6">
           {entry.book.file.note}
         </p>

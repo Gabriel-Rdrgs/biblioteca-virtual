@@ -3,8 +3,8 @@ import { AtlasMark } from "@/components/ui/atlas-mark";
 
 export function Footer() {
   return (
-    <footer className="border-line bg-surface-sunken mt-20 border-t">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="mt-16">
+      <div className="glass mx-auto max-w-7xl rounded-3xl px-6 py-10 sm:px-8">
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           <div className="max-w-sm">
             <div className="flex items-center gap-2.5">
@@ -12,8 +12,8 @@ export function Footer() {
               <span className="font-display text-base font-semibold">Atlas</span>
             </div>
             <p className="text-ink-muted mt-3 text-sm leading-relaxed">
-              Biblioteca de referência da turma de Medicina do 1º período do UNIEURO, montada a
-              partir dos planos de ensino de 2026.2.
+              A estante da turma de Medicina do 1º período do UNIEURO, montada a partir dos planos
+              de ensino de 2026.2.
             </p>
           </div>
 
@@ -22,10 +22,10 @@ export function Footer() {
             className="grid grid-cols-2 gap-x-10 gap-y-2 text-sm sm:gap-x-16"
           >
             <Link href="/livros" className="text-ink-muted hover:text-primary">
-              Todos os livros
+              Estante
             </Link>
             <Link href="/disciplinas" className="text-ink-muted hover:text-primary">
-              Disciplinas
+              Matérias
             </Link>
             <Link href="/planos-de-ensino" className="text-ink-muted hover:text-primary">
               Planos de ensino
@@ -34,15 +34,13 @@ export function Footer() {
               Busca
             </Link>
             <Link href="/uso-responsavel" className="text-ink-muted hover:text-primary">
-              Uso responsável
+              Combinados de uso
             </Link>
           </nav>
         </div>
 
         <p className="border-line text-ink-faint mt-10 border-t pt-6 text-xs leading-relaxed">
-          Biblioteca fechada para a turma. Os PDFs aqui postados são de uso interno, com origem e
-          autorização registradas em cada arquivo — não redistribua fora do grupo. Livros sem
-          arquivo aparecem como referência catalogada.{" "}
+          Fechado para a turma. Os PDFs são de uso interno — não repasse fora do grupo.{" "}
           <Link href="/uso-responsavel" className="hover:text-primary underline">
             Leia as regras de uso
           </Link>

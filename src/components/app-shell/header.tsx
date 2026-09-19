@@ -8,31 +8,27 @@ import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "/livros", label: "Livros" },
-  { href: "/disciplinas", label: "Disciplinas" },
-  { href: "/planos-de-ensino", label: "Planos de ensino" },
+  { href: "/livros", label: "Estante" },
+  { href: "/disciplinas", label: "Matérias" },
+  { href: "/planos-de-ensino", label: "Planos" },
 ] as const;
 
+/** A floating glass bar rather than a full-width strip. */
 export function Header({ gated }: { gated: boolean }) {
   const pathname = usePathname();
 
   return (
-    <header className="border-line bg-canvas/85 sticky top-0 z-40 border-b backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-3 z-40 px-3 sm:top-4 sm:px-6">
+      <div className="glass mx-auto flex h-14 max-w-6xl items-center gap-2 rounded-full pr-2 pl-4">
         <Link
           href="/"
-          className="text-ink hover:text-primary flex shrink-0 items-center gap-2.5 transition-colors"
+          className="text-ink hover:text-primary flex shrink-0 items-center gap-2 transition-colors"
         >
-          <AtlasMark className="text-primary size-7" />
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-lg font-semibold tracking-tight">Atlas</span>
-            <span className="text-ink-faint hidden text-[0.62rem] tracking-[0.16em] uppercase sm:block">
-              Biblioteca Médica
-            </span>
-          </span>
+          <AtlasMark className="text-primary size-6" />
+          <span className="font-display text-lg font-semibold tracking-tight">Atlas</span>
         </Link>
 
-        <nav aria-label="Navegação principal" className="ml-4 hidden items-center gap-1 md:flex">
+        <nav aria-label="Navegação principal" className="ml-3 hidden items-center gap-0.5 md:flex">
           {links.map((link) => {
             const active = pathname.startsWith(link.href);
             return (
@@ -41,10 +37,8 @@ export function Header({ gated }: { gated: boolean }) {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                  active
-                    ? "bg-primary-soft text-primary"
-                    : "text-ink-muted hover:bg-surface-sunken hover:text-ink",
+                  "rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors",
+                  active ? "glass-strong text-primary" : "text-ink-muted hover:text-ink",
                 )}
               >
                 {link.label}
@@ -53,21 +47,21 @@ export function Header({ gated }: { gated: boolean }) {
           })}
         </nav>
 
-        <div className="ml-auto flex items-center gap-1.5">
+        <div className="ml-auto flex items-center gap-1">
           <Link
             href="/busca"
-            className="border-line text-ink-muted hover:border-line-strong hover:text-ink inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm transition-colors"
+            className="text-ink-muted hover:glass-strong hover:text-ink inline-flex h-9 items-center gap-2 rounded-full px-3 text-sm transition-colors"
           >
             <Search className="size-4" aria-hidden="true" />
-            <span className="hidden lg:inline">Buscar no acervo</span>
-            <span className="sr-only lg:hidden">Buscar no acervo</span>
+            <span className="hidden lg:inline">Buscar</span>
+            <span className="sr-only lg:hidden">Buscar</span>
           </Link>
           <ThemeToggle />
           {gated ? (
             <form method="post" action="/api/sair">
               <button
                 type="submit"
-                className="border-line text-ink-muted hover:border-line-strong hover:text-ink inline-flex size-9 items-center justify-center rounded-md border transition-colors"
+                className="text-ink-muted hover:glass-strong hover:text-ink inline-flex size-9 items-center justify-center rounded-full transition-colors"
                 aria-label="Sair da biblioteca"
                 title="Sair"
               >

@@ -19,6 +19,16 @@ async function entryOf(id: string) {
   return toCatalogEntries([{ book, links }])[0]!;
 }
 
+/** Same, but as an admin sees it — review notes intact. */
+async function adminEntryOf(id: string) {
+  const book = books.find((b) => b.id === id);
+  if (!book) throw new Error(`livro de teste ausente: ${id}`);
+  const links = bookDisciplines
+    .filter((l) => l.bookId === id)
+    .map((l) => ({ ...l, discipline: disciplineById.get(l.disciplineId)! }));
+  return toCatalogEntries([{ book, links }], { admin: true })[0]!;
+}
+
 describe("BookCover", () => {
   it("never passes a generated cover off as the official one", async () => {
     render(<BookCover book={(await entryOf("bates-propedeutica-medica-essencial")).book} />);
@@ -36,7 +46,7 @@ describe("BookCover", () => {
 describe("BookCard", () => {
   it("says in how many disciplines a shared book is used", async () => {
     render(<BookCard entry={await entryOf("gartner-tratado-de-histologia")} />);
-    expect(screen.getByText("Usado em 2 disciplinas")).toBeInTheDocument();
+    expect(screen.getByText("2 matérias")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /tratado de histologia/i })).toHaveAttribute(
       "href",
       "/livros/gartner-tratado-de-histologia",
@@ -48,9 +58,18 @@ describe("BookCard", () => {
     expect(screen.queryByText(/usado em \d+ disciplinas/i)).toBeNull();
   });
 
-  it("flags records that still need review", async () => {
-    render(<BookCard entry={await entryOf("parasitologia-contemporanea")} />);
+  it("flags records that still need review — for admins only", async () => {
+    render(<BookCard entry={await adminEntryOf("parasitologia-contemporanea")} />);
     expect(screen.getByText("Revisar")).toBeInTheDocument();
+  });
+
+  it("never shows a review flag or provenance to the class", async () => {
+    const entry = await entryOf("parasitologia-contemporanea");
+    render(<BookCard entry={entry} />);
+    expect(screen.queryByText("Revisar")).toBeNull();
+    expect(entry.book.provenance.rawCitation).toBe("");
+    expect(entry.book.provenance.reviewNote).toBeUndefined();
+    expect(entry.book.file?.origin ?? "").toBe("");
   });
 
   it("highlights the search term without altering the title", async () => {
@@ -58,16 +77,6 @@ describe("BookCard", () => {
     const mark = screen.getByText("Ética", { selector: "mark" });
     expect(mark).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /ética em pesquisa/i })).toBeInTheDocument();
-  });
-
-  it("shows a book without a posted file as reference only", async () => {
-    render(<BookCard entry={await entryOf("bates-propedeutica-medica-essencial")} />);
-    expect(screen.getByText("Somente referência")).toBeInTheDocument();
-  });
-
-  it("labels reference-only items honestly", async () => {
-    render(<BookCard entry={await entryOf("medicina-antiga")} />);
-    expect(screen.getByText("Somente referência")).toBeInTheDocument();
   });
 });
 

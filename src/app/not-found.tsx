@@ -15,11 +15,11 @@ export default function NotFound() {
       <div className="mt-8 flex gap-3">
         <Link
           href="/livros"
-          className="bg-primary text-on-primary rounded-md px-4 py-2 text-sm font-medium"
+          className="bg-primary text-on-primary rounded-full px-5 py-2.5 text-sm font-semibold"
         >
-          Ver os livros
+          Ir para a estante
         </Link>
-        <Link href="/busca" className="border-line rounded-md border px-4 py-2 text-sm font-medium">
+        <Link href="/busca" className="glass rounded-full px-5 py-2.5 text-sm font-medium">
           Buscar
         </Link>
       </div>
