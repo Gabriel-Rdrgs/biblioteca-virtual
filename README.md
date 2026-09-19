@@ -91,6 +91,24 @@ silêncio.
 Capas: todas são placeholders editoriais gerados (`coverSource: "placeholder"`), com uma
 linguagem visual por área. A página do livro deixa isso explícito.
 
+## Administração (/admin)
+
+Senha própria (`ATLAS_SENHA_ADMIN`), diferente da senha da turma; sem ela a
+área não existe. Lá se publica um livro novo (PDF + ficha + disciplinas + origem
+e autorização), anexa-se, substitui-se ou remove-se o PDF de qualquer registro,
+oculta-se ou mostra-se um livro, e excluem-se registros criados pelo admin
+(os que vêm dos planos só podem ser ocultados). Toda ação fica no log.
+
+O upload vai do navegador direto ao storage (bucket R2 em produção, disco em
+desenvolvimento), com barra de progresso e cancelamento. O servidor confere o
+tamanho e a assinatura `%PDF-` antes de gravar o registro; ISBN repetido é
+recusado e uma provável duplicata pede confirmação.
+
+As alterações do admin ficam num **manifesto** (`storage/catalogo.json` local,
+`catalogo/manifest.json` no bucket) que se soma às seeds em tempo de execução —
+nada de rebuild. **Livros sem PDF e sem link aberto ficam ocultos por padrão**;
+anexar um PDF os torna visíveis.
+
 ## Deploy: Vercel + Cloudflare R2
 
 A aplicação roda na Vercel; os PDFs (≈2 GB) ficam num bucket **privado** do
@@ -111,7 +129,7 @@ definidas, o app deixa de servir do disco e passa a emitir links assinados
    [
      {
        "AllowedOrigins": ["https://SEU-PROJETO.vercel.app", "http://localhost:3000"],
-       "AllowedMethods": ["GET", "HEAD"],
+       "AllowedMethods": ["GET", "HEAD", "PUT"],
        "AllowedHeaders": ["range", "content-type"],
        "ExposeHeaders": [
          "Content-Range",
@@ -142,7 +160,7 @@ definidas, o app deixa de servir do disco e passa a emitir links assinados
 1. Suba o repositório para o GitHub (privado) e importe-o em vercel.com.
    Framework: Next.js; nada mais a configurar.
 2. Em **Settings → Environment Variables**, cadastre `ATLAS_SENHA_TURMA`,
-   `ATLAS_COOKIE_SECRET` e as quatro `R2_*`.
+   `ATLAS_SENHA_ADMIN`, `ATLAS_COOKIE_SECRET` e as quatro `R2_*`.
 3. Faça o deploy. Volte ao CORS do R2 e coloque a URL final do projeto.
 
 Cada `git push` gera um deploy novo. Os PDFs não passam pelo Git nem pela
@@ -156,7 +174,7 @@ em duas linhas) para o cookie de sessão ser aceito fora de `localhost`.
 
 ## Próximos passos previstos
 
-1. Publicar os PDFs que a turma tem direito de usar e ocultar os demais.
-2. Área administrativa com upload pelo navegador (Zod + React Hook Form), em vez de copiar arquivos à mão.
-3. Contas individuais (Supabase Auth) no lugar da senha única, com favoritos e histórico persistidos.
-4. Importação de novos planos com tela de revisão humana antes de salvar.
+1. Publicar na Vercel + R2 (seção acima).
+2. Contas individuais (Supabase Auth) no lugar das senhas compartilhadas, com favoritos e histórico persistidos.
+3. Edição de ficha (título, autores, temas) pela área administrativa.
+4. Importação de novos planos de ensino com tela de revisão humana antes de salvar.
