@@ -15,14 +15,15 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const entry = getBookBySlug(slug);
-  return { title: entry ? `Ler · ${entry.book.title}` : "Leitura", robots: { index: false } };
+  const entry = await getBookBySlug(slug);
+  if (!entry?.book.file) notFound();
+  return { title: `Ler · ${entry.book.title}`, robots: { index: false } };
 }
 
 /** Full-height reader; PdfReader draws the pages itself. */
 export default async function ReadPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const entry = getBookBySlug(slug);
+  const entry = await getBookBySlug(slug);
   if (!entry?.book.file) notFound();
 
   const route = `/api/arquivos/${entry.book.id}`;

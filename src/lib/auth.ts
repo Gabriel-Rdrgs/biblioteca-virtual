@@ -1,21 +1,34 @@
 /**
- * Class-wide access gate.
+ * Access gates.
  *
- * One shared password (ATLAS_SENHA_TURMA) unlocks the whole library. A
- * successful login sets an HMAC-signed cookie; every request — pages and
- * PDFs alike — is checked against it in middleware. Web Crypto is used
- * rather than node:crypto so the same code runs on the edge runtime.
+ * Two shared passwords, two cookies:
+ * - ATLAS_SENHA_TURMA unlocks the library for the class (30-day session).
+ * - ATLAS_SENHA_ADMIN unlocks /admin, where files and records are managed
+ *   (1-day session). The admin area does not exist until it is set.
  *
- * While the password is unset the gate is open and the UI says so, which
- * keeps `npm run dev` frictionless without letting a deploy be silently
- * public.
+ * Cookies carry an HMAC-signed payload that includes the role, so a class
+ * token can never be replayed as admin. Web Crypto is used rather than
+ * node:crypto so the same code runs in the edge middleware.
+ *
+ * While the class password is unset the gate is open and the UI says so,
+ * which keeps `npm run dev` frictionless without letting a deploy be
+ * silently public.
  */
 
 export const SESSION_COOKIE = "atlas_sessao";
+export const ADMIN_COOKIE = "atlas_admin";
+
 const SESSION_DAYS = 30;
+const ADMIN_DAYS = 1;
+
+type Role = "turma" | "admin";
 
 export function gateConfigured(): boolean {
   return Boolean(process.env.ATLAS_SENHA_TURMA);
+}
+
+export function adminConfigured(): boolean {
+  return Boolean(process.env.ATLAS_SENHA_ADMIN);
 }
 
 function secret(): string {
@@ -48,27 +61,45 @@ function timingSafeEqual(a: string, b: string): boolean {
   return diff === 0;
 }
 
-export function passwordMatches(candidate: string): boolean {
-  const expected = process.env.ATLAS_SENHA_TURMA ?? "";
+function matches(candidate: string, expected: string | undefined): boolean {
   return (
-    expected.length > 0 && timingSafeEqual(candidate.normalize("NFC"), expected.normalize("NFC"))
+    typeof expected === "string" &&
+    expected.length > 0 &&
+    timingSafeEqual(candidate.normalize("NFC"), expected.normalize("NFC"))
   );
 }
 
-/** Token = expiry timestamp + signature over it. */
-export async function createSessionToken(): Promise<string> {
-  const expires = Date.now() + SESSION_DAYS * 24 * 60 * 60 * 1000;
-  const payload = String(expires);
+export function passwordMatches(candidate: string): boolean {
+  return matches(candidate, process.env.ATLAS_SENHA_TURMA);
+}
+
+export function adminPasswordMatches(candidate: string): boolean {
+  return matches(candidate, process.env.ATLAS_SENHA_ADMIN);
+}
+
+/** Token = role + expiry timestamp, signed together. */
+async function createToken(role: Role, days: number): Promise<string> {
+  const payload = `${role}:${Date.now() + days * 24 * 60 * 60 * 1000}`;
   return `${payload}.${await hmac(payload)}`;
 }
 
-export async function verifySessionToken(token: string | undefined): Promise<boolean> {
+async function verifyToken(token: string | undefined, role: Role): Promise<boolean> {
   if (!token) return false;
-  const [payload, signature] = token.split(".");
-  if (!payload || !signature) return false;
-  if (!/^\d+$/.test(payload) || Number(payload) < Date.now()) return false;
+  const dot = token.lastIndexOf(".");
+  if (dot < 0) return false;
+  const payload = token.slice(0, dot);
+  const signature = token.slice(dot + 1);
+  const [tokenRole, expires] = payload.split(":");
+  if (tokenRole !== role || !expires || !/^\d+$/.test(expires)) return false;
+  if (Number(expires) < Date.now()) return false;
   return timingSafeEqual(signature, await hmac(payload));
 }
+
+export const createSessionToken = () => createToken("turma", SESSION_DAYS);
+export const verifySessionToken = (token: string | undefined) => verifyToken(token, "turma");
+export const createAdminToken = () => createToken("admin", ADMIN_DAYS);
+export const verifyAdminToken = (token: string | undefined) => verifyToken(token, "admin");
+export const ADMIN_SESSION_DAYS = ADMIN_DAYS;
 
 /**
  * The Secure flag follows the request's own protocol, not NODE_ENV: a
@@ -76,13 +107,13 @@ export async function verifySessionToken(token: string | undefined): Promise<boo
  * without TLS) would otherwise have its cookie dropped by the browser and
  * loop back to the login page forever.
  */
-export function sessionCookieOptions(secure: boolean) {
+export function sessionCookieOptions(secure: boolean, days: number = SESSION_DAYS) {
   return {
     httpOnly: true,
     sameSite: "lax" as const,
     secure,
     path: "/",
-    maxAge: SESSION_DAYS * 24 * 60 * 60,
+    maxAge: days * 24 * 60 * 60,
   };
 }
 

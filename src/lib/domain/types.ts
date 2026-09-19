@@ -192,3 +192,37 @@ export interface LibraryStats {
   readonly pendingReview: number;
   readonly withFile: number;
 }
+
+/** One admin action, kept so changes can be traced. */
+export interface CatalogLogEntry {
+  readonly at: string;
+  readonly action:
+    "livro_criado" | "arquivo_anexado" | "arquivo_removido" | "visibilidade" | "registro_excluido";
+  readonly bookId: BookId;
+  readonly detail?: string;
+}
+
+/**
+ * Everything the admin area changes, kept apart from the seed files so a
+ * running deployment can be edited without a rebuild. Seeds plus manifest
+ * are merged by the repository.
+ */
+export interface CatalogManifest {
+  readonly version: 1;
+  /** Books created through the admin area. */
+  readonly books: readonly Book[];
+  readonly links: readonly BookDisciplineLink[];
+  /** Per-book changes applied over a seed (or manifest) record. */
+  readonly overrides: Readonly<
+    Record<BookId, { readonly visibility?: Visibility; readonly file?: BookFile | null }>
+  >;
+  readonly log: readonly CatalogLogEntry[];
+}
+
+export const emptyManifest: CatalogManifest = {
+  version: 1,
+  books: [],
+  links: [],
+  overrides: {},
+  log: [],
+};

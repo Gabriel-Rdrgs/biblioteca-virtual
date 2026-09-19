@@ -9,8 +9,11 @@ export const metadata: Metadata = {
     "Catálogo completo da bibliografia das sete unidades curriculares do 1º período de Medicina do UNIEURO, semestre 2026.2.",
 };
 
-export default function BooksPage() {
-  const entries = toCatalogEntries(getCatalog());
+// The catalogue is edited at runtime by the admin area; render per request.
+export const dynamic = "force-dynamic";
+
+export default async function BooksPage() {
+  const entries = toCatalogEntries(await getCatalog());
   const disciplines = getDisciplines().map((d) => ({
     id: d.id,
     slug: d.slug,
@@ -28,7 +31,7 @@ export default function BooksPage() {
         title="Todos os livros"
         description={`${entries.length} títulos reunidos a partir dos sete planos de ensino de 2026.2. Um livro citado por duas disciplinas aparece uma única vez, com as duas relações.`}
       />
-      <CatalogBrowser entries={entries} disciplines={disciplines} topics={getTopics()} />
+      <CatalogBrowser entries={entries} disciplines={disciplines} topics={await getTopics()} />
     </div>
   );
 }

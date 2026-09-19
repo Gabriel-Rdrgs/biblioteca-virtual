@@ -65,7 +65,9 @@ function defineBook(seed: BookSeed): Book {
     // A posted file makes the book readable by the class; otherwise it is a
     // catalogued reference until someone posts one.
     accessType: seed.accessType ?? (seed.file ? "class_only" : "reference_only"),
-    visibility: seed.visibility ?? "visivel",
+    // Hidden until there is something to open: a posted file or an open
+    // link. Attaching a PDF later makes the book appear on its own.
+    visibility: seed.visibility ?? (seed.file || seed.externalUrl ? "visivel" : "oculto"),
     ...(seed.externalUrl ? { externalUrl: seed.externalUrl } : {}),
     ...(seed.file ? { file: seed.file } : {}),
     coverSource: "placeholder",

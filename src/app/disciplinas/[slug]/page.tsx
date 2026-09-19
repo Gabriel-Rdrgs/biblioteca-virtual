@@ -15,10 +15,6 @@ import {
   toCatalogEntries,
 } from "@/lib/repository";
 
-export function generateStaticParams() {
-  return getDisciplines().map((discipline) => ({ slug: discipline.slug }));
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -26,7 +22,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const discipline = getDisciplineBySlug(slug);
-  if (!discipline) return { title: "Disciplina não encontrada" };
+  if (!discipline) notFound();
 
   return {
     title: discipline.name,
@@ -42,6 +38,9 @@ const order: BibliographyType[] = [
   "acervo_da_turma",
 ];
 
+// The catalogue is edited at runtime by the admin area; render per request.
+export const dynamic = "force-dynamic";
+
 export default async function DisciplinePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const discipline = getDisciplineBySlug(slug);
@@ -52,7 +51,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
   const previous = index > 0 ? all[index - 1] : all[all.length - 1];
   const next = index < all.length - 1 ? all[index + 1] : all[0];
 
-  const books = getBooksForDiscipline(discipline.id);
+  const books = await getBooksForDiscipline(discipline.id);
   const plan = getTeachingPlanForDiscipline(discipline.id);
   const palette = motifPalettes[discipline.motif];
 

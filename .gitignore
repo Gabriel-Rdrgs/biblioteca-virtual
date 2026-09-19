@@ -19,3 +19,5 @@ Thumbs.db
 # PDFs postados pela turma — nunca versionados
 storage/livros/*
 !storage/livros/README.md
+storage/catalogo.json
+storage/catalogo.json.tmp

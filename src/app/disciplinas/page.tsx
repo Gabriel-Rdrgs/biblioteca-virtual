@@ -9,9 +9,12 @@ export const metadata: Metadata = {
     "As sete unidades curriculares do 1º período de Medicina do UNIEURO em 2026.2, com ementa, conteúdos e bibliografia.",
 };
 
-export default function DisciplinesPage() {
+// The catalogue is edited at runtime by the admin area; render per request.
+export const dynamic = "force-dynamic";
+
+export default async function DisciplinesPage() {
   const disciplines = getDisciplines();
-  const counts = getDisciplineBookCounts();
+  const counts = await getDisciplineBookCounts();
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">

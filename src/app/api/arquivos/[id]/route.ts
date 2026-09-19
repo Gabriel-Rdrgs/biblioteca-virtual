@@ -46,7 +46,7 @@ function parseRange(header: string | null, size: number): { start: number; end: 
 
 export async function GET(request: NextRequest, context: { params: Promise<{ id: string }> }) {
   const { id } = await context.params;
-  const entry = getBookById(id);
+  const entry = await getBookById(id);
   const file = entry?.book.file;
 
   if (!entry || !file) {

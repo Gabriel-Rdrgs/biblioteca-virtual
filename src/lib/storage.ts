@@ -1,4 +1,9 @@
-import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import {
+  DeleteObjectCommand,
+  GetObjectCommand,
+  PutObjectCommand,
+  S3Client,
+} from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
 /**
@@ -29,7 +34,7 @@ export function storageMode(): StorageMode {
 
 let client: S3Client | null = null;
 
-function r2(): S3Client {
+export function r2Client(): S3Client {
   if (client) return client;
   client = new S3Client({
     region: "auto",
@@ -70,5 +75,26 @@ export async function signedFileUrl(
       options.downloadName,
     ),
   });
-  return getSignedUrl(r2(), command, { expiresIn: options.expiresIn ?? 3600 });
+  return getSignedUrl(r2Client(), command, { expiresIn: options.expiresIn ?? 3600 });
+}
+
+/**
+ * A URL the browser can PUT a PDF to directly, bypassing the app server and
+ * its request-size limits. Ten minutes is enough to start a large upload;
+ * once started, the transfer keeps going.
+ */
+export async function signedUploadUrl(fileName: string, sizeBytes: number): Promise<string> {
+  const command = new PutObjectCommand({
+    Bucket: process.env.R2_BUCKET,
+    Key: objectKey(fileName),
+    ContentType: "application/pdf",
+    ContentLength: sizeBytes,
+  });
+  return getSignedUrl(r2Client(), command, { expiresIn: 600 });
+}
+
+export async function deleteObject(fileName: string): Promise<void> {
+  await r2Client().send(
+    new DeleteObjectCommand({ Bucket: process.env.R2_BUCKET, Key: objectKey(fileName) }),
+  );
 }

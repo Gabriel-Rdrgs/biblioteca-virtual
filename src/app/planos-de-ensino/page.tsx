@@ -11,9 +11,21 @@ export const metadata: Metadata = {
     "Os sete planos de ensino oficiais do 1º período de Medicina do UNIEURO em 2026.2, com a bibliografia extraída de cada um.",
 };
 
-export default function TeachingPlansPage() {
+// The catalogue is edited at runtime by the admin area; render per request.
+export const dynamic = "force-dynamic";
+
+export default async function TeachingPlansPage() {
   const plans = getTeachingPlans();
   const disciplines = new Map(getDisciplines().map((d) => [d.id, d]));
+  // Resolved up front: JSX callbacks cannot await.
+  const rows = await Promise.all(
+    plans.flatMap((plan) => {
+      const discipline = disciplines.get(plan.disciplineId);
+      return discipline
+        ? [getBooksForDiscipline(discipline.id).then((books) => ({ plan, discipline, books }))]
+        : [];
+    }),
+  );
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
@@ -25,11 +37,7 @@ export default function TeachingPlansPage() {
       />
 
       <ul className="space-y-5">
-        {plans.map((plan) => {
-          const discipline = disciplines.get(plan.disciplineId);
-          if (!discipline) return null;
-
-          const books = getBooksForDiscipline(discipline.id);
+        {rows.map(({ plan, discipline, books }) => {
           const counts = new Map<string, number>();
           for (const entry of books) {
             const link = entry.links.find((l) => l.disciplineId === discipline.id);

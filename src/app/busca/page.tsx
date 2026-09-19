@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: "Busque livros, disciplinas, temas e planos de ensino de uma só vez.",
 };
 
+// The catalogue is edited at runtime by the admin area; render per request.
+export const dynamic = "force-dynamic";
+
 export default async function SearchPage({
   searchParams,
 }: {
@@ -25,7 +28,7 @@ export default async function SearchPage({
         description="Procura ao mesmo tempo em livros, autores, disciplinas, temas e planos de ensino. Acentos e maiúsculas não importam."
       />
       <GlobalSearch
-        entries={toCatalogEntries(getCatalog())}
+        entries={toCatalogEntries(await getCatalog())}
         disciplines={getDisciplines()}
         plans={getTeachingPlans()}
         initialQuery={initialQuery.slice(0, 200)}

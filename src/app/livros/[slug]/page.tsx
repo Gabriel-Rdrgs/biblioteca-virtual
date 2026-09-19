@@ -16,15 +16,10 @@ import { Breadcrumbs } from "@/components/ui/primitives";
 import { FavoriteButton } from "@/components/book/favorite-button";
 import {
   getBookBySlug,
-  getCatalog,
   getRelatedBooks,
   getTeachingPlanForDiscipline,
   toCatalogEntries,
 } from "@/lib/repository";
-
-export function generateStaticParams() {
-  return getCatalog().map((entry) => ({ slug: entry.book.slug }));
-}
 
 export async function generateMetadata({
   params,
@@ -32,8 +27,9 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const entry = getBookBySlug(slug);
-  if (!entry) return { title: "Livro não encontrado" };
+  const entry = await getBookBySlug(slug);
+  // Thrown here, before headers go out, so the status is a real 404.
+  if (!entry) notFound();
 
   return {
     title: entry.book.title,
@@ -52,13 +48,16 @@ function Field({ label, value }: { label: string; value: string }) {
   );
 }
 
+// The catalogue is edited at runtime by the admin area; render per request.
+export const dynamic = "force-dynamic";
+
 export default async function BookPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const entry = getBookBySlug(slug);
+  const entry = await getBookBySlug(slug);
   if (!entry) notFound();
 
   const { book, links } = entry;
-  const related = toCatalogEntries(getRelatedBooks(slug, 4));
+  const related = toCatalogEntries(await getRelatedBooks(slug, 4));
   const pending = book.provenance.reviewStatus === "pendente";
 
   return (

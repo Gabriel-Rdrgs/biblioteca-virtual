@@ -86,32 +86,39 @@ describe("catalogue integrity", () => {
 });
 
 describe("one book, many disciplines", () => {
-  it("stores a shared title once and links it twice", () => {
-    const shared = getSharedBooks();
+  it("stores a shared title once and links it twice", async () => {
+    const shared = await getSharedBooks();
     const ids = shared.map((entry) => entry.book.id);
 
+    // Only the shared title with a posted file is visible today.
     expect(ids).toContain("gartner-tratado-de-histologia");
-    expect(ids).toContain("semiologia-do-adulto");
-    expect(ids).toContain("etica-em-pesquisa");
-    expect(ids).toContain("tratado-medicina-familia-comunidade");
+    const linkCount = (id: string) => bookDisciplines.filter((l) => l.bookId === id).length;
+    for (const id of [
+      "semiologia-do-adulto",
+      "etica-em-pesquisa",
+      "tratado-medicina-familia-comunidade",
+    ]) {
+      expect(linkCount(id)).toBe(2);
+    }
 
     // Exactly one record each, despite appearing in two plans.
     expect(books.filter((b) => b.id === "gartner-tratado-de-histologia")).toHaveLength(1);
   });
 
-  it("keeps the bibliography weight each discipline assigned", () => {
-    const mattos = getCatalog().find((e) => e.book.id === "semiologia-do-adulto");
+  it("keeps the bibliography weight each discipline assigned", async () => {
     const byDiscipline = new Map(
-      mattos?.links.map((l) => [l.disciplineId, l.bibliographyType]) ?? [],
+      bookDisciplines
+        .filter((l) => l.bookId === "semiologia-do-adulto")
+        .map((l) => [l.disciplineId, l.bibliographyType]),
     );
 
     expect(byDiscipline.get("hm-1")).toBe("basica");
     expect(byDiscipline.get("ha-1")).toBe("complementar");
   });
 
-  it("lists a shared book under both of its disciplines", () => {
-    const inMac = getBooksForDiscipline("mac-1").map((e) => e.book.id);
-    const inAes2 = getBooksForDiscipline("aes-2").map((e) => e.book.id);
+  it("lists a shared book under both of its disciplines", async () => {
+    const inMac = (await getBooksForDiscipline("mac-1")).map((e) => e.book.id);
+    const inAes2 = (await getBooksForDiscipline("aes-2")).map((e) => e.book.id);
 
     expect(inMac).toContain("gartner-tratado-de-histologia");
     expect(inAes2).toContain("gartner-tratado-de-histologia");
@@ -119,8 +126,8 @@ describe("one book, many disciplines", () => {
 });
 
 describe("deduplication", () => {
-  it("does not merge two different books that share a title", () => {
-    const candidates = getDuplicateCandidates();
+  it("does not merge two different books that share a title", async () => {
+    const candidates = await getDuplicateCandidates();
     const pair = candidates.find(
       (c) =>
         [c.leftId, c.rightId].includes("rocco-semiologia-medica") &&
@@ -132,8 +139,8 @@ describe("deduplication", () => {
     expect(pair?.confidence).toBe("baixa");
   });
 
-  it("flags the two Código de Ética Médica editions without merging them", () => {
-    const candidates = getDuplicateCandidates();
+  it("flags the two Código de Ética Médica editions without merging them", async () => {
+    const candidates = await getDuplicateCandidates();
     const pair = candidates.find(
       (c) =>
         [c.leftId, c.rightId].includes("codigo-de-etica-medica-2019") &&
@@ -145,28 +152,47 @@ describe("deduplication", () => {
     expect(books.filter((b) => b.title === "Código de Ética Médica")).toHaveLength(2);
   });
 
-  it("never reports a book against itself", () => {
-    for (const candidate of getDuplicateCandidates()) {
+  it("never reports a book against itself", async () => {
+    for (const candidate of await getDuplicateCandidates()) {
       expect(candidate.leftId).not.toBe(candidate.rightId);
     }
   });
 });
 
-describe("stats", () => {
-  it("counts what the home page claims", () => {
-    const stats = getStats();
+describe("visibility", () => {
+  it("hides a book until it has a file or an open link", () => {
+    for (const book of books) {
+      const hasSomethingToOpen = Boolean(book.file || book.externalUrl);
+      expect(book.visibility, book.id).toBe(hasSomethingToOpen ? "visivel" : "oculto");
+    }
+  });
 
-    expect(stats.books).toBe(books.length);
+  it("never lists a hidden book in the catalogue", async () => {
+    const ids = new Set((await getCatalog()).map((e) => e.book.id));
+    for (const book of books) {
+      if (book.visibility === "oculto") expect(ids.has(book.id), book.id).toBe(false);
+    }
+  });
+});
+
+describe("stats", () => {
+  it("counts what the home page claims", async () => {
+    const stats = await getStats();
+
+    const visible = books.filter((b) => b.visibility === "visivel");
+    expect(stats.books).toBe(visible.length);
+    expect(visible.length).toBeGreaterThan(0);
     expect(stats.disciplines).toBe(7);
     expect(stats.teachingPlans).toBe(7);
-    expect(stats.sharedBooks).toBe(getSharedBooks().length);
+    expect(stats.sharedBooks).toBe((await getSharedBooks()).length);
     expect(stats.sharedBooks).toBeGreaterThan(0);
   });
 
-  it("derives shared count from links, not from titles", () => {
+  it("derives shared count from links, not from titles", async () => {
     const expected = books.filter(
-      (b) => bookDisciplines.filter((l) => l.bookId === b.id).length > 1,
+      (b) =>
+        b.visibility === "visivel" && bookDisciplines.filter((l) => l.bookId === b.id).length > 1,
     ).length;
-    expect(getStats().sharedBooks).toBe(expected);
+    expect((await getStats()).sharedBooks).toBe(expected);
   });
 });

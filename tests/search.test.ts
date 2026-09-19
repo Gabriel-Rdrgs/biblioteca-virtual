@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { getCatalog } from "@/lib/repository";
+import { books } from "@/lib/data/books";
+import { bookDisciplines } from "@/lib/data/book-disciplines";
+import { disciplines } from "@/lib/data/disciplines";
+import type { BookWithLinks } from "@/lib/domain/types";
 import {
   emptyFilters,
   highlightSegments,
@@ -7,7 +10,16 @@ import {
   type CatalogFilters,
 } from "@/lib/domain/search";
 
-const catalog = getCatalog();
+// Search is a pure function over whatever rows it is given. These tests run
+// it over every seed — hidden ones included — so they keep exercising the
+// whole bibliography regardless of which books currently have a file.
+const disciplineById = new Map(disciplines.map((d) => [d.id, d]));
+const catalog: BookWithLinks[] = books.map((book) => ({
+  book,
+  links: bookDisciplines
+    .filter((l) => l.bookId === book.id)
+    .map((l) => ({ ...l, discipline: disciplineById.get(l.disciplineId)! })),
+}));
 
 function find(query: string, overrides: Partial<CatalogFilters> = {}) {
   return searchCatalog(catalog, { ...emptyFilters, query, ...overrides }).map((e) => e.book.id);
@@ -91,8 +103,8 @@ describe("combined filters", () => {
     const referenceOnly = find("", { availability: "somente_referencia" });
 
     expect(open).toContain("codigo-de-etica-medica-2019");
-    expect(referenceOnly).toContain("medicina-antiga");
-    expect(referenceOnly).not.toContain("codigo-de-etica-medica-2019");
+    expect(withPdf).toContain("moore-anatomia-clinica");
+    expect(withPdf).not.toContain("codigo-de-etica-medica-2019");
     expect(withPdf.every((id) => !referenceOnly.includes(id))).toBe(true);
   });
 

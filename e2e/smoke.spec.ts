@@ -38,22 +38,28 @@ test("home leads to the catalogue and back to a discipline", async ({ page }) =>
 test("catalogue search is accent-insensitive and filters combine", async ({ page }) => {
   await page.goto("/livros");
   const search = page.getByRole("searchbox", { name: "Buscar no catálogo" });
-  await search.fill("etica");
-  await expect(page.getByRole("link", { name: /ética em pesquisa/i })).toBeVisible();
+  await search.fill("genetica");
+  await expect(page.getByRole("link", { name: /genética humana/i })).toBeVisible();
   await search.fill("xyzabc");
   await expect(page.getByText("Nenhum livro encontrado")).toBeVisible();
 });
 
 test("global search reads the query from the URL", async ({ page }) => {
   await page.goto("/busca?q=bates");
-  await expect(page.getByRole("link", { name: /propedêutica médica essencial/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: /bates propedêutica médica/i })).toBeVisible();
 });
 
 test("a book without a posted file offers no download", async ({ page }) => {
-  await page.goto("/livros/bates-propedeutica-medica-essencial");
-  await expect(page.getByText("Arquivo ainda não disponibilizado", { exact: true })).toBeVisible();
+  // The only visible book without a file is the open-access CFM code.
+  await page.goto("/livros/codigo-de-etica-medica-2019");
+  await expect(page.getByRole("link", { name: "Abrir na fonte oficial" })).toBeVisible();
   await expect(page.getByRole("link", { name: /baixar|ler pdf/i })).toHaveCount(0);
   await expect(page.locator('a[href*="minhabiblioteca"]')).toHaveCount(0);
+
+  // Books with no file are hidden from the class entirely. (Dynamic pages
+  // stream, so Next answers 200 with the not-found body — check the body.)
+  await page.goto("/livros/bates-propedeutica-medica-essencial");
+  await expect(page.getByText("Isso não está no acervo.")).toBeVisible();
 });
 
 test("the class password gates every page and the plans", async ({ page }) => {
@@ -101,9 +107,11 @@ test("a class-posted book can be read and downloaded behind the password", async
     expect(file.headers()["content-range"]).toMatch(/^bytes 0-0\/\d+$/);
   }
 
-  await page.getByRole("link", { name: "Ler PDF" }).click();
-  // The reader page renders per request; give a cold server room.
-  await expect(page).toHaveURL(/\/livros\/moore-anatomia-clinica\/ler$/, { timeout: 20_000 });
+  await expect(page.getByRole("link", { name: "Ler PDF" })).toHaveAttribute(
+    "href",
+    "/livros/moore-anatomia-clinica/ler",
+  );
+  await page.goto("/livros/moore-anatomia-clinica/ler");
   // Page one is drawn by the in-page reader when the file is on disk.
   if (file.status() === 206) {
     await expect(page.locator("canvas").first()).toBeVisible({ timeout: 60_000 });

@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     "Como o Atlas trata acesso da turma, PDFs postados, direitos autorais, privacidade e material sensível.",
 };
 
+// The catalogue is edited at runtime by the admin area; render per request.
+export const dynamic = "force-dynamic";
+
 function Rule({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="border-line border-t py-7">
@@ -20,8 +23,8 @@ function Rule({ title, children }: { title: string; children: React.ReactNode })
   );
 }
 
-export default function ResponsibleUsePage() {
-  const stats = getStats();
+export default async function ResponsibleUsePage() {
+  const stats = await getStats();
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">

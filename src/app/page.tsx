@@ -20,13 +20,16 @@ const shortcuts = [
   { href: "/planos-de-ensino", label: "Planos de ensino", description: "os documentos oficiais" },
 ] as const;
 
-export default function HomePage() {
-  const stats = getStats();
+// The catalogue is edited at runtime by the admin area; render per request.
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const stats = await getStats();
   const disciplines = getDisciplines();
-  const counts = getDisciplineBookCounts();
-  const shared = getSharedBooks();
-  const core = toCatalogEntries(getCoreBibliography().slice(0, 10));
-  const recent = toCatalogEntries(getRecentlyAdded(5));
+  const counts = await getDisciplineBookCounts();
+  const shared = await getSharedBooks();
+  const core = toCatalogEntries((await getCoreBibliography()).slice(0, 10));
+  const recent = toCatalogEntries(await getRecentlyAdded(5));
 
   return (
     <>
