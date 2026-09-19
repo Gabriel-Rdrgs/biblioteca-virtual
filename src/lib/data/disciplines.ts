@@ -293,7 +293,7 @@ export const disciplines: readonly Discipline[] = [
     motif: "humanidades",
     teachingPlanFile: "/planos/aes-1.pdf",
     description:
-      "Unidade de AprendizagemEstruturada por Situações-problema dedicada à introdução ao estudo da Medicina, conduzida por encontros tutoriais. Aborda história da Medicina, saúde pública em suas bases conceituais e fundamentos de anatomia e fisiologia humanas.",
+      "Unidade de Aprendizagem Estruturada por Situações-problema dedicada à introdução ao estudo da Medicina, conduzida por encontros tutoriais. Aborda história da Medicina, saúde pública em suas bases conceituais e fundamentos de anatomia e fisiologia humanas.",
     syllabus: [
       {
         title: "Eixos do módulo",
