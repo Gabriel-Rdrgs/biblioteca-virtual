@@ -3,7 +3,7 @@ import { bookDisciplines as seedLinks } from "@/lib/data/book-disciplines";
 import { disciplines } from "@/lib/data/disciplines";
 import { teachingPlans } from "@/lib/data/teaching-plans";
 import { findDuplicateCandidates } from "@/lib/domain/dedupe";
-import { readManifest } from "@/lib/catalog-store";
+import { readManifest, updateManifest } from "@/lib/catalog-store";
 import { publicBook } from "@/lib/domain/public-view";
 import type {
   Book,
@@ -172,6 +172,40 @@ export async function getCoreBibliography(): Promise<BookWithLinks[]> {
       if (byLinks !== 0) return byLinks;
       return a.book.title.localeCompare(b.book.title, "pt-BR");
     });
+}
+
+/**
+ * Counts one opening of a book. Called when the reader page renders, so a
+ * long read is one access and a range request is not. Nothing about who
+ * opened it is stored.
+ */
+export async function recordAccess(bookId: string): Promise<void> {
+  await updateManifest((current) => ({
+    ...current,
+    accessCounts: {
+      ...current.accessCounts,
+      [bookId]: (current.accessCounts?.[bookId] ?? 0) + 1,
+    },
+  }));
+}
+
+/**
+ * Most opened first. Ties (and a fresh library with no counts yet) fall
+ * back to the plans' core bibliography, then title.
+ */
+export async function getMostAccessed(limit: number): Promise<BookWithLinks[]> {
+  const manifest = await readManifest();
+  const counts = manifest.accessCounts ?? {};
+  return [...(await current()).visible]
+    .sort((a, b) => {
+      const byCount = (counts[b.book.id] ?? 0) - (counts[a.book.id] ?? 0);
+      if (byCount !== 0) return byCount;
+      const core = (e: BookWithLinks) =>
+        e.links.some((l) => l.bibliographyType === "basica") ? 0 : 1;
+      if (core(a) !== core(b)) return core(a) - core(b);
+      return a.book.title.localeCompare(b.book.title, "pt-BR");
+    })
+    .slice(0, limit);
 }
 
 export async function getRecentlyAdded(limit: number): Promise<BookWithLinks[]> {

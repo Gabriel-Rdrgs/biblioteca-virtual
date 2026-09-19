@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/primitives";
 import { isAdminRequest } from "@/lib/audience";
 import {
   getCatalog,
-  getCoreBibliography,
+  getMostAccessed,
   getDisciplineBookCounts,
   getDisciplines,
   getRecentlyAdded,
@@ -26,7 +26,7 @@ export default async function HomePage() {
     getDisciplineBookCounts(),
     getSharedBooks(),
     getCatalog(),
-    getCoreBibliography(),
+    getMostAccessed(10),
     getRecentlyAdded(5),
   ]);
   const disciplines = getDisciplines();
@@ -35,7 +35,7 @@ export default async function HomePage() {
   const shelf = toCatalogEntries(catalog.filter((entry) => entry.book.file).slice(0, 5), {
     admin,
   });
-  const mostUsed = toCatalogEntries(core.slice(0, 10), { admin });
+  const mostUsed = toCatalogEntries(core, { admin });
   const latest = toCatalogEntries(recent, { admin });
 
   return (
@@ -119,8 +119,8 @@ export default async function HomePage() {
       {/* --------------------------------------------------- mais usados */}
       <section className="py-12">
         <SectionHeading
-          title="O que mais cai"
-          description="Os livros que os planos de ensino colocam como bibliografia básica."
+          title="Mais acessados"
+          description="Os livros que a turma mais abre. Enquanto a contagem é nova, entram primeiro os da bibliografia básica."
           action={
             <Link
               href="/livros"
@@ -131,7 +131,7 @@ export default async function HomePage() {
             </Link>
           }
         />
-        <BookGrid entries={mostUsed} label="Bibliografia básica" />
+        <BookGrid entries={mostUsed} label="Mais acessados" />
       </section>
 
       {/* --------------------------------------------------- disciplinas */}

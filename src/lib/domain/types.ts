@@ -217,6 +217,8 @@ export interface CatalogManifest {
     Record<BookId, { readonly visibility?: Visibility; readonly file?: BookFile | null }>
   >;
   readonly log: readonly CatalogLogEntry[];
+  /** Times each book was opened in the reader — no one is identified. */
+  readonly accessCounts?: Readonly<Record<BookId, number>>;
 }
 
 export const emptyManifest: CatalogManifest = {
@@ -225,4 +227,5 @@ export const emptyManifest: CatalogManifest = {
   links: [],
   overrides: {},
   log: [],
+  accessCounts: {},
 };

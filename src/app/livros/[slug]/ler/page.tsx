@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { PdfReader } from "@/components/book/pdf-reader";
 import { isAdminRequest } from "@/lib/audience";
-import { getBookBySlug } from "@/lib/repository";
+import { getBookBySlug, recordAccess } from "@/lib/repository";
 import { signedFileUrl, storageMode } from "@/lib/storage";
 
 // Rendered per request: with R2 the page carries a signed URL that expires.
@@ -26,6 +26,9 @@ export default async function ReadPage({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const [entry, admin] = await Promise.all([getBookBySlug(slug), isAdminRequest()]);
   if (!entry?.book.file) notFound();
+
+  // A failure to count must never keep someone from reading.
+  await recordAccess(entry.book.id).catch(() => undefined);
 
   const route = `/api/arquivos/${entry.book.id}`;
   // With R2 the reader fetches straight from the bucket, ranges and all,

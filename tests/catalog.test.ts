@@ -196,3 +196,19 @@ describe("stats", () => {
     expect((await getStats()).sharedBooks).toBe(expected);
   });
 });
+
+describe("access counts", () => {
+  it("puts the most opened book first and falls back to core bibliography", async () => {
+    const { getMostAccessed, recordAccess } = await import("@/lib/repository");
+    const { resetManifestCache } = await import("@/lib/catalog-store");
+    const before = await getMostAccessed(3);
+    expect(before.length).toBeGreaterThan(0);
+
+    const target = before[before.length - 1]!.book.id;
+    for (let i = 0; i < 3; i++) await recordAccess(target);
+    resetManifestCache();
+
+    const after = await getMostAccessed(3);
+    expect(after[0]?.book.id).toBe(target);
+  });
+});

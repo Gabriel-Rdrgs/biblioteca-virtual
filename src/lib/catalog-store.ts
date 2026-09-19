@@ -32,6 +32,7 @@ function parse(raw: string): CatalogManifest {
     links: m.links ?? [],
     overrides: m.overrides ?? {},
     log: m.log ?? [],
+    accessCounts: m.accessCounts ?? {},
   };
 }
 
