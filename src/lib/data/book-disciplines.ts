@@ -444,4 +444,22 @@ export const bookDisciplines: readonly BookDisciplineLink[] = [
     bibliographyType: "acervo_da_turma",
     priority: 4,
   },
+  {
+    bookId: "grays-anatomia",
+    disciplineId: "mac-1",
+    bibliographyType: "acervo_da_turma",
+    priority: 4,
+  },
+  {
+    bookId: "bates-propedeutica-medica",
+    disciplineId: "ha-1",
+    bibliographyType: "acervo_da_turma",
+    priority: 4,
+  },
+  {
+    bookId: "lehninger-principios-de-bioquimica",
+    disciplineId: "aes-2",
+    bibliographyType: "acervo_da_turma",
+    priority: 4,
+  },
 ];
