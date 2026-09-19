@@ -78,7 +78,15 @@ export interface Provenance {
 }
 
 export type BookId = string;
-export type DisciplineId = "mac-1" | "ha-1" | "iescg-1" | "hm-1" | "ic-1" | "aes-1" | "aes-2";
+/** Slug-like id; seeds use short codes ("mac-1"), admin-created ones a slug. */
+export type DisciplineId = string;
+
+/** Course period, 1st to 12th — the axis the library is organised on. */
+export type PeriodNumber = number;
+
+export function periodLabel(period: PeriodNumber): string {
+  return `${period}º período`;
+}
 
 export interface Book {
   readonly id: BookId;
@@ -127,7 +135,9 @@ export interface Discipline {
   readonly name: string;
   readonly shortName: string;
   readonly code?: string;
-  readonly period: string;
+  /** 1–12. */
+  readonly period: PeriodNumber;
+  /** Calendar term this offering ran in, e.g. "2026.2". */
   readonly semester: string;
   readonly workload?: string;
   readonly weeklyWorkload?: string;
@@ -138,8 +148,12 @@ export interface Discipline {
   readonly color: string;
   readonly colorSoft: string;
   readonly motif: CoverMotif;
-  readonly teachingPlanFile: string;
+  /** URL of the plan PDF: under /planos for seeds, /api/planos/<id> when uploaded. */
+  readonly teachingPlanFile?: string;
   readonly notes?: readonly string[];
+  readonly visibility: Visibility;
+  /** Seeds come from the repository; the rest were created in /admin. */
+  readonly origin: "seed" | "admin";
 }
 
 export interface TeachingPlan {
@@ -148,9 +162,12 @@ export interface TeachingPlan {
   readonly title: string;
   readonly fileUrl: string;
   readonly semester: string;
-  readonly pages: number;
+  readonly pages?: number;
   readonly sourceFileName: string;
   readonly extractedTextStatus: "extraido" | "pendente" | "falhou";
+  /** Where the PDF lives: bundled under public/, or in class storage. */
+  readonly storage?: "public" | "storage";
+  readonly storagePath?: string;
 }
 
 /** A pair the importer refused to merge on its own. */
@@ -172,7 +189,7 @@ export interface BookWithLinks {
  */
 export type DisciplineRef = Pick<
   Discipline,
-  "id" | "slug" | "name" | "shortName" | "color" | "colorSoft"
+  "id" | "slug" | "name" | "shortName" | "color" | "colorSoft" | "period"
 >;
 
 /**
@@ -197,9 +214,23 @@ export interface LibraryStats {
 export interface CatalogLogEntry {
   readonly at: string;
   readonly action:
-    "livro_criado" | "arquivo_anexado" | "arquivo_removido" | "visibilidade" | "registro_excluido";
+    | "livro_criado"
+    | "arquivo_anexado"
+    | "arquivo_removido"
+    | "visibilidade"
+    | "registro_excluido"
+    | "materia_criada"
+    | "materia_editada"
+    | "materia_visibilidade"
+    | "materia_excluida"
+    | "periodo_atual";
   readonly bookId: BookId;
   readonly detail?: string;
+}
+
+export interface LibrarySettings {
+  /** Period shown first on the home page and the shelf. */
+  readonly currentPeriod?: PeriodNumber;
 }
 
 /**
@@ -219,6 +250,14 @@ export interface CatalogManifest {
   readonly log: readonly CatalogLogEntry[];
   /** Times each book was opened in the reader — no one is identified. */
   readonly accessCounts?: Readonly<Record<BookId, number>>;
+  /** Disciplines created through the admin area. */
+  readonly disciplines?: readonly Discipline[];
+  /** Per-discipline changes applied over a seed (or manifest) record. */
+  readonly disciplineOverrides?: Readonly<
+    Record<DisciplineId, Partial<Omit<Discipline, "id" | "slug" | "origin">>>
+  >;
+  readonly teachingPlans?: readonly TeachingPlan[];
+  readonly settings?: LibrarySettings;
 }
 
 export const emptyManifest: CatalogManifest = {
@@ -228,4 +267,8 @@ export const emptyManifest: CatalogManifest = {
   overrides: {},
   log: [],
   accessCounts: {},
+  disciplines: [],
+  disciplineOverrides: {},
+  teachingPlans: [],
+  settings: {},
 };

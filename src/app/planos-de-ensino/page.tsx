@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function TeachingPlansPage() {
-  const plans = getTeachingPlans();
-  const disciplines = new Map(getDisciplines().map((d) => [d.id, d]));
+  const plans = await getTeachingPlans();
+  const disciplines = new Map((await getDisciplines()).map((d) => [d.id, d]));
   // Resolved up front: JSX callbacks cannot await.
   const rows = await Promise.all(
     plans.flatMap((plan) => {

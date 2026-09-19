@@ -29,8 +29,8 @@ export default async function SearchPage({
       />
       <GlobalSearch
         entries={toCatalogEntries(await getCatalog())}
-        disciplines={getDisciplines()}
-        plans={getTeachingPlans()}
+        disciplines={await getDisciplines()}
+        plans={await getTeachingPlans()}
         initialQuery={initialQuery.slice(0, 200)}
       />
     </div>

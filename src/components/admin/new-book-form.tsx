@@ -275,6 +275,7 @@ export function NewBookForm({ disciplines }: { disciplines: readonly DisciplineR
                     aria-hidden="true"
                   />
                   {discipline.name}
+                  <span className="text-ink-faint">· {discipline.period}º</span>
                 </label>
               </li>
             ))}

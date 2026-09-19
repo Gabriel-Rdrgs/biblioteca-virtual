@@ -5,7 +5,7 @@ import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
 import type { ReadableStream as NodeReadableStream } from "node:stream/web";
 import { NextResponse, type NextRequest } from "next/server";
-import { LOCAL_STORAGE_DIR } from "@/lib/admin/catalog-admin";
+import { localDir } from "@/lib/admin/catalog-admin";
 import { MAX_FILE_BYTES } from "@/lib/admin/schemas";
 import { storageMode } from "@/lib/storage";
 
@@ -30,8 +30,10 @@ export async function PUT(request: NextRequest, context: { params: Promise<{ nam
     return NextResponse.json({ error: "Tamanho de arquivo inválido." }, { status: 400 });
   }
 
-  const path = resolve(LOCAL_STORAGE_DIR, name);
-  await mkdir(LOCAL_STORAGE_DIR, { recursive: true });
+  const folder = request.nextUrl.searchParams.get("pasta") === "planos" ? "planos" : "livros";
+  const dir = localDir(folder);
+  const path = resolve(dir, name);
+  await mkdir(dir, { recursive: true });
 
   try {
     let received = 0;

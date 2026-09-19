@@ -1,7 +1,7 @@
 import { books as seedBooks } from "@/lib/data/books";
 import { bookDisciplines as seedLinks } from "@/lib/data/book-disciplines";
-import { disciplines } from "@/lib/data/disciplines";
-import { teachingPlans } from "@/lib/data/teaching-plans";
+import { disciplines as seedDisciplines } from "@/lib/data/disciplines";
+import { teachingPlans as seedPlans } from "@/lib/data/teaching-plans";
 import { findDuplicateCandidates } from "@/lib/domain/dedupe";
 import { readManifest, updateManifest } from "@/lib/catalog-store";
 import { publicBook } from "@/lib/domain/public-view";
@@ -15,6 +15,7 @@ import type {
   DuplicateCandidate,
   Discipline,
   LibraryStats,
+  PeriodNumber,
   TeachingPlan,
 } from "@/lib/domain/types";
 
@@ -29,16 +30,25 @@ import type {
  * back from the store — and reused otherwise.
  */
 
-const disciplineById = new Map<DisciplineId, Discipline>(
-  disciplines.map((discipline) => [discipline.id, discipline]),
-);
-
 interface BuiltCatalog {
   readonly all: readonly Book[];
   readonly visible: readonly BookWithLinks[];
   readonly links: readonly BookDisciplineLink[];
   readonly bySlug: Map<string, BookWithLinks>;
   readonly byId: Map<string, BookWithLinks>;
+  /** Every discipline, hidden ones included. */
+  readonly disciplines: readonly Discipline[];
+  readonly disciplineById: Map<DisciplineId, Discipline>;
+  readonly teachingPlans: readonly TeachingPlan[];
+  readonly currentPeriod: PeriodNumber;
+}
+
+/** Seeds plus admin-created disciplines, with overrides applied. Pure. */
+export function mergeDisciplines(manifest: CatalogManifest): Discipline[] {
+  return [...seedDisciplines, ...(manifest.disciplines ?? [])].map((discipline) => {
+    const override = manifest.disciplineOverrides?.[discipline.id];
+    return override ? { ...discipline, ...override } : discipline;
+  });
 }
 
 /** Applies manifest overrides and additions to the seeds. Pure. */
@@ -66,6 +76,16 @@ export function mergeCatalog(manifest: CatalogManifest): {
 
 function build(manifest: CatalogManifest): BuiltCatalog {
   const { books, links } = mergeCatalog(manifest);
+  const disciplines = mergeDisciplines(manifest);
+  const disciplineById = new Map(disciplines.map((d) => [d.id, d]));
+  const teachingPlans = [...seedPlans, ...(manifest.teachingPlans ?? [])];
+  const visibleDisciplineIds = new Set(
+    disciplines.filter((d) => d.visibility === "visivel").map((d) => d.id),
+  );
+  // Without an explicit setting, the newest period with a visible discipline.
+  const currentPeriod =
+    manifest.settings?.currentPeriod ??
+    Math.max(1, ...disciplines.filter((d) => d.visibility === "visivel").map((d) => d.period));
 
   const visible = books
     .filter((book) => book.visibility === "visivel")
@@ -75,7 +95,10 @@ function build(manifest: CatalogManifest): BuiltCatalog {
         .filter((link) => link.bookId === book.id)
         .flatMap((link) => {
           const discipline = disciplineById.get(link.disciplineId);
-          return discipline ? [{ ...link, discipline }] : [];
+          // A link to a hidden discipline is kept off the class-facing rows.
+          return discipline && visibleDisciplineIds.has(discipline.id)
+            ? [{ ...link, discipline }]
+            : [];
         })
         .sort((a, b) => a.priority - b.priority),
     }));
@@ -86,6 +109,10 @@ function build(manifest: CatalogManifest): BuiltCatalog {
     links,
     bySlug: new Map(visible.map((entry) => [entry.book.slug, entry])),
     byId: new Map(visible.map((entry) => [entry.book.id, entry])),
+    disciplines,
+    disciplineById,
+    teachingPlans,
+    currentPeriod,
   };
 }
 
@@ -115,7 +142,7 @@ export async function getBookById(id: string): Promise<BookWithLinks | undefined
 export async function getAllBooksForAdmin(): Promise<
   readonly (Book & { readonly disciplines: readonly Discipline[] })[]
 > {
-  const { all, links } = await current();
+  const { all, links, disciplineById } = await current();
   return all.map((book) => ({
     ...book,
     disciplines: links
@@ -127,20 +154,53 @@ export async function getAllBooksForAdmin(): Promise<
   }));
 }
 
-export function getDisciplines(): readonly Discipline[] {
-  return disciplines;
+/** Visible disciplines, ordered by period then name. */
+export async function getDisciplines(): Promise<Discipline[]> {
+  return (await current()).disciplines
+    .filter((d) => d.visibility === "visivel")
+    .sort((a, b) => a.period - b.period || a.name.localeCompare(b.name, "pt-BR"));
 }
 
-export function getDisciplineBySlug(slug: string): Discipline | undefined {
-  return disciplines.find((discipline) => discipline.slug === slug);
+/** Every discipline, hidden ones included — for the admin area. */
+export async function getAllDisciplinesForAdmin(): Promise<Discipline[]> {
+  return [...(await current()).disciplines].sort(
+    (a, b) => a.period - b.period || a.name.localeCompare(b.name, "pt-BR"),
+  );
 }
 
-export function getTeachingPlans(): readonly TeachingPlan[] {
-  return teachingPlans;
+export async function getDisciplineBySlug(slug: string): Promise<Discipline | undefined> {
+  return (await current()).disciplines.find((d) => d.slug === slug && d.visibility === "visivel");
 }
 
-export function getTeachingPlanForDiscipline(id: DisciplineId): TeachingPlan | undefined {
-  return teachingPlans.find((plan) => plan.disciplineId === id);
+export async function getCurrentPeriod(): Promise<PeriodNumber> {
+  return (await current()).currentPeriod;
+}
+
+/** Visible disciplines grouped by period, current period first. */
+export async function getDisciplinesByPeriod(): Promise<
+  { period: PeriodNumber; current: boolean; disciplines: Discipline[] }[]
+> {
+  const { currentPeriod } = await current();
+  const groups = new Map<PeriodNumber, Discipline[]>();
+  for (const d of await getDisciplines()) {
+    groups.set(d.period, [...(groups.get(d.period) ?? []), d]);
+  }
+  return [...groups.entries()]
+    .map(([period, disciplines]) => ({ period, current: period === currentPeriod, disciplines }))
+    .sort((a, b) => Number(b.current) - Number(a.current) || b.period - a.period);
+}
+
+export async function getTeachingPlans(): Promise<readonly TeachingPlan[]> {
+  const { teachingPlans, disciplineById } = await current();
+  return teachingPlans.filter(
+    (plan) => disciplineById.get(plan.disciplineId)?.visibility === "visivel",
+  );
+}
+
+export async function getTeachingPlanForDiscipline(
+  id: DisciplineId,
+): Promise<TeachingPlan | undefined> {
+  return (await current()).teachingPlans.find((plan) => plan.disciplineId === id);
 }
 
 /** Every book linked to one discipline, ordered by bibliography weight. */
@@ -264,11 +324,14 @@ export async function getTopics(): Promise<{ topic: string; count: number }[]> {
 }
 
 export async function getStats(): Promise<LibraryStats> {
-  const { visible } = await current();
+  const { visible, disciplines, teachingPlans } = await current();
+  const visibleDisciplines = disciplines.filter((d) => d.visibility === "visivel");
   return {
     books: visible.length,
-    disciplines: disciplines.length,
-    teachingPlans: teachingPlans.length,
+    disciplines: visibleDisciplines.length,
+    teachingPlans: teachingPlans.filter((p) =>
+      visibleDisciplines.some((d) => d.id === p.disciplineId),
+    ).length,
     sharedBooks: visible.filter((entry) => entry.links.length > 1).length,
     pendingReview: visible.filter((entry) => entry.book.provenance.reviewStatus === "pendente")
       .length,
@@ -278,7 +341,7 @@ export async function getStats(): Promise<LibraryStats> {
 
 /** Visible books per discipline, for the discipline cards. */
 export async function getDisciplineBookCounts(): Promise<Map<DisciplineId, number>> {
-  const { visible } = await current();
+  const { visible, disciplines } = await current();
   const counts = new Map<DisciplineId, number>();
   for (const discipline of disciplines) counts.set(discipline.id, 0);
   for (const entry of visible) {
@@ -313,6 +376,7 @@ export function toCatalogEntries(
         shortName: link.discipline.shortName,
         color: link.discipline.color,
         colorSoft: link.discipline.colorSoft,
+        period: link.discipline.period,
       },
     })),
   }));

@@ -1,7 +1,7 @@
 "use client";
 
 import { X } from "lucide-react";
-import type { BibliographyType, DisciplineRef } from "@/lib/domain/types";
+import { periodLabel, type BibliographyType, type DisciplineRef } from "@/lib/domain/types";
 import type { AvailabilityFilter, CatalogFilters } from "@/lib/domain/search";
 import { bibliographyLabels } from "@/components/book/book-badge";
 import { cn } from "@/lib/utils";
@@ -104,17 +104,32 @@ export function FilterPanel({
         ) : null}
       </div>
 
-      <Fieldset legend="Disciplina">
-        {disciplines.map((discipline) => (
-          <CheckboxRow
-            key={discipline.id}
-            id={`f-disc-${discipline.id}`}
-            label={discipline.shortName}
-            swatch={discipline.color}
-            checked={filters.disciplines.includes(discipline.id)}
-            onToggle={() => onChange({ disciplines: toggle(filters.disciplines, discipline.id) })}
-          />
-        ))}
+      <Fieldset legend="Matéria">
+        {[...new Set(disciplines.map((d) => d.period))]
+          .sort((a, b) => b - a)
+          .map((period) => (
+            <div key={period} className="space-y-2">
+              {disciplines.length > 7 ? (
+                <p className="text-ink-faint pt-1 text-[0.7rem] font-medium tracking-[0.1em] uppercase">
+                  {periodLabel(period)}
+                </p>
+              ) : null}
+              {disciplines
+                .filter((d) => d.period === period)
+                .map((discipline) => (
+                  <CheckboxRow
+                    key={discipline.id}
+                    id={`f-disc-${discipline.id}`}
+                    label={discipline.shortName}
+                    swatch={discipline.color}
+                    checked={filters.disciplines.includes(discipline.id)}
+                    onToggle={() =>
+                      onChange({ disciplines: toggle(filters.disciplines, discipline.id) })
+                    }
+                  />
+                ))}
+            </div>
+          ))}
       </Fieldset>
 
       <Fieldset legend="Tipo de bibliografia">

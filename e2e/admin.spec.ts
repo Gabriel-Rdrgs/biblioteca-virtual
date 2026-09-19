@@ -130,3 +130,70 @@ test.describe("admin area", () => {
     await expect(page.getByText("Escolha um arquivo PDF válido.")).toBeVisible();
   });
 });
+
+test.describe("disciplines and periods", () => {
+  test.skip(!ADMIN || !CLASS, "needs ATLAS_SENHA_ADMIN and ATLAS_SENHA_TURMA");
+
+  test("create a 2nd-period discipline with a plan, see it grouped, then delete it", async ({
+    page,
+  }) => {
+    await page.context().clearCookies();
+    await loginAdmin(page);
+    await page.goto("/admin");
+
+    const name = `Matéria de teste ${Date.now()}`;
+    await page.locator("#md-name").fill(name);
+    await page.locator("#md-short").fill(`T${Date.now() % 10000}`);
+    await page.locator("#md-period").selectOption("2");
+    await page.locator("#md-semester").fill("2027.1");
+    await page.locator("#md-desc").fill("Ementa de teste com comprimento suficiente para passar.");
+    await page
+      .locator("#md-syllabus")
+      .fill("Unidade I\nItem um\nItem dois\n\nUnidade II\nItem três");
+    await page.locator("#md-plano-file").setInputFiles({
+      name: "plano-teste.pdf",
+      mimeType: "application/pdf",
+      buffer: tinyPdf(),
+    });
+    await expect(page.getByText(/plano-teste\.pdf .* enviado/)).toBeVisible({ timeout: 20_000 });
+    await page.getByRole("button", { name: "Criar matéria" }).click();
+    await expect(page.getByText("Matéria criada.")).toBeVisible({ timeout: 20_000 });
+
+    // Grouped under its period on the public page.
+    await page.goto("/disciplinas");
+    await expect(page.getByRole("heading", { name: "2º período" })).toBeVisible();
+    const link = page.getByRole("link", { name });
+    await expect(link).toBeVisible();
+    await link.click();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(name);
+    await expect(page.getByRole("heading", { name: "Unidade II" })).toBeVisible();
+    const planHref = await page
+      .getByRole("link", { name: "Ver plano de ensino" })
+      .getAttribute("href");
+    expect(planHref).toMatch(/^\/api\/planos\//);
+    const plan = await page.request.get(planHref ?? "");
+    expect(plan.status()).toBe(200);
+    expect(plan.headers()["content-type"]).toBe("application/pdf");
+
+    // Clean up.
+    await page.goto("/admin");
+    page.once("dialog", (dialog) => dialog.accept());
+    await page
+      .locator("li", { hasText: name })
+      .filter({ has: page.getByRole("button", { name: "Excluir" }) })
+      .first()
+      .getByRole("button", { name: "Excluir" })
+      .click();
+    await expect(page.getByText(`“${name}” excluída.`)).toBeVisible();
+  });
+
+  test("the current period can be changed and drives the home page", async ({ page }) => {
+    await page.context().clearCookies();
+    await loginAdmin(page);
+    await page.goto("/admin");
+    await page.locator("#periodo-atual").selectOption("1");
+    await expect(page.getByText("Período atual: 1º período.")).toBeVisible();
+    await page.goto("/");
+    await expect(page.getByText("Medicina · 1º período · UNIEURO")).toBeVisible();
+  });
+});

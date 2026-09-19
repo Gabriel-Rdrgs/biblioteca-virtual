@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { disciplines } from "@/lib/data/disciplines";
 
 /**
  * Validation for everything the admin area accepts. Inputs are trimmed,
@@ -8,7 +7,6 @@ import { disciplines } from "@/lib/data/disciplines";
  */
 
 export const MAX_FILE_BYTES = 1024 * 1024 * 1024; // 1 GB
-const disciplineIds = disciplines.map((d) => d.id) as [string, ...string[]];
 
 const trimmed = (max: number) => z.string().trim().max(max);
 const optionalText = (max: number) =>
@@ -32,6 +30,7 @@ export const uploadRequestSchema = z.object({
   /** The original file name, only used to derive a safe one. */
   name: trimmed(300).min(1),
   sizeBytes: z.number().int().positive().max(MAX_FILE_BYTES),
+  folder: z.enum(["livros", "planos"]).default("livros"),
 });
 
 export const newBookSchema = z.object({
@@ -43,7 +42,8 @@ export const newBookSchema = z.object({
   edition: optionalText(40),
   isbn: optionalText(30),
   topics: z.array(trimmed(60).min(2)).max(12).default([]),
-  disciplineIds: z.array(z.enum(disciplineIds)).min(1, "Escolha ao menos uma disciplina."),
+  // Existence is checked against the live catalogue when the book is created.
+  disciplineIds: z.array(trimmed(80).min(1)).min(1, "Escolha ao menos uma matéria."),
   bibliographyType: z
     .enum(["basica", "basica_virtual", "complementar", "outras_referencias", "acervo_da_turma"])
     .default("acervo_da_turma"),
@@ -73,4 +73,54 @@ export const attachFileSchema = z.object({
 
 export const visibilitySchema = z.object({
   visibility: z.enum(["visivel", "oculto"]),
+});
+
+const hexColor = z.string().regex(/^#[0-9a-fA-F]{6}$/, "Cor em hexadecimal, ex.: #0f5563.");
+
+export const syllabusUnitSchema = z.object({
+  title: trimmed(120).min(2),
+  items: z.array(trimmed(200).min(2)).max(30),
+});
+
+export const uploadedPlanSchema = uploadedFileSchema.extend({
+  originalName: trimmed(300).min(1),
+});
+
+export const disciplineSchema = z.object({
+  name: trimmed(120).min(3, "Nome muito curto."),
+  shortName: trimmed(20).min(2, "Sigla muito curta."),
+  code: optionalText(30),
+  period: z.number().int().min(1, "Período de 1 a 12.").max(12, "Período de 1 a 12."),
+  semester: z
+    .string()
+    .trim()
+    .regex(/^\d{4}\.[12]$/, "Semestre no formato 2027.1."),
+  workload: optionalText(20),
+  weeklyWorkload: optionalText(20),
+  description: trimmed(2000).min(20, "Ementa muito curta (mínimo 20 caracteres)."),
+  syllabus: z.array(syllabusUnitSchema).max(20).default([]),
+  teachers: z.array(trimmed(120).min(2)).max(20).default([]),
+  notes: z.array(trimmed(300).min(2)).max(10).default([]),
+  color: hexColor,
+  colorSoft: hexColor,
+  motif: z.enum([
+    "anatomia",
+    "histologia",
+    "bioquimica",
+    "semiologia",
+    "humanidades",
+    "saude-coletiva",
+    "metodologia",
+  ]),
+  plan: uploadedPlanSchema.optional(),
+});
+
+export type DisciplineInput = z.infer<typeof disciplineSchema>;
+
+export const disciplinePatchSchema = disciplineSchema.partial().extend({
+  plan: uploadedPlanSchema.nullable().optional(),
+});
+
+export const currentPeriodSchema = z.object({
+  currentPeriod: z.number().int().min(1).max(12),
 });

@@ -47,9 +47,12 @@ export function r2Client(): S3Client {
   return client;
 }
 
-/** Object key for a book file — the same file name used under storage/livros. */
-export function objectKey(fileName: string): string {
-  return `livros/${fileName}`;
+/** Which shelf a file sits on: book PDFs or teaching-plan PDFs. */
+export type StorageFolder = "livros" | "planos";
+
+/** Object key — the same relative path used under storage/ on disk. */
+export function objectKey(fileName: string, folder: StorageFolder = "livros"): string {
+  return `${folder}/${fileName}`;
 }
 
 function contentDisposition(kind: "inline" | "attachment", fileName: string): string {
@@ -64,11 +67,11 @@ function contentDisposition(kind: "inline" | "attachment", fileName: string): st
  */
 export async function signedFileUrl(
   fileName: string,
-  options: { download: boolean; downloadName: string; expiresIn?: number },
+  options: { download: boolean; downloadName: string; expiresIn?: number; folder?: StorageFolder },
 ): Promise<string> {
   const command = new GetObjectCommand({
     Bucket: process.env.R2_BUCKET,
-    Key: objectKey(fileName),
+    Key: objectKey(fileName, options.folder),
     ResponseContentType: "application/pdf",
     ResponseContentDisposition: contentDisposition(
       options.download ? "attachment" : "inline",
@@ -83,18 +86,25 @@ export async function signedFileUrl(
  * its request-size limits. Ten minutes is enough to start a large upload;
  * once started, the transfer keeps going.
  */
-export async function signedUploadUrl(fileName: string, sizeBytes: number): Promise<string> {
+export async function signedUploadUrl(
+  fileName: string,
+  sizeBytes: number,
+  folder: StorageFolder = "livros",
+): Promise<string> {
   const command = new PutObjectCommand({
     Bucket: process.env.R2_BUCKET,
-    Key: objectKey(fileName),
+    Key: objectKey(fileName, folder),
     ContentType: "application/pdf",
     ContentLength: sizeBytes,
   });
   return getSignedUrl(r2Client(), command, { expiresIn: 600 });
 }
 
-export async function deleteObject(fileName: string): Promise<void> {
+export async function deleteObject(
+  fileName: string,
+  folder: StorageFolder = "livros",
+): Promise<void> {
   await r2Client().send(
-    new DeleteObjectCommand({ Bucket: process.env.R2_BUCKET, Key: objectKey(fileName) }),
+    new DeleteObjectCommand({ Bucket: process.env.R2_BUCKET, Key: objectKey(fileName, folder) }),
   );
 }

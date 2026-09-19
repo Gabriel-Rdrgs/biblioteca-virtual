@@ -21,3 +21,4 @@ storage/livros/*
 !storage/livros/README.md
 storage/catalogo.json
 storage/catalogo.json.tmp
+storage/planos/

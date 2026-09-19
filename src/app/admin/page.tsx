@@ -3,9 +3,17 @@ import Link from "next/link";
 import { LogOut } from "lucide-react";
 import { BookTable, type AdminBookRow } from "@/components/admin/book-table";
 import { NewBookForm } from "@/components/admin/new-book-form";
+import { DisciplineForm } from "@/components/admin/discipline-form";
+import { DisciplineTable, type AdminDisciplineRow } from "@/components/admin/discipline-table";
 import { SectionHeading } from "@/components/ui/primitives";
 import { readManifest } from "@/lib/catalog-store";
-import { getAllBooksForAdmin, getDisciplines } from "@/lib/repository";
+import {
+  getAllBooksForAdmin,
+  getAllDisciplinesForAdmin,
+  getCurrentPeriod,
+  getDisciplines,
+  getTeachingPlanForDiscipline,
+} from "@/lib/repository";
 import { storageMode } from "@/lib/storage";
 
 export const metadata: Metadata = {
@@ -21,10 +29,37 @@ const actionLabels: Record<string, string> = {
   arquivo_removido: "PDF removido",
   visibilidade: "Visibilidade alterada",
   registro_excluido: "Registro excluído",
+  materia_criada: "Matéria criada",
+  materia_editada: "Matéria editada",
+  materia_visibilidade: "Matéria ocultada/mostrada",
+  materia_excluida: "Matéria excluída",
+  periodo_atual: "Período atual alterado",
 };
 
 export default async function AdminPage() {
-  const [books, manifest] = await Promise.all([getAllBooksForAdmin(), readManifest()]);
+  const [books, manifest, allDisciplines, currentPeriod] = await Promise.all([
+    getAllBooksForAdmin(),
+    readManifest(),
+    getAllDisciplinesForAdmin(),
+    getCurrentPeriod(),
+  ]);
+  const disciplineRows: AdminDisciplineRow[] = await Promise.all(
+    allDisciplines.map(async (d) => ({
+      id: d.id,
+      slug: d.slug,
+      name: d.name,
+      shortName: d.shortName,
+      period: d.period,
+      semester: d.semester,
+      visibility: d.visibility,
+      origin: d.origin,
+      hasPlan: Boolean(await getTeachingPlanForDiscipline(d.id)),
+      bookCount: books.filter((b) => b.disciplines.some((x) => x.id === d.id)).length,
+    })),
+  );
+  const latestSemester =
+    [...allDisciplines].sort((x, y) => y.semester.localeCompare(x.semester))[0]?.semester ??
+    "2027.1";
 
   const rows: AdminBookRow[] = books.map((book) => ({
     id: book.id,
@@ -39,14 +74,21 @@ export default async function AdminPage() {
     fromPlan: book.provenance.sourceKind === "plano_de_ensino",
   }));
 
-  const disciplines = getDisciplines().map((d) => ({
+  const disciplines = (await getDisciplines()).map((d) => ({
     id: d.id,
     slug: d.slug,
     name: d.name,
     shortName: d.shortName,
     color: d.color,
     colorSoft: d.colorSoft,
+    period: d.period,
   }));
+  // Book form offers the current period's disciplines first.
+  disciplines.sort(
+    (x, y) =>
+      Number(y.period === currentPeriod) - Number(x.period === currentPeriod) ||
+      y.period - x.period,
+  );
 
   const withFile = rows.filter((r) => r.hasFile).length;
   const visible = rows.filter((r) => r.visibility === "visivel").length;
@@ -102,14 +144,29 @@ export default async function AdminPage() {
       <section className="mt-14">
         <SectionHeading
           numeral="II"
-          title="Todos os registros"
+          title="Matérias e períodos"
+          description="Cadastre as matérias de um novo período, oculte as que não interessam e diga em que período a turma está."
+        />
+        <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
+          <div className="glass rounded-3xl p-5 sm:p-6">
+            <h3 className="mb-4 text-sm font-semibold">Nova matéria</h3>
+            <DisciplineForm defaultSemester={latestSemester} />
+          </div>
+          <DisciplineTable rows={disciplineRows} currentPeriod={currentPeriod} />
+        </div>
+      </section>
+
+      <section className="mt-14">
+        <SectionHeading
+          numeral="III"
+          title="Todos os livros"
           description="Livros dos planos de ensino e do acervo da turma. Anexe um PDF a um registro sem arquivo, oculte ou mostre, ou substitua o arquivo."
         />
         <BookTable rows={rows} />
       </section>
 
       <section className="mt-14">
-        <SectionHeading numeral="III" title="Últimas alterações" />
+        <SectionHeading numeral="IV" title="Últimas alterações" />
         {log.length === 0 ? (
           <p className="text-ink-muted text-sm">Nenhuma alteração registrada ainda.</p>
         ) : (

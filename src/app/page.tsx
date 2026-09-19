@@ -5,8 +5,10 @@ import { BookGrid } from "@/components/book/book-grid";
 import { DisciplineCard } from "@/components/discipline/discipline-card";
 import { SectionHeading } from "@/components/ui/primitives";
 import { isAdminRequest } from "@/lib/audience";
+import { periodLabel } from "@/lib/domain/types";
 import {
   getCatalog,
+  getCurrentPeriod,
   getMostAccessed,
   getDisciplineBookCounts,
   getDisciplines,
@@ -21,15 +23,20 @@ export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const admin = await isAdminRequest();
-  const [stats, counts, shared, catalog, core, recent] = await Promise.all([
-    getStats(),
-    getDisciplineBookCounts(),
-    getSharedBooks(),
-    getCatalog(),
-    getMostAccessed(10),
-    getRecentlyAdded(5),
-  ]);
-  const disciplines = getDisciplines();
+  const [stats, counts, shared, catalog, core, recent, currentPeriod, allDisciplines] =
+    await Promise.all([
+      getStats(),
+      getDisciplineBookCounts(),
+      getSharedBooks(),
+      getCatalog(),
+      getMostAccessed(10),
+      getRecentlyAdded(5),
+      getCurrentPeriod(),
+      getDisciplines(),
+    ]);
+  // The home shows where the class is now; earlier periods live one click away.
+  const disciplines = allDisciplines.filter((d) => d.period === currentPeriod);
+  const otherPeriods = allDisciplines.some((d) => d.period !== currentPeriod);
 
   // Five real covers for the shelf — the books the class actually opens.
   const shelf = toCatalogEntries(catalog.filter((entry) => entry.book.file).slice(0, 5), {
@@ -44,7 +51,7 @@ export default async function HomePage() {
       <section className="grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:py-24">
         <div>
           <p className="text-ink-muted text-sm font-medium">
-            Medicina · 1º período · UNIEURO · 2026.2
+            Medicina · {periodLabel(currentPeriod)} · UNIEURO
           </p>
           <h1 className="mt-4 text-[2.75rem] leading-[1.02] font-semibold sm:text-6xl lg:text-[4.25rem]">
             A estante da nossa turma.
@@ -137,8 +144,19 @@ export default async function HomePage() {
       {/* --------------------------------------------------- disciplinas */}
       <section className="py-12">
         <SectionHeading
-          title="Por matéria"
+          title={`Por matéria — ${periodLabel(currentPeriod)}`}
           description="Ementa, conteúdos, livros e o plano de ensino de cada uma."
+          action={
+            otherPeriods ? (
+              <Link
+                href="/disciplinas"
+                className="text-primary inline-flex shrink-0 items-center gap-1.5 text-sm font-medium hover:underline"
+              >
+                Outros períodos
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            ) : undefined
+          }
         />
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {disciplines.map((discipline) => (

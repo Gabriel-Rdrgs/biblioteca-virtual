@@ -6,7 +6,7 @@ import { BookGrid } from "@/components/book/book-grid";
 import { bibliographyLabels } from "@/components/book/book-badge";
 import { Breadcrumbs } from "@/components/ui/primitives";
 import { MotifArtwork, motifPalettes, seedOf } from "@/components/book/cover-motifs";
-import type { BibliographyType } from "@/lib/domain/types";
+import { periodLabel, type BibliographyType } from "@/lib/domain/types";
 import {
   getBooksForDiscipline,
   getDisciplineBySlug,
@@ -21,7 +21,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const discipline = getDisciplineBySlug(slug);
+  const discipline = await getDisciplineBySlug(slug);
   if (!discipline) notFound();
 
   return {
@@ -43,16 +43,16 @@ export const dynamic = "force-dynamic";
 
 export default async function DisciplinePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const discipline = getDisciplineBySlug(slug);
+  const discipline = await getDisciplineBySlug(slug);
   if (!discipline) notFound();
 
-  const all = getDisciplines();
+  const all = await getDisciplines();
   const index = all.findIndex((d) => d.id === discipline.id);
   const previous = index > 0 ? all[index - 1] : all[all.length - 1];
   const next = index < all.length - 1 ? all[index + 1] : all[0];
 
   const books = await getBooksForDiscipline(discipline.id);
-  const plan = getTeachingPlanForDiscipline(discipline.id);
+  const plan = await getTeachingPlanForDiscipline(discipline.id);
   const palette = motifPalettes[discipline.motif];
 
   const grouped = order
@@ -90,7 +90,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium tracking-[0.14em] text-white/75 uppercase">
             <span>{discipline.shortName}</span>
             {discipline.code ? <span>· {discipline.code}</span> : null}
-            <span>· {discipline.period}</span>
+            <span>· {periodLabel(discipline.period)}</span>
             <span>· {discipline.semester}</span>
             {discipline.workload ? <span>· {discipline.workload}</span> : null}
           </div>
@@ -216,7 +216,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
               <dl className="mt-3 space-y-2.5 text-sm">
                 <div className="flex justify-between gap-3">
                   <dt className="text-ink-faint">Período</dt>
-                  <dd className="text-right">{discipline.period}</dd>
+                  <dd className="text-right">{periodLabel(discipline.period)}</dd>
                 </div>
                 <div className="flex justify-between gap-3">
                   <dt className="text-ink-faint">Semestre</dt>

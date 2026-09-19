@@ -14,13 +14,14 @@ export const dynamic = "force-dynamic";
 
 export default async function BooksPage() {
   const entries = toCatalogEntries(await getCatalog());
-  const disciplines = getDisciplines().map((d) => ({
+  const disciplines = (await getDisciplines()).map((d) => ({
     id: d.id,
     slug: d.slug,
     name: d.name,
     shortName: d.shortName,
     color: d.color,
     colorSoft: d.colorSoft,
+    period: d.period,
   }));
 
   return (

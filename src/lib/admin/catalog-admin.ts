@@ -13,9 +13,8 @@ import type {
   DisciplineId,
   Visibility,
 } from "@/lib/domain/types";
-import { mergeCatalog } from "@/lib/repository";
-import { disciplines } from "@/lib/data/disciplines";
-import { deleteObject, objectKey, r2Client, storageMode } from "@/lib/storage";
+import { mergeCatalog, mergeDisciplines } from "@/lib/repository";
+import { deleteObject, objectKey, r2Client, storageMode, type StorageFolder } from "@/lib/storage";
 import type { NewBookInput } from "./schemas";
 
 /**
@@ -24,7 +23,9 @@ import type { NewBookInput } from "./schemas";
  * log entry. Nothing here touches the seed files.
  */
 
-export const LOCAL_STORAGE_DIR = resolve(process.cwd(), "storage", "livros");
+export const LOCAL_STORAGE_ROOT = resolve(process.cwd(), "storage");
+export const LOCAL_STORAGE_DIR = resolve(LOCAL_STORAGE_ROOT, "livros");
+export const localDir = (folder: StorageFolder) => resolve(LOCAL_STORAGE_ROOT, folder);
 
 export class AdminError extends Error {
   constructor(
@@ -46,10 +47,16 @@ export function safeFileName(original: string): string {
  * Reads the first bytes of the stored object and checks the PDF signature —
  * an upload named ".pdf" is not proof of anything.
  */
-async function verifyStoredPdf(fileName: string, expectedSize: number): Promise<void> {
+export async function verifyStoredPdf(
+  fileName: string,
+  expectedSize: number,
+  folder: StorageFolder = "livros",
+): Promise<void> {
   if (storageMode() === "r2") {
     const head = await r2Client()
-      .send(new HeadObjectCommand({ Bucket: process.env.R2_BUCKET, Key: objectKey(fileName) }))
+      .send(
+        new HeadObjectCommand({ Bucket: process.env.R2_BUCKET, Key: objectKey(fileName, folder) }),
+      )
       .catch(() => null);
     if (!head) throw new AdminError("O arquivo não chegou ao storage.", 400);
     if (head.ContentLength !== expectedSize) {
@@ -58,19 +65,19 @@ async function verifyStoredPdf(fileName: string, expectedSize: number): Promise<
     const first = await r2Client().send(
       new GetObjectCommand({
         Bucket: process.env.R2_BUCKET,
-        Key: objectKey(fileName),
+        Key: objectKey(fileName, folder),
         Range: "bytes=0-4",
       }),
     );
     const bytes = await first.Body?.transformToByteArray();
     if (!bytes || Buffer.from(bytes).toString("latin1") !== "%PDF-") {
-      await deleteObject(fileName).catch(() => undefined);
+      await deleteObject(fileName, folder).catch(() => undefined);
       throw new AdminError("O arquivo enviado não é um PDF.", 400);
     }
     return;
   }
 
-  const path = resolve(LOCAL_STORAGE_DIR, basename(fileName));
+  const path = resolve(localDir(folder), basename(fileName));
   let size: number;
   try {
     size = (await stat(path)).size;
@@ -93,12 +100,15 @@ async function verifyStoredPdf(fileName: string, expectedSize: number): Promise<
   }
 }
 
-async function removeStoredFile(fileName: string): Promise<void> {
+export async function removeStoredFile(
+  fileName: string,
+  folder: StorageFolder = "livros",
+): Promise<void> {
   if (storageMode() === "r2") {
-    await deleteObject(fileName).catch(() => undefined);
+    await deleteObject(fileName, folder).catch(() => undefined);
     return;
   }
-  await unlink(resolve(LOCAL_STORAGE_DIR, basename(fileName))).catch(() => undefined);
+  await unlink(resolve(localDir(folder), basename(fileName))).catch(() => undefined);
 }
 
 function today(): string {
@@ -141,6 +151,12 @@ export async function createBook(input: NewBookInput): Promise<Book> {
 
   const manifest = await readManifest();
   const { books: existing } = mergeCatalog(manifest);
+  const disciplines = mergeDisciplines(manifest);
+  for (const disciplineId of input.disciplineIds) {
+    if (!disciplines.some((d) => d.id === disciplineId)) {
+      throw new AdminError(`Matéria desconhecida: ${disciplineId}.`, 400);
+    }
+  }
 
   const baseId = slugify(input.title).slice(0, 80) || "livro";
   let id = baseId;

@@ -36,10 +36,14 @@ export function Uploader({
   onUploaded,
   onReset,
   idPrefix = "up",
+  folder = "livros",
+  label = "Escolher o PDF",
 }: {
   onUploaded: (file: UploadedFile) => void;
   onReset?: () => void;
   idPrefix?: string;
+  folder?: "livros" | "planos";
+  label?: string;
 }) {
   const [state, setState] = useState<
     | { phase: "idle" }
@@ -73,7 +77,7 @@ export function Uploader({
     const ticket = await fetch("/api/admin/upload-url", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: file.name, sizeBytes: file.size }),
+      body: JSON.stringify({ name: file.name, sizeBytes: file.size, folder }),
     });
     if (!ticket.ok) {
       const body = (await ticket.json().catch(() => ({}))) as { error?: string };
@@ -177,7 +181,7 @@ export function Uploader({
         )}
       >
         <FileUp className="text-ink-faint size-6" aria-hidden="true" />
-        <span className="font-medium">Escolher o PDF</span>
+        <span className="font-medium">{label}</span>
         <span className="text-ink-faint text-xs">Até 1 GB. O envio começa na hora.</span>
       </label>
       <input

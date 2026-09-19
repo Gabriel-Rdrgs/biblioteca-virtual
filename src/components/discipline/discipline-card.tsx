@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import type { Discipline } from "@/lib/domain/types";
+import { periodLabel, type Discipline } from "@/lib/domain/types";
 import { MotifArtwork, motifPalettes, seedOf } from "@/components/book/cover-motifs";
 import { cn } from "@/lib/utils";
 
@@ -46,7 +46,8 @@ export function DisciplineCard({
       <div className="flex flex-1 flex-col p-5">
         <div className="text-ink-faint flex items-center gap-2 text-xs">
           <span className="font-medium">{discipline.shortName}</span>
-          {discipline.code ? <span>· {discipline.code}</span> : null}
+          <span>· {periodLabel(discipline.period)}</span>
+          <span>· {discipline.semester}</span>
           {discipline.workload ? <span>· {discipline.workload}</span> : null}
         </div>
 

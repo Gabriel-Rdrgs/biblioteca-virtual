@@ -11,13 +11,13 @@ import { adminErrorResponse } from "../_shared";
  */
 export async function POST(request: NextRequest) {
   try {
-    const { name, sizeBytes } = uploadRequestSchema.parse(await request.json());
+    const { name, sizeBytes, folder } = uploadRequestSchema.parse(await request.json());
     const fileName = safeFileName(name);
 
     if (storageMode() === "r2") {
       return NextResponse.json({
         fileName,
-        url: await signedUploadUrl(fileName, sizeBytes),
+        url: await signedUploadUrl(fileName, sizeBytes, folder),
         method: "PUT",
         direct: true,
       });
@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       fileName,
-      url: `/api/admin/upload/${fileName}`,
+      url: `/api/admin/upload/${fileName}?pasta=${folder}`,
       method: "PUT",
       direct: false,
     });
