@@ -408,6 +408,14 @@ const seeds: BookSeed[] = [
   },
   {
     id: "porto-exame-clinico",
+    file: {
+      path: "porto-exame-clinico.pdf",
+      origin: CLASS_FILE_ORIGIN,
+      authorization: CLASS_FILE_AUTHORIZATION,
+      sizeBytes: 23192246,
+      addedAt: "2026-09-18",
+      note: "O arquivo é a 8ª edição (Guanabara Koogan, 2017, ISBN 978-85-277-3102-7); o plano de ensino cita a edição de 2021.",
+    },
     title: "Exame Clínico",
     authors: ["PORTO, Celmo Celeno"],
     publisher: "Guanabara Koogan",
