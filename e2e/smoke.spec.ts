@@ -93,17 +93,18 @@ test("a class-posted book can be read and downloaded behind the password", async
     maxRedirects: 0,
     headers: { Range: "bytes=0-0" },
   });
-  // A fresh clone has no files in storage/livros; the route must then 404,
-  // never redirect or serve something that is not a PDF.
-  expect([200, 404]).toContain(file.status());
-  if (file.status() === 200) {
+  // A one-byte range answers 206; a fresh clone with no files in
+  // storage/livros answers 404. Never a redirect, never a non-PDF.
+  expect([206, 404]).toContain(file.status());
+  if (file.status() === 206) {
     expect(file.headers()["content-type"]).toBe("application/pdf");
+    expect(file.headers()["content-range"]).toMatch(/^bytes 0-0/d+$/);
   }
 
   await page.getByRole("link", { name: "Ler PDF" }).click();
   await expect(page).toHaveURL(/\/livros\/moore-anatomia-clinica\/ler$/);
   // Page one is drawn by the in-page reader when the file is on disk.
-  if (file.status() === 200) {
+  if (file.status() === 206) {
     await expect(page.locator("canvas").first()).toBeVisible({ timeout: 60_000 });
     await expect(page.getByLabel("Ir para a página")).toHaveValue("1");
   }
