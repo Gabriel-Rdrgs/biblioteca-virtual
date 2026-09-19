@@ -373,6 +373,14 @@ const seeds: BookSeed[] = [
   },
   {
     id: "guyton-hall-fisiologia-medica",
+    file: {
+      path: "guyton-hall-fisiologia-medica.pdf",
+      origin: CLASS_FILE_ORIGIN,
+      authorization: CLASS_FILE_AUTHORIZATION,
+      sizeBytes: 59545852,
+      addedAt: "2026-09-18",
+      note: "O arquivo é a 13ª edição (Elsevier, 2017, ISBN 978-85-352-6285-8); o plano de ensino cita a edição de 2021.",
+    },
     title: "Guyton & Hall: Tratado de Fisiologia Médica",
     authors: ["HALL, John E.", "HALL, Michael E."],
     publisher: "Guanabara Koogan",

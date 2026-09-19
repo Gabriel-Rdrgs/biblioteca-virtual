@@ -1,0 +1,74 @@
+import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+
+/**
+ * Where the class PDFs live.
+ *
+ * - `local`: storage/livros on this machine, streamed by the file route.
+ *   What `npm run dev` and a self-hosted server use.
+ * - `r2`: a private Cloudflare R2 bucket. The app never proxies bytes; after
+ *   the session check it hands out a short-lived signed URL and the browser
+ *   talks to R2 directly, ranges included. Chosen because R2 charges nothing
+ *   for egress, so a class re-reading a 700 MB atlas costs nothing.
+ *
+ * The mode is decided by environment alone, so the same build runs in both.
+ */
+
+export type StorageMode = "local" | "r2";
+
+const REQUIRED = [
+  "R2_ACCOUNT_ID",
+  "R2_ACCESS_KEY_ID",
+  "R2_SECRET_ACCESS_KEY",
+  "R2_BUCKET",
+] as const;
+
+export function storageMode(): StorageMode {
+  return REQUIRED.every((name) => Boolean(process.env[name])) ? "r2" : "local";
+}
+
+let client: S3Client | null = null;
+
+function r2(): S3Client {
+  if (client) return client;
+  client = new S3Client({
+    region: "auto",
+    endpoint: `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
+    credentials: {
+      accessKeyId: process.env.R2_ACCESS_KEY_ID ?? "",
+      secretAccessKey: process.env.R2_SECRET_ACCESS_KEY ?? "",
+    },
+  });
+  return client;
+}
+
+/** Object key for a book file — the same file name used under storage/livros. */
+export function objectKey(fileName: string): string {
+  return `livros/${fileName}`;
+}
+
+function contentDisposition(kind: "inline" | "attachment", fileName: string): string {
+  const ascii = fileName.replace(/[^\x20-\x7e]/g, "_").replace(/"/g, "");
+  return `${kind}; filename="${ascii}"; filename*=UTF-8''${encodeURIComponent(fileName)}`;
+}
+
+/**
+ * A URL the browser can fetch without credentials for `expiresIn` seconds.
+ * Only callable once the session has been verified — that is the whole
+ * point of keeping the bucket private.
+ */
+export async function signedFileUrl(
+  fileName: string,
+  options: { download: boolean; downloadName: string; expiresIn?: number },
+): Promise<string> {
+  const command = new GetObjectCommand({
+    Bucket: process.env.R2_BUCKET,
+    Key: objectKey(fileName),
+    ResponseContentType: "application/pdf",
+    ResponseContentDisposition: contentDisposition(
+      options.download ? "attachment" : "inline",
+      options.downloadName,
+    ),
+  });
+  return getSignedUrl(r2(), command, { expiresIn: options.expiresIn ?? 3600 });
+}

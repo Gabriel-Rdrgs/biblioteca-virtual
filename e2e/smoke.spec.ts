@@ -102,7 +102,8 @@ test("a class-posted book can be read and downloaded behind the password", async
   }
 
   await page.getByRole("link", { name: "Ler PDF" }).click();
-  await expect(page).toHaveURL(/\/livros\/moore-anatomia-clinica\/ler$/);
+  // The reader page renders per request; give a cold server room.
+  await expect(page).toHaveURL(/\/livros\/moore-anatomia-clinica\/ler$/, { timeout: 20_000 });
   // Page one is drawn by the in-page reader when the file is on disk.
   if (file.status() === 206) {
     await expect(page.locator("canvas").first()).toBeVisible({ timeout: 60_000 });

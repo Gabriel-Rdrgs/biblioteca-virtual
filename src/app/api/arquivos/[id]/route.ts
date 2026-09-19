@@ -2,17 +2,19 @@ import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";
 import { basename, resolve } from "node:path";
 import { Readable } from "node:stream";
-import { type NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { getBookById } from "@/lib/repository";
+import { signedFileUrl, storageMode } from "@/lib/storage";
 
 /**
- * Streams a class-posted PDF. The middleware has already checked the session
- * cookie; this route adds the second line of defence — the file must belong
- * to a visible book and resolve inside storage/livros.
+ * Hands out a class-posted PDF. The middleware has already checked the
+ * session cookie; this route adds the second line of defence — the file must
+ * belong to a visible book.
  *
- * Range requests are honoured (206) so the in-page reader can fetch a
- * 100 MB textbook a few hundred kilobytes at a time instead of downloading
- * all of it before showing page one.
+ * With R2 configured it answers a redirect to a short-lived signed URL, so
+ * no PDF bytes ever pass through the app server. Otherwise it streams from
+ * storage/livros, honouring Range requests (206) so the in-page reader can
+ * fetch a 100 MB textbook a few hundred kilobytes at a time.
  */
 
 const STORAGE_DIR = resolve(process.cwd(), "storage", "livros");
@@ -51,6 +53,21 @@ export async function GET(request: NextRequest, context: { params: Promise<{ id:
     return new Response("Arquivo não disponibilizado.", { status: 404 });
   }
 
+  const download = request.nextUrl.searchParams.get("baixar") === "1";
+  const fileName = `${entry.book.slug}.pdf`;
+
+  if (storageMode() === "r2") {
+    const url = await signedFileUrl(file.path, {
+      download,
+      downloadName: fileName,
+      expiresIn: 600,
+    });
+    return NextResponse.redirect(url, {
+      status: 302,
+      headers: { "Cache-Control": "private, no-store" },
+    });
+  }
+
   // Never let a seed value walk out of the storage directory.
   const path = resolve(STORAGE_DIR, basename(file.path));
   if (!path.startsWith(STORAGE_DIR + (process.platform === "win32" ? "\\" : "/"))) {
@@ -64,8 +81,6 @@ export async function GET(request: NextRequest, context: { params: Promise<{ id:
     return new Response("Arquivo registrado, mas não encontrado no servidor.", { status: 404 });
   }
 
-  const download = request.nextUrl.searchParams.get("baixar") === "1";
-  const fileName = `${entry.book.slug}.pdf`;
   const baseHeaders: Record<string, string> = {
     "Content-Type": "application/pdf",
     "Content-Disposition": contentDisposition(download ? "attachment" : "inline", fileName),
