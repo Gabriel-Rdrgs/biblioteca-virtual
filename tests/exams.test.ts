@@ -198,3 +198,71 @@ describe("catálogo de simulados", () => {
     }
   });
 });
+
+describe("duas áreas na mesma unidade curricular", () => {
+  it("counts both banks of MAC I", () => {
+    expect(countAreaQuestions("anatomia")).toEqual({ discursivas: 15, objetivas: 45 });
+    expect(countAreaQuestions("parasitologia")).toEqual({ discursivas: 15, objetivas: 45 });
+    expect(bankQuestions).toHaveLength(120);
+  });
+
+  it("the combined N1 draws from both áreas and reports each separately", () => {
+    const loaded = loadExamBySlug("mac-1-n1-completo");
+    expect(loaded).toBeDefined();
+    expect(loaded!.questions).toHaveLength(30);
+    expect(loaded!.areas.map((a) => a.id).sort()).toEqual(["anatomia", "parasitologia"]);
+
+    const perArea = (id: string) =>
+      loaded!.questions.filter((p) => p.question.areaId === id).length;
+    expect(perArea("anatomia")).toBe(15);
+    expect(perArea("parasitologia")).toBe(15);
+
+    // Discursives still come first, whichever área they belong to.
+    expect(loaded!.questions.slice(0, 8).every((p) => p.question.kind === "discursiva")).toBe(true);
+
+    const result = scoreExam(loaded!, emptyAttempt(loaded!.exam.id));
+    expect(result.areas).toHaveLength(2);
+    expect(result.possible).toBe(30);
+    // All 30 points map onto the real exam's 6,0.
+    expect(result.possible / loaded!.exam.scaleDivisor).toBe(loaded!.exam.scaleMax);
+  });
+
+  it("a perfect attempt at the combined N1 scores 6,0", () => {
+    const loaded = loadExamBySlug("mac-1-n1-completo")!;
+    const choices: Record<string, OptionLetter> = {};
+    const selfMarks: Record<string, Record<string, number>> = {};
+    for (const { question } of loaded.questions) {
+      if (isObjective(question)) choices[question.id] = question.answer;
+      else {
+        selfMarks[question.id] = Object.fromEntries(
+          question.items.map((item) => [item.label, item.points]),
+        );
+      }
+    }
+    const result = scoreExam(loaded, { ...emptyAttempt(loaded.exam.id), choices, selfMarks });
+    expect(result.total).toBe(30);
+    expect(result.scaled).toBe(6);
+    expect(result.areas.every((a) => a.percent === 100)).toBe(true);
+  });
+
+  it("a drill can mix the two áreas", () => {
+    const drill = buildDrill("mac-1", {
+      parts: [
+        { areaId: "anatomia", discursivas: 1, objetivas: 5 },
+        { areaId: "parasitologia", discursivas: 1, objetivas: 5 },
+      ],
+      seed: 11,
+    });
+    expect(drill.questions).toHaveLength(12);
+    expect(drill.areas).toHaveLength(2);
+    expect(drill.questions.filter((p) => p.question.areaId === "anatomia")).toHaveLength(6);
+  });
+
+  it("the Anatomia simulado keeps its own 60 questions and 14 figures", () => {
+    const loaded = loadExamBySlug("mac-1-n1-anatomia")!;
+    expect(loaded.questions).toHaveLength(60);
+    expect(loaded.totalPoints).toBe(60);
+    expect(loaded.figures).toHaveLength(14);
+    expect(loaded.axes).toHaveLength(9);
+  });
+});

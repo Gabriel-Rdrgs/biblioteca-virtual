@@ -32,10 +32,17 @@ async function goToQuestion(page: Page, number: string) {
 test("the simulado is listed with its bank and opens its cover", async ({ page }) => {
   await page.goto("/simulados");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Simulados");
+  // Both áreas of MAC I appear with the size of their bank.
+  await expect(page.getByText("Anatomia clínica").first()).toBeVisible();
   await expect(page.getByText("Parasitologia").first()).toBeVisible();
   await expect(page.getByText("60 questões").first()).toBeVisible();
 
-  await page.getByRole("link", { name: "Abrir" }).first().click();
+  // Three simulados share the page, so pick the one by its own card.
+  await page
+    .locator("li")
+    .filter({ hasText: "Simulado N1 — Parasitologia" })
+    .getByRole("link", { name: "Abrir" })
+    .click();
   await expect(page).toHaveURL(/\/simulados\/mac-1-n1-parasitologia$/);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Simulado N1 — Parasitologia");
   // Cover states the shape of the exam.
