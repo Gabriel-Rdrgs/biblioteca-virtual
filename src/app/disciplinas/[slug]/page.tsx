@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Download, FileText, Users } from "lucide-react";
@@ -7,6 +8,12 @@ import { bibliographyLabels } from "@/components/book/book-badge";
 import { Breadcrumbs } from "@/components/ui/primitives";
 import { MotifArtwork, motifPalettes, seedOf } from "@/components/book/cover-motifs";
 import { periodLabel, type BibliographyType } from "@/lib/domain/types";
+import {
+  assessmentLabel,
+  countdownLabel,
+  formatAssessmentDate,
+} from "@/lib/domain/assessment-types";
+import { getAssessmentsForDiscipline } from "@/lib/repository/assessments";
 import {
   getBooksForDiscipline,
   getDisciplineBySlug,
@@ -53,6 +60,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
 
   const books = await getBooksForDiscipline(discipline.id);
   const plan = await getTeachingPlanForDiscipline(discipline.id);
+  const assessments = (await getAssessmentsForDiscipline(discipline.id)).filter((a) => !a.past);
   const palette = motifPalettes[discipline.motif];
 
   const grouped = order
@@ -142,6 +150,29 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
           ]}
         />
 
+        {assessments.length > 0 ? (
+          <ul className="mb-10 flex flex-wrap gap-3">
+            {assessments.map(({ assessment, daysLeft }) => (
+              <li key={assessment.id}>
+                <Link
+                  href="/calendario"
+                  className="glass hover:glass-strong inline-flex items-center gap-2.5 rounded-full py-2 pr-3 pl-4 text-sm transition-colors"
+                >
+                  <span className="font-semibold">{assessmentLabel(assessment)}</span>
+                  <span className="text-ink-muted">{formatAssessmentDate(assessment.date)}</span>
+                  <span
+                    className={cn(
+                      "rounded-full px-2.5 py-0.5 text-xs font-semibold",
+                      daysLeft <= 7 ? "bg-danger-soft text-danger" : "glass-strong text-ink-muted",
+                    )}
+                  >
+                    {countdownLabel(daysLeft)}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        ) : null}
         <div className="grid gap-10 lg:grid-cols-[1fr_18rem] lg:gap-14">
           <div className="min-w-0">
             <section>

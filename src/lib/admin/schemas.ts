@@ -124,3 +124,28 @@ export const disciplinePatchSchema = disciplineSchema.partial().extend({
 export const currentPeriodSchema = z.object({
   currentPeriod: z.number().int().min(1).max(12),
 });
+
+export const assessmentSchema = z.object({
+  disciplineId: trimmed(80).min(1, "Escolha a matéria."),
+  kind: z.enum(["N1", "N2", "N3", "final", "substitutiva", "treino"]).default("N1"),
+  title: optionalText(80),
+  date: z
+    .string()
+    .trim()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, "Data no formato AAAA-MM-DD."),
+  time: z
+    .string()
+    .trim()
+    .regex(/^([01]\d|2[0-3]):[0-5]\d$/, "Horário no formato HH:MM.")
+    .optional()
+    .or(z.literal("").transform(() => undefined)),
+  room: optionalText(60),
+  weight: optionalText(20),
+  content: z.array(trimmed(200).min(2)).max(30).default([]),
+  examIds: z.array(trimmed(80).min(1)).max(10).default([]),
+  note: optionalText(400),
+});
+
+export type AssessmentInput = z.infer<typeof assessmentSchema>;
+
+export const assessmentPatchSchema = assessmentSchema.partial();

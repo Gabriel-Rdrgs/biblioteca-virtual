@@ -5,8 +5,11 @@ import { BookTable, type AdminBookRow } from "@/components/admin/book-table";
 import { NewBookForm } from "@/components/admin/new-book-form";
 import { DisciplineForm } from "@/components/admin/discipline-form";
 import { DisciplineTable, type AdminDisciplineRow } from "@/components/admin/discipline-table";
+import { AssessmentManager } from "@/components/admin/assessment-manager";
 import { SectionHeading } from "@/components/ui/primitives";
 import { readManifest } from "@/lib/catalog-store";
+import { getAllAssessmentsForAdmin } from "@/lib/repository/assessments";
+import { getExams } from "@/lib/repository/exams";
 import {
   getAllBooksForAdmin,
   getAllDisciplinesForAdmin,
@@ -34,6 +37,9 @@ const actionLabels: Record<string, string> = {
   materia_visibilidade: "Matéria ocultada/mostrada",
   materia_excluida: "Matéria excluída",
   periodo_atual: "Período atual alterado",
+  prova_criada: "Data de prova cadastrada",
+  prova_editada: "Data de prova editada",
+  prova_excluida: "Data de prova excluída",
 };
 
 export default async function AdminPage() {
@@ -57,6 +63,12 @@ export default async function AdminPage() {
       bookCount: books.filter((b) => b.disciplines.some((x) => x.id === d.id)).length,
     })),
   );
+  const assessments = await getAllAssessmentsForAdmin();
+  const examOptions = getExams().map((exam) => ({
+    id: exam.id,
+    title: exam.title,
+    disciplineId: exam.disciplineId,
+  }));
   const latestSemester =
     [...allDisciplines].sort((x, y) => y.semester.localeCompare(x.semester))[0]?.semester ??
     "2027.1";
@@ -159,6 +171,21 @@ export default async function AdminPage() {
       <section className="mt-14">
         <SectionHeading
           numeral="III"
+          title="Calendário de provas"
+          description="As datas não vêm do plano de ensino e mudam no semestre: são as únicas informações da biblioteca que só uma pessoa pode preencher."
+        />
+        <AssessmentManager
+          assessments={assessments}
+          disciplines={allDisciplines
+            .filter((d) => d.visibility === "visivel")
+            .map((d) => ({ id: d.id, name: d.name }))}
+          exams={examOptions}
+        />
+      </section>
+
+      <section className="mt-14">
+        <SectionHeading
+          numeral="IV"
           title="Todos os livros"
           description="Livros dos planos de ensino e do acervo da turma. Anexe um PDF a um registro sem arquivo, oculte ou mostre, ou substitua o arquivo."
         />
@@ -166,7 +193,7 @@ export default async function AdminPage() {
       </section>
 
       <section className="mt-14">
-        <SectionHeading numeral="IV" title="Últimas alterações" />
+        <SectionHeading numeral="V" title="Últimas alterações" />
         {log.length === 0 ? (
           <p className="text-ink-muted text-sm">Nenhuma alteração registrada ainda.</p>
         ) : (

@@ -1,10 +1,12 @@
 import Link from "next/link";
-import { ArrowRight, PencilRuler, Search } from "lucide-react";
+import { ArrowRight, CalendarDays, PencilRuler, Search } from "lucide-react";
 import { BookCover } from "@/components/book/book-cover";
 import { BookGrid } from "@/components/book/book-grid";
 import { DisciplineCard } from "@/components/discipline/discipline-card";
 import { SectionHeading } from "@/components/ui/primitives";
 import { isAdminRequest } from "@/lib/audience";
+import { countdownLabel, formatAssessmentDate } from "@/lib/domain/assessment-types";
+import { getUpcomingAssessments } from "@/lib/repository/assessments";
 import { periodLabel } from "@/lib/domain/types";
 import {
   getCatalog,
@@ -34,6 +36,7 @@ export default async function HomePage() {
       getCurrentPeriod(),
       getDisciplines(),
     ]);
+  const [next] = await getUpcomingAssessments(1);
   // The home shows where the class is now; earlier periods live one click away.
   const disciplines = allDisciplines.filter((d) => d.period === currentPeriod);
   const otherPeriods = allDisciplines.some((d) => d.period !== currentPeriod);
@@ -122,6 +125,37 @@ export default async function HomePage() {
           })}
         </div>
       </section>
+
+      {/* ------------------------------------------------------ próxima prova */}
+      {next ? (
+        <section className="pb-4">
+          <Link
+            href="/calendario"
+            className="glass hover:glass-strong flex flex-wrap items-center gap-x-6 gap-y-3 rounded-3xl p-5 transition-colors sm:p-6"
+          >
+            <CalendarDays className="text-primary size-7 shrink-0" aria-hidden="true" />
+            <div className="min-w-0 flex-1">
+              <p className="text-ink-faint text-xs tracking-[0.1em] uppercase">Próxima prova</p>
+              <p className="mt-1 font-semibold">
+                {next.assessment.title ?? next.assessment.kind} de{" "}
+                {allDisciplines.find((d) => d.id === next.assessment.disciplineId)?.shortName ??
+                  "—"}{" "}
+                <span className="text-ink-muted font-normal">
+                  · {formatAssessmentDate(next.assessment.date)}
+                  {next.assessment.time ? `, ${next.assessment.time}` : ""}
+                </span>
+              </p>
+            </div>
+            <span
+              className={`rounded-full px-3 py-1 text-sm font-semibold ${
+                next.daysLeft <= 7 ? "bg-danger-soft text-danger" : "glass-strong text-ink-muted"
+              }`}
+            >
+              {countdownLabel(next.daysLeft)}
+            </span>
+          </Link>
+        </section>
+      ) : null}
 
       {/* ------------------------------------------------------ simulados */}
       <section className="pb-4">

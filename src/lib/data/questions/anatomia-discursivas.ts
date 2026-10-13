@@ -339,7 +339,8 @@ export const anatomiaDiscursivas: BankQuestion[] = [
       {
         label: "b",
         points: 0.5,
-        prompt: "Defina escoliose, hipercifose e hiperlordose e relacione cada uma à pessoa correspondente.",
+        prompt:
+          "Defina escoliose, hipercifose e hiperlordose e relacione cada uma à pessoa correspondente.",
         expected: [
           "Escoliose: curvatura lateral anormal com rotação das vértebras; a rotação produz a saliência costal na flexão do tronco. É o caso da adolescente (I).",
           "Hipercifose: aumento da curvatura torácica, por colapso anterior dos corpos vertebrais na osteoporose. É o caso da avó (II).",

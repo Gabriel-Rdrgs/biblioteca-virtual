@@ -196,7 +196,8 @@ export const anatomiaObjetivas: BankQuestion[] = [
       d: "frontal, zigomático e maxila.",
     },
     answer: "d",
-    explanation: "1 é o frontal, 5 o zigomático e 7 a maxila. O temporal é o 10 e a mandíbula, o 9.",
+    explanation:
+      "1 é o frontal, 5 o zigomático e 7 a maxila. O temporal é o 10 e a mandíbula, o 9.",
   },
   {
     kind: "objetiva",
@@ -800,7 +801,8 @@ export const anatomiaObjetivas: BankQuestion[] = [
     topic: "Parede abdominal",
     points: 1,
     stem: "Um adolescente de 14 anos chega com dor testicular súbita e intensa. Ao estimular a pele da face medial da coxa, o médico observa que o testículo do lado doloroso não se eleva (reflexo cremastérico ausente), o que reforça a suspeita de torção testicular.",
-    command: "O músculo cremaster deriva de fibras do músculo e é inervado pelo nervo indicados em:",
+    command:
+      "O músculo cremaster deriva de fibras do músculo e é inervado pelo nervo indicados em:",
     options: {
       a: "oblíquo externo; nervo ilioinguinal.",
       b: "transverso do abdome; nervo pudendo.",

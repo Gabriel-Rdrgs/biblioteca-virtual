@@ -1,4 +1,5 @@
-import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
+import { randomBytes } from "node:crypto";
+import { mkdir, readFile, rename, unlink, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { GetObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
 import { emptyManifest, type CatalogManifest } from "@/lib/domain/types";
@@ -36,6 +37,7 @@ function parse(raw: string): CatalogManifest {
     disciplines: m.disciplines ?? [],
     disciplineOverrides: m.disciplineOverrides ?? {},
     teachingPlans: m.teachingPlans ?? [],
+    assessments: m.assessments ?? [],
     settings: m.settings ?? {},
   };
 }
@@ -86,22 +88,45 @@ export async function writeManifest(manifest: CatalogManifest): Promise<void> {
     );
   } else {
     // Write-then-rename so a crash mid-write never leaves a half file.
+    // The temporary name carries a random suffix: two writes landing at
+    // once must not fight over the same path, or one renames the other's
+    // file away and the second rename fails.
     await mkdir(dirname(LOCAL_PATH), { recursive: true });
-    const tmp = `${LOCAL_PATH}.tmp`;
-    await writeFile(tmp, body, "utf8");
-    await rename(tmp, LOCAL_PATH);
+    const tmp = `${LOCAL_PATH}.${randomBytes(4).toString("hex")}.tmp`;
+    try {
+      await writeFile(tmp, body, "utf8");
+      await rename(tmp, LOCAL_PATH);
+    } catch (error) {
+      await unlink(tmp).catch(() => undefined);
+      throw error;
+    }
   }
 
   cache = { manifest, loadedAt: Date.now() };
 }
 
-/** Read-modify-write. One admin at a time is the assumption here. */
+/**
+ * Serialises read-modify-write.
+ *
+ * Two admin actions can arrive at once — hiding a book while a discipline
+ * is being saved, say. Without this queue both would read the same
+ * manifest and the second write would silently drop the first one's
+ * change. Each update waits for the one before it, so every mutation sees
+ * the result of its predecessor.
+ */
+let queue: Promise<unknown> = Promise.resolve();
+
 export async function updateManifest(
   mutate: (current: CatalogManifest) => CatalogManifest,
 ): Promise<CatalogManifest> {
-  const next = mutate(await load());
-  await writeManifest(next);
-  return next;
+  const run = queue.then(async () => {
+    const next = mutate(await load());
+    await writeManifest(next);
+    return next;
+  });
+  // Keep the chain alive even when this update fails.
+  queue = run.catch(() => undefined);
+  return run;
 }
 
 /** Test hook: forget the cached manifest. */

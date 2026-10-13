@@ -1,3 +1,5 @@
+import type { Assessment } from "./assessment-types";
+
 /**
  * Domain model for Atlas.
  *
@@ -223,7 +225,10 @@ export interface CatalogLogEntry {
     | "materia_editada"
     | "materia_visibilidade"
     | "materia_excluida"
-    | "periodo_atual";
+    | "periodo_atual"
+    | "prova_criada"
+    | "prova_editada"
+    | "prova_excluida";
   readonly bookId: BookId;
   readonly detail?: string;
 }
@@ -257,6 +262,8 @@ export interface CatalogManifest {
     Record<DisciplineId, Partial<Omit<Discipline, "id" | "slug" | "origin">>>
   >;
   readonly teachingPlans?: readonly TeachingPlan[];
+  /** Dates of the term's assessments, entered by the admin. */
+  readonly assessments?: readonly Assessment[];
   readonly settings?: LibrarySettings;
 }
 
@@ -270,5 +277,6 @@ export const emptyManifest: CatalogManifest = {
   disciplines: [],
   disciplineOverrides: {},
   teachingPlans: [],
+  assessments: [],
   settings: {},
 };
