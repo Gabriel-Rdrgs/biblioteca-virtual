@@ -47,8 +47,8 @@ export function r2Client(): S3Client {
   return client;
 }
 
-/** Which shelf a file sits on: book PDFs or teaching-plan PDFs. */
-export type StorageFolder = "livros" | "planos";
+/** Which shelf a file sits on. */
+export type StorageFolder = "livros" | "planos" | "simulados";
 
 /** Object key — the same relative path used under storage/ on disk. */
 export function objectKey(fileName: string, folder: StorageFolder = "livros"): string {
@@ -67,12 +67,18 @@ function contentDisposition(kind: "inline" | "attachment", fileName: string): st
  */
 export async function signedFileUrl(
   fileName: string,
-  options: { download: boolean; downloadName: string; expiresIn?: number; folder?: StorageFolder },
+  options: {
+    download: boolean;
+    downloadName: string;
+    expiresIn?: number;
+    folder?: StorageFolder;
+    contentType?: string;
+  },
 ): Promise<string> {
   const command = new GetObjectCommand({
     Bucket: process.env.R2_BUCKET,
     Key: objectKey(fileName, options.folder),
-    ResponseContentType: "application/pdf",
+    ResponseContentType: options.contentType ?? "application/pdf",
     ResponseContentDisposition: contentDisposition(
       options.download ? "attachment" : "inline",
       options.downloadName,

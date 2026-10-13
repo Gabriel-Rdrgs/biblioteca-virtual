@@ -31,6 +31,8 @@ async function loginAdmin(page: Page) {
   expect(response.status()).toBe(303);
 }
 
+test.describe.configure({ mode: "serial" });
+
 test.describe("admin area", () => {
   test.skip(!ADMIN || !CLASS, "needs ATLAS_SENHA_ADMIN and ATLAS_SENHA_TURMA");
 

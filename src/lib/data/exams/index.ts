@@ -32,6 +32,7 @@ export const macParasitologiaN1: Exam = {
   scaleMax: 6,
   scaleDivisor: 10,
   questionIds: [...emOrdem(parasitologiaDiscursivas), ...emOrdem(parasitologiaObjetivas)],
+  pdfPath: "mac-1-n1-parasitologia.pdf",
   note: "A N1 real de MAC I também cobra Anatomia, que não entra neste simulado.",
   visibility: "visivel",
   origin: "seed",

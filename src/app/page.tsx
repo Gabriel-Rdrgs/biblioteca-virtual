@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Search } from "lucide-react";
+import { ArrowRight, PencilRuler, Search } from "lucide-react";
 import { BookCover } from "@/components/book/book-cover";
 import { BookGrid } from "@/components/book/book-grid";
 import { DisciplineCard } from "@/components/discipline/discipline-card";
@@ -120,6 +120,27 @@ export default async function HomePage() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------ simulados */}
+      <section className="pb-4">
+        <div className="glass flex flex-wrap items-center gap-x-6 gap-y-4 rounded-3xl p-6 sm:p-8">
+          <PencilRuler className="text-primary size-8 shrink-0" aria-hidden="true" />
+          <div className="min-w-0 flex-1">
+            <h2 className="text-xl font-semibold">Simulados que se corrigem sozinhos</h2>
+            <p className="text-ink-muted mt-1 max-w-xl text-sm leading-relaxed text-pretty">
+              Prova de treino no formato da avaliação. Você responde, ela corrige na hora e mostra
+              em qual assunto você está fraco — e qual capítulo abrir por causa disso.
+            </p>
+          </div>
+          <Link
+            href="/simulados"
+            className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors"
+          >
+            Treinar
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
         </div>
       </section>
 

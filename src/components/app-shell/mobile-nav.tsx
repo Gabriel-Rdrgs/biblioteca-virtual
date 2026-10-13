@@ -9,7 +9,7 @@ const items = [
   { href: "/", label: "Início", icon: Home, exact: true },
   { href: "/livros", label: "Estante", icon: BookMarked, exact: false },
   { href: "/disciplinas", label: "Matérias", icon: Layers, exact: false },
-  { href: "/planos-de-ensino", label: "Planos", icon: FileText, exact: false },
+  { href: "/simulados", label: "Simulados", icon: FileText, exact: false },
   { href: "/busca", label: "Buscar", icon: Search, exact: false },
 ] as const;
 
