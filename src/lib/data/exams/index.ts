@@ -1,6 +1,10 @@
 import type { Exam } from "@/lib/domain/exam-types";
+import { aesDiscursivas } from "../questions/aes-2-discursivas";
+import { aesObjetivas } from "../questions/aes-2-objetivas";
 import { anatomiaDiscursivas } from "../questions/anatomia-discursivas";
 import { anatomiaObjetivas } from "../questions/anatomia-objetivas";
+import { icDiscursivas } from "../questions/ic-1-discursivas";
+import { icObjetivas } from "../questions/ic-1-objetivas";
 import { parasitologiaDiscursivas } from "../questions/parasitologia-discursivas";
 import { parasitologiaObjetivas } from "../questions/parasitologia-objetivas";
 
@@ -107,4 +111,73 @@ export const macCompletoN1: Exam = {
   addedAt: "2026-10-13",
 };
 
-export const seedExams: readonly Exam[] = [macCompletoN1, macAnatomiaN1, macParasitologiaN1];
+/**
+ * Iniciação Científica I. A nota da N1 soma a avaliação formativa (peso 1)
+ * e a prova escrita (peso 2); o simulado cobre a prova escrita, e a escala
+ * vai a 10 — por isso os 60 pontos são divididos por 6.
+ */
+export const icN1: Exam = {
+  id: "ic-1-n1",
+  slug: "ic-1-n1",
+  disciplineId: "ic-1",
+  title: "Simulado N1 — Iniciação Científica",
+  subtitle: "Sessenta questões no formato da avaliação",
+  assessment: "N1",
+  semester: "2026.2",
+  description:
+    "Casos, figuras numeradas, análise de afirmações e discursivas divididas em itens, no formato da N1. Conteúdo das semanas 1 a 9 do cronograma.",
+  instructions: [
+    "Faça sem consulta. Tempo sugerido: 4 horas (cerca de 1h45 para as discursivas e 2h15 para as objetivas).",
+    "Nas objetivas há apenas uma alternativa correta.",
+    "Nas discursivas, responda com conceito, exemplo do caso e justificativa, no vocabulário técnico da disciplina.",
+    "Nas figuras numeradas, identifique cada elemento pelo número antes de responder.",
+  ],
+  suggestedMinutes: 240,
+  scaleMax: 10,
+  scaleDivisor: 6,
+  questionIds: [...ids(icDiscursivas), ...ids(icObjetivas)],
+  pdfPath: "ic-1-n1.pdf",
+  note: "Humanidades Médicas tem prova própria e não entra neste simulado.",
+  visibility: "visivel",
+  origin: "seed",
+  addedAt: "2026-10-13",
+};
+
+/**
+ * AES 2 — Crescimento e Diferenciação Celular. A prova vale 8,0 na nota da
+ * unidade, então os 60 pontos são divididos por 7,5.
+ */
+export const aesN1: Exam = {
+  id: "aes-2-n1",
+  slug: "aes-2-n1",
+  disciplineId: "aes-2",
+  title: "Simulado N1 — Crescimento e diferenciação celular",
+  subtitle: "Sessenta questões no formato da avaliação",
+  assessment: "N1",
+  semester: "2026.2",
+  description:
+    "Casos clínicos, análise de afirmações e discursivas divididas em itens, do genoma à morte celular, no formato da avaliação somativa tutorial.",
+  instructions: [
+    "Faça sem consulta. Tempo sugerido: 4 horas (cerca de 1h30 para as discursivas e 2h30 para as objetivas).",
+    "Nas objetivas há apenas uma alternativa correta.",
+    "Nas discursivas, responda com mecanismo, vocabulário técnico e relação com o caso. Na prova o limite é de 5 linhas: treine dizer o essencial primeiro.",
+    "A interpretação do enunciado faz parte da avaliação: leia o caso, identifique o comando e só então vá às alternativas.",
+  ],
+  suggestedMinutes: 240,
+  scaleMax: 8,
+  scaleDivisor: 7.5,
+  questionIds: [...ids(aesDiscursivas), ...ids(aesObjetivas)],
+  pdfPath: "aes-2-n1.pdf",
+  note: "O código genético, anexo no caderno impresso, aparece aqui junto da questão que manda consultá-lo.",
+  visibility: "visivel",
+  origin: "seed",
+  addedAt: "2026-10-13",
+};
+
+export const seedExams: readonly Exam[] = [
+  macCompletoN1,
+  macAnatomiaN1,
+  macParasitologiaN1,
+  icN1,
+  aesN1,
+];

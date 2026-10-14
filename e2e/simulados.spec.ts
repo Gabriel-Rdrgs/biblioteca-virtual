@@ -156,3 +156,45 @@ test("the result points at the chapter that fixes the weak axis", async ({ page 
   await expect(page).toHaveURL(/\/livros\/parasitologia-contemporanea\/ler\?pagina=751$/);
   await expect(page.getByLabel("Ir para a página")).toHaveValue("751", { timeout: 60_000 });
 });
+
+test("IC I e AES 2 têm caderno próprio, cada um com seus eixos", async ({ page }) => {
+  await page.goto("/simulados");
+  await expect(page.getByText("240 questões no banco da turma")).toBeVisible();
+
+  const ic = page.locator("li", { hasText: "Simulado N1 — Iniciação Científica" }).last();
+  await expect(ic).toContainText("Questões:");
+  await expect(ic).toContainText("Eixos:");
+  const liso = (t: string) => t.replace(/\s+/g, " ");
+  expect(liso(await ic.innerText())).toContain("Questões: 60");
+  expect(liso(await ic.innerText())).toContain("Eixos: 8");
+
+  const aes = page
+    .locator("li", { hasText: "Simulado N1 — Crescimento e diferenciação celular" })
+    .last();
+  expect(liso(await aes.innerText())).toContain("Eixos: 7");
+});
+
+test("as figuras desenhadas para o caderno de IC chegam ao navegador", async ({ page }) => {
+  // Doze figuras, todas SVG servidas pela mesma rota protegida dos livros.
+  for (const file of ["ic-fig-01.svg", "ic-fig-12.svg", "aes-fig-01.svg"]) {
+    const response = await page.request.get(`/api/simulados/${file}`);
+    expect(response.status(), file).toBe(200);
+    expect(response.headers()["content-type"], file).toContain("image/svg+xml");
+  }
+
+  await page.goto("/simulados/ic-1-n1/fazer");
+  await page.getByRole("button", { name: /próxima/i }).click();
+  const figura = page.getByRole("img", { name: /etapas de uma investigação/i });
+  await expect(figura).toBeVisible();
+  // Desenhou de verdade, e não como ícone quebrado.
+  await expect
+    .poll(() => figura.evaluate((img: HTMLImageElement) => img.naturalWidth))
+    .toBeGreaterThan(100);
+});
+
+test("o código genético fica junto da questão que manda consultá-lo", async ({ page }) => {
+  await page.goto("/simulados/aes-2-n1/fazer");
+  await goToQuestion(page, "28");
+  await expect(page.getByText(/converte, no RNAm, o códon CAG em UAG/)).toBeVisible();
+  await expect(page.getByRole("img", { name: /código genético/i })).toBeVisible();
+});

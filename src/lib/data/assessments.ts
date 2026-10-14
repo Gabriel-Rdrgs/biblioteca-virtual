@@ -262,7 +262,7 @@ export const seedAssessments: readonly Assessment[] = [
     content: [
       "Da importância da pesquisa científica até currículo Lattes e ORCID: tipos de pesquisa, pirâmide de evidências, busca de dados, viés e ética em pesquisa.",
     ],
-    examIds: [],
+    examIds: ["ic-1-n1"],
     source: plano("IC I", 4),
   },
   {
@@ -407,7 +407,7 @@ export const seedAssessments: readonly Assessment[] = [
     content: [
       "Problemas 1 a 4: genoma, funcionamento do material genético, regulação da expressão gênica e diferenciação celular.",
     ],
-    examIds: [],
+    examIds: ["aes-2-n1"],
     source: plano("AES 2", 9),
   },
   {
@@ -432,8 +432,8 @@ export const seedAssessments: readonly Assessment[] = [
       "Problemas 5 a 8: mutação e reparo do DNA, alterações cromossômicas e padrões de herança.",
       "E também os problemas 1 a 4, cobrados na N1: o plano determina conteúdo acumulativo, porque “os conteúdos estão vinculados”.",
     ],
-    examIds: [],
-    note: "Conteúdo acumulativo conforme o plano de ensino de AES 2, p. 8.",
+    examIds: ["aes-2-n1"],
+    note: "Conteúdo acumulativo conforme o plano de ensino de AES 2, p. 8. O simulado da N1 continua valendo para os problemas 1 a 4.",
     source: plano("AES 2", 9),
   },
   {

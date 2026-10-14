@@ -15,6 +15,7 @@ const STORAGE_DIR = resolve(process.cwd(), "storage", "simulados");
 
 const TYPES: Record<string, string> = {
   ".png": "image/png",
+  ".svg": "image/svg+xml",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".pdf": "application/pdf",

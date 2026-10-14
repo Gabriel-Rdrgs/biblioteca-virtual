@@ -15,7 +15,8 @@
     "test:watch": "vitest",
     "e2e": "playwright test",
     "extract:planos": "node tools/extract-plan-text.mjs",
-    "upload:storage": "node --env-file=.env.local tools/upload-storage.mjs"
+    "upload:storage": "node --env-file=.env.local tools/upload-storage.mjs",
+    "draw:figuras": "node tools/draw-figuras.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1136.0",

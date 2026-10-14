@@ -203,7 +203,14 @@ describe("duas áreas na mesma unidade curricular", () => {
   it("counts both banks of MAC I", () => {
     expect(countAreaQuestions("anatomia")).toEqual({ discursivas: 15, objetivas: 45 });
     expect(countAreaQuestions("parasitologia")).toEqual({ discursivas: 15, objetivas: 45 });
-    expect(bankQuestions).toHaveLength(120);
+  });
+
+  it("counts the banks of IC I and AES 2", () => {
+    expect(countAreaQuestions("iniciacao-cientifica")).toEqual({ discursivas: 15, objetivas: 45 });
+    expect(countAreaQuestions("biologia-celular")).toEqual({ discursivas: 15, objetivas: 45 });
+    // Quatro áreas de 60 — nenhuma questão duplicada entre elas.
+    expect(bankQuestions).toHaveLength(240);
+    expect(new Set(bankQuestions.map((q) => q.id)).size).toBe(240);
   });
 
   it("the combined N1 draws from both áreas and reports each separately", () => {
@@ -285,5 +292,57 @@ describe("identidade de um treino", () => {
     const a = buildDrill("mac-1", { ...base, onlyIds: ["paras-o16", "paras-o17"] });
     const b = buildDrill("mac-1", { ...base, onlyIds: ["paras-o16", "paras-o18"] });
     expect(a.exam.id).not.toBe(b.exam.id);
+  });
+});
+
+describe("os simulados de IC I e AES 2", () => {
+  it("monta cada caderno com as 60 questões da sua área", () => {
+    for (const [slug, areaId, scaleMax, divisor] of [
+      ["ic-1-n1", "iniciacao-cientifica", 10, 6],
+      ["aes-2-n1", "biologia-celular", 8, 7.5],
+    ] as const) {
+      const loaded = loadExamBySlug(slug);
+      expect(loaded, slug).toBeDefined();
+      expect(loaded!.questions, slug).toHaveLength(60);
+      expect(loaded!.totalPoints, slug).toBe(60);
+      expect(
+        loaded!.areas.map((a) => a.id),
+        slug,
+      ).toEqual([areaId]);
+      // A escala de cada unidade é diferente: 60 pontos não valem o mesmo.
+      expect(loaded!.exam.scaleMax, slug).toBe(scaleMax);
+      expect(loaded!.exam.scaleDivisor, slug).toBe(divisor);
+      // Discursivas primeiro, como no caderno impresso.
+      expect(loaded!.questions.slice(0, 15).every((p) => p.question.kind === "discursiva")).toBe(
+        true,
+      );
+      expect(loaded!.questions.slice(15).every((p) => p.question.kind === "objetiva")).toBe(true);
+    }
+  });
+
+  it("aponta cada figura citada para uma figura que existe", () => {
+    for (const slug of ["ic-1-n1", "aes-2-n1"]) {
+      const loaded = loadExamBySlug(slug)!;
+      const have = new Set(loaded.figures.map((f) => f.id));
+      for (const placed of loaded.questions) {
+        if (placed.question.figureId) {
+          expect(have.has(placed.question.figureId), `${slug} ${placed.question.id}`).toBe(true);
+        }
+      }
+    }
+    // As doze figuras do caderno de IC são todas usadas.
+    const ic = loadExamBySlug("ic-1-n1")!;
+    const usadas = new Set(ic.questions.map((p) => p.question.figureId).filter(Boolean));
+    expect(usadas.size).toBe(12);
+  });
+
+  it("cobre todos os eixos declarados pela área", () => {
+    for (const slug of ["ic-1-n1", "aes-2-n1"]) {
+      const loaded = loadExamBySlug(slug)!;
+      const cobertos = new Set(loaded.questions.map((p) => p.question.axisId));
+      for (const axis of loaded.axes) {
+        expect(cobertos.has(axis.id), `${slug} ${axis.id}`).toBe(true);
+      }
+    }
   });
 });
