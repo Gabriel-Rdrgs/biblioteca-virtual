@@ -262,8 +262,10 @@ export interface CatalogManifest {
     Record<DisciplineId, Partial<Omit<Discipline, "id" | "slug" | "origin">>>
   >;
   readonly teachingPlans?: readonly TeachingPlan[];
-  /** Dates of the term's assessments, entered by the admin. */
+  /** Dates the admin added on top of the ones in the teaching plans. */
   readonly assessments?: readonly Assessment[];
+  /** Corrections applied over a date that came from a plan. */
+  readonly assessmentOverrides?: Readonly<Record<string, Partial<Assessment>>>;
   readonly settings?: LibrarySettings;
 }
 
@@ -278,5 +280,6 @@ export const emptyManifest: CatalogManifest = {
   disciplineOverrides: {},
   teachingPlans: [],
   assessments: [],
+  assessmentOverrides: {},
   settings: {},
 };

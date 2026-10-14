@@ -12,6 +12,7 @@ import {
   assessmentLabel,
   countdownLabel,
   formatAssessmentDate,
+  isExam,
 } from "@/lib/domain/assessment-types";
 import { getAssessmentsForDiscipline } from "@/lib/repository/assessments";
 import {
@@ -60,7 +61,11 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
 
   const books = await getBooksForDiscipline(discipline.id);
   const plan = await getTeachingPlanForDiscipline(discipline.id);
-  const assessments = (await getAssessmentsForDiscipline(discipline.id)).filter((a) => !a.past);
+  // The next three dates that are ahead; a whole term of them would
+  // bury the ementa under a wall of chips.
+  const assessments = (await getAssessmentsForDiscipline(discipline.id))
+    .filter((a) => !a.past)
+    .slice(0, 3);
   const palette = motifPalettes[discipline.motif];
 
   const grouped = order
@@ -163,7 +168,9 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
                   <span
                     className={cn(
                       "rounded-full px-2.5 py-0.5 text-xs font-semibold",
-                      daysLeft <= 7 ? "bg-danger-soft text-danger" : "glass-strong text-ink-muted",
+                      daysLeft <= 7 && isExam(assessment)
+                        ? "bg-danger-soft text-danger"
+                        : "glass-strong text-ink-muted",
                     )}
                   >
                     {countdownLabel(daysLeft)}

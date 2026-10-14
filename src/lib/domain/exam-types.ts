@@ -20,8 +20,14 @@ export type ExamId = string;
 export type OptionLetter = "a" | "b" | "c" | "d";
 export const optionLetters: readonly OptionLetter[] = ["a", "b", "c", "d"];
 
-/** Which assessment of the term a simulado rehearses. */
-export type AssessmentKind = "N1" | "N2" | "N3" | "final" | "substitutiva" | "treino";
+/**
+ * What a date on the calendar is.
+ *
+ * Not only provas: a devolutiva and a hand-in date change what someone
+ * does that week just as much, and both are written in the plans.
+ */
+export type AssessmentKind =
+  "N1" | "N2" | "N3" | "ARA" | "final" | "substitutiva" | "devolutiva" | "entrega" | "treino";
 
 /**
  * A thematic axis — the unit of feedback. Scores are totalled per axis

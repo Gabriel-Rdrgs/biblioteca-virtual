@@ -244,11 +244,13 @@ export function AssessmentManager({
       </form>
 
       <div>
-        <h3 className="mb-3 text-sm font-semibold">Datas cadastradas</h3>
+        <h3 className="mb-3 text-sm font-semibold">Datas do semestre</h3>
+        <p className="text-ink-muted mb-3 text-xs leading-relaxed">
+          As marcadas como “do plano” vieram dos cronogramas dos planos de ensino. Elas podem ser
+          ocultadas, mas não excluídas — o plano continua dizendo o que diz.
+        </p>
         {assessments.length === 0 ? (
-          <p className="text-ink-muted glass rounded-2xl p-4 text-sm">
-            Nenhuma data ainda. A turma vê um aviso explicando isso.
-          </p>
+          <p className="text-ink-muted glass rounded-2xl p-4 text-sm">Nenhuma data.</p>
         ) : (
           <ul className="divide-line border-line divide-y rounded-2xl border">
             {assessments.map((assessment) => {
@@ -268,6 +270,11 @@ export function AssessmentManager({
                       <span className="text-ink-faint text-xs">
                         {formatAssessmentDate(assessment.date, true)} · {countdownLabel(left)}
                       </span>
+                      {assessment.origin === "seed" ? (
+                        <span className="glass-strong text-ink-muted rounded-full px-2 py-0.5 text-xs">
+                          do plano
+                        </span>
+                      ) : null}
                       {assessment.visibility === "oculto" ? (
                         <span className="bg-surface-sunken text-ink-muted rounded-full px-2 py-0.5 text-xs">
                           oculta
@@ -305,23 +312,25 @@ export function AssessmentManager({
                         </>
                       )}
                     </button>
-                    <button
-                      type="button"
-                      disabled={busy === assessment.id}
-                      onClick={() => {
-                        if (window.confirm(`Excluir a data de ${assessmentLabel(assessment)}?`)) {
-                          void call(
-                            `/api/admin/provas/${assessment.id}`,
-                            { method: "DELETE" },
-                            "Data excluída.",
-                            assessment.id,
-                          );
-                        }
-                      }}
-                      className="border-line text-danger hover:border-danger inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1.5 text-xs font-medium disabled:opacity-50"
-                    >
-                      <Trash2 className="size-3.5" aria-hidden="true" /> Excluir
-                    </button>
+                    {assessment.origin === "admin" ? (
+                      <button
+                        type="button"
+                        disabled={busy === assessment.id}
+                        onClick={() => {
+                          if (window.confirm(`Excluir a data de ${assessmentLabel(assessment)}?`)) {
+                            void call(
+                              `/api/admin/provas/${assessment.id}`,
+                              { method: "DELETE" },
+                              "Data excluída.",
+                              assessment.id,
+                            );
+                          }
+                        }}
+                        className="border-line text-danger hover:border-danger inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1.5 text-xs font-medium disabled:opacity-50"
+                      >
+                        <Trash2 className="size-3.5" aria-hidden="true" /> Excluir
+                      </button>
+                    ) : null}
                   </div>
                 </li>
               );

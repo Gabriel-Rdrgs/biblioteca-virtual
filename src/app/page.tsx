@@ -5,7 +5,7 @@ import { BookGrid } from "@/components/book/book-grid";
 import { DisciplineCard } from "@/components/discipline/discipline-card";
 import { SectionHeading } from "@/components/ui/primitives";
 import { isAdminRequest } from "@/lib/audience";
-import { countdownLabel, formatAssessmentDate } from "@/lib/domain/assessment-types";
+import { countdownLabel, formatAssessmentDate, isExam } from "@/lib/domain/assessment-types";
 import { getUpcomingAssessments } from "@/lib/repository/assessments";
 import { periodLabel } from "@/lib/domain/types";
 import {
@@ -36,7 +36,10 @@ export default async function HomePage() {
       getCurrentPeriod(),
       getDisciplines(),
     ]);
-  const [next] = await getUpcomingAssessments(1);
+  // A hand-in or a devolutiva belongs on the calendar, but the home
+  // should count down to the thing you have to study for.
+  const upcoming = await getUpcomingAssessments();
+  const next = upcoming.find((item) => isExam(item.assessment)) ?? upcoming[0];
   // The home shows where the class is now; earlier periods live one click away.
   const disciplines = allDisciplines.filter((d) => d.period === currentPeriod);
   const otherPeriods = allDisciplines.some((d) => d.period !== currentPeriod);

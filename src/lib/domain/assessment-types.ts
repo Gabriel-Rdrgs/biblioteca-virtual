@@ -27,6 +27,8 @@ export interface Assessment {
   /** Simulados that rehearse this assessment. */
   readonly examIds: readonly ExamId[];
   readonly note?: string;
+  /** Where the date came from, so any claim can be checked. */
+  readonly source?: string;
   readonly visibility: Visibility;
   readonly origin: "seed" | "admin";
 }
@@ -50,6 +52,15 @@ export function daysUntil(date: string, today = new Date()): number {
 
 export function assessmentLabel(assessment: Assessment): string {
   return assessment.title ?? assessment.kind;
+}
+
+/**
+ * Whether the date is something to study for. A devolutiva and a
+ * hand-in belong on the calendar, but counting down to them in red
+ * would cry wolf.
+ */
+export function isExam(assessment: Assessment): boolean {
+  return !["devolutiva", "entrega", "treino"].includes(assessment.kind);
 }
 
 /** "em 3 dias", "amanhã", "hoje", "há 2 dias". */

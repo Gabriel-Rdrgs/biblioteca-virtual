@@ -63,16 +63,19 @@ describe("progresso", () => {
       choices: {},
       selfMarks: {},
     };
-    expect(summariseProgress([open, attempt("2026-10-02T10:00:00Z", [["a", 5, 10]])]).attempts).toBe(
-      1,
-    );
+    expect(
+      summariseProgress([open, attempt("2026-10-02T10:00:00Z", [["a", 5, 10]])]).attempts,
+    ).toBe(1);
   });
 
   it("reads an axis in chronological order, whatever order it is given", () => {
     const older = attempt("2026-10-01T10:00:00Z", [["tenia", 2, 10]]);
     const newer = attempt("2026-10-20T10:00:00Z", [["tenia", 9, 10]]);
 
-    for (const order of [[older, newer], [newer, older]]) {
+    for (const order of [
+      [older, newer],
+      [newer, older],
+    ]) {
       const axis = summariseProgress(order).axes[0]!;
       expect(axis.first).toBe(20);
       expect(axis.latest).toBe(90);

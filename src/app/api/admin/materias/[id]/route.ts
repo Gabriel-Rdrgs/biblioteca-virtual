@@ -4,7 +4,7 @@ import {
   setDisciplineVisibility,
   updateDiscipline,
 } from "@/lib/admin/discipline-admin";
-import { disciplinePatchSchema, visibilitySchema } from "@/lib/admin/schemas";
+import { disciplinePatchSchema } from "@/lib/admin/schemas";
 import { adminErrorResponse } from "../../_shared";
 
 /**
@@ -15,12 +15,10 @@ import { adminErrorResponse } from "../../_shared";
 export async function PATCH(request: NextRequest, context: { params: Promise<{ id: string }> }) {
   try {
     const { id } = await context.params;
-    const body: unknown = await request.json();
-    if (body && typeof body === "object" && "visibility" in body) {
-      await setDisciplineVisibility(id, visibilitySchema.parse(body).visibility);
-    } else {
-      await updateDiscipline(id, disciplinePatchSchema.parse(body));
-    }
+    const { visibility, ...fields } = disciplinePatchSchema.parse(await request.json());
+    // Both, when both are sent: a half-applied edit is worse than none.
+    if (Object.keys(fields).length > 0) await updateDiscipline(id, fields);
+    if (visibility) await setDisciplineVisibility(id, visibility);
     return NextResponse.json({ ok: true });
   } catch (error) {
     return adminErrorResponse(error);

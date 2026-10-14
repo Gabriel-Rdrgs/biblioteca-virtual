@@ -1,8 +1,9 @@
 import { expect, test, type Page } from "@playwright/test";
 
 /**
- * The exam calendar, from the admin entering a date to the class seeing the
- * countdown. Tests run serially because they share one manifest file.
+ * The exam calendar: the dates transcribed from the teaching plans, and
+ * what the admin can do on top of them. Serial, because these share one
+ * manifest file.
  */
 
 test.describe.configure({ mode: "serial" });
@@ -13,9 +14,9 @@ const CLASS = process.env.ATLAS_SENHA_TURMA;
 /**
  * A date N days from today, as YYYY-MM-DD, in the local calendar.
  *
- * Not toISOString(): that one is UTC, so between midnight UTC and
- * midnight local the two disagree by a day, and the countdown the app
- * computes locally would come out one off.
+ * Not toISOString(): that one is UTC, so between midnight UTC and midnight
+ * local the two disagree by a day, and the countdown the app computes
+ * locally would come out one off.
  */
 function inDays(days: number): string {
   const date = new Date();
@@ -40,81 +41,100 @@ async function loginClass(page: Page) {
 test.describe("calendário de provas", () => {
   test.skip(!ADMIN || !CLASS, "needs ATLAS_SENHA_ADMIN and ATLAS_SENHA_TURMA");
 
-  test("the class is told plainly when no date has been entered", async ({ page }) => {
+  test("carries the dates from the teaching plans, with their source", async ({ page }) => {
     await loginClass(page);
     await page.goto("/calendario");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Calendário de provas");
-    await expect(page.getByText("Nenhuma data cadastrada ainda")).toBeVisible();
+
+    // A date the plans state, and the page says where it came from.
+    await expect(
+      page.getByText("Plano de ensino de MAC I, cronograma, p. 10").first(),
+    ).toBeVisible();
+    await expect(page.getByText("N2 — prova teórica").first()).toBeVisible();
+
+    // The plans all warn their schedule may move, and so does the page.
+    await expect(page.getByText(/cronograma pode sofrer ajustes/i)).toBeVisible();
+
+    // Past assessments are kept, below.
+    await expect(page.getByRole("heading", { name: "Já passaram" })).toBeVisible();
   });
 
-  test("a date entered by the admin reaches the calendar, the home and the matéria", async ({
-    page,
-  }) => {
+  test("a prova counts down, a devolutiva does not shout", async ({ page }) => {
+    await loginClass(page);
+    await page.goto("/calendario");
+    // Both kinds are listed; only an exam gets the primary badge.
+    const devolutiva = page.locator("li").filter({ hasText: "Devolutiva da N2" }).first();
+    await expect(devolutiva).toBeVisible();
+    await expect(
+      page.locator("li").filter({ hasText: "N2 — prova teórica" }).first(),
+    ).toBeVisible();
+  });
+
+  test("the home leads with an exam, not with a hand-in", async ({ page }) => {
+    await loginClass(page);
+    await page.goto("/");
+    await expect(page.getByText("Próxima prova")).toBeVisible();
+    // Whatever is next, the band must not be counting down to a devolutiva.
+    await expect(page.getByText(/Próxima prova/).locator("..")).not.toContainText("Devolutiva");
+  });
+
+  test("a date from a plan can be hidden, but never deleted", async ({ page }) => {
     await page.context().clearCookies();
     await loginAdmin(page);
 
-    const date = inDays(5);
+    const removal = await page.request.delete("/api/admin/provas/mac-1-n2-teorica");
+    expect(removal.status()).toBe(400);
+    expect((await removal.json()).error).toContain("só podem ser ocultadas");
+
+    const hidden = await page.request.patch("/api/admin/provas/mac-1-n2-teorica", {
+      data: { visibility: "oculto" },
+    });
+    expect(hidden.ok()).toBe(true);
+    await page.goto("/calendario");
+    await expect(page.getByText("N2 — prova teórica")).toHaveCount(0);
+
+    // Correcting the date keeps the record of where it came from.
+    const moved = await page.request.patch("/api/admin/provas/mac-1-n2-teorica", {
+      data: { visibility: "visivel", date: inDays(4) },
+    });
+    expect(moved.ok()).toBe(true);
+    await page.goto("/calendario");
+    await expect(page.getByText("em 4 dias")).toBeVisible();
+    await expect(
+      page.getByText("Plano de ensino de MAC I, cronograma, p. 10").first(),
+    ).toBeVisible();
+  });
+
+  test("the admin can add a date of their own and delete it", async ({ page }) => {
+    await page.context().clearCookies();
+    await loginAdmin(page);
+
     const created = await page.request.post("/api/admin/provas", {
       data: {
         disciplineId: "mac-1",
         kind: "N1",
-        date,
-        time: "19:00",
+        title: "Prova surpresa",
+        date: inDays(2),
         room: "Bloco B, sala 204",
-        weight: "6,0",
-        content: ["Anatomia: crânio e coluna", "Parasitologia: protozoários"],
+        content: ["Tudo."],
         examIds: ["mac-1-n1-completo"],
       },
     });
     expect(created.status()).toBe(201);
     const { id } = (await created.json()) as { id: string };
 
-    // The calendar shows it with the urgency of a date five days out.
     await page.goto("/calendario");
-    await expect(page.getByText("em 5 dias")).toBeVisible();
-    await expect(page.getByText("Bloco B, sala 204")).toBeVisible();
-    await expect(page.getByText("Anatomia: crânio e coluna")).toBeVisible();
-    await expect(page.getByRole("link", { name: /Treinar: MAC I completo/ })).toBeVisible();
-
-    // The home carries the countdown.
-    await page.goto("/");
-    await expect(page.getByText("Próxima prova")).toBeVisible();
-    await expect(page.getByText("em 5 dias")).toBeVisible();
-
-    // So does the matéria it belongs to.
-    await page.goto("/disciplinas/morfofuncional-aplicado-a-clinica-i");
-    await expect(page.getByRole("link", { name: /N1.*em 5 dias/ })).toBeVisible();
-
-    // Hiding it takes it off the class's pages but keeps it for the admin.
-    const hidden = await page.request.patch(`/api/admin/provas/${id}`, {
-      data: { visibility: "oculto" },
-    });
-    expect(hidden.ok()).toBe(true);
-    await page.goto("/calendario");
-    await expect(page.getByText("Nenhuma data cadastrada ainda")).toBeVisible();
+    // Scoped to its own card: the N1 from the plan links to the same
+    // simulado, so a page-wide match would hit two.
+    const card = page.locator("li").filter({ hasText: "Prova surpresa" }).first();
+    await expect(card).toBeVisible();
+    await expect(card.getByText("Bloco B, sala 204")).toBeVisible();
+    await expect(card.getByRole("link", { name: /Treinar: MAC I completo/ })).toBeVisible();
 
     const removed = await page.request.delete(`/api/admin/provas/${id}`);
     expect(removed.ok()).toBe(true);
-  });
-
-  test("a past date moves to the bottom instead of disappearing", async ({ page }) => {
-    await page.context().clearCookies();
-    await loginAdmin(page);
-
-    const created = await page.request.post("/api/admin/provas", {
-      data: { disciplineId: "mac-1", kind: "N1", date: inDays(-3), content: [], examIds: [] },
-    });
-    const { id } = (await created.json()) as { id: string };
-
     await page.goto("/calendario");
-    await expect(page.getByRole("heading", { name: "Já passaram" })).toBeVisible();
-    await expect(page.getByText("há 3 dias")).toHaveCount(0); // past cards drop the countdown
-
-    // A past exam must not take over the home page.
-    await page.goto("/");
-    await expect(page.getByText("Próxima prova")).toHaveCount(0);
-
-    await page.request.delete(`/api/admin/provas/${id}`);
+    await expect(page.getByText("Prova surpresa")).toHaveCount(0);
   });
 
   test("the admin form refuses a malformed date and an unknown matéria", async ({ page }) => {

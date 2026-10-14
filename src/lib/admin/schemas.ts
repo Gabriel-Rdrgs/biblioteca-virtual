@@ -119,6 +119,7 @@ export type DisciplineInput = z.infer<typeof disciplineSchema>;
 
 export const disciplinePatchSchema = disciplineSchema.partial().extend({
   plan: uploadedPlanSchema.nullable().optional(),
+  visibility: z.enum(["visivel", "oculto"]).optional(),
 });
 
 export const currentPeriodSchema = z.object({
@@ -148,4 +149,6 @@ export const assessmentSchema = z.object({
 
 export type AssessmentInput = z.infer<typeof assessmentSchema>;
 
-export const assessmentPatchSchema = assessmentSchema.partial();
+export const assessmentPatchSchema = assessmentSchema
+  .partial()
+  .extend({ visibility: z.enum(["visivel", "oculto"]).optional() });

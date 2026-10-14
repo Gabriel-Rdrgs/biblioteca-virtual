@@ -6,6 +6,7 @@ import {
   assessmentLabel,
   countdownLabel,
   formatAssessmentDate,
+  isExam,
   type UpcomingAssessment,
 } from "@/lib/domain/assessment-types";
 import { getCalendar } from "@/lib/repository/assessments";
@@ -20,8 +21,12 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-/** Red inside a week, amber inside a fortnight, calm after that. */
-function urgency(daysLeft: number) {
+/**
+ * Red inside a week, amber inside a fortnight, calm after that — and
+ * never red for a hand-in or a devolutiva, which need no revision.
+ */
+function urgency(daysLeft: number, exam: boolean) {
+  if (!exam) return { chip: "glass-strong text-ink-muted", ring: "ring-transparent" };
   if (daysLeft <= 7) return { chip: "bg-danger-soft text-danger", ring: "ring-danger/30" };
   if (daysLeft <= 14) return { chip: "bg-accent-soft text-accent", ring: "ring-accent/30" };
   return { chip: "glass-strong text-ink-muted", ring: "ring-transparent" };
@@ -35,7 +40,7 @@ export default async function CalendarioPage() {
   const Card = ({ item, dimmed }: { item: UpcomingAssessment; dimmed?: boolean }) => {
     const { assessment, daysLeft } = item;
     const discipline = byId.get(assessment.disciplineId);
-    const tone = urgency(daysLeft);
+    const tone = urgency(daysLeft, isExam(assessment));
     const linked = exams.filter((exam) => assessment.examIds.includes(exam.id));
 
     return (
@@ -46,7 +51,12 @@ export default async function CalendarioPage() {
         )}
       >
         <div className="flex flex-wrap items-center gap-2">
-          <span className="bg-primary text-on-primary rounded-full px-2.5 py-0.5 text-xs font-semibold">
+          <span
+            className={cn(
+              "rounded-full px-2.5 py-0.5 text-xs font-semibold",
+              isExam(assessment) ? "bg-primary text-on-primary" : "glass-strong text-ink-muted",
+            )}
+          >
             {assessmentLabel(assessment)}
           </span>
           {discipline ? (
@@ -105,6 +115,10 @@ export default async function CalendarioPage() {
           </div>
         ) : null}
 
+        {assessment.source ? (
+          <p className="text-ink-faint mt-3 text-xs leading-relaxed">{assessment.source}</p>
+        ) : null}
+
         {assessment.note ? (
           <p className="text-ink-muted mt-3 text-sm leading-relaxed text-pretty">
             {assessment.note}
@@ -135,7 +149,7 @@ export default async function CalendarioPage() {
       <SectionHeading
         as="h1"
         title="Calendário de provas"
-        description="As datas do semestre, o que cai em cada avaliação e o simulado para treinar antes dela."
+        description="As datas do semestre, transcritas dos cronogramas dos planos de ensino, com o que cai em cada avaliação e o simulado para treinar antes dela."
       />
 
       {upcoming.length === 0 && past.length === 0 ? (
@@ -143,9 +157,8 @@ export default async function CalendarioPage() {
           <CalendarDays className="text-ink-faint size-8" aria-hidden="true" />
           <h2 className="mt-4 text-lg font-semibold">Nenhuma data cadastrada ainda</h2>
           <p className="text-ink-muted mt-2 text-sm leading-relaxed text-pretty">
-            As datas não vêm do plano de ensino e mudam ao longo do semestre, então são cadastradas
-            à mão — inventar uma data seria pior que não ter nenhuma. Quem administra a biblioteca
-            pode adicioná-las na área de administração.
+            As datas dos planos de ensino foram ocultadas. Quem administra a biblioteca pode
+            mostrá-las de novo, ou cadastrar outras, na área de administração.
           </p>
         </div>
       ) : null}
@@ -159,6 +172,13 @@ export default async function CalendarioPage() {
             ))}
           </ul>
         </section>
+      ) : null}
+
+      {upcoming.length > 0 || past.length > 0 ? (
+        <p className="text-ink-faint mt-10 text-xs leading-relaxed">
+          Todos os planos avisam que o cronograma pode sofrer ajustes ao longo do semestre. Confirme
+          com o docente antes de contar com uma data.
+        </p>
       ) : null}
 
       {past.length > 0 ? (
