@@ -22,8 +22,16 @@ export async function generateMetadata({
 }
 
 /** Full-height reader; PdfReader draws the pages itself. */
-export default async function ReadPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ReadPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ pagina?: string }>;
+}) {
   const { slug } = await params;
+  const { pagina } = await searchParams;
+  const startPage = Number(pagina);
   const [entry, admin] = await Promise.all([getBookBySlug(slug), isAdminRequest()]);
   if (!entry?.book.file) notFound();
 
@@ -54,7 +62,12 @@ export default async function ReadPage({ params }: { params: Promise<{ slug: str
         </Link>
         <h1 className="min-w-0 flex-1 truncate text-sm font-semibold">{entry.book.title}</h1>
       </div>
-      <PdfReader src={src} title={entry.book.title} downloadHref={`${route}?baixar=1`} />
+      <PdfReader
+        src={src}
+        title={entry.book.title}
+        downloadHref={`${route}?baixar=1`}
+        {...(Number.isFinite(startPage) && startPage > 0 ? { startPage } : {})}
+      />
       {admin && entry.book.file.note ? (
         <p className="text-accent border-line border-t px-4 py-1.5 text-xs sm:px-6">
           {entry.book.file.note}

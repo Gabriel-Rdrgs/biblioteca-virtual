@@ -13,6 +13,7 @@ import {
 import type { ExamAttempt, ExamResult, LoadedExam } from "@/lib/domain/exam-types";
 import { optionLetters } from "@/lib/domain/exam-types";
 import { cn } from "@/lib/utils";
+import { StudyLinks } from "./study-links";
 
 /**
  * What the student sees after correcting.
@@ -147,6 +148,9 @@ export function ExamResultView({
                 {axis.percent < 80 && axis.axis.remedy ? (
                   <p className="text-ink-muted mt-2 text-sm leading-relaxed">{axis.axis.remedy}</p>
                 ) : null}
+                {axis.percent < 80 ? (
+                  <StudyLinks axisId={axis.axis.id} className="flex flex-wrap gap-1.5" />
+                ) : null}
               </li>
             );
           })}
@@ -173,6 +177,7 @@ export function ExamResultView({
                   {axis.axis.remedy ? (
                     <span className="text-ink-muted"> — {axis.axis.remedy}</span>
                   ) : null}
+                  <StudyLinks axisId={axis.axis.id} className="flex flex-wrap gap-1.5" />
                 </span>
               </li>
             ))}

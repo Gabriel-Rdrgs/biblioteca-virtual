@@ -18,6 +18,8 @@ interface PdfReaderProps {
   readonly src: string;
   readonly title: string;
   readonly downloadHref: string;
+  /** Page to open on, for a link that points at a chapter. */
+  readonly startPage?: number;
 }
 
 type Status = "carregando" | "pronto" | "erro";
@@ -26,7 +28,7 @@ type Status = "carregando" | "pronto" | "erro";
 const RENDER_WINDOW = 2;
 const ZOOM_STEPS = [0.6, 0.8, 1, 1.25, 1.5, 2];
 
-export function PdfReader({ src, title, downloadHref }: PdfReaderProps) {
+export function PdfReader({ src, title, downloadHref, startPage }: PdfReaderProps) {
   const [status, setStatus] = useState<Status>("carregando");
   const [error, setError] = useState<string>("");
   const [numPages, setNumPages] = useState(0);
@@ -151,6 +153,15 @@ export function PdfReader({ src, title, downloadHref }: PdfReaderProps) {
     },
     [numPages],
   );
+
+  // Jump to the requested page once the document and its placeholders
+  // exist — before that there is nothing to scroll to.
+  const jumped = useRef(false);
+  useEffect(() => {
+    if (jumped.current || status !== "pronto" || !startPage || numPages === 0) return;
+    jumped.current = true;
+    goTo(startPage);
+  }, [status, numPages, startPage, goTo]);
 
   const zoomIndex = ZOOM_STEPS.indexOf(zoom);
   const zoomBy = (delta: number) => {

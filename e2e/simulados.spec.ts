@@ -136,3 +136,23 @@ test("asking for a drill with no recipe explains what to do", async ({ page }) =
   await page.goto("/simulados/treino");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Monte o treino primeiro");
 });
+
+test("the result points at the chapter that fixes the weak axis", async ({ page }) => {
+  // A drill of one teníase question, answered wrong on purpose.
+  await page.goto("/simulados/treino?materia=mac-1&questoes=paras-o41");
+  await page.locator("ul li button[aria-pressed]").first().click();
+  await page.getByRole("button", { name: "Corrigir" }).first().click();
+  await expect(page.getByRole("heading", { name: "Resultado" })).toBeVisible();
+
+  const reading = page.getByRole("link", { name: /Os Cestoides/ }).first();
+  await expect(reading).toBeVisible();
+  await expect(reading).toHaveAttribute(
+    "href",
+    "/livros/parasitologia-contemporanea/ler?pagina=751",
+  );
+
+  // And the link really opens the reader on that page.
+  await reading.click();
+  await expect(page).toHaveURL(/\/livros\/parasitologia-contemporanea\/ler\?pagina=751$/);
+  await expect(page.getByLabel("Ir para a página")).toHaveValue("751", { timeout: 60_000 });
+});

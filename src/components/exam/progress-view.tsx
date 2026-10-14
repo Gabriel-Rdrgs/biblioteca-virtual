@@ -12,6 +12,7 @@ import {
 } from "@/lib/domain/progress";
 import { clearHistory, loadHistory, type StoredAttempt } from "@/lib/exam-storage";
 import { cn } from "@/lib/utils";
+import { StudyLinks } from "./study-links";
 
 /**
  * The semester seen through the simulados someone has done.
@@ -147,6 +148,7 @@ export function ProgressView() {
                   </span>
                 </div>
                 <AxisBar first={axis.first} latest={axis.latest} />
+                <StudyLinks axisId={axis.id} className="flex flex-wrap gap-1.5" />
               </li>
             ))}
           </ul>
