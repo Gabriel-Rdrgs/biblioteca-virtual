@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Grid3x3, Timer } from "lucide-react";
 import { formatMark, isObjective, scoreExam } from "@/lib/domain/exam-scoring";
-import type { LoadedExam, OptionLetter, QuestionId } from "@/lib/domain/exam-types";
+import type { ExamResult, LoadedExam, OptionLetter, QuestionId } from "@/lib/domain/exam-types";
 import { optionLetters } from "@/lib/domain/exam-types";
 import {
   loadOpenAttempt,
@@ -14,6 +14,7 @@ import {
   withNote,
   withSelfMark,
   type StoredAttempt,
+  type StoredResult,
 } from "@/lib/exam-storage";
 import { cn } from "@/lib/utils";
 import { ExamResultView } from "./exam-result";
@@ -30,6 +31,33 @@ import { ExamResultView } from "./exam-result";
  */
 
 type Phase = "prova" | "autoavaliacao" | "resultado";
+
+/**
+ * Condenses a result into what the progress page needs, so that page can
+ * read the history without the question bank or the answer key.
+ */
+function summarise(loaded: LoadedExam, result: ExamResult): StoredResult {
+  return {
+    total: result.total,
+    possible: result.possible,
+    scaled: result.scaled,
+    scaleMax: loaded.exam.scaleMax,
+    objectiveEarned: result.objectiveEarned,
+    objectivePossible: result.objectivePossible,
+    axes: result.axes.map((a) => ({
+      id: a.axis.id,
+      label: a.axis.label,
+      earned: a.earned,
+      possible: a.possible,
+    })),
+    areas: result.areas.map((a) => ({
+      id: a.area.id,
+      label: a.area.label,
+      earned: a.earned,
+      possible: a.possible,
+    })),
+  };
+}
 
 function useElapsed(attempt: StoredAttempt, running: boolean) {
   const [seconds, setSeconds] = useState(attempt.seconds ?? 0);
@@ -70,8 +98,19 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
   // Resume whatever was left open on this device, or start fresh.
   useEffect(() => {
     const open = loadOpenAttempt(loaded.exam.id);
-    setAttempt(open ?? newAttempt(loaded.exam.id, { title: loaded.exam.title }));
-  }, [loaded.exam.id, loaded.exam.title]);
+    setAttempt(
+      open ??
+        newAttempt(loaded.exam.id, {
+          title: loaded.exam.title,
+          disciplineId: loaded.exam.disciplineId,
+          questionIds: loaded.exam.questionIds,
+          href:
+            loaded.exam.assessment === "treino"
+              ? `/simulados/treino?materia=${loaded.exam.disciplineId}&questoes=${loaded.exam.questionIds.join(",")}`
+              : `/simulados/${loaded.exam.slug}`,
+        }),
+    );
+  }, [loaded.exam]);
 
   const seconds = useElapsed(
     attempt ?? newAttempt(loaded.exam.id),
@@ -110,8 +149,13 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
   const finish = () => {
     const hasDiscursive = loaded.questions.some((p) => p.question.kind === "discursiva");
     setPhase(hasDiscursive ? "autoavaliacao" : "resultado");
-    if (!hasDiscursive) {
-      update({ ...attempt, finishedAt: new Date().toISOString(), seconds });
+    if (!hasDiscursive && result) {
+      update({
+        ...attempt,
+        finishedAt: new Date().toISOString(),
+        seconds,
+        result: summarise(loaded, result),
+      });
     }
     top.current?.scrollIntoView({ block: "start" });
   };
@@ -461,7 +505,12 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
           <button
             type="button"
             onClick={() => {
-              update({ ...attempt, finishedAt: new Date().toISOString(), seconds });
+              update({
+                ...attempt,
+                finishedAt: new Date().toISOString(),
+                seconds,
+                ...(result ? { result: summarise(loaded, result) } : {}),
+              });
               setPhase("resultado");
               top.current?.scrollIntoView({ block: "start" });
             }}
@@ -486,7 +535,11 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
             window.location.href = `/simulados/treino?${query.toString()}`;
           }}
           onRestart={() => {
-            const fresh = newAttempt(loaded.exam.id, { title: loaded.exam.title });
+            const fresh = newAttempt(loaded.exam.id, {
+              title: loaded.exam.title,
+              disciplineId: loaded.exam.disciplineId,
+              questionIds: loaded.exam.questionIds,
+            });
             setAttempt(fresh);
             saveAttempt(fresh);
             setIndex(0);

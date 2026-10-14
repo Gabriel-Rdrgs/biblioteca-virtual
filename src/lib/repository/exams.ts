@@ -105,6 +105,25 @@ export function loadExamBySlug(slug: string): LoadedExam | undefined {
   return exam ? loadExam(exam) : undefined;
 }
 
+/**
+ * A stable id for a set of questions.
+ *
+ * The drill is identified by what is in it, not by when it was built:
+ * redoing the same questions has to land on the same simulado, or the
+ * history would show a new one-attempt entry every time and progress
+ * across attempts could never be read.
+ */
+function fingerprint(ids: readonly string[]): string {
+  let hash = 2166136261;
+  // Sorted: a drill is the set of questions, not the order they came out
+  // in, so the same three questions are the same simulado either way.
+  for (const char of [...ids].sort().join(",")) {
+    hash ^= char.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(36);
+}
+
 /** Deterministic shuffle, so the same seed rebuilds the same drill. */
 function shuffle<T>(items: readonly T[], seed: number): T[] {
   const out = [...items];
@@ -175,9 +194,10 @@ export function buildDrill(disciplineId: DisciplineId, options: DrillOptions): L
   const points = ordered.reduce((sum, q) => sum + q.points, 0);
   const scaleMax = options.scaleMax ?? 10;
 
+  const key = fingerprint(ordered.map((q) => q.id));
   const exam: Exam = {
-    id: `treino-${seed}`,
-    slug: `treino-${seed}`,
+    id: `treino-${key}`,
+    slug: `treino-${key}`,
     disciplineId,
     title: options.title ?? "Treino",
     assessment: "treino",

@@ -14,17 +14,46 @@ import type { ExamAttempt, OptionLetter, QuestionId } from "@/lib/domain/exam-ty
 
 const KEY = "atlas:tentativas:v1";
 
+/** One line of the axis map, kept so progress needs nothing else. */
+export interface StoredBreakdown {
+  readonly id: string;
+  readonly label: string;
+  readonly earned: number;
+  readonly possible: number;
+}
+
+/**
+ * The result, summarised at the moment of correcting.
+ *
+ * Storing the summary rather than recomputing it later means the progress
+ * page needs neither the question bank nor the answer key in the browser,
+ * and an old attempt keeps the score it was actually given even if the
+ * bank changes afterwards.
+ */
+export interface StoredResult {
+  readonly total: number;
+  readonly possible: number;
+  readonly scaled: number;
+  readonly scaleMax: number;
+  readonly objectiveEarned: number;
+  readonly objectivePossible: number;
+  readonly axes: readonly StoredBreakdown[];
+  readonly areas: readonly StoredBreakdown[];
+}
+
 export interface StoredAttempt extends ExamAttempt {
   /** What the student wrote for each discursive item. */
   readonly notes?: Readonly<Record<QuestionId, Record<string, string>>>;
   /** Seconds spent, accumulated while the page is open. */
   readonly seconds?: number;
   /** Set once the attempt has been corrected. */
-  readonly score?: number;
-  readonly possible?: number;
+  readonly result?: StoredResult;
   /** For a drill, the questions it was built from, so it can be reopened. */
   readonly questionIds?: readonly QuestionId[];
   readonly title?: string;
+  readonly disciplineId?: string;
+  /** Where to go to redo it; a drill carries its own query. */
+  readonly href?: string;
 }
 
 type Store = Record<string, StoredAttempt[]>;
@@ -76,8 +105,17 @@ export function deleteAttempt(examId: string, startedAt: string): void {
 export function loadHistory(): StoredAttempt[] {
   return Object.values(read())
     .flat()
-    .filter((a) => a.finishedAt)
+    .filter((a) => a.finishedAt && a.result)
     .sort((a, b) => (b.finishedAt ?? "").localeCompare(a.finishedAt ?? ""));
+}
+
+/** Erases everything this device has stored. Offered on the progress page. */
+export function clearHistory(): void {
+  try {
+    window.localStorage.removeItem(KEY);
+  } catch {
+    // Nothing to do: the data was already unreachable.
+  }
 }
 
 export function newAttempt(examId: string, extra: Partial<StoredAttempt> = {}): StoredAttempt {

@@ -266,3 +266,24 @@ describe("duas áreas na mesma unidade curricular", () => {
     expect(loaded.axes).toHaveLength(9);
   });
 });
+
+describe("identidade de um treino", () => {
+  it("gives the same id to the same set of questions, whenever it is built", () => {
+    const options = {
+      parts: [{ areaId: "parasitologia", discursivas: 0, objetivas: 3 }],
+      onlyIds: ["paras-o16", "paras-o41", "paras-o58"],
+    };
+    const a = buildDrill("mac-1", { ...options, seed: 1 });
+    const b = buildDrill("mac-1", { ...options, seed: 999 });
+    // Different draw order, same questions: the same simulado.
+    expect(a.exam.id).toBe(b.exam.id);
+    expect(a.exam.id).toMatch(/^treino-/);
+  });
+
+  it("gives different ids to different sets", () => {
+    const base = { parts: [{ areaId: "parasitologia", discursivas: 0, objetivas: 2 }] };
+    const a = buildDrill("mac-1", { ...base, onlyIds: ["paras-o16", "paras-o17"] });
+    const b = buildDrill("mac-1", { ...base, onlyIds: ["paras-o16", "paras-o18"] });
+    expect(a.exam.id).not.toBe(b.exam.id);
+  });
+});

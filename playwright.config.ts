@@ -30,6 +30,14 @@ export default defineConfig({
   },
   projects: [
     { name: "desktop", use: { ...devices["Desktop Chrome"] } },
-    { name: "mobile", use: { ...devices["Pixel 5"] } },
+    {
+      name: "mobile",
+      use: { ...devices["Pixel 5"] },
+      // The mobile run is there to catch layout problems. The specs that
+      // write to the server — the admin area and the exam calendar — are
+      // about data and permissions, and running them twice at once makes
+      // the two projects race over one manifest file.
+      testIgnore: ["**/admin.spec.ts", "**/calendario.spec.ts"],
+    },
   ],
 });

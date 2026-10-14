@@ -10,11 +10,18 @@ test.describe.configure({ mode: "serial" });
 const ADMIN = process.env.ATLAS_SENHA_ADMIN;
 const CLASS = process.env.ATLAS_SENHA_TURMA;
 
-/** A date N days from today, as YYYY-MM-DD. */
+/**
+ * A date N days from today, as YYYY-MM-DD, in the local calendar.
+ *
+ * Not toISOString(): that one is UTC, so between midnight UTC and
+ * midnight local the two disagree by a day, and the countdown the app
+ * computes locally would come out one off.
+ */
 function inDays(days: number): string {
   const date = new Date();
   date.setDate(date.getDate() + days);
-  return date.toISOString().slice(0, 10);
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return [date.getFullYear(), pad(date.getMonth() + 1), pad(date.getDate())].join("-");
 }
 
 async function loginAdmin(page: Page) {

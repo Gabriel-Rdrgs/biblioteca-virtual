@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, FileText, Layers, Sparkles } from "lucide-react";
+import { ArrowRight, FileText, Layers, LineChart, Sparkles } from "lucide-react";
 import { Breadcrumbs, SectionHeading } from "@/components/ui/primitives";
 import { DrillBuilder } from "@/components/exam/drill-builder";
 import { countAreaQuestions, getExams, getQuestionAreas, loadExam } from "@/lib/repository/exams";
@@ -39,6 +39,20 @@ export default async function SimuladosPage() {
         title="Simulados"
         description={`Prova de treino no formato da avaliação: você responde aqui, a correção é na hora e o resultado diz qual assunto revisar primeiro. ${totalQuestions} questões no banco da turma.`}
       />
+
+      <Link
+        href="/progresso"
+        className="glass hover:glass-strong mb-10 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-3xl p-5 transition-colors"
+      >
+        <LineChart className="text-primary size-6 shrink-0" aria-hidden="true" />
+        <div className="min-w-0 flex-1">
+          <p className="font-semibold">Meu progresso</p>
+          <p className="text-ink-muted text-sm leading-relaxed">
+            O que você já treinou e em quais assuntos ainda está fraco.
+          </p>
+        </div>
+        <ArrowRight className="text-ink-faint size-4" aria-hidden="true" />
+      </Link>
 
       {byDiscipline.length === 0 ? (
         <p className="text-ink-muted glass rounded-2xl p-6 text-sm">
