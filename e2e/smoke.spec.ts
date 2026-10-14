@@ -14,9 +14,13 @@ test.beforeEach(async ({ page }) => {
 
 test("home leads to the catalogue and back to a discipline", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("estante da nossa turma");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("A estante da turma");
 
-  await page.getByRole("link", { name: "Abrir a estante" }).click();
+  // A home deixou de ter um botão só para isso: a estante está na navegação.
+  await page
+    .getByRole("navigation", { name: "Navegação principal" })
+    .getByRole("link", { name: "Estante" })
+    .click();
   await expect(page).toHaveURL(/\/livros$/);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Todos os livros");
 
@@ -118,4 +122,41 @@ test("a class-posted book can be read and downloaded behind the password", async
     await expect(page.locator("canvas").first()).toBeVisible({ timeout: 60_000 });
     await expect(page.getByLabel("Ir para a página")).toHaveValue("1");
   }
+});
+
+test("os cinco destinos são os mesmos no celular e no desktop", async ({ page }) => {
+  const destinos = ["Início", "Estante", "Matérias", "Estudar", "Calendário"];
+  await page.goto("/");
+  const nav = page.getByRole("navigation", { name: "Navegação principal" }).first();
+
+  for (const destino of destinos) {
+    // "Início" só existe na barra do celular; no desktop a marca faz esse papel.
+    const link = nav.getByRole("link", { name: destino });
+    if (await link.count()) await expect(link.first()).toBeVisible();
+  }
+
+  // O calendário era o buraco: não existia na navegação do celular, e quem
+  // chegava lá não via item nenhum marcado.
+  await page.goto("/calendario");
+  // :visible porque as duas navegações coexistem no DOM — no celular quem
+  // está escondido é o cabeçalho, no desktop é a barra de baixo.
+  const atual = page.locator('[aria-current="page"]:visible');
+  await expect(atual.first()).toBeVisible();
+  await expect(atual.first()).toContainText("Calendário");
+});
+
+test("o plano de ensino se apresenta como parte da matéria", async ({ page }) => {
+  await page.goto("/planos-de-ensino");
+  const trilha = page.getByRole("navigation", { name: "Trilha de navegação" });
+  await expect(trilha.getByRole("link", { name: "Matérias" })).toBeVisible();
+
+  const atual = page.locator('[aria-current="page"]:visible').filter({ hasText: "Matérias" });
+  await expect(atual.first()).toBeVisible();
+});
+
+test("a próxima prova abre o painel, com o treino dela a um toque", async ({ page }) => {
+  await page.goto("/");
+  const cartao = page.locator("section").filter({ hasText: "PRÓXIMA PROVA" }).first();
+  await expect(cartao).toBeVisible();
+  await expect(cartao.getByRole("link", { name: /treinar para ela/i })).toBeVisible();
 });

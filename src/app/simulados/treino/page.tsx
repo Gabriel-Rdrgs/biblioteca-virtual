@@ -45,8 +45,8 @@ export default async function TreinoPage({
         <p className="text-ink-muted mt-3 leading-relaxed">
           Escolha a matéria, as áreas e quantas questões você quer.
         </p>
-        <ButtonLink href="/simulados" className="mt-6">
-          Ir para os simulados
+        <ButtonLink href="/estudar" className="mt-6">
+          Ir para Estudar
         </ButtonLink>
       </div>
     );
@@ -65,8 +65,8 @@ export default async function TreinoPage({
         <p className="text-ink-muted mt-3 leading-relaxed">
           O banco dessa matéria ainda não tem questões para esse filtro.
         </p>
-        <ButtonLink href="/simulados" className="mt-6">
-          Voltar aos simulados
+        <ButtonLink href="/estudar" className="mt-6">
+          Voltar para Estudar
         </ButtonLink>
       </div>
     );

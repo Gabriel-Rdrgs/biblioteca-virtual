@@ -82,7 +82,7 @@ export function ProgressView() {
           Faça um simulado e corrija: a partir do segundo, esta página mostra se o assunto em que
           você foi mal continua fraco ou já melhorou.
         </p>
-        <ButtonLink href="/simulados" className="mt-6">
+        <ButtonLink href="/estudar" className="mt-6">
           Ver os simulados
           <ArrowRight className="size-4" aria-hidden="true" />
         </ButtonLink>

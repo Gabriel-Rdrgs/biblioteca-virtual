@@ -3,10 +3,12 @@ import { ArrowRight, CalendarDays, PencilRuler, Search } from "lucide-react";
 import { BookCover } from "@/components/book/book-cover";
 import { BookGrid } from "@/components/book/book-grid";
 import { DisciplineCard } from "@/components/discipline/discipline-card";
-import { SectionHeading } from "@/components/ui/primitives";
+import { StudySnapshot } from "@/components/exam/study-snapshot";
+import { Badge, ButtonLink, Card, SectionHeading } from "@/components/ui/primitives";
 import { isAdminRequest } from "@/lib/audience";
 import { countdownLabel, formatAssessmentDate, isExam } from "@/lib/domain/assessment-types";
 import { getUpcomingAssessments } from "@/lib/repository/assessments";
+import { getExams } from "@/lib/repository/exams";
 import { periodLabel } from "@/lib/domain/types";
 import {
   getCatalog,
@@ -15,7 +17,6 @@ import {
   getDisciplineBookCounts,
   getDisciplines,
   getRecentlyAdded,
-  getSharedBooks,
   getStats,
   toCatalogEntries,
 } from "@/lib/repository";
@@ -23,68 +24,65 @@ import {
 // The catalogue is edited at runtime by the admin area; render per request.
 export const dynamic = "force-dynamic";
 
+/**
+ * O painel de quem chega com pressa.
+ *
+ * Esta página era uma landing: no celular, a primeira tela inteira era
+ * manchete, dois botões e capas decorativas que vazavam pelas bordas. A
+ * próxima prova — a informação mais sensível ao tempo do produto — ficava
+ * abaixo da dobra, junto com tudo que se usa de verdade.
+ *
+ * Agora a ordem é a da urgência: quando é a prova, onde você parou, o que
+ * revisar, e só então o acervo. A estante em leque continua, porque é a
+ * identidade do Atlas, mas só a partir de telas grandes, onde não custa
+ * nada.
+ */
 export default async function HomePage() {
   const admin = await isAdminRequest();
-  const [stats, counts, shared, catalog, core, recent, currentPeriod, allDisciplines] =
-    await Promise.all([
-      getStats(),
-      getDisciplineBookCounts(),
-      getSharedBooks(),
-      getCatalog(),
-      getMostAccessed(10),
-      getRecentlyAdded(5),
-      getCurrentPeriod(),
-      getDisciplines(),
-    ]);
-  // A hand-in or a devolutiva belongs on the calendar, but the home
-  // should count down to the thing you have to study for.
+  const [stats, counts, catalog, core, recent, currentPeriod, allDisciplines] = await Promise.all([
+    getStats(),
+    getDisciplineBookCounts(),
+    getCatalog(),
+    getMostAccessed(8),
+    getRecentlyAdded(5),
+    getCurrentPeriod(),
+    getDisciplines(),
+  ]);
+
+  // Uma devolutiva ou uma entrega pertence ao calendário, mas a home conta
+  // os dias para aquilo que exige estudar.
   const upcoming = await getUpcomingAssessments();
   const next = upcoming.find((item) => isExam(item.assessment)) ?? upcoming[0];
-  // The home shows where the class is now; earlier periods live one click away.
+  const nextDiscipline = next
+    ? allDisciplines.find((d) => d.id === next.assessment.disciplineId)
+    : undefined;
+  const nextExams = next
+    ? getExams().filter((exam) => next.assessment.examIds.includes(exam.id))
+    : [];
+
   const disciplines = allDisciplines.filter((d) => d.period === currentPeriod);
   const otherPeriods = allDisciplines.some((d) => d.period !== currentPeriod);
 
-  // Five real covers for the shelf — the books the class actually opens.
-  const shelf = toCatalogEntries(catalog.filter((entry) => entry.book.file).slice(0, 5), {
-    admin,
-  });
+  const shelf = toCatalogEntries(catalog.filter((entry) => entry.book.file).slice(0, 5), { admin });
   const mostUsed = toCatalogEntries(core, { admin });
   const latest = toCatalogEntries(recent, { admin });
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      {/* ---------------------------------------------------------- hero */}
-      <section className="grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:py-24">
+    <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
+      {/* ------------------------------------------------------------ topo */}
+      <section className="grid items-center gap-10 lg:grid-cols-[1.15fr_1fr]">
         <div>
           <p className="text-ink-muted text-sm font-medium">
             Medicina · {periodLabel(currentPeriod)} · UNIEURO
           </p>
-          <h1 className="mt-4 text-[2.75rem] leading-[1.02] font-semibold sm:text-6xl lg:text-[4.25rem]">
-            A estante da nossa turma.
-          </h1>
-          <p className="text-ink-muted mt-5 max-w-lg text-lg leading-relaxed text-pretty">
-            {stats.withFile} livros do semestre em PDF, prontos para abrir no celular. Sem cadastro,
-            sem enrolação — só a senha da turma.
+          <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">A estante da turma</h1>
+          <p className="text-ink-muted text-body-sm mt-2 leading-relaxed text-pretty">
+            {stats.withFile} livros em PDF, as datas do semestre e simulados que se corrigem
+            sozinhos.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link
-              href="/livros"
-              className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold shadow-[var(--shadow-raise)] transition-colors"
-            >
-              Abrir a estante
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
-            <Link
-              href="/disciplinas"
-              className="glass hover:glass-strong inline-flex items-center rounded-full px-5 py-3 text-sm font-medium transition-colors"
-            >
-              Ver por matéria
-            </Link>
-          </div>
-
-          <form action="/busca" className="mt-6 flex max-w-md items-center">
-            <label htmlFor="hero-search" className="sr-only">
+          <form action="/busca" className="mt-5 flex max-w-md items-center">
+            <label htmlFor="busca-home" className="sr-only">
               Buscar na estante
             </label>
             <div className="glass relative w-full rounded-full">
@@ -93,19 +91,19 @@ export default async function HomePage() {
                 aria-hidden="true"
               />
               <input
-                id="hero-search"
+                id="busca-home"
                 name="q"
                 type="search"
                 placeholder="Procurar um livro, autor ou tema…"
-                className="placeholder:text-ink-faint w-full rounded-full bg-transparent py-3 pr-4 pl-11 text-sm outline-none"
+                className="placeholder:text-ink-faint min-h-12 w-full rounded-full bg-transparent py-3 pr-4 pl-11 text-sm outline-none"
               />
             </div>
           </form>
         </div>
 
-        {/* A fanned shelf of real covers. */}
+        {/* A estante em leque: identidade, não informação — só onde sobra espaço. */}
         <div
-          className="relative mx-auto h-[19rem] w-full max-w-lg sm:h-[22rem] lg:h-[26rem]"
+          className="relative mx-auto hidden h-[22rem] w-full max-w-lg lg:block lg:h-[24rem]"
           aria-hidden="true"
         >
           <div className="glass absolute inset-x-6 bottom-0 h-3 rounded-full" />
@@ -115,7 +113,7 @@ export default async function HomePage() {
             return (
               <div
                 key={entry.book.id}
-                className="absolute bottom-3 w-[34%] transition-transform duration-300 hover:-translate-y-3 motion-reduce:transform-none sm:w-[32%]"
+                className="absolute bottom-3 w-[32%] transition-transform duration-300 hover:-translate-y-3 motion-reduce:transform-none"
                 style={{
                   left: `${50 + offset * 19}%`,
                   transform: `translateX(-50%) rotate(${offset * 5}deg)`,
@@ -129,63 +127,66 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ------------------------------------------------------ próxima prova */}
+      {/* -------------------------------------------------- a próxima prova */}
       {next ? (
-        <section className="pb-4">
-          <Link
-            href="/calendario"
-            className="glass hover:glass-strong rounded-hero flex flex-wrap items-center gap-x-6 gap-y-3 p-5 transition-colors sm:p-6"
+        <section className="mt-8">
+          <Card
+            raio="hero"
+            respiro="md"
+            className={next.daysLeft <= 7 ? "border-danger/30 ring-danger/15 ring-2" : undefined}
           >
-            <CalendarDays className="text-primary size-7 shrink-0" aria-hidden="true" />
-            <div className="min-w-0 flex-1">
-              <p className="text-ink-faint text-xs tracking-[0.1em] uppercase">Próxima prova</p>
-              <p className="mt-1 font-semibold">
-                {next.assessment.title ?? next.assessment.kind} de{" "}
-                {allDisciplines.find((d) => d.id === next.assessment.disciplineId)?.shortName ??
-                  "—"}{" "}
-                <span className="text-ink-muted font-normal">
-                  · {formatAssessmentDate(next.assessment.date)}
+            <div className="flex flex-wrap items-start gap-x-4 gap-y-3">
+              <CalendarDays className="text-primary mt-0.5 size-6 shrink-0" aria-hidden="true" />
+              <div className="min-w-0 flex-1">
+                <p className="text-ink-faint text-micro tracking-[0.12em] uppercase">
+                  Próxima prova
+                </p>
+                <h2 className="mt-1 text-xl font-semibold">
+                  {next.assessment.title ?? next.assessment.kind}
+                  {nextDiscipline ? ` de ${nextDiscipline.shortName}` : ""}
+                </h2>
+                <p className="text-ink-muted mt-1 text-sm">
+                  {formatAssessmentDate(next.assessment.date)}
                   {next.assessment.time ? `, ${next.assessment.time}` : ""}
-                </span>
-              </p>
+                </p>
+              </div>
+              <Badge tom={next.daysLeft <= 7 ? "perigo" : "neutro"} className="text-sm">
+                {countdownLabel(next.daysLeft)}
+              </Badge>
             </div>
-            <span
-              className={`rounded-full px-3 py-1 text-sm font-semibold ${
-                next.daysLeft <= 7 ? "bg-danger-soft text-danger" : "glass-strong text-ink-muted"
-              }`}
-            >
-              {countdownLabel(next.daysLeft)}
-            </span>
-          </Link>
+
+            {next.assessment.content.length > 0 ? (
+              <p className="text-ink-muted mt-4 line-clamp-2 text-sm leading-relaxed text-pretty">
+                {next.assessment.content[0]}
+              </p>
+            ) : null}
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {nextExams.slice(0, 1).map((exam) => (
+                <ButtonLink key={exam.id} href={`/simulados/${exam.slug}`} size="sm">
+                  <PencilRuler className="size-4" aria-hidden="true" />
+                  Treinar para ela
+                </ButtonLink>
+              ))}
+              <ButtonLink href="/calendario" variant="secundario" size="sm">
+                Todas as datas
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </ButtonLink>
+            </div>
+          </Card>
         </section>
       ) : null}
 
-      {/* ------------------------------------------------------ simulados */}
-      <section className="pb-4">
-        <div className="glass rounded-hero flex flex-wrap items-center gap-x-6 gap-y-4 p-6 sm:p-8">
-          <PencilRuler className="text-primary size-8 shrink-0" aria-hidden="true" />
-          <div className="min-w-0 flex-1">
-            <h2 className="text-xl font-semibold">Simulados que se corrigem sozinhos</h2>
-            <p className="text-ink-muted mt-1 max-w-xl text-sm leading-relaxed text-pretty">
-              Prova de treino no formato da avaliação. Você responde, ela corrige na hora e mostra
-              em qual assunto você está fraco — e qual capítulo abrir por causa disso.
-            </p>
-          </div>
-          <Link
-            href="/simulados"
-            className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors"
-          >
-            Treinar
-            <ArrowRight className="size-4" aria-hidden="true" />
-          </Link>
-        </div>
+      {/* ------------------------------------------ onde parei / o que revisar */}
+      <section className="mt-4">
+        <StudySnapshot variante="painel" />
       </section>
 
-      {/* --------------------------------------------------- mais usados */}
-      <section className="py-12">
+      {/* ---------------------------------------------------- mais acessados */}
+      <section className="pt-12">
         <SectionHeading
           title="Mais acessados"
-          description="Os livros que a turma mais abre. Enquanto a contagem é nova, entram primeiro os da bibliografia básica."
+          description="Os livros que a turma mais abre."
           action={
             <Link
               href="/livros"
@@ -199,8 +200,8 @@ export default async function HomePage() {
         <BookGrid entries={mostUsed} label="Mais acessados" />
       </section>
 
-      {/* --------------------------------------------------- disciplinas */}
-      <section className="py-12">
+      {/* ------------------------------------------------------ disciplinas */}
+      <section className="pt-12">
         <SectionHeading
           title={`Por matéria — ${periodLabel(currentPeriod)}`}
           description="Ementa, conteúdos, livros e o plano de ensino de cada uma."
@@ -229,77 +230,32 @@ export default async function HomePage() {
         </ul>
       </section>
 
-      {/* ------------------------------------------- compartilhados + novos */}
-      <section className="grid gap-10 py-12 lg:grid-cols-[1fr_1.4fr] lg:gap-14">
-        <div>
-          <SectionHeading
-            title="Vale para mais de uma matéria"
-            description="Um livro só, várias disciplinas."
-          />
-          <ul className="space-y-3">
-            {shared.slice(0, 4).map((entry) => (
-              <li key={entry.book.id} className="glass rounded-panel p-4">
-                <Link
-                  href={`/livros/${entry.book.slug}`}
-                  className="hover:text-primary leading-snug font-semibold"
-                >
-                  {entry.book.title}
-                </Link>
-                <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
-                  {entry.links.map((link) => (
-                    <li
-                      key={link.disciplineId}
-                      className="text-ink-muted flex items-center gap-1.5 text-sm"
-                    >
-                      <span
-                        className="size-2 rounded-full"
-                        style={{ backgroundColor: link.discipline.color }}
-                        aria-hidden="true"
-                      />
-                      {link.discipline.shortName}
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <SectionHeading
-            title="Chegou agora"
-            description="Os últimos PDFs adicionados à estante."
-          />
-          <BookGrid
-            entries={latest}
-            label="Adicionados recentemente"
-            className="grid-cols-3 sm:grid-cols-5 lg:grid-cols-5"
-          />
-        </div>
+      {/* ---------------------------------------------------- chegou agora */}
+      <section className="pt-12">
+        <SectionHeading title="Chegou agora" description="Os últimos PDFs adicionados à estante." />
+        <BookGrid
+          entries={latest}
+          label="Adicionados recentemente"
+          className="grid-cols-3 sm:grid-cols-5 lg:grid-cols-5"
+        />
       </section>
 
-      {/* -------------------------------------------------------- rodapé */}
-      <section className="pt-6 pb-16">
-        <div className="glass rounded-hero p-6 sm:p-8">
+      {/* ---------------------------------------------------------- rodapé */}
+      <section className="pt-12 pb-16">
+        <Card raio="hero" respiro="lg">
           <div className="grid gap-6 sm:grid-cols-3">
-            <div>
-              <p className="font-display text-primary text-4xl font-semibold tabular-nums">
-                {stats.withFile}
-              </p>
-              <p className="mt-1 text-sm font-medium">livros em PDF</p>
-            </div>
-            <div>
-              <p className="font-display text-primary text-4xl font-semibold tabular-nums">
-                {stats.disciplines}
-              </p>
-              <p className="mt-1 text-sm font-medium">matérias do semestre</p>
-            </div>
-            <div>
-              <p className="font-display text-primary text-4xl font-semibold tabular-nums">
-                {stats.teachingPlans}
-              </p>
-              <p className="mt-1 text-sm font-medium">planos de ensino</p>
-            </div>
+            {[
+              [stats.withFile, "livros em PDF"],
+              [stats.disciplines, "matérias do semestre"],
+              [stats.teachingPlans, "planos de ensino"],
+            ].map(([value, label]) => (
+              <div key={label}>
+                <p className="font-display text-primary text-4xl font-semibold tabular-nums">
+                  {value}
+                </p>
+                <p className="mt-1 text-sm font-medium">{label}</p>
+              </div>
+            ))}
           </div>
           <p className="text-ink-muted mt-6 max-w-2xl text-sm leading-relaxed text-pretty">
             Isto aqui é da turma, para a turma. Os PDFs são de uso interno — não repasse fora do
@@ -309,7 +265,7 @@ export default async function HomePage() {
             </Link>
             .
           </p>
-        </div>
+        </Card>
       </section>
     </div>
   );

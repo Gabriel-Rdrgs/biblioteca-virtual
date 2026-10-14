@@ -42,6 +42,7 @@
   --glass-border: rgb(255 255 255 / 0.7);
   --glass-edge: rgb(20 30 33 / 0.08);
   --glass-highlight: rgb(255 255 255 / 0.9);
+  --glass-bar: rgb(250 247 241 / 0.93);
   --glow-a: rgb(15 85 99 / 0.22);
   --glow-b: rgb(95 132 101 / 0.2);
   --glow-c: rgb(156 95 34 / 0.16);
@@ -83,6 +84,7 @@
     --glass-border: rgb(255 255 255 / 0.14);
     --glass-edge: rgb(0 0 0 / 0.35);
     --glass-highlight: rgb(255 255 255 / 0.22);
+    --glass-bar: rgb(8 23 32 / 0.93);
     --glow-a: rgb(88 194 212 / 0.2);
     --glow-b: rgb(143 184 148 / 0.14);
     --glow-c: rgb(217 160 94 / 0.12);
@@ -124,6 +126,7 @@
   --glass-border: rgb(255 255 255 / 0.14);
   --glass-edge: rgb(0 0 0 / 0.35);
   --glass-highlight: rgb(255 255 255 / 0.22);
+  --glass-bar: rgb(8 23 32 / 0.93);
   --glow-a: rgb(88 194 212 / 0.2);
   --glow-b: rgb(143 184 148 / 0.14);
   --glow-c: rgb(217 160 94 / 0.12);
@@ -145,6 +148,12 @@
 
 @utility glass-strong {
   background: var(--glass-strong);
+}
+
+/* A barra fixa do celular fica por cima do conteúdo que rola: precisa de um
+   fundo quase opaco, ou a capa escura de um livro atravessa e come o rótulo. */
+@utility glass-bar {
+  background: var(--glass-bar);
 }
 
 @theme inline {

@@ -31,7 +31,9 @@ async function goToQuestion(page: Page, number: string) {
 
 test("the simulado is listed with its bank and opens its cover", async ({ page }) => {
   await page.goto("/simulados");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Simulados");
+  // O endereço antigo continua valendo e leva ao destino novo.
+  await expect(page).toHaveURL(/\/estudar$/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Estudar");
   // Both áreas of MAC I appear with the size of their bank.
   await expect(page.getByText("Anatomia clínica").first()).toBeVisible();
   await expect(page.getByText("Parasitologia").first()).toBeVisible();

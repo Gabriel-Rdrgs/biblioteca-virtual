@@ -2,30 +2,27 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookMarked, FileText, Home, Layers, Search } from "lucide-react";
+import { isActive, navItems } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
-const items = [
-  { href: "/", label: "Início", icon: Home, exact: true },
-  { href: "/livros", label: "Estante", icon: BookMarked, exact: false },
-  { href: "/disciplinas", label: "Matérias", icon: Layers, exact: false },
-  { href: "/simulados", label: "Simulados", icon: FileText, exact: false },
-  { href: "/busca", label: "Buscar", icon: Search, exact: false },
-] as const;
-
-/** Bottom bar on phones — the primary destinations stay one tap away. */
+/**
+ * A barra de baixo, no celular.
+ *
+ * Lê os mesmos destinos do cabeçalho, para as duas navegações não voltarem a
+ * divergir. Antes havia dois fundos empilhados aqui — uma faixa opaca com
+ * borda e, por cima, a pílula de vidro; fica só a pílula.
+ */
 export function MobileNav() {
   const pathname = usePathname();
 
   return (
     <nav
       aria-label="Navegação principal"
-      className="border-line bg-canvas/95 fixed inset-x-0 bottom-0 z-40 border-t backdrop-blur-md md:hidden"
-      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+      className="fixed inset-x-0 bottom-0 z-40 px-3 pb-[env(safe-area-inset-bottom)] md:hidden"
     >
-      <ul className="glass mx-auto flex max-w-lg items-stretch rounded-full px-1">
-        {items.map((item) => {
-          const active = item.exact ? pathname === item.href : pathname.startsWith(item.href);
+      <ul className="glass glass-bar mx-auto mb-2 flex max-w-lg items-stretch rounded-full px-1">
+        {navItems.map((item) => {
+          const active = isActive(item, pathname);
           const Icon = item.icon;
           return (
             <li key={item.href} className="flex-1">
@@ -34,7 +31,7 @@ export function MobileNav() {
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "text-micro flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-full px-1 py-2 font-medium transition-colors",
-                  active ? "text-primary" : "text-ink-faint hover:text-ink",
+                  active ? "text-primary" : "text-ink-muted hover:text-ink",
                 )}
               >
                 <Icon className="size-5" aria-hidden="true" />

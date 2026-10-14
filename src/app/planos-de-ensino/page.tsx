@@ -29,7 +29,13 @@ export default async function TeachingPlansPage() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
-      <Breadcrumbs trail={[{ label: "Início", href: "/" }, { label: "Planos de ensino" }]} />
+      <Breadcrumbs
+        trail={[
+          { label: "Início", href: "/" },
+          { label: "Matérias", href: "/disciplinas" },
+          { label: "Planos de ensino" },
+        ]}
+      />
       <SectionHeading
         as="h1"
         title="Planos de ensino"

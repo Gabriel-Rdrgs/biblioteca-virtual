@@ -101,6 +101,14 @@ export function deleteAttempt(examId: string, startedAt: string): void {
   write(store);
 }
 
+/** Tentativas deixadas pela metade, da mais recente para a mais antiga. */
+export function loadOpenAttempts(): StoredAttempt[] {
+  return Object.values(read())
+    .flat()
+    .filter((a) => !a.finishedAt)
+    .sort((a, b) => b.startedAt.localeCompare(a.startedAt));
+}
+
 /** Every finished attempt, newest first — the data behind "meu progresso". */
 export function loadHistory(): StoredAttempt[] {
   return Object.values(read())

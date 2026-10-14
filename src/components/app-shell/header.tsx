@@ -4,16 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LogOut, Search } from "lucide-react";
 import { AtlasMark } from "@/components/ui/atlas-mark";
+import { isActive, navItems } from "@/lib/navigation";
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
-
-const links = [
-  { href: "/livros", label: "Estante" },
-  { href: "/disciplinas", label: "Matérias" },
-  { href: "/simulados", label: "Simulados" },
-  { href: "/calendario", label: "Calendário" },
-  { href: "/planos-de-ensino", label: "Planos" },
-] as const;
 
 /** A floating glass bar rather than a full-width strip. */
 export function Header({ gated }: { gated: boolean }) {
@@ -31,22 +24,24 @@ export function Header({ gated }: { gated: boolean }) {
         </Link>
 
         <nav aria-label="Navegação principal" className="ml-3 hidden items-center gap-0.5 md:flex">
-          {links.map((link) => {
-            const active = pathname.startsWith(link.href);
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={active ? "page" : undefined}
-                className={cn(
-                  "rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors",
-                  active ? "glass-strong text-primary" : "text-ink-muted hover:text-ink",
-                )}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+          {navItems
+            .filter((item) => !item.exact)
+            .map((item) => {
+              const active = isActive(item, pathname);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors",
+                    active ? "glass-strong text-primary" : "text-ink-muted hover:text-ink",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
         </nav>
 
         <div className="ml-auto flex items-center gap-1">

@@ -21,21 +21,19 @@ export function Footer() {
             aria-label="Rodapé"
             className="grid grid-cols-2 gap-x-10 gap-y-2 text-sm sm:gap-x-16"
           >
-            <Link href="/livros" className="text-ink-muted hover:text-primary">
-              Estante
-            </Link>
-            <Link href="/disciplinas" className="text-ink-muted hover:text-primary">
-              Matérias
-            </Link>
-            <Link href="/planos-de-ensino" className="text-ink-muted hover:text-primary">
-              Planos de ensino
-            </Link>
-            <Link href="/busca" className="text-ink-muted hover:text-primary">
-              Busca
-            </Link>
-            <Link href="/uso-responsavel" className="text-ink-muted hover:text-primary">
-              Combinados de uso
-            </Link>
+            {[
+              ["/livros", "Estante"],
+              ["/disciplinas", "Matérias"],
+              ["/estudar", "Estudar"],
+              ["/calendario", "Calendário"],
+              ["/planos-de-ensino", "Planos de ensino"],
+              ["/busca", "Busca"],
+              ["/uso-responsavel", "Combinados de uso"],
+            ].map(([href, label]) => (
+              <Link key={href} href={href!} className="text-ink-muted hover:text-primary">
+                {label}
+              </Link>
+            ))}
           </nav>
         </div>
 
