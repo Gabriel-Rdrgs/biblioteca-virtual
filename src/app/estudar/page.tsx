@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { ArrowRight, FileText, Layers, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, FileText, Layers, Sparkles } from "lucide-react";
 import {
   Badge,
   Breadcrumbs,
   ButtonAnchor,
   ButtonLink,
+  CardLink,
   SectionHeading,
 } from "@/components/ui/primitives";
 import { DrillBuilder } from "@/components/exam/drill-builder";
 import { StudySnapshot } from "@/components/exam/study-snapshot";
 import { countAreaQuestions, getExams, getQuestionAreas, loadExam } from "@/lib/repository/exams";
 import { getDisciplines } from "@/lib/repository";
+import { getSummaries } from "@/lib/repository/summaries";
 
 export const metadata: Metadata = {
   title: "Estudar",
@@ -23,6 +25,7 @@ export default async function EstudarPage() {
   const disciplines = await getDisciplines();
   const exams = getExams();
   const areas = getQuestionAreas();
+  const summaries = await getSummaries();
 
   const byDiscipline = disciplines
     .map((discipline) => ({
@@ -46,9 +49,23 @@ export default async function EstudarPage() {
         description={`Prova de treino no formato da avaliação: você responde aqui, a correção é na hora e o resultado diz qual assunto revisar primeiro. ${totalQuestions} questões no banco da turma.`}
       />
 
-      <div className="mb-10">
+      <div className="mb-6">
         <StudySnapshot />
       </div>
+
+      {summaries.length > 0 ? (
+        <CardLink href="/resumos" raio="hero" className="mb-10 flex items-center gap-4">
+          <BookOpen className="text-primary size-6 shrink-0" aria-hidden="true" />
+          <span className="min-w-0 flex-1">
+            <span className="block font-semibold">Resumos da turma</span>
+            <span className="text-ink-muted block text-sm leading-relaxed">
+              Um por aula, com o que foi dado naquele encontro. {summaries.length}{" "}
+              {summaries.length === 1 ? "publicado" : "publicados"}.
+            </span>
+          </span>
+          <ArrowRight className="text-ink-faint size-4 shrink-0" aria-hidden="true" />
+        </CardLink>
+      ) : null}
 
       {byDiscipline.length === 0 ? (
         <p className="text-ink-muted glass rounded-panel p-6 text-sm">

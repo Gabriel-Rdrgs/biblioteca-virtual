@@ -48,7 +48,7 @@ export function r2Client(): S3Client {
 }
 
 /** Which shelf a file sits on. */
-export type StorageFolder = "livros" | "planos" | "simulados";
+export type StorageFolder = "livros" | "planos" | "simulados" | "resumos";
 
 /** Object key — the same relative path used under storage/ on disk. */
 export function objectKey(fileName: string, folder: StorageFolder = "livros"): string {

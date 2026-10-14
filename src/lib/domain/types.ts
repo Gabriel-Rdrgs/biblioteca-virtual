@@ -1,3 +1,4 @@
+import type { Summary } from "./summary-types";
 import type { Assessment } from "./assessment-types";
 
 /**
@@ -265,6 +266,10 @@ export interface CatalogManifest {
   /** Dates the admin added on top of the ones in the teaching plans. */
   readonly assessments?: readonly Assessment[];
   /** Corrections applied over a date that came from a plan. */
+  /** Resumos criados pelo painel. */
+  readonly summaries?: readonly Summary[];
+  /** Correções aplicadas sobre um resumo publicado. */
+  readonly summaryOverrides?: Readonly<Record<string, Partial<Summary>>>;
   readonly assessmentOverrides?: Readonly<Record<string, Partial<Assessment>>>;
   readonly settings?: LibrarySettings;
 }

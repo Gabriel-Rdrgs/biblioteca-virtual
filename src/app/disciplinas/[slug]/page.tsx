@@ -22,6 +22,8 @@ import {
   getTeachingPlanForDiscipline,
   toCatalogEntries,
 } from "@/lib/repository";
+import { getSummaries } from "@/lib/repository/summaries";
+import { lessonDayLabel, lessonLabel } from "@/lib/domain/summary-types";
 
 export async function generateMetadata({
   params,
@@ -61,6 +63,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
 
   const books = await getBooksForDiscipline(discipline.id);
   const plan = await getTeachingPlanForDiscipline(discipline.id);
+  const summaries = await getSummaries(discipline.id);
   // The next three dates that are ahead; a whole term of them would
   // bury the ementa under a wall of chips.
   const assessments = (await getAssessmentsForDiscipline(discipline.id))
@@ -180,6 +183,37 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
             ))}
           </ul>
         ) : null}
+        {summaries.length > 0 ? (
+          <section className="mb-10" aria-labelledby="resumos-da-materia">
+            <div className="mb-3 flex flex-wrap items-baseline justify-between gap-3">
+              <h2 id="resumos-da-materia" className="text-lg font-semibold">
+                Resumos das aulas
+              </h2>
+              <Link href="/resumos" className="text-primary text-sm font-medium hover:underline">
+                Ver todos
+              </Link>
+            </div>
+            <ul className="flex flex-wrap gap-2">
+              {summaries.map((summary) => (
+                <li key={summary.id}>
+                  <Link
+                    href={`/resumos/${summary.slug}`}
+                    className="glass hover:glass-strong inline-flex items-center gap-2.5 rounded-full py-2 pr-4 pl-3 text-sm transition-colors"
+                  >
+                    <span className="bg-primary text-on-primary text-micro rounded-full px-2 py-0.5 font-semibold">
+                      {summary.kind === "aula" ? lessonLabel(summary) : summary.cycleLabel}
+                    </span>
+                    <span className="font-medium">{summary.title}</span>
+                    {summary.kind === "aula" ? (
+                      <span className="text-ink-faint text-xs">{lessonDayLabel(summary.date)}</span>
+                    ) : null}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
         <div className="grid gap-10 lg:grid-cols-[1fr_18rem] lg:gap-14">
           <div className="min-w-0">
             <section>

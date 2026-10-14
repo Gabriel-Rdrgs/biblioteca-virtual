@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CalendarDays, Clock, MapPin, PencilRuler } from "lucide-react";
+import { BookOpen, CalendarDays, Clock, MapPin, PencilRuler } from "lucide-react";
 import { Badge, Breadcrumbs, ButtonLink, SectionHeading } from "@/components/ui/primitives";
 import {
   assessmentLabel,
@@ -12,6 +12,7 @@ import {
 import { getCalendar } from "@/lib/repository/assessments";
 import { getDisciplines } from "@/lib/repository";
 import { getExams } from "@/lib/repository/exams";
+import { getSummaries } from "@/lib/repository/summaries";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -35,6 +36,7 @@ function urgency(daysLeft: number, exam: boolean) {
 export default async function CalendarioPage() {
   const [{ upcoming, past }, disciplines] = await Promise.all([getCalendar(), getDisciplines()]);
   const exams = getExams();
+  const summaries = await getSummaries();
   const byId = new Map(disciplines.map((d) => [d.id, d]));
 
   const Card = ({ item, dimmed }: { item: UpcomingAssessment; dimmed?: boolean }) => {
@@ -42,6 +44,8 @@ export default async function CalendarioPage() {
     const discipline = byId.get(assessment.disciplineId);
     const tone = urgency(daysLeft, isExam(assessment));
     const linked = exams.filter((exam) => assessment.examIds.includes(exam.id));
+    // O que estudar para esta prova: os resumos das aulas que caem nela.
+    const resumos = summaries.filter((summary) => summary.assessmentIds.includes(assessment.id));
 
     return (
       <li
@@ -132,12 +136,25 @@ export default async function CalendarioPage() {
           </p>
         ) : null}
 
-        {linked.length > 0 ? (
+        {linked.length > 0 || resumos.length > 0 ? (
           <div className="mt-5 flex flex-wrap gap-2">
             {linked.map((exam) => (
               <ButtonLink key={exam.id} href={`/simulados/${exam.slug}`} size="sm">
                 <PencilRuler className="size-4" aria-hidden="true" />
                 Treinar: {exam.title.replace(/^Simulado \w+ — /, "")}
+              </ButtonLink>
+            ))}
+            {resumos.map((summary) => (
+              <ButtonLink
+                key={summary.id}
+                href={`/resumos/${summary.slug}`}
+                variant="secundario"
+                size="sm"
+              >
+                <BookOpen className="size-4" aria-hidden="true" />
+                {summary.kind === "aula"
+                  ? `Resumo da aula ${summary.lesson}`
+                  : `Resumo: ${summary.cycleLabel}`}
               </ButtonLink>
             ))}
           </div>

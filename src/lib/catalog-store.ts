@@ -39,6 +39,8 @@ function parse(raw: string): CatalogManifest {
     teachingPlans: m.teachingPlans ?? [],
     assessments: m.assessments ?? [],
     assessmentOverrides: m.assessmentOverrides ?? {},
+    summaries: m.summaries ?? [],
+    summaryOverrides: m.summaryOverrides ?? {},
     settings: m.settings ?? {},
   };
 }

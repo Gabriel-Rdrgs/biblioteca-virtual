@@ -25,6 +25,7 @@ export function Footer() {
               ["/livros", "Estante"],
               ["/disciplinas", "Matérias"],
               ["/estudar", "Estudar"],
+              ["/resumos", "Resumos"],
               ["/calendario", "Calendário"],
               ["/planos-de-ensino", "Planos de ensino"],
               ["/busca", "Busca"],
