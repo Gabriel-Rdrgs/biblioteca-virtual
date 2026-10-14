@@ -163,3 +163,26 @@ test.describe("calendário de provas", () => {
     expect(response.status()).toBe(401);
   });
 });
+
+test("a date that moved says so, and shows what the plan had said", async ({ page }) => {
+  if (!CLASS) return;
+  await loginClass(page);
+  await page.goto("/calendario");
+
+  const card = page.locator("li").filter({ hasText: "Iniciação Científica I" }).first();
+  await expect(card.getByText("data alterada")).toBeVisible();
+  await expect(card.getByText(/O plano previa 8 de outubro/)).toBeVisible();
+  await expect(card.getByText(/informado pela turma/i)).toBeVisible();
+});
+
+test("an N2 that is cumulative says so, with the page that says it", async ({ page }) => {
+  if (!CLASS) return;
+  await loginClass(page);
+  await page.goto("/calendario");
+
+  const card = page.locator("li").filter({ hasText: "N2 — avaliação somativa tutorial" }).first();
+  await expect(card.getByText(/problemas 1 a 4, cobrados na N1/i)).toBeVisible();
+  await expect(
+    card.getByText(/acumulativo conforme o plano de ensino de AES 2, p\. 8/i),
+  ).toBeVisible();
+});

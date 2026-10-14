@@ -29,6 +29,14 @@ export interface Assessment {
   readonly note?: string;
   /** Where the date came from, so any claim can be checked. */
   readonly source?: string;
+  /**
+   * The date the plan originally gave, when it has since moved. A class
+   * that studied for the old one needs to see that it changed, not just
+   * the new date sitting there as if it had always been so.
+   */
+  readonly originalDate?: string;
+  /** Who said it changed, and when. */
+  readonly revision?: string;
   readonly visibility: Visibility;
   readonly origin: "seed" | "admin";
 }

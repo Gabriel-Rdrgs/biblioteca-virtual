@@ -76,9 +76,21 @@ export default async function CalendarioPage() {
           ) : null}
         </div>
 
-        <p className="font-display mt-3 text-2xl font-semibold">
+        <p className="font-display mt-3 flex flex-wrap items-baseline gap-x-3 text-2xl font-semibold">
           {formatAssessmentDate(assessment.date)}
+          {assessment.originalDate ? (
+            <span className="bg-accent-soft text-accent rounded-full px-2.5 py-0.5 font-sans text-xs font-semibold">
+              data alterada
+            </span>
+          ) : null}
         </p>
+
+        {assessment.originalDate ? (
+          <p className="text-ink-muted mt-1 text-sm">
+            O plano previa {formatAssessmentDate(assessment.originalDate)}.
+            {assessment.revision ? " " + assessment.revision : ""}
+          </p>
+        ) : null}
 
         <dl className="text-ink-muted mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
           {assessment.time ? (
@@ -177,7 +189,8 @@ export default async function CalendarioPage() {
       {upcoming.length > 0 || past.length > 0 ? (
         <p className="text-ink-faint mt-10 text-xs leading-relaxed">
           Todos os planos avisam que o cronograma pode sofrer ajustes ao longo do semestre. Confirme
-          com o docente antes de contar com uma data.
+          com o docente antes de contar com uma data. E onde o plano não disser o contrário, conte
+          com uma N2 que também cobre o conteúdo da N1.
         </p>
       ) : null}
 

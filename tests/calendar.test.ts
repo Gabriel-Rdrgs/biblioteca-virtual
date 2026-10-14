@@ -180,3 +180,37 @@ describe("edição parcial de uma data", () => {
     ).toBe(false);
   });
 });
+
+describe("correções sobre o que o plano dizia", () => {
+  it("keeps the plan's original date beside the new one", async () => {
+    const { seedAssessments } = await import("@/lib/data/assessments");
+    const ic = seedAssessments.find((a) => a.id === "ic-1-n1")!;
+    expect(ic.date).toBe("2026-10-15");
+    // The class studied for the old one; it must not simply vanish.
+    expect(ic.originalDate).toBe("2026-10-08");
+    expect(ic.revision).toContain("turma");
+    expect(ic.source).toContain("Plano de ensino de IC I");
+  });
+
+  it("says the N2 is cumulative where the plan says so", async () => {
+    const { seedAssessments } = await import("@/lib/data/assessments");
+    for (const id of ["aes-2-n2", "aes-1-n2", "mac-1-n2-teorica"]) {
+      const n2 = seedAssessments.find((a) => a.id === id)!;
+      expect(n2.note, id).toMatch(/acumulativo/i);
+      expect(n2.note, id).toMatch(/p\. \d+/);
+      expect(n2.content.join(" "), id).toMatch(/N1|primeiro bimestre|acumulativ/i);
+    }
+  });
+
+  it("offers the N1 simulados for the cumulative part of MAC I's N2", async () => {
+    const { seedAssessments } = await import("@/lib/data/assessments");
+    const n2 = seedAssessments.find((a) => a.id === "mac-1-n2-teorica")!;
+    expect(n2.examIds).toContain("mac-1-n1-completo");
+  });
+
+  it("flags the devolutiva whose date the change put in doubt", async () => {
+    const { seedAssessments } = await import("@/lib/data/assessments");
+    const devolutiva = seedAssessments.find((a) => a.id === "ic-1-devolutiva-n1")!;
+    expect(devolutiva.note).toMatch(/confirmar/i);
+  });
+});

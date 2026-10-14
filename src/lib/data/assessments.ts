@@ -84,8 +84,10 @@ export const seedAssessments: readonly Assessment[] = [
       "Embriologia: gametogênese e as quatro primeiras semanas do desenvolvimento.",
       "Histologia: epitelial, conjuntivo, ósseo e cartilaginoso, muscular e nervoso.",
       "Anatomia: artrologia, membro superior e membro inferior.",
+      "E também o conteúdo da N1: o plano diz que cada bimestral abrange todo o conteúdo programático ministrado até a data de sua realização.",
     ],
-    examIds: [],
+    examIds: ["mac-1-n1-completo", "mac-1-n1-anatomia", "mac-1-n1-parasitologia"],
+    note: "Conteúdo acumulativo conforme o plano de ensino de MAC I, p. 4. Os simulados da N1 continuam valendo para a parte antiga.",
     source: plano("MAC I", 10),
   },
   {
@@ -254,7 +256,9 @@ export const seedAssessments: readonly Assessment[] = [
     disciplineId: "ic-1",
     kind: "N1",
     title: "N1",
-    date: "2026-10-08",
+    date: "2026-10-15",
+    originalDate: "2026-10-08",
+    revision: "Remarcada; informado pela turma em 13 de outubro de 2026.",
     content: [
       "Da importância da pesquisa científica até currículo Lattes e ORCID: tipos de pesquisa, pirâmide de evidências, busca de dados, viés e ética em pesquisa.",
     ],
@@ -270,6 +274,7 @@ export const seedAssessments: readonly Assessment[] = [
     date: "2026-10-15",
     content: [],
     examIds: [],
+    note: "Data a confirmar: o plano a previa para 15/10, dia em que a prova passou a ser aplicada.",
     source: plano("IC I", 4),
   },
   {
@@ -363,8 +368,9 @@ export const seedAssessments: readonly Assessment[] = [
     kind: "N2",
     title: "N2",
     date: "2026-09-10",
-    content: [],
+    content: ["Todo o conteúdo do bimestre, incluindo o que caiu na N1."],
     examIds: [],
+    note: "Conteúdo acumulativo conforme o plano de ensino de AES 1, p. 7.",
     source: plano("AES 1", 11),
   },
   {
@@ -424,8 +430,10 @@ export const seedAssessments: readonly Assessment[] = [
     date: "2026-10-22",
     content: [
       "Problemas 5 a 8: mutação e reparo do DNA, alterações cromossômicas e padrões de herança.",
+      "E também os problemas 1 a 4, cobrados na N1: o plano determina conteúdo acumulativo, porque “os conteúdos estão vinculados”.",
     ],
     examIds: [],
+    note: "Conteúdo acumulativo conforme o plano de ensino de AES 2, p. 8.",
     source: plano("AES 2", 9),
   },
   {
