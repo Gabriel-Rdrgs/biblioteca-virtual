@@ -4,7 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { DisciplineRef } from "@/lib/domain/types";
 import { bibliographyLabels } from "@/components/book/book-badge";
-import { Field, Notice, ProvenanceFields, inputClass } from "./fields";
+import { ProvenanceFields } from "./fields";
+import { Button, ButtonAnchor, Field, Notice, inputClass } from "@/components/ui/primitives";
 import { Uploader, type UploadedFile } from "./uploader";
 
 /**
@@ -126,16 +127,13 @@ export function NewBookForm({ disciplines }: { disciplines: readonly DisciplineR
       <div className="space-y-4">
         <Notice tone="ok">Livro publicado. Já aparece no catálogo da turma.</Notice>
         <div className="flex gap-3">
-          <a
-            href={`/livros/${status.slug}`}
-            className="bg-primary text-on-primary rounded-md px-4 py-2 text-sm font-medium"
-          >
+          <ButtonAnchor href={`/livros/${status.slug}`} size="sm">
             Abrir a página do livro
-          </a>
+          </ButtonAnchor>
           <button
             type="button"
             onClick={reset}
-            className="border-line rounded-md border px-4 py-2 text-sm font-medium"
+            className="border-line rounded-control border px-4 py-2 text-sm font-medium"
           >
             Cadastrar outro
           </button>
@@ -313,7 +311,7 @@ export function NewBookForm({ disciplines }: { disciplines: readonly DisciplineR
             <button
               type="button"
               onClick={() => void submit(true)}
-              className="border-accent text-accent rounded-md border px-4 py-2 text-sm font-medium"
+              className="border-accent text-accent rounded-control border px-4 py-2 text-sm font-medium"
             >
               Cadastrar mesmo assim
             </button>
@@ -321,13 +319,9 @@ export function NewBookForm({ disciplines }: { disciplines: readonly DisciplineR
         </div>
       ) : null}
 
-      <button
-        type="submit"
-        disabled={status.kind === "enviando" || !file}
-        className="bg-primary text-on-primary hover:bg-primary-hover rounded-md px-5 py-2.5 text-sm font-medium transition-colors disabled:opacity-50"
-      >
+      <Button type="submit" disabled={status.kind === "enviando" || !file}>
         {status.kind === "enviando" ? "Salvando…" : "Publicar livro"}
-      </button>
+      </Button>
     </form>
   );
 }

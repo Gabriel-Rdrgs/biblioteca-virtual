@@ -1,44 +1,8 @@
 "use client";
 
-import type { ReactNode } from "react";
-import { cn } from "@/lib/utils";
+import { Field, inputClass } from "@/components/ui/primitives";
 
-/** Small form primitives shared by the admin forms. */
-
-export function Field({
-  label,
-  htmlFor,
-  hint,
-  required,
-  children,
-  className,
-}: {
-  label: string;
-  htmlFor: string;
-  hint?: string;
-  required?: boolean;
-  children: ReactNode;
-  className?: string;
-}) {
-  return (
-    <div className={className}>
-      <label htmlFor={htmlFor} className="block text-sm font-medium">
-        {label}
-        {required ? (
-          <span className="text-danger" aria-hidden="true">
-            {" "}
-            *
-          </span>
-        ) : null}
-      </label>
-      {hint ? <p className="text-ink-faint mt-0.5 text-xs">{hint}</p> : null}
-      <div className="mt-1.5">{children}</div>
-    </div>
-  );
-}
-
-export const inputClass =
-  "border-line bg-surface focus:border-primary w-full rounded-md border px-3 py-2 text-sm";
+/** O único campo que é mesmo do painel: a procedência de um arquivo. */
 
 export function ProvenanceFields({
   idPrefix,
@@ -93,21 +57,5 @@ export function ProvenanceFields({
         />
       </Field>
     </div>
-  );
-}
-
-export function Notice({ tone, children }: { tone: "erro" | "ok" | "aviso"; children: ReactNode }) {
-  return (
-    <p
-      role={tone === "erro" ? "alert" : "status"}
-      className={cn(
-        "rounded-md border px-3 py-2 text-sm",
-        tone === "erro" && "border-danger/30 bg-danger-soft text-danger",
-        tone === "ok" && "border-sage/40 bg-sage-soft text-sage",
-        tone === "aviso" && "border-accent/40 bg-accent-soft text-accent",
-      )}
-    >
-      {children}
-    </p>
   );
 }

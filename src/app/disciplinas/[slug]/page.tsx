@@ -126,7 +126,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
                   href={plan.fileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-ink inline-flex items-center gap-2 rounded-md bg-white px-4 py-2.5 text-sm font-medium transition-opacity hover:opacity-90"
+                  className="text-ink rounded-control inline-flex items-center gap-2 bg-white px-4 py-2.5 text-sm font-medium transition-opacity hover:opacity-90"
                   style={{ color: discipline.color }}
                 >
                   <FileText className="size-4" aria-hidden="true" />
@@ -135,7 +135,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
                 <a
                   href={plan.fileUrl}
                   download
-                  className="inline-flex items-center gap-2 rounded-md border border-white/40 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
+                  className="rounded-control inline-flex items-center gap-2 border border-white/40 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
                 >
                   <Download className="size-4" aria-hidden="true" />
                   Baixar PDF
@@ -196,7 +196,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
                   {discipline.syllabus.map((unit) => (
                     <div
                       key={unit.title}
-                      className="border-line bg-surface rounded-[var(--radius-card)] border p-5"
+                      className="border-line bg-surface rounded-card border p-5"
                     >
                       <h3 className="font-semibold">{unit.title}</h3>
                       <ul className="mt-3 space-y-1.5">
@@ -249,7 +249,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
           </div>
 
           <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
-            <div className="border-line bg-surface rounded-[var(--radius-card)] border p-5">
+            <div className="border-line bg-surface rounded-card border p-5">
               <h2 className="text-sm font-semibold">Resumo</h2>
               <dl className="mt-3 space-y-2.5 text-sm">
                 <div className="flex justify-between gap-3">
@@ -282,7 +282,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
             </div>
 
             {discipline.notes && discipline.notes.length > 0 ? (
-              <div className="border-line bg-surface-sunken rounded-[var(--radius-card)] border p-5">
+              <div className="border-line bg-surface-sunken rounded-card border p-5">
                 <h2 className="text-sm font-semibold">Observações do plano</h2>
                 <ul className="mt-3 space-y-2.5">
                   {discipline.notes.map((note) => (
@@ -298,7 +298,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
               {previous ? (
                 <Link
                   href={`/disciplinas/${previous.slug}`}
-                  className="group border-line bg-surface hover:border-line-strong flex items-center gap-2 rounded-[var(--radius-card)] border p-3 text-sm transition-colors"
+                  className="group border-line bg-surface hover:border-line-strong rounded-card flex items-center gap-2 border p-3 text-sm transition-colors"
                 >
                   <ArrowLeft className="text-ink-faint size-4 shrink-0" aria-hidden="true" />
                   <span className="min-w-0">
@@ -312,7 +312,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
               {next ? (
                 <Link
                   href={`/disciplinas/${next.slug}`}
-                  className="group border-line bg-surface hover:border-line-strong flex items-center gap-2 rounded-[var(--radius-card)] border p-3 text-sm transition-colors"
+                  className="group border-line bg-surface hover:border-line-strong rounded-card flex items-center gap-2 border p-3 text-sm transition-colors"
                 >
                   <span className="min-w-0 flex-1">
                     <span className="text-ink-faint block text-xs">Próxima</span>

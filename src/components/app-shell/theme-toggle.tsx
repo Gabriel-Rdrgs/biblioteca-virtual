@@ -34,7 +34,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(next)}
-      className="border-line text-ink-muted hover:border-line-strong hover:text-ink inline-flex size-9 items-center justify-center rounded-md border transition-colors"
+      className="border-line text-ink-muted hover:border-line-strong hover:text-ink rounded-control inline-flex size-9 items-center justify-center border transition-colors"
       aria-label={theme ? `Mudar para tema ${next === "dark" ? "escuro" : "claro"}` : "Mudar tema"}
     >
       {theme === "dark" ? (

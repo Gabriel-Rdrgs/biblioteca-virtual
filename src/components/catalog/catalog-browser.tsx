@@ -10,7 +10,7 @@ import {
   type SortKey,
 } from "@/lib/domain/search";
 import { BookGrid } from "@/components/book/book-grid";
-import { EmptyState } from "@/components/ui/primitives";
+import { Button, EmptyState } from "@/components/ui/primitives";
 import { FilterChips, FilterPanel } from "./filter-panel";
 
 const sortOptions: { value: SortKey; label: string }[] = [
@@ -100,7 +100,7 @@ export function CatalogBrowser({
               onChange={(event) => update({ query: event.target.value })}
               placeholder="Buscar por título, autor, tema ou disciplina…"
               aria-label="Buscar no catálogo"
-              className="border-line bg-surface placeholder:text-ink-faint focus:border-primary w-full rounded-md border py-2.5 pr-3 pl-9 text-sm"
+              className="border-line bg-surface placeholder:text-ink-faint focus:border-primary rounded-control w-full border py-2.5 pr-3 pl-9 text-sm"
             />
           </div>
 
@@ -112,7 +112,7 @@ export function CatalogBrowser({
               id="sort"
               value={filters.sort}
               onChange={(event) => update({ sort: event.target.value as SortKey })}
-              className="border-line bg-surface focus:border-primary rounded-md border px-3 py-2.5 text-sm"
+              className="border-line bg-surface focus:border-primary rounded-control border px-3 py-2.5 text-sm"
             >
               {sortOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -124,7 +124,7 @@ export function CatalogBrowser({
             <button
               type="button"
               onClick={() => setDrawerOpen(true)}
-              className="border-line inline-flex items-center gap-2 rounded-md border px-3 py-2.5 text-sm lg:hidden"
+              className="border-line rounded-control inline-flex items-center gap-2 border px-3 py-2.5 text-sm lg:hidden"
             >
               <SlidersHorizontal className="size-4" aria-hidden="true" />
               Filtros
@@ -157,13 +157,9 @@ export function CatalogBrowser({
               description="Tente outro termo ou remova alguns filtros. A busca ignora acentos e maiúsculas, então “etica” e “Ética” dão o mesmo resultado."
               action={
                 hasActiveFilters || filters.query ? (
-                  <button
-                    type="button"
-                    onClick={reset}
-                    className="bg-primary text-on-primary hover:bg-primary-hover rounded-md px-4 py-2 text-sm font-medium"
-                  >
+                  <Button type="button" size="sm" onClick={reset}>
                     Limpar busca e filtros
-                  </button>
+                  </Button>
                 ) : undefined
               }
             />
@@ -175,7 +171,7 @@ export function CatalogBrowser({
                   <button
                     type="button"
                     onClick={() => setVisible((v) => v + PAGE_SIZE)}
-                    className="border-line hover:border-line-strong hover:bg-surface-sunken rounded-md border px-5 py-2.5 text-sm font-medium transition-colors"
+                    className="border-line hover:border-line-strong hover:bg-surface-sunken rounded-control border px-5 py-2.5 text-sm font-medium transition-colors"
                   >
                     Mostrar mais {Math.min(PAGE_SIZE, results.length - visible)} de{" "}
                     {results.length - visible} restantes
@@ -206,20 +202,22 @@ export function CatalogBrowser({
               <button
                 type="button"
                 onClick={() => setDrawerOpen(false)}
-                className="border-line inline-flex size-9 items-center justify-center rounded-md border"
+                className="border-line rounded-control inline-flex size-9 items-center justify-center border"
               >
                 <X className="size-4" aria-hidden="true" />
                 <span className="sr-only">Fechar</span>
               </button>
             </div>
             {panel}
-            <button
+            <Button
               type="button"
+              size="lg"
+              block
+              className="mt-6"
               onClick={() => setDrawerOpen(false)}
-              className="bg-primary text-on-primary mt-6 w-full rounded-md px-4 py-3 text-sm font-medium"
             >
               Ver {results.length} {results.length === 1 ? "resultado" : "resultados"}
-            </button>
+            </Button>
           </div>
         </div>
       ) : null}

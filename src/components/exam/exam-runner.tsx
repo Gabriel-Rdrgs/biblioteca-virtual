@@ -18,6 +18,7 @@ import {
 } from "@/lib/exam-storage";
 import { cn } from "@/lib/utils";
 import { ExamResultView } from "./exam-result";
+import { Button } from "@/components/ui/primitives";
 
 /**
  * Takes a student through a simulado: one question at a time, the way the
@@ -165,7 +166,7 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
   return (
     <div ref={top} className="scroll-mt-24">
       {/* ------------------------------------------------------- barra */}
-      <div className="glass sticky top-20 z-30 mb-6 flex flex-wrap items-center gap-3 rounded-2xl px-4 py-3">
+      <div className="glass rounded-panel sticky top-20 z-30 mb-6 flex flex-wrap items-center gap-3 px-4 py-3">
         <div className="min-w-0 flex-1">
           <p className="truncate text-sm font-semibold">{loaded.exam.title}</p>
           <p className="text-ink-faint text-xs tabular-nums">
@@ -193,19 +194,15 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
             >
               <Grid3x3 className="size-4" aria-hidden="true" />
             </button>
-            <button
-              type="button"
-              onClick={finish}
-              className="bg-primary text-on-primary hover:bg-primary-hover rounded-full px-4 py-2 text-sm font-semibold transition-colors"
-            >
+            <Button type="button" size="sm" onClick={finish}>
               Corrigir
-            </button>
+            </Button>
           </>
         ) : null}
       </div>
 
       {paletteOpen && phase === "prova" ? (
-        <div className="glass mb-6 rounded-2xl p-4">
+        <div className="glass rounded-panel mb-6 p-4">
           <p className="text-ink-muted mb-3 text-xs">
             Discursivas 1–{discursivas.length}, objetivas a seguir. Verde: respondida.
           </p>
@@ -223,7 +220,7 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
                     onClick={() => goTo(i)}
                     aria-current={i === index ? "true" : undefined}
                     className={cn(
-                      "w-full rounded-lg py-1.5 text-sm font-medium tabular-nums transition-colors",
+                      "rounded-control w-full py-1.5 text-sm font-medium tabular-nums transition-colors",
                       i === index && "ring-primary ring-2",
                       done ? "bg-sage-soft text-sage" : "bg-surface-sunken text-ink-muted",
                     )}
@@ -239,7 +236,7 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
 
       {/* -------------------------------------------------------- prova */}
       {phase === "prova" && placed ? (
-        <article className="glass rounded-3xl p-5 sm:p-7">
+        <article className="glass rounded-hero p-5 sm:p-7">
           <div className="flex flex-wrap items-center gap-2">
             <span className="font-display text-primary text-2xl font-semibold">
               {placed.number}
@@ -258,13 +255,13 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
 
           {placed.question.figureId && figures.get(placed.question.figureId) ? (
             <figure className="mt-5">
-              <div className="bg-surface overflow-hidden rounded-2xl p-2">
+              <div className="bg-surface rounded-panel overflow-hidden p-2">
                 <Image
                   src={`/api/simulados/${figures.get(placed.question.figureId)!.path}`}
                   alt={figures.get(placed.question.figureId)!.caption}
                   width={figures.get(placed.question.figureId)!.width}
                   height={figures.get(placed.question.figureId)!.height}
-                  className="mx-auto h-auto w-full max-w-md rounded-xl"
+                  className="rounded-panel mx-auto h-auto w-full max-w-md"
                   unoptimized
                 />
               </div>
@@ -281,7 +278,7 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
           {isObjective(placed.question) ? (
             <>
               {placed.question.statements ? (
-                <ol className="bg-surface-sunken mt-5 space-y-2 rounded-2xl p-4">
+                <ol className="bg-surface-sunken rounded-panel mt-5 space-y-2 p-4">
                   {placed.question.statements.map((statement, i) => (
                     <li key={i} className="flex gap-3 text-sm leading-relaxed">
                       <span className="font-display text-ink-faint shrink-0">
@@ -307,7 +304,7 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
                         }
                         aria-pressed={chosen}
                         className={cn(
-                          "flex w-full gap-3 rounded-2xl px-4 py-3 text-left text-sm leading-relaxed transition-colors",
+                          "rounded-panel flex w-full gap-3 px-4 py-3 text-left text-sm leading-relaxed transition-colors",
                           chosen
                             ? "bg-primary text-on-primary"
                             : "bg-surface-sunken hover:bg-surface",
@@ -351,7 +348,7 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
                       update(withNote(attempt, placed.question.id, item.label, event.target.value))
                     }
                     placeholder="Escreva aqui. Na prova o espaço é curto: diga o essencial primeiro."
-                    className="glass-strong placeholder:text-ink-faint focus:border-primary mt-2 w-full rounded-2xl border border-transparent px-4 py-3 text-sm leading-relaxed outline-none"
+                    className="glass-strong placeholder:text-ink-faint focus:border-primary rounded-panel mt-2 w-full border border-transparent px-4 py-3 text-sm leading-relaxed outline-none"
                   />
                 </div>
               ))}
@@ -372,13 +369,9 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
               {index + 1} / {loaded.questions.length}
             </span>
             {index === loaded.questions.length - 1 ? (
-              <button
-                type="button"
-                onClick={finish}
-                className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-colors"
-              >
+              <Button type="button" size="sm" onClick={finish}>
                 Corrigir
-              </button>
+              </Button>
             ) : (
               <button
                 type="button"
@@ -396,7 +389,7 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
       {/* ----------------------------------------------- autoavaliação */}
       {phase === "autoavaliacao" ? (
         <div className="space-y-6">
-          <div className="glass rounded-3xl p-5 sm:p-6">
+          <div className="glass rounded-hero p-5 sm:p-6">
             <h2 className="text-xl font-semibold">Corrija suas discursivas</h2>
             <p className="text-ink-muted mt-2 text-sm leading-relaxed text-pretty">
               As objetivas já foram corrigidas. Agora compare o que você escreveu com o padrão de
@@ -407,7 +400,7 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
           {discursivas.map(({ number, question }) => {
             if (question.kind !== "discursiva") return null;
             return (
-              <article key={question.id} className="glass rounded-3xl p-5 sm:p-6">
+              <article key={question.id} className="glass rounded-hero p-5 sm:p-6">
                 <div className="flex items-center gap-2">
                   <span className="font-display text-primary text-xl font-semibold">{number}</span>
                   <span className="text-ink-faint text-xs tracking-[0.1em] uppercase">
@@ -428,7 +421,7 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
                         {item.prompt}
                       </p>
 
-                      <div className="bg-surface-sunken mt-3 rounded-2xl p-3">
+                      <div className="bg-surface-sunken rounded-panel mt-3 p-3">
                         <p className="text-ink-faint mb-1 text-xs font-medium">
                           O que você escreveu
                         </p>
@@ -452,7 +445,7 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
                             <li key={i}>
                               <label
                                 htmlFor={id}
-                                className="hover:bg-surface-sunken flex cursor-pointer gap-3 rounded-xl p-2 text-sm leading-relaxed"
+                                className="hover:bg-surface-sunken rounded-panel flex cursor-pointer gap-3 p-2 text-sm leading-relaxed"
                               >
                                 <input
                                   id={id}
@@ -502,8 +495,10 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
             );
           })}
 
-          <button
+          <Button
             type="button"
+            size="lg"
+            block
             onClick={() => {
               update({
                 ...attempt,
@@ -514,10 +509,9 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
               setPhase("resultado");
               top.current?.scrollIntoView({ block: "start" });
             }}
-            className="bg-primary text-on-primary hover:bg-primary-hover w-full rounded-full px-5 py-3 text-sm font-semibold transition-colors"
           >
             Ver o resultado
-          </button>
+          </Button>
         </div>
       ) : null}
 

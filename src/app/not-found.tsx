@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { AtlasMark } from "@/components/ui/atlas-mark";
+import { ButtonLink } from "@/components/ui/primitives";
 
 export default function NotFound() {
   return (
@@ -13,15 +13,10 @@ export default function NotFound() {
         O endereço pode estar errado, ou o item foi ocultado do catálogo da turma.
       </p>
       <div className="mt-8 flex gap-3">
-        <Link
-          href="/livros"
-          className="bg-primary text-on-primary rounded-full px-5 py-2.5 text-sm font-semibold"
-        >
-          Ir para a estante
-        </Link>
-        <Link href="/busca" className="glass rounded-full px-5 py-2.5 text-sm font-medium">
+        <ButtonLink href="/livros">Ir para a estante</ButtonLink>
+        <ButtonLink href="/busca" variant="secundario">
           Buscar
-        </Link>
+        </ButtonLink>
       </div>
     </div>
   );

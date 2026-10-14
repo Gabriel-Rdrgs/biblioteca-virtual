@@ -183,7 +183,7 @@ export function PdfReader({ src, title, downloadHref, startPage }: PdfReaderProp
             type="button"
             onClick={() => goTo(current - 1)}
             disabled={status !== "pronto" || current <= 1}
-            className="border-line inline-flex size-8 items-center justify-center rounded-md border disabled:opacity-40"
+            className="border-line rounded-control inline-flex size-8 items-center justify-center border disabled:opacity-40"
             aria-label="Página anterior"
           >
             <ChevronLeft className="size-4" aria-hidden="true" />
@@ -197,7 +197,7 @@ export function PdfReader({ src, title, downloadHref, startPage }: PdfReaderProp
               value={current}
               onChange={(event) => goTo(Number(event.target.value))}
               disabled={status !== "pronto"}
-              className="border-line bg-surface w-14 rounded-md border px-2 py-1 text-center"
+              className="border-line bg-surface rounded-control w-14 border px-2 py-1 text-center"
             />
             <span className="text-ink-muted">/ {numPages || "…"}</span>
           </label>
@@ -205,7 +205,7 @@ export function PdfReader({ src, title, downloadHref, startPage }: PdfReaderProp
             type="button"
             onClick={() => goTo(current + 1)}
             disabled={status !== "pronto" || current >= numPages}
-            className="border-line inline-flex size-8 items-center justify-center rounded-md border disabled:opacity-40"
+            className="border-line rounded-control inline-flex size-8 items-center justify-center border disabled:opacity-40"
             aria-label="Próxima página"
           >
             <ChevronRight className="size-4" aria-hidden="true" />
@@ -217,7 +217,7 @@ export function PdfReader({ src, title, downloadHref, startPage }: PdfReaderProp
             type="button"
             onClick={() => zoomBy(-1)}
             disabled={zoomIndex <= 0}
-            className="border-line inline-flex size-8 items-center justify-center rounded-md border disabled:opacity-40"
+            className="border-line rounded-control inline-flex size-8 items-center justify-center border disabled:opacity-40"
             aria-label="Diminuir zoom"
           >
             <Minus className="size-4" aria-hidden="true" />
@@ -229,14 +229,14 @@ export function PdfReader({ src, title, downloadHref, startPage }: PdfReaderProp
             type="button"
             onClick={() => zoomBy(1)}
             disabled={zoomIndex >= ZOOM_STEPS.length - 1}
-            className="border-line inline-flex size-8 items-center justify-center rounded-md border disabled:opacity-40"
+            className="border-line rounded-control inline-flex size-8 items-center justify-center border disabled:opacity-40"
             aria-label="Aumentar zoom"
           >
             <Plus className="size-4" aria-hidden="true" />
           </button>
           <a
             href={downloadHref}
-            className="border-line hover:border-line-strong ml-2 inline-flex h-8 items-center gap-1.5 rounded-md border px-2.5"
+            className="border-line hover:border-line-strong rounded-control ml-2 inline-flex h-8 items-center gap-1.5 border px-2.5"
           >
             <Download className="size-4" aria-hidden="true" />
             <span className="hidden sm:inline">Baixar</span>

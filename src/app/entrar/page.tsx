@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AtlasMark } from "@/components/ui/atlas-mark";
 import { gateConfigured } from "@/lib/auth";
+import { Button } from "@/components/ui/primitives";
 
 export const metadata: Metadata = {
   title: "Entrar",
@@ -17,7 +18,7 @@ export default async function LoginPage({
 
   return (
     <div className="mx-auto flex min-h-[72vh] max-w-md flex-col justify-center px-4 py-12">
-      <div className="glass rounded-3xl p-7 sm:p-9">
+      <div className="glass rounded-hero p-7 sm:p-9">
         <AtlasMark className="text-primary size-9" />
         <h1 className="mt-5 text-3xl font-semibold">Oi, turma.</h1>
         <p className="text-ink-muted mt-2 leading-relaxed text-pretty">
@@ -25,7 +26,7 @@ export default async function LoginPage({
         </p>
 
         {!gateConfigured() ? (
-          <p className="bg-accent-soft text-accent mt-6 rounded-2xl p-3 text-sm">
+          <p className="bg-accent-soft text-accent rounded-panel mt-6 p-3 text-sm">
             A senha da turma ainda não foi configurada neste servidor, então o acesso está aberto.
           </p>
         ) : null}
@@ -53,12 +54,9 @@ export default async function LoginPage({
               </p>
             ) : null}
           </div>
-          <button
-            type="submit"
-            className="bg-primary text-on-primary hover:bg-primary-hover w-full rounded-full px-4 py-3 text-sm font-semibold shadow-[var(--shadow-raise)] transition-colors"
-          >
+          <Button type="submit" size="lg" block>
             Entrar
-          </button>
+          </Button>
         </form>
 
         <p className="text-ink-faint mt-6 text-xs leading-relaxed">

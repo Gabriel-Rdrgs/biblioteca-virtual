@@ -177,7 +177,19 @@
   --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
+  /* Raios: quatro degraus nomeados, no lugar dos oito valores soltos que
+     havia. Os números são os que já estavam na tela, para a escala nascer
+     sem mexer na aparência. */
+  --radius-control: 0.375rem;
   --radius-card: 0.625rem;
+  --radius-panel: 1rem;
+  --radius-hero: 1.5rem;
+
+  /* Dois degraus de texto que faltavam: o miúdo das legendas e etiquetas,
+     e o corpo logo abaixo de 1rem. Antes eram seis tamanhos arbitrários
+     entre 0,62 e 0,95rem. */
+  --text-micro: 0.6875rem;
+  --text-body-sm: 0.9375rem;
 
   --shadow-raise:
     0 1px 2px rgb(var(--shadow-color) / 0.06), 0 4px 12px rgb(var(--shadow-color) / 0.05);

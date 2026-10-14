@@ -44,7 +44,7 @@ export function BookCard({ entry, query = "", hideDisciplines, className }: Book
   return (
     <article
       className={cn(
-        "group relative flex flex-col gap-3 rounded-2xl p-2 transition-colors",
+        "group rounded-panel relative flex flex-col gap-3 p-2 transition-colors",
         "hover:glass",
         className,
       )}
@@ -55,7 +55,7 @@ export function BookCard({ entry, query = "", hideDisciplines, className }: Book
           <ReviewBadge className="absolute top-2 right-2 shadow-[var(--shadow-raise)]" />
         ) : null}
         {book.file ? (
-          <span className="glass-strong text-primary absolute bottom-2 left-2 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[0.68rem] font-semibold backdrop-blur">
+          <span className="glass-strong text-primary text-micro absolute bottom-2 left-2 inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-semibold backdrop-blur">
             <FileText className="size-3" aria-hidden="true" />
             PDF
           </span>
@@ -63,7 +63,7 @@ export function BookCard({ entry, query = "", hideDisciplines, className }: Book
       </div>
 
       <div className="flex min-w-0 flex-col gap-1 px-1">
-        <h3 className="text-[0.95rem] leading-snug font-semibold text-pretty">
+        <h3 className="text-body-sm leading-snug font-semibold text-pretty">
           <Link
             href={`/livros/${book.slug}`}
             className="hover:text-primary after:absolute after:inset-0 after:content-['']"
@@ -103,7 +103,7 @@ export function BookCardCompact({ entry, className }: { entry: CatalogEntry; cla
   return (
     <article
       className={cn(
-        "group hover:glass relative flex items-start gap-3 rounded-2xl p-2 transition-colors",
+        "group hover:glass rounded-panel relative flex items-start gap-3 p-2 transition-colors",
         className,
       )}
     >

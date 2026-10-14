@@ -13,6 +13,7 @@ import {
 import { clearHistory, loadHistory, type StoredAttempt } from "@/lib/exam-storage";
 import { cn } from "@/lib/utils";
 import { StudyLinks } from "./study-links";
+import { ButtonLink } from "@/components/ui/primitives";
 
 /**
  * The semester seen through the simulados someone has done.
@@ -25,7 +26,7 @@ import { StudyLinks } from "./study-links";
 
 function Stat({ value, label, hint }: { value: string; label: string; hint?: string }) {
   return (
-    <div className="glass rounded-2xl p-4">
+    <div className="glass rounded-panel p-4">
       <p className="font-display text-primary text-3xl font-semibold tabular-nums">{value}</p>
       <p className="mt-1 text-sm font-medium">{label}</p>
       {hint ? <p className="text-ink-faint mt-0.5 text-xs">{hint}</p> : null}
@@ -74,20 +75,17 @@ export function ProgressView() {
 
   if (summary.attempts === 0) {
     return (
-      <div className="glass rounded-3xl p-6 sm:p-8">
+      <div className="glass rounded-hero p-6 sm:p-8">
         <PencilRuler className="text-ink-faint size-8" aria-hidden="true" />
         <h2 className="mt-4 text-lg font-semibold">Nada aqui ainda</h2>
         <p className="text-ink-muted mt-2 text-sm leading-relaxed text-pretty">
           Faça um simulado e corrija: a partir do segundo, esta página mostra se o assunto em que
           você foi mal continua fraco ou já melhorou.
         </p>
-        <Link
-          href="/simulados"
-          className="bg-primary text-on-primary hover:bg-primary-hover mt-6 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors"
-        >
+        <ButtonLink href="/simulados" className="mt-6">
           Ver os simulados
           <ArrowRight className="size-4" aria-hidden="true" />
-        </Link>
+        </ButtonLink>
       </div>
     );
   }
@@ -118,7 +116,7 @@ export function ProgressView() {
       </section>
 
       {summary.toRevise.length > 0 ? (
-        <section className="glass rounded-3xl p-5 sm:p-6">
+        <section className="glass rounded-hero p-5 sm:p-6">
           <h2 className="text-lg font-semibold">O que ainda está fraco</h2>
           <p className="text-ink-muted mt-1 text-sm leading-relaxed">
             Pela última vez que cada assunto apareceu em um simulado seu.
@@ -164,7 +162,7 @@ export function ProgressView() {
         </p>
         <ul className="mt-4 space-y-3">
           {summary.axes.map((axis) => (
-            <li key={axis.id} className="glass rounded-2xl p-4">
+            <li key={axis.id} className="glass rounded-panel p-4">
               <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
                 <span className="font-medium">{axis.label}</span>
                 <span className="text-ink-muted text-sm tabular-nums">
@@ -191,7 +189,7 @@ export function ProgressView() {
           {summary.exams.map((exam) => (
             <li
               key={exam.examId}
-              className="glass flex flex-wrap items-center gap-x-4 gap-y-2 rounded-2xl p-4"
+              className="glass rounded-panel flex flex-wrap items-center gap-x-4 gap-y-2 p-4"
             >
               <div className="min-w-0 flex-1">
                 <p className="font-medium">{exam.title}</p>

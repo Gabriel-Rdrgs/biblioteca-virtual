@@ -10,7 +10,7 @@ import {
   formatAssessmentDate,
   type Assessment,
 } from "@/lib/domain/assessment-types";
-import { Field, Notice, inputClass } from "./fields";
+import { Button, Field, Notice, inputClass } from "@/components/ui/primitives";
 
 /**
  * The exam calendar, managed by hand.
@@ -107,7 +107,7 @@ export function AssessmentManager({
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
       <form
-        className="glass space-y-4 rounded-3xl p-5 sm:p-6"
+        className="glass rounded-hero space-y-4 p-5 sm:p-6"
         onSubmit={(event) => {
           event.preventDefault();
           void submit();
@@ -233,14 +233,10 @@ export function AssessmentManager({
 
         {message ? <Notice tone={message.tone}>{message.text}</Notice> : null}
 
-        <button
-          type="submit"
-          disabled={busy === "nova" || !date}
-          className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors disabled:opacity-50"
-        >
+        <Button type="submit" disabled={busy === "nova" || !date}>
           <CalendarPlus className="size-4" aria-hidden="true" />
           {busy === "nova" ? "Salvando…" : "Cadastrar data"}
-        </button>
+        </Button>
       </form>
 
       <div>
@@ -250,9 +246,9 @@ export function AssessmentManager({
           ocultadas, mas não excluídas — o plano continua dizendo o que diz.
         </p>
         {assessments.length === 0 ? (
-          <p className="text-ink-muted glass rounded-2xl p-4 text-sm">Nenhuma data.</p>
+          <p className="text-ink-muted glass rounded-panel p-4 text-sm">Nenhuma data.</p>
         ) : (
-          <ul className="divide-line border-line divide-y rounded-2xl border">
+          <ul className="divide-line border-line rounded-panel divide-y border">
             {assessments.map((assessment) => {
               const left = daysUntil(assessment.date);
               return (

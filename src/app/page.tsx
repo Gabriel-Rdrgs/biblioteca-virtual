@@ -134,7 +134,7 @@ export default async function HomePage() {
         <section className="pb-4">
           <Link
             href="/calendario"
-            className="glass hover:glass-strong flex flex-wrap items-center gap-x-6 gap-y-3 rounded-3xl p-5 transition-colors sm:p-6"
+            className="glass hover:glass-strong rounded-hero flex flex-wrap items-center gap-x-6 gap-y-3 p-5 transition-colors sm:p-6"
           >
             <CalendarDays className="text-primary size-7 shrink-0" aria-hidden="true" />
             <div className="min-w-0 flex-1">
@@ -162,7 +162,7 @@ export default async function HomePage() {
 
       {/* ------------------------------------------------------ simulados */}
       <section className="pb-4">
-        <div className="glass flex flex-wrap items-center gap-x-6 gap-y-4 rounded-3xl p-6 sm:p-8">
+        <div className="glass rounded-hero flex flex-wrap items-center gap-x-6 gap-y-4 p-6 sm:p-8">
           <PencilRuler className="text-primary size-8 shrink-0" aria-hidden="true" />
           <div className="min-w-0 flex-1">
             <h2 className="text-xl font-semibold">Simulados que se corrigem sozinhos</h2>
@@ -238,7 +238,7 @@ export default async function HomePage() {
           />
           <ul className="space-y-3">
             {shared.slice(0, 4).map((entry) => (
-              <li key={entry.book.id} className="glass rounded-2xl p-4">
+              <li key={entry.book.id} className="glass rounded-panel p-4">
                 <Link
                   href={`/livros/${entry.book.slug}`}
                   className="hover:text-primary leading-snug font-semibold"
@@ -280,7 +280,7 @@ export default async function HomePage() {
 
       {/* -------------------------------------------------------- rodapé */}
       <section className="pt-6 pb-16">
-        <div className="glass rounded-3xl p-6 sm:p-8">
+        <div className="glass rounded-hero p-6 sm:p-8">
           <div className="grid gap-6 sm:grid-cols-3">
             <div>
               <p className="font-display text-primary text-4xl font-semibold tabular-nums">

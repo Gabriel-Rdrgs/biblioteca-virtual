@@ -6,7 +6,7 @@ import { BookCover } from "@/components/book/book-cover";
 import { BookCardCompact } from "@/components/book/book-card";
 import { BibliographyBadge, KindBadge, bibliographyLabels } from "@/components/book/book-badge";
 import { FavoriteButton } from "@/components/book/favorite-button";
-import { Breadcrumbs } from "@/components/ui/primitives";
+import { Breadcrumbs, ButtonAnchor, ButtonLink } from "@/components/ui/primitives";
 import { isAdminRequest } from "@/lib/audience";
 import { getBookBySlug, getRelatedBooks, toCatalogEntries } from "@/lib/repository";
 
@@ -77,10 +77,10 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
             <p className="text-ink-muted mt-2 text-lg leading-snug text-pretty">{book.subtitle}</p>
           ) : null}
 
-          <p className="text-ink-muted mt-4 text-[0.95rem]">{book.authors.join("; ")}</p>
+          <p className="text-ink-muted text-body-sm mt-4">{book.authors.join("; ")}</p>
 
           {pending ? (
-            <div className="border-danger/25 bg-danger-soft mt-6 flex gap-3 rounded-2xl border p-4">
+            <div className="border-danger/25 bg-danger-soft rounded-panel mt-6 flex gap-3 border p-4">
               <FileWarning className="text-danger mt-0.5 size-4 shrink-0" aria-hidden="true" />
               <div>
                 <p className="text-danger text-sm font-semibold">
@@ -96,16 +96,14 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
           <div className="mt-7 flex flex-wrap items-center gap-3">
             {book.file ? (
               <>
-                <Link
-                  href={`/livros/${book.slug}/ler`}
-                  className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold shadow-[var(--shadow-raise)] transition-colors"
-                >
+                <ButtonLink href={`/livros/${book.slug}/ler`} size="lg">
                   <BookOpen className="size-4" aria-hidden="true" />
                   Ler agora
-                </Link>
-                <a
+                </ButtonLink>
+                <ButtonAnchor
                   href={`/api/arquivos/${book.id}?baixar=1`}
-                  className="glass hover:glass-strong inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-colors"
+                  variant="secundario"
+                  size="lg"
                 >
                   <Download className="size-4" aria-hidden="true" />
                   Baixar
@@ -114,18 +112,18 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
                       {(book.file.sizeBytes / 1048576).toFixed(0)} MB
                     </span>
                   ) : null}
-                </a>
+                </ButtonAnchor>
               </>
             ) : book.externalUrl ? (
-              <a
+              <ButtonAnchor
                 href={book.externalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors"
+                size="lg"
               >
                 <ExternalLink className="size-4" aria-hidden="true" />
                 Abrir na fonte oficial
-              </a>
+              </ButtonAnchor>
             ) : (
               <span className="glass text-ink-muted inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm">
                 <FileWarning className="size-4" aria-hidden="true" />
@@ -136,7 +134,7 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
           </div>
 
           {book.file && admin && (book.file.origin || book.file.note) ? (
-            <aside className="glass mt-6 rounded-2xl p-4 text-sm">
+            <aside className="glass rounded-panel mt-6 p-4 text-sm">
               <p className="font-semibold">Ficha do arquivo (visível só para admin)</p>
               <dl className="text-ink-muted mt-2 space-y-1">
                 {book.file.origin ? (
@@ -165,7 +163,7 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
             <h2 className="text-lg font-semibold">Onde este livro entra</h2>
             <ul className="mt-4 space-y-3">
               {links.map((link) => (
-                <li key={link.disciplineId} className="glass rounded-2xl p-4">
+                <li key={link.disciplineId} className="glass rounded-panel p-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <Link
                       href={`/disciplinas/${link.discipline.slug}`}
@@ -231,7 +229,7 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
                   bibliográficos foram lidos do próprio arquivo.
                 </p>
               )}
-              <blockquote className="glass text-ink-muted mt-3 rounded-2xl px-4 py-3 font-mono text-xs leading-relaxed">
+              <blockquote className="glass text-ink-muted rounded-panel mt-3 px-4 py-3 font-mono text-xs leading-relaxed">
                 {book.provenance.rawCitation}
               </blockquote>
             </section>

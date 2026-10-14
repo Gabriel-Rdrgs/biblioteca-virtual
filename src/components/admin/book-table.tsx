@@ -5,7 +5,8 @@ import { useRouter } from "next/navigation";
 import { Eye, EyeOff, FileText, FileWarning, Trash2 } from "lucide-react";
 import type { Visibility } from "@/lib/domain/types";
 import { formatAuthors } from "@/lib/utils";
-import { Notice, ProvenanceFields } from "./fields";
+import { ProvenanceFields } from "./fields";
+import { Button, Notice } from "@/components/ui/primitives";
 import { Uploader, type UploadedFile } from "./uploader";
 
 export interface AdminBookRow {
@@ -92,7 +93,7 @@ export function BookTable({ rows }: { rows: readonly AdminBookRow[] }) {
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Filtrar por título ou autor…"
           aria-label="Filtrar livros"
-          className="border-line bg-surface focus:border-primary min-w-0 flex-1 rounded-md border px-3 py-2 text-sm"
+          className="border-line bg-surface focus:border-primary rounded-control min-w-0 flex-1 border px-3 py-2 text-sm"
         />
         <div className="flex gap-1" role="group" aria-label="Filtro">
           {(
@@ -108,7 +109,7 @@ export function BookTable({ rows }: { rows: readonly AdminBookRow[] }) {
               type="button"
               onClick={() => setFilter(value)}
               aria-pressed={filter === value}
-              className={`rounded-md border px-3 py-1.5 text-xs font-medium ${
+              className={`rounded-control border px-3 py-1.5 text-xs font-medium ${
                 filter === value
                   ? "border-primary bg-primary-soft text-primary"
                   : "border-line text-ink-muted hover:text-ink"
@@ -126,7 +127,7 @@ export function BookTable({ rows }: { rows: readonly AdminBookRow[] }) {
         {visibleRows.length} de {rows.length} registros
       </p>
 
-      <ul className="divide-line border-line divide-y rounded-md border">
+      <ul className="divide-line border-line rounded-control divide-y border">
         {visibleRows.map((row) => (
           <li key={row.id} className="p-4">
             <div className="flex flex-wrap items-start justify-between gap-3">
@@ -170,7 +171,7 @@ export function BookTable({ rows }: { rows: readonly AdminBookRow[] }) {
                   type="button"
                   onClick={() => void toggleVisibility(row)}
                   disabled={busy === row.id}
-                  className="border-line hover:border-line-strong inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1.5 text-xs font-medium disabled:opacity-50"
+                  className="border-line hover:border-line-strong rounded-control inline-flex items-center gap-1.5 border px-2.5 py-1.5 text-xs font-medium disabled:opacity-50"
                 >
                   {row.visibility === "visivel" ? (
                     <>
@@ -185,7 +186,7 @@ export function BookTable({ rows }: { rows: readonly AdminBookRow[] }) {
                 <button
                   type="button"
                   onClick={() => setAttaching(attaching === row.id ? null : row.id)}
-                  className="border-line hover:border-line-strong inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1.5 text-xs font-medium"
+                  className="border-line hover:border-line-strong rounded-control inline-flex items-center gap-1.5 border px-2.5 py-1.5 text-xs font-medium"
                 >
                   <FileText className="size-3.5" aria-hidden="true" />
                   {row.hasFile ? "Substituir PDF" : "Anexar PDF"}
@@ -195,7 +196,7 @@ export function BookTable({ rows }: { rows: readonly AdminBookRow[] }) {
                     type="button"
                     onClick={() => deleteRecord(row)}
                     disabled={busy === row.id}
-                    className="border-line text-danger hover:border-danger inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1.5 text-xs font-medium disabled:opacity-50"
+                    className="border-line text-danger hover:border-danger rounded-control inline-flex items-center gap-1.5 border px-2.5 py-1.5 text-xs font-medium disabled:opacity-50"
                   >
                     <Trash2 className="size-3.5" aria-hidden="true" />
                     Excluir registro
@@ -206,7 +207,7 @@ export function BookTable({ rows }: { rows: readonly AdminBookRow[] }) {
                     type="button"
                     onClick={() => removeFile(row)}
                     disabled={busy === row.id}
-                    className="border-line text-danger hover:border-danger inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1.5 text-xs font-medium disabled:opacity-50"
+                    className="border-line text-danger hover:border-danger rounded-control inline-flex items-center gap-1.5 border px-2.5 py-1.5 text-xs font-medium disabled:opacity-50"
                   >
                     <Trash2 className="size-3.5" aria-hidden="true" />
                     Remover PDF
@@ -276,7 +277,7 @@ function AttachPanel({
   };
 
   return (
-    <div className="border-line bg-surface-sunken mt-4 space-y-4 rounded-md border p-4">
+    <div className="border-line bg-surface-sunken rounded-control mt-4 space-y-4 border p-4">
       <p className="text-sm font-medium">
         {row.hasFile ? "Substituir o PDF de" : "Anexar PDF a"} “{row.title}”
       </p>
@@ -284,18 +285,13 @@ function AttachPanel({
       <ProvenanceFields idPrefix={`att-${row.id}`} values={provenance} onChange={setProvenance} />
       {error ? <Notice tone="erro">{error}</Notice> : null}
       <div className="flex gap-2">
-        <button
-          type="button"
-          onClick={() => void save()}
-          disabled={saving || !file}
-          className="bg-primary text-on-primary rounded-md px-4 py-2 text-sm font-medium disabled:opacity-50"
-        >
+        <Button type="button" size="sm" onClick={() => void save()} disabled={saving || !file}>
           {saving ? "Salvando…" : "Salvar"}
-        </button>
+        </Button>
         <button
           type="button"
           onClick={onCancel}
-          className="border-line rounded-md border px-4 py-2 text-sm font-medium"
+          className="border-line rounded-control border px-4 py-2 text-sm font-medium"
         >
           Cancelar
         </button>

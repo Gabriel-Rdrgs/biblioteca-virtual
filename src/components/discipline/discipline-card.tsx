@@ -22,7 +22,7 @@ export function DisciplineCard({
   return (
     <article
       className={cn(
-        "group glass relative flex flex-col overflow-hidden rounded-3xl",
+        "group glass rounded-hero relative flex flex-col overflow-hidden",
         "transition-shadow hover:shadow-[var(--shadow-lift)]",
         className,
       )}

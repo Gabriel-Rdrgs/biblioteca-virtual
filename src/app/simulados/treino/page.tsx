@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ExamRunner } from "@/components/exam/exam-runner";
 import { buildDrill, getQuestionAreas } from "@/lib/repository/exams";
 import type { ExamBlueprintPart } from "@/lib/domain/exam-types";
+import { ButtonLink } from "@/components/ui/primitives";
 
 export const metadata: Metadata = { title: "Treino", robots: { index: false } };
 export const dynamic = "force-dynamic";
@@ -45,12 +45,9 @@ export default async function TreinoPage({
         <p className="text-ink-muted mt-3 leading-relaxed">
           Escolha a matéria, as áreas e quantas questões você quer.
         </p>
-        <Link
-          href="/simulados"
-          className="bg-primary text-on-primary mt-6 inline-block rounded-full px-5 py-2.5 text-sm font-semibold"
-        >
+        <ButtonLink href="/simulados" className="mt-6">
           Ir para os simulados
-        </Link>
+        </ButtonLink>
       </div>
     );
   }
@@ -68,12 +65,9 @@ export default async function TreinoPage({
         <p className="text-ink-muted mt-3 leading-relaxed">
           O banco dessa matéria ainda não tem questões para esse filtro.
         </p>
-        <Link
-          href="/simulados"
-          className="bg-primary text-on-primary mt-6 inline-block rounded-full px-5 py-2.5 text-sm font-semibold"
-        >
+        <ButtonLink href="/simulados" className="mt-6">
           Voltar aos simulados
-        </Link>
+        </ButtonLink>
       </div>
     );
   }

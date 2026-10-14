@@ -91,7 +91,7 @@ export function GlobalSearch({
           placeholder="Busque por livro, autor, disciplina, tema ou plano…"
           aria-label="Buscar em todo o acervo"
           autoFocus
-          className="border-line bg-surface placeholder:text-ink-faint focus:border-primary w-full rounded-lg border py-4 pr-4 pl-12 text-base"
+          className="border-line bg-surface placeholder:text-ink-faint focus:border-primary rounded-control w-full border py-4 pr-4 pl-12 text-base"
         />
       </div>
 
@@ -140,7 +140,7 @@ export function GlobalSearch({
                       <li key={discipline.id}>
                         <Link
                           href={`/disciplinas/${discipline.slug}`}
-                          className="border-line bg-surface hover:border-line-strong flex items-start gap-3 rounded-[var(--radius-card)] border p-4 transition-colors"
+                          className="border-line bg-surface hover:border-line-strong rounded-card flex items-start gap-3 border p-4 transition-colors"
                         >
                           <span
                             className="mt-1.5 size-2.5 shrink-0 rounded-full"
@@ -179,7 +179,7 @@ export function GlobalSearch({
                             href={plan.fileUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="border-line bg-surface hover:border-line-strong flex items-center gap-3 rounded-[var(--radius-card)] border p-4 transition-colors"
+                            className="border-line bg-surface hover:border-line-strong rounded-card flex items-center gap-3 border p-4 transition-colors"
                           >
                             <FileText
                               className="text-ink-faint size-4 shrink-0"

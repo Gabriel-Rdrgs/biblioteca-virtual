@@ -38,7 +38,7 @@ export default async function AdminLoginPage({
             autoFocus
             aria-invalid={erro ? true : undefined}
             aria-describedby={erro ? "senha-erro" : undefined}
-            className="border-line bg-surface focus:border-primary mt-1.5 w-full rounded-md border px-3 py-2.5 text-base"
+            className="border-line bg-surface focus:border-primary rounded-control mt-1.5 w-full border px-3 py-2.5 text-base"
           />
           {erro ? (
             <p id="senha-erro" className="text-danger mt-1.5 text-sm">
@@ -48,7 +48,7 @@ export default async function AdminLoginPage({
         </div>
         <button
           type="submit"
-          className="bg-accent text-on-primary w-full rounded-md px-4 py-3 text-sm font-medium transition-opacity hover:opacity-90"
+          className="bg-accent text-on-primary rounded-control w-full px-4 py-3 text-sm font-medium transition-opacity hover:opacity-90"
         >
           Entrar como administrador
         </button>

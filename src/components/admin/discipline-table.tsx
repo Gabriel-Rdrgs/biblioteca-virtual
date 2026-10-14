@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Eye, EyeOff, FileText, Trash2 } from "lucide-react";
 import { periodLabel, type Visibility } from "@/lib/domain/types";
-import { Notice } from "./fields";
+import { Notice } from "@/components/ui/primitives";
 
 export interface AdminDisciplineRow {
   readonly id: string;
@@ -46,7 +46,7 @@ export function DisciplineTable({
 
   return (
     <div className="space-y-5">
-      <div className="glass flex flex-wrap items-center gap-3 rounded-2xl p-4">
+      <div className="glass rounded-panel flex flex-wrap items-center gap-3 p-4">
         <label htmlFor="periodo-atual" className="text-sm font-medium">
           Período atual da turma
         </label>
@@ -84,7 +84,7 @@ export function DisciplineTable({
               <span className="text-primary ml-2 text-xs font-medium">atual</span>
             ) : null}
           </h3>
-          <ul className="divide-line border-line divide-y rounded-2xl border">
+          <ul className="divide-line border-line rounded-panel divide-y border">
             {rows
               .filter((r) => r.period === period)
               .map((row) => (

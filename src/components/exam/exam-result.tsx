@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { ArrowRight, Check, RotateCcw, X } from "lucide-react";
 import {
   axisBand,
@@ -14,6 +13,7 @@ import type { ExamAttempt, ExamResult, LoadedExam } from "@/lib/domain/exam-type
 import { optionLetters } from "@/lib/domain/exam-types";
 import { cn } from "@/lib/utils";
 import { StudyLinks } from "./study-links";
+import { Button, ButtonLink, ToggleChip } from "@/components/ui/primitives";
 
 /**
  * What the student sees after correcting.
@@ -32,7 +32,7 @@ const bandStyles = {
 
 function Stat({ value, label, hint }: { value: string; label: string; hint?: string }) {
   return (
-    <div className="glass rounded-2xl p-4">
+    <div className="glass rounded-panel p-4">
       <p className="font-display text-primary text-3xl font-semibold tabular-nums">{value}</p>
       <p className="mt-1 text-sm font-medium">{label}</p>
       {hint ? <p className="text-ink-faint mt-0.5 text-xs">{hint}</p> : null}
@@ -99,7 +99,7 @@ export function ExamResultView({
           <h3 className="text-lg font-semibold">Por área</h3>
           <ul className="mt-3 grid gap-3 sm:grid-cols-2">
             {result.areas.map((area) => (
-              <li key={area.area.id} className="glass rounded-2xl p-4">
+              <li key={area.area.id} className="glass rounded-panel p-4">
                 <div className="flex items-baseline justify-between gap-3">
                   <span className="font-medium">{area.area.label}</span>
                   <span className="text-ink-muted text-sm tabular-nums">
@@ -127,7 +127,7 @@ export function ExamResultView({
           {order.map((axis) => {
             const band = bandStyles[axisBand(axis.percent)];
             return (
-              <li key={axis.axis.id} className="glass rounded-2xl p-4">
+              <li key={axis.axis.id} className="glass rounded-panel p-4">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
                   <span className="font-medium">{axis.axis.label}</span>
                   <span className="flex items-center gap-2 text-sm tabular-nums">
@@ -158,7 +158,7 @@ export function ExamResultView({
       </section>
 
       {weakest.length > 0 ? (
-        <section className="glass rounded-3xl p-5 sm:p-6">
+        <section className="glass rounded-hero p-5 sm:p-6">
           <h3 className="text-lg font-semibold">Comece por aqui</h3>
           <p className="text-ink-muted mt-1 text-sm leading-relaxed">
             {weak.length === 1
@@ -184,22 +184,15 @@ export function ExamResultView({
           </ol>
           <div className="mt-5 flex flex-wrap gap-3">
             {onRetryWrong && missed.length > 0 ? (
-              <button
-                type="button"
-                onClick={() => onRetryWrong(missed)}
-                className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors"
-              >
+              <Button type="button" onClick={() => onRetryWrong(missed)}>
                 <RotateCcw className="size-4" aria-hidden="true" />
                 Refazer as {missed.length} que errei
-              </button>
+              </Button>
             ) : null}
-            <Link
-              href={`/disciplinas`}
-              className="glass hover:glass-strong inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors"
-            >
+            <ButtonLink href="/disciplinas" variant="secundario">
               Ver os livros da matéria
               <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
+            </ButtonLink>
           </div>
         </section>
       ) : null}
@@ -214,18 +207,13 @@ export function ExamResultView({
                 ["todas", "Todas"],
               ] as const
             ).map(([value, label]) => (
-              <button
+              <ToggleChip
                 key={value}
-                type="button"
+                pressed={review === value}
                 onClick={() => setReview(review === value ? null : value)}
-                aria-pressed={review === value}
-                className={cn(
-                  "rounded-full px-3 py-1.5 text-sm font-medium transition-colors",
-                  review === value ? "bg-primary text-on-primary" : "glass hover:glass-strong",
-                )}
               >
                 {label}
-              </button>
+              </ToggleChip>
             ))}
           </div>
         </div>
@@ -236,7 +224,7 @@ export function ExamResultView({
               const earned = scoreQuestion(question, attempt);
               const right = earned === question.points;
               return (
-                <li key={question.id} className="glass rounded-2xl p-4 sm:p-5">
+                <li key={question.id} className="glass rounded-panel p-4 sm:p-5">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="font-display text-lg font-semibold">{number}</span>
                     <span className="text-ink-faint text-xs">{question.topic}</span>
@@ -264,7 +252,7 @@ export function ExamResultView({
                             <li
                               key={letter}
                               className={cn(
-                                "flex gap-2 rounded-xl px-3 py-2 text-sm",
+                                "rounded-panel flex gap-2 px-3 py-2 text-sm",
                                 correct ? "bg-sage-soft" : "bg-danger-soft",
                               )}
                             >

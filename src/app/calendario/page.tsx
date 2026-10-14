@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CalendarDays, Clock, MapPin, PencilRuler } from "lucide-react";
-import { Breadcrumbs, SectionHeading } from "@/components/ui/primitives";
+import { Badge, Breadcrumbs, ButtonLink, SectionHeading } from "@/components/ui/primitives";
 import {
   assessmentLabel,
   countdownLabel,
@@ -46,19 +46,14 @@ export default async function CalendarioPage() {
     return (
       <li
         className={cn(
-          "glass rounded-3xl p-5 ring-1 sm:p-6",
+          "glass rounded-hero p-5 ring-1 sm:p-6",
           dimmed ? "opacity-60 ring-transparent" : tone.ring,
         )}
       >
         <div className="flex flex-wrap items-center gap-2">
-          <span
-            className={cn(
-              "rounded-full px-2.5 py-0.5 text-xs font-semibold",
-              isExam(assessment) ? "bg-primary text-on-primary" : "glass-strong text-ink-muted",
-            )}
-          >
+          <Badge tom={isExam(assessment) ? "primario" : "neutro"}>
             {assessmentLabel(assessment)}
-          </span>
+          </Badge>
           {discipline ? (
             <Link
               href={`/disciplinas/${discipline.slug}`}
@@ -140,14 +135,10 @@ export default async function CalendarioPage() {
         {linked.length > 0 ? (
           <div className="mt-5 flex flex-wrap gap-2">
             {linked.map((exam) => (
-              <Link
-                key={exam.id}
-                href={`/simulados/${exam.slug}`}
-                className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors"
-              >
+              <ButtonLink key={exam.id} href={`/simulados/${exam.slug}`} size="sm">
                 <PencilRuler className="size-4" aria-hidden="true" />
                 Treinar: {exam.title.replace(/^Simulado \w+ — /, "")}
-              </Link>
+              </ButtonLink>
             ))}
           </div>
         ) : null}
@@ -165,7 +156,7 @@ export default async function CalendarioPage() {
       />
 
       {upcoming.length === 0 && past.length === 0 ? (
-        <div className="glass rounded-3xl p-6 sm:p-8">
+        <div className="glass rounded-hero p-6 sm:p-8">
           <CalendarDays className="text-ink-faint size-8" aria-hidden="true" />
           <h2 className="mt-4 text-lg font-semibold">Nenhuma data cadastrada ainda</h2>
           <p className="text-ink-muted mt-2 text-sm leading-relaxed text-pretty">

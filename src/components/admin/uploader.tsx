@@ -126,7 +126,7 @@ export function Uploader({
 
   if (state.phase === "pronto") {
     return (
-      <div className="border-sage/40 bg-sage-soft flex items-center gap-3 rounded-md border p-3 text-sm">
+      <div className="border-sage/40 bg-sage-soft rounded-control flex items-center gap-3 border p-3 text-sm">
         <CheckCircle2 className="text-sage size-5 shrink-0" aria-hidden="true" />
         <span className="min-w-0 flex-1 truncate">
           <strong className="font-medium">{state.file.originalName}</strong> ·{" "}
@@ -141,7 +141,7 @@ export function Uploader({
 
   if (state.phase === "enviando") {
     return (
-      <div className="border-line rounded-md border p-3 text-sm" aria-live="polite">
+      <div className="border-line rounded-control border p-3 text-sm" aria-live="polite">
         <div className="flex items-center justify-between gap-3">
           <span className="min-w-0 truncate">
             Enviando <strong className="font-medium">{state.name}</strong> ({formatMb(state.bytes)})
@@ -177,7 +177,7 @@ export function Uploader({
       <label
         htmlFor={`${idPrefix}-file`}
         className={cn(
-          "border-line-strong hover:border-primary hover:bg-primary-soft/40 flex cursor-pointer flex-col items-center gap-2 rounded-md border border-dashed px-4 py-8 text-center text-sm transition-colors",
+          "border-line-strong hover:border-primary hover:bg-primary-soft/40 rounded-control flex cursor-pointer flex-col items-center gap-2 border border-dashed px-4 py-8 text-center text-sm transition-colors",
         )}
       >
         <FileUp className="text-ink-faint size-6" aria-hidden="true" />

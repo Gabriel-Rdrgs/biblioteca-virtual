@@ -105,7 +105,7 @@ export function KindBadge({ kind, className }: { kind: MaterialKind; className?:
   return (
     <span
       className={cn(
-        "border-line text-ink-muted inline-flex items-center rounded-sm border px-1.5 py-0.5 text-[0.7rem] font-medium",
+        "border-line text-ink-muted text-micro inline-flex items-center rounded-sm border px-1.5 py-0.5 font-medium",
         className,
       )}
     >

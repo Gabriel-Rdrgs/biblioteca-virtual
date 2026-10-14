@@ -110,7 +110,7 @@ export function FilterPanel({
           .map((period) => (
             <div key={period} className="space-y-2">
               {disciplines.length > 7 ? (
-                <p className="text-ink-faint pt-1 text-[0.7rem] font-medium tracking-[0.1em] uppercase">
+                <p className="text-ink-faint text-micro pt-1 font-medium tracking-[0.1em] uppercase">
                   {periodLabel(period)}
                 </p>
               ) : null}

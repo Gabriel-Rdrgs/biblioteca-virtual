@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, FileText, Layers, LineChart, Sparkles } from "lucide-react";
-import { Breadcrumbs, SectionHeading } from "@/components/ui/primitives";
+import {
+  Badge,
+  Breadcrumbs,
+  ButtonAnchor,
+  ButtonLink,
+  SectionHeading,
+} from "@/components/ui/primitives";
 import { DrillBuilder } from "@/components/exam/drill-builder";
 import { countAreaQuestions, getExams, getQuestionAreas, loadExam } from "@/lib/repository/exams";
 import { getDisciplines } from "@/lib/repository";
@@ -42,7 +48,7 @@ export default async function SimuladosPage() {
 
       <Link
         href="/progresso"
-        className="glass hover:glass-strong mb-10 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-3xl p-5 transition-colors"
+        className="glass hover:glass-strong rounded-hero mb-10 flex flex-wrap items-center gap-x-5 gap-y-2 p-5 transition-colors"
       >
         <LineChart className="text-primary size-6 shrink-0" aria-hidden="true" />
         <div className="min-w-0 flex-1">
@@ -55,7 +61,7 @@ export default async function SimuladosPage() {
       </Link>
 
       {byDiscipline.length === 0 ? (
-        <p className="text-ink-muted glass rounded-2xl p-6 text-sm">
+        <p className="text-ink-muted glass rounded-panel p-6 text-sm">
           Ainda não há simulados cadastrados.
         </p>
       ) : null}
@@ -94,11 +100,9 @@ export default async function SimuladosPage() {
               {list.map((exam) => {
                 const loaded = loadExam(exam);
                 return (
-                  <li key={exam.id} className="glass flex flex-col rounded-3xl p-5">
+                  <li key={exam.id} className="glass rounded-hero flex flex-col p-5">
                     <div className="flex items-center gap-2">
-                      <span className="bg-primary text-on-primary rounded-full px-2.5 py-0.5 text-xs font-semibold">
-                        {exam.assessment}
-                      </span>
+                      <Badge tom="primario">{exam.assessment}</Badge>
                       <span className="text-ink-faint text-xs">{exam.semester}</span>
                     </div>
                     <h3 className="mt-3 text-lg leading-snug font-semibold">{exam.title}</h3>
@@ -128,21 +132,19 @@ export default async function SimuladosPage() {
                       ) : null}
                     </dl>
                     <div className="mt-5 flex flex-wrap gap-2">
-                      <Link
-                        href={`/simulados/${exam.slug}`}
-                        className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors"
-                      >
+                      <ButtonLink href={`/simulados/${exam.slug}`} size="sm">
                         Abrir
                         <ArrowRight className="size-4" aria-hidden="true" />
-                      </Link>
+                      </ButtonLink>
                       {exam.pdfPath ? (
-                        <a
+                        <ButtonAnchor
                           href={`/api/simulados/${exam.pdfPath}?baixar=1`}
-                          className="glass hover:glass-strong inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors"
+                          variant="secundario"
+                          size="sm"
                         >
                           <FileText className="size-4" aria-hidden="true" />
                           Imprimir
-                        </a>
+                        </ButtonAnchor>
                       ) : null}
                     </div>
                   </li>
@@ -151,7 +153,7 @@ export default async function SimuladosPage() {
             </ul>
 
             {areasOf.length > 0 ? (
-              <div className="glass mt-6 rounded-3xl p-5 sm:p-6">
+              <div className="glass rounded-hero mt-6 p-5 sm:p-6">
                 <h3 className="flex items-center gap-2 text-base font-semibold">
                   <Sparkles className="text-primary size-4" aria-hidden="true" />
                   Montar um treino

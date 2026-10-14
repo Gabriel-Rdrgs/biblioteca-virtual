@@ -1,7 +1,22 @@
 import Link from "next/link";
-import { ChevronRight, SearchX } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+
+/**
+ * Porta de entrada única da camada de interface.
+ *
+ * Os componentes moram em arquivos próprios (botão, superfície, etiqueta,
+ * campo, estados); aqui ficam só os blocos de página e a reexportação, para
+ * que uma tela importe de um lugar só.
+ */
+
+export { Button, ButtonLink, ButtonAnchor, IconButton, ToggleChip } from "./button";
+export { Card, CardLink } from "./card";
+export { Badge } from "./badge";
+export { Field, Input, Select, Textarea, Notice, inputClass } from "./field";
+export { EmptyState, Skeleton, BookCardSkeleton, BookGridSkeleton, ListSkeleton } from "./states";
+export { ErrorState } from "./error-state";
 
 export function Breadcrumbs({ trail }: { trail: readonly { label: string; href?: string }[] }) {
   return (
@@ -58,33 +73,12 @@ export function SectionHeading({
         ) : null}
         <Tag className="mt-1 text-2xl font-semibold sm:text-[1.75rem]">{title}</Tag>
         {description ? (
-          <p className="text-ink-muted mt-2 text-[0.95rem] leading-relaxed text-pretty">
+          <p className="text-ink-muted text-body-sm mt-2 leading-relaxed text-pretty">
             {description}
           </p>
         ) : null}
       </div>
       {action}
-    </div>
-  );
-}
-
-export function EmptyState({
-  title,
-  description,
-  action,
-}: {
-  title: string;
-  description: string;
-  action?: ReactNode;
-}) {
-  return (
-    <div className="border-line-strong bg-surface-sunken flex flex-col items-center justify-center rounded-[var(--radius-card)] border border-dashed px-6 py-16 text-center">
-      <SearchX className="text-ink-faint size-9" aria-hidden="true" />
-      <h3 className="mt-4 text-lg font-semibold">{title}</h3>
-      <p className="text-ink-muted mt-2 max-w-md text-sm leading-relaxed text-pretty">
-        {description}
-      </p>
-      {action ? <div className="mt-6">{action}</div> : null}
     </div>
   );
 }
@@ -99,39 +93,10 @@ export function StatsCard({
   hint?: string;
 }) {
   return (
-    <div className="border-line bg-surface rounded-[var(--radius-card)] border p-5">
+    <div className="border-line bg-surface rounded-card border p-5">
       <p className="font-display text-primary text-3xl font-semibold tabular-nums">{value}</p>
       <p className="mt-1 text-sm font-medium">{label}</p>
       {hint ? <p className="text-ink-faint mt-1 text-xs leading-relaxed">{hint}</p> : null}
-    </div>
-  );
-}
-
-/** Shimmer placeholder matching the shape of a book card. */
-export function BookCardSkeleton() {
-  return (
-    <div className="flex animate-pulse flex-col gap-3" aria-hidden="true">
-      <div className="bg-surface-sunken aspect-[2/3] w-full rounded-[4px]" />
-      <div className="space-y-2">
-        <div className="bg-surface-sunken h-3.5 w-11/12 rounded" />
-        <div className="bg-surface-sunken h-3 w-2/3 rounded" />
-        <div className="bg-surface-sunken h-3 w-1/2 rounded" />
-      </div>
-    </div>
-  );
-}
-
-export function BookGridSkeleton({ count = 10 }: { count?: number }) {
-  return (
-    <div
-      role="status"
-      aria-live="polite"
-      className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
-    >
-      <span className="sr-only">Carregando livros…</span>
-      {Array.from({ length: count }, (_, i) => (
-        <BookCardSkeleton key={i} />
-      ))}
     </div>
   );
 }

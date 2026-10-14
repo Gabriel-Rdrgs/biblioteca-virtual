@@ -126,14 +126,14 @@ export default async function AdminPage() {
         <div className="flex gap-2">
           <Link
             href="/"
-            className="border-line hover:border-line-strong rounded-md border px-3 py-2 text-sm"
+            className="border-line hover:border-line-strong rounded-control border px-3 py-2 text-sm"
           >
             Ver como a turma
           </Link>
           <form method="post" action="/api/admin/sair">
             <button
               type="submit"
-              className="border-line hover:border-line-strong inline-flex items-center gap-1.5 rounded-md border px-3 py-2 text-sm"
+              className="border-line hover:border-line-strong rounded-control inline-flex items-center gap-1.5 border px-3 py-2 text-sm"
             >
               <LogOut className="size-4" aria-hidden="true" />
               Sair do admin
@@ -148,7 +148,7 @@ export default async function AdminPage() {
           title="Publicar um livro novo"
           description="Envie o PDF, preencha a ficha, escolha as disciplinas e registre origem e autorização. O livro aparece para a turma assim que for salvo."
         />
-        <div className="border-line bg-surface rounded-[var(--radius-card)] border p-5 sm:p-6">
+        <div className="border-line bg-surface rounded-card border p-5 sm:p-6">
           <NewBookForm disciplines={disciplines} />
         </div>
       </section>
@@ -160,7 +160,7 @@ export default async function AdminPage() {
           description="Cadastre as matérias de um novo período, oculte as que não interessam e diga em que período a turma está."
         />
         <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
-          <div className="glass rounded-3xl p-5 sm:p-6">
+          <div className="glass rounded-hero p-5 sm:p-6">
             <h3 className="mb-4 text-sm font-semibold">Nova matéria</h3>
             <DisciplineForm defaultSemester={latestSemester} />
           </div>
@@ -197,7 +197,7 @@ export default async function AdminPage() {
         {log.length === 0 ? (
           <p className="text-ink-muted text-sm">Nenhuma alteração registrada ainda.</p>
         ) : (
-          <ol className="divide-line border-line divide-y rounded-md border text-sm">
+          <ol className="divide-line border-line rounded-control divide-y border text-sm">
             {log.map((entry, i) => (
               <li key={`${entry.at}-${i}`} className="flex flex-wrap gap-x-4 gap-y-1 px-4 py-2.5">
                 <time dateTime={entry.at} className="text-ink-faint tabular-nums">

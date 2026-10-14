@@ -33,7 +33,7 @@ export function MobileNav() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-full px-1 py-2 text-[0.66rem] font-medium transition-colors",
+                  "text-micro flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-full px-1 py-2 font-medium transition-colors",
                   active ? "text-primary" : "text-ink-faint hover:text-ink",
                 )}
               >

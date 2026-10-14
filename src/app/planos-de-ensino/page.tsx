@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Download, FileText } from "lucide-react";
-import { Breadcrumbs, SectionHeading } from "@/components/ui/primitives";
+import { Breadcrumbs, ButtonAnchor, SectionHeading } from "@/components/ui/primitives";
 import { bibliographyLabels } from "@/components/book/book-badge";
 import { getBooksForDiscipline, getDisciplines, getTeachingPlans } from "@/lib/repository";
 
@@ -48,11 +48,11 @@ export default async function TeachingPlansPage() {
           return (
             <li
               key={plan.id}
-              className="border-line bg-surface overflow-hidden rounded-[var(--radius-card)] border"
+              className="border-line bg-surface rounded-card overflow-hidden border"
             >
               <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-start sm:gap-5">
                 <div
-                  className="flex size-12 shrink-0 items-center justify-center rounded-md"
+                  className="rounded-control flex size-12 shrink-0 items-center justify-center"
                   style={{ backgroundColor: discipline.colorSoft, color: discipline.color }}
                   aria-hidden="true"
                 >
@@ -72,7 +72,7 @@ export default async function TeachingPlansPage() {
                     </Link>
                   </h2>
 
-                  <div className="bg-surface-sunken mt-3 rounded-md p-3">
+                  <div className="bg-surface-sunken rounded-control mt-3 p-3">
                     <p className="text-ink-faint text-xs font-semibold tracking-[0.08em] uppercase">
                       Bibliografia extraída deste plano
                     </p>
@@ -93,19 +93,19 @@ export default async function TeachingPlansPage() {
                   </div>
 
                   <div className="mt-4 flex flex-wrap gap-2.5">
-                    <a
+                    <ButtonAnchor
                       href={plan.fileUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors"
+                      size="sm"
                     >
                       <FileText className="size-4" aria-hidden="true" />
                       Visualizar
-                    </a>
+                    </ButtonAnchor>
                     <a
                       href={plan.fileUrl}
                       download
-                      className="border-line hover:border-line-strong hover:bg-surface-sunken inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-medium transition-colors"
+                      className="border-line hover:border-line-strong hover:bg-surface-sunken rounded-control inline-flex items-center gap-2 border px-4 py-2 text-sm font-medium transition-colors"
                     >
                       <Download className="size-4" aria-hidden="true" />
                       Baixar
@@ -118,7 +118,7 @@ export default async function TeachingPlansPage() {
         })}
       </ul>
 
-      <p className="border-line bg-surface-sunken text-ink-muted mt-8 rounded-[var(--radius-card)] border p-4 text-sm leading-relaxed">
+      <p className="border-line bg-surface-sunken text-ink-muted rounded-card mt-8 border p-4 text-sm leading-relaxed">
         Os planos de ensino são documentos institucionais do curso de Medicina do UNIEURO. Como todo
         o Atlas, ficam atrás da senha da turma.
       </p>

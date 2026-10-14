@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Sparkles } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Button, ToggleChip } from "@/components/ui/primitives";
 
 /**
  * Composes a simulado from the bank.
@@ -60,9 +60,8 @@ export function DrillBuilder({
             const on = selected.includes(area.id);
             return (
               <li key={area.id}>
-                <button
-                  type="button"
-                  aria-pressed={on}
+                <ToggleChip
+                  pressed={on}
                   onClick={() =>
                     setSelected((current) =>
                       current.includes(area.id)
@@ -70,13 +69,9 @@ export function DrillBuilder({
                         : [...current, area.id],
                     )
                   }
-                  className={cn(
-                    "rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors",
-                    on ? "bg-primary text-on-primary" : "glass-strong text-ink-muted",
-                  )}
                 >
                   {area.label}
-                </button>
+                </ToggleChip>
               </li>
             );
           })}
@@ -110,17 +105,16 @@ export function DrillBuilder({
         </label>
       </div>
 
-      <button
+      <Button
         type="button"
         onClick={start}
         disabled={chosen.length === 0 || objetivas + discursivas === 0}
-        className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors disabled:opacity-40"
       >
         <Sparkles className="size-4" aria-hidden="true" />
         Montar treino de {Math.min(discursivas, availableDis) +
           Math.min(objetivas, availableObj)}{" "}
         questões
-      </button>
+      </Button>
     </div>
   );
 }

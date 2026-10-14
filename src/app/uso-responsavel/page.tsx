@@ -16,7 +16,7 @@ function Rule({ title, children }: { title: string; children: React.ReactNode })
   return (
     <section className="border-line border-t py-7">
       <h2 className="text-lg font-semibold">{title}</h2>
-      <div className="text-ink-muted mt-2.5 space-y-3 text-[0.95rem] leading-relaxed text-pretty">
+      <div className="text-ink-muted text-body-sm mt-2.5 space-y-3 leading-relaxed text-pretty">
         {children}
       </div>
     </section>
@@ -114,7 +114,7 @@ export default async function ResponsibleUsePage() {
         </p>
       </Rule>
 
-      <p className="border-line bg-surface-sunken text-ink-muted mt-10 rounded-[var(--radius-card)] border p-5 text-sm leading-relaxed">
+      <p className="border-line bg-surface-sunken text-ink-muted rounded-card mt-10 border p-5 text-sm leading-relaxed">
         Dúvidas sobre acesso a um título específico devem ser encaminhadas à biblioteca do UNIEURO
         ou à coordenação do curso de Medicina.{" "}
         <Link href="/livros" className="text-primary hover:underline">

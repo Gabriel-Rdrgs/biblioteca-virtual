@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motifPalettes } from "@/components/book/cover-motifs";
 import type { CoverMotif } from "@/lib/domain/types";
-import { Field, Notice, inputClass } from "./fields";
+import { Button, ButtonAnchor, Field, Notice, inputClass } from "@/components/ui/primitives";
 import { Uploader, type UploadedFile } from "./uploader";
 
 /**
@@ -103,12 +103,9 @@ export function DisciplineForm({ defaultSemester }: { defaultSemester: string })
       <div className="space-y-4">
         <Notice tone="ok">Matéria criada. Já aparece para a turma.</Notice>
         <div className="flex gap-3">
-          <a
-            href={`/disciplinas/${status.slug}`}
-            className="bg-primary text-on-primary rounded-full px-4 py-2 text-sm font-medium"
-          >
+          <ButtonAnchor href={`/disciplinas/${status.slug}`} size="sm">
             Abrir a matéria
-          </a>
+          </ButtonAnchor>
           <button
             type="button"
             onClick={() => window.location.reload()}
@@ -293,13 +290,9 @@ export function DisciplineForm({ defaultSemester }: { defaultSemester: string })
 
       {status.kind === "erro" ? <Notice tone="erro">{status.message}</Notice> : null}
 
-      <button
-        type="submit"
-        disabled={status.kind === "enviando"}
-        className="bg-primary text-on-primary hover:bg-primary-hover rounded-full px-5 py-2.5 text-sm font-semibold transition-colors disabled:opacity-50"
-      >
+      <Button type="submit" disabled={status.kind === "enviando"}>
         {status.kind === "enviando" ? "Salvando…" : "Criar matéria"}
-      </button>
+      </Button>
     </form>
   );
 }

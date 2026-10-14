@@ -46,7 +46,7 @@ export function AccessNotice({
   return (
     <aside
       className={cn(
-        "flex gap-3 rounded-[var(--radius-card)] border p-4",
+        "rounded-card flex gap-3 border p-4",
         tone === "warn"
           ? "border-line-strong bg-surface-sunken"
           : "border-primary/20 bg-primary-soft",

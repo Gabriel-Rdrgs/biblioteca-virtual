@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FileText, PlayCircle } from "lucide-react";
-import { Breadcrumbs } from "@/components/ui/primitives";
+import { Badge, Breadcrumbs, ButtonAnchor, ButtonLink } from "@/components/ui/primitives";
 import { loadExamBySlug } from "@/lib/repository/exams";
 import { getDisciplines } from "@/lib/repository";
 
@@ -40,9 +40,7 @@ export default async function SimuladoPage({ params }: { params: Promise<{ slug:
       />
 
       <div className="flex flex-wrap items-center gap-2">
-        <span className="bg-primary text-on-primary rounded-full px-2.5 py-0.5 text-xs font-semibold">
-          {exam.assessment}
-        </span>
+        <Badge tom="primario">{exam.assessment}</Badge>
         {discipline ? (
           <Link
             href={`/disciplinas/${discipline.slug}`}
@@ -64,7 +62,7 @@ export default async function SimuladoPage({ params }: { params: Promise<{ slug:
           [String(objetivas), "objetivas"],
           [String(loaded.axes.length), "eixos"],
         ].map(([value, label]) => (
-          <div key={label} className="glass rounded-2xl p-4">
+          <div key={label} className="glass rounded-panel p-4">
             <p className="font-display text-primary text-3xl font-semibold tabular-nums">{value}</p>
             <p className="text-ink-muted mt-0.5 text-sm">{label}</p>
           </div>
@@ -72,21 +70,19 @@ export default async function SimuladoPage({ params }: { params: Promise<{ slug:
       </div>
 
       <div className="mt-8 flex flex-wrap gap-3">
-        <Link
-          href={`/simulados/${exam.slug}/fazer`}
-          className="bg-primary text-on-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold shadow-[var(--shadow-raise)] transition-colors"
-        >
+        <ButtonLink href={`/simulados/${exam.slug}/fazer`} size="lg">
           <PlayCircle className="size-4" aria-hidden="true" />
           Fazer na tela
-        </Link>
+        </ButtonLink>
         {exam.pdfPath ? (
-          <a
+          <ButtonAnchor
             href={`/api/simulados/${exam.pdfPath}?baixar=1`}
-            className="glass hover:glass-strong inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-colors"
+            variant="secundario"
+            size="lg"
           >
             <FileText className="size-4" aria-hidden="true" />
             Baixar para imprimir
-          </a>
+          </ButtonAnchor>
         ) : null}
       </div>
 
@@ -102,7 +98,7 @@ export default async function SimuladoPage({ params }: { params: Promise<{ slug:
             ))}
           </ol>
           {exam.note ? (
-            <p className="glass text-ink-muted mt-4 rounded-2xl p-4 text-sm leading-relaxed">
+            <p className="glass text-ink-muted rounded-panel mt-4 p-4 text-sm leading-relaxed">
               {exam.note}
             </p>
           ) : null}

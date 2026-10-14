@@ -4,7 +4,7 @@ import { AtlasMark } from "@/components/ui/atlas-mark";
 export function Footer() {
   return (
     <footer className="mt-16">
-      <div className="glass mx-auto max-w-7xl rounded-3xl px-6 py-10 sm:px-8">
+      <div className="glass rounded-hero mx-auto max-w-7xl px-6 py-10 sm:px-8">
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           <div className="max-w-sm">
             <div className="flex items-center gap-2.5">
