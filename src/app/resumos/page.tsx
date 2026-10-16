@@ -9,7 +9,14 @@ import {
   EmptyState,
   SectionHeading,
 } from "@/components/ui/primitives";
-import { isLesson, lessonDayLabel, lessonLabel, type Summary } from "@/lib/domain/summary-types";
+import {
+  isLesson,
+  isProblem,
+  lessonDayLabel,
+  lessonLabel,
+  problemLabel,
+  type Summary,
+} from "@/lib/domain/summary-types";
 import { getAssessments } from "@/lib/repository/assessments";
 import { getSummaries } from "@/lib/repository/summaries";
 import { getDisciplines } from "@/lib/repository";
@@ -37,6 +44,15 @@ function SummaryCard({
             <span className="text-ink-muted text-sm">{lessonDayLabel(summary.date)}</span>
             {summary.meeting ? (
               <span className="text-ink-faint text-xs">· encontro {summary.meeting}</span>
+            ) : null}
+          </>
+        ) : isProblem(summary) ? (
+          <>
+            <Badge tom="primario">{problemLabel(summary)}</Badge>
+            {summary.closesAt ? (
+              <span className="text-ink-muted text-sm">
+                fecha em {lessonDayLabel(summary.closesAt)}
+              </span>
             ) : null}
           </>
         ) : (

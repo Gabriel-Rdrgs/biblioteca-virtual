@@ -42,7 +42,7 @@ export function Uploader({
   onUploaded: (file: UploadedFile) => void;
   onReset?: () => void;
   idPrefix?: string;
-  folder?: "livros" | "planos";
+  folder?: "livros" | "planos" | "resumos";
   label?: string;
 }) {
   const [state, setState] = useState<

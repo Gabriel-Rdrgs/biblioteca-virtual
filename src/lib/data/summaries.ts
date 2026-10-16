@@ -15,11 +15,28 @@ import type { Summary } from "@/lib/domain/summary-types";
  * alguém ler isto depois de errar um simulado.
  */
 
-const base = {
+const comum = {
   visibility: "visivel" as const,
   origin: "seed" as const,
-  disciplineId: "mac-1" as const,
 };
+
+const base = { ...comum, disciplineId: "mac-1" as const };
+const aes = { ...comum, disciplineId: "aes-2" as const };
+
+/** As três somativas de AES 2, como o calendário as identifica. */
+const AES_N1 = ["aes-2-n1"] as const;
+const AES_N2 = ["aes-2-n2"] as const;
+
+/** Os eixos do banco que o 1º ciclo de AES 2 cobre inteiros. */
+const EIXOS_AES_N1 = [
+  "genoma",
+  "replicacao",
+  "transcricao-traducao",
+  "regulacao-epigenetica",
+  "celulas-tronco",
+  "ciclo-neoplasia",
+  "senescencia-apoptose",
+] as const;
 
 /** As duas bimestrais de MAC I, como o calendário as identifica. */
 const N1 = ["mac-1-n1-teorica", "mac-1-n1-pratica"] as const;
@@ -50,9 +67,7 @@ const EIXOS_N1 = [
 
 /** "Resumo da turma, a partir da aula de 11/08/2026 (encontro 3)." */
 const daAula = (dia: string, encontro?: number) =>
-  `Resumo da turma, a partir da aula de ${dia}/2026${
-    encontro ? ` (encontro ${encontro})` : ""
-  }.`;
+  `Resumo da turma, a partir da aula de ${dia}/2026${encontro ? ` (encontro ${encontro})` : ""}.`;
 
 export const seedSummaries: readonly Summary[] = [
   /* ------------------------------------------------- 1º bimestre — N1 */
@@ -656,5 +671,229 @@ export const seedSummaries: readonly Summary[] = [
     addedAt: "2026-10-16",
     source:
       "Resumo da turma para a N2, acumulativo: o 1º bimestre integrado mais as aulas 15 a 26. Base: Gartner & Hiatt, Moore 9ª ed. e Netter Flash Cards.",
+  },
+  /* ========================================================= AES 2 */
+  /*
+    AES 2 não anda por aula: anda por problema de tutoria. Cada resumo
+    cobre os objetivos de aprendizagem de um problema, e as datas que
+    aparecem são as da abertura e do fechamento — quando o próprio
+    material as registra no cabeçalho.
+  */
+  {
+    ...aes,
+    kind: "problema",
+    id: "aes-2-problema-01",
+    slug: "aes-2-problema-01-genoma-e-cromatina",
+    problem: 1,
+    title: "Genoma: ácidos nucleicos, cromatina e organização",
+    topics: [
+      "Genética molecular: nucleotídeos e ácidos nucleicos — DNA e RNA, base a base.",
+      "Genética molecular: gene, cromossomo, cromatina e genoma.",
+      "Biologia celular: a compactação, do nucleossomo ao cromossomo metafásico.",
+      "Biologia celular: eucromatina e heterocromatina.",
+      "Genética molecular: DNA repetitivo e o genoma mitocondrial.",
+    ],
+    areaIds: ["biologia-celular"],
+    axisIds: ["genoma"],
+    assessmentIds: [...AES_N1],
+    pdfPath: "aes-2-problema-01.pdf",
+    pages: 10,
+    addedAt: "2026-10-16",
+    source:
+      "Resumo da turma para o problema 1 de AES 2. Como no problema 2, o material avisa que não houve folha de objetivos fotografada: os itens são os da lista de conteúdos da N1.",
+  },
+  {
+    ...aes,
+    kind: "problema",
+    id: "aes-2-problema-02",
+    slug: "aes-2-problema-02-fluxo-da-informacao-genetica",
+    problem: 2,
+    title: "Vias da informação genética: replicação, transcrição, processamento e tradução",
+    topics: [
+      "Genética molecular: replicação do DNA, das três regras da polimerase aos telômeros.",
+      "Genética molecular: transcrição do DNA em RNA, com as três RNA-polimerases.",
+      "Genética molecular: processamento do RNA em eucariotos — quepe, splicing e cauda poli-A.",
+      "Genética molecular: o código genético, a matriz de leitura e a oscilação.",
+      "Biologia celular: tradução e síntese de proteínas, do tRNA ao endereçamento.",
+    ],
+    areaIds: ["biologia-celular"],
+    axisIds: ["replicacao", "transcricao-traducao"],
+    assessmentIds: [...AES_N1],
+    pdfPath: "aes-2-problema-02.pdf",
+    pages: 11,
+    addedAt: "2026-10-16",
+    source:
+      "Resumo da turma para o problema 2 de AES 2. O próprio material avisa que não houve folha de objetivos fotografada: os cinco itens são os da lista de conteúdos da N1.",
+  },
+  {
+    ...aes,
+    kind: "problema",
+    id: "aes-2-problema-03",
+    slug: "aes-2-problema-03-regulacao-genica-e-epigenetica",
+    problem: 3,
+    title: "Regulação da expressão gênica e epigenética",
+    topics: [
+      "Genética molecular: regulação transcricional — promotores, fatores de transcrição e enhancers.",
+      "Genética molecular: regulação pós-transcricional e traducional, com miRNA e o ferro (IRE/IRP).",
+      "Biologia celular: cromatina e acessibilidade do DNA.",
+      "Genética molecular: epigenética — metilação do DNA, histonas, imprinting e inativação do X.",
+      "Farmacologia: fatores externos que influenciam a expressão gênica, e os receptores nucleares.",
+      "Genética molecular: o gene MECP2 e a regulação do neurodesenvolvimento.",
+    ],
+    areaIds: ["biologia-celular"],
+    axisIds: ["regulacao-epigenetica"],
+    assessmentIds: [...AES_N1],
+    pdfPath: "aes-2-problema-03.pdf",
+    pages: 10,
+    addedAt: "2026-10-16",
+    source: "Resumo da turma para o problema 3 de AES 2, a partir dos seis objetivos da folha.",
+  },
+  {
+    ...aes,
+    kind: "problema",
+    id: "aes-2-problema-04",
+    slug: "aes-2-problema-04-crescimento-e-morte-celular",
+    problem: 4,
+    closesAt: "2026-10-01",
+    title: "Crescimento, diferenciação, adaptação e morte celular",
+    topics: [
+      "Biologia celular: células-tronco — autorrenovação, potência e o nicho.",
+      "Biologia celular: sinais celulares e microambiente; terapia celular e medicina regenerativa.",
+      "Patologia celular: hipertrofia, hiperplasia, atrofia, metaplasia e displasia.",
+      "Oncologia molecular: ciclo celular, Rb/E2F e p53; neoplasia e carcinoma invasivo.",
+      "Patologia celular: envelhecimento e senescência; apoptose pelas vias intrínseca e extrínseca.",
+    ],
+    areaIds: ["biologia-celular"],
+    axisIds: ["celulas-tronco", "ciclo-neoplasia", "senescencia-apoptose"],
+    assessmentIds: [...AES_N1],
+    pdfPath: "aes-2-problema-04.pdf",
+    pages: 12,
+    addedAt: "2026-10-16",
+    source:
+      "Resumo da turma para o problema 4 de AES 2, com o que foi ao quadro no fechamento de 01/10/2026.",
+  },
+  {
+    ...aes,
+    kind: "problema",
+    id: "aes-2-problema-05",
+    slug: "aes-2-problema-05-mutacao-reparo-e-pcr",
+    problem: 5,
+    opensAt: "2026-10-01",
+    closesAt: "2026-10-08",
+    title: "Mutação gênica, agentes mutagênicos, reparo do DNA e PCR",
+    topics: [
+      "Genética molecular: os tipos de mutação gênica e a nomenclatura HGVS do laudo.",
+      "Genética molecular: agentes mutagênicos físicos, químicos e biológicos, e o teste de Ames.",
+      "Genética molecular: os mecanismos de reparo — MMR, BER, NER, NHEJ e recombinação homóloga.",
+      "Biotecnologia: a PCR e suas variações (RT-PCR, qPCR, multiplex, QF-PCR).",
+      "Biologia celular: o impacto biopsicossocial das doenças genéticas.",
+    ],
+    areaIds: ["biologia-celular"],
+    axisIds: [],
+    assessmentIds: [...AES_N2],
+    pdfPath: "aes-2-problema-05.pdf",
+    pages: 12,
+    addedAt: "2026-10-16",
+    source:
+      "Resumo da turma para o problema 5 de AES 2 (abertura 01/10, fechamento 08/10/2026), a partir dos cinco objetivos da folha.",
+  },
+  {
+    ...aes,
+    kind: "problema",
+    id: "aes-2-problema-06",
+    slug: "aes-2-problema-06-cariotipo-e-alteracoes-cromossomicas",
+    problem: 6,
+    opensAt: "2026-10-08",
+    closesAt: "2026-10-15",
+    title: "Cariótipo e alterações cromossômicas",
+    topics: [
+      "Citogenética: o cariótipo humano, da montagem ao bandamento, e a nomenclatura ISCN.",
+      "Citogenética: alterações numéricas — euploidia, aneuploidia e não disjunção.",
+      "Citogenética: alterações estruturais balanceadas e não balanceadas.",
+      "Biotecnologia: cariótipo, FISH, microarranjo, MLPA, NGS e o diagnóstico pré-natal.",
+      "Biologia celular: o impacto biopsicossocial e o protocolo SPIKES.",
+    ],
+    areaIds: ["biologia-celular"],
+    axisIds: [],
+    assessmentIds: [...AES_N2],
+    pdfPath: "aes-2-problema-06.pdf",
+    pages: 14,
+    addedAt: "2026-10-16",
+    source:
+      "Resumo da turma para o problema 6 de AES 2 (abertura 08/10, fechamento 15/10/2026), com o que foi ao quadro.",
+  },
+  {
+    ...aes,
+    kind: "problema",
+    id: "aes-2-problema-07",
+    slug: "aes-2-problema-07-padroes-de-heranca",
+    problem: 7,
+    opensAt: "2026-10-15",
+    closesAt: "2026-10-19",
+    title: "Padrões de herança monogênica e multifatorial",
+    topics: [
+      "Genética molecular: herança autossômica dominante e recessiva, e como ler um heredograma.",
+      "Genética molecular: herança ligada ao X (recessiva e dominante), ao Y e mitocondrial.",
+      "Genética molecular: penetrância, expressividade, epistasia e pleiotropia — o caso LMNA.",
+      "Genética molecular: herança multifatorial e o modelo do limiar.",
+    ],
+    areaIds: ["biologia-celular"],
+    axisIds: [],
+    assessmentIds: [...AES_N2],
+    pdfPath: "aes-2-problema-07.pdf",
+    pages: 9,
+    addedAt: "2026-10-16",
+    source:
+      "Resumo da turma para o problema 7 de AES 2 (abertura 15/10, fechamento 19/10/2026). O material avisa que foi escrito antes do fechamento, a partir dos quatro objetivos da folha e dos livros.",
+  },
+  {
+    ...aes,
+    kind: "ciclo",
+    id: "aes-2-resumo-n1",
+    slug: "aes-2-resumo-n1-problemas-1-a-4",
+    cycleLabel: "N1",
+    title: "Resumo para a N1 — problemas 1 a 4",
+    topics: [
+      "Mapa conceitual dos quatro problemas, com o fio que liga genoma, fluxo, regulação e destino da célula.",
+      "Tabelões do genoma e do fluxo da informação, com a tabela do código genético.",
+      "Tabelões da regulação gênica: cromatina, glicocorticoide, receptores e epigenética.",
+      "Tabelões de crescimento, diferenciação e morte, das células-tronco à apoptose.",
+      "Treino: as 20 pegadinhas que mais caem e seis casos discursivos com padrão de resposta.",
+    ],
+    areaIds: ["biologia-celular"],
+    axisIds: [...EIXOS_AES_N1],
+    assessmentIds: [...AES_N1],
+    pdfPath: "aes-2-resumo-n1.pdf",
+    pages: 7,
+    addedAt: "2026-10-16",
+    source:
+      "Resumo da turma para a N1 de AES 2, cobrindo os problemas 1 a 4. As figuras citam Alberts, 6ª ed.",
+  },
+  {
+    ...aes,
+    kind: "ciclo",
+    id: "aes-2-resumo-n2",
+    slug: "aes-2-resumo-n2-acumulativo",
+    cycleLabel: "N2",
+    title: "Resumo para a N2 (acumulativo)",
+    topics: [
+      "Parte 1 — conteúdo novo: tabelões de mutação e reparo, citogenética e herança.",
+      "Parte 2 — a revisão completa da N1, com os mesmos tabelões dos problemas 1 a 4.",
+      "Linha do tempo das tutorias, de 01/10 a 19/10.",
+      "Treino: 20 pegadinhas do conteúdo novo, 20 da N1 e onze casos discursivos.",
+    ],
+    areaIds: ["biologia-celular"],
+    /*
+      A Parte 2 revê a N1 inteira, mas quem responde por esses eixos é o
+      resumo da N1: dois resumos para o mesmo eixo viram ruído na hora de
+      dizer "errou isto, leia aquilo".
+    */
+    axisIds: [],
+    assessmentIds: [...AES_N2],
+    pdfPath: "aes-2-resumo-n2.pdf",
+    pages: 13,
+    addedAt: "2026-10-16",
+    source:
+      "Resumo da turma para a N2 de AES 2, acumulativo: os problemas 5 a 7 mais a revisão completa da N1, como o plano determina.",
   },
 ];

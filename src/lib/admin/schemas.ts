@@ -30,7 +30,7 @@ export const uploadRequestSchema = z.object({
   /** The original file name, only used to derive a safe one. */
   name: trimmed(300).min(1),
   sizeBytes: z.number().int().positive().max(MAX_FILE_BYTES),
-  folder: z.enum(["livros", "planos"]).default("livros"),
+  folder: z.enum(["livros", "planos", "resumos"]).default("livros"),
 });
 
 export const newBookSchema = z.object({
@@ -152,3 +152,73 @@ export type AssessmentInput = z.infer<typeof assessmentSchema>;
 export const assessmentPatchSchema = assessmentSchema
   .partial()
   .extend({ visibility: z.enum(["visivel", "oculto"]).optional() });
+
+/* ------------------------------------------------------------- resumos */
+
+const isoDate = z
+  .string()
+  .trim()
+  .regex(/^d{4}-d{2}-d{2}$/, "Data no formato AAAA-MM-DD.");
+
+const optionalDate = isoDate.optional().or(z.literal("").transform(() => undefined));
+
+/**
+ * Um resumo publicado pelo painel.
+ *
+ * Os três tipos pedem campos diferentes, e é o `superRefine` que cobra
+ * cada um: uma aula sem data não situa ninguém no semestre, um problema
+ * sem número não se distingue dos outros, e um ciclo sem rótulo não diz
+ * para que prova serve.
+ */
+export const summarySchema = z
+  .object({
+    kind: z.enum(["aula", "problema", "ciclo"]),
+    disciplineId: trimmed(80).min(1, "Escolha a matéria."),
+    title: trimmed(200).min(3, "Título muito curto."),
+    topics: z.array(trimmed(300).min(2)).max(20).default([]),
+    areaIds: z.array(trimmed(80).min(1)).max(6).default([]),
+    axisIds: z.array(trimmed(80).min(1)).max(40).default([]),
+    assessmentIds: z.array(trimmed(80).min(1)).max(10).default([]),
+    file: uploadedFileSchema,
+    pages: z.number().int().min(1).max(500),
+    source: optionalText(400),
+    /* aula */
+    lesson: z.number().int().min(1).max(300).optional(),
+    date: optionalDate,
+    meeting: z.number().int().min(1).max(300).optional(),
+    /* problema */
+    problem: z.number().int().min(1).max(100).optional(),
+    opensAt: optionalDate,
+    closesAt: optionalDate,
+    /* ciclo */
+    cycleLabel: optionalText(20),
+  })
+  .superRefine((value, ctx) => {
+    const falta = (path: string, message: string) =>
+      ctx.addIssue({ code: z.ZodIssueCode.custom, path: [path], message });
+
+    if (value.kind === "aula") {
+      if (value.lesson === undefined) falta("lesson", "Informe o número da aula.");
+      if (!value.date) falta("date", "Informe a data da aula.");
+    }
+    if (value.kind === "problema" && value.problem === undefined) {
+      falta("problem", "Informe o número do problema.");
+    }
+    if (value.kind === "ciclo" && !value.cycleLabel) {
+      falta("cycleLabel", "Diga para que avaliação é o resumo (N1, N2…).");
+    }
+    if (value.opensAt && value.closesAt && value.opensAt > value.closesAt) {
+      falta("closesAt", "O fechamento não pode ser antes da abertura.");
+    }
+  });
+
+export type SummaryInput = z.infer<typeof summarySchema>;
+
+export const summaryPatchSchema = z.object({
+  title: trimmed(200).min(3).optional(),
+  topics: z.array(trimmed(300).min(2)).max(20).optional(),
+  axisIds: z.array(trimmed(80).min(1)).max(40).optional(),
+  assessmentIds: z.array(trimmed(80).min(1)).max(10).optional(),
+  source: optionalText(400),
+  visibility: z.enum(["visivel", "oculto"]).optional(),
+});

@@ -30,7 +30,8 @@ export async function PUT(request: NextRequest, context: { params: Promise<{ nam
     return NextResponse.json({ error: "Tamanho de arquivo inválido." }, { status: 400 });
   }
 
-  const folder = request.nextUrl.searchParams.get("pasta") === "planos" ? "planos" : "livros";
+  const pedida = request.nextUrl.searchParams.get("pasta");
+  const folder = pedida === "planos" || pedida === "resumos" ? pedida : "livros";
   const dir = localDir(folder);
   const path = resolve(dir, name);
   await mkdir(dir, { recursive: true });

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { PdfReader } from "@/components/book/pdf-reader";
-import { isLesson, lessonDayLabel, lessonLabel } from "@/lib/domain/summary-types";
+import { isLesson, lessonDayLabel, lessonLabel, summaryLabel } from "@/lib/domain/summary-types";
 import { getSummaryBySlug } from "@/lib/repository/summaries";
 import { signedFileUrl, storageMode } from "@/lib/storage";
 
@@ -40,7 +40,7 @@ export default async function ResumoPage({ params }: { params: Promise<{ slug: s
 
   const etiqueta = isLesson(summary)
     ? `${lessonLabel(summary)} · ${lessonDayLabel(summary.date)}`
-    : summary.cycleLabel;
+    : summaryLabel(summary);
 
   return (
     <div className="flex h-[calc(100dvh-4rem-3.5rem)] flex-col md:h-[calc(100dvh-4rem)]">

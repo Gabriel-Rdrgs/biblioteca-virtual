@@ -6,6 +6,7 @@ import { disciplines as seedDisciplines } from "@/lib/data/disciplines";
 import {
   bySequence,
   isLesson,
+  isProblem,
   lessonDayLabel,
   lessonLabel,
   type CycleSummary,
@@ -154,5 +155,44 @@ describe("o conjunto de MAC I", () => {
     // A N2 é acumulativa, e o resumo da N1 se apresenta como a Parte 1 dela.
     expect(ciclos[0]?.assessmentIds).toContain("mac-1-n2-teorica");
     expect(ciclos[1]?.assessmentIds).toContain("mac-1-n2-teorica");
+  });
+});
+
+describe("o conjunto de AES 2", () => {
+  const aes = seedSummaries.filter((s) => s.disciplineId === "aes-2");
+  const problemas = aes.filter(isProblem);
+
+  it("anda por problema, e não por aula", () => {
+    // Chamar um problema de tutoria de "aula 5" seria renomear o que a
+    // turma chama de problema 5.
+    expect(aes.filter(isLesson)).toHaveLength(0);
+    expect(problemas.map((p) => p.problem)).toEqual([1, 2, 3, 4, 5, 6, 7]);
+  });
+
+  it("abre antes de fechar, quando o resumo registra as duas datas", () => {
+    for (const problema of problemas) {
+      if (problema.opensAt && problema.closesAt) {
+        expect(problema.opensAt <= problema.closesAt, problema.id).toBe(true);
+      }
+    }
+  });
+
+  it("manda os problemas do 1º ciclo para a N1 e os do 2º para a N2", () => {
+    const destino = new Map(problemas.map((p) => [p.problem, p.assessmentIds.join()]));
+    for (const n of [1, 2, 3, 4]) expect(destino.get(n), `problema ${n}`).toBe("aes-2-n1");
+    for (const n of [5, 6, 7]) expect(destino.get(n), `problema ${n}`).toBe("aes-2-n2");
+  });
+
+  it("deixa o resumo da N1 responder pelos eixos do banco", () => {
+    const n1 = aes.find((s) => s.id === "aes-2-resumo-n1")!;
+    const n2 = aes.find((s) => s.id === "aes-2-resumo-n2")!;
+    const eixos = new Set(
+      questionAreas
+        .filter((area) => area.id === "biologia-celular")
+        .flatMap((area) => area.axes.map((axis) => axis.id)),
+    );
+    expect(new Set(n1.axisIds)).toEqual(eixos);
+    // Dois resumos para o mesmo eixo viram ruído em "errou isto, leia aquilo".
+    expect(n2.axisIds).toEqual([]);
   });
 });

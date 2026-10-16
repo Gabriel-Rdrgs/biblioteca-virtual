@@ -3,7 +3,7 @@ import { CalendarViews, type DisciplineChip } from "@/components/calendar/calend
 import type { EventLinks } from "@/components/calendar/event-item";
 import { Breadcrumbs, SectionHeading } from "@/components/ui/primitives";
 import { toKey } from "@/lib/domain/calendar-types";
-import { isLesson, lessonLabel } from "@/lib/domain/summary-types";
+import { isLesson, lessonLabel, summaryLabel } from "@/lib/domain/summary-types";
 import { getAxesByAssessment, getCalendarEvents } from "@/lib/repository/calendar";
 import { getSummaries } from "@/lib/repository/summaries";
 import { getDisciplines } from "@/lib/repository";
@@ -64,7 +64,7 @@ export default async function CalendarioPage() {
           slug: summary.slug,
           label: isLesson(summary)
             ? `Resumo da ${lessonLabel(summary).toLowerCase()}`
-            : `Resumo para a ${summary.cycleLabel}`,
+            : `Resumo para a ${summaryLabel(summary)}`,
         })),
       };
     } else {

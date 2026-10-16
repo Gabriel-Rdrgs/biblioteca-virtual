@@ -24,7 +24,7 @@ import {
   toCatalogEntries,
 } from "@/lib/repository";
 import { getSummaries } from "@/lib/repository/summaries";
-import { isLesson, lessonDayLabel, lessonLabel } from "@/lib/domain/summary-types";
+import { isLesson, lessonDayLabel, summaryLabel } from "@/lib/domain/summary-types";
 
 export async function generateMetadata({
   params,
@@ -42,8 +42,7 @@ export async function generateMetadata({
 }
 
 /** Quantos dias separam uma data de hoje, para qualquer um dos dois lados. */
-const distanciaDeHoje = (date: string) =>
-  Math.abs(Date.parse(`${date}T12:00:00`) - Date.now());
+const distanciaDeHoje = (date: string) => Math.abs(Date.parse(`${date}T12:00:00`) - Date.now());
 
 const order: BibliographyType[] = [
   "basica",
@@ -232,7 +231,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
                     className="glass hover:glass-strong inline-flex items-center gap-2.5 rounded-full py-2 pr-4 pl-3 text-sm transition-colors"
                   >
                     <span className="bg-primary text-on-primary text-micro rounded-full px-2 py-0.5 font-semibold whitespace-nowrap">
-                      {summary.kind === "aula" ? lessonLabel(summary) : summary.cycleLabel}
+                      {summaryLabel(summary)}
                     </span>
                     <span className="font-medium">{summary.title}</span>
                     {summary.kind === "aula" ? (

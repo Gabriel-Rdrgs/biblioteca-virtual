@@ -229,6 +229,9 @@ export interface CatalogLogEntry {
     | "periodo_atual"
     | "prova_criada"
     | "prova_editada"
+    | "resumo_criado"
+    | "resumo_editado"
+    | "resumo_excluido"
     | "prova_excluida";
   readonly bookId: BookId;
   readonly detail?: string;

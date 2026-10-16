@@ -6,10 +6,16 @@ import { NewBookForm } from "@/components/admin/new-book-form";
 import { DisciplineForm } from "@/components/admin/discipline-form";
 import { DisciplineTable, type AdminDisciplineRow } from "@/components/admin/discipline-table";
 import { AssessmentManager } from "@/components/admin/assessment-manager";
+import { SummaryForm } from "@/components/admin/summary-form";
+import { SummaryTable, type AdminSummaryRow } from "@/components/admin/summary-table";
 import { SectionHeading } from "@/components/ui/primitives";
 import { readManifest } from "@/lib/catalog-store";
 import { getAllAssessmentsForAdmin } from "@/lib/repository/assessments";
 import { getExams } from "@/lib/repository/exams";
+import { getAllSummariesForAdmin } from "@/lib/repository/summaries";
+import { questionAreas } from "@/lib/data/questions";
+import { assessmentLabel } from "@/lib/domain/assessment-types";
+import { summaryLabel } from "@/lib/domain/summary-types";
 import {
   getAllBooksForAdmin,
   getAllDisciplinesForAdmin,
@@ -37,6 +43,9 @@ const actionLabels: Record<string, string> = {
   materia_visibilidade: "Matéria ocultada/mostrada",
   materia_excluida: "Matéria excluída",
   periodo_atual: "Período atual alterado",
+  resumo_criado: "Resumo publicado",
+  resumo_editado: "Resumo editado",
+  resumo_excluido: "Resumo excluído",
   prova_criada: "Data de prova cadastrada",
   prova_editada: "Data de prova editada",
   prova_excluida: "Data de prova excluída",
@@ -101,6 +110,18 @@ export default async function AdminPage() {
       Number(y.period === currentPeriod) - Number(x.period === currentPeriod) ||
       y.period - x.period,
   );
+
+  const nomeDaMateria = new Map(allDisciplines.map((d) => [d.id, d.shortName]));
+  const summaryRows: AdminSummaryRow[] = (await getAllSummariesForAdmin()).map((summary) => ({
+    id: summary.id,
+    slug: summary.slug,
+    label: summaryLabel(summary),
+    title: summary.title,
+    discipline: nomeDaMateria.get(summary.disciplineId) ?? summary.disciplineId,
+    pages: summary.pages,
+    visibility: summary.visibility,
+    origin: summary.origin,
+  }));
 
   const withFile = rows.filter((r) => r.hasFile).length;
   const visible = rows.filter((r) => r.visibility === "visivel").length;
@@ -186,6 +207,34 @@ export default async function AdminPage() {
       <section className="mt-14">
         <SectionHeading
           numeral="IV"
+          title="Resumos da turma"
+          description="Publique o resumo de uma aula, de um problema de tutoria ou o apanhado de uma prova. O PDF sobe como o dos livros; o que o liga ao resto são a matéria, a avaliação e os eixos do banco."
+        />
+        <div className="border-line bg-surface rounded-card border p-5 sm:p-6">
+          <SummaryForm
+            disciplines={allDisciplines
+              .filter((d) => d.visibility === "visivel")
+              .map((d) => ({ id: d.id, name: d.name }))}
+            assessments={assessments.map((a) => ({
+              id: a.id,
+              disciplineId: a.disciplineId,
+              label: assessmentLabel(a),
+            }))}
+            areas={questionAreas.map((area) => ({
+              id: area.id,
+              label: area.label,
+              axes: area.axes.map((axis) => ({ id: axis.id, label: axis.label })),
+            }))}
+          />
+        </div>
+        <div className="mt-6">
+          <SummaryTable rows={summaryRows} />
+        </div>
+      </section>
+
+      <section className="mt-14">
+        <SectionHeading
+          numeral="V"
           title="Todos os livros"
           description="Livros dos planos de ensino e do acervo da turma. Anexe um PDF a um registro sem arquivo, oculte ou mostre, ou substitua o arquivo."
         />
@@ -193,7 +242,7 @@ export default async function AdminPage() {
       </section>
 
       <section className="mt-14">
-        <SectionHeading numeral="V" title="Últimas alterações" />
+        <SectionHeading numeral="VI" title="Últimas alterações" />
         {log.length === 0 ? (
           <p className="text-ink-muted text-sm">Nenhuma alteração registrada ainda.</p>
         ) : (
