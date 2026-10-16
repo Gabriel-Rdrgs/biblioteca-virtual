@@ -1,5 +1,10 @@
-// Syncs storage/livros/*.pdf to the R2 bucket. Run with:
-//   npm run upload:storage
+// Syncs storage/*.pdf to the R2 bucket. Run with:
+//   npm run upload:storage            (tudo)
+//   npm run upload:storage resumos    (só uma pasta)
+// São quatro pastas, e cada uma vira um prefixo no bucket, igual ao que
+// objectKey() monta em src/lib/storage.ts: livros, planos, simulados e
+// resumos. Enviar só os livros era um jeito silencioso de publicar um
+// resumo que o deploy depois não acha.
 // Objects already in the bucket with the same size are skipped, so re-runs
 // only send what changed. Requires the R2_* variables in .env.local.
 import { createReadStream } from "node:fs";
@@ -24,17 +29,58 @@ const client = new S3Client({
   },
 });
 
-const dir = join(process.cwd(), "storage", "livros");
-const files = (await readdir(dir)).filter((name) => name.toLowerCase().endsWith(".pdf")).sort();
+const PASTAS = ["livros", "planos", "simulados", "resumos"];
+const pedidas = process.argv.slice(2);
+const desconhecida = pedidas.find((nome) => !PASTAS.includes(nome));
+if (desconhecida) {
+  console.error(`Pasta desconhecida: ${desconhecida}. Use uma de: ${PASTAS.join(", ")}.`);
+  process.exit(1);
+}
+
+/**
+ * O que vai para o bucket, e com que tipo.
+ *
+ * Os cadernos de simulado levam figuras junto — jpg, png e svg — e mandar
+ * só os PDFs deixava as questões sem imagem no deploy.
+ */
+const TIPOS = {
+  ".pdf": "application/pdf",
+  ".svg": "image/svg+xml",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+};
+const tipoDe = (name) => TIPOS[name.slice(name.lastIndexOf(".")).toLowerCase()];
+
 const mb = (bytes) => (bytes / 1048576).toFixed(1).padStart(7) + " MB";
+
+/** Os arquivos de cada pasta, com a chave que terão no bucket. */
+const alvos = [];
+for (const pasta of pedidas.length > 0 ? pedidas : PASTAS) {
+  const dir = join(process.cwd(), "storage", pasta);
+  let nomes = [];
+  try {
+    nomes = (await readdir(dir)).filter((name) => Boolean(tipoDe(name))).sort();
+  } catch (error) {
+    if (error?.code !== "ENOENT") throw error;
+    continue;
+  }
+  for (const name of nomes) alvos.push({ pasta, name, path: join(dir, name) });
+}
 
 let sent = 0;
 let skipped = 0;
+let pastaAtual = null;
 
-for (const name of files) {
-  const path = join(dir, name);
+for (const alvo of alvos) {
+  const { pasta, name, path } = alvo;
+  if (pasta !== pastaAtual) {
+    console.log(`
+${pasta}/`);
+    pastaAtual = pasta;
+  }
   const { size } = await stat(path);
-  const Key = `livros/${name}`;
+  const Key = `${pasta}/${name}`;
 
   try {
     const head = await client.send(new HeadObjectCommand({ Bucket: process.env.R2_BUCKET, Key }));
@@ -55,7 +101,7 @@ for (const name of files) {
       Bucket: process.env.R2_BUCKET,
       Key,
       Body: createReadStream(path),
-      ContentType: "application/pdf",
+      ContentType: tipoDe(name),
     },
     partSize: 16 * 1024 * 1024,
     queueSize: 4,

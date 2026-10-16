@@ -154,9 +154,20 @@ test("o plano de ensino se apresenta como parte da matéria", async ({ page }) =
   await expect(atual.first()).toBeVisible();
 });
 
-test("a próxima prova abre o painel, com o treino dela a um toque", async ({ page }) => {
+test("a próxima prova abre o painel, com o calendário a um toque", async ({ page }) => {
   await page.goto("/");
   const cartao = page.locator("section").filter({ hasText: "PRÓXIMA PROVA" }).first();
   await expect(cartao).toBeVisible();
-  await expect(cartao.getByRole("link", { name: /treinar para ela/i })).toBeVisible();
+  await expect(cartao.getByRole("link", { name: /todas as datas/i })).toBeVisible();
+
+  /*
+    O "Treinar para ela" depende da prova que vier: nem toda matéria tem
+    simulado. Este teste já passou por engano porque a próxima prova era
+    uma data errada de MAC I; agora cobra só o que a faixa sempre tem, e
+    confere o treino apenas quando ele existe.
+  */
+  const treino = cartao.getByRole("link", { name: /treinar para ela/i });
+  if ((await treino.count()) > 0) {
+    await expect(treino).toHaveAttribute("href", /\/simulados\//);
+  }
 });

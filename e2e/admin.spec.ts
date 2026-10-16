@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { ligadoAoR2, MOTIVO } from "./catalogo-guard";
 
 const ADMIN = process.env.ATLAS_SENHA_ADMIN;
 const CLASS = process.env.ATLAS_SENHA_TURMA;
@@ -35,6 +36,11 @@ test.describe.configure({ mode: "serial" });
 
 test.describe("admin area", () => {
   test.skip(!ADMIN || !CLASS, "needs ATLAS_SENHA_ADMIN and ATLAS_SENHA_TURMA");
+  /* Não roda contra o catálogo de produção — ver catalogo-guard.ts. */
+  test.beforeEach(async ({ page }) => {
+    await loginAdmin(page);
+    test.skip(await ligadoAoR2(page), MOTIVO);
+  });
 
   test("the class password does not open the admin area", async ({ page }) => {
     await page.context().clearCookies();
@@ -135,6 +141,11 @@ test.describe("admin area", () => {
 
 test.describe("disciplines and periods", () => {
   test.skip(!ADMIN || !CLASS, "needs ATLAS_SENHA_ADMIN and ATLAS_SENHA_TURMA");
+  /* Não roda contra o catálogo de produção — ver catalogo-guard.ts. */
+  test.beforeEach(async ({ page }) => {
+    await loginAdmin(page);
+    test.skip(await ligadoAoR2(page), MOTIVO);
+  });
 
   test("create a 2nd-period discipline with a plan, see it grouped, then delete it", async ({
     page,

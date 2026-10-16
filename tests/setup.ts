@@ -1,3 +1,6 @@
+import { mkdtempSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import "@testing-library/jest-dom/vitest";
 
 /**
@@ -21,3 +24,11 @@ if (typeof HTMLDialogElement !== "undefined" && !HTMLDialogElement.prototype.sho
     this.dispatchEvent(new Event("close"));
   };
 }
+
+/**
+ * Os testes escrevem no manifesto do catálogo — e um deles o apaga ao
+ * terminar. Sem isto, apagavam o `storage/catalogo.json` da turma: os
+ * livros publicados pelo admin, as datas corrigidas e o que mais estivesse
+ * lá. Cada execução ganha a sua pasta, descartável.
+ */
+process.env.ATLAS_STORAGE_DIR = mkdtempSync(join(tmpdir(), "atlas-testes-"));

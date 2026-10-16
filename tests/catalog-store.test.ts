@@ -8,10 +8,12 @@ import { readManifest, resetManifestCache, updateManifest } from "@/lib/catalog-
  * updates are the realistic case, not an edge one.
  */
 
-const LOCAL_PATH = resolve(process.cwd(), "storage", "catalogo.json");
+/** A pasta descartável que tests/setup.ts cria para esta execução. */
+const STORAGE = () => process.env.ATLAS_STORAGE_DIR ?? resolve(process.cwd(), "storage");
+const LOCAL_PATH = () => resolve(STORAGE(), "catalogo.json");
 
 afterEach(async () => {
-  await rm(LOCAL_PATH, { force: true });
+  await rm(LOCAL_PATH(), { force: true });
   resetManifestCache();
 });
 
@@ -52,7 +54,7 @@ describe("escrita concorrente do manifesto", () => {
   it("leaves no temporary files behind", async () => {
     await updateManifest((current) => ({ ...current, settings: { currentPeriod: 2 } }));
     const { readdir } = await import("node:fs/promises");
-    const entries = await readdir(resolve(process.cwd(), "storage"));
+    const entries = await readdir(STORAGE());
     expect(entries.filter((name) => name.includes(".tmp"))).toEqual([]);
   });
 });

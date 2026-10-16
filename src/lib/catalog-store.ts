@@ -15,7 +15,16 @@ import { r2Client, storageMode } from "@/lib/storage";
  * immediately.
  */
 
-const LOCAL_PATH = resolve(process.cwd(), "storage", "catalogo.json");
+/**
+ * Onde o manifesto mora em disco.
+ *
+ * `ATLAS_STORAGE_DIR` existe para os testes: eles escrevem e apagam o
+ * manifesto, e sem isto apagavam o da turma — o catálogo de verdade, com
+ * os livros publicados e as datas corrigidas. Em produção a variável não é
+ * definida e vale `storage/`, ao lado dos arquivos.
+ */
+const localPath = () =>
+  resolve(process.env.ATLAS_STORAGE_DIR ?? resolve(process.cwd(), "storage"), "catalogo.json");
 const OBJECT_KEY = "catalogo/manifest.json";
 const CACHE_TTL_MS = 30_000;
 
@@ -63,7 +72,7 @@ async function load(): Promise<CatalogManifest> {
   }
 
   try {
-    return parse(await readFile(LOCAL_PATH, "utf8"));
+    return parse(await readFile(localPath(), "utf8"));
   } catch (error) {
     if ((error as { code?: string }).code === "ENOENT") return emptyManifest;
     throw error;
@@ -94,11 +103,12 @@ export async function writeManifest(manifest: CatalogManifest): Promise<void> {
     // The temporary name carries a random suffix: two writes landing at
     // once must not fight over the same path, or one renames the other's
     // file away and the second rename fails.
-    await mkdir(dirname(LOCAL_PATH), { recursive: true });
-    const tmp = `${LOCAL_PATH}.${randomBytes(4).toString("hex")}.tmp`;
+    const destino = localPath();
+    await mkdir(dirname(destino), { recursive: true });
+    const tmp = `${destino}.${randomBytes(4).toString("hex")}.tmp`;
     try {
       await writeFile(tmp, body, "utf8");
-      await rename(tmp, LOCAL_PATH);
+      await rename(tmp, destino);
     } catch (error) {
       await unlink(tmp).catch(() => undefined);
       throw error;

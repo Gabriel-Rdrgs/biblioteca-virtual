@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { ligadoAoR2, MOTIVO } from "./catalogo-guard";
 
 /**
  * The exam calendar: the dates transcribed from the teaching plans, and
@@ -25,6 +26,9 @@ function inDays(days: number): string {
   return [date.getFullYear(), pad(date.getMonth() + 1), pad(date.getDate())].join("-");
 }
 
+/** A data que o plano de ensino marca, e para a qual o teste devolve. */
+const DATA_DA_N2_DE_MAC = "2026-12-01";
+
 async function loginAdmin(page: Page) {
   const response = await page.request.post("/api/admin/entrar", {
     form: { senha: ADMIN ?? "", proximo: "/admin" },
@@ -40,6 +44,11 @@ async function loginClass(page: Page) {
 
 test.describe("calendário de provas", () => {
   test.skip(!ADMIN || !CLASS, "needs ATLAS_SENHA_ADMIN and ATLAS_SENHA_TURMA");
+  /* Não roda contra o catálogo de produção — ver catalogo-guard.ts. */
+  test.beforeEach(async ({ page }) => {
+    await loginAdmin(page);
+    test.skip(await ligadoAoR2(page), MOTIVO);
+  });
 
   test("carries the dates from the teaching plans, with their source", async ({ page }) => {
     await loginClass(page);
@@ -108,6 +117,21 @@ test.describe("calendário de provas", () => {
     await expect(
       page.getByText("Plano de ensino de MAC I, cronograma, p. 10").first(),
     ).toBeVisible();
+
+    /*
+      E devolve a data do plano. Este teste escreve no catálogo de verdade,
+      que é o mesmo que a turma vê: sem isto, a N2 de MAC I ficava marcada
+      para daqui a quatro dias até alguém reparar — e alguém reparou.
+    */
+    const restored = await page.request.patch("/api/admin/provas/mac-1-n2-teorica", {
+      data: { visibility: "visivel", date: DATA_DA_N2_DE_MAC },
+    });
+    expect(restored.ok()).toBe(true);
+    // O cartão mostra só o dia; o .ics mostra a data inteira.
+    const ics = await page.request.get("/api/calendario?evento=mac-1-n2-teorica");
+    expect(await ics.text()).toContain(
+      `DTSTART;VALUE=DATE:${DATA_DA_N2_DE_MAC.replaceAll("-", "")}`,
+    );
   });
 
   test("the admin can add a date of their own and delete it", async ({ page }) => {
@@ -253,7 +277,7 @@ test("a aula com resumo aparece no calendário, junto das provas", async ({ page
   // o título do encontro é o que identifica a aula sem ambiguidade.
   const aula = page
     .locator("li")
-    .filter({ hasText: "Microscopia e referenciais anatômicos" })
+    .filter({ hasText: "Microscopia + Referenciais anatômicos" })
     .first();
   await expect(aula).toBeVisible();
   await expect(aula.getByRole("link", { name: /abrir o resumo/i })).toBeVisible();
