@@ -47,13 +47,16 @@ test("o arquivo fica atrás da senha da turma, como os livros", async ({ page })
 
 test("a prova do calendário leva ao resumo do que cai nela", async ({ page }) => {
   await page.goto("/calendario");
-  // IESCG I também tem uma "N1 — prova teórica": é preciso dizer qual matéria.
+  // As N1 de MAC I já passaram; o que passou fica recolhido.
+  await page.getByRole("button", { name: /mostrar o que já passou/i }).click();
+  // IESCG I também tem uma "N1 — prova teórica"; o cartão identifica a
+  // matéria pela sigla.
   const cartao = page
     .locator("li")
     .filter({ hasText: "N1 — prova teórica" })
-    .filter({ hasText: "Morfofuncional" })
+    .filter({ hasText: "MAC I" })
     .first();
-  await expect(cartao.getByRole("link", { name: /resumo da aula 1/i })).toBeVisible();
+  await expect(cartao.getByRole("link", { name: /resumo da aula/i })).toBeVisible();
 });
 
 test("a matéria lista as aulas que já têm resumo", async ({ page }) => {

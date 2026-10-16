@@ -153,7 +153,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
         <Breadcrumbs
           trail={[
             { label: "Início", href: "/" },
-            { label: "Disciplinas", href: "/disciplinas" },
+            { label: "Matérias", href: "/disciplinas" },
             { label: discipline.shortName },
           ]}
         />
@@ -200,7 +200,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
                     href={`/resumos/${summary.slug}`}
                     className="glass hover:glass-strong inline-flex items-center gap-2.5 rounded-full py-2 pr-4 pl-3 text-sm transition-colors"
                   >
-                    <span className="bg-primary text-on-primary text-micro rounded-full px-2 py-0.5 font-semibold">
+                    <span className="bg-primary text-on-primary text-micro rounded-full px-2 py-0.5 font-semibold whitespace-nowrap">
                       {summary.kind === "aula" ? lessonLabel(summary) : summary.cycleLabel}
                     </span>
                     <span className="font-medium">{summary.title}</span>

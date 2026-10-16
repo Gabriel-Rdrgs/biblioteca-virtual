@@ -1,217 +1,87 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { BookOpen, CalendarDays, Clock, MapPin, PencilRuler } from "lucide-react";
-import { Badge, Breadcrumbs, ButtonLink, SectionHeading } from "@/components/ui/primitives";
-import {
-  assessmentLabel,
-  countdownLabel,
-  formatAssessmentDate,
-  isExam,
-  type UpcomingAssessment,
-} from "@/lib/domain/assessment-types";
-import { getCalendar } from "@/lib/repository/assessments";
+import { CalendarViews, type DisciplineChip } from "@/components/calendar/calendar-views";
+import type { EventLinks } from "@/components/calendar/event-item";
+import { Breadcrumbs, SectionHeading } from "@/components/ui/primitives";
+import { toKey } from "@/lib/domain/calendar-types";
+import { isLesson, lessonLabel } from "@/lib/domain/summary-types";
+import { getAxesByAssessment, getCalendarEvents } from "@/lib/repository/calendar";
+import { getSummaries } from "@/lib/repository/summaries";
 import { getDisciplines } from "@/lib/repository";
 import { getExams } from "@/lib/repository/exams";
-import { getSummaries } from "@/lib/repository/summaries";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Calendário de provas",
-  description: "As datas das avaliações do semestre, o que cai em cada uma e como treinar.",
+  title: "Calendário",
+  description: "As datas do semestre, o que cai em cada avaliação, as aulas e como treinar.",
 };
 
 export const dynamic = "force-dynamic";
 
 /**
- * Red inside a week, amber inside a fortnight, calm after that — and
- * never red for a hand-in or a devolutiva, which need no revision.
+ * O calendário do semestre.
+ *
+ * O servidor monta os eventos e as ligações; as vistas, os filtros e o
+ * cruzamento com o progresso são do cliente, porque trocar de mês não devia
+ * custar uma ida ao servidor — e o progresso só existe neste aparelho.
  */
-function urgency(daysLeft: number, exam: boolean) {
-  if (!exam) return { chip: "glass-strong text-ink-muted", ring: "ring-transparent" };
-  if (daysLeft <= 7) return { chip: "bg-danger-soft text-danger", ring: "ring-danger/30" };
-  if (daysLeft <= 14) return { chip: "bg-accent-soft text-accent", ring: "ring-accent/30" };
-  return { chip: "glass-strong text-ink-muted", ring: "ring-transparent" };
-}
-
 export default async function CalendarioPage() {
-  const [{ upcoming, past }, disciplines] = await Promise.all([getCalendar(), getDisciplines()]);
+  const [eventos, disciplines, summaries, eixosPorAvaliacao] = await Promise.all([
+    getCalendarEvents(),
+    getDisciplines(),
+    getSummaries(),
+    getAxesByAssessment(),
+  ]);
   const exams = getExams();
-  const summaries = await getSummaries();
-  const byId = new Map(disciplines.map((d) => [d.id, d]));
 
-  const Card = ({ item, dimmed }: { item: UpcomingAssessment; dimmed?: boolean }) => {
-    const { assessment, daysLeft } = item;
-    const discipline = byId.get(assessment.disciplineId);
-    const tone = urgency(daysLeft, isExam(assessment));
-    const linked = exams.filter((exam) => assessment.examIds.includes(exam.id));
-    // O que estudar para esta prova: os resumos das aulas que caem nela.
-    const resumos = summaries.filter((summary) => summary.assessmentIds.includes(assessment.id));
+  const disciplinas: DisciplineChip[] = disciplines
+    .filter((d) => eventos.some((evento) => evento.disciplineId === d.id))
+    .map((d) => ({ id: d.id, shortName: d.shortName, color: d.color }));
 
-    return (
-      <li
-        className={cn(
-          "glass rounded-hero p-5 ring-1 sm:p-6",
-          dimmed ? "opacity-60 ring-transparent" : tone.ring,
-        )}
-      >
-        <div className="flex flex-wrap items-center gap-2">
-          <Badge tom={isExam(assessment) ? "primario" : "neutro"}>
-            {assessmentLabel(assessment)}
-          </Badge>
-          {discipline ? (
-            <Link
-              href={`/disciplinas/${discipline.slug}`}
-              className="hover:text-primary text-sm font-medium"
-            >
-              {discipline.name}
-            </Link>
-          ) : null}
-          {!dimmed ? (
-            <span
-              className={cn("ml-auto rounded-full px-2.5 py-0.5 text-xs font-semibold", tone.chip)}
-            >
-              {countdownLabel(daysLeft)}
-            </span>
-          ) : null}
-        </div>
-
-        <p className="font-display mt-3 flex flex-wrap items-baseline gap-x-3 text-2xl font-semibold">
-          {formatAssessmentDate(assessment.date)}
-          {assessment.originalDate ? (
-            <span className="bg-accent-soft text-accent rounded-full px-2.5 py-0.5 font-sans text-xs font-semibold">
-              data alterada
-            </span>
-          ) : null}
-        </p>
-
-        {assessment.originalDate ? (
-          <p className="text-ink-muted mt-1 text-sm">
-            O plano previa {formatAssessmentDate(assessment.originalDate)}.
-            {assessment.revision ? " " + assessment.revision : ""}
-          </p>
-        ) : null}
-
-        <dl className="text-ink-muted mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
-          {assessment.time ? (
-            <div className="inline-flex items-center gap-1.5">
-              <Clock className="size-3.5" aria-hidden="true" />
-              <dd>{assessment.time}</dd>
-            </div>
-          ) : null}
-          {assessment.room ? (
-            <div className="inline-flex items-center gap-1.5">
-              <MapPin className="size-3.5" aria-hidden="true" />
-              <dd>{assessment.room}</dd>
-            </div>
-          ) : null}
-          {assessment.weight ? (
-            <div>
-              <dt className="inline">Vale </dt>
-              <dd className="inline font-medium">{assessment.weight}</dd>
-            </div>
-          ) : null}
-        </dl>
-
-        {assessment.content.length > 0 ? (
-          <div className="mt-4">
-            <p className="text-xs font-medium tracking-[0.08em] uppercase">O que cai</p>
-            <ul className="text-ink-muted mt-2 space-y-1 text-sm">
-              {assessment.content.map((line, i) => (
-                <li key={i} className="flex gap-2 leading-relaxed">
-                  <span className="text-ink-faint">·</span>
-                  <span>{line}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
-
-        {assessment.source ? (
-          <p className="text-ink-faint mt-3 text-xs leading-relaxed">{assessment.source}</p>
-        ) : null}
-
-        {assessment.note ? (
-          <p className="text-ink-muted mt-3 text-sm leading-relaxed text-pretty">
-            {assessment.note}
-          </p>
-        ) : null}
-
-        {linked.length > 0 || resumos.length > 0 ? (
-          <div className="mt-5 flex flex-wrap gap-2">
-            {linked.map((exam) => (
-              <ButtonLink key={exam.id} href={`/simulados/${exam.slug}`} size="sm">
-                <PencilRuler className="size-4" aria-hidden="true" />
-                Treinar: {exam.title.replace(/^Simulado \w+ — /, "")}
-              </ButtonLink>
-            ))}
-            {resumos.map((summary) => (
-              <ButtonLink
-                key={summary.id}
-                href={`/resumos/${summary.slug}`}
-                variant="secundario"
-                size="sm"
-              >
-                <BookOpen className="size-4" aria-hidden="true" />
-                {summary.kind === "aula"
-                  ? `Resumo da aula ${summary.lesson}`
-                  : `Resumo: ${summary.cycleLabel}`}
-              </ButtonLink>
-            ))}
-          </div>
-        ) : null}
-      </li>
-    );
-  };
+  // Para cada evento, o que dá para fazer a partir dele.
+  const links: Record<string, EventLinks> = {};
+  for (const evento of eventos) {
+    if (evento.kind === "avaliacao") {
+      links[evento.id] = {
+        exams: exams
+          .filter((exam) => evento.assessment.examIds.includes(exam.id))
+          .map((exam) => ({ slug: exam.slug, title: exam.title })),
+        summaries: summaries
+          .filter((summary) => summary.assessmentIds.includes(evento.id))
+          .map((summary) => ({
+            slug: summary.slug,
+            label: isLesson(summary) ? `Resumo da ${lessonLabel(summary).toLowerCase()}` : "Resumo",
+          })),
+      };
+    } else {
+      links[evento.id] = {
+        exams: [],
+        summaries: [{ slug: evento.summary.slug, label: "Abrir o resumo" }],
+      };
+    }
+  }
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
       <Breadcrumbs trail={[{ label: "Início", href: "/" }, { label: "Calendário" }]} />
       <SectionHeading
         as="h1"
-        title="Calendário de provas"
-        description="As datas do semestre, transcritas dos cronogramas dos planos de ensino, com o que cai em cada avaliação e o simulado para treinar antes dela."
+        title="Calendário"
+        description="As datas do semestre, transcritas dos cronogramas dos planos de ensino, com o que cai em cada avaliação, o simulado para treinar e o resumo da aula."
       />
 
-      {upcoming.length === 0 && past.length === 0 ? (
-        <div className="glass rounded-hero p-6 sm:p-8">
-          <CalendarDays className="text-ink-faint size-8" aria-hidden="true" />
-          <h2 className="mt-4 text-lg font-semibold">Nenhuma data cadastrada ainda</h2>
-          <p className="text-ink-muted mt-2 text-sm leading-relaxed text-pretty">
-            As datas dos planos de ensino foram ocultadas. Quem administra a biblioteca pode
-            mostrá-las de novo, ou cadastrar outras, na área de administração.
-          </p>
-        </div>
-      ) : null}
+      <CalendarViews
+        eventos={eventos}
+        disciplinas={disciplinas}
+        links={links}
+        eixosPorAvaliacao={eixosPorAvaliacao}
+        hoje={toKey(new Date())}
+      />
 
-      {upcoming.length > 0 ? (
-        <section>
-          <h2 className="sr-only">Próximas provas</h2>
-          <ul className="space-y-4">
-            {upcoming.map((item) => (
-              <Card key={item.assessment.id} item={item} />
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      {upcoming.length > 0 || past.length > 0 ? (
-        <p className="text-ink-faint mt-10 text-xs leading-relaxed">
-          Todos os planos avisam que o cronograma pode sofrer ajustes ao longo do semestre. Confirme
-          com o docente antes de contar com uma data. E onde o plano não disser o contrário, conte
-          com uma N2 que também cobre o conteúdo da N1.
-        </p>
-      ) : null}
-
-      {past.length > 0 ? (
-        <section className="mt-12">
-          <h2 className="text-lg font-semibold">Já passaram</h2>
-          <ul className="mt-4 space-y-4">
-            {past.map((item) => (
-              <Card key={item.assessment.id} item={item} dimmed />
-            ))}
-          </ul>
-        </section>
-      ) : null}
+      <p className="text-ink-faint mt-12 text-xs leading-relaxed">
+        Todos os planos avisam que o cronograma pode sofrer ajustes ao longo do semestre. Confirme
+        com o docente antes de contar com uma data. E onde o plano não disser o contrário, conte com
+        uma N2 que também cobre o conteúdo da N1. As aulas que aparecem aqui são as que já têm
+        resumo publicado.
+      </p>
     </div>
   );
 }
