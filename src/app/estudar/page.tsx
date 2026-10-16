@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, BookOpen, FileText, Layers, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, FileText, GraduationCap, Layers, Sparkles } from "lucide-react";
 import {
   Badge,
   Breadcrumbs,
@@ -52,6 +52,17 @@ export default async function EstudarPage() {
       <div className="mb-6">
         <StudySnapshot />
       </div>
+
+      <CardLink href="/notas" raio="hero" className="mb-4 flex items-center gap-4">
+        <GraduationCap className="text-primary size-6 shrink-0" aria-hidden="true" />
+        <span className="min-w-0 flex-1">
+          <span className="block font-semibold">Minhas notas</span>
+          <span className="text-ink-muted block text-sm leading-relaxed">
+            Anote o que tirou e veja a média parcial — e quanto falta na outra bimestral.
+          </span>
+        </span>
+        <ArrowRight className="text-ink-faint size-4 shrink-0" aria-hidden="true" />
+      </CardLink>
 
       {summaries.length > 0 ? (
         <CardLink href="/resumos" raio="hero" className="mb-10 flex items-center gap-4">

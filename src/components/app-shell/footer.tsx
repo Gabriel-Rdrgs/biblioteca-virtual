@@ -26,6 +26,7 @@ export function Footer() {
               ["/disciplinas", "Matérias"],
               ["/estudar", "Estudar"],
               ["/resumos", "Resumos"],
+              ["/notas", "Minhas notas"],
               ["/calendario", "Calendário"],
               ["/planos-de-ensino", "Planos de ensino"],
               ["/busca", "Busca"],

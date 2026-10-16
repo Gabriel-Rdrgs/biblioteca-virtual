@@ -5,6 +5,7 @@ import { countdownLabel, formatAssessmentDate, isExam } from "@/lib/domain/asses
 import { isAssessmentEvent, weekdayOf, type CalendarEvent } from "@/lib/domain/calendar-types";
 import { localDate } from "@/lib/domain/calendar-types";
 import { Badge, ButtonAnchor, ButtonLink } from "@/components/ui/primitives";
+import { GradeInput } from "./grade-input";
 import { ProgressHint } from "./progress-hint";
 import { cn } from "@/lib/utils";
 
@@ -203,6 +204,11 @@ export function EventItem({
               </ButtonAnchor>
             ) : null}
           </div>
+        ) : null}
+
+        {/* A nota só existe depois da prova — antes não há o que anotar. */}
+        {avaliacao && event.past ? (
+          <GradeInput assessmentId={avaliacao.id} disciplineName={disciplineName} />
         ) : null}
 
         {avaliacao?.source ? (
