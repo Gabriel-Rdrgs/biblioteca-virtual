@@ -5,7 +5,7 @@ import { countdownLabel, formatAssessmentDate, isExam } from "@/lib/domain/asses
 import { isAssessmentEvent, weekdayOf, type CalendarEvent } from "@/lib/domain/calendar-types";
 import { localDate } from "@/lib/domain/calendar-types";
 import { Badge, ButtonAnchor, ButtonLink } from "@/components/ui/primitives";
-import { GradeInput } from "./grade-input";
+import { GradeMark } from "./grade-mark";
 import { ProgressHint } from "./progress-hint";
 import { cn } from "@/lib/utils";
 
@@ -27,6 +27,7 @@ export function EventItem({
   event,
   color,
   disciplineName,
+  disciplineFullName,
   links,
   axisIds,
   compact,
@@ -34,6 +35,8 @@ export function EventItem({
   readonly event: CalendarEvent;
   readonly color: string;
   readonly disciplineName: string;
+  /** O nome inteiro da matéria, para o pop-up de notas; o cartão usa a sigla. */
+  readonly disciplineFullName?: string;
   readonly links: EventLinks;
   readonly axisIds: readonly string[];
   /** Sem ações nem detalhe — para a tira dos próximos dias. */
@@ -211,7 +214,10 @@ export function EventItem({
 
         {/* A nota só existe depois da prova — antes não há o que anotar. */}
         {avaliacao && event.past ? (
-          <GradeInput assessmentId={avaliacao.id} disciplineName={disciplineName} />
+          <GradeMark
+            assessmentId={avaliacao.id}
+            disciplineName={disciplineFullName ?? disciplineName}
+          />
         ) : null}
 
         {avaliacao?.source ? (

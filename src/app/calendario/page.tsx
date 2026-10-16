@@ -34,7 +34,13 @@ export default async function CalendarioPage() {
 
   const disciplinas: DisciplineChip[] = disciplines
     .filter((d) => eventos.some((evento) => evento.disciplineId === d.id))
-    .map((d) => ({ id: d.id, shortName: d.shortName, color: d.color }));
+    .map((d) => ({
+      id: d.id,
+      name: d.name,
+      shortName: d.shortName,
+      color: d.color,
+      slug: d.slug,
+    }));
 
   // Para cada evento, o que dá para fazer a partir dele.
   const links: Record<string, EventLinks> = {};

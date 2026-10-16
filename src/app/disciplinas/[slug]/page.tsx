@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Download, FileText, Users } from "lucide-react";
 import { BookGrid } from "@/components/book/book-grid";
+import { DisciplineGrades } from "@/components/grades/discipline-grades";
 import { bibliographyLabels } from "@/components/book/book-badge";
 import { Breadcrumbs } from "@/components/ui/primitives";
 import { MotifArtwork, motifPalettes, seedOf } from "@/components/book/cover-motifs";
@@ -183,6 +184,16 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
             ))}
           </ul>
         ) : null}
+        {/*
+          As notas desta matéria, antes da ementa: quem abre a página da
+          matéria depois de uma prova vem por causa disto.
+        */}
+        <DisciplineGrades
+          disciplineId={discipline.id}
+          disciplineName={discipline.name}
+          color={discipline.color}
+        />
+
         {summaries.length > 0 ? (
           <section className="mb-10" aria-labelledby="resumos-da-materia">
             <div className="mb-3 flex flex-wrap items-baseline justify-between gap-3">

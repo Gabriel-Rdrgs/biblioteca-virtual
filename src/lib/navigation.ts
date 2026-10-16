@@ -37,7 +37,7 @@ export const navItems: readonly NavItem[] = [
     href: "/estudar",
     label: "Estudar",
     icon: PencilRuler,
-    alsoMatches: ["/simulados", "/progresso"],
+    alsoMatches: ["/simulados", "/progresso", "/notas"],
   },
   { href: "/calendario", label: "Calendário", icon: CalendarDays },
 ];

@@ -4,14 +4,18 @@ import { seedAssessments } from "@/lib/data/assessments";
 import { disciplines } from "@/lib/data/disciplines";
 import {
   formatGrade,
+  filledParts,
   neededInOther,
   outcomeFor,
+  partIdsOf,
+  semesterOverview,
   partMax,
   partialAverage,
   termScore,
   type GradeScheme,
 } from "@/lib/domain/grading";
 import { parseMark } from "@/lib/grade-storage";
+import { orientacao } from "@/components/grades/phrases";
 
 const mac = schemeFor("mac-1")!;
 const ic = schemeFor("ic-1")!;
@@ -211,5 +215,99 @@ describe("a conta da recuperação", () => {
     expect(neededInAra(3, 5.75)).toBe(8.5);
     // Já 1,0 exigiria 10,5: não sai.
     expect(neededInAra(1, 5.75)).toBeGreaterThan(10);
+  });
+});
+
+describe("o semestre inteiro, em uma linha", () => {
+  it("conta as matérias anotadas, e não as que ainda estão em branco", () => {
+    const vazio = semesterOverview(gradeSchemes, {}, {});
+    expect(vazio.total).toBe(7);
+    expect(vazio.started).toBe(0);
+    expect(vazio.media).toBeNull();
+
+    const uma = semesterOverview(gradeSchemes, { "mac-1-n1-teorica": 4 }, {});
+    expect(uma.started).toBe(1);
+    // Uma parte anotada não fecha bimestral nenhuma: não há média ainda.
+    expect(uma.media).toBeNull();
+  });
+
+  it("só entra na média do semestre quem fechou as duas bimestrais", () => {
+    // MAC I fechada em 7,0; AES 2 com só a N1 anotada, que não conta.
+    const marks = {
+      "mac-1-n1-formativa": 1,
+      "mac-1-n1-teorica": 4,
+      "mac-1-n1-pratica": 2,
+      "mac-1-n2-formativa": 1,
+      "mac-1-n2-teorica": 4,
+      "mac-1-n2-pratica": 2,
+      "aes-2-n1-formativa": 2,
+      "aes-2-n1-somativa": 8,
+    };
+    const visao = semesterOverview(gradeSchemes, marks, {});
+    expect(visao.started).toBe(2);
+    expect(visao.aprovadas).toBe(1);
+    expect(visao.media).toBe(7);
+  });
+
+  it("conta a média final, e não a parcial, de quem passou pela ARA", () => {
+    const marks = {
+      "aes-2-n1-formativa": 1,
+      "aes-2-n1-somativa": 4,
+      "aes-2-n2-formativa": 1,
+      "aes-2-n2-somativa": 4,
+    };
+    // Parcial 5,0 e ARA 6,5: a final é 5,75, que aprova — e é ela que entra.
+    const visao = semesterOverview(gradeSchemes, marks, { "aes-2": 6.5 });
+    expect(visao.aprovadas).toBe(1);
+    expect(visao.naAra).toBe(0);
+    expect(visao.media).toBe(5.75);
+  });
+
+  it("sabe quantas avaliações cada matéria tem, e quantas já foram anotadas", () => {
+    expect(partIdsOf(mac)).toHaveLength(6);
+    expect(filledParts(mac, { "mac-1-n1-teorica": 4 })).toEqual({ done: 1, total: 6 });
+  });
+});
+
+describe("a frase que as telas repetem", () => {
+  it("diz quanto falta na outra bimestral, e não a fórmula", () => {
+    const saida = outcomeFor(mac, {
+      "mac-1-n1-formativa": 1,
+      "mac-1-n1-teorica": 4,
+      "mac-1-n1-pratica": 2,
+    });
+    expect(orientacao(mac, saida)).toBe("Precisa de 5,0 na N2 para fechar 6,0.");
+  });
+
+  it("responde quanto tirar na ARA, e não só que vai para ela", () => {
+    const marks = {
+      "aes-2-n1-formativa": 1,
+      "aes-2-n1-somativa": 4,
+      "aes-2-n2-formativa": 1,
+      "aes-2-n2-somativa": 4.5,
+    };
+    const aes = schemeFor("aes-2")!;
+    const saida = outcomeFor(aes, marks);
+    // Parcial 5,25: a ARA precisa de 6,25 para a final dar 5,75.
+    expect(orientacao(aes, saida)).toBe(
+      "Média parcial 5,25 — vai para a ARA, e lá precisa de 6,25.",
+    );
+  });
+
+  it("não promete nada quando nem 10,0 na ARA alcançaria", () => {
+    const marks = {
+      "aes-2-n1-formativa": 0,
+      "aes-2-n1-somativa": 1,
+      "aes-2-n2-formativa": 0,
+      "aes-2-n2-somativa": 0,
+    };
+    const aes = schemeFor("aes-2")!;
+    expect(orientacao(aes, outcomeFor(aes, marks))).toBe(
+      "Média parcial 0,5 — nem 10,0 na ARA fecharia a média final.",
+    );
+  });
+
+  it("cala quando não há nota nenhuma", () => {
+    expect(orientacao(mac, outcomeFor(mac, {}))).toBeNull();
   });
 });

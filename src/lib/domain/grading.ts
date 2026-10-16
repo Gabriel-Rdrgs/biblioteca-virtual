@@ -202,3 +202,69 @@ export function formatGrade(value: number): string {
     : arredondado.toFixed(2).replace(/0$/, "");
   return texto.replace(".", ",");
 }
+
+/** Todas as partes de nota de uma disciplina, as duas bimestrais juntas. */
+export function partIdsOf(scheme: GradeScheme): readonly string[] {
+  return scheme.terms.flatMap((term) => term.parts.map((part) => part.id));
+}
+
+/** Quantas das partes já têm nota anotada — e quantas são. */
+export function filledParts(scheme: GradeScheme, marks: Marks): { done: number; total: number } {
+  const ids = partIdsOf(scheme);
+  return {
+    done: ids.filter((id) => typeof marks[id] === "number").length,
+    total: ids.length,
+  };
+}
+
+export interface SemesterOverview {
+  /** Disciplinas com esquema de nota transcrito. */
+  readonly total: number;
+  /** Disciplinas em que já há ao menos uma nota anotada. */
+  readonly started: number;
+  readonly aprovadas: number;
+  readonly naAra: number;
+  readonly reprovadas: number;
+  /** Média das médias parciais já fechadas, ou `null` se nenhuma fechou. */
+  readonly media: number | null;
+}
+
+/**
+ * O semestre inteiro em uma linha.
+ *
+ * É o que responde "como estou indo" antes de olhar matéria por matéria. A
+ * média só conta disciplina com as duas bimestrais fechadas: misturar
+ * parcial com incompleta daria um número que não quer dizer nada.
+ */
+export function semesterOverview(
+  schemes: readonly GradeScheme[],
+  marks: Marks,
+  aras: Readonly<Record<string, number>>,
+): SemesterOverview {
+  let started = 0;
+  let aprovadas = 0;
+  let naAra = 0;
+  let reprovadas = 0;
+  const fechadas: number[] = [];
+
+  for (const scheme of schemes) {
+    if (filledParts(scheme, marks).done > 0) started += 1;
+    const saida = outcomeFor(scheme, marks, aras[scheme.disciplineId]);
+    if (saida.situation === "aprovado" || saida.situation === "aprovado_na_ara") aprovadas += 1;
+    else if (saida.situation === "ara") naAra += 1;
+    else if (saida.situation === "reprovado") reprovadas += 1;
+    if (saida.mp !== null) fechadas.push(saida.mf ?? saida.mp);
+  }
+
+  return {
+    total: schemes.length,
+    started,
+    aprovadas,
+    naAra,
+    reprovadas,
+    media:
+      fechadas.length === 0
+        ? null
+        : fechadas.reduce((soma, nota) => soma + nota, 0) / fechadas.length,
+  };
+}

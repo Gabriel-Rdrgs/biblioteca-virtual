@@ -17,6 +17,7 @@ export { Badge } from "./badge";
 export { Field, Input, Select, Textarea, Notice, inputClass } from "./field";
 export { EmptyState, Skeleton, BookCardSkeleton, BookGridSkeleton, ListSkeleton } from "./states";
 export { ErrorState } from "./error-state";
+export { Dialog } from "./dialog";
 
 export function Breadcrumbs({ trail }: { trail: readonly { label: string; href?: string }[] }) {
   return (

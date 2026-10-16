@@ -1,7 +1,15 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { CalendarDays, CalendarRange, Download, List, Search, X } from "lucide-react";
+import {
+  CalendarDays,
+  CalendarRange,
+  Download,
+  GraduationCap,
+  List,
+  Search,
+  X,
+} from "lucide-react";
 import {
   groupByMonth,
   isAssessmentEvent,
@@ -18,6 +26,7 @@ import {
   IconButton,
   ToggleChip,
 } from "@/components/ui/primitives";
+import { GradePanel } from "@/components/grades/grade-panel";
 import { EventItem, type EventLinks } from "./event-item";
 import { MonthGrid } from "./month-grid";
 import { cn } from "@/lib/utils";
@@ -28,6 +37,9 @@ import { cn } from "@/lib/utils";
  * - **próximos 7 dias** abre a página, porque é a pergunta mais frequente;
  * - **mês em grade**, a única vista que mostra aglomeração;
  * - **lista por mês**, para ler o que cai em cada avaliação;
+ * - **notas**, porque "o que vem" e "onde estou" são a mesma pergunta vista
+ *   de dois lados, e a resposta estava escondida nos cartões do que já
+ *   passou — atrás de um botão que ninguém abre;
  * - **filtro por matéria e busca**, sem os quais 35 datas viram ruído.
  *
  * Na lista, o que está nos próximos sete dias sai dos meses abaixo: antes o
@@ -40,11 +52,13 @@ import { cn } from "@/lib/utils";
 
 export interface DisciplineChip {
   readonly id: string;
+  readonly name: string;
   readonly shortName: string;
   readonly color: string;
+  readonly slug: string;
 }
 
-type Vista = "mes" | "lista";
+type Vista = "mes" | "lista" | "notas";
 
 export function CalendarViews({
   eventos,
@@ -72,6 +86,10 @@ export function CalendarViews({
   );
   const nomes = useMemo(
     () => new Map(disciplinas.map((d) => [d.id, d.shortName] as const)),
+    [disciplinas],
+  );
+  const nomesLongos = useMemo(
+    () => new Map(disciplinas.map((d) => [d.id, d.name] as const)),
     [disciplinas],
   );
 
@@ -118,6 +136,7 @@ export function CalendarViews({
       event={evento}
       color={cores.get(evento.disciplineId) ?? "var(--primary)"}
       disciplineName={nomes.get(evento.disciplineId) ?? ""}
+      disciplineFullName={nomesLongos.get(evento.disciplineId) ?? ""}
       links={links[evento.id] ?? vazio}
       axisIds={evento.kind === "avaliacao" ? (eixosPorAvaliacao[evento.id] ?? []) : []}
       {...(compact ? { compact: true } : {})}
@@ -139,6 +158,7 @@ export function CalendarViews({
             [
               ["lista", "Lista", List],
               ["mes", "Mês", CalendarRange],
+              ["notas", "Notas", GraduationCap],
             ] as const
           ).map(([valor, rotulo, Icone]) => (
             <button
@@ -157,20 +177,23 @@ export function CalendarViews({
           ))}
         </div>
 
-        <ButtonAnchor
-          href="/api/calendario"
-          variant="secundario"
-          size="sm"
-          className="ml-auto"
-          download="atlas-calendario.ics"
-        >
-          <Download className="size-4" aria-hidden="true" />
-          Exportar
-        </ButtonAnchor>
+        {vista === "notas" ? null : (
+          <ButtonAnchor
+            href="/api/calendario"
+            variant="secundario"
+            size="sm"
+            className="ml-auto"
+            download="atlas-calendario.ics"
+          >
+            <Download className="size-4" aria-hidden="true" />
+            Exportar
+          </ButtonAnchor>
+        )}
       </div>
 
       {/* ------------------------------------------------------------ busca */}
-      <div className="glass relative mb-3 rounded-full">
+      {/* Nas notas não há o que buscar: são sete matérias, todas na tela. */}
+      <div className={cn("glass relative mb-3 rounded-full", vista === "notas" && "hidden")}>
         <label htmlFor="busca-calendario" className="sr-only">
           Buscar no calendário
         </label>
@@ -228,7 +251,15 @@ export function CalendarViews({
       </div>
 
       {/* ------------------------------------------------------------ vistas */}
-      {vista === "mes" ? (
+      {vista === "notas" ? (
+        <GradePanel
+          disciplinas={
+            materias.length === 0
+              ? disciplinas
+              : disciplinas.filter((disciplina) => materias.includes(disciplina.id))
+          }
+        />
+      ) : vista === "mes" ? (
         <div className="space-y-6">
           {estaSemana.length > 0 ? (
             <section aria-labelledby="semana-mes">
