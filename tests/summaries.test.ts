@@ -103,7 +103,7 @@ describe("os resumos", () => {
     expect(alvo?.title).toBe("Outro título");
     // A semente em si não foi tocada.
     expect(seedSummaries.find((s) => s.id === "mac-1-aula-01")?.title).toBe(
-      "Microscopia e referenciais anatômicos",
+      "Microscopia + Referenciais anatômicos",
     );
   });
 
@@ -113,5 +113,46 @@ describe("os resumos", () => {
       summaryOverrides: { "mac-1-aula-01": { visibility: "oculto" } },
     });
     expect(lista.find((s) => s.id === "mac-1-aula-01")?.visibility).toBe("oculto");
+  });
+});
+
+describe("o conjunto de MAC I", () => {
+  const mac = seedSummaries.filter((s) => s.disciplineId === "mac-1");
+  const aulas = mac.filter(isLesson);
+
+  it("tem as 26 aulas do semestre, sem número repetido e em ordem de data", () => {
+    expect(aulas).toHaveLength(26);
+    expect(new Set(aulas.map((a) => a.lesson)).size).toBe(26);
+
+    const porNumero = [...aulas].sort((a, b) => a.lesson - b.lesson);
+    const datas = porNumero.map((a) => a.date);
+    // Aula 12 não pode ser anterior à 11: a numeração segue o calendário.
+    expect([...datas].sort()).toEqual(datas);
+  });
+
+  it("guarda um arquivo próprio para cada resumo", () => {
+    const arquivos = mac.map((s) => s.pdfPath);
+    expect(new Set(arquivos).size).toBe(mac.length);
+    for (const arquivo of arquivos) expect(arquivo).toMatch(/^mac-1-[a-z0-9-]+\.pdf$/);
+  });
+
+  it("cai sempre numa prova que vem depois da aula", () => {
+    // O erro fácil é ligar uma aula do 2º bimestre à N1, que já passou.
+    const datas = new Map(seedAssessments.map((a) => [a.id, a.date]));
+    for (const resumo of aulas) {
+      for (const assessmentId of resumo.assessmentIds) {
+        const prova = datas.get(assessmentId)!;
+        expect(prova >= resumo.date, `${resumo.id} → ${assessmentId}`).toBe(true);
+      }
+    }
+  });
+
+  it("fecha os dois ciclos, cada um apontando para a sua bimestral", () => {
+    const ciclos = mac.filter((s) => !isLesson(s)) as CycleSummary[];
+    expect(ciclos.map((c) => c.cycleLabel)).toEqual(["N1", "N2"]);
+    expect(ciclos[0]?.assessmentIds).toContain("mac-1-n1-teorica");
+    // A N2 é acumulativa, e o resumo da N1 se apresenta como a Parte 1 dela.
+    expect(ciclos[0]?.assessmentIds).toContain("mac-1-n2-teorica");
+    expect(ciclos[1]?.assessmentIds).toContain("mac-1-n2-teorica");
   });
 });

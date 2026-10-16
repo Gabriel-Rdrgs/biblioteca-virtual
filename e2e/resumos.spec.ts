@@ -22,7 +22,7 @@ test("a lista mostra a aula com a data e a prova em que ela cai", async ({ page 
   await page.goto("/resumos");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Resumos");
 
-  const cartao = page.locator("li").filter({ hasText: "Microscopia e referenciais" }).first();
+  const cartao = page.locator("li").filter({ hasText: "Microscopia + Referenciais" }).first();
   await expect(cartao.getByText("Aula 01")).toBeVisible();
   await expect(cartao.getByText("11/08")).toBeVisible();
   await expect(cartao.getByText("cai na N1")).toBeVisible();
@@ -34,7 +34,7 @@ test("o resumo abre no leitor, com as duas páginas", async ({ page }) => {
   await expect(page).toHaveURL(/\/resumos\/mac-1-aula-01/);
 
   // O leitor é o mesmo dos livros: espera ele desenhar antes de conferir.
-  await expect(page.getByText("/ 2")).toBeVisible({ timeout: 20000 });
+  await expect(page.getByText("/ 5")).toBeVisible({ timeout: 20000 });
   // O primeiro é o "voltar" do cabeçalho; o outro é o do rodapé.
   await expect(page.getByRole("link", { name: "Resumos" }).first()).toBeVisible();
 });
@@ -56,11 +56,14 @@ test("a prova do calendário leva ao resumo do que cai nela", async ({ page }) =
     .filter({ hasText: "N1 — prova teórica" })
     .filter({ hasText: "MAC I" })
     .first();
-  await expect(cartao.getByRole("link", { name: /resumo da aula/i })).toBeVisible();
+  // O cartão da prova leva ao resumo escrito para ela, não às catorze aulas.
+  await expect(cartao.getByRole("link", { name: /resumo para a N1/i })).toBeVisible();
 });
 
 test("a matéria lista as aulas que já têm resumo", async ({ page }) => {
   await page.goto("/disciplinas/morfofuncional-aplicado-a-clinica-i");
   const secao = page.locator("section").filter({ hasText: "Resumos das aulas" }).first();
-  await expect(secao.getByRole("link", { name: /Microscopia e referenciais/ })).toBeVisible();
+  await expect(
+    secao.getByRole("link", { name: "Aula 01 Microscopia + Referenciais anatômicos 11/08" }),
+  ).toBeVisible();
 });

@@ -46,16 +46,26 @@ export default async function CalendarioPage() {
   const links: Record<string, EventLinks> = {};
   for (const evento of eventos) {
     if (evento.kind === "avaliacao") {
+      /*
+        No cartão de uma prova, o resumo que importa é o que foi escrito
+        para ela. Catorze aulas caem na N1 de MAC I, e listar as catorze
+        aqui viraria uma parede de botões — elas já aparecem no calendário
+        nas suas próprias datas e na página de resumos. Quando a matéria
+        ainda não tem resumo de ciclo, as aulas valem como o que há.
+      */
+      const daProva = summaries.filter((summary) => summary.assessmentIds.includes(evento.id));
+      const ciclos = daProva.filter((summary) => !isLesson(summary));
+
       links[evento.id] = {
         exams: exams
           .filter((exam) => evento.assessment.examIds.includes(exam.id))
           .map((exam) => ({ slug: exam.slug, title: exam.title })),
-        summaries: summaries
-          .filter((summary) => summary.assessmentIds.includes(evento.id))
-          .map((summary) => ({
-            slug: summary.slug,
-            label: isLesson(summary) ? `Resumo da ${lessonLabel(summary).toLowerCase()}` : "Resumo",
-          })),
+        summaries: (ciclos.length > 0 ? ciclos : daProva).map((summary) => ({
+          slug: summary.slug,
+          label: isLesson(summary)
+            ? `Resumo da ${lessonLabel(summary).toLowerCase()}`
+            : `Resumo para a ${summary.cycleLabel}`,
+        })),
       };
     } else {
       links[evento.id] = {

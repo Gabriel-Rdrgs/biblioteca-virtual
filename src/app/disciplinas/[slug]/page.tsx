@@ -24,7 +24,7 @@ import {
   toCatalogEntries,
 } from "@/lib/repository";
 import { getSummaries } from "@/lib/repository/summaries";
-import { lessonDayLabel, lessonLabel } from "@/lib/domain/summary-types";
+import { isLesson, lessonDayLabel, lessonLabel } from "@/lib/domain/summary-types";
 
 export async function generateMetadata({
   params,
@@ -40,6 +40,10 @@ export async function generateMetadata({
     description: discipline.description.slice(0, 180),
   };
 }
+
+/** Quantos dias separam uma data de hoje, para qualquer um dos dois lados. */
+const distanciaDeHoje = (date: string) =>
+  Math.abs(Date.parse(`${date}T12:00:00`) - Date.now());
 
 const order: BibliographyType[] = [
   "basica",
@@ -65,6 +69,20 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
   const books = await getBooksForDiscipline(discipline.id);
   const plan = await getTeachingPlanForDiscipline(discipline.id);
   const summaries = await getSummaries(discipline.id);
+  /*
+    A matéria mostra os resumos de ciclo — os da véspera da prova — e as
+    aulas mais perto de hoje. Com 26 encontros, a lista inteira empurrava a
+    ementa e a bibliografia para fora da tela; o resto fica a um toque, em
+    /resumos.
+  */
+  const emDestaque = [
+    ...summaries.filter((summary) => !isLesson(summary)),
+    ...summaries
+      .filter(isLesson)
+      .sort((a, b) => distanciaDeHoje(a.date) - distanciaDeHoje(b.date))
+      .slice(0, 6)
+      .sort((a, b) => a.lesson - b.lesson),
+  ];
   // The next three dates that are ahead; a whole term of them would
   // bury the ementa under a wall of chips.
   const assessments = (await getAssessmentsForDiscipline(discipline.id))
@@ -201,11 +219,13 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
                 Resumos das aulas
               </h2>
               <Link href="/resumos" className="text-primary text-sm font-medium hover:underline">
-                Ver todos
+                {summaries.length > emDestaque.length
+                  ? `Ver todos os ${summaries.length}`
+                  : "Ver todos"}
               </Link>
             </div>
             <ul className="flex flex-wrap gap-2">
-              {summaries.map((summary) => (
+              {emDestaque.map((summary) => (
                 <li key={summary.id}>
                   <Link
                     href={`/resumos/${summary.slug}`}
