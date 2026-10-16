@@ -1,10 +1,10 @@
 "use client";
 
-import { BookOpen, Clock, MapPin, PencilRuler } from "lucide-react";
+import { BookOpen, CalendarPlus, Clock, MapPin, PencilRuler } from "lucide-react";
 import { countdownLabel, formatAssessmentDate, isExam } from "@/lib/domain/assessment-types";
 import { isAssessmentEvent, weekdayOf, type CalendarEvent } from "@/lib/domain/calendar-types";
 import { localDate } from "@/lib/domain/calendar-types";
-import { Badge, ButtonLink } from "@/components/ui/primitives";
+import { Badge, ButtonAnchor, ButtonLink } from "@/components/ui/primitives";
 import { ProgressHint } from "./progress-hint";
 import { cn } from "@/lib/utils";
 
@@ -156,7 +156,7 @@ export function EventItem({
           <ProgressHint axisIds={axisIds} daysLeft={event.daysLeft} />
         ) : null}
 
-        {links.exams.length > 0 || links.summaries.length > 0 ? (
+        {links.exams.length > 0 || links.summaries.length > 0 || !event.past ? (
           <div className="mt-3 flex flex-wrap gap-2">
             {links.exams.map((exam) => {
               const curto = exam.title.replace(/^Simulado \w+ — /, "");
@@ -185,6 +185,23 @@ export function EventItem({
                 {summary.label}
               </ButtonLink>
             ))}
+
+            {/*
+              Quase sempre se quer uma data só na agenda, não o semestre
+              inteiro — o arquivo completo continua no topo da página.
+            */}
+            {!event.past ? (
+              <ButtonAnchor
+                href={`/api/calendario?evento=${encodeURIComponent(event.id)}`}
+                download={`atlas-${event.id}.ics`}
+                variant="fantasma"
+                size="sm"
+                aria-label={`Adicionar ${event.title} à minha agenda`}
+              >
+                <CalendarPlus className="size-4" aria-hidden="true" />
+                Agenda
+              </ButtonAnchor>
+            ) : null}
           </div>
         ) : null}
 

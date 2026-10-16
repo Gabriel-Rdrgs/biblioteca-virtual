@@ -131,12 +131,8 @@ test.describe("calendário de provas", () => {
     await page.goto("/calendario");
     // Scoped to its own card: the N1 from the plan links to the same
     // simulado, so a page-wide match would hit two.
-    // A tira dos próximos dias também mostra o evento, em uma linha só:
-    // o cartão com os detalhes está nas seções de mês.
-    const card = page
-      .locator('section[aria-labelledby^="mes-"] li')
-      .filter({ hasText: "Prova surpresa" })
-      .first();
+    // Qualquer seção serve: a lista deixou de ter tira compacta.
+    const card = page.locator("section li").filter({ hasText: "Prova surpresa" }).first();
     await expect(card).toBeVisible();
     await expect(card.getByText("Bloco B, sala 204")).toBeVisible();
     await expect(card.getByRole("link", { name: /Treinar: MAC I completo/ })).toBeVisible();
@@ -179,9 +175,14 @@ test("a date that moved says so, and shows what the plan had said", async ({ pag
   await loginClass(page);
   await page.goto("/calendario");
 
+  // A N1 de IC pode já ter passado; o aviso precisa sobreviver a isso.
+  const passado = page.getByRole("button", { name: /mostrar o que já passou/i });
+  if (await passado.count()) await passado.click();
+
   const card = page
-    .locator('section[aria-labelledby^="mes-"] li')
+    .locator("section li")
     .filter({ hasText: "IC I" })
+    .filter({ hasText: /data alterada/i })
     .first();
   await expect(card.getByText(/data alterada/i)).toBeVisible();
   await expect(card.getByText(/O plano previa 8 de outubro/)).toBeVisible();
@@ -193,9 +194,8 @@ test("an N2 that is cumulative says so, with the page that says it", async ({ pa
   await loginClass(page);
   await page.goto("/calendario");
 
-  // A tira dos próximos dias mostra o mesmo evento em uma linha só.
   const card = page
-    .locator('section[aria-labelledby^="mes-"] li')
+    .locator("section li")
     .filter({ hasText: "N2 — avaliação somativa tutorial" })
     .first();
   await expect(card.getByText(/problemas 1 a 4, cobrados na N1/i)).toBeVisible();
@@ -221,7 +221,7 @@ test("o calendário tem vistas, filtro e exportação", async ({ page }) => {
   // Filtrar por matéria some com o resto.
   await page.getByRole("button", { name: /^IC I$/ }).click();
   await page.getByRole("button", { name: "Lista" }).click();
-  const lista = page.locator('section[aria-labelledby^="mes-"] li');
+  const lista = page.locator("section li");
   await expect(lista.first()).toContainText("IC I");
   await expect(lista.filter({ hasText: "AES 2" })).toHaveCount(0);
 
@@ -257,4 +257,62 @@ test("a aula com resumo aparece no calendário, junto das provas", async ({ page
     .first();
   await expect(aula).toBeVisible();
   await expect(aula.getByRole("link", { name: /abrir o resumo/i })).toBeVisible();
+});
+
+test("a busca acha uma data sem rolar o semestre", async ({ page }) => {
+  if (!CLASS) return;
+  await loginClass(page);
+  await page.goto("/calendario");
+
+  await page.getByLabel("Buscar no calendário").fill("tutorial");
+  const lista = page.locator("section li");
+  await expect(lista.first()).toContainText("tutorial");
+  // Sem acento e sem maiúscula dá no mesmo.
+  await page.getByLabel("Buscar no calendário").fill("AVALIACAO SOMATIVA");
+  await expect(lista.first()).toContainText("somativa");
+
+  await page.getByRole("button", { name: "Limpar a busca" }).click();
+  await expect(page.getByLabel("Buscar no calendário")).toHaveValue("");
+});
+
+test("a grade do mês anda pelo teclado", async ({ page }) => {
+  if (!CLASS) return;
+  await loginClass(page);
+  await page.goto("/calendario");
+  await page.getByRole("button", { name: "Mês" }).click();
+
+  // Um só dia é tabulável; as setas levam aos outros.
+  const tabulaveis = page.locator('table button[tabindex="0"]');
+  await expect(tabulaveis).toHaveCount(1);
+
+  await tabulaveis.first().focus();
+  const antes = await page.evaluate(() => document.activeElement?.getAttribute("aria-label"));
+  await page.keyboard.press("ArrowRight");
+  const depois = await page.evaluate(() => document.activeElement?.getAttribute("aria-label"));
+  expect(depois).not.toBe(antes);
+
+  // Uma semana inteira para baixo e de volta ao mesmo dia.
+  await page.keyboard.press("ArrowDown");
+  await page.keyboard.press("ArrowUp");
+  expect(await page.evaluate(() => document.activeElement?.getAttribute("aria-label"))).toBe(
+    depois,
+  );
+});
+
+test("dá para levar uma prova só para a agenda", async ({ page }) => {
+  if (!CLASS) return;
+  await loginClass(page);
+  // Uma data que nenhum outro teste move: a de MAC I é remarcada no teste
+  // do painel, e um teste não deve depender do estado deixado por outro.
+  const resposta = await page.request.get("/api/calendario?evento=aes-2-n3");
+  expect(resposta.status()).toBe(200);
+
+  const texto = await resposta.text();
+  // Um evento, e é o pedido.
+  expect(texto.match(/BEGIN:VEVENT/g)).toHaveLength(1);
+  expect(texto).toContain("aes-2-n3@atlas");
+  expect(texto).toContain("DTSTART;VALUE=DATE:20261210");
+
+  const inexistente = await page.request.get("/api/calendario?evento=nao-existe");
+  expect(inexistente.status()).toBe(404);
 });

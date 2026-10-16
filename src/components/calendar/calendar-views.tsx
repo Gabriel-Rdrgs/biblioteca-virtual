@@ -1,15 +1,23 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { CalendarDays, CalendarRange, Download, List } from "lucide-react";
+import { CalendarDays, CalendarRange, Download, List, Search, X } from "lucide-react";
 import {
   groupByMonth,
+  isAssessmentEvent,
   monthKey,
   monthLabel,
   withinNextDays,
   type CalendarEvent,
 } from "@/lib/domain/calendar-types";
-import { Badge, ButtonAnchor, EmptyState, ToggleChip } from "@/components/ui/primitives";
+import { normalizeText } from "@/lib/domain/normalize";
+import {
+  Badge,
+  ButtonAnchor,
+  EmptyState,
+  IconButton,
+  ToggleChip,
+} from "@/components/ui/primitives";
 import { EventItem, type EventLinks } from "./event-item";
 import { MonthGrid } from "./month-grid";
 import { cn } from "@/lib/utils";
@@ -17,16 +25,17 @@ import { cn } from "@/lib/utils";
 /**
  * O calendário inteiro, com as vistas que ele precisava ter.
  *
- * Antes era uma lista corrida de 35 cartões altos, sem mês, sem filtro e
- * sem jeito de ver a semana. Agora:
- *
- * - **próximos 7 dias** fixo no topo, porque é a pergunta mais frequente;
+ * - **próximos 7 dias** abre a página, porque é a pergunta mais frequente;
  * - **mês em grade**, a única vista que mostra aglomeração;
  * - **lista por mês**, para ler o que cai em cada avaliação;
- * - **filtro por matéria**, sem o qual sete disciplinas viram ruído.
+ * - **filtro por matéria e busca**, sem os quais 35 datas viram ruído.
  *
- * O estado é todo do cliente: trocar de vista ou filtrar não devia custar
- * uma ida ao servidor.
+ * Na lista, o que está nos próximos sete dias sai dos meses abaixo: antes o
+ * mesmo evento aparecia duas vezes na mesma tela, uma como lembrete e outra
+ * como cartão, e isso lia como repetição, não como ênfase.
+ *
+ * O estado é todo do cliente: trocar de vista, buscar ou filtrar não devia
+ * custar uma ida ao servidor.
  */
 
 export interface DisciplineChip {
@@ -52,6 +61,7 @@ export function CalendarViews({
 }) {
   const [vista, setVista] = useState<Vista>("lista");
   const [materias, setMaterias] = useState<readonly string[]>([]);
+  const [busca, setBusca] = useState("");
   const [mes, setMes] = useState(() => monthKey(hoje));
   const [dia, setDia] = useState<string | null>(null);
   const [mostrarPassado, setMostrarPassado] = useState(false);
@@ -65,19 +75,38 @@ export function CalendarViews({
     [disciplinas],
   );
 
-  const filtrados = useMemo(
-    () =>
-      materias.length === 0
-        ? eventos
-        : eventos.filter((evento) => materias.includes(evento.disciplineId)),
-    [eventos, materias],
-  );
+  /** Título, matéria e o que cai — tudo sem acento e sem maiúscula. */
+  const textoDe = useMemo(() => {
+    const cache = new Map<string, string>();
+    return (evento: CalendarEvent) => {
+      const pronto = cache.get(evento.id);
+      if (pronto) return pronto;
+      const partes = [evento.title, nomes.get(evento.disciplineId) ?? ""];
+      if (isAssessmentEvent(evento)) partes.push(...evento.assessment.content);
+      else partes.push(...evento.summary.topics);
+      const texto = normalizeText(partes.join(" "));
+      cache.set(evento.id, texto);
+      return texto;
+    };
+  }, [nomes]);
+
+  const filtrados = useMemo(() => {
+    const termos = normalizeText(busca).split(/\s+/).filter(Boolean);
+    return eventos.filter((evento) => {
+      if (materias.length > 0 && !materias.includes(evento.disciplineId)) return false;
+      if (termos.length === 0) return true;
+      const texto = textoDe(evento);
+      return termos.every((termo) => texto.includes(termo));
+    });
+  }, [eventos, materias, busca, textoDe]);
 
   const futuros = filtrados.filter((evento) => !evento.past);
   const passados = filtrados.filter((evento) => evento.past);
-  const proximos = futuros.filter((evento) => withinNextDays(evento, 7));
+  const estaSemana = futuros.filter((evento) => withinNextDays(evento, 7));
+  const naSemana = new Set(estaSemana.map((evento) => evento.id));
+  const adiante = futuros.filter((evento) => !naSemana.has(evento.id));
 
-  const semFiltro = materias.length === 0;
+  const semFiltro = materias.length === 0 && busca.trim() === "";
   const vazio = {
     exams: [] as EventLinks["exams"],
     summaries: [] as EventLinks["summaries"],
@@ -99,27 +128,8 @@ export function CalendarViews({
 
   return (
     <div>
-      {/* ------------------------------------------------- próximos 7 dias */}
-      <section aria-labelledby="proximos-7" className="mb-6">
-        <h2 id="proximos-7" className="text-ink-faint text-micro mb-2 tracking-[0.12em] uppercase">
-          Próximos 7 dias
-        </h2>
-        {proximos.length === 0 ? (
-          <p className="glass rounded-panel text-ink-muted p-4 text-sm">
-            Nada nos próximos sete dias.{" "}
-            {futuros[0] ? (
-              <>
-                O próximo é {futuros[0].title} em {monthLabel(monthKey(futuros[0].date))}.
-              </>
-            ) : null}
-          </p>
-        ) : (
-          <ul className="space-y-2">{proximos.map((evento) => item(evento, true))}</ul>
-        )}
-      </section>
-
       {/* --------------------------------------------------------- controles */}
-      <div className="mb-4 flex flex-wrap items-center gap-2">
+      <div className="mb-3 flex flex-wrap items-center gap-2">
         <div
           role="group"
           aria-label="Como ver o calendário"
@@ -159,42 +169,79 @@ export function CalendarViews({
         </ButtonAnchor>
       </div>
 
+      {/* ------------------------------------------------------------ busca */}
+      <div className="glass relative mb-3 rounded-full">
+        <label htmlFor="busca-calendario" className="sr-only">
+          Buscar no calendário
+        </label>
+        <Search
+          className="text-ink-faint pointer-events-none absolute top-1/2 left-4 size-4 -translate-y-1/2"
+          aria-hidden="true"
+        />
+        <input
+          id="busca-calendario"
+          type="search"
+          value={busca}
+          onChange={(e) => setBusca(e.target.value)}
+          placeholder="Buscar uma data…"
+          className="placeholder:text-ink-faint min-h-11 w-full rounded-full bg-transparent py-2 pr-11 pl-11 text-sm outline-none"
+        />
+        {busca ? (
+          <IconButton
+            label="Limpar a busca"
+            size="sm"
+            className="absolute top-1/2 right-1 -translate-y-1/2"
+            onClick={() => setBusca("")}
+          >
+            <X className="size-4" aria-hidden="true" />
+          </IconButton>
+        ) : null}
+      </div>
+
       {/* ----------------------------------------------------------- filtro */}
       <div className="mb-6 flex flex-wrap gap-2">
-        <ToggleChip pressed={semFiltro} onClick={() => setMaterias([])}>
+        <ToggleChip pressed={materias.length === 0} onClick={() => setMaterias([])}>
           Todas
         </ToggleChip>
-        {disciplinas.map((disciplina) => {
-          const ligada = materias.includes(disciplina.id);
-          return (
-            <ToggleChip
-              key={disciplina.id}
-              pressed={ligada}
-              onClick={() =>
-                setMaterias((atual) =>
-                  atual.includes(disciplina.id)
-                    ? atual.filter((id) => id !== disciplina.id)
-                    : [...atual, disciplina.id],
-                )
-              }
-              className="gap-2"
-            >
-              <span className="inline-flex items-center gap-1.5">
-                <span
-                  aria-hidden="true"
-                  className="size-2 rounded-full"
-                  style={{ backgroundColor: disciplina.color }}
-                />
-                {disciplina.shortName}
-              </span>
-            </ToggleChip>
-          );
-        })}
+        {disciplinas.map((disciplina) => (
+          <ToggleChip
+            key={disciplina.id}
+            pressed={materias.includes(disciplina.id)}
+            onClick={() =>
+              setMaterias((atual) =>
+                atual.includes(disciplina.id)
+                  ? atual.filter((id) => id !== disciplina.id)
+                  : [...atual, disciplina.id],
+              )
+            }
+          >
+            <span className="inline-flex items-center gap-1.5">
+              <span
+                aria-hidden="true"
+                className="size-2 rounded-full"
+                style={{ backgroundColor: disciplina.color }}
+              />
+              {disciplina.shortName}
+            </span>
+          </ToggleChip>
+        ))}
       </div>
 
       {/* ------------------------------------------------------------ vistas */}
       {vista === "mes" ? (
-        <div>
+        <div className="space-y-6">
+          {estaSemana.length > 0 ? (
+            <section aria-labelledby="semana-mes">
+              <h2
+                id="semana-mes"
+                className="text-ink-faint text-micro mb-2 tracking-[0.12em] uppercase"
+              >
+                Próximos 7 dias
+              </h2>
+              <ul className="space-y-2">{estaSemana.map((evento) => item(evento, true))}</ul>
+            </section>
+          ) : null}
+
           <MonthGrid
             mes={mes}
             eventos={filtrados}
@@ -207,8 +254,9 @@ export function CalendarViews({
             }}
             onDia={(novo) => setDia(novo === dia ? null : novo)}
           />
+
           {dia ? (
-            <div className="mt-5">
+            <div>
               <h3 className="text-ink-faint text-micro mb-2 tracking-[0.12em] uppercase">
                 {dia === hoje ? "Hoje" : "Neste dia"}
               </h3>
@@ -226,17 +274,32 @@ export function CalendarViews({
         <div className="space-y-10">
           {futuros.length === 0 ? (
             <EmptyState
-              title="Nada à frente por aqui"
+              title={busca.trim() ? "Nada com esse termo" : "Nada à frente por aqui"}
               description={
-                semFiltro
-                  ? "Todas as datas do semestre já passaram."
-                  : "Nenhuma data futura nesta matéria. Tire o filtro para ver as outras."
+                busca.trim()
+                  ? "Tente outra palavra, ou limpe a busca. Acentos e maiúsculas não importam."
+                  : semFiltro
+                    ? "Todas as datas do semestre já passaram."
+                    : "Nenhuma data futura nesta matéria. Tire o filtro para ver as outras."
               }
               icon={CalendarDays}
             />
           ) : null}
 
-          {groupByMonth(futuros).map(([chave, doMes]) => (
+          {estaSemana.length > 0 ? (
+            <section aria-labelledby="esta-semana">
+              <div className="mb-3 flex items-baseline gap-3">
+                <h2 id="esta-semana" className="font-display text-primary text-lg font-semibold">
+                  Próximos 7 dias
+                </h2>
+                <span className="border-line h-px flex-1 border-t" aria-hidden="true" />
+                <Badge tom="primario">{estaSemana.length}</Badge>
+              </div>
+              <ul className="space-y-3">{estaSemana.map((evento) => item(evento))}</ul>
+            </section>
+          ) : null}
+
+          {groupByMonth(adiante).map(([chave, doMes]) => (
             <section key={chave} aria-labelledby={`mes-${chave}`}>
               <div className="mb-3 flex items-baseline gap-3">
                 <h2 id={`mes-${chave}`} className="font-display text-lg font-semibold">
