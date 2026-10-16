@@ -107,6 +107,17 @@ export function neededInOther(conhecida: number, passMark: number): number {
   return passMark * 2 - conhecida;
 }
 
+/**
+ * Quanto é preciso tirar na ARA para a Média Final alcançar.
+ *
+ * A partir de MF = (MP + ARA) ÷ 2 ≥ limite, vem ARA ≥ 2·limite − MP. O
+ * limite aqui é o do arredondamento (5,75), porque é ele que decide a
+ * aprovação na Média Final.
+ */
+export function neededInAra(mp: number, roundFrom: number): number {
+  return roundFrom * 2 - mp;
+}
+
 /** MF = (MP + ARA) ÷ 2. */
 export function finalAfterAra(mp: number, ara: number): number {
   return (mp + ara) / 2;

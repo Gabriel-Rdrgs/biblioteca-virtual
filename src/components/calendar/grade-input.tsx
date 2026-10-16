@@ -3,7 +3,7 @@
 import { useEffect, useId, useState } from "react";
 import Link from "next/link";
 import { partForAssessment } from "@/lib/data/grading";
-import { formatGrade, outcomeFor } from "@/lib/domain/grading";
+import { formatGrade, neededInAra, outcomeFor } from "@/lib/domain/grading";
 import { loadGrades, parseMark, setMark } from "@/lib/grade-storage";
 
 /**
@@ -99,8 +99,8 @@ export function GradeInput({
       ) : null}
 
       <p className="text-ink-faint mt-1.5 text-xs">
-        Anotação sua, neste aparelho — não é registro oficial. Fórmula do{" "}
-        {parte.scheme.source.toLowerCase()}, para {disciplineName}.
+        Anotação sua, neste aparelho — não é registro oficial. Fórmula do {parte.scheme.source},
+        para {disciplineName}.
       </p>
     </div>
   );
@@ -129,7 +129,10 @@ function descrever(
     return `Média parcial ${formatGrade(saida.mp)} — aprovado.`;
   }
   if (saida.situation === "ara" && saida.mp !== null) {
-    return `Média parcial ${formatGrade(saida.mp)} — abaixo de 6,0, vai para a ARA.`;
+    const precisa = neededInAra(saida.mp, parte.scheme.roundFrom);
+    return precisa > 10
+      ? `Média parcial ${formatGrade(saida.mp)} — nem 10,0 na ARA fecharia a média final.`
+      : `Média parcial ${formatGrade(saida.mp)} — vai para a ARA, e lá precisa de ${formatGrade(precisa)}.`;
   }
   if (saida.mf !== null) {
     return `Média final ${formatGrade(saida.mf)}.`;

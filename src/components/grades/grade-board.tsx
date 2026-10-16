@@ -5,6 +5,7 @@ import { Trash2 } from "lucide-react";
 import { gradeSchemes } from "@/lib/data/grading";
 import {
   formatGrade,
+  neededInAra,
   outcomeFor,
   partMax,
   termScore,
@@ -234,6 +235,13 @@ export function GradeBoard({ nomes }: { readonly nomes: Readonly<Record<string, 
                     onMudar={(texto) => mudarAra(scheme.disciplineId, texto)}
                   />
                   <p className="text-ink-muted text-xs leading-relaxed">
+                    {saida.mp !== null && saida.mf === null ? (
+                      <span className="text-accent font-semibold">
+                        {neededInAra(saida.mp, scheme.roundFrom) > 10
+                          ? "Nem 10,0 na ARA fecharia a média final. "
+                          : `Precisa de ${formatGrade(neededInAra(saida.mp, scheme.roundFrom))} na ARA. `}
+                      </span>
+                    ) : null}
                     Média final = (média parcial + ARA) ÷ 2, aprovado a partir de 5,75.
                   </p>
                 </div>

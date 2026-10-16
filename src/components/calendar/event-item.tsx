@@ -159,13 +159,16 @@ export function EventItem({
 
         {links.exams.length > 0 || links.summaries.length > 0 || !event.past ? (
           <div className="mt-3 flex flex-wrap gap-2">
-            {links.exams.map((exam) => {
+            {links.exams.map((exam, i) => {
               const curto = exam.title.replace(/^Simulado \w+ — /, "");
               return (
                 <ButtonLink
                   key={exam.slug}
                   href={`/simulados/${exam.slug}`}
                   size="sm"
+                  // Com vários simulados, um é a ação e os outros são opções:
+                  // três botões cheios empilhados viram uma parede de cor.
+                  variant={i === 0 ? "primario" : "secundario"}
                   // Vários "Treinar" na mesma página não dizem nada a quem
                   // navega por lista de links; o rótulo acessível diz qual é.
                   aria-label={`Treinar: ${curto}`}

@@ -199,3 +199,17 @@ describe("digitar e mostrar uma nota", () => {
     expect(formatGrade(0.75)).toBe("0,75");
   });
 });
+
+describe("a conta da recuperação", () => {
+  it("diz quanto é preciso na ARA", async () => {
+    const { neededInAra, finalAfterAra } = await import("@/lib/domain/grading");
+    // Média parcial 5,5: com 6,0 na ARA a final dá 5,75, que aprova.
+    expect(neededInAra(5.5, 5.75)).toBe(6);
+    expect(finalAfterAra(5.5, 6)).toBe(5.75);
+
+    // Média parcial 3,0 exigiria 8,5 na ARA — alto, mas possível.
+    expect(neededInAra(3, 5.75)).toBe(8.5);
+    // Já 1,0 exigiria 10,5: não sai.
+    expect(neededInAra(1, 5.75)).toBeGreaterThan(10);
+  });
+});
