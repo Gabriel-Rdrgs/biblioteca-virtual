@@ -60,10 +60,16 @@ test("a prova do calendário leva ao resumo do que cai nela", async ({ page }) =
   await expect(cartao.getByRole("link", { name: /resumo para a N1/i })).toBeVisible();
 });
 
-test("a matéria lista as aulas que já têm resumo", async ({ page }) => {
+test("a matéria destaca os resumos de prova e as aulas mais próximas", async ({ page }) => {
   await page.goto("/disciplinas/morfofuncional-aplicado-a-clinica-i");
   const secao = page.locator("section").filter({ hasText: "Resumos das aulas" }).first();
-  await expect(
-    secao.getByRole("link", { name: "Aula 01 Microscopia + Referenciais anatômicos 11/08" }),
-  ).toBeVisible();
+
+  // Os dois apanhados de prova vêm primeiro: é o que se abre na véspera.
+  await expect(secao.getByRole("link", { name: /Resumo para a N1/ })).toBeVisible();
+  await expect(secao.getByRole("link", { name: /Resumo para a N2/ })).toBeVisible();
+
+  // São 26 aulas; a matéria mostra as de agora e manda o resto para /resumos.
+  const aulas = secao.getByRole("link", { name: /^Aula \d\d/ });
+  await expect(aulas).toHaveCount(6);
+  await expect(secao.getByRole("link", { name: /ver todos os \d+/i })).toBeVisible();
 });
