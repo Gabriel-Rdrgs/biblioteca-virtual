@@ -1,0 +1,4169 @@
+[
+ {
+  "id": "oficial:mmss-ossos",
+  "slug": "mmss-ossos",
+  "origin": "oficial",
+  "title": "Ossos",
+  "description": "Clavícula, escápula, úmero, rádio, ulna, carpo e mão: acidentes e relações com nervos.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Membros superiores",
+  "color": "#1B7CF0",
+  "sourceNote": "Escrito a partir do Moore, Anatomia Orientada para a Clínica, capítulo 6 (membro superior). Figuras numeradas como no livro, reproduzidas só para estudo da turma.",
+  "cards": [
+   {
+    "id": "mmss-io6.3_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.3",
+    "box": [
+     71.52,
+     5.67,
+     12.73,
+     1.69
+    ],
+    "answer": "Clavícula"
+   },
+   {
+    "id": "mmss-io6.3_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.3",
+    "box": [
+     62.58,
+     12.49,
+     12.42,
+     1.69
+    ],
+    "answer": "Escápula"
+   },
+   {
+    "id": "mmss-io6.3_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.3",
+    "box": [
+     60.91,
+     33.95,
+     8.79,
+     1.69
+    ],
+    "answer": "Úmero"
+   },
+   {
+    "id": "mmss-io6.3_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.3",
+    "box": [
+     56.21,
+     60.77,
+     6.36,
+     1.69
+    ],
+    "answer": "Ulna"
+   },
+   {
+    "id": "mmss-io6.3_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.3",
+    "box": [
+     6.97,
+     68.51,
+     8.18,
+     1.69
+    ],
+    "answer": "Rádio"
+   },
+   {
+    "id": "mmss-io6.3_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.3",
+    "box": [
+     56.06,
+     79.23,
+     17.88,
+     1.69
+    ],
+    "answer": "Ossos carpais"
+   },
+   {
+    "id": "mmss-io6.3_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.3",
+    "box": [
+     56.06,
+     83.37,
+     23.94,
+     1.69
+    ],
+    "answer": "Ossos metacarpais"
+   },
+   {
+    "id": "mmss-io6.3_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.3",
+    "box": [
+     84.39,
+     89.66,
+     12.42,
+     1.84
+    ],
+    "answer": "Falanges"
+   },
+   {
+    "id": "mmss-io6.4_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.4",
+    "box": [
+     0.19,
+     0.23,
+     20.53,
+     10.02
+    ],
+    "answer": "Extremidade esternal"
+   },
+   {
+    "id": "mmss-io6.4_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.4",
+    "box": [
+     66.92,
+     8.88,
+     32.51,
+     4.33
+    ],
+    "answer": "Extremidade acromial"
+   },
+   {
+    "id": "mmss-io6.4_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.4",
+    "box": [
+     70.53,
+     49.43,
+     28.33,
+     4.33
+    ],
+    "answer": "Tubérculo conoide"
+   },
+   {
+    "id": "mmss-io6.5_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.5",
+    "box": [
+     26.76,
+     2.28,
+     14.76,
+     3.04
+    ],
+    "answer": "Fossa supraespinal"
+   },
+   {
+    "id": "mmss-io6.5_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.5",
+    "box": [
+     46.58,
+     1.9,
+     15.82,
+     3.54
+    ],
+    "answer": "Incisura da escápula"
+   },
+   {
+    "id": "mmss-io6.5_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.5",
+    "box": [
+     46.58,
+     5.19,
+     15.82,
+     3.54
+    ],
+    "answer": "Processo coracoide"
+   },
+   {
+    "id": "mmss-io6.5_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.5",
+    "box": [
+     50.84,
+     11.65,
+     6.76,
+     2.41
+    ],
+    "answer": "Acrômio"
+   },
+   {
+    "id": "mmss-io6.5_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.5",
+    "box": [
+     47.73,
+     30.89,
+     15.64,
+     3.04
+    ],
+    "answer": "Espinha da escápula"
+   },
+   {
+    "id": "mmss-io6.5_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.5",
+    "box": [
+     47.64,
+     39.87,
+     9.07,
+     5.57
+    ],
+    "answer": "Fossa infraespinal"
+   },
+   {
+    "id": "mmss-io6.5_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.5",
+    "box": [
+     1.16,
+     25.44,
+     7.38,
+     5.44
+    ],
+    "answer": "Cavidade glenoidal"
+   },
+   {
+    "id": "mmss-io6.5_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.5",
+    "box": [
+     89.33,
+     39.49,
+     10.4,
+     3.29
+    ],
+    "answer": "Ângulo inferior"
+   },
+   {
+    "id": "mmss-io6.6_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.6",
+    "box": [
+     0.18,
+     72.78,
+     6.95,
+     6.47
+    ],
+    "answer": "Capítulo"
+   },
+   {
+    "id": "mmss-io6.6_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.6",
+    "box": [
+     34.48,
+     76.82,
+     6.14,
+     7.01
+    ],
+    "answer": "Tróclea"
+   },
+   {
+    "id": "mmss-io6.6_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.6",
+    "box": [
+     34.57,
+     52.83,
+     9.39,
+     22.1
+    ],
+    "answer": "Epicôndilo medial"
+   },
+   {
+    "id": "mmss-io6.6_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.6",
+    "box": [
+     0.0,
+     51.21,
+     13.0,
+     15.63
+    ],
+    "answer": "Epicôndilo lateral"
+   },
+   {
+    "id": "mmss-io6.6_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.6",
+    "box": [
+     82.67,
+     40.7,
+     13.99,
+     5.12
+    ],
+    "answer": "Fossa do olécrano"
+   },
+   {
+    "id": "mmss-io6.6_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.6",
+    "box": [
+     53.07,
+     70.08,
+     6.05,
+     5.12
+    ],
+    "answer": "N. ulnar"
+   },
+   {
+    "id": "mmss-io6.8_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.8",
+    "box": [
+     39.18,
+     0.16,
+     13.48,
+     1.53
+    ],
+    "answer": "Olécrano"
+   },
+   {
+    "id": "mmss-io6.8_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.8",
+    "box": [
+     39.18,
+     2.26,
+     11.88,
+     3.15
+    ],
+    "answer": "Incisura troclear"
+   },
+   {
+    "id": "mmss-io6.8_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.8",
+    "box": [
+     39.18,
+     6.21,
+     14.36,
+     3.15
+    ],
+    "answer": "Processo coronoide"
+   },
+   {
+    "id": "mmss-io6.8_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.8",
+    "box": [
+     0.35,
+     9.69,
+     19.68,
+     3.15
+    ],
+    "answer": "Tuberosidade do rádio"
+   },
+   {
+    "id": "mmss-io6.8_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.8",
+    "box": [
+     0.18,
+     33.01,
+     13.48,
+     5.17
+    ],
+    "answer": "Processo estiloide do rádio"
+   },
+   {
+    "id": "mmss-io6.8_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.8",
+    "box": [
+     39.18,
+     33.17,
+     13.83,
+     4.76
+    ],
+    "answer": "Processo estiloide da ulna"
+   },
+   {
+    "id": "mmss-io6.8_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.8",
+    "box": [
+     0.18,
+     5.57,
+     12.41,
+     1.94
+    ],
+    "answer": "Cabeça do rádio"
+   },
+   {
+    "id": "mmss-io6.9_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.9",
+    "box": [
+     45.01,
+     26.84,
+     12.72,
+     2.29
+    ],
+    "answer": "Osso capitato"
+   },
+   {
+    "id": "mmss-io6.9_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.9",
+    "box": [
+     46.84,
+     32.21,
+     11.16,
+     2.29
+    ],
+    "answer": "Osso trapezoide"
+   },
+   {
+    "id": "mmss-io6.9_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.9",
+    "box": [
+     10.7,
+     36.48,
+     9.52,
+     3.68
+    ],
+    "answer": "Hâmulo do hamato"
+   },
+   {
+    "id": "mmss-io6.9_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.9",
+    "box": [
+     6.31,
+     40.66,
+     14.27,
+     2.58
+    ],
+    "answer": "Osso pisiforme"
+   },
+   {
+    "id": "mmss-io6.9_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.9",
+    "box": [
+     17.47,
+     46.12,
+     13.82,
+     2.29
+    ],
+    "answer": "Osso semilunar"
+   },
+   {
+    "id": "mmss-io6.9_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.9",
+    "box": [
+     74.84,
+     45.13,
+     11.62,
+     1.99
+    ],
+    "answer": "Osso escafoide"
+   },
+   {
+    "id": "mmss-io6.9_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.9",
+    "box": [
+     87.47,
+     42.74,
+     10.89,
+     2.29
+    ],
+    "answer": "Osso piramidal"
+   },
+   {
+    "id": "mmss-io6.9_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.9",
+    "box": [
+     0.91,
+     27.44,
+     8.23,
+     2.29
+    ],
+    "answer": "Metacarpal V"
+   },
+   {
+    "id": "mmss-io6.11_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.11",
+    "box": [
+     0.21,
+     68.96,
+     13.64,
+     4.21
+    ],
+    "answer": "Tubérculo maior"
+   },
+   {
+    "id": "mmss-io6.11_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.11",
+    "box": [
+     0.21,
+     74.94,
+     14.26,
+     4.43
+    ],
+    "answer": "Tubérculo menor"
+   },
+   {
+    "id": "mmss-io6.11_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.11",
+    "box": [
+     0.31,
+     81.37,
+     17.05,
+     4.21
+    ],
+    "answer": "Sulco intertubercular"
+   },
+   {
+    "id": "mmss-tx0_0",
+    "kind": "texto",
+    "front": "Quais são os **ossos do membro superior**?",
+    "back": "**Cíngulo:** clavícula e escápula. **Braço:** úmero. **Antebraço:** rádio (lateral) e ulna (medial). **Mão:** carpais, metacarpais e falanges.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Proximal é o lado do ombro; lateral é o lado do polegar (rádio) e medial o do dedo mínimo (ulna)."
+    }
+   },
+   {
+    "id": "mmss-tx0_1",
+    "kind": "texto",
+    "front": "Qual é o **primeiro osso longo a ossificar** e o **último a concluir** a formação?",
+    "back": "**Clavícula.**"
+   },
+   {
+    "id": "mmss-tx0_2",
+    "kind": "texto",
+    "front": "Qual é a curvatura da clavícula?",
+    "back": "Curva em S: **terço medial convexo anteriormente** e **terço lateral côncavo anteriormente**.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "A extremidade grossa (esternal) vai para o centro do corpo; a face inferior é a rugosa, com sulco e tubérculo conoide."
+    }
+   },
+   {
+    "id": "mmss-tx0_3",
+    "kind": "texto",
+    "front": "Onde a clavícula costuma fraturar e o que acontece com os fragmentos?",
+    "back": "Entre os **terços médio e lateral**. Medial: puxado para cima pelo **esternocleidomastóideo**. Lateral: cai pelo peso do membro e é puxado medialmente pelo **peitoral maior**.",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Lesões associadas: **plexo braquial** e **vasos subclávios**."
+    }
+   },
+   {
+    "id": "mmss-tx0_4",
+    "kind": "texto",
+    "front": "Qual nervo passa pela **incisura da escápula**?",
+    "back": "O **n. supraescapular** (margem superior da escápula)."
+   },
+   {
+    "id": "mmss-tx0_5",
+    "kind": "texto",
+    "front": "Que nervo e artéria passam no **sulco do n. radial** do úmero?",
+    "back": "O **n. radial** e a **a. braquial profunda**."
+   },
+   {
+    "id": "mmss-tx0_6",
+    "kind": "texto",
+    "front": "Qual estrutura passa **atrás do epicôndilo medial**?",
+    "back": "O **n. ulnar**."
+   },
+   {
+    "id": "mmss-tx0_7",
+    "kind": "texto",
+    "front": "Fraturas do úmero: qual estrutura corre risco em cada local?",
+    "back": "**Colo cirúrgico:** n. axilar e a. circunflexa posterior do úmero. **Corpo (meio):** n. radial. **Supracondilar:** a. braquial e n. mediano. **Epicôndilo medial:** n. ulnar."
+   },
+   {
+    "id": "mmss-tx0_8",
+    "kind": "texto",
+    "front": "O que é a **fratura de Colles**?",
+    "back": "Fratura da extremidade distal do **rádio** com fragmento desviado **dorsalmente** (**dorso de garfo**); frequente com avulsão do processo estiloide da ulna."
+   },
+   {
+    "id": "mmss-tx0_9",
+    "kind": "texto",
+    "front": "Quais ossos formam as **fileiras do carpo**?",
+    "back": "**Proximal:** escafoide, semilunar, piramidal, pisiforme. **Distal:** trapézio, trapezoide, capitato, hamato.",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "“Eu Sempre Penso Pizza; Tudo Tem Chance Hoje”."
+    }
+   },
+   {
+    "id": "mmss-tx0_10",
+    "kind": "texto",
+    "front": "Qual é o carpal mais fraturado e qual a complicação?",
+    "back": "**Escafoide.** Dor na **tabaqueira anatômica**; fratura na cintura pode causar **necrose avascular do fragmento proximal** (o sangue entra pela parte distal)."
+   },
+   {
+    "id": "mmss-tx0_11",
+    "kind": "texto",
+    "front": "A fratura de qual carpal pode lesar o **n. ulnar**?",
+    "back": "O **hâmulo do hamato**. O n. ulnar passa entre o pisiforme e o hâmulo (canal ulnar)."
+   },
+   {
+    "id": "mmss-tx0_12",
+    "kind": "texto",
+    "front": "O que é a **fratura do boxeador**?",
+    "back": "Fratura do **colo do metacarpal V**, ao socar com o punho fechado."
+   },
+   {
+    "id": "mmss-tx0_13",
+    "kind": "texto",
+    "front": "Quantos ossos tem a mão?",
+    "back": "**8 carpais** (2 fileiras de 4), **5 metacarpais** e **14 falanges** (2 no polegar; 3 nos demais)."
+   }
+  ],
+  "images": [
+   {
+    "id": "mmss-6.3",
+    "file": "mmss-6.3.jpg",
+    "width": 660,
+    "height": 1305,
+    "caption": "Figura 6.3"
+   },
+   {
+    "id": "mmss-6.4",
+    "file": "mmss-6.4.jpg",
+    "width": 526,
+    "height": 439,
+    "caption": "Figura 6.4"
+   },
+   {
+    "id": "mmss-6.5",
+    "file": "mmss-6.5.jpg",
+    "width": 1000,
+    "height": 702,
+    "caption": "Figura 6.5"
+   },
+   {
+    "id": "mmss-6.6",
+    "file": "mmss-6.6.jpg",
+    "width": 1000,
+    "height": 335,
+    "caption": "Figura 6.6"
+   },
+   {
+    "id": "mmss-6.8",
+    "file": "mmss-6.8.jpg",
+    "width": 564,
+    "height": 1239,
+    "caption": "Figura 6.8"
+   },
+   {
+    "id": "mmss-6.9",
+    "file": "mmss-6.9.jpg",
+    "width": 1000,
+    "height": 920,
+    "caption": "Figura 6.9"
+   },
+   {
+    "id": "mmss-6.11",
+    "file": "mmss-6.11.jpg",
+    "width": 968,
+    "height": 451,
+    "caption": "Figura 6.11"
+   }
+  ]
+ },
+ {
+  "id": "oficial:mmss-veias-e-nervos-cutaneos",
+  "slug": "mmss-veias-e-nervos-cutaneos",
+  "origin": "oficial",
+  "title": "Veias e nervos cutâneos",
+  "description": "Rede venosa, veias cefálica/basílica/axilar e nervos cutâneos com dermátomos.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Membros superiores",
+  "color": "#7C4DEB",
+  "sourceNote": "Escrito a partir do Moore, Anatomia Orientada para a Clínica, capítulo 6 (membro superior). Figuras numeradas como no livro, reproduzidas só para estudo da turma.",
+  "cards": [
+   {
+    "id": "mmss-io6.15_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.15",
+    "box": [
+     52.6,
+     56.38,
+     6.8,
+     4.58
+    ],
+    "answer": "V. cefálica"
+   },
+   {
+    "id": "mmss-io6.15_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.15",
+    "box": [
+     85.65,
+     39.03,
+     8.5,
+     2.48
+    ],
+    "answer": "V. basílica"
+   },
+   {
+    "id": "mmss-io6.15_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.15",
+    "box": [
+     48.91,
+     37.79,
+     10.76,
+     4.96
+    ],
+    "answer": "V. intermédia do cotovelo"
+   },
+   {
+    "id": "mmss-io6.15_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.15",
+    "box": [
+     32.39,
+     69.64,
+     10.58,
+     4.96
+    ],
+    "answer": "Rede venosa dorsal"
+   },
+   {
+    "id": "mmss-io6.15_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.15",
+    "box": [
+     85.55,
+     21.44,
+     7.18,
+     2.97
+    ],
+    "answer": "V. axilar"
+   },
+   {
+    "id": "mmss-io6.15_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.15",
+    "box": [
+     48.91,
+     5.08,
+     9.16,
+     5.58
+    ],
+    "answer": "Trígono clavipeitoral"
+   },
+   {
+    "id": "mmss-io6.15_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.15",
+    "box": [
+     85.65,
+     43.25,
+     8.5,
+     4.96
+    ],
+    "answer": "Linfonodos cubitais"
+   },
+   {
+    "id": "mmss-io6.16_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.16",
+    "box": [
+     82.78,
+     7.61,
+     9.42,
+     2.66
+    ],
+    "answer": "V. subclávia"
+   },
+   {
+    "id": "mmss-io6.16_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.16",
+    "box": [
+     82.96,
+     15.05,
+     6.37,
+     1.83
+    ],
+    "answer": "V. axilar"
+   },
+   {
+    "id": "mmss-io6.16_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.16",
+    "box": [
+     82.78,
+     31.28,
+     9.51,
+     3.85
+    ],
+    "answer": "V. basílica (seccionada)"
+   },
+   {
+    "id": "mmss-io6.16_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.16",
+    "box": [
+     58.92,
+     46.33,
+     10.04,
+     2.02
+    ],
+    "answer": "Vv. braquiais"
+   },
+   {
+    "id": "mmss-io6.16_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.16",
+    "box": [
+     91.48,
+     73.21,
+     8.16,
+     1.83
+    ],
+    "answer": "Vv. radiais"
+   },
+   {
+    "id": "mmss-io6.16_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.16",
+    "box": [
+     19.82,
+     69.54,
+     9.33,
+     2.39
+    ],
+    "answer": "Vv. ulnares"
+   },
+   {
+    "id": "mmss-io6.16_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.16",
+    "box": [
+     69.51,
+     77.71,
+     10.22,
+     3.85
+    ],
+    "answer": "Rede venosa dorsal da mão"
+   },
+   {
+    "id": "mmss-io6.19_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.19",
+    "box": [
+     77.42,
+     2.27,
+     13.07,
+     4.75
+    ],
+    "answer": "N. supraclavicular (C3, C4)"
+   },
+   {
+    "id": "mmss-io6.19_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.19",
+    "box": [
+     43.69,
+     15.55,
+     16.27,
+     3.46
+    ],
+    "answer": "N. intercostobraquial (T2)"
+   },
+   {
+    "id": "mmss-io6.19_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.19",
+    "box": [
+     3.93,
+     17.71,
+     17.64,
+     9.4
+    ],
+    "answer": "N. cutâneo lateral superior do braço (ramo do N. axilar)"
+   },
+   {
+    "id": "mmss-io6.19_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.19",
+    "box": [
+     42.5,
+     22.25,
+     13.25,
+     4.75
+    ],
+    "answer": "N. cutâneo medial do braço"
+   },
+   {
+    "id": "mmss-io6.19_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.19",
+    "box": [
+     40.86,
+     28.29,
+     19.65,
+     7.13
+    ],
+    "answer": "N. cutâneo posterior do braço (ramo do N. radial)"
+   },
+   {
+    "id": "mmss-io6.19_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.19",
+    "box": [
+     3.93,
+     30.35,
+     18.19,
+     4.86
+    ],
+    "answer": "N. cutâneo lateral inferior do braço (ramo do N. radial)"
+   },
+   {
+    "id": "mmss-io6.19_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.19",
+    "box": [
+     3.93,
+     37.37,
+     16.09,
+     4.75
+    ],
+    "answer": "N. cutâneo posterior do antebraço"
+   },
+   {
+    "id": "mmss-io6.19_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.19",
+    "box": [
+     40.77,
+     38.55,
+     15.9,
+     4.86
+    ],
+    "answer": "N. cutâneo medial do antebraço"
+   },
+   {
+    "id": "mmss-io6.19_8",
+    "kind": "oclusao",
+    "imageId": "mmss-6.19",
+    "box": [
+     3.93,
+     43.95,
+     15.17,
+     9.18
+    ],
+    "answer": "N. cutâneo lateral do antebraço (ramo do N. musculocutâneo)"
+   },
+   {
+    "id": "mmss-io6.19_9",
+    "kind": "oclusao",
+    "imageId": "mmss-6.19",
+    "box": [
+     42.96,
+     65.66,
+     16.54,
+     4.86
+    ],
+    "answer": "Ramo dorsal do N. ulnar"
+   },
+   {
+    "id": "mmss-io6.19_10",
+    "kind": "oclusao",
+    "imageId": "mmss-6.19",
+    "box": [
+     4.02,
+     72.79,
+     18.01,
+     4.75
+    ],
+    "answer": "N. radial, ramo superficial"
+   },
+   {
+    "id": "mmss-io6.19_11",
+    "kind": "oclusao",
+    "imageId": "mmss-6.19",
+    "box": [
+     8.96,
+     87.15,
+     8.59,
+     2.05
+    ],
+    "answer": "N. mediano"
+   },
+   {
+    "id": "mmss-io6.19_12",
+    "kind": "oclusao",
+    "imageId": "mmss-6.19",
+    "box": [
+     9.96,
+     90.93,
+     6.12,
+     2.05
+    ],
+    "answer": "N. ulnar"
+   },
+   {
+    "id": "mmss-tx1_14",
+    "kind": "texto",
+    "front": "Qual é o trajeto da **v. cefálica**?",
+    "back": "Origina-se do lado **lateral** (polegar); sobe pela **margem cranial**, no sulco deltopeitoral; **perfura a fáscia clavipeitoral** no trígono clavipeitoral e desemboca na **v. axilar**."
+   },
+   {
+    "id": "mmss-tx1_15",
+    "kind": "texto",
+    "front": "Qual é o trajeto da **v. basílica**?",
+    "back": "Origina-se do lado **medial** (dedo mínimo); sobe pela **margem caudal**; no meio do braço **perfura a fáscia braquial** e junta-se às **vv. braquiais** para formar a **v. axilar**."
+   },
+   {
+    "id": "mmss-tx1_16",
+    "kind": "texto",
+    "front": "Qual veia liga a cefálica à basílica na fossa cubital?",
+    "back": "A **v. intermédia do cotovelo**, a mais usada em **punção venosa**.",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "A **aponeurose bicipital** separa a veia (acima) da artéria e do nervo (abaixo), o que dá segurança à coleta."
+    }
+   },
+   {
+    "id": "mmss-tx1_17",
+    "kind": "texto",
+    "front": "O que protege a a. braquial e o n. mediano na fossa cubital?",
+    "back": "A **aponeurose do bíceps**, sob a v. intermédia do cotovelo."
+   },
+   {
+    "id": "mmss-tx1_18",
+    "kind": "texto",
+    "front": "Qual é a posição da **v. axilar** em relação à a. axilar?",
+    "back": "**Anterior e ligeiramente inferior** à artéria."
+   },
+   {
+    "id": "mmss-tx1_19",
+    "kind": "texto",
+    "front": "As veias cefálica e basílica correm acima ou abaixo da fáscia?",
+    "back": "**Acima:** na tela subcutânea. Depois **perfuram a fáscia** para chegar às veias profundas."
+   },
+   {
+    "id": "mmss-tx1_20",
+    "kind": "texto",
+    "front": "Que linfonodos drenam a mão e o antebraço e onde ficam?",
+    "back": "**Linfonodos cubitais**, na fossa cubital, perto do epicôndilo medial. Quase toda a linfa chega aos **linfonodos axilares**."
+   },
+   {
+    "id": "mmss-tx1_21",
+    "kind": "texto",
+    "front": "Quais são os grupos de linfonodos axilares?",
+    "back": "**Peitorais** (anteriores), **subescapulares** (posteriores), **umerais** (laterais), **centrais** e **apicais** (drenam para o tronco subclávio)."
+   },
+   {
+    "id": "mmss-tx1_22",
+    "kind": "texto",
+    "front": "Qual grupo axilar recebe a drenagem da **maior parte do membro**?",
+    "back": "Os **umerais (laterais)**, junto à v. axilar."
+   },
+   {
+    "id": "mmss-tx1_23",
+    "kind": "texto",
+    "front": "Qual grupo axilar recebe a maior parte da linfa da **mama**?",
+    "back": "Os **peitorais (anteriores)**, ao longo da margem inferior do peitoral menor.",
+    "tip": {
+     "label": "Atenção",
+     "text": "Os axilares recebem linfa da clavícula ao umbigo; a ordem de drenagem importa no estadiamento do câncer de mama."
+    }
+   },
+   {
+    "id": "mmss-tx1_24",
+    "kind": "texto",
+    "front": "Qual é a extensão dos **dermátomos** do membro superior?",
+    "back": "De **C4** (raiz do pescoço) a **T2** (axila)."
+   },
+   {
+    "id": "mmss-tx1_25",
+    "kind": "texto",
+    "front": "Qual pele e movimento correspondem a **C5**?",
+    "back": "Pele: face lateral do braço (ombro). Músculos: **abdução e rotação lateral do ombro**; flexão do ombro."
+   },
+   {
+    "id": "mmss-tx1_26",
+    "kind": "texto",
+    "front": "Qual pele e movimento correspondem a **C6**?",
+    "back": "Pele: antebraço lateral e polegar. Músculos: **flexão do cotovelo**, supinação, extensão do punho."
+   },
+   {
+    "id": "mmss-tx1_27",
+    "kind": "texto",
+    "front": "Qual pele e movimento correspondem a **C7**?",
+    "back": "Pele: dedo médio. Músculos: **extensão do cotovelo**, pronação, flexão do punho."
+   },
+   {
+    "id": "mmss-tx1_28",
+    "kind": "texto",
+    "front": "Qual pele e movimento correspondem a **C8**?",
+    "back": "Pele: antebraço medial e dedo mínimo. Músculos: **flexão dos dedos**, pronação."
+   },
+   {
+    "id": "mmss-tx1_29",
+    "kind": "texto",
+    "front": "Qual pele e movimento correspondem a **T1**?",
+    "back": "Pele: face medial do braço e do antebraço. Músculos: **abdução e adução dos dedos** (intrínsecos da mão)."
+   },
+   {
+    "id": "mmss-tx1_30",
+    "kind": "texto",
+    "front": "Resumo dos segmentos por região do membro",
+    "back": "Ombro e flexão do cotovelo: **C5–C6**. Extensão do cotovelo e antebraço/punho: **C7–C8**. Mão: **T1**. Dedos: polegar **C6**, médio **C7**, mínimo **C8**.",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "Segue a regra proximal-distal dos miótomos."
+    }
+   },
+   {
+    "id": "mmss-tx1_31",
+    "kind": "texto",
+    "front": "De onde vêm os nervos cutâneos **mediais, posteriores e laterais**?",
+    "back": "**Mediais:** fascículo medial. **Posteriores:** n. radial. **Laterais:** nn. axilar, radial e musculocutâneo."
+   },
+   {
+    "id": "mmss-tx1_32",
+    "kind": "texto",
+    "front": "Qual é a origem e o território dos **nn. supraclaviculares**?",
+    "back": "**Plexo cervical (C3–C4)**; pele sobre a clavícula e a parte superior do ombro."
+   },
+   {
+    "id": "mmss-tx1_33",
+    "kind": "texto",
+    "front": "Qual nervo supre a pele sobre a **parte inferior do deltoide**?",
+    "back": "O **n. cutâneo lateral superior do braço**, ramo do **n. axilar**."
+   },
+   {
+    "id": "mmss-tx1_34",
+    "kind": "texto",
+    "front": "Qual nervo supre a face **posterior do braço e do antebraço**?",
+    "back": "Os **nn. cutâneos posteriores**, do **n. radial**."
+   },
+   {
+    "id": "mmss-tx1_35",
+    "kind": "texto",
+    "front": "Qual é a origem do **n. cutâneo medial do braço**?",
+    "back": "**Fascículo medial (T1)** e **n. intercostobraquial (T2)**; supre a face medial do braço e a axila."
+   },
+   {
+    "id": "mmss-tx1_36",
+    "kind": "texto",
+    "front": "Qual é a origem do **n. cutâneo medial do antebraço**?",
+    "back": "**Fascículo medial (C8–T1)**."
+   },
+   {
+    "id": "mmss-tx1_37",
+    "kind": "texto",
+    "front": "Qual nervo supre a face **lateral do antebraço**?",
+    "back": "O **n. cutâneo lateral do antebraço**, continuação do **n. musculocutâneo**."
+   },
+   {
+    "id": "mmss-tx1_38",
+    "kind": "texto",
+    "front": "Qual nervo supre o **dorso lateral da mão**?",
+    "back": "O **ramo superficial do n. radial**."
+   },
+   {
+    "id": "mmss-tx1_39",
+    "kind": "texto",
+    "front": "Como a fáscia divide o braço em compartimentos?",
+    "back": "Os **septos intermusculares medial e lateral** ligam a fáscia ao úmero e dividem o braço em **anterior (flexor)** e **posterior (extensor)**."
+   }
+  ],
+  "images": [
+   {
+    "id": "mmss-6.15",
+    "file": "mmss-6.15.jpg",
+    "width": 1000,
+    "height": 762,
+    "caption": "Figura 6.15"
+   },
+   {
+    "id": "mmss-6.16",
+    "file": "mmss-6.16.jpg",
+    "width": 1000,
+    "height": 978,
+    "caption": "Figura 6.16"
+   },
+   {
+    "id": "mmss-6.19",
+    "file": "mmss-6.19.jpg",
+    "width": 1000,
+    "height": 846,
+    "caption": "Figura 6.19"
+   }
+  ]
+ },
+ {
+  "id": "oficial:mmss-ombro-e-plexo-braquial",
+  "slug": "mmss-ombro-e-plexo-braquial",
+  "origin": "oficial",
+  "title": "Ombro e plexo braquial",
+  "description": "Plexo braquial (5-3-6-3), ramos, manguito rotador e lesões clássicas.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Membros superiores",
+  "color": "#F2562B",
+  "sourceNote": "Escrito a partir do Moore, Anatomia Orientada para a Clínica, capítulo 6 (membro superior). Figuras numeradas como no livro, reproduzidas só para estudo da turma.",
+  "cards": [
+   {
+    "id": "mmss-io6.29_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.29",
+    "box": [
+     55.49,
+     11.19,
+     10.98,
+     3.4
+    ],
+    "answer": "M. supraespinal"
+   },
+   {
+    "id": "mmss-io6.29_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.29",
+    "box": [
+     55.49,
+     16.29,
+     14.46,
+     3.4
+    ],
+    "answer": "Espinha da escápula"
+   },
+   {
+    "id": "mmss-io6.29_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.29",
+    "box": [
+     55.49,
+     23.37,
+     10.19,
+     3.26
+    ],
+    "answer": "M. infraespinal"
+   },
+   {
+    "id": "mmss-io6.29_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.29",
+    "box": [
+     58.62,
+     35.13,
+     12.37,
+     2.83
+    ],
+    "answer": "M. redondo maior"
+   },
+   {
+    "id": "mmss-io6.29_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.29",
+    "box": [
+     83.36,
+     40.37,
+     8.1,
+     5.67
+    ],
+    "answer": "M. redondo menor"
+   },
+   {
+    "id": "mmss-io6.29_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.29",
+    "box": [
+     88.24,
+     71.25,
+     11.5,
+     4.39
+    ],
+    "answer": "M. subescapular"
+   },
+   {
+    "id": "mmss-io6.29_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.29",
+    "box": [
+     39.46,
+     4.39,
+     7.75,
+     2.69
+    ],
+    "answer": "M. deltoide"
+   },
+   {
+    "id": "mmss-io6.29_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.29",
+    "box": [
+     49.39,
+     73.37,
+     7.58,
+     5.67
+    ],
+    "answer": "Ligamento transverso do úmero"
+   },
+   {
+    "id": "mmss-io6.29_8",
+    "kind": "oclusao",
+    "imageId": "mmss-6.29",
+    "box": [
+     49.39,
+     80.17,
+     13.07,
+     9.35
+    ],
+    "answer": "Tendão da cabeça longa do M. bíceps braquial"
+   },
+   {
+    "id": "mmss-io6.43_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.43",
+    "box": [
+     85.11,
+     30.51,
+     11.23,
+     9.93
+    ],
+    "answer": "Raízes do plexo braquial (cinco ramos anteriores)"
+   },
+   {
+    "id": "mmss-io6.43_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.43",
+    "box": [
+     0.27,
+     14.77,
+     23.56,
+     2.91
+    ],
+    "answer": "Três troncos do plexo braquial"
+   },
+   {
+    "id": "mmss-io6.43_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.43",
+    "box": [
+     0.27,
+     22.4,
+     32.24,
+     3.03
+    ],
+    "answer": "Três divisões anteriores"
+   },
+   {
+    "id": "mmss-io6.43_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.43",
+    "box": [
+     80.64,
+     82.2,
+     13.97,
+     7.63
+    ],
+    "answer": "Três fascículos do plexo braquial"
+   },
+   {
+    "id": "mmss-io6.43_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.43",
+    "box": [
+     32.33,
+     84.38,
+     6.3,
+     2.3
+    ],
+    "answer": "N. axilar"
+   },
+   {
+    "id": "mmss-io6.43_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.43",
+    "box": [
+     27.03,
+     87.41,
+     13.97,
+     2.3
+    ],
+    "answer": "N. musculocutâneo"
+   },
+   {
+    "id": "mmss-io6.43_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.43",
+    "box": [
+     7.95,
+     85.35,
+     5.11,
+     4.84
+    ],
+    "answer": "N. radial"
+   },
+   {
+    "id": "mmss-io6.43_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.43",
+    "box": [
+     13.42,
+     85.35,
+     6.21,
+     4.84
+    ],
+    "answer": "N. mediano"
+   },
+   {
+    "id": "mmss-io6.43_8",
+    "kind": "oclusao",
+    "imageId": "mmss-6.43",
+    "box": [
+     20.73,
+     85.35,
+     4.75,
+     4.84
+    ],
+    "answer": "N. ulnar"
+   },
+   {
+    "id": "mmss-io6.43_9",
+    "kind": "oclusao",
+    "imageId": "mmss-6.43",
+    "box": [
+     0.37,
+     43.58,
+     12.79,
+     2.78
+    ],
+    "answer": "M. peitoral menor"
+   },
+   {
+    "id": "mmss-io6.44_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.44",
+    "box": [
+     51.9,
+     5.08,
+     11.59,
+     6.53
+    ],
+    "answer": "N. supraescapular"
+   },
+   {
+    "id": "mmss-io6.44_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.44",
+    "box": [
+     92.75,
+     9.07,
+     6.97,
+     5.2
+    ],
+    "answer": "N. dorsal da escápula"
+   },
+   {
+    "id": "mmss-io6.44_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.44",
+    "box": [
+     42.93,
+     12.7,
+     5.62,
+     4.84
+    ],
+    "answer": "N. peitoral lateral"
+   },
+   {
+    "id": "mmss-io6.44_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.44",
+    "box": [
+     84.69,
+     42.2,
+     12.32,
+     2.9
+    ],
+    "answer": "N. torácico longo"
+   },
+   {
+    "id": "mmss-io6.44_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.44",
+    "box": [
+     74.28,
+     47.04,
+     9.6,
+     3.87
+    ],
+    "answer": "N. subclávio"
+   },
+   {
+    "id": "mmss-io6.44_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.44",
+    "box": [
+     74.18,
+     58.16,
+     15.49,
+     3.39
+    ],
+    "answer": "N. peitoral medial"
+   },
+   {
+    "id": "mmss-io6.44_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.44",
+    "box": [
+     74.18,
+     61.06,
+     15.49,
+     3.39
+    ],
+    "answer": "N. cutâneo medial do braço"
+   },
+   {
+    "id": "mmss-io6.44_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.44",
+    "box": [
+     74.18,
+     63.97,
+     17.75,
+     3.39
+    ],
+    "answer": "N. cutâneo medial do antebraço"
+   },
+   {
+    "id": "mmss-io6.44_8",
+    "kind": "oclusao",
+    "imageId": "mmss-6.44",
+    "box": [
+     74.18,
+     66.87,
+     9.6,
+     3.39
+    ],
+    "answer": "N. toracodorsal"
+   },
+   {
+    "id": "mmss-io6.48_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.48",
+    "box": [
+     0.27,
+     15.08,
+     12.78,
+     3.12
+    ],
+    "answer": "M. coracobraquial"
+   },
+   {
+    "id": "mmss-io6.48_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.48",
+    "box": [
+     0.27,
+     19.7,
+     13.77,
+     2.58
+    ],
+    "answer": "N. musculocutâneo"
+   },
+   {
+    "id": "mmss-io6.48_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.48",
+    "box": [
+     0.27,
+     25.0,
+     13.14,
+     3.12
+    ],
+    "answer": "M. bíceps braquial"
+   },
+   {
+    "id": "mmss-io6.48_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.48",
+    "box": [
+     0.27,
+     30.03,
+     8.1,
+     3.12
+    ],
+    "answer": "M. braquial"
+   },
+   {
+    "id": "mmss-io6.48_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.48",
+    "box": [
+     34.2,
+     80.71,
+     6.21,
+     2.58
+    ],
+    "answer": "N. radial"
+   },
+   {
+    "id": "mmss-io6.48_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.48",
+    "box": [
+     84.79,
+     22.15,
+     11.7,
+     2.72
+    ],
+    "answer": "Fascículo lateral"
+   },
+   {
+    "id": "mmss-io6.48_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.48",
+    "box": [
+     84.79,
+     25.68,
+     12.06,
+     2.58
+    ],
+    "answer": "Fascículo medial"
+   },
+   {
+    "id": "mmss-io6.48_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.48",
+    "box": [
+     84.79,
+     38.86,
+     13.59,
+     3.26
+    ],
+    "answer": "Fascículo posterior"
+   },
+   {
+    "id": "mmss-io6.48_8",
+    "kind": "oclusao",
+    "imageId": "mmss-6.48",
+    "box": [
+     84.79,
+     57.2,
+     13.05,
+     6.11
+    ],
+    "answer": "M. serrátil anterior e N. torácico longo"
+   },
+   {
+    "id": "mmss-io6.48_9",
+    "kind": "oclusao",
+    "imageId": "mmss-6.48",
+    "box": [
+     59.32,
+     94.43,
+     15.21,
+     5.3
+    ],
+    "answer": "M. latíssimo do dorso e N. toracodorsal"
+   },
+   {
+    "id": "mmss-io6.48_10",
+    "kind": "oclusao",
+    "imageId": "mmss-6.48",
+    "box": [
+     28.53,
+     5.57,
+     20.79,
+     11.68
+    ],
+    "answer": "N. axilar (atravessando o espaço quadrangular com a A. circunflexa posterior do úmero)"
+   },
+   {
+    "id": "mmss-io6.48_11",
+    "kind": "oclusao",
+    "imageId": "mmss-6.48",
+    "box": [
+     35.28,
+     68.34,
+     8.19,
+     8.97
+    ],
+    "answer": "N. cutâneo posterior do braço"
+   },
+   {
+    "id": "mmss-tx2_40",
+    "kind": "texto",
+    "front": "Qual a inervação e a ação do **peitoral maior**?",
+    "back": "**Nn. peitorais lateral e medial.** Adução e rotação medial; a parte clavicular flete e a esternocostal estende o braço fletido. Inserção: **lábio lateral do sulco intertubercular**."
+   },
+   {
+    "id": "mmss-tx2_41",
+    "kind": "texto",
+    "front": "Qual a inervação do **peitoral menor** e qual seu papel como referência?",
+    "back": "**N. peitoral medial (C8–T1).** Insere-se no processo coracoide e é a referência para dividir a **a. axilar em 3 partes**."
+   },
+   {
+    "id": "mmss-tx2_42",
+    "kind": "texto",
+    "front": "Qual nervo inerva o **subclávio**?",
+    "back": "O **n. do subclávio (C5–C6)**; ancora e deprime a clavícula."
+   },
+   {
+    "id": "mmss-tx2_43",
+    "kind": "texto",
+    "front": "Qual nervo inerva o **serrátil anterior** e qual sua ação?",
+    "back": "**N. torácico longo (C5–C7).** Protrai a escápula, mantém-na contra o tórax e a gira (ângulo inferior para lateral).",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Forma a parede medial da axila, com aspecto de “dentes de serra”; o n. torácico longo desce sobre sua face superficial."
+    }
+   },
+   {
+    "id": "mmss-tx2_44",
+    "kind": "texto",
+    "front": "Quais são os músculos que **elevam** e **retraem** a escápula?",
+    "back": "**Elevação:** trapézio (parte descendente), levantador da escápula, romboides. **Retração:** trapézio (parte transversa) e romboides."
+   },
+   {
+    "id": "mmss-tx2_45",
+    "kind": "texto",
+    "front": "Quais músculos fazem a **rotação superior** da escápula?",
+    "back": "**Trapézio** e **serrátil anterior**.",
+    "tip": {
+     "label": "Atenção",
+     "text": "Exceções que o nervo único impede: rotação superior (parte superior do trapézio; só n. acessório) e rotação lateral do ângulo inferior (serrátil anterior; só n. torácico longo)."
+    }
+   },
+   {
+    "id": "mmss-tx2_46",
+    "kind": "texto",
+    "front": "Qual nervo inerva o **trapézio**?",
+    "back": "O **n. acessório (NC XI)** (motor) e **C3–C4** (propriocepção).",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Lesão do n. acessório: ombro cai, escápula se desloca lateralmente e o braço não abduz acima do horizontal."
+    }
+   },
+   {
+    "id": "mmss-tx2_47",
+    "kind": "texto",
+    "front": "Qual nervo inerva o **latíssimo do dorso**?",
+    "back": "O **n. toracodorsal (C6–C8)**. Inserção: assoalho do sulco intertubercular.",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Pode ser lesado em cirurgias no ápice axilar: perda de força para subir ou puxar o corpo."
+    }
+   },
+   {
+    "id": "mmss-tx2_48",
+    "kind": "texto",
+    "front": "Qual nervo inerva **levantador da escápula e romboides**?",
+    "back": "O **n. dorsal da escápula (C4–C5)**."
+   },
+   {
+    "id": "mmss-tx2_49",
+    "kind": "texto",
+    "front": "Qual nervo inerva o **deltoide** e qual a ação?",
+    "back": "**N. axilar (C5–C6).** Abdução (após os 15° iniciais); parte clavicular: flexão e rotação medial; parte espinal: extensão e rotação lateral."
+   },
+   {
+    "id": "mmss-tx2_50",
+    "kind": "texto",
+    "front": "Quais músculos formam o **manguito rotador (SIRS)** e qual sua função?",
+    "back": "**S**upraespinal, **I**nfraespinal, **R**edondo menor e **S**ubescapular. Mantêm a cabeça do úmero na cavidade glenoidal.",
+    "tip": {
+     "label": "Atenção",
+     "text": "O redondo maior fica abaixo do redondo menor e NÃO faz parte do manguito."
+    }
+   },
+   {
+    "id": "mmss-tx2_51",
+    "kind": "texto",
+    "front": "Qual a inervação de cada músculo do manguito?",
+    "back": "**Supraespinal e infraespinal:** n. supraescapular. **Redondo menor:** n. axilar. **Subescapular:** nn. subescapulares superior e inferior."
+   },
+   {
+    "id": "mmss-tx2_52",
+    "kind": "texto",
+    "front": "Qual a inervação e a ação do **redondo maior**?",
+    "back": "**N. subescapular inferior (C5–C6).** Adução e rotação medial; inserção no lábio medial do sulco intertubercular."
+   },
+   {
+    "id": "mmss-tx2_53",
+    "kind": "texto",
+    "front": "Qual a ação de cada músculo do SIRS?",
+    "back": "**Supraespinal:** inicia a abdução (15°). **Infraespinal e redondo menor:** rotação lateral. **Subescapular:** rotação medial e adução."
+   },
+   {
+    "id": "mmss-tx2_54",
+    "kind": "texto",
+    "front": "Qual tendão do manguito é o mais lesado?",
+    "back": "O do **supraespinal**, sob o arco coracoacromial: dor ao abduzir, **arco doloroso** e ruptura."
+   },
+   {
+    "id": "mmss-tx2_55",
+    "kind": "texto",
+    "front": "Qual a clínica da lesão do **n. axilar**?",
+    "back": "Perda da abdução e da sensibilidade sobre o deltoide (fratura do colo cirúrgico ou luxação do ombro)."
+   },
+   {
+    "id": "mmss-tx2_56",
+    "kind": "texto",
+    "front": "Quais são as **paredes da axila**?",
+    "back": "**Anterior:** peitorais e subclávio. **Posterior:** subescapular, latíssimo e redondo maior. **Medial:** serrátil anterior e costelas. **Lateral:** sulco intertubercular, coracobraquial e cabeça curta do bíceps."
+   },
+   {
+    "id": "mmss-tx2_57",
+    "kind": "texto",
+    "front": "Qual o conteúdo da axila?",
+    "back": "**A. e v. axilares** (veia anterior e ligeiramente inferior à artéria), **fascículos do plexo braquial**, linfonodos, ramos do plexo e gordura, envolvidos pela **bainha axilar**."
+   },
+   {
+    "id": "mmss-tx2_58",
+    "kind": "texto",
+    "front": "Onde começa e termina a **a. axilar**?",
+    "back": "Começa na **margem lateral da costela I** (continuação da subclávia) e termina na **margem inferior do redondo maior**, onde passa a **a. braquial**."
+   },
+   {
+    "id": "mmss-tx2_59",
+    "kind": "texto",
+    "front": "Quais são os ramos da **1ª parte da a. axilar**?",
+    "back": "**1 ramo:** a. torácica superior (medial ao peitoral menor).",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "1 – 2 – 3: a 1ª parte tem 1 ramo, a 2ª tem 2 e a 3ª tem 3."
+    }
+   },
+   {
+    "id": "mmss-tx2_60",
+    "kind": "texto",
+    "front": "Quais são os ramos da **2ª parte da a. axilar**?",
+    "back": "**2 ramos:** a. toracoacromial e a. torácica lateral (posterior ao peitoral menor)."
+   },
+   {
+    "id": "mmss-tx2_61",
+    "kind": "texto",
+    "front": "Quais são os ramos da **3ª parte da a. axilar**?",
+    "back": "**3 ramos:** a. subescapular (maior), a. circunflexa anterior do úmero e a. circunflexa posterior do úmero (lateral ao peitoral menor)."
+   },
+   {
+    "id": "mmss-tx2_62",
+    "kind": "texto",
+    "front": "O que a **a. circunflexa posterior do úmero** atravessa e com que nervo?",
+    "back": "O **espaço quadrangular**, junto com o **n. axilar**."
+   },
+   {
+    "id": "mmss-tx2_63",
+    "kind": "texto",
+    "front": "Quais são os níveis de organização do **plexo braquial**?",
+    "back": "**5 raízes** (C5–T1) → **3 troncos** (superior C5+C6, médio C7, inferior C8+T1) → **6 divisões** (3 anteriores + 3 posteriores) → **3 fascículos** → ramos terminais."
+   },
+   {
+    "id": "mmss-tx2_64",
+    "kind": "texto",
+    "front": "Como se formam os **fascículos** do plexo?",
+    "back": "**Lateral:** divisões anteriores dos troncos superior e médio. **Medial:** divisão anterior do tronco inferior. **Posterior:** as 3 divisões posteriores."
+   },
+   {
+    "id": "mmss-tx2_65",
+    "kind": "texto",
+    "front": "Quais ramos saem das **raízes**?",
+    "back": "**N. dorsal da escápula (C5)** e **n. torácico longo (C5–C7)**."
+   },
+   {
+    "id": "mmss-tx2_66",
+    "kind": "texto",
+    "front": "Quais ramos saem do **tronco superior**?",
+    "back": "**N. supraescapular (C5–C6)** e **n. do subclávio (C5–C6)**."
+   },
+   {
+    "id": "mmss-tx2_67",
+    "kind": "texto",
+    "front": "Quais ramos saem do **fascículo lateral**?",
+    "back": "**N. peitoral lateral (C5–C7)**, **n. musculocutâneo (C5–C7)** e **raiz lateral do n. mediano (C6–C7)**."
+   },
+   {
+    "id": "mmss-tx2_68",
+    "kind": "texto",
+    "front": "Quais ramos saem do **fascículo medial**?",
+    "back": "**N. peitoral medial**, **cutâneos mediais do braço e do antebraço**, **n. ulnar (C8–T1)** e **raiz medial do n. mediano (C8–T1)**."
+   },
+   {
+    "id": "mmss-tx2_69",
+    "kind": "texto",
+    "front": "Quais ramos saem do **fascículo posterior**?",
+    "back": "**Nn. subescapulares** (C5–C6), **n. toracodorsal** (C6–C8), **n. axilar** (C5–C6) e **n. radial** (C5–T1)."
+   },
+   {
+    "id": "mmss-tx2_70",
+    "kind": "texto",
+    "front": "Como se forma o **n. mediano**?",
+    "back": "União das **raízes lateral (C6–C7)** e **medial (C8–T1)** à frente da a. axilar.",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "A letra M formada pelo musculocutâneo, pelas duas raízes do mediano e pelo ulnar marca os fascículos lateral e medial. Radial e axilar saem do posterior."
+    }
+   },
+   {
+    "id": "mmss-tx2_71",
+    "kind": "texto",
+    "front": "Onde ficam as raízes/troncos e os fascículos do plexo?",
+    "back": "**Raízes e troncos:** região supraclavicular, entre os escalenos anterior e médio. **Fascículos:** na axila, em volta da a. axilar. O **n. radial** é o maior ramo, posterior à artéria."
+   },
+   {
+    "id": "mmss-tx2_72",
+    "kind": "texto",
+    "front": "O que é a **paralisia de Erb-Duchenne**?",
+    "back": "Lesão **superior (C5–C6, tronco superior)** por aumento forçado do ângulo pescoço–ombro (queda de moto, parto). Braço aduzido e em rotação medial, antebraço estendido e pronado (**gorjeta de garçom**); perde abdução, rotação lateral e flexão do cotovelo."
+   },
+   {
+    "id": "mmss-tx2_73",
+    "kind": "texto",
+    "front": "O que é a **paralisia de Klumpke**?",
+    "back": "Lesão **inferior (C8–T1, tronco inferior)** por tração do membro abduzido (agarrar um galho ao cair; parto). **Mão em garra**; perda sensitiva na face medial do braço e do antebraço.",
+    "tip": {
+     "label": "Atenção",
+     "text": "Lesões C5–C6 afetam ombro e flexão do cotovelo; C8–T1 afetam a mão."
+    }
+   }
+  ],
+  "images": [
+   {
+    "id": "mmss-6.29",
+    "file": "mmss-6.29.jpg",
+    "width": 1000,
+    "height": 615,
+    "caption": "Figura 6.29"
+   },
+   {
+    "id": "mmss-6.43",
+    "file": "mmss-6.43.jpg",
+    "width": 1000,
+    "height": 754,
+    "caption": "Figura 6.43"
+   },
+   {
+    "id": "mmss-6.44",
+    "file": "mmss-6.44.jpg",
+    "width": 1000,
+    "height": 749,
+    "caption": "Figura 6.44"
+   },
+   {
+    "id": "mmss-6.48",
+    "file": "mmss-6.48.jpg",
+    "width": 1000,
+    "height": 662,
+    "caption": "Figura 6.48"
+   }
+  ]
+ },
+ {
+  "id": "oficial:mmss-braco-e-antebraco",
+  "slug": "mmss-braco-e-antebraco",
+  "origin": "oficial",
+  "title": "Braço e antebraço",
+  "description": "Compartimentos, nervos musculocutâneo, mediano, ulnar e radial, fossa cubital e artérias.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Membros superiores",
+  "color": "#D6336C",
+  "sourceNote": "Escrito a partir do Moore, Anatomia Orientada para a Clínica, capítulo 6 (membro superior). Figuras numeradas como no livro, reproduzidas só para estudo da turma.",
+  "cards": [
+   {
+    "id": "mmss-io6.49_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.49",
+    "box": [
+     13.86,
+     27.35,
+     7.78,
+     4.14
+    ],
+    "answer": "M. coracobraquial"
+   },
+   {
+    "id": "mmss-io6.49_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.49",
+    "box": [
+     76.48,
+     24.81,
+     8.68,
+     2.16
+    ],
+    "answer": "M. braquial"
+   },
+   {
+    "id": "mmss-io6.49_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.49",
+    "box": [
+     59.93,
+     70.77,
+     10.82,
+     2.16
+    ],
+    "answer": "Cabeça medial do M. tríceps braquial"
+   },
+   {
+    "id": "mmss-io6.49_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.49",
+    "box": [
+     73.26,
+     59.4,
+     8.94,
+     1.88
+    ],
+    "answer": "M. ancôneo"
+   },
+   {
+    "id": "mmss-io6.52_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     44.31,
+     39.48,
+     8.74,
+     2.71
+    ],
+    "answer": "N. mediano"
+   },
+   {
+    "id": "mmss-io6.52_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     48.37,
+     16.55,
+     14.56,
+     2.58
+    ],
+    "answer": "N. musculocutâneo"
+   },
+   {
+    "id": "mmss-io6.52_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     54.72,
+     29.85,
+     6.44,
+     2.71
+    ],
+    "answer": "N. radial"
+   },
+   {
+    "id": "mmss-io6.52_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     87.47,
+     24.29,
+     6.71,
+     3.12
+    ],
+    "answer": "A. e Vv. braquiais"
+   },
+   {
+    "id": "mmss-io6.52_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     87.47,
+     36.36,
+     5.83,
+     2.71
+    ],
+    "answer": "N. ulnar"
+   },
+   {
+    "id": "mmss-io6.52_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     36.63,
+     21.44,
+     13.77,
+     3.12
+    ],
+    "answer": "M. bíceps braquial"
+   },
+   {
+    "id": "mmss-io6.52_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     0.26,
+     45.59,
+     13.77,
+     5.83
+    ],
+    "answer": "Tendão do M. bíceps braquial"
+   },
+   {
+    "id": "mmss-io6.52_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     36.89,
+     66.62,
+     19.59,
+     5.97
+    ],
+    "answer": "Aponeurose do M. bíceps braquial"
+   },
+   {
+    "id": "mmss-io6.52_8",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     0.26,
+     71.23,
+     7.59,
+     2.58
+    ],
+    "answer": "V. cefálica"
+   },
+   {
+    "id": "mmss-io6.52_9",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     38.22,
+     43.96,
+     9.36,
+     5.16
+    ],
+    "answer": "M. pronador redondo"
+   },
+   {
+    "id": "mmss-io6.52_10",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     41.31,
+     52.37,
+     12.8,
+     3.26
+    ],
+    "answer": "M. braquiorradial"
+   },
+   {
+    "id": "mmss-io6.52_11",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     36.1,
+     57.12,
+     20.12,
+     3.53
+    ],
+    "answer": "Ramo profundo do N. radial"
+   },
+   {
+    "id": "mmss-io6.52_12",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     44.92,
+     72.59,
+     11.92,
+     5.29
+    ],
+    "answer": "Ramo superficial do N. radial"
+   },
+   {
+    "id": "mmss-io6.52_13",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     87.29,
+     75.03,
+     12.71,
+     3.8
+    ],
+    "answer": "M. supinador"
+   },
+   {
+    "id": "mmss-io6.52_14",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     51.46,
+     80.6,
+     6.09,
+     2.71
+    ],
+    "answer": "A. radial"
+   },
+   {
+    "id": "mmss-io6.52_15",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     87.29,
+     62.01,
+     5.83,
+     3.26
+    ],
+    "answer": "A. ulnar"
+   },
+   {
+    "id": "mmss-io6.52_16",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     87.47,
+     81.0,
+     10.59,
+     6.11
+    ],
+    "answer": "M. flexor radial do carpo"
+   },
+   {
+    "id": "mmss-io6.52_17",
+    "kind": "oclusao",
+    "imageId": "mmss-6.52",
+    "box": [
+     0.26,
+     38.13,
+     12.44,
+     5.97
+    ],
+    "answer": "N. cutâneo lateral do antebraço"
+   },
+   {
+    "id": "mmss-io6.59_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.59",
+    "box": [
+     0.35,
+     1.33,
+     14.59,
+     3.06
+    ],
+    "answer": "M. pronador redondo"
+   },
+   {
+    "id": "mmss-io6.59_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.59",
+    "box": [
+     0.26,
+     6.38,
+     22.79,
+     3.06
+    ],
+    "answer": "Origem comum dos Mm. flexores"
+   },
+   {
+    "id": "mmss-io6.59_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.59",
+    "box": [
+     0.26,
+     11.3,
+     18.95,
+     5.72
+    ],
+    "answer": "M. flexor superficial dos dedos (cabeça umeroulnar)"
+   },
+   {
+    "id": "mmss-io6.59_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.59",
+    "box": [
+     0.35,
+     38.16,
+     20.0,
+     3.06
+    ],
+    "answer": "M. flexor profundo dos dedos"
+   },
+   {
+    "id": "mmss-io6.59_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.59",
+    "box": [
+     0.35,
+     44.28,
+     17.99,
+     3.19
+    ],
+    "answer": "M. flexor longo do polegar"
+   },
+   {
+    "id": "mmss-io6.59_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.59",
+    "box": [
+     0.35,
+     50.0,
+     15.46,
+     3.06
+    ],
+    "answer": "M. pronador quadrado"
+   },
+   {
+    "id": "mmss-io6.59_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.59",
+    "box": [
+     0.35,
+     55.05,
+     16.33,
+     3.19
+    ],
+    "answer": "M. flexor ulnar do carpo"
+   },
+   {
+    "id": "mmss-io6.59_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.59",
+    "box": [
+     0.35,
+     59.97,
+     14.5,
+     2.66
+    ],
+    "answer": "M. flexor radial do carpo"
+   },
+   {
+    "id": "mmss-io6.59_8",
+    "kind": "oclusao",
+    "imageId": "mmss-6.59",
+    "box": [
+     47.16,
+     19.95,
+     11.35,
+     3.19
+    ],
+    "answer": "M. palmar longo"
+   },
+   {
+    "id": "mmss-io6.61_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     4.34,
+     11.15,
+     8.77,
+     1.37
+    ],
+    "answer": "M. ancôneo"
+   },
+   {
+    "id": "mmss-io6.61_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     41.27,
+     9.42,
+     16.25,
+     3.6
+    ],
+    "answer": "Tendão comum dos Mm. extensores"
+   },
+   {
+    "id": "mmss-io6.61_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     33.52,
+     12.45,
+     16.25,
+     3.45
+    ],
+    "answer": "M. extensor radial longo do carpo"
+   },
+   {
+    "id": "mmss-io6.61_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     34.07,
+     20.29,
+     17.27,
+     3.17
+    ],
+    "answer": "M. extensor radial curto do carpo"
+   },
+   {
+    "id": "mmss-io6.61_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     0.18,
+     26.04,
+     9.05,
+     3.09
+    ],
+    "answer": "M. extensor dos dedos"
+   },
+   {
+    "id": "mmss-io6.61_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     0.37,
+     30.0,
+     11.08,
+     2.88
+    ],
+    "answer": "M. extensor do dedo mínimo"
+   },
+   {
+    "id": "mmss-io6.61_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     0.37,
+     36.04,
+     12.93,
+     3.17
+    ],
+    "answer": "M. extensor ulnar do carpo"
+   },
+   {
+    "id": "mmss-io6.61_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     33.89,
+     34.17,
+     12.93,
+     3.45
+    ],
+    "answer": "M. abdutor longo do polegar (ALP)"
+   },
+   {
+    "id": "mmss-io6.61_8",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     32.23,
+     39.78,
+     14.22,
+     3.45
+    ],
+    "answer": "M. extensor curto do polegar (ECP)"
+   },
+   {
+    "id": "mmss-io6.61_9",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     33.89,
+     43.24,
+     12.37,
+     4.6
+    ],
+    "answer": "M. extensor longo do polegar (ELP)"
+   },
+   {
+    "id": "mmss-io6.61_10",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     0.37,
+     48.13,
+     11.91,
+     2.95
+    ],
+    "answer": "Retináculo dos Mm. extensores"
+   },
+   {
+    "id": "mmss-io6.61_11",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     43.03,
+     53.96,
+     15.97,
+     3.17
+    ],
+    "answer": "A. radial na tabaqueira anatômica"
+   },
+   {
+    "id": "mmss-io6.61_12",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     65.37,
+     91.29,
+     9.97,
+     3.17
+    ],
+    "answer": "N. interósseo posterior"
+   },
+   {
+    "id": "mmss-io6.61_13",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     83.75,
+     13.88,
+     12.56,
+     2.16
+    ],
+    "answer": "M. braquiorradial"
+   },
+   {
+    "id": "mmss-io6.61_14",
+    "kind": "oclusao",
+    "imageId": "mmss-6.61",
+    "box": [
+     83.75,
+     15.76,
+     11.82,
+     2.16
+    ],
+    "answer": "M. supinador"
+   },
+   {
+    "id": "mmss-io6.69_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.69",
+    "box": [
+     22.57,
+     3.03,
+     8.79,
+     3.37
+    ],
+    "answer": "N. mediano"
+   },
+   {
+    "id": "mmss-io6.69_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.69",
+    "box": [
+     33.27,
+     3.03,
+     5.62,
+     3.37
+    ],
+    "answer": "N. ulnar"
+   },
+   {
+    "id": "mmss-io6.69_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.69",
+    "box": [
+     51.95,
+     7.24,
+     6.62,
+     3.2
+    ],
+    "answer": "N. radial"
+   },
+   {
+    "id": "mmss-io6.69_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.69",
+    "box": [
+     0.09,
+     20.03,
+     9.25,
+     8.75
+    ],
+    "answer": "N. interósseo anterior do antebraço"
+   },
+   {
+    "id": "mmss-io6.69_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.69",
+    "box": [
+     54.22,
+     14.98,
+     11.88,
+     6.4
+    ],
+    "answer": "Ramo profundo do N. radial"
+   },
+   {
+    "id": "mmss-io6.69_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.69",
+    "box": [
+     54.22,
+     22.73,
+     10.7,
+     7.74
+    ],
+    "answer": "N. interósseo posterior do antebraço"
+   },
+   {
+    "id": "mmss-io6.69_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.69",
+    "box": [
+     75.7,
+     47.98,
+     11.06,
+     8.75
+    ],
+    "answer": "Ramo cutâneo palmar do N. mediano"
+   },
+   {
+    "id": "mmss-io6.69_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.69",
+    "box": [
+     75.7,
+     82.32,
+     11.06,
+     7.41
+    ],
+    "answer": "Ramo cutâneo palmar do N. ulnar"
+   },
+   {
+    "id": "mmss-io6.69_8",
+    "kind": "oclusao",
+    "imageId": "mmss-6.69",
+    "box": [
+     75.61,
+     57.58,
+     4.62,
+     6.4
+    ],
+    "answer": "Ramo superficial do N. radial"
+   },
+   {
+    "id": "mmss-tx3_74",
+    "kind": "texto",
+    "front": "Qual nervo inerva o compartimento **anterior** e o **posterior** do braço?",
+    "back": "**Anterior (flexor):** n. musculocutâneo. **Posterior (extensor):** n. radial."
+   },
+   {
+    "id": "mmss-tx3_75",
+    "kind": "texto",
+    "front": "Quais músculos o **n. musculocutâneo** inerva e como é seu trajeto no braço?",
+    "back": "**Coracobraquial, bíceps e braquial.** Perfura o coracobraquial, desce entre bíceps e braquial e continua como **n. cutâneo lateral do antebraço**.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "O coracobraquial é o ponto para localizar o n. musculocutâneo (ele o perfura)."
+    }
+   },
+   {
+    "id": "mmss-tx3_76",
+    "kind": "texto",
+    "front": "Qual a ação do **bíceps braquial** e sua inervação?",
+    "back": "**Supinador primário** (com o cotovelo fletido); flete o antebraço. **N. musculocutâneo (C5–C6).** Inserção: tuberosidade do rádio e aponeurose do bíceps."
+   },
+   {
+    "id": "mmss-tx3_77",
+    "kind": "texto",
+    "front": "Qual é o **principal flexor do antebraço**?",
+    "back": "O **braquial** (n. musculocutâneo C5–C6; pequena parte pelo radial)."
+   },
+   {
+    "id": "mmss-tx3_78",
+    "kind": "texto",
+    "front": "Qual nervo inerva o **tríceps** e o **ancôneo**?",
+    "back": "O **n. radial.**",
+    "tip": {
+     "label": "Como identificar",
+     "text": "O n. radial passa entre as cabeças lateral e medial do tríceps, no sulco radial, com a a. braquial profunda."
+    }
+   },
+   {
+    "id": "mmss-tx3_79",
+    "kind": "texto",
+    "front": "Qual a origem das cabeças do **tríceps**?",
+    "back": "**Longa:** tubérculo infraglenoidal. **Lateral e medial:** face posterior do úmero, acima e abaixo do sulco radial. Inserção no **olécrano**."
+   },
+   {
+    "id": "mmss-tx3_80",
+    "kind": "texto",
+    "front": "Qual o trajeto do **n. mediano** no braço?",
+    "back": "Acompanha a a. braquial (primeiro lateral, depois medial). **Sem ramos no braço.** Passa ao antebraço pela fossa cubital."
+   },
+   {
+    "id": "mmss-tx3_81",
+    "kind": "texto",
+    "front": "Qual o trajeto do **n. ulnar** no braço?",
+    "back": "Medial; no terço distal perfura o septo intermuscular medial e passa **atrás do epicôndilo medial**. **Sem ramos no braço.**",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Vulnerável a golpe e fratura: choque (“osso engraçado”)."
+    }
+   },
+   {
+    "id": "mmss-tx3_82",
+    "kind": "texto",
+    "front": "Qual o trajeto do **n. radial** no braço?",
+    "back": "Posterior, no **sulco radial**; perfura o septo lateral no terço distal e entra no antebraço **entre o braquial e o braquiorradial**."
+   },
+   {
+    "id": "mmss-tx3_83",
+    "kind": "texto",
+    "front": "O que causa a **lesão do n. radial no sulco**?",
+    "back": "Fratura do meio do úmero: perda da extensão do punho e dos dedos (**mão caída**), com o **tríceps preservado**, pois seus ramos saem antes do sulco."
+   },
+   {
+    "id": "mmss-tx3_84",
+    "kind": "texto",
+    "front": "Como a **a. braquial** começa, desce e termina?",
+    "back": "Começa na margem inferior do **redondo maior**, desce na face medial do braço, anterior ao braquial, e se divide em **a. radial e a. ulnar** na fossa cubital (~ nível do colo do rádio)."
+   },
+   {
+    "id": "mmss-tx3_85",
+    "kind": "texto",
+    "front": "Qual é o maior ramo da a. braquial?",
+    "back": "A **a. braquial profunda**: acompanha o n. radial no sulco radial e supre o compartimento posterior."
+   },
+   {
+    "id": "mmss-tx3_86",
+    "kind": "texto",
+    "front": "Para que serve a **anastomose do cotovelo**?",
+    "back": "Colaterais (da braquial e da braquial profunda) unem-se às **recorrentes** (radial, ulnares e interóssea recorrente): garante circulação colateral se a braquial for ligada abaixo da braquial profunda."
+   },
+   {
+    "id": "mmss-tx3_87",
+    "kind": "texto",
+    "front": "Onde se palpa o **pulso braquial** e onde se coloca o estetoscópio?",
+    "back": "Palpa-se no sulco **medial ao bíceps**. Ausculta: na fossa cubital, **medial ao tendão do bíceps**."
+   },
+   {
+    "id": "mmss-tx3_88",
+    "kind": "texto",
+    "front": "Quais são os **limites da fossa cubital**?",
+    "back": "**Base:** linha entre os epicôndilos. **Lateral:** braquiorradial. **Medial:** pronador redondo. **Assoalho:** braquial e supinador. **Teto:** fáscia, aponeurose do bíceps e pele."
+   },
+   {
+    "id": "mmss-tx3_89",
+    "kind": "texto",
+    "front": "Qual é o conteúdo da fossa cubital, de lateral para medial?",
+    "back": "**Tendão do bíceps, a. braquial (bifurcação) e n. mediano.**",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "T-A-N. O n. radial fica mais lateral e profundo, sob o braquiorradial."
+    }
+   },
+   {
+    "id": "mmss-tx3_90",
+    "kind": "texto",
+    "front": "Qual a regra de inervação do **compartimento anterior do antebraço**?",
+    "back": "**Todo o resto = n. mediano.** Só **FUC + metade medial do FPD (1½ músculo)** = **n. ulnar**.",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "No punho, de lateral para medial: FRC → palmar longo → FSD → FUC."
+    }
+   },
+   {
+    "id": "mmss-tx3_91",
+    "kind": "texto",
+    "front": "Qual é a origem comum dos flexores superficiais e intermediário?",
+    "back": "O **epicôndilo medial** (tendão flexor comum)."
+   },
+   {
+    "id": "mmss-tx3_92",
+    "kind": "texto",
+    "front": "Qual nervo inerva **FLP, pronador quadrado e metade lateral do FPD**?",
+    "back": "O **n. interósseo anterior** (ramo do mediano)."
+   },
+   {
+    "id": "mmss-tx3_93",
+    "kind": "texto",
+    "front": "Onde o **n. mediano** entra no antebraço e por onde desce?",
+    "back": "Entra **entre as duas cabeças do pronador redondo**; desce **aderido à face profunda do FSD**; atravessa o **túnel do carpo**."
+   },
+   {
+    "id": "mmss-tx3_94",
+    "kind": "texto",
+    "front": "Quais são os ramos do **n. mediano** no antebraço?",
+    "back": "**N. interósseo anterior** (FLP, metade lateral do FPD, pronador quadrado) e **ramo cutâneo palmar** (superficial ao retináculo)."
+   },
+   {
+    "id": "mmss-tx3_95",
+    "kind": "texto",
+    "front": "Onde o **n. ulnar** entra no antebraço e por onde passa no punho?",
+    "back": "Entra **entre as cabeças do FUC (túnel cubital)**; desce entre FUC e FPD com a **a. ulnar**; passa **superficial ao retináculo**, no **canal ulnar (de Guyon)**."
+   },
+   {
+    "id": "mmss-tx3_96",
+    "kind": "texto",
+    "front": "Quais são os ramos do **n. ulnar** no antebraço?",
+    "back": "Ramos para **FUC e metade medial do FPD**, **ramo cutâneo palmar** e **ramo dorsal** (dorso medial da mão)."
+   },
+   {
+    "id": "mmss-tx3_97",
+    "kind": "texto",
+    "front": "Como o **n. radial** se divide na fossa cubital?",
+    "back": "**Ramo superficial** (sensitivo, sob o braquiorradial, vai ao dorso da mão) e **ramo profundo** (motor; perfura o supinador e continua como **n. interósseo posterior**)."
+   },
+   {
+    "id": "mmss-tx3_98",
+    "kind": "texto",
+    "front": "Qual nervo inerva o compartimento **posterior do antebraço**?",
+    "back": "O **n. radial** e seu ramo profundo, o **n. interósseo posterior**."
+   },
+   {
+    "id": "mmss-tx3_99",
+    "kind": "texto",
+    "front": "Qual é o único músculo do compartimento posterior que **flete**?",
+    "back": "O **braquiorradial** (cotovelo, posição neutra); forma o relevo lateral do antebraço. Inervação: radial."
+   },
+   {
+    "id": "mmss-tx3_100",
+    "kind": "texto",
+    "front": "O que é a **arcada de Frohse**?",
+    "back": "Ponto onde o **ramo profundo do n. radial perfura o supinador**."
+   },
+   {
+    "id": "mmss-tx3_101",
+    "kind": "texto",
+    "front": "Quais músculos o **ramo profundo do n. radial** inerva?",
+    "back": "**Supinador** e os músculos profundos do compartimento posterior (via n. interósseo posterior); o ERCC pelo ramo profundo."
+   },
+   {
+    "id": "mmss-tx3_102",
+    "kind": "texto",
+    "front": "Quais são os **6 compartimentos de extensores** do punho (lateral → medial)?",
+    "back": "**1º** ALP e ECP; **2º** ERLC e ERCC; **3º** ELP; **4º** extensor dos dedos e do indicador; **5º** extensor do dedo mínimo; **6º** EUC."
+   },
+   {
+    "id": "mmss-tx3_103",
+    "kind": "texto",
+    "front": "Quais são os limites da **tabaqueira anatômica**?",
+    "back": "**Anterior:** tendões do **ALP e ECP**. **Posterior:** tendão do **ELP**. **Assoalho:** **escafoide e trapézio**.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Depressão triangular no lado lateral do punho, vista ao estender o polegar."
+    }
+   },
+   {
+    "id": "mmss-tx3_104",
+    "kind": "texto",
+    "front": "Qual é o conteúdo da tabaqueira anatômica?",
+    "back": "**A. radial**, **ramo superficial do n. radial** e **v. cefálica**.",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Dor no fundo da tabaqueira sugere fratura do escafoide."
+    }
+   },
+   {
+    "id": "mmss-tx3_105",
+    "kind": "texto",
+    "front": "Qual é o trajeto da **a. radial**?",
+    "back": "Lateral, sob o braquiorradial; no punho, **lateral ao tendão do FRC (pulso radial)**; atravessa a tabaqueira e forma o **arco palmar profundo**."
+   },
+   {
+    "id": "mmss-tx3_106",
+    "kind": "texto",
+    "front": "Qual é o trajeto da **a. ulnar**?",
+    "back": "A **maior** das duas; medial, sob os flexores superficiais; dá a **a. interóssea comum** (anterior e posterior); passa ao lado do pisiforme e forma o **arco palmar superficial**."
+   },
+   {
+    "id": "mmss-tx3_107",
+    "kind": "texto",
+    "front": "O que é a **epicondilite**?",
+    "back": "Dor na origem comum dos **extensores** (**cotovelo de tenista**, epicôndilo lateral) ou dos **flexores** (**cotovelo de golfista**, epicôndilo medial)."
+   }
+  ],
+  "images": [
+   {
+    "id": "mmss-6.49",
+    "file": "mmss-6.49.jpg",
+    "width": 1000,
+    "height": 952,
+    "caption": "Figura 6.49"
+   },
+   {
+    "id": "mmss-6.52",
+    "file": "mmss-6.52.jpg",
+    "width": 1000,
+    "height": 650,
+    "caption": "Figura 6.52"
+   },
+   {
+    "id": "mmss-6.59",
+    "file": "mmss-6.59.jpg",
+    "width": 1000,
+    "height": 657,
+    "caption": "Figura 6.59"
+   },
+   {
+    "id": "mmss-6.61",
+    "file": "mmss-6.61.jpg",
+    "width": 1000,
+    "height": 1283,
+    "caption": "Figura 6.61"
+   },
+   {
+    "id": "mmss-6.69",
+    "file": "mmss-6.69.jpg",
+    "width": 1000,
+    "height": 539,
+    "caption": "Figura 6.69"
+   }
+  ]
+ },
+ {
+  "id": "oficial:mmss-mao",
+  "slug": "mmss-mao",
+  "origin": "oficial",
+  "title": "Mão",
+  "description": "Músculos tenares/hipotenares, túnel do carpo, arcos palmares e lesões na mão.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Membros superiores",
+  "color": "#E8890C",
+  "sourceNote": "Escrito a partir do Moore, Anatomia Orientada para a Clínica, capítulo 6 (membro superior). Figuras numeradas como no livro, reproduzidas só para estudo da turma.",
+  "cards": [
+   {
+    "id": "mmss-io6.78_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.78",
+    "box": [
+     37.4,
+     36.18,
+     14.7,
+     4.88
+    ],
+    "answer": "M. adutor do polegar (cabeça oblíqua)"
+   },
+   {
+    "id": "mmss-io6.78_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.78",
+    "box": [
+     8.19,
+     23.75,
+     9.21,
+     3.0
+    ],
+    "answer": "M. oponente do dedo mínimo"
+   },
+   {
+    "id": "mmss-io6.78_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.78",
+    "box": [
+     0.28,
+     33.96,
+     19.16,
+     4.88
+    ],
+    "answer": "M. abdutor do dedo mínimo e M. flexor ulnar do carpo"
+   },
+   {
+    "id": "mmss-io6.78_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.78",
+    "box": [
+     14.6,
+     93.9,
+     16.74,
+     2.22
+    ],
+    "answer": "Mm. lumbricais (1–4)"
+   },
+   {
+    "id": "mmss-io6.78_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.78",
+    "box": [
+     45.77,
+     93.67,
+     18.05,
+     6.33
+    ],
+    "answer": "Mm. interósseos dorsais (1–4)"
+   },
+   {
+    "id": "mmss-io6.78_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.78",
+    "box": [
+     73.86,
+     93.9,
+     22.51,
+     2.33
+    ],
+    "answer": "Mm. interósseos palmares (1–3)"
+   },
+   {
+    "id": "mmss-io6.82_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.82",
+    "box": [
+     0.26,
+     10.4,
+     8.2,
+     7.51
+    ],
+    "answer": "A. radial do indicador"
+   },
+   {
+    "id": "mmss-io6.82_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.82",
+    "box": [
+     31.91,
+     19.85,
+     7.93,
+     4.62
+    ],
+    "answer": "Aa. digitais palmares comuns"
+   },
+   {
+    "id": "mmss-io6.82_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.82",
+    "box": [
+     28.42,
+     30.25,
+     15.78,
+     4.62
+    ],
+    "answer": "Arco palmar superficial"
+   },
+   {
+    "id": "mmss-io6.82_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.82",
+    "box": [
+     31.12,
+     37.19,
+     11.33,
+     8.29
+    ],
+    "answer": "Aa. metacarpais palmares"
+   },
+   {
+    "id": "mmss-io6.82_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.82",
+    "box": [
+     0.87,
+     40.66,
+     7.93,
+     8.29
+    ],
+    "answer": "A. principal do polegar"
+   },
+   {
+    "id": "mmss-io6.82_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.82",
+    "box": [
+     28.68,
+     47.01,
+     15.0,
+     4.62
+    ],
+    "answer": "Arco palmar profundo"
+   },
+   {
+    "id": "mmss-io6.82_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.82",
+    "box": [
+     12.73,
+     70.91,
+     5.75,
+     3.85
+    ],
+    "answer": "A. ulnar"
+   },
+   {
+    "id": "mmss-io6.82_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.82",
+    "box": [
+     12.99,
+     79.77,
+     6.02,
+     3.66
+    ],
+    "answer": "A. radial"
+   },
+   {
+    "id": "mmss-io6.85_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.85",
+    "box": [
+     67.69,
+     23.51,
+     13.48,
+     1.77
+    ],
+    "answer": "Ramo recorrente (do N. mediano)"
+   },
+   {
+    "id": "mmss-io6.85_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.85",
+    "box": [
+     67.69,
+     30.5,
+     17.44,
+     2.24
+    ],
+    "answer": "Ramo cutâneo palmar (do N. mediano)"
+   },
+   {
+    "id": "mmss-io6.85_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.85",
+    "box": [
+     67.49,
+     40.49,
+     9.32,
+     1.77
+    ],
+    "answer": "N. mediano"
+   },
+   {
+    "id": "mmss-io6.85_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.85",
+    "box": [
+     9.32,
+     26.68,
+     12.39,
+     2.15
+    ],
+    "answer": "Ramo profundo (do N. ulnar)"
+   },
+   {
+    "id": "mmss-io6.85_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.85",
+    "box": [
+     9.32,
+     32.37,
+     13.28,
+     2.24
+    ],
+    "answer": "Ramo superficial (do N. ulnar)"
+   },
+   {
+    "id": "mmss-io6.85_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.85",
+    "box": [
+     9.32,
+     36.01,
+     11.69,
+     5.97
+    ],
+    "answer": "Ramo cutâneo palmar (do N. ulnar)"
+   },
+   {
+    "id": "mmss-io6.85_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.85",
+    "box": [
+     75.02,
+     87.41,
+     10.51,
+     2.52
+    ],
+    "answer": "Ramo dorsal (do N. ulnar)"
+   },
+   {
+    "id": "mmss-io6.85_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.85",
+    "box": [
+     13.38,
+     87.78,
+     15.66,
+     3.82
+    ],
+    "answer": "Ramo superficial do N. radial"
+   },
+   {
+    "id": "mmss-tx4_108",
+    "kind": "texto",
+    "front": "Quais são os **5 compartimentos fasciais** da mão?",
+    "back": "**Tenar, adutor, hipotenar (ulnar), central** (tendões flexores e lumbricais) e **interósseo**."
+   },
+   {
+    "id": "mmss-tx4_109",
+    "kind": "texto",
+    "front": "O que é a **contratura de Dupuytren**?",
+    "back": "Retração da **aponeurose palmar**, geralmente dos dedos **4 e 5**, que ficam fletidos e não estendem."
+   },
+   {
+    "id": "mmss-tx4_110",
+    "kind": "texto",
+    "front": "O que passa pelo **túnel do carpo**?",
+    "back": "**9 tendões** (4 do FSD, 4 do FPD e 1 do FLP) e o **n. mediano**."
+   },
+   {
+    "id": "mmss-tx4_111",
+    "kind": "texto",
+    "front": "Onde se fixa o **retináculo dos flexores**?",
+    "back": "**Medial:** pisiforme e hâmulo do hamato. **Lateral:** tubérculo do escafoide e do trapézio."
+   },
+   {
+    "id": "mmss-tx4_112",
+    "kind": "texto",
+    "front": "Como são as bainhas sinoviais dos flexores?",
+    "back": "**Bainha comum** envolve FSD e FPD; o **FLP** tem bainha própria. As do polegar e do dedo mínimo costumam comunicar-se com a comum.",
+    "tip": {
+     "label": "Atenção",
+     "text": "Tenossinovite nesses dedos pode se espalhar para a palma e o antebraço."
+    }
+   },
+   {
+    "id": "mmss-tx4_113",
+    "kind": "texto",
+    "front": "Qual a clínica da **síndrome do túnel do carpo**?",
+    "back": "Compressão do **n. mediano**: dor e parestesia nos **3½ dedos laterais**, fraqueza e atrofia tenar. A **pele da eminência tenar é poupada**, pois o ramo cutâneo palmar passa superficial ao retináculo."
+   },
+   {
+    "id": "mmss-tx4_114",
+    "kind": "texto",
+    "front": "Qual nervo inerva cada músculo **tenar**?",
+    "back": "**Abdutor curto, oponente e flexor curto (cabeça superficial):** ramo recorrente do **mediano**. Flexor curto (cabeça profunda) e **adutor do polegar:** **ramo profundo do ulnar**."
+   },
+   {
+    "id": "mmss-tx4_115",
+    "kind": "texto",
+    "front": "Qual nervo inerva os músculos **hipotenares**?",
+    "back": "**Ramo profundo do ulnar** (abdutor, flexor curto e oponente do dedo mínimo). O **palmar curto** é pelo ramo superficial do ulnar."
+   },
+   {
+    "id": "mmss-tx4_116",
+    "kind": "texto",
+    "front": "Quais músculos da mão o **mediano** inerva?",
+    "back": "**LOAF:** **L**umbricais 1 e 2, **O**ponente do polegar, **A**bdutor curto do polegar e **F**lexor curto do polegar (cabeça superficial). Todos os demais intrínsecos: **ulnar**.",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "LOAF — inervados pelo mediano."
+    }
+   },
+   {
+    "id": "mmss-tx4_117",
+    "kind": "texto",
+    "front": "Como os **lumbricais** são inervados?",
+    "back": "**1º e 2º:** mediano. **3º e 4º:** ramo profundo do ulnar. Origem nos tendões do FPD."
+   },
+   {
+    "id": "mmss-tx4_118",
+    "kind": "texto",
+    "front": "Qual a ação de lumbricais e interósseos juntos?",
+    "back": "Fletem as **MCF** e estendem as **IF** dos quatro dedos mediais (**movimento em Z**)."
+   },
+   {
+    "id": "mmss-tx4_119",
+    "kind": "texto",
+    "front": "O que fazem os **interósseos dorsais** e **palmares**?",
+    "back": "**Dorsais abduzem; palmares aduzem** (em direção ao dedo médio, o eixo da mão). Ambos: **ramo profundo do ulnar (C8–T1)**.",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "DAB / PAD."
+    }
+   },
+   {
+    "id": "mmss-tx4_120",
+    "kind": "texto",
+    "front": "Que músculos fazem a **abdução** e a **adução** do polegar?",
+    "back": "**Abdução:** abdutor longo e abdutor curto. **Adução:** adutor do polegar (n. ulnar)."
+   },
+   {
+    "id": "mmss-tx4_121",
+    "kind": "texto",
+    "front": "Que músculo faz a **oposição** do polegar?",
+    "back": "O **oponente do polegar** (n. mediano), com os tenares."
+   },
+   {
+    "id": "mmss-tx4_122",
+    "kind": "texto",
+    "front": "Qual é o tipo da articulação **carpometacarpal do polegar**?",
+    "back": "**Selar:** flexão, extensão, abdução, adução e oposição (e reposição)."
+   },
+   {
+    "id": "mmss-tx4_123",
+    "kind": "texto",
+    "front": "De onde vêm os **arcos palmares** e onde ficam?",
+    "back": "**Superficial:** principalmente da **a. ulnar**, superficial aos tendões. **Profundo:** principalmente da **a. radial**, profundo aos flexores, ~1 cm mais proximal."
+   },
+   {
+    "id": "mmss-tx4_124",
+    "kind": "texto",
+    "front": "O que sai de cada **arco palmar**?",
+    "back": "**Superficial:** aa. digitais palmares comuns → próprias. **Profundo:** aa. metacarpais palmares; a. principal do polegar e radial do indicador também vêm da radial."
+   },
+   {
+    "id": "mmss-tx4_125",
+    "kind": "texto",
+    "front": "Como se faz o **teste de Allen**?",
+    "back": "Comprimir radial e ulnar com a mão fechada, abrir a mão (branca) e soltar uma artéria: a palma deve corar. Verifica a integridade dos arcos."
+   },
+   {
+    "id": "mmss-tx4_126",
+    "kind": "texto",
+    "front": "Qual veia da mão é usada para **líquidos intravenosos**?",
+    "back": "A **rede venosa dorsal da mão**."
+   },
+   {
+    "id": "mmss-tx4_127",
+    "kind": "texto",
+    "front": "Qual a **inervação motora e sensitiva do mediano** na mão?",
+    "back": "**Motor:** ramo recorrente (abdutor curto, flexor curto parte, oponente) e lumbricais 1–2. **Sensitivo:** palma lateral e face palmar dos **3½ dedos laterais**.",
+    "tip": {
+     "label": "Atenção",
+     "text": "Responsável pela sensibilidade de polegar, indicador e médio (destreza)."
+    }
+   },
+   {
+    "id": "mmss-tx4_128",
+    "kind": "texto",
+    "front": "Qual a **inervação motora e sensitiva do ulnar** na mão?",
+    "back": "**Motor:** ramo profundo (hipotenares, adutor do polegar, interósseos, lumbricais 3–4) e ramo superficial (palmar curto). **Sensitivo:** **5º dedo e ½ medial do 4º**; palma medial."
+   },
+   {
+    "id": "mmss-tx4_129",
+    "kind": "texto",
+    "front": "O **n. radial** tem função motora na mão?",
+    "back": "**Não.** Só sensitivo: ramo superficial para o **dorso lateral** da mão e 2½–3½ dedos (falange proximal)."
+   },
+   {
+    "id": "mmss-tx4_130",
+    "kind": "texto",
+    "front": "O que é a **mão de macaco**?",
+    "back": "Lesão do **mediano no punho/túnel do carpo**: perda da oposição e abdução do polegar, atrofia tenar; polegar aduzido no plano da palma; parestesias noturnas."
+   },
+   {
+    "id": "mmss-tx4_131",
+    "kind": "texto",
+    "front": "O que é a **mão de bênção**?",
+    "back": "Lesão **alta do mediano** (cotovelo/antebraço): perde também a flexão do indicador e médio e a pronação. Ao fechar o punho, **indicador e médio ficam estendidos**."
+   },
+   {
+    "id": "mmss-tx4_132",
+    "kind": "texto",
+    "front": "O que é a **mão em garra**?",
+    "back": "Lesão do **ulnar**: paralisia dos interósseos, lumbricais 3–4, hipotenares e adutor do polegar. **4º e 5º dedos hiperestendidos nas MCF e fletidos nas IF.**"
+   },
+   {
+    "id": "mmss-tx4_133",
+    "kind": "texto",
+    "front": "O que é o **sinal de Froment**?",
+    "back": "Ao segurar papel entre polegar e indicador, o polegar **flete a falange distal** (o FLP compensa o **adutor do polegar** paralisado): lesão do **ulnar**."
+   },
+   {
+    "id": "mmss-tx4_134",
+    "kind": "texto",
+    "front": "O que é a **mão caída**?",
+    "back": "Lesão do **radial** (sulco ou axila): perda da extensão do punho e dos dedos."
+   },
+   {
+    "id": "mmss-tx4_135",
+    "kind": "texto",
+    "front": "O que é o **paradoxo da garra ulnar**?",
+    "back": "Na literatura, a lesão **alta** do ulnar (cotovelo) paralisa também o FPD medial e **reduz** a garra; a lesão **baixa** (punho) dá a garra **mais evidente**."
+   },
+   {
+    "id": "mmss-tx4_136",
+    "kind": "texto",
+    "front": "Como se testam os **interósseos**?",
+    "back": "**Palmares:** segurar papel entre os dedos aduzidos. **Dorsais:** abduzir contra resistência. Ambos dependem do **n. ulnar**."
+   }
+  ],
+  "images": [
+   {
+    "id": "mmss-6.78",
+    "file": "mmss-6.78.jpg",
+    "width": 1000,
+    "height": 838,
+    "caption": "Figura 6.78"
+   },
+   {
+    "id": "mmss-6.82",
+    "file": "mmss-6.82.jpg",
+    "width": 1000,
+    "height": 452,
+    "caption": "Figura 6.82"
+   },
+   {
+    "id": "mmss-6.85",
+    "file": "mmss-6.85.jpg",
+    "width": 1000,
+    "height": 1062,
+    "caption": "Figura 6.85"
+   }
+  ]
+ },
+ {
+  "id": "oficial:mmss-articulacoes",
+  "slug": "mmss-articulacoes",
+  "origin": "oficial",
+  "title": "Articulações",
+  "description": "Esternoclavicular, ombro, cotovelo, punho e articulações da mão.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Membros superiores",
+  "color": "#E03A3A",
+  "sourceNote": "Escrito a partir do Moore, Anatomia Orientada para a Clínica, capítulo 6 (membro superior). Figuras numeradas como no livro, reproduzidas só para estudo da turma.",
+  "cards": [
+   {
+    "id": "mmss-io6.90_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.90",
+    "box": [
+     19.7,
+     5.51,
+     19.15,
+     4.09
+    ],
+    "answer": "Ligamento coracoacromial"
+   },
+   {
+    "id": "mmss-io6.90_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.90",
+    "box": [
+     23.96,
+     21.31,
+     8.05,
+     4.09
+    ],
+    "answer": "Ligamento trapezoide"
+   },
+   {
+    "id": "mmss-io6.90_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.90",
+    "box": [
+     32.93,
+     21.14,
+     6.11,
+     3.37
+    ],
+    "answer": "Ligamento conoide"
+   },
+   {
+    "id": "mmss-io6.90_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.90",
+    "box": [
+     43.94,
+     14.74,
+     10.27,
+     6.75
+    ],
+    "answer": "Ligamento interclavicular"
+   },
+   {
+    "id": "mmss-io6.90_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.90",
+    "box": [
+     55.13,
+     3.2,
+     26.83,
+     8.17
+    ],
+    "answer": "Cápsula da articulação esternoclavicular"
+   },
+   {
+    "id": "mmss-io6.90_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.90",
+    "box": [
+     40.43,
+     92.9,
+     14.99,
+     6.93
+    ],
+    "answer": "Disco da articulação esternoclavicular"
+   },
+   {
+    "id": "mmss-io6.90_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.90",
+    "box": [
+     10.36,
+     86.15,
+     11.01,
+     7.1
+    ],
+    "answer": "Ligamento costoclavicular"
+   },
+   {
+    "id": "mmss-io6.90_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.90",
+    "box": [
+     72.8,
+     43.87,
+     9.81,
+     7.46
+    ],
+    "answer": "Processo coracoide"
+   },
+   {
+    "id": "mmss-io6.90_8",
+    "kind": "oclusao",
+    "imageId": "mmss-6.90",
+    "box": [
+     0.28,
+     0.18,
+     16.74,
+     7.46
+    ],
+    "answer": "Articulação acromioclavicular (AC)"
+   },
+   {
+    "id": "mmss-io6.90_9",
+    "kind": "oclusao",
+    "imageId": "mmss-6.90",
+    "box": [
+     0.28,
+     9.77,
+     13.51,
+     7.82
+    ],
+    "answer": "Ligamento acromioclavicular superior"
+   },
+   {
+    "id": "mmss-io6.93_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.93",
+    "box": [
+     17.84,
+     2.06,
+     21.37,
+     2.16
+    ],
+    "answer": "Ligamento acromioclavicular"
+   },
+   {
+    "id": "mmss-io6.93_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.93",
+    "box": [
+     57.16,
+     0.19,
+     19.75,
+     2.16
+    ],
+    "answer": "Ligamento coracoacromial"
+   },
+   {
+    "id": "mmss-io6.93_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.93",
+    "box": [
+     5.82,
+     16.59,
+     24.05,
+     2.44
+    ],
+    "answer": "Ligamento transverso do úmero"
+   },
+   {
+    "id": "mmss-io6.93_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.93",
+    "box": [
+     10.5,
+     28.21,
+     14.5,
+     6.09
+    ],
+    "answer": "Tendão da cabeça longa do M. bíceps braquial"
+   },
+   {
+    "id": "mmss-io6.97_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.97",
+    "box": [
+     0.18,
+     27.63,
+     7.8,
+     6.41
+    ],
+    "answer": "Ligamento colateral radial"
+   },
+   {
+    "id": "mmss-io6.97_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.97",
+    "box": [
+     0.18,
+     37.29,
+     7.8,
+     6.2
+    ],
+    "answer": "Ligamento anular do rádio"
+   },
+   {
+    "id": "mmss-io6.97_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.97",
+    "box": [
+     40.11,
+     24.05,
+     6.72,
+     6.93
+    ],
+    "answer": "Ligamento colateral ulnar"
+   },
+   {
+    "id": "mmss-io6.97_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.97",
+    "box": [
+     40.11,
+     37.71,
+     8.26,
+     6.72
+    ],
+    "answer": "Articulação radiulnar proximal"
+   },
+   {
+    "id": "mmss-io6.97_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.97",
+    "box": [
+     0.18,
+     83.3,
+     8.62,
+     6.3
+    ],
+    "answer": "Bolsa subcutânea do olécrano"
+   },
+   {
+    "id": "mmss-io6.104_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.104",
+    "box": [
+     0.54,
+     13.27,
+     27.22,
+     4.02
+    ],
+    "answer": "Ligamento anular do rádio"
+   },
+   {
+    "id": "mmss-io6.104_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.104",
+    "box": [
+     0.36,
+     19.7,
+     32.67,
+     1.91
+    ],
+    "answer": "Tuberosidade do rádio"
+   },
+   {
+    "id": "mmss-io6.104_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.104",
+    "box": [
+     61.52,
+     60.1,
+     16.7,
+     4.12
+    ],
+    "answer": "Membrana interóssea"
+   },
+   {
+    "id": "mmss-io6.104_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.104",
+    "box": [
+     8.17,
+     55.88,
+     15.61,
+     6.03
+    ],
+    "answer": "Margem interóssea do rádio"
+   },
+   {
+    "id": "mmss-io6.104_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.104",
+    "box": [
+     0.54,
+     84.92,
+     26.5,
+     3.92
+    ],
+    "answer": "Processo estiloide do rádio"
+   },
+   {
+    "id": "mmss-io6.104_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.104",
+    "box": [
+     60.98,
+     86.43,
+     37.57,
+     1.91
+    ],
+    "answer": "Processo estiloide da ulna"
+   },
+   {
+    "id": "mmss-io6.104_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.104",
+    "box": [
+     53.18,
+     90.35,
+     22.87,
+     1.91
+    ],
+    "answer": "Disco articular"
+   },
+   {
+    "id": "mmss-io6.107_0",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     0.18,
+     28.92,
+     11.07,
+     6.4
+    ],
+    "answer": "Osso trapezoide (Td)"
+   },
+   {
+    "id": "mmss-io6.107_1",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     0.18,
+     36.92,
+     12.43,
+     3.2
+    ],
+    "answer": "Osso hamato (H)"
+   },
+   {
+    "id": "mmss-io6.107_2",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     0.27,
+     42.01,
+     10.07,
+     3.49
+    ],
+    "answer": "Osso capitato (C)"
+   },
+   {
+    "id": "mmss-io6.107_3",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     0.27,
+     46.66,
+     13.43,
+     4.07
+    ],
+    "answer": "Osso piramidal (T)"
+   },
+   {
+    "id": "mmss-io6.107_4",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     0.27,
+     51.31,
+     11.98,
+     4.07
+    ],
+    "answer": "Osso pisiforme"
+   },
+   {
+    "id": "mmss-io6.107_5",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     0.27,
+     56.69,
+     13.61,
+     3.34
+    ],
+    "answer": "Osso semilunar (L)"
+   },
+   {
+    "id": "mmss-io6.107_6",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     0.27,
+     61.63,
+     13.25,
+     6.54
+    ],
+    "answer": "Processo estiloide da ulna (SU)"
+   },
+   {
+    "id": "mmss-io6.107_7",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     0.27,
+     70.78,
+     12.89,
+     3.34
+    ],
+    "answer": "Disco articular (A)"
+   },
+   {
+    "id": "mmss-io6.107_8",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     25.5,
+     70.93,
+     9.71,
+     6.25
+    ],
+    "answer": "Osso escafoide (S)"
+   },
+   {
+    "id": "mmss-io6.107_9",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     37.75,
+     69.77,
+     13.34,
+     3.34
+    ],
+    "answer": "Osso trapézio (Tz)"
+   },
+   {
+    "id": "mmss-io6.107_10",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     35.3,
+     75.87,
+     13.25,
+     5.96
+    ],
+    "answer": "Processo estiloide do rádio (SR)"
+   },
+   {
+    "id": "mmss-io6.107_11",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     18.06,
+     77.18,
+     12.89,
+     6.54
+    ],
+    "answer": "Articulação radiulnar distal (J)"
+   },
+   {
+    "id": "mmss-io6.107_12",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     79.58,
+     20.49,
+     11.25,
+     6.4
+    ],
+    "answer": "Ligamento colateral radial"
+   },
+   {
+    "id": "mmss-io6.107_13",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     76.86,
+     42.88,
+     17.88,
+     3.34
+    ],
+    "answer": "Articulação radiocarpal"
+   },
+   {
+    "id": "mmss-io6.107_14",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     79.4,
+     13.52,
+     20.6,
+     4.07
+    ],
+    "answer": "Articulação mediocarpal"
+   },
+   {
+    "id": "mmss-io6.107_15",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     50.18,
+     45.78,
+     18.87,
+     3.34
+    ],
+    "answer": "Articulação radiulnar distal"
+   },
+   {
+    "id": "mmss-io6.107_16",
+    "kind": "oclusao",
+    "imageId": "mmss-6.107",
+    "box": [
+     79.22,
+     7.7,
+     20.78,
+     6.1
+    ],
+    "answer": "Articulação carpometacarpal do polegar"
+   },
+   {
+    "id": "mmss-tx5_137",
+    "kind": "texto",
+    "front": "Qual é a **única fixação** do membro superior ao esqueleto axial?",
+    "back": "A articulação **esternoclavicular (EC)**: sinovial em sela, com disco articular."
+   },
+   {
+    "id": "mmss-tx5_138",
+    "kind": "texto",
+    "front": "Quais ligamentos reforçam a **EC**?",
+    "back": "**Esternoclaviculares anterior e posterior, interclavicular e costoclavicular.**"
+   },
+   {
+    "id": "mmss-tx5_139",
+    "kind": "texto",
+    "front": "Quais movimentos ocorrem na **EC**?",
+    "back": "Elevação, depressão, protração, retração e rotação da clavícula."
+   },
+   {
+    "id": "mmss-tx5_140",
+    "kind": "texto",
+    "front": "Qual ligamento **sustenta o peso do membro** na AC?",
+    "back": "O **lig. coracoclavicular** (partes **conoide** e **trapezóide**)."
+   },
+   {
+    "id": "mmss-tx5_141",
+    "kind": "texto",
+    "front": "Qual o tipo da articulação **acromioclavicular (AC)**?",
+    "back": "**Sinovial plana**, com lig. acromioclavicular e coracoclavicular."
+   },
+   {
+    "id": "mmss-tx5_142",
+    "kind": "texto",
+    "front": "O que é a **luxação acromioclavicular**?",
+    "back": "“Ombro separado”: rompe-se o lig. AC (e o coracoclavicular nos casos graves); o acrômio desce e a clavícula fica proeminente, por queda sobre o ombro."
+   },
+   {
+    "id": "mmss-tx5_143",
+    "kind": "texto",
+    "front": "Qual é o **ritmo escapuloumeral**?",
+    "back": "~**1°** de movimento escapular para cada **3°** do braço. Literatura: 180° de abdução = ~120° glenoumeral + ~60° escapulotorácica (2:1)."
+   },
+   {
+    "id": "mmss-tx5_144",
+    "kind": "texto",
+    "front": "A escapulotorácica é uma articulação verdadeira?",
+    "back": "**Não** (fisiológica): a escápula desliza sobre o tórax."
+   },
+   {
+    "id": "mmss-tx5_145",
+    "kind": "texto",
+    "front": "Por que o ombro é a articulação **mais móvel e menos estável**?",
+    "back": "Cavidade glenoidal **rasa**, cápsula **frouxa**. A estabilidade vem da contração tônica do **SIRS**."
+   },
+   {
+    "id": "mmss-tx5_146",
+    "kind": "texto",
+    "front": "Para que servem os ligamentos do ombro?",
+    "back": "**Glenoumerais:** reforço anterior. **Coracoumeral:** reforço superior. **Transverso do úmero:** prende o tendão da cabeça longa do bíceps. **Arco coracoacromial:** teto; impede luxação superior."
+   },
+   {
+    "id": "mmss-tx5_147",
+    "kind": "texto",
+    "front": "Qual a **luxação mais comum do ombro** e qual nervo corre risco?",
+    "back": "**Anteroinferior** (parte inferior da cápsula, mais fraca e sem reforço muscular); risco do **n. axilar**."
+   },
+   {
+    "id": "mmss-tx5_148",
+    "kind": "texto",
+    "front": "Quais músculos fazem a **abdução** do ombro e com que segmento?",
+    "back": "**Supraespinal** (15° iniciais), **deltoide**, depois rotação superior pelo trapézio e serrátil anterior. **C5.**"
+   },
+   {
+    "id": "mmss-tx5_149",
+    "kind": "texto",
+    "front": "Quais músculos fazem a **adução** do ombro?",
+    "back": "Peitoral maior, latíssimo, redondo maior e cabeça longa do tríceps. **C6–C8.**"
+   },
+   {
+    "id": "mmss-tx5_150",
+    "kind": "texto",
+    "front": "Quais músculos fazem a **rotação lateral** e a **medial** do ombro?",
+    "back": "**Lateral (C5):** infraespinal, redondo menor, deltoide (espinal). **Medial (C6–C8):** subescapular, peitoral maior, latíssimo, redondo maior, deltoide (clavicular)."
+   },
+   {
+    "id": "mmss-tx5_151",
+    "kind": "texto",
+    "front": "Quais articulações formam o **cotovelo**?",
+    "back": "Composta: **umeroulnar** (gínglimo, dá a estabilidade), **umerorradial** e **radiulnar proximal**. As duas últimas dependem dos ligamentos colateral radial e anular."
+   },
+   {
+    "id": "mmss-tx5_152",
+    "kind": "texto",
+    "front": "Qual a função dos ligamentos do cotovelo?",
+    "back": "**Colateral ulnar:** faixas anterior, posterior e oblíqua. **Colateral radial:** do epicôndilo lateral ao anular. **Anular do rádio:** envolve a cabeça do rádio contra a ulna."
+   },
+   {
+    "id": "mmss-tx5_153",
+    "kind": "texto",
+    "front": "Quais músculos fletem e estendem o cotovelo?",
+    "back": "**Flexão:** braquial, bíceps, braquiorradial. **Extensão:** tríceps e ancôneo."
+   },
+   {
+    "id": "mmss-tx5_154",
+    "kind": "texto",
+    "front": "O que é o **ângulo de carregamento**?",
+    "back": "Cúbito valgo fisiológico: ~**10–15°** nos homens e **>15°** nas mulheres."
+   },
+   {
+    "id": "mmss-tx5_155",
+    "kind": "texto",
+    "front": "O que é o **cotovelo de babá**?",
+    "back": "Subluxação da cabeça do rádio em crianças: puxão no antebraço em pronação desloca a cabeça do rádio sob o lig. anular.",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Bursite do olécrano: inflamação da bolsa subcutânea (“cotovelo de estudante”)."
+    }
+   },
+   {
+    "id": "mmss-tx5_156",
+    "kind": "texto",
+    "front": "Quais são as articulações **radiulnares**?",
+    "back": "**Proximal:** pivô, lig. anular. **Distal:** pivô, disco articular (separa a ulna dos carpais). **Membrana interóssea:** fibras oblíquas; transmite forças do rádio para a ulna e o úmero."
+   },
+   {
+    "id": "mmss-tx5_157",
+    "kind": "texto",
+    "front": "Quais músculos fazem **supinação** e **pronação**?",
+    "back": "**Supinação:** supinador e bíceps (cotovelo fletido). **Pronação:** pronador redondo e pronador quadrado."
+   },
+   {
+    "id": "mmss-tx5_158",
+    "kind": "texto",
+    "front": "Quais articulações formam o **punho**?",
+    "back": "**Radiocarpal:** elipsóidea (rádio + disco × escafoide, semilunar, piramidal); a **ulna não se articula diretamente** com os carpais. **Mediocarpal:** entre as duas fileiras."
+   },
+   {
+    "id": "mmss-tx5_159",
+    "kind": "texto",
+    "front": "Quais músculos movem o punho?",
+    "back": "**Flexão:** FRC, FUC, palmar longo. **Extensão:** ERLC, ERCC, EUC. **Abdução radial:** FRC, ERLC, ERCC, ALP. **Adução ulnar:** FUC e EUC."
+   },
+   {
+    "id": "mmss-tx5_160",
+    "kind": "texto",
+    "front": "Qual o local típico e o sinal da lesão do **n. acessório**?",
+    "back": "**Triângulo posterior do pescoço**; paralisia do trapézio; ombro caído, não abduz acima do horizontal."
+   },
+   {
+    "id": "mmss-tx5_161",
+    "kind": "texto",
+    "front": "Qual o local típico e o sinal da lesão do **n. torácico longo**?",
+    "back": "**Parede lateral do tórax, mastectomia**; paralisia do serrátil anterior; **escápula alada**."
+   },
+   {
+    "id": "mmss-tx5_162",
+    "kind": "texto",
+    "front": "Qual o local típico e o sinal da lesão do **n. axilar**?",
+    "back": "**Colo cirúrgico; luxação do ombro.** Deltoide e redondo menor; anestesia sobre o deltoide; perda da abdução e “achatamento” do ombro."
+   },
+   {
+    "id": "mmss-tx5_163",
+    "kind": "texto",
+    "front": "Qual o local típico e o sinal da lesão do **n. musculocutâneo**?",
+    "back": "**Ferida no braço.** Bíceps, braquial, coracobraquial; perda sensitiva na face lateral do antebraço; fraqueza da flexão e da supinação."
+   },
+   {
+    "id": "mmss-tx5_164",
+    "kind": "texto",
+    "front": "Qual o local típico e o sinal da lesão do **n. radial**?",
+    "back": "**Sulco radial (fratura do úmero) e axila (muleta).** Extensores do cotovelo (se axila), punho e dedos; perda sensitiva no dorso lateral da mão; **mão caída**."
+   },
+   {
+    "id": "mmss-tx5_165",
+    "kind": "texto",
+    "front": "Qual o local típico e o sinal da lesão do **n. mediano**?",
+    "back": "**Cotovelo; punho (túnel do carpo).** Flexores do antebraço (alto); tenares e lumbricais 1–2; perda sensitiva nos 3½ dedos laterais; **mão de bênção / mão de macaco**."
+   },
+   {
+    "id": "mmss-tx5_166",
+    "kind": "texto",
+    "front": "Qual o local típico e o sinal da lesão do **n. ulnar**?",
+    "back": "**Epicôndilo medial; punho (canal ulnar).** FUC, FPD medial, hipotenares, interósseos, adutor do polegar, lumbricais 3–4; perda sensitiva no 5º dedo e ½ medial do 4º; **mão em garra; Froment positivo**."
+   },
+   {
+    "id": "mmss-tx5_167",
+    "kind": "texto",
+    "front": "Regra osso–nervo: qual nervo é lesado em cada fratura?",
+    "back": "**Colo cirúrgico → axilar. Corpo do úmero → radial. Epicôndilo medial → ulnar. Supracondilar → mediano.** Luxação do semilunar/túnel do carpo → mediano."
+   },
+   {
+    "id": "mmss-tx5_168",
+    "kind": "texto",
+    "front": "Quais marcos identificam os nervos na peça?",
+    "back": "**Musculocutâneo:** perfura o coracobraquial. **Radial:** sulco radial, entre as cabeças do tríceps. **Ulnar:** atrás do epicôndilo medial; entre FUC e FPD. **Mediano:** fossa cubital (medial à a. braquial), sob o FSD, túnel do carpo."
+   }
+  ],
+  "images": [
+   {
+    "id": "mmss-6.90",
+    "file": "mmss-6.90.jpg",
+    "width": 1000,
+    "height": 521,
+    "caption": "Figura 6.90"
+   },
+   {
+    "id": "mmss-6.93",
+    "file": "mmss-6.93.jpg",
+    "width": 1000,
+    "height": 1018,
+    "caption": "Figura 6.93"
+   },
+   {
+    "id": "mmss-6.97",
+    "file": "mmss-6.97.jpg",
+    "width": 1000,
+    "height": 864,
+    "caption": "Figura 6.97"
+   },
+   {
+    "id": "mmss-6.104",
+    "file": "mmss-6.104.jpg",
+    "width": 551,
+    "height": 995,
+    "caption": "Figura 6.104"
+   },
+   {
+    "id": "mmss-6.107",
+    "file": "mmss-6.107.jpg",
+    "width": 1000,
+    "height": 624,
+    "caption": "Figura 6.107"
+   }
+  ]
+ }
+]

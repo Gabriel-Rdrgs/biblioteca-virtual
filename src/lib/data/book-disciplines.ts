@@ -462,4 +462,82 @@ export const bookDisciplines: readonly BookDisciplineLink[] = [
     bibliographyType: "acervo_da_turma",
     priority: 4,
   },
+  // Lote de novembro: embriologia e histologia ficam com MAC I.
+  {
+    bookId: "embriologia-clinica",
+    disciplineId: "mac-1",
+    bibliographyType: "acervo_da_turma",
+    priority: 4,
+  },
+  {
+    bookId: "histologia-basica-junqueira",
+    disciplineId: "mac-1",
+    bibliographyType: "acervo_da_turma",
+    priority: 4,
+  },
+
+  // ---------------------------------------------------------------- AES 3
+  {
+    bookId: "imunologia-celular-e-molecular-abbas",
+    disciplineId: "aes-3",
+    bibliographyType: "basica",
+    priority: 1,
+  },
+  {
+    bookId: "roitt-fundamentos-de-imunologia",
+    disciplineId: "aes-3",
+    bibliographyType: "basica",
+    priority: 1,
+  },
+  {
+    bookId: "microbiologia-medica-jawetz",
+    disciplineId: "aes-3",
+    bibliographyType: "basica",
+    priority: 1,
+  },
+  {
+    bookId: "imunologia-basica-abbas",
+    disciplineId: "aes-3",
+    bibliographyType: "complementar",
+    priority: 2,
+  },
+  {
+    bookId: "coura-doencas-infecciosas-e-parasitarias",
+    disciplineId: "aes-3",
+    bibliographyType: "complementar",
+    priority: 2,
+  },
+  {
+    bookId: "mims-microbiologia-medica-e-imunologia",
+    disciplineId: "aes-3",
+    bibliographyType: "complementar",
+    priority: 2,
+  },
+  {
+    bookId: "goldman-cecil-medicina",
+    disciplineId: "aes-3",
+    bibliographyType: "complementar",
+    priority: 2,
+  },
+  {
+    bookId: "levinson-microbiologia-medica-e-imunologia",
+    disciplineId: "aes-3",
+    bibliographyType: "complementar",
+    priority: 2,
+  },
+  // Postado pela turma; o plano não o cita, mas é o assunto da matéria.
+  {
+    bookId: "microbiologia-tortora",
+    disciplineId: "aes-3",
+    bibliographyType: "acervo_da_turma",
+    priority: 4,
+  },
+
+  // ---------------------------------------------------------------- IESCG I
+  {
+    bookId: "iescg-1-ubs-02-santa-maria-territorio",
+    disciplineId: "iescg-1",
+    bibliographyType: "acervo_da_turma",
+    priority: 4,
+  },
 ];

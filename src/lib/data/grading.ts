@@ -7,7 +7,7 @@ import type { GradeScheme } from "@/lib/domain/grading";
  * — do mesmo jeito que as datas e a bibliografia. O que o plano não disser,
  * não está aqui.
  *
- * As regras de aprovação são iguais nas sete: Média Parcial igual ou
+ * As regras de aprovação são iguais nas oito: Média Parcial igual ou
  * superior a 6,0, sem arredondamento; abaixo disso, ARA, com a Média Final
  * arredondada a partir de 5,75. O que muda é só a composição das
  * bimestrais, abaixo.
@@ -129,6 +129,40 @@ export const gradeSchemes: readonly GradeScheme[] = [
             id: "aes-2-n2-somativa",
             label: "Avaliação somativa tutorial",
             assessmentId: "aes-2-n2",
+            value: 8,
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    ...comum,
+    disciplineId: "aes-3",
+    source: plano("AES 3", 5),
+    terms: [
+      {
+        id: "N1",
+        kind: "pontos",
+        parts: [
+          { id: "aes-3-n1-formativa", label: "Avaliação diagnóstica–formativa", value: 2 },
+          {
+            id: "aes-3-n1-somativa",
+            label: "Avaliação somativa tutorial",
+            assessmentId: "aes-3-n1",
+            value: 8,
+          },
+        ],
+      },
+      {
+        id: "N2",
+        kind: "pontos",
+        parts: [
+          { id: "aes-3-n2-formativa", label: "Avaliação diagnóstica–formativa", value: 2 },
+          {
+            id: "aes-3-n2-somativa",
+            label: "Avaliação somativa tutorial",
+            assessmentId: "aes-3-n2",
             value: 8,
           },
         ],

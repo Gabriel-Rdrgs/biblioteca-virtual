@@ -6,7 +6,7 @@ import { getCatalog, getDisciplines, getTopics, toCatalogEntries } from "@/lib/r
 export const metadata: Metadata = {
   title: "Todos os livros",
   description:
-    "Catálogo completo da bibliografia das sete unidades curriculares do 1º período de Medicina do UNIEURO, semestre 2026.2.",
+    "Catálogo completo da bibliografia das oito unidades curriculares do 1º período de Medicina do UNIEURO, semestre 2026.2.",
 };
 
 // The catalogue is edited at runtime by the admin area; render per request.
@@ -30,7 +30,7 @@ export default async function BooksPage() {
       <SectionHeading
         as="h1"
         title="Todos os livros"
-        description={`${entries.length} títulos reunidos a partir dos sete planos de ensino de 2026.2. Um livro citado por duas disciplinas aparece uma única vez, com as duas relações.`}
+        description={`${entries.length} títulos reunidos a partir dos oito planos de ensino de 2026.2. Um livro citado por duas disciplinas aparece uma única vez, com as duas relações.`}
       />
       <CatalogBrowser entries={entries} disciplines={disciplines} topics={await getTopics()} />
     </div>

@@ -8,7 +8,7 @@ import { getBooksForDiscipline, getDisciplines, getTeachingPlans } from "@/lib/r
 export const metadata: Metadata = {
   title: "Planos de ensino",
   description:
-    "Os sete planos de ensino oficiais do 1º período de Medicina do UNIEURO em 2026.2, com a bibliografia extraída de cada um.",
+    "Os oito planos de ensino oficiais do 1º período de Medicina do UNIEURO em 2026.2, com a bibliografia extraída de cada um.",
 };
 
 // The catalogue is edited at runtime by the admin area; render per request.
@@ -39,7 +39,7 @@ export default async function TeachingPlansPage() {
       <SectionHeading
         as="h1"
         title="Planos de ensino"
-        description="Os documentos oficiais das sete unidades curriculares de 2026.2. Toda a bibliografia do Atlas foi transcrita destes arquivos — cada livro guarda a seção e a página de onde veio."
+        description="Os documentos oficiais das oito unidades curriculares de 2026.2. Toda a bibliografia do Atlas foi transcrita destes arquivos — cada livro guarda a seção e a página de onde veio."
       />
 
       <ul className="space-y-5">

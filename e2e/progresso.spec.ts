@@ -39,7 +39,7 @@ async function takeDrill(page: Page, questions: string[]) {
 
 test("progress starts empty and explains what to do", async ({ page }) => {
   await page.goto("/progresso");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Meu progresso");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Desempenho");
   await expect(page.getByText("Nada aqui ainda")).toBeVisible();
   await expect(page.getByRole("link", { name: "Ver os simulados" })).toBeVisible();
 });

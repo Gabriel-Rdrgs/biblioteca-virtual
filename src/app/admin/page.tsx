@@ -8,6 +8,7 @@ import { DisciplineTable, type AdminDisciplineRow } from "@/components/admin/dis
 import { AssessmentManager } from "@/components/admin/assessment-manager";
 import { SummaryForm } from "@/components/admin/summary-form";
 import { SummaryTable, type AdminSummaryRow } from "@/components/admin/summary-table";
+import { SharedDeckTable, type AdminSharedDeckRow } from "@/components/admin/shared-deck-table";
 import { SectionHeading } from "@/components/ui/primitives";
 import { readManifest } from "@/lib/catalog-store";
 import { getAllAssessmentsForAdmin } from "@/lib/repository/assessments";
@@ -23,6 +24,7 @@ import {
   getDisciplines,
   getTeachingPlanForDiscipline,
 } from "@/lib/repository";
+import { listSharedDecksForAdmin } from "@/lib/shared-decks";
 import { storageMode } from "@/lib/storage";
 
 export const metadata: Metadata = {
@@ -121,6 +123,21 @@ export default async function AdminPage() {
     pages: summary.pages,
     visibility: summary.visibility,
     origin: summary.origin,
+  }));
+
+  const sharedDeckRows: AdminSharedDeckRow[] = (
+    await listSharedDecksForAdmin().catch((error: unknown) => {
+      console.error("[admin] baralhos da turma indisponíveis", error);
+      return [];
+    })
+  ).map((deck) => ({
+    id: deck.id,
+    title: deck.title,
+    discipline: nomeDaMateria.get(deck.disciplineId) ?? deck.disciplineId,
+    ...(deck.author ? { author: deck.author } : {}),
+    cards: deck.cards,
+    updatedAt: deck.updatedAt,
+    visibility: deck.visibility,
   }));
 
   const withFile = rows.filter((r) => r.hasFile).length;
@@ -235,6 +252,15 @@ export default async function AdminPage() {
       <section className="mt-14">
         <SectionHeading
           numeral="V"
+          title="Flashcards da turma"
+          description="Baralhos que os alunos publicaram. Só quem publicou edita; aqui se oculta o que tem erro ou se exclui o que não devia estar lá."
+        />
+        <SharedDeckTable rows={sharedDeckRows} />
+      </section>
+
+      <section className="mt-14">
+        <SectionHeading
+          numeral="VI"
           title="Todos os livros"
           description="Livros dos planos de ensino e do acervo da turma. Anexe um PDF a um registro sem arquivo, oculte ou mostre, ou substitua o arquivo."
         />
@@ -242,7 +268,7 @@ export default async function AdminPage() {
       </section>
 
       <section className="mt-14">
-        <SectionHeading numeral="VI" title="Últimas alterações" />
+        <SectionHeading numeral="VII" title="Últimas alterações" />
         {log.length === 0 ? (
           <p className="text-ink-muted text-sm">Nenhuma alteração registrada ainda.</p>
         ) : (

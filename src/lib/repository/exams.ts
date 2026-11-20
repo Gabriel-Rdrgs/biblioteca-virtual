@@ -8,6 +8,7 @@ import type {
   ExamBlueprintPart,
   ExamFigure,
   LoadedExam,
+  ObjectiveQuestion,
   PlacedQuestion,
   QuestionArea,
   QuestionId,
@@ -231,5 +232,68 @@ export function buildDrill(disciplineId: DisciplineId, options: DrillOptions): L
     axes: areas.flatMap((a) => a.axes.filter((axis) => usedAxisIds.has(axis.id))),
     figures: areas.flatMap((a) => a.figures.filter((f) => usedFigureIds.has(f.id))),
     totalPoints: points,
+  };
+}
+
+export interface QuickPick {
+  readonly questions: readonly ObjectiveQuestion[];
+  readonly areas: readonly QuestionArea[];
+  readonly figures: readonly ExamFigure[];
+}
+
+/**
+ * As objetivas do modo rápido.
+ *
+ * Por área, por eixo ou por lista de ids (a fila de erros). Sorteia e
+ * reparte entre os eixos como o treino faz, para vinte questões não caírem
+ * todas no mesmo assunto.
+ */
+export function pickQuickQuestions(options: {
+  readonly areaIds?: readonly AreaId[];
+  readonly axisIds?: readonly string[];
+  readonly ids?: readonly QuestionId[];
+  readonly count: number;
+  readonly seed?: number;
+}): QuickPick {
+  const seed = options.seed ?? Date.now() % 100000;
+  const objective = bankQuestions.filter((q): q is ObjectiveQuestion => q.kind === "objetiva");
+
+  let pool: ObjectiveQuestion[];
+  if (options.ids && options.ids.length > 0) {
+    const wanted = new Set(options.ids);
+    pool = objective.filter((q) => wanted.has(q.id));
+  } else {
+    pool = objective.filter(
+      (q) =>
+        (!options.areaIds?.length || options.areaIds.includes(q.areaId)) &&
+        (!options.axisIds?.length || options.axisIds.includes(q.axisId)),
+    );
+  }
+
+  const byAxis = new Map<string, ObjectiveQuestion[]>();
+  for (const q of shuffle(pool, seed)) byAxis.set(q.axisId, [...(byAxis.get(q.axisId) ?? []), q]);
+  const queues = shuffle([...byAxis.values()], seed + 7);
+  const chosen: ObjectiveQuestion[] = [];
+  const limit = Math.max(1, options.count);
+  while (chosen.length < limit) {
+    const before = chosen.length;
+    for (const queue of queues) {
+      if (chosen.length >= limit) break;
+      const next = queue.shift();
+      if (next) chosen.push(next);
+    }
+    if (chosen.length === before) break;
+  }
+
+  const areaIds = [...new Set(chosen.map((q) => q.areaId))];
+  const areas = areaIds.flatMap((id) => {
+    const area = areaById.get(id);
+    return area ? [area] : [];
+  });
+  const figureIds = new Set(chosen.flatMap((q) => (q.figureId ? [q.figureId] : [])));
+  return {
+    questions: chosen,
+    areas,
+    figures: areas.flatMap((a) => a.figures.filter((f) => figureIds.has(f.id))),
   };
 }

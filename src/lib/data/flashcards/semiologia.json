@@ -1,0 +1,1075 @@
+[
+ {
+  "id": "oficial:semio-cranio",
+  "slug": "semio-cranio",
+  "origin": "oficial",
+  "title": "Crânio",
+  "description": "Craniossinostoses, sutura por sutura, e alterações de volume do crânio.",
+  "disciplineId": "ha-1",
+  "collection": "Semiologia de cabeça e pescoço",
+  "color": "#7c5cd6",
+  "sourceNote": "Roteiro de semiologia de cabeça e pescoço da turma. Fotos reunidas de material didático, só para estudo.",
+  "cards": [
+   {
+    "id": "semio-foto-1",
+    "kind": "foto",
+    "imageId": "semio-1",
+    "answer": "Craniossinostose",
+    "note": "Craniossinostose (crânios e perfil de lactente)",
+    "description": "Fechamento prematuro de uma ou mais suturas cranianas, causando deformidade do crânio, porque o cérebro continua crescendo na direção das suturas que permanecem abertas.",
+    "howToSpot": "Crânio de formato anormal (longo, curto, assimétrico, em torre ou pontiagudo); o formato depende de QUAL sutura fechou.",
+    "confuseWith": [
+     "Escafocefalia",
+     "Braquicefalia",
+     "Plagiocefalia"
+    ]
+   },
+   {
+    "id": "semio-foto-2s",
+    "kind": "foto",
+    "imageId": "semio-2s",
+    "answer": "Escafocefalia",
+    "note": "Crânio alongado e estreito (sutura sagital)",
+    "description": "Fechamento da sutura sagital: o crânio cresce para frente e para trás, ficando longo e estreito (aspecto de \"barco\" invertido).",
+    "howToSpot": "Vista de cima: crânio comprido e estreito, como um barco virado.",
+    "confuseWith": [
+     "Braquicefalia",
+     "Oxicefalia",
+     "Turricefalia"
+    ],
+    "association": "Sutura sagital"
+   },
+   {
+    "id": "semio-foto-3",
+    "kind": "foto",
+    "imageId": "semio-3",
+    "answer": "Braquicefalia",
+    "note": "Braquicefalia (esquema: crânio curto e largo)",
+    "description": "Fechamento bilateral da sutura coronal: o crânio não cresce para frente, ficando achatado na região anterior e alargado lateralmente.",
+    "howToSpot": "Cabeça curta e larga, achatada na frente e alargada nos lados.",
+    "confuseWith": [
+     "Escafocefalia",
+     "Plagiocefalia",
+     "Turricefalia"
+    ],
+    "association": "Sutura coronal bilateral"
+   },
+   {
+    "id": "semio-foto-6",
+    "kind": "foto",
+    "imageId": "semio-6",
+    "answer": "Braquicefalia",
+    "note": "Braquicefalia em vista lateral (graus)",
+    "description": "Fechamento bilateral da sutura coronal: o crânio não cresce para frente, ficando achatado na região anterior e alargado lateralmente.",
+    "howToSpot": "Cabeça curta e larga, achatada na frente e alargada nos lados.",
+    "confuseWith": [
+     "Escafocefalia",
+     "Plagiocefalia",
+     "Turricefalia"
+    ],
+    "association": "Sutura coronal bilateral"
+   },
+   {
+    "id": "semio-foto-5",
+    "kind": "foto",
+    "imageId": "semio-5",
+    "answer": "Plagiocefalia",
+    "note": "Plagiocefalia em vista superior (graus)",
+    "description": "Fechamento unilateral de sutura, que resulta em crânio assimétrico e oblíquo.",
+    "howToSpot": "Cabeça torta: um lado achatado e o outro proeminente (assimetria).",
+    "confuseWith": [
+     "Braquicefalia",
+     "Trigonocefalia",
+     "Escafocefalia"
+    ],
+    "association": "Fechamento unilateral"
+   },
+   {
+    "id": "semio-foto-4b",
+    "kind": "foto",
+    "imageId": "semio-4b",
+    "answer": "Trigonocefalia",
+    "note": "Trigonocefalia (testa triangular)",
+    "description": "Fechamento da sutura metópica (frontal): a testa fica triangular.",
+    "howToSpot": "Testa estreita em forma de triângulo, vista de cima.",
+    "confuseWith": [
+     "Oxicefalia",
+     "Escafocefalia",
+     "Plagiocefalia"
+    ],
+    "association": "Sutura metópica (frontal)"
+   },
+   {
+    "id": "semio-foto-7",
+    "kind": "foto",
+    "imageId": "semio-7",
+    "answer": "Turricefalia",
+    "note": "Turricefalia (crânio em torre)",
+    "description": "Fechamento das suturas coronal e sagital: o crânio cresce verticalmente, em formato de \"torre\".",
+    "howToSpot": "Cabeça alta, em torre, vista de perfil.",
+    "confuseWith": [
+     "Oxicefalia",
+     "Braquicefalia",
+     "Macrocefalia"
+    ],
+    "association": "Suturas coronal + sagital"
+   },
+   {
+    "id": "semio-foto-8",
+    "kind": "foto",
+    "imageId": "semio-8",
+    "answer": "Oxicefalia",
+    "note": "Oxicefalia (crânio pontiagudo)",
+    "description": "Fechamento de todas ou quase todas as suturas (coronal, sagital e lambdoide): o crânio assume formato pontiagudo.",
+    "howToSpot": "Cabeça em ponta (cone), com o topo pontiagudo.",
+    "confuseWith": [
+     "Turricefalia",
+     "Trigonocefalia",
+     "Macrocefalia"
+    ],
+    "association": "Todas ou quase todas as suturas"
+   },
+   {
+    "id": "semio-foto-9",
+    "kind": "foto",
+    "imageId": "semio-9",
+    "answer": "Macrocefalia",
+    "note": "Macrocefalia",
+    "description": "Alteração de volume em que o crânio é anormalmente grande (ex.: hidrocefalia).",
+    "howToSpot": "Cabeça desproporcionalmente grande em relação à face e ao corpo.",
+    "confuseWith": [
+     "Microcefalia",
+     "Turricefalia",
+     "Braquicefalia"
+    ],
+    "association": "Hidrocefalia (exemplo)"
+   },
+   {
+    "id": "semio-foto-10",
+    "kind": "foto",
+    "imageId": "semio-10",
+    "answer": "Microcefalia",
+    "note": "Microcefalia",
+    "description": "Alteração de volume em que o crânio é anormalmente pequeno; indica déficit no desenvolvimento cerebral.",
+    "howToSpot": "Cabeça pequena em relação à face, com testa recuada.",
+    "confuseWith": [
+     "Macrocefalia",
+     "Braquicefalia",
+     "Oxicefalia"
+    ],
+    "association": "Déficit do desenvolvimento cerebral"
+   },
+   {
+    "id": "semio-def-sinost",
+    "kind": "texto",
+    "front": "**Craniossinostose**: o que é e como se reconhece?",
+    "back": "Fechamento prematuro de uma ou mais suturas cranianas, causando deformidade do crânio, porque o cérebro continua crescendo na direção das suturas que permanecem abertas.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Crânio de formato anormal (longo, curto, assimétrico, em torre ou pontiagudo); o formato depende de QUAL sutura fechou."
+    }
+   },
+   {
+    "id": "semio-def-escafo",
+    "kind": "texto",
+    "front": "**Escafocefalia**: o que é e como se reconhece?",
+    "back": "Fechamento da sutura sagital: o crânio cresce para frente e para trás, ficando longo e estreito (aspecto de \"barco\" invertido).",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Vista de cima: crânio comprido e estreito, como um barco virado."
+    }
+   },
+   {
+    "id": "semio-sut-escafo",
+    "kind": "texto",
+    "front": "O fechamento de **sutura sagital** produz qual deformidade?",
+    "back": "**Escafocefalia**",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Vista de cima: crânio comprido e estreito, como um barco virado."
+    }
+   },
+   {
+    "id": "semio-def-braqui",
+    "kind": "texto",
+    "front": "**Braquicefalia**: o que é e como se reconhece?",
+    "back": "Fechamento bilateral da sutura coronal: o crânio não cresce para frente, ficando achatado na região anterior e alargado lateralmente.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Cabeça curta e larga, achatada na frente e alargada nos lados."
+    }
+   },
+   {
+    "id": "semio-sut-braqui",
+    "kind": "texto",
+    "front": "O fechamento de **sutura coronal bilateral** produz qual deformidade?",
+    "back": "**Braquicefalia**",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Cabeça curta e larga, achatada na frente e alargada nos lados."
+    }
+   },
+   {
+    "id": "semio-def-plagio",
+    "kind": "texto",
+    "front": "**Plagiocefalia**: o que é e como se reconhece?",
+    "back": "Fechamento unilateral de sutura, que resulta em crânio assimétrico e oblíquo.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Cabeça torta: um lado achatado e o outro proeminente (assimetria)."
+    }
+   },
+   {
+    "id": "semio-sut-plagio",
+    "kind": "texto",
+    "front": "O fechamento de **fechamento unilateral** produz qual deformidade?",
+    "back": "**Plagiocefalia**",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Cabeça torta: um lado achatado e o outro proeminente (assimetria)."
+    }
+   },
+   {
+    "id": "semio-def-trigo",
+    "kind": "texto",
+    "front": "**Trigonocefalia**: o que é e como se reconhece?",
+    "back": "Fechamento da sutura metópica (frontal): a testa fica triangular.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Testa estreita em forma de triângulo, vista de cima."
+    }
+   },
+   {
+    "id": "semio-sut-trigo",
+    "kind": "texto",
+    "front": "O fechamento de **sutura metópica (frontal)** produz qual deformidade?",
+    "back": "**Trigonocefalia**",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Testa estreita em forma de triângulo, vista de cima."
+    }
+   },
+   {
+    "id": "semio-def-turri",
+    "kind": "texto",
+    "front": "**Turricefalia**: o que é e como se reconhece?",
+    "back": "Fechamento das suturas coronal e sagital: o crânio cresce verticalmente, em formato de \"torre\".",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Cabeça alta, em torre, vista de perfil."
+    }
+   },
+   {
+    "id": "semio-sut-turri",
+    "kind": "texto",
+    "front": "O fechamento de **suturas coronal + sagital** produz qual deformidade?",
+    "back": "**Turricefalia**",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Cabeça alta, em torre, vista de perfil."
+    }
+   },
+   {
+    "id": "semio-def-oxi",
+    "kind": "texto",
+    "front": "**Oxicefalia**: o que é e como se reconhece?",
+    "back": "Fechamento de todas ou quase todas as suturas (coronal, sagital e lambdoide): o crânio assume formato pontiagudo.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Cabeça em ponta (cone), com o topo pontiagudo."
+    }
+   },
+   {
+    "id": "semio-sut-oxi",
+    "kind": "texto",
+    "front": "O fechamento de **todas ou quase todas as suturas** produz qual deformidade?",
+    "back": "**Oxicefalia**",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Cabeça em ponta (cone), com o topo pontiagudo."
+    }
+   },
+   {
+    "id": "semio-def-macro",
+    "kind": "texto",
+    "front": "**Macrocefalia**: o que é e como se reconhece?",
+    "back": "Alteração de volume em que o crânio é anormalmente grande (ex.: hidrocefalia).",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Cabeça desproporcionalmente grande em relação à face e ao corpo."
+    }
+   },
+   {
+    "id": "semio-def-micro",
+    "kind": "texto",
+    "front": "**Microcefalia**: o que é e como se reconhece?",
+    "back": "Alteração de volume em que o crânio é anormalmente pequeno; indica déficit no desenvolvimento cerebral.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Cabeça pequena em relação à face, com testa recuada."
+    }
+   }
+  ],
+  "images": [
+   {
+    "id": "semio-1",
+    "file": "semio-1.jpg",
+    "width": 423,
+    "height": 202
+   },
+   {
+    "id": "semio-2s",
+    "file": "semio-2s.jpg",
+    "width": 333,
+    "height": 384
+   },
+   {
+    "id": "semio-3",
+    "file": "semio-3.jpg",
+    "width": 589,
+    "height": 297
+   },
+   {
+    "id": "semio-6",
+    "file": "semio-6.jpg",
+    "width": 728,
+    "height": 196
+   },
+   {
+    "id": "semio-5",
+    "file": "semio-5.jpg",
+    "width": 757,
+    "height": 186
+   },
+   {
+    "id": "semio-4b",
+    "file": "semio-4b.jpg",
+    "width": 184,
+    "height": 234
+   },
+   {
+    "id": "semio-7",
+    "file": "semio-7.jpg",
+    "width": 485,
+    "height": 443
+   },
+   {
+    "id": "semio-8",
+    "file": "semio-8.jpg",
+    "width": 411,
+    "height": 274
+   },
+   {
+    "id": "semio-9",
+    "file": "semio-9.jpg",
+    "width": 689,
+    "height": 860
+   },
+   {
+    "id": "semio-10",
+    "file": "semio-10.jpg",
+    "width": 900,
+    "height": 491
+   }
+  ]
+ },
+ {
+  "id": "oficial:semio-facies",
+  "slug": "semio-facies",
+  "origin": "oficial",
+  "title": "Fácies",
+  "description": "As fácies do exame físico: o que se vê, a condição típica e com o que não confundir.",
+  "disciplineId": "ha-1",
+  "collection": "Semiologia de cabeça e pescoço",
+  "color": "#0d9488",
+  "sourceNote": "Roteiro de semiologia de cabeça e pescoço da turma. Fotos reunidas de material didático, só para estudo.",
+  "cards": [
+   {
+    "id": "semio-foto-11c",
+    "kind": "foto",
+    "imageId": "semio-11c",
+    "answer": "Fácies mixedematosa",
+    "note": "Fácies mixedematosa",
+    "description": "Rosto arredondado, pele seca e pálida e olhos pequenos; pálpebras infiltradas, expressão de desânimo, supercílios escassos e cabelos secos e sem brilho.",
+    "howToSpot": "Rosto redondo e inchado, \"apagado\", com olhar pequeno e cabelo seco.",
+    "confuseWith": [
+     "Fácies de lua cheia (cushingoide)",
+     "Fácies renal",
+     "Fácies da síndrome de Down"
+    ],
+    "association": "Hipotireoidismo grave"
+   },
+   {
+    "id": "semio-foto-12",
+    "kind": "foto",
+    "imageId": "semio-12",
+    "answer": "Fácies acromegálica",
+    "note": "Fácies acromegálica",
+    "description": "Proeminência das arcadas supraorbitárias e das maçãs do rosto, nariz largo, lábios grossos e aumento da mandíbula (prognatismo).",
+    "howToSpot": "Rosto de traços grosseiros: testa e malares proeminentes, nariz largo, lábios grossos e queixo/mandíbula grandes.",
+    "confuseWith": [
+     "Fácies de lua cheia (cushingoide)",
+     "Fácies leonina",
+     "Fácies mixedematosa"
+    ],
+    "association": "Excesso de GH (acromegalia)"
+   },
+   {
+    "id": "semio-foto-13",
+    "kind": "foto",
+    "imageId": "semio-13",
+    "answer": "Fácies de lua cheia (cushingoide)",
+    "note": "Fácies cushingoide",
+    "description": "Rosto intensamente arredondado, frequentemente com pele avermelhada, acne e hirsutismo.",
+    "howToSpot": "Rosto muito redondo (\"lua cheia\"), avermelhado, com acne e pelos no rosto.",
+    "confuseWith": [
+     "Fácies mixedematosa",
+     "Fácies renal",
+     "Fácies lúpica (LES)"
+    ],
+    "association": "Hipercortisolismo (síndrome de Cushing)"
+   },
+   {
+    "id": "semio-foto-14",
+    "kind": "foto",
+    "imageId": "semio-14",
+    "answer": "Fácies renal",
+    "note": "Fácies renal",
+    "description": "Rosto pálido com edema palpebral.",
+    "howToSpot": "Rosto pálido e pálpebras inchadas (edema palpebral).",
+    "confuseWith": [
+     "Fácies mixedematosa",
+     "Fácies de lua cheia (cushingoide)",
+     "Fácies lúpica (LES)"
+    ],
+    "association": "Patologias renais"
+   },
+   {
+    "id": "semio-foto-15c",
+    "kind": "foto",
+    "imageId": "semio-15c",
+    "answer": "Fácies lúpica (LES)",
+    "note": "Fácies lúpica",
+    "description": "Eritema malar em formato de \"asa de borboleta\". No LES discoide (crônico) formam-se placas descamativas e hiperpigmentadas.",
+    "howToSpot": "Mancha vermelha sobre as maçãs do rosto e dorso do nariz, em asa de borboleta.",
+    "confuseWith": [
+     "Fácies de sífilis",
+     "Fácies leonina",
+     "Fácies de lua cheia (cushingoide)"
+    ],
+    "association": "Lúpus eritematoso sistêmico (LES)"
+   },
+   {
+    "id": "semio-foto-16",
+    "kind": "foto",
+    "imageId": "semio-16",
+    "answer": "Fácies leonina",
+    "note": "Fácies leonina",
+    "description": "Pele espessa, cheia de nódulos (lepromas), nariz alargado, lábios grossos e madarose (perda de supercílios e cílios).",
+    "howToSpot": "Pele grossa e nodular, nariz largo, lábios grossos e perda de sobrancelhas (aspecto de leão).",
+    "confuseWith": [
+     "Fácies acromegálica",
+     "Fácies de sífilis",
+     "Fácies lúpica (LES)"
+    ],
+    "association": "Hanseníase virchowiana"
+   },
+   {
+    "id": "semio-foto-18",
+    "kind": "foto",
+    "imageId": "semio-18",
+    "answer": "Fácies de sífilis",
+    "note": "Fácies de sífilis",
+    "description": "Pápulas eritematosas pelo rosto, principalmente ao redor do nariz e da boca.",
+    "howToSpot": "Pequenas pápulas vermelhas espalhadas no rosto, sobretudo em torno do nariz e da boca.",
+    "confuseWith": [
+     "Fácies lúpica (LES)",
+     "Fácies leonina"
+    ],
+    "association": "Sífilis"
+   },
+   {
+    "id": "semio-foto-17c",
+    "kind": "foto",
+    "imageId": "semio-17c",
+    "answer": "Fácies tetânica",
+    "note": "Fácies tetânica",
+    "description": "Contratura muscular involuntária: testa enrugada, sobrancelhas arqueadas e \"riso sardônico\".",
+    "howToSpot": "Face contraída: testa enrugada, sobrancelhas arqueadas e sorriso forçado (riso sardônico).",
+    "confuseWith": [
+     "Fácies da paralisia facial",
+     "Fácies hipocrática"
+    ],
+    "association": "Tétano"
+   },
+   {
+    "id": "semio-foto-19",
+    "kind": "foto",
+    "imageId": "semio-19",
+    "answer": "Fácies adenoideana",
+    "note": "Fácies adenoideana",
+    "description": "Face alongada, boca entreaberta, lábio superior curto e maxilar inferior recuado.",
+    "howToSpot": "Rosto longo, boca aberta e queixo recuado em criança (respirador bucal).",
+    "confuseWith": [
+     "Fácies da síndrome de Down",
+     "Fácies da paralisia facial"
+    ],
+    "association": "Hipertrofia de adenoides (respiradores bucais)"
+   },
+   {
+    "id": "semio-foto-20",
+    "kind": "foto",
+    "imageId": "semio-20",
+    "answer": "Fácies da síndrome de Down",
+    "note": "Fácies da síndrome de Down",
+    "description": "Fendas palpebrais oblíquas e puxadas para cima, epicanto marcado, nariz achatado e língua frequentemente protrusa.",
+    "howToSpot": "Olhos oblíquos para cima, prega no canto interno (epicanto), nariz achatado, língua protrusa.",
+    "confuseWith": [
+     "Fácies adenoideana",
+     "Fácies mixedematosa"
+    ],
+    "association": "Síndrome de Down"
+   },
+   {
+    "id": "semio-foto-22",
+    "kind": "foto",
+    "imageId": "semio-22",
+    "answer": "Fácies da paralisia facial",
+    "note": "Paralisia facial (repouso e sorriso)",
+    "description": "Assimetria marcante entre os lados da face. No lado paralisado há apagamento das rugas da testa e desvio do canto da boca para o lado saudável.",
+    "howToSpot": "Rosto assimétrico: sem rugas da testa no lado paralisado e boca desviada para o lado saudável (mais evidente ao sorrir).",
+    "confuseWith": [
+     "Fácies tetânica",
+     "Fácies hipocrática"
+    ],
+    "association": "Paralisia facial"
+   },
+   {
+    "id": "semio-foto-21a",
+    "kind": "foto",
+    "imageId": "semio-21a",
+    "answer": "Fácies hipocrática",
+    "note": "Fácies hipocrática",
+    "description": "Olhar fixo, nariz afilado, lábios finos e palidez, sem expressão.",
+    "howToSpot": "Rosto magro e sem expressão, nariz afilado e olhar fixo.",
+    "confuseWith": [
+     "Fácies tetânica",
+     "Fácies mixedematosa"
+    ],
+    "association": "Doença grave consumptiva"
+   },
+   {
+    "id": "semio-foto-21b",
+    "kind": "foto",
+    "imageId": "semio-21b",
+    "answer": "Fácies hipocrática",
+    "note": "Fácies hipocrática",
+    "description": "Olhar fixo, nariz afilado, lábios finos e palidez, sem expressão.",
+    "howToSpot": "Rosto magro e sem expressão, nariz afilado e olhar fixo.",
+    "confuseWith": [
+     "Fácies tetânica",
+     "Fácies mixedematosa"
+    ],
+    "association": "Doença grave consumptiva"
+   },
+   {
+    "id": "semio-def-mixed",
+    "kind": "texto",
+    "front": "**Fácies mixedematosa**: o que é e como se reconhece?",
+    "back": "Rosto arredondado, pele seca e pálida e olhos pequenos; pálpebras infiltradas, expressão de desânimo, supercílios escassos e cabelos secos e sem brilho.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Rosto redondo e inchado, \"apagado\", com olhar pequeno e cabelo seco."
+    }
+   },
+   {
+    "id": "semio-assoc-mixed",
+    "kind": "texto",
+    "front": "Qual fácies é típica de **Hipotireoidismo grave**?",
+    "back": "**Fácies mixedematosa**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Fácies de lua cheia (cushingoide), Fácies renal, Fácies da síndrome de Down."
+    }
+   },
+   {
+    "id": "semio-def-acro",
+    "kind": "texto",
+    "front": "**Fácies acromegálica**: o que é e como se reconhece?",
+    "back": "Proeminência das arcadas supraorbitárias e das maçãs do rosto, nariz largo, lábios grossos e aumento da mandíbula (prognatismo).",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Rosto de traços grosseiros: testa e malares proeminentes, nariz largo, lábios grossos e queixo/mandíbula grandes."
+    }
+   },
+   {
+    "id": "semio-assoc-acro",
+    "kind": "texto",
+    "front": "Qual fácies é típica de **Excesso de GH (acromegalia)**?",
+    "back": "**Fácies acromegálica**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Fácies de lua cheia (cushingoide), Fácies leonina, Fácies mixedematosa."
+    }
+   },
+   {
+    "id": "semio-def-cushing",
+    "kind": "texto",
+    "front": "**Fácies de lua cheia (cushingoide)**: o que é e como se reconhece?",
+    "back": "Rosto intensamente arredondado, frequentemente com pele avermelhada, acne e hirsutismo.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Rosto muito redondo (\"lua cheia\"), avermelhado, com acne e pelos no rosto."
+    }
+   },
+   {
+    "id": "semio-assoc-cushing",
+    "kind": "texto",
+    "front": "Qual fácies é típica de **Hipercortisolismo (síndrome de Cushing)**?",
+    "back": "**Fácies de lua cheia (cushingoide)**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Fácies mixedematosa, Fácies renal, Fácies lúpica (LES)."
+    }
+   },
+   {
+    "id": "semio-def-renal",
+    "kind": "texto",
+    "front": "**Fácies renal**: o que é e como se reconhece?",
+    "back": "Rosto pálido com edema palpebral.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Rosto pálido e pálpebras inchadas (edema palpebral)."
+    }
+   },
+   {
+    "id": "semio-assoc-renal",
+    "kind": "texto",
+    "front": "Qual fácies é típica de **Patologias renais**?",
+    "back": "**Fácies renal**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Fácies mixedematosa, Fácies de lua cheia (cushingoide), Fácies lúpica (LES)."
+    }
+   },
+   {
+    "id": "semio-def-lupica",
+    "kind": "texto",
+    "front": "**Fácies lúpica (LES)**: o que é e como se reconhece?",
+    "back": "Eritema malar em formato de \"asa de borboleta\". No LES discoide (crônico) formam-se placas descamativas e hiperpigmentadas.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Mancha vermelha sobre as maçãs do rosto e dorso do nariz, em asa de borboleta."
+    }
+   },
+   {
+    "id": "semio-assoc-lupica",
+    "kind": "texto",
+    "front": "Qual fácies é típica de **Lúpus eritematoso sistêmico (LES)**?",
+    "back": "**Fácies lúpica (LES)**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Fácies de sífilis, Fácies leonina, Fácies de lua cheia (cushingoide)."
+    }
+   },
+   {
+    "id": "semio-def-leonina",
+    "kind": "texto",
+    "front": "**Fácies leonina**: o que é e como se reconhece?",
+    "back": "Pele espessa, cheia de nódulos (lepromas), nariz alargado, lábios grossos e madarose (perda de supercílios e cílios).",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Pele grossa e nodular, nariz largo, lábios grossos e perda de sobrancelhas (aspecto de leão)."
+    }
+   },
+   {
+    "id": "semio-assoc-leonina",
+    "kind": "texto",
+    "front": "Qual fácies é típica de **Hanseníase virchowiana**?",
+    "back": "**Fácies leonina**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Fácies acromegálica, Fácies de sífilis, Fácies lúpica (LES)."
+    }
+   },
+   {
+    "id": "semio-def-sifilis",
+    "kind": "texto",
+    "front": "**Fácies de sífilis**: o que é e como se reconhece?",
+    "back": "Pápulas eritematosas pelo rosto, principalmente ao redor do nariz e da boca.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Pequenas pápulas vermelhas espalhadas no rosto, sobretudo em torno do nariz e da boca."
+    }
+   },
+   {
+    "id": "semio-assoc-sifilis",
+    "kind": "texto",
+    "front": "Qual fácies é típica de **Sífilis**?",
+    "back": "**Fácies de sífilis**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Fácies lúpica (LES), Fácies leonina."
+    }
+   },
+   {
+    "id": "semio-def-tetanica",
+    "kind": "texto",
+    "front": "**Fácies tetânica**: o que é e como se reconhece?",
+    "back": "Contratura muscular involuntária: testa enrugada, sobrancelhas arqueadas e \"riso sardônico\".",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Face contraída: testa enrugada, sobrancelhas arqueadas e sorriso forçado (riso sardônico)."
+    }
+   },
+   {
+    "id": "semio-assoc-tetanica",
+    "kind": "texto",
+    "front": "Qual fácies é típica de **Tétano**?",
+    "back": "**Fácies tetânica**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Fácies da paralisia facial, Fácies hipocrática."
+    }
+   },
+   {
+    "id": "semio-def-adeno",
+    "kind": "texto",
+    "front": "**Fácies adenoideana**: o que é e como se reconhece?",
+    "back": "Face alongada, boca entreaberta, lábio superior curto e maxilar inferior recuado.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Rosto longo, boca aberta e queixo recuado em criança (respirador bucal)."
+    }
+   },
+   {
+    "id": "semio-assoc-adeno",
+    "kind": "texto",
+    "front": "Qual fácies é típica de **Hipertrofia de adenoides (respiradores bucais)**?",
+    "back": "**Fácies adenoideana**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Fácies da síndrome de Down, Fácies da paralisia facial."
+    }
+   },
+   {
+    "id": "semio-def-down",
+    "kind": "texto",
+    "front": "**Fácies da síndrome de Down**: o que é e como se reconhece?",
+    "back": "Fendas palpebrais oblíquas e puxadas para cima, epicanto marcado, nariz achatado e língua frequentemente protrusa.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Olhos oblíquos para cima, prega no canto interno (epicanto), nariz achatado, língua protrusa."
+    }
+   },
+   {
+    "id": "semio-assoc-down",
+    "kind": "texto",
+    "front": "Qual fácies é típica de **Síndrome de Down**?",
+    "back": "**Fácies da síndrome de Down**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Fácies adenoideana, Fácies mixedematosa."
+    }
+   },
+   {
+    "id": "semio-def-paral",
+    "kind": "texto",
+    "front": "**Fácies da paralisia facial**: o que é e como se reconhece?",
+    "back": "Assimetria marcante entre os lados da face. No lado paralisado há apagamento das rugas da testa e desvio do canto da boca para o lado saudável.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Rosto assimétrico: sem rugas da testa no lado paralisado e boca desviada para o lado saudável (mais evidente ao sorrir)."
+    }
+   },
+   {
+    "id": "semio-assoc-paral",
+    "kind": "texto",
+    "front": "Qual fácies é típica de **Paralisia facial**?",
+    "back": "**Fácies da paralisia facial**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Fácies tetânica, Fácies hipocrática."
+    }
+   },
+   {
+    "id": "semio-def-hipoc",
+    "kind": "texto",
+    "front": "**Fácies hipocrática**: o que é e como se reconhece?",
+    "back": "Olhar fixo, nariz afilado, lábios finos e palidez, sem expressão.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Rosto magro e sem expressão, nariz afilado e olhar fixo."
+    }
+   },
+   {
+    "id": "semio-assoc-hipoc",
+    "kind": "texto",
+    "front": "Qual fácies é típica de **Doença grave consumptiva**?",
+    "back": "**Fácies hipocrática**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Fácies tetânica, Fácies mixedematosa."
+    }
+   }
+  ],
+  "images": [
+   {
+    "id": "semio-11c",
+    "file": "semio-11c.jpg",
+    "width": 144,
+    "height": 176
+   },
+   {
+    "id": "semio-12",
+    "file": "semio-12.jpg",
+    "width": 504,
+    "height": 398
+   },
+   {
+    "id": "semio-13",
+    "file": "semio-13.jpg",
+    "width": 444,
+    "height": 549
+   },
+   {
+    "id": "semio-14",
+    "file": "semio-14.jpg",
+    "width": 448,
+    "height": 336
+   },
+   {
+    "id": "semio-15c",
+    "file": "semio-15c.jpg",
+    "width": 217,
+    "height": 144
+   },
+   {
+    "id": "semio-16",
+    "file": "semio-16.jpg",
+    "width": 227,
+    "height": 300
+   },
+   {
+    "id": "semio-18",
+    "file": "semio-18.jpg",
+    "width": 664,
+    "height": 353
+   },
+   {
+    "id": "semio-17c",
+    "file": "semio-17c.jpg",
+    "width": 134,
+    "height": 156
+   },
+   {
+    "id": "semio-19",
+    "file": "semio-19.jpg",
+    "width": 474,
+    "height": 499
+   },
+   {
+    "id": "semio-20",
+    "file": "semio-20.jpg",
+    "width": 896,
+    "height": 598
+   },
+   {
+    "id": "semio-22",
+    "file": "semio-22.jpg",
+    "width": 740,
+    "height": 497
+   },
+   {
+    "id": "semio-21a",
+    "file": "semio-21a.jpg",
+    "width": 224,
+    "height": 287
+   },
+   {
+    "id": "semio-21b",
+    "file": "semio-21b.jpg",
+    "width": 243,
+    "height": 287
+   }
+  ]
+ },
+ {
+  "id": "oficial:semio-linfonodos",
+  "slug": "semio-linfonodos",
+  "origin": "oficial",
+  "title": "Linfonodos",
+  "description": "Drenagem de cada grupo de linfonodos e o diagnóstico diferencial quando aumentam.",
+  "disciplineId": "ha-1",
+  "collection": "Semiologia de cabeça e pescoço",
+  "color": "#e8590c",
+  "sourceNote": "Roteiro de semiologia de cabeça e pescoço da turma.",
+  "cards": [
+   {
+    "id": "semio-ln-drena-cervicais-anteriores",
+    "kind": "texto",
+    "front": "Quais linfonodos drenam **laringe, língua, orofaringe e pescoço anterior**?",
+    "back": "**Cervicais anteriores**",
+    "tip": {
+     "label": "Diagnóstico diferencial",
+     "text": "Igual aos linfonodos submandibulares."
+    }
+   },
+   {
+    "id": "semio-ln-grupo-cervicais-anteriores",
+    "kind": "texto",
+    "front": "O que drenam os linfonodos **cervicais anteriores**?",
+    "back": "Laringe, língua, orofaringe e pescoço anterior."
+   },
+   {
+    "id": "semio-ln-drena-retroauriculares",
+    "kind": "texto",
+    "front": "Quais linfonodos drenam **couro cabeludo**?",
+    "back": "**Retroauriculares**"
+   },
+   {
+    "id": "semio-ln-grupo-retroauriculares",
+    "kind": "texto",
+    "front": "O que drenam os linfonodos **retroauriculares**?",
+    "back": "Couro cabeludo."
+   },
+   {
+    "id": "semio-ln-drena-pre-auriculares-e-parotideos",
+    "kind": "texto",
+    "front": "Quais linfonodos drenam **couro cabeludo, porção superior da face, região temporal, glândulas parótidas e bochechas**?",
+    "back": "**Pré-auriculares e parotídeos**",
+    "tip": {
+     "label": "Diagnóstico diferencial",
+     "text": "Infecções do couro cabeludo e micobacterioses. Malignidades: neoplasias da pele, linfomas e carcinoma escamoso da cabeça e do pescoço."
+    }
+   },
+   {
+    "id": "semio-ln-grupo-pre-auriculares-e-parotideos",
+    "kind": "texto",
+    "front": "O que drenam os linfonodos **pré-auriculares e parotídeos**?",
+    "back": "Couro cabeludo, porção superior da face, região temporal, glândulas parótidas e bochechas."
+   },
+   {
+    "id": "semio-ln-drena-occipitais",
+    "kind": "texto",
+    "front": "Quais linfonodos drenam **couro cabeludo e pescoço**?",
+    "back": "**Occipitais**"
+   },
+   {
+    "id": "semio-ln-grupo-occipitais",
+    "kind": "texto",
+    "front": "O que drenam os linfonodos **occipitais**?",
+    "back": "Couro cabeludo e pescoço."
+   },
+   {
+    "id": "semio-ln-drena-cervicais-posteriores",
+    "kind": "texto",
+    "front": "Quais linfonodos drenam **couro cabeludo, pescoço e pele do tórax na região superior**?",
+    "back": "**Cervicais posteriores**",
+    "tip": {
+     "label": "Diagnóstico diferencial",
+     "text": "Igual aos linfonodos pré-auriculares."
+    }
+   },
+   {
+    "id": "semio-ln-grupo-cervicais-posteriores",
+    "kind": "texto",
+    "front": "O que drenam os linfonodos **cervicais posteriores**?",
+    "back": "Couro cabeludo, pescoço e pele do tórax na região superior."
+   },
+   {
+    "id": "semio-ln-drena-bucais",
+    "kind": "texto",
+    "front": "Quais linfonodos drenam **zona intermediária da face**?",
+    "back": "**Bucais**"
+   },
+   {
+    "id": "semio-ln-grupo-bucais",
+    "kind": "texto",
+    "front": "O que drenam os linfonodos **bucais**?",
+    "back": "Zona intermediária da face."
+   },
+   {
+    "id": "semio-ln-drena-submandibulares",
+    "kind": "texto",
+    "front": "Quais linfonodos drenam **cavidade oral**?",
+    "back": "**Submandibulares**",
+    "tip": {
+     "label": "Diagnóstico diferencial",
+     "text": "Mononucleose, infecções virais/bacterianas do trato respiratório alto, infecções por micobactérias, toxoplasmose, citomegalovirose, infecções odontológicas e rubéola. Malignidades: carcinoma escamoso de cabeça e pescoço, linfomas e leucemia."
+    }
+   },
+   {
+    "id": "semio-ln-grupo-submandibulares",
+    "kind": "texto",
+    "front": "O que drenam os linfonodos **submandibulares**?",
+    "back": "Cavidade oral."
+   },
+   {
+    "id": "semio-ln-drena-supraclaviculares",
+    "kind": "texto",
+    "front": "Quais linfonodos drenam **trato gastrintestinal, trato geniturinário e pulmão**?",
+    "back": "**Supraclaviculares**",
+    "tip": {
+     "label": "Diagnóstico diferencial",
+     "text": "Neoplasias torácicas/abdominais, doenças da tireoide/laringe e infecções fúngicas/micobactérias."
+    }
+   },
+   {
+    "id": "semio-ln-grupo-supraclaviculares",
+    "kind": "texto",
+    "front": "O que drenam os linfonodos **supraclaviculares**?",
+    "back": "Trato gastrintestinal, trato geniturinário e pulmão."
+   },
+   {
+    "id": "semio-ln-drena-infraclaviculares",
+    "kind": "texto",
+    "front": "Quais linfonodos drenam **mama e braço**?",
+    "back": "**Infraclaviculares**",
+    "tip": {
+     "label": "Diagnóstico diferencial",
+     "text": "Altamente suspeito de linfoma não Hodgkin."
+    }
+   },
+   {
+    "id": "semio-ln-grupo-infraclaviculares",
+    "kind": "texto",
+    "front": "O que drenam os linfonodos **infraclaviculares**?",
+    "back": "Mama e braço."
+   },
+   {
+    "id": "semio-ln-drena-epitrocleanos",
+    "kind": "texto",
+    "front": "Quais linfonodos drenam **forame ulnar e mãos**?",
+    "back": "**Epitrocleanos**",
+    "tip": {
+     "label": "Diagnóstico diferencial",
+     "text": "Infecções da pele, linfoma, neoplasias da pele e hanseníase."
+    }
+   },
+   {
+    "id": "semio-ln-grupo-epitrocleanos",
+    "kind": "texto",
+    "front": "O que drenam os linfonodos **epitrocleanos**?",
+    "back": "Forame ulnar e mãos."
+   },
+   {
+    "id": "semio-ln-drena-axilares",
+    "kind": "texto",
+    "front": "Quais linfonodos drenam **mama e extremidade superior da parede torácica**?",
+    "back": "**Axilares**",
+    "tip": {
+     "label": "Diagnóstico diferencial",
+     "text": "Infecção/trauma da pele, doença da arranhadura do gato, tularemia, esporotricose, sarcoidose, sífilis e hanseníase. Malignidades: câncer da mama, neoplasia da pele, linfoma, leucemia, sarcoma de Kaposi e sarcoma de partes moles."
+    }
+   },
+   {
+    "id": "semio-ln-grupo-axilares",
+    "kind": "texto",
+    "front": "O que drenam os linfonodos **axilares**?",
+    "back": "Mama e extremidade superior da parede torácica."
+   }
+  ],
+  "images": []
+ }
+]

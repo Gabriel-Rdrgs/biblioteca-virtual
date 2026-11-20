@@ -307,3 +307,68 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Flashcards: a carta que vira.
+   As duas faces ocupam a mesma célula de grade, então a carta tem a altura
+   da face mais alta e nada pula ao virar. A face escondida também fica
+   `visibility: hidden` na metade do giro, para o leitor de tela e o Tab não
+   alcançarem a resposta antes da hora. */
+.flip-scene {
+  perspective: 1800px;
+}
+
+.flip-card {
+  display: grid;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.flip-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  grid-area: 1 / 1;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-front {
+  visibility: visible;
+  transition: visibility 0s 0s;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  visibility: hidden;
+  transition: visibility 0s 0.3s;
+}
+
+.flip-card.is-flipped .flip-front {
+  visibility: hidden;
+  transition: visibility 0s 0.3s;
+}
+
+.flip-card.is-flipped .flip-back {
+  visibility: visible;
+  transition: visibility 0s 0s;
+}
+
+/* O "?" da oclusão pulsa de leve, para o olho achar onde olhar. */
+@keyframes occlusion-pulse {
+  50% {
+    filter: brightness(1.15);
+    transform: scale(1.04);
+  }
+}
+
+.occlusion-mark {
+  animation: occlusion-pulse 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-front,
+  .flip-back {
+    transition-delay: 0s !important;
+  }
+}

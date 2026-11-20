@@ -5,7 +5,7 @@ import type { DisciplineId } from "./types";
  *
  * Tudo aqui é função pura sobre números — é a parte do Atlas que não pode
  * errar, porque alguém vai decidir quanto precisa estudar com base nela.
- * As regras são as mesmas nas sete unidades:
+ * As regras são as mesmas nas oito unidades:
  *
  *     MP = (N1 + N2) ÷ 2,  aprovado com MP ≥ 6,0, sem arredondamento
  *     abaixo disso, ARA:  MF = (MP + ARA) ÷ 2,  aprovado com MF ≥ 6,0

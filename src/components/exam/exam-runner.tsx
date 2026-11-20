@@ -16,6 +16,7 @@ import {
   type StoredAttempt,
   type StoredResult,
 } from "@/lib/exam-storage";
+import { feedErrorQueue, recordAnswer, recordSession } from "@/lib/study-log";
 import { cn } from "@/lib/utils";
 import { ExamResultView } from "./exam-result";
 import { Button } from "@/components/ui/primitives";
@@ -58,6 +59,43 @@ function summarise(loaded: LoadedExam, result: ExamResult): StoredResult {
       possible: a.possible,
     })),
   };
+}
+
+/**
+ * Leva a correção ao diário de estudo e à fila de erros: cada objetiva
+ * respondida conta no painel de desempenho, e as erradas (ou em branco)
+ * entram na fila para voltar no modo rápido.
+ */
+function logToStudy(loaded: LoadedExam, attempt: StoredAttempt, result: ExamResult | null): void {
+  const areaLabel = new Map(loaded.areas.map((area) => [area.id, area.label]));
+  const axisLabel = new Map(loaded.axes.map((axis) => [axis.id, axis.label]));
+  const queue: { id: string; areaId: string; topic: string; ok: boolean }[] = [];
+  for (const { question } of loaded.questions) {
+    if (!isObjective(question)) continue;
+    const choice = attempt.choices[question.id];
+    const ok = choice === question.answer;
+    queue.push({ id: question.id, areaId: question.areaId, topic: question.topic, ok });
+    if (!choice) continue;
+    recordAnswer({
+      mode: "simulado",
+      ref: question.id,
+      ok,
+      group: question.areaId,
+      groupLabel: areaLabel.get(question.areaId) ?? question.areaId,
+      axis: question.axisId,
+      axisLabel: axisLabel.get(question.axisId) ?? question.axisId,
+    });
+  }
+  feedErrorQueue(queue);
+  if (result) {
+    recordSession({
+      mode: "simulado",
+      title: loaded.exam.title,
+      correct: result.objectiveEarned,
+      total: result.objectivePossible,
+      seconds: attempt.seconds ?? 0,
+    });
+  }
 }
 
 function useElapsed(attempt: StoredAttempt, running: boolean) {
@@ -157,6 +195,7 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
         seconds,
         result: summarise(loaded, result),
       });
+      logToStudy(loaded, { ...attempt, seconds }, result);
     }
     top.current?.scrollIntoView({ block: "start" });
   };
@@ -506,6 +545,7 @@ export function ExamRunner({ loaded }: { loaded: LoadedExam }) {
                 seconds,
                 ...(result ? { result: summarise(loaded, result) } : {}),
               });
+              logToStudy(loaded, { ...attempt, seconds }, result);
               setPhase("resultado");
               top.current?.scrollIntoView({ block: "start" });
             }}

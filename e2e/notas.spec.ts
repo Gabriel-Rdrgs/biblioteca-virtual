@@ -139,7 +139,7 @@ test("o calendário tem uma aba de notas, e ela respeita o filtro de matéria", 
   await page.goto("/calendario");
 
   await page.getByRole("button", { name: "Notas", exact: true }).click();
-  await expect(painel(page).getByRole("listitem")).toHaveCount(7);
+  await expect(painel(page).getByRole("listitem")).toHaveCount(8);
 
   // Filtrando por uma matéria, o painel mostra só ela.
   await page.getByRole("button", { name: /^MAC I$/ }).click();

@@ -9,7 +9,7 @@ import type {
   Visibility,
 } from "@/lib/domain/types";
 
-/** Date the seven teaching plans were transcribed into the catalogue. */
+/** Date the first seven teaching plans were transcribed (AES 3 came on 20/11). */
 const CATALOGUED_AT = "2026-09-18";
 
 interface BookSeed {
@@ -46,6 +46,14 @@ interface BookSeed {
 export const CLASS_FILE_ORIGIN = "Enviado pela administração da turma (pasta Documentos/livros)";
 export const CLASS_FILE_AUTHORIZATION =
   "Direito de uso para estudo declarado pela turma em 18/09/2026";
+
+/**
+ * O lote de 20/11/2026 (pasta "livros novos"), com declaração própria: a de
+ * setembro era sobre outros livros e não se estende sozinha.
+ */
+export const NOVEMBER_FILE_ORIGIN = "Enviado pela administração da turma (pasta livros novos)";
+export const NOVEMBER_FILE_AUTHORIZATION =
+  "Direito de uso para estudo confirmado pela administração da turma em 20/11/2026";
 
 function defineBook(seed: BookSeed): Book {
   return {
@@ -220,6 +228,14 @@ const seeds: BookSeed[] = [
   },
   {
     id: "embriologia-basica",
+    file: {
+      path: "embriologia-basica.pdf",
+      origin: NOVEMBER_FILE_ORIGIN,
+      authorization: NOVEMBER_FILE_AUTHORIZATION,
+      sizeBytes: 14110703,
+      addedAt: "2026-11-20",
+      note: "A ficha catalográfica do arquivo traz o ISBN 978-85-9515-901-3; o plano de ensino cita 978-85-9515-902-0 — mesma 10ª edição (2022), provavelmente versões impressa e digital.",
+    },
     title: "Embriologia Básica",
     authors: ["MOORE, Keith L.", "PERSAUD, T. V. N.", "TORCHIA, Mark G."],
     publisher: "GEN Guanabara Koogan",
@@ -1404,6 +1420,262 @@ const seeds: BookSeed[] = [
       raw: "NELSON, David L.; COX, Michael M. Princípios de Bioquímica de Lehninger. 6. ed. Porto Alegre: Artmed, 2014. ISBN 978-85-8271-073-9. (Dados lidos da página de créditos do arquivo.)",
       status: "pendente",
       note: "Autores (Nelson & Cox) informados a partir da obra; a página de créditos legível traz só ISBN e ano — conferir.",
+    },
+  },
+  // ------------------------------------- acervo da turma — lote de novembro
+  // Dados lidos da ficha catalográfica de cada arquivo (CIP), como os de cima.
+  {
+    id: "embriologia-clinica",
+    title: "Embriologia Clínica",
+    authors: ["MOORE, Keith L.", "PERSAUD, T. V. N.", "TORCHIA, Mark G."],
+    publisher: "Elsevier",
+    publicationYear: 2016,
+    edition: "10. ed.",
+    isbn: "978-85-352-8383-9",
+    file: {
+      path: "embriologia-clinica.pdf",
+      origin: NOVEMBER_FILE_ORIGIN,
+      authorization: NOVEMBER_FILE_AUTHORIZATION,
+      sizeBytes: 46521419,
+      addedAt: "2026-11-20",
+    },
+    motif: "histologia",
+    topics: ["embriologia", "desenvolvimento embrionário", "defeitos congênitos"],
+    source: {
+      kind: "acervo_da_turma",
+      raw: "MOORE, Keith L.; PERSAUD, T. V. N.; TORCHIA, Mark G. Embriologia Clínica. 10. ed. Rio de Janeiro: Elsevier, 2016. ISBN 978-85-352-8383-9. (Dados lidos da ficha catalográfica do arquivo.)",
+    },
+  },
+  {
+    id: "histologia-basica-junqueira",
+    title: "Histologia Básica",
+    authors: ["JUNQUEIRA, L. C.", "CARNEIRO, José"],
+    edition: "10. ed.",
+    file: {
+      path: "histologia-basica-junqueira.pdf",
+      origin: NOVEMBER_FILE_ORIGIN,
+      authorization: NOVEMBER_FILE_AUTHORIZATION,
+      sizeBytes: 106069949,
+      addedAt: "2026-11-20",
+      note: "Arquivo digitalizado (só imagem): não dá para buscar texto dentro dele.",
+    },
+    motif: "histologia",
+    topics: ["histologia", "tecidos", "microscopia"],
+    source: {
+      kind: "acervo_da_turma",
+      raw: "JUNQUEIRA, L. C.; CARNEIRO, José. Histologia Básica. 10. ed. (Título, autores e edição lidos do nome e dos metadados do arquivo.)",
+      status: "pendente",
+      note: "O arquivo é digitalizado e não tem texto extraível: editora, ano e ISBN não foram lidos da ficha catalográfica. Conferir na folha de rosto.",
+    },
+  },
+  {
+    id: "imunologia-basica-abbas",
+    title: "Imunologia Básica",
+    subtitle: "Funções e Distúrbios do Sistema Imunológico",
+    authors: ["ABBAS, Abul K.", "LICHTMAN, Andrew H.", "PILLAI, Shiv"],
+    publisher: "Guanabara Koogan",
+    publicationYear: 2021,
+    isbn: "9788595158672",
+    file: {
+      path: "imunologia-basica-abbas.pdf",
+      origin: NOVEMBER_FILE_ORIGIN,
+      authorization: NOVEMBER_FILE_AUTHORIZATION,
+      sizeBytes: 23461107,
+      addedAt: "2026-11-20",
+      note: "O arquivo é a 4ª edição (Elsevier, © 2014, ISBN 978-85-352-7110-2); o plano de ensino cita a edição de 2021 da Guanabara Koogan.",
+    },
+    motif: "bioquimica",
+    topics: ["imunologia", "imunidade inata", "imunidade adaptativa"],
+    source: {
+      plan: "aes-3",
+      section: "Bibliografia Complementar",
+      page: 10,
+      raw: "ABBAS, Abul K. Imunologia Básica - Funções e Distúrbios do Sistema Imunológico. Rio de Janeiro, Guanabara Koogan, 2021. Disponível em: https://integrada.minhabiblioteca.com.br/#/books/9788595158672/. Acesso em: 01 jul. 2024.",
+    },
+  },
+  {
+    id: "imunologia-celular-e-molecular-abbas",
+    title: "Imunologia Celular e Molecular",
+    authors: ["ABBAS, Abul K.", "LICHTMAN, Andrew H.", "PILLAI, Shiv"],
+    publisher: "Guanabara Koogan",
+    publicationYear: 2022,
+    edition: "10. ed.",
+    isbn: "9788595158924",
+    file: {
+      path: "imunologia-celular-e-molecular-abbas.pdf",
+      origin: NOVEMBER_FILE_ORIGIN,
+      authorization: NOVEMBER_FILE_AUTHORIZATION,
+      sizeBytes: 104883909,
+      addedAt: "2026-11-20",
+      note: "A ficha catalográfica do arquivo traz 10. ed., 2023, ISBN 978-85-9515-891-7 — a mesma 10ª edição que o plano cita pelo e-book (2022, ISBN 9788595158924).",
+    },
+    motif: "bioquimica",
+    topics: ["imunologia", "imunologia celular", "imunologia molecular"],
+    source: {
+      plan: "aes-3",
+      section: "Bibliografia Básica",
+      page: 10,
+      raw: "ABBAS, Abul K. Imunologia Celular e Molecular. Rio de Janeiro, Guanabara Koogan, 2022. Disponível em: https://integrada.minhabiblioteca.com.br/#/books/9788595158924/. Acesso em: 01 jul. 2024.",
+      status: "pendente",
+      note: "O plano cita só o primeiro autor; Lichtman e Pillai vêm da ficha catalográfica do arquivo.",
+    },
+  },
+  {
+    id: "microbiologia-medica-jawetz",
+    title: "Microbiologia Médica de Jawetz, Melnick & Adelberg",
+    authors: ["RIEDEL, Stefan", "et al."],
+    publisher: "AMGH",
+    publicationYear: 2022,
+    edition: "28. ed.",
+    isbn: "978-65-5804-017-0",
+    file: {
+      path: "microbiologia-medica-jawetz.pdf",
+      origin: NOVEMBER_FILE_ORIGIN,
+      authorization: NOVEMBER_FILE_AUTHORIZATION,
+      sizeBytes: 29137659,
+      addedAt: "2026-11-20",
+    },
+    motif: "histologia",
+    topics: ["microbiologia", "bacteriologia", "virologia", "micologia"],
+    source: {
+      plan: "aes-3",
+      section: "Bibliografia Básica",
+      page: 10,
+      raw: "RIEDEL, Stefan. Microbiologia Médica de Jawetz, Melnick & Adelberg. Porto Alegre: Artmed, 2022. Disponível em: https://integrada.minhabiblioteca.com.br/#/books/9786558040170/. Acesso em: 01 jul. 2024.",
+      note: "O plano dá a editora como Artmed; a ficha do arquivo traz AMGH, outro selo do mesmo Grupo A. O ISBN é o mesmo.",
+    },
+  },
+  {
+    id: "microbiologia-tortora",
+    title: "Microbiologia",
+    authors: ["TORTORA, Gerard J.", "FUNKE, Berdell R.", "CASE, Christine L."],
+    publisher: "Artmed",
+    publicationYear: 2017,
+    edition: "12. ed.",
+    isbn: "978-85-8271-354-9",
+    file: {
+      path: "microbiologia-tortora.pdf",
+      origin: NOVEMBER_FILE_ORIGIN,
+      authorization: NOVEMBER_FILE_AUTHORIZATION,
+      sizeBytes: 168543605,
+      addedAt: "2026-11-20",
+    },
+    motif: "histologia",
+    topics: ["microbiologia", "microrganismos", "doenças infecciosas"],
+    source: {
+      kind: "acervo_da_turma",
+      raw: "TORTORA, Gerard J.; FUNKE, Berdell R.; CASE, Christine L. Microbiologia. 12. ed. Porto Alegre: Artmed, 2017. ISBN 978-85-8271-354-9. (Dados lidos da ficha catalográfica do arquivo.)",
+    },
+  },
+
+  // ---------------------------------------------------------------- AES 3
+  // Bibliografia do plano de AES 3 (p. 10) ainda sem arquivo: catalogada, e
+  // oculta até alguém postar o PDF, como as outras referências.
+  {
+    id: "roitt-fundamentos-de-imunologia",
+    title: "Roitt — Fundamentos de Imunologia",
+    authors: ["DELVES, Peter J."],
+    publisher: "Guanabara Koogan",
+    publicationYear: 2023,
+    isbn: "9788527733885",
+    motif: "bioquimica",
+    topics: ["imunologia"],
+    source: {
+      plan: "aes-3",
+      section: "Bibliografia Básica",
+      page: 10,
+      raw: "DELVES, Peter J. ROITT - Fundamentos de Imunologia. Rio de Janeiro: Guanabara Koogan, 2023. Disponível em: https://integrada.minhabiblioteca.com.br/#/books/9788527733885/. Acesso em: 01 jul. 2024.",
+    },
+  },
+  {
+    id: "coura-doencas-infecciosas-e-parasitarias",
+    title: "Dinâmica das Doenças Infecciosas e Parasitárias",
+    authors: ["COURA, José R."],
+    publisher: "Guanabara Koogan",
+    publicationYear: 2018,
+    isbn: "978-85-277-2275-9",
+    motif: "bioquimica",
+    topics: ["doenças infecciosas", "parasitologia"],
+    source: {
+      plan: "aes-3",
+      section: "Bibliografia Complementar",
+      page: 10,
+      raw: "COURA, José R. Dinâmica das Doenças Infecciosas e Parasitárias. Rio de Janeiro: Guanabara Koogan, 2018. Disponível em: https://integrada.minhabiblioteca.com.br/#/books/978-85-277-2275-9/. Acesso em: 01 jul. 2024.",
+    },
+  },
+  {
+    id: "mims-microbiologia-medica-e-imunologia",
+    title: "Mims Microbiologia Médica e Imunologia",
+    authors: ["GOERING, Richard V."],
+    publisher: "Guanabara Koogan",
+    publicationYear: 2020,
+    isbn: "9788595157057",
+    motif: "bioquimica",
+    topics: ["microbiologia", "imunologia"],
+    source: {
+      plan: "aes-3",
+      section: "Bibliografia Complementar",
+      page: 10,
+      raw: "GOERING, Richard V. Mims Microbiologia Médica e Imunologia. Rio de Janeiro: GuanabaraKoogan, 2020. Disponível em: https://integrada.minhabiblioteca.com.br/#/books/9788595157057/. Acesso em: 01 jul. 2024.",
+    },
+  },
+  {
+    id: "goldman-cecil-medicina",
+    title: "Goldman-Cecil Medicina",
+    authors: ["GOLDMAN, Lee", "SCHAFER, Andrew I."],
+    publisher: "Artmed",
+    publicationYear: 2022,
+    isbn: "9788595159297",
+    motif: "semiologia",
+    topics: ["clínica médica", "medicina interna"],
+    source: {
+      plan: "aes-3",
+      section: "Bibliografia Complementar",
+      page: 10,
+      raw: "GOLDMAN, Lee; SCHAFER, Andrew I. Goldman-Cecil Medicina. Porto Alegre: Artmed, 2022. Disponível em: https://integrada.minhabiblioteca.com.br/#/books/9788595159297/. Acesso em: 01 jul. 2024.",
+      status: "pendente",
+      note: "O plano dá a editora como Artmed, mas o prefixo do ISBN (978-85-9515) é do GEN (Guanabara Koogan/Elsevier). Conferir a edição citada.",
+    },
+  },
+  {
+    id: "levinson-microbiologia-medica-e-imunologia",
+    title: "Microbiologia Médica e Imunologia",
+    subtitle: "Um manual clínico para doenças infecciosas",
+    authors: ["LEVINSON, Warren"],
+    publisher: "Artmed",
+    publicationYear: 2021,
+    isbn: "9786558040156",
+    motif: "bioquimica",
+    topics: ["microbiologia", "imunologia", "doenças infecciosas"],
+    source: {
+      plan: "aes-3",
+      section: "Bibliografia Complementar",
+      page: 10,
+      raw: "LEVINSON, Warren. Microbiologia Médica e Imunologia: um manual clínico para doenças infecciosas. Porto Alegre: Artmed, 2021. Disponível em: https://integrada.minhabiblioteca.com.br/#/books/9786558040156/. Acesso em: 01 jul. 2024.",
+    },
+  },
+
+  // ---------------------------------------------------------------- IESCG I
+  {
+    id: "iescg-1-ubs-02-santa-maria-territorio",
+    title: "Quem vive no território?",
+    subtitle:
+      "Caracterização da população cadastrada na área de abrangência da UBS 02 de Santa Maria — Equipe Dourada",
+    authors: ["Grupo IESCG I — Medicina Unieuro"],
+    publicationYear: 2026,
+    kind: "documento",
+    file: {
+      path: "iescg-1-ubs-02-santa-maria-territorio.pdf",
+      origin: "Apresentação do grupo da UBS 02 de Santa Maria (Equipe Dourada), enviada pela administração da turma",
+      authorization: NOVEMBER_FILE_AUTHORIZATION,
+      sizeBytes: 295276,
+      addedAt: "2026-11-20",
+    },
+    motif: "saude-coletiva",
+    topics: ["territorialização", "atenção primária", "perfil da população"],
+    source: {
+      kind: "acervo_da_turma",
+      raw: "Grupo IESCG I — Medicina Unieuro. Quem vive no território? Caracterização da população cadastrada na área de abrangência da UBS 02 de Santa Maria — Equipe Dourada. Apresentação, 16 slides, 2026. (Dados lidos da capa e dos metadados do arquivo.)",
     },
   },
 ];

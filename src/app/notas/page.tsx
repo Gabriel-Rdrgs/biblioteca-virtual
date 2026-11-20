@@ -13,11 +13,11 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 /**
- * As sete matérias em notas, lado a lado.
+ * As oito matérias em notas, lado a lado.
  *
  * Esta página não é mais onde a nota se digita — isso virou um pop-up, que
  * abre também da matéria e do cartão da prova no calendário. O que ela faz é
- * o que nenhuma outra tela faz: as sete juntas, para comparar e ver qual
+ * o que nenhuma outra tela faz: as oito juntas, para comparar e ver qual
  * está perto da ARA.
  *
  * O servidor só entrega os nomes das disciplinas: as notas vivem no aparelho

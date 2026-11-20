@@ -91,6 +91,50 @@ silêncio.
 Capas: todas são placeholders editoriais gerados (`coverSource: "placeholder"`), com uma
 linguagem visual por área. A página do livro deixa isso explícito.
 
+## Estudar
+
+Tudo o que é do aluno — tentativas, progresso dos cartões, diário de estudo,
+fila de erros — fica **no aparelho** (localStorage), porque não há conta
+individual. A exceção são os baralhos publicados para a turma.
+
+- **Simulados** (`/simulados/<slug>`): a prova inteira, corrigida no fim, com
+  autoavaliação das discursivas e mapa por eixo.
+- **Modo rápido** (`/estudar/rapido`): uma objetiva por vez, corrigida na hora,
+  por área ou por eixo. Teclas 1–4 e Enter.
+- **Simulado de imagem** (`/estudar/imagem`): uma figura sem legenda e um
+  relógio por figura, como na TV da prova prática; a pessoa revela e marca se
+  acertou.
+- **Fila de erros** (`/estudar/erros`): toda objetiva errada (no modo rápido ou
+  num simulado corrigido) entra, e só sai com dois acertos seguidos.
+- **Desempenho** (`/progresso`): respostas de todos os modos — acerto por área
+  e por modo, assuntos mais fracos, últimos 14 dias, sessões recentes — e, logo
+  abaixo, a evolução prova a prova dos simulados completos.
+
+### Flashcards (`/flashcards`)
+
+Revisão espaçada em caixas de Leitner (`src/lib/domain/flashcard-review.ts`):
+**Errei** volta para a primeira caixa e reaparece na mesma sessão daqui a 4
+cartões; **Quase** fica na caixa e volta amanhã; **Sei** sobe e demora mais
+(1, 3, 7, 16, 35 dias). Espaço vira, 1-2-3 dão a nota.
+
+Quatro origens:
+
+- **Oficiais** — `src/lib/data/flashcards/*.json`, importados dos roteiros
+  interativos de membros superiores (Moore, cap. 6, com image occlusion) e de
+  semiologia de cabeça e pescoço (fotos de crânio e fácies, linfonodos). As
+  figuras ficam em `storage/flashcards/` (fora do Git, como as dos simulados) e
+  são servidas por `/api/flashcards/figuras/<arquivo>`, atrás da senha.
+- **Do banco** — gerados na hora a partir do banco de questões: cada objetiva
+  vira um cartão, cada item discursivo outro. Corrigir a questão corrige o cartão.
+- **Meus** — escritos pelo aluno, guardados no navegador. Exportam e importam
+  em `.atlas.json`, e importam também texto com TAB do Anki e do Quizlet.
+- **Da turma** — um baralho próprio publicado. Mora em
+  `storage/flashcards-turma.json` (local) ou `flashcards/turma.json` (bucket),
+  separado do manifesto do catálogo. Quem publica recebe um segredo, guardado
+  no aparelho; só com ele se atualiza ou retira (o servidor guarda só o hash).
+  O admin oculta ou exclui em `/admin`. Só texto: imagem de aluno exigiria
+  upload aberto a qualquer um com a senha da turma.
+
 ## Administração (/admin)
 
 Senha própria (`ATLAS_SENHA_ADMIN`), diferente da senha da turma; sem ela a
@@ -153,7 +197,8 @@ definidas, o app deixa de servir do disco e passa a emitir links assinados
    ```
 
    Reexecute sempre que colocar PDFs novos em `storage/livros`; só o que mudou
-   é enviado.
+   é enviado. As figuras dos flashcards vão junto (`storage/flashcards`); para
+   mandar só elas: `npm run upload:storage flashcards`.
 
 ### 2. Vercel
 

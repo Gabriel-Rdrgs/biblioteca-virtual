@@ -84,7 +84,7 @@ export function DisciplineGrades({
           </>
         )}{" "}
         <Link href="/notas" className="text-primary font-medium hover:underline">
-          Ver as sete matérias
+          Ver todas as matérias
         </Link>
       </p>
     </Card>

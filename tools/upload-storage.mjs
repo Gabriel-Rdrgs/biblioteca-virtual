@@ -1,9 +1,9 @@
 // Syncs storage/*.pdf to the R2 bucket. Run with:
 //   npm run upload:storage            (tudo)
 //   npm run upload:storage resumos    (só uma pasta)
-// São quatro pastas, e cada uma vira um prefixo no bucket, igual ao que
-// objectKey() monta em src/lib/storage.ts: livros, planos, simulados e
-// resumos. Enviar só os livros era um jeito silencioso de publicar um
+// São cinco pastas, e cada uma vira um prefixo no bucket, igual ao que
+// objectKey() monta em src/lib/storage.ts: livros, planos, simulados,
+// resumos e flashcards. Enviar só os livros era um jeito silencioso de publicar um
 // resumo que o deploy depois não acha.
 // Objects already in the bucket with the same size are skipped, so re-runs
 // only send what changed. Requires the R2_* variables in .env.local.
@@ -29,7 +29,7 @@ const client = new S3Client({
   },
 });
 
-const PASTAS = ["livros", "planos", "simulados", "resumos"];
+const PASTAS = ["livros", "planos", "simulados", "resumos", "flashcards"];
 const pedidas = process.argv.slice(2);
 const desconhecida = pedidas.find((nome) => !PASTAS.includes(nome));
 if (desconhecida) {

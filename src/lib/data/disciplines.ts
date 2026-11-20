@@ -1,7 +1,7 @@
 import type { Discipline } from "@/lib/domain/types";
 
 /**
- * The seven units of the 1st period, 2026.2, transcribed from the official
+ * The eight units of the 1st period, 2026.2, transcribed from the official
  * UNIEURO teaching plans in public/planos. Fields absent from a plan are
  * left undefined and surfaced as "não informado" — never guessed.
  */
@@ -343,6 +343,63 @@ export const disciplines: readonly Discipline[] = [
     notes: [
       "Carga horária não especificada no plano de ensino.",
       "Docentes não identificados no plano de ensino.",
+    ],
+  },
+  {
+    id: "aes-3",
+    slug: "aes-3-mecanismos-de-agressao-e-defesa",
+    name: "AES 3 — Mecanismos de Agressão e Defesa",
+    shortName: "AES 3",
+    code: "MED01I1",
+    period: 1,
+    visibility: "visivel",
+    origin: "seed",
+    semester: "2026.2",
+    workload: "80h",
+    weeklyWorkload: "10h",
+    color: "#9b2f3f",
+    colorSoft: "#f6e2e5",
+    motif: "bioquimica",
+    teachingPlanFile: "/planos/aes-3.pdf",
+    description:
+      "Agentes e mecanismos agressores do organismo — vírus, príons, bactérias e fungos — e as defesas contra eles: imunidade inata e adquirida, inflamação, resposta celular e humoral, memória imunológica, imunização ativa e passiva, imunodeficiências, tolerância, autoimunidade e hipersensibilidade.",
+    syllabus: [
+      {
+        title: "Agentes agressores",
+        items: [
+          "Agentes biológicos: bactérias, fungos e vírus",
+          "Agentes químicos e físicos",
+          "Fármacos antimicrobianos e resistência",
+        ],
+      },
+      {
+        title: "Defesa inespecífica",
+        items: [
+          "Barreiras físicas e químicas",
+          "Células: fagócitos",
+          "Sistema complemento",
+          "Inflamação",
+        ],
+      },
+      {
+        title: "Defesa específica",
+        items: [
+          "Células: linfócitos e APC",
+          "Anticorpos",
+          "Tolerância (próprio/não próprio)",
+          "Memória imunológica",
+        ],
+      },
+      {
+        title: "Imunopatologia",
+        items: ["Doenças autoimunes", "Imunodeficiência", "Hipersensibilidade"],
+      },
+    ],
+    teachers: [],
+    notes: [
+      "Metodologia por tutoria (ABP), com problemas P1 a P6 e conferências temáticas.",
+      "Conferências: 05/11 Componentes sanguíneos e introdução ao hemograma (Prof. Dr. Aloísio); 09/11 Resistência bacteriana (Profa. Dra. Francislete); 16/11 Tolerância imunológica e 26/11 Imunologia de transplantes (Prof. Dr. Érico Rosas).",
+      "Docentes da tutoria não identificados no plano de ensino.",
     ],
   },
 ];

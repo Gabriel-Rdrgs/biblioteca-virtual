@@ -136,7 +136,7 @@ describe("média, recuperação e situação", () => {
 });
 
 describe("as notas transcritas dos planos", () => {
-  it("cobre as sete unidades curriculares", () => {
+  it("cobre todas as unidades curriculares", () => {
     const comEsquema = new Set(gradeSchemes.map((s) => s.disciplineId));
     for (const discipline of disciplines) {
       expect(comEsquema.has(discipline.id), discipline.shortName).toBe(true);

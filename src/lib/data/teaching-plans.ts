@@ -1,7 +1,7 @@
 import type { TeachingPlan } from "@/lib/domain/types";
 
 /**
- * The seven official plans, served from public/planos. These are
+ * The eight official plans, served from public/planos. These are
  * institutional course documents, viewable and downloadable by the class.
  *
  * `pages` is the real page count reported by the extractor.
@@ -75,6 +75,16 @@ export const teachingPlans: readonly TeachingPlan[] = [
     semester: "2026.2",
     pages: 10,
     sourceFileName: "AES 02 - PLANO DE ENSINO_2º2026.pdf",
+    extractedTextStatus: "extraido",
+  },
+  {
+    id: "plano-aes-3",
+    disciplineId: "aes-3",
+    title: "Plano de Ensino — AES 3: Mecanismos de Agressão e Defesa",
+    fileUrl: "/planos/aes-3.pdf",
+    semester: "2026.2",
+    pages: 10,
+    sourceFileName: "Plano de ensino AES 03.pdf",
     extractedTextStatus: "extraido",
   },
 ];

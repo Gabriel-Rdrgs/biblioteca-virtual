@@ -103,7 +103,7 @@ export function StudySnapshot({ variante = "pagina" }: { readonly variante?: Var
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
         <h2 className="text-lg font-semibold">Onde você está</h2>
         <ButtonLink href="/progresso" variant="fantasma" size="sm">
-          Meu progresso
+          Desempenho
           <ArrowRight className="size-4" aria-hidden="true" />
         </ButtonLink>
       </div>

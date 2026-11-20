@@ -192,7 +192,7 @@ export function CalendarViews({
       </div>
 
       {/* ------------------------------------------------------------ busca */}
-      {/* Nas notas não há o que buscar: são sete matérias, todas na tela. */}
+      {/* Nas notas não há o que buscar: são oito matérias, todas na tela. */}
       <div className={cn("glass relative mb-3 rounded-full", vista === "notas" && "hidden")}>
         <label htmlFor="busca-calendario" className="sr-only">
           Buscar no calendário

@@ -1,5 +1,17 @@
 import type { Metadata } from "next";
-import { ArrowRight, BookOpen, FileText, GraduationCap, Layers, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  FileText,
+  GraduationCap,
+  Images,
+  Layers,
+  LineChart,
+  Sparkles,
+  TriangleAlert,
+  WalletCards,
+  Zap,
+} from "lucide-react";
 import {
   Badge,
   Breadcrumbs,
@@ -20,6 +32,39 @@ export const metadata: Metadata = {
 };
 
 export const dynamic = "force-dynamic";
+
+const MODES = [
+  {
+    href: "/estudar/rapido",
+    icon: Zap,
+    title: "Modo rápido",
+    text: "Uma objetiva por vez, corrigida na hora, com o comentário.",
+  },
+  {
+    href: "/estudar/imagem",
+    icon: Images,
+    title: "Simulado de imagem",
+    text: "Figura sem legenda e relógio correndo, como na TV da prova.",
+  },
+  {
+    href: "/flashcards",
+    icon: WalletCards,
+    title: "Flashcards",
+    text: "Revisão espaçada; crie os seus e publique para a turma.",
+  },
+  {
+    href: "/estudar/erros",
+    icon: TriangleAlert,
+    title: "Fila de erros",
+    text: "O que você errou volta até acertar duas vezes seguidas.",
+  },
+  {
+    href: "/progresso",
+    icon: LineChart,
+    title: "Desempenho",
+    text: "Acerto por área, assuntos fracos e dias estudados.",
+  },
+] as const;
 
 export default async function EstudarPage() {
   const disciplines = await getDisciplines();
@@ -52,6 +97,20 @@ export default async function EstudarPage() {
       <div className="mb-6">
         <StudySnapshot />
       </div>
+
+      <nav aria-label="Modos de estudo" className="mb-10">
+        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          {MODES.map(({ href, icon: Icon, title, text }) => (
+            <li key={href}>
+              <CardLink href={href} className="flex h-full flex-col gap-2">
+                <Icon className="text-primary size-5" aria-hidden="true" />
+                <span className="font-semibold">{title}</span>
+                <span className="text-ink-muted text-sm leading-relaxed">{text}</span>
+              </CardLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       <CardLink href="/notas" raio="hero" className="mb-4 flex items-center gap-4">
         <GraduationCap className="text-primary size-6 shrink-0" aria-hidden="true" />
