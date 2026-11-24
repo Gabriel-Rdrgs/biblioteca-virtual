@@ -333,3 +333,37 @@ describe("baralhos publicados para a turma", () => {
     expect(() => sharedDeckInputSchema.parse({ ...input, cards: [] })).toThrow();
   });
 });
+
+describe("a ordem dos baralhos por matéria", () => {
+  it("cita só baralhos que existem, e cada um na matéria dele", async () => {
+    const { deckUnits } = await import("@/lib/data/flashcards/units");
+    const all = [...seedDecks, ...getBankDecks()];
+    for (const [disciplineId, units] of Object.entries(deckUnits)) {
+      for (const unit of units) {
+        for (const slug of unit.slugs) {
+          const deck = all.find((d) => d.slug === slug);
+          expect(deck, `${disciplineId} → ${slug}`).toBeDefined();
+          expect(deck?.disciplineId, slug).toBe(disciplineId);
+        }
+      }
+    }
+  });
+
+  it("nunca esconde um baralho: o que não está listado vai para o fim", async () => {
+    const { orderDecks } = await import("@/lib/data/flashcards/units");
+    const decks = [
+      { slug: "semio-cranio", origin: "oficial" },
+      { slug: "nao-listado", origin: "oficial" },
+      { slug: "da-turma", origin: "turma" },
+      { slug: "semio-pressao-arterial", origin: "oficial" },
+    ];
+    const units = orderDecks("ha-1", decks);
+    expect(units.map((u) => u.title)).toEqual([
+      "Sinais vitais",
+      "Cabeça e pescoço",
+      "Outros baralhos",
+      "Da turma",
+    ]);
+    expect(units.flatMap((u) => u.decks)).toHaveLength(decks.length);
+  });
+});

@@ -21,6 +21,7 @@ import { PhotoAnswer } from "@/components/flashcards/flashcard-session";
 
 export interface ImageDeck {
   readonly id: string;
+  readonly disciplineId?: string;
   readonly title: string;
   readonly collection: string;
   readonly color?: string;
@@ -73,7 +74,14 @@ interface Run {
   readonly started: number;
 }
 
-export function ImageExam({ decks }: { decks: readonly ImageDeck[] }) {
+export function ImageExam({
+  decks,
+  initialSelected,
+}: {
+  decks: readonly ImageDeck[];
+  /** Baralhos já marcados — a página da prova manda os da matéria dela. */
+  initialSelected?: readonly string[];
+}) {
   const allItems = useMemo<Item[]>(
     () =>
       decks.flatMap((deck) => {
@@ -88,7 +96,9 @@ export function ImageExam({ decks }: { decks: readonly ImageDeck[] }) {
 
   const collections = useMemo(() => [...new Set(decks.map((d) => d.collection))], [decks]);
   const [selected, setSelected] = useState<string[]>(() =>
-    decks.filter((d) => d.collection === collections[0]).map((d) => d.id),
+    initialSelected && initialSelected.length > 0
+      ? [...initialSelected]
+      : decks.filter((d) => d.collection === collections[0]).map((d) => d.id),
   );
   const [perPhoto, setPerPhoto] = useState(30);
   const [amount, setAmount] = useState(20);

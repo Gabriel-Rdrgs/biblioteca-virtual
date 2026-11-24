@@ -146,8 +146,12 @@ export const seedAssessments: readonly Assessment[] = [
     title: "N2 — OSCE (2º dia)",
     date: "2026-11-24",
     weight: "8,0",
-    content: ["Prática em estações simuladas."],
+    content: [
+      "Metade prática: aferição da pressão arterial, na estação do OSCE.",
+      "Metade teórica: lesões elementares da pele, crânio, fácies, cabeça e pescoço e o restante do plano de ensino de HA I.",
+    ],
     examIds: [],
+    note: "Composição da prova informada pela turma em 24/11/2026; o plano de ensino diz só “prática em estações simuladas”.",
     source: plano("HA I", 4),
   },
 

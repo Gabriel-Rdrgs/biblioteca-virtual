@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 
 /**
  * Os resumos, de ponta a ponta.
@@ -18,19 +18,31 @@ test.beforeEach(async ({ page }) => {
   expect(response.status()).toBe(303);
 });
 
-test("a lista mostra a aula com a data e a prova em que ela cai", async ({ page }) => {
+/** Abre o grupo de uma prova na lista (o da próxima prova já vem aberto). */
+async function abrirGrupo(page: Page, escopo: string, prova: RegExp) {
+  const grupo = page.locator(`${escopo} details`).filter({
+    has: page.locator("summary").filter({ hasText: prova }),
+  });
+  if ((await grupo.first().getAttribute("open")) === null) {
+    await grupo.first().locator("summary").click();
+  }
+  return grupo.first();
+}
+
+test("a lista mostra a aula com a data, agrupada pela prova em que ela cai", async ({ page }) => {
   await page.goto("/resumos");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Resumos");
 
-  const cartao = page.locator("li").filter({ hasText: "Microscopia + Referenciais" }).first();
-  await expect(cartao.getByText("Aula 01")).toBeVisible();
-  await expect(cartao.getByText("11/08")).toBeVisible();
-  await expect(cartao.getByText("cai na N1")).toBeVisible();
+  const n1 = await abrirGrupo(page, "#resumos-mac-1", /^N1/);
+  const linha = n1.locator("li").filter({ hasText: "Microscopia + Referenciais" }).first();
+  await expect(linha.getByText("Aula 01")).toBeVisible();
+  await expect(linha.getByText("11/08")).toBeVisible();
 });
 
 test("o resumo abre no leitor, com as duas páginas", async ({ page }) => {
   await page.goto("/resumos");
-  await page.getByRole("link", { name: "Ler" }).first().click();
+  const n1 = await abrirGrupo(page, "#resumos-mac-1", /^N1/);
+  await n1.getByRole("link", { name: /Microscopia \+ Referenciais/ }).first().click();
   await expect(page).toHaveURL(/\/resumos\/mac-1-aula-01/);
 
   // O leitor é o mesmo dos livros: espera ele desenhar antes de conferir.
@@ -60,16 +72,16 @@ test("a prova do calendário leva ao resumo do que cai nela", async ({ page }) =
   await expect(cartao.getByRole("link", { name: /resumo para a N1/i })).toBeVisible();
 });
 
-test("a matéria destaca os resumos de prova e as aulas mais próximas", async ({ page }) => {
+test("a matéria lista os resumos por prova, com o apanhado da véspera primeiro", async ({ page }) => {
   await page.goto("/disciplinas/morfofuncional-aplicado-a-clinica-i");
   const secao = page.locator("section").filter({ hasText: "Resumos das aulas" }).first();
 
-  // Os dois apanhados de prova vêm primeiro: é o que se abre na véspera.
-  await expect(secao.getByRole("link", { name: /Resumo para a N1/ })).toBeVisible();
-  await expect(secao.getByRole("link", { name: /Resumo para a N2/ })).toBeVisible();
+  // Cada prova é um grupo; o apanhado dela abre o grupo.
+  const n1 = await abrirGrupo(page, "section:has(#resumos-da-materia)", /^N1/);
+  await expect(n1.getByRole("link", { name: /Resumo para a N1/ })).toBeVisible();
+  const n2 = await abrirGrupo(page, "section:has(#resumos-da-materia)", /^N2/);
+  await expect(n2.getByRole("link", { name: /Resumo para a N2/ })).toBeVisible();
 
-  // São 26 aulas; a matéria mostra as de agora e manda o resto para /resumos.
-  const aulas = secao.getByRole("link", { name: /^Aula \d\d/ });
-  await expect(aulas).toHaveCount(6);
-  await expect(secao.getByRole("link", { name: /ver todos os \d+/i })).toBeVisible();
+  // As aulas vêm numeradas, na ordem em que aconteceram.
+  await expect(secao.getByText("Aula 01").first()).toBeVisible();
 });

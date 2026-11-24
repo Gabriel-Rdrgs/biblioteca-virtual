@@ -162,6 +162,17 @@ export function EventItem({
 
         {links.exams.length > 0 || links.summaries.length > 0 || !event.past ? (
           <div className="mt-3 flex flex-wrap gap-2">
+            {/* A página da prova junta tudo da matéria, em ordem de estudo. */}
+            {prova && avaliacao && !event.past ? (
+              <ButtonLink
+                href={`/provas/${avaliacao.id}`}
+                size="sm"
+                variant={links.exams.length > 0 ? "secundario" : "primario"}
+              >
+                <PencilRuler className="size-4" aria-hidden="true" />
+                Estudar para esta prova
+              </ButtonLink>
+            ) : null}
             {links.exams.map((exam, i) => {
               const curto = exam.title.replace(/^Simulado \w+ — /, "");
               return (

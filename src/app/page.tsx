@@ -276,8 +276,14 @@ export default async function HomePage() {
                     Próxima prova
                   </p>
                   <h2 className="mt-1 text-xl font-semibold sm:text-2xl">
-                    {assessmentLabel(next.assessment)}
-                    {nextDiscipline ? ` de ${nextDiscipline.shortName}` : ""}
+                    {/* O cartão inteiro é o link: a área clicável cobre tudo (after:inset-0). */}
+                    <Link
+                      href={`/provas/${next.assessment.id}`}
+                      className="hover:text-primary after:absolute after:inset-0 after:content-['']"
+                    >
+                      {assessmentLabel(next.assessment)}
+                      {nextDiscipline ? ` de ${nextDiscipline.shortName}` : ""}
+                    </Link>
                   </h2>
                   <p className="text-ink-muted mt-1 text-sm">
                     {formatAssessmentDate(next.assessment.date)}
@@ -300,17 +306,21 @@ export default async function HomePage() {
                 </ul>
               ) : null}
 
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="relative z-10 mt-5 flex flex-wrap gap-2">
+                <ButtonLink href={`/provas/${next.assessment.id}`} size="sm">
+                  <PencilRuler className="size-4" aria-hidden="true" />
+                  Estudar para esta prova
+                </ButtonLink>
                 {nextSimulado ? (
-                  <ButtonLink href={`/simulados/${nextSimulado.slug}`} size="sm">
-                    <PencilRuler className="size-4" aria-hidden="true" />
+                  <ButtonLink href={`/simulados/${nextSimulado.slug}`} variant="secundario" size="sm">
+                    <ClipboardCheck className="size-4" aria-hidden="true" />
                     Treinar para ela
                   </ButtonLink>
                 ) : null}
                 {nextAreas.length > 0 ? (
                   <ButtonLink
                     href={`/estudar/rapido?areas=${nextAreas.map((a) => a.id).join(",")}&n=20`}
-                    variant={nextSimulado ? "secundario" : "primario"}
+                    variant="secundario"
                     size="sm"
                   >
                     <Zap className="size-4" aria-hidden="true" />
@@ -318,7 +328,11 @@ export default async function HomePage() {
                   </ButtonLink>
                 ) : null}
                 {nextSummaries.length > 0 ? (
-                  <ButtonLink href="/resumos" variant="secundario" size="sm">
+                  <ButtonLink
+                    href={`/resumos#resumos-${next.assessment.disciplineId}`}
+                    variant="secundario"
+                    size="sm"
+                  >
                     <BookOpen className="size-4" aria-hidden="true" />
                     {nextSummaries.length} {nextSummaries.length === 1 ? "resumo" : "resumos"}
                   </ButtonLink>
@@ -376,7 +390,11 @@ export default async function HomePage() {
               {upcoming.slice(0, 5).map(({ assessment, daysLeft }) => {
                 const discipline = disciplineById.get(assessment.disciplineId);
                 return (
-                  <li key={assessment.id} className="flex items-center gap-3 py-2.5">
+                  <li key={assessment.id}>
+                    <Link
+                      href={`/provas/${assessment.id}`}
+                      className="hover:text-primary flex items-center gap-3 py-2.5"
+                    >
                     <span
                       aria-hidden="true"
                       className="size-2.5 shrink-0 rounded-full"
@@ -394,6 +412,7 @@ export default async function HomePage() {
                     <Badge tom={daysLeft <= 7 && isExam(assessment) ? "perigo" : "neutro"}>
                       {countdownLabel(daysLeft)}
                     </Badge>
+                    </Link>
                   </li>
                 );
               })}

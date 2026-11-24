@@ -1,0 +1,149 @@
+[
+ {
+  "id": "oficial:semio-pressao-arterial",
+  "slug": "semio-pressao-arterial",
+  "origin": "oficial",
+  "title": "Aferição da pressão arterial",
+  "description": "A estação de PA do OSCE, passo a passo: preparo do paciente, manguito, palpação, ausculta, Korotkoff, registro e classificação.",
+  "disciplineId": "ha-1",
+  "collection": "Sinais vitais",
+  "color": "#1f5f8b",
+  "sourceNote": "Escrito a partir das Diretrizes Brasileiras de Hipertensão Arterial — 2020 (Sociedade Brasileira de Cardiologia). Confira sempre com o checklist do OSCE da turma: a ordem cobrada é a do roteiro do professor.",
+  "cards": [
+   {
+    "id": "pa-01",
+    "kind": "texto",
+    "front": "Antes de medir: o que se faz **com o paciente**?",
+    "back": "Explicar o procedimento e deixá-lo em **repouso de 3 a 5 minutos**, em ambiente calmo. Perguntar se está de **bexiga cheia**, se **fumou, tomou café ou álcool** ou fez **exercício** nos últimos **30 minutos**. Não conversar durante a medida.",
+    "tip": { "label": "Atenção", "text": "No OSCE, **anunciar e perguntar** cada item conta ponto — não basta pensar nele." }
+   },
+   {
+    "id": "pa-02",
+    "kind": "texto",
+    "front": "Qual a **posição** do paciente para medir a PA?",
+    "back": "**Sentado**, dorso recostado, **pernas descruzadas** e **pés apoiados** no chão. Braço **apoiado na altura do coração** (nível do 4º espaço intercostal / meio do esterno), **palma para cima** e cotovelo levemente fletido, sem roupa garroteando."
+   },
+   {
+    "id": "pa-03",
+    "kind": "texto",
+    "front": "Como escolher o **tamanho do manguito**?",
+    "back": "Medir a **circunferência do braço** no **ponto médio entre o acrômio e o olécrano**. A bolsa de borracha deve ter **largura ≈ 40%** e **comprimento ≈ 80 a 100%** dessa circunferência.",
+    "tip": { "label": "Para memorizar", "text": "**40% de largura, 80% de comprimento.**" }
+   },
+   {
+    "id": "pa-04",
+    "kind": "texto",
+    "front": "Manguito **pequeno** demais ou **grande** demais: o que acontece com a medida?",
+    "back": "Manguito **pequeno** (ou apertado) **superestima** a PA. Manguito **grande** **subestima**."
+   },
+   {
+    "id": "pa-05",
+    "kind": "texto",
+    "front": "Onde e como se coloca o manguito?",
+    "back": "Sem folga, **2 a 3 cm acima da fossa cubital**, com o **centro da bolsa** sobre a **artéria braquial**."
+   },
+   {
+    "id": "pa-06",
+    "kind": "texto",
+    "front": "Para que serve **palpar o pulso radial** antes de auscultar?",
+    "back": "Para **estimar a PAS**: inflar o manguito até o pulso radial **desaparecer** — esse é o nível estimado. Desinflar e esperar antes de medir de verdade.",
+    "tip": { "label": "Atenção", "text": "É o que evita o erro do **hiato auscultatório**: sem a palpação, dá para ler uma PAS falsamente baixa." }
+   },
+   {
+    "id": "pa-07",
+    "kind": "texto",
+    "front": "Até onde **inflar** o manguito na medida auscultatória?",
+    "back": "**20 a 30 mmHg acima** do nível estimado pela palpação."
+   },
+   {
+    "id": "pa-08",
+    "kind": "texto",
+    "front": "Onde fica o **estetoscópio** e em que velocidade se **desinfla**?",
+    "back": "Diafragma (ou campânula) na **fossa cubital, sobre a artéria braquial**, sem comprimir demais. Desinflar devagar: **2 a 3 mmHg por segundo**."
+   },
+   {
+    "id": "pa-09",
+    "kind": "texto",
+    "front": "O que define a **PAS** e a **PAD** na ausculta?",
+    "back": "**PAS** = **aparecimento do primeiro som** (fase I de Korotkoff), seguido de batidas regulares. **PAD** = **desaparecimento dos sons** (fase V)."
+   },
+   {
+    "id": "pa-10",
+    "kind": "texto",
+    "front": "Quais são as **cinco fases de Korotkoff**?",
+    "back": "**I:** primeiro som, nítido (PAS). **II:** sons suaves, em sopro. **III:** sons mais fortes e nítidos. **IV:** **abafamento** súbito. **V:** **desaparecimento** (PAD)."
+   },
+   {
+    "id": "pa-11",
+    "kind": "texto",
+    "front": "Depois do último som, o que ainda se faz antes de soltar o ar?",
+    "back": "Continuar auscultando **20 a 30 mmHg abaixo** do último som, para **confirmar o desaparecimento**. Só então desinflar **rápida e completamente**."
+   },
+   {
+    "id": "pa-12",
+    "kind": "texto",
+    "front": "E se os batimentos **não desaparecem** até zero?",
+    "back": "Registrar a PAD no **abafamento (fase IV)** e anotar os três valores — por exemplo, **130/74/0 mmHg**."
+   },
+   {
+    "id": "pa-13",
+    "kind": "texto",
+    "front": "O que é o **hiato auscultatório**?",
+    "back": "O **desaparecimento temporário dos sons** entre a PAS e a PAD. Se não se estimou a PAS pela palpação, ele faz ler uma **PAS mais baixa** do que a real.",
+    "tip": { "label": "Correlação clínica", "text": "Mais comum em **idosos** e **hipertensos**." }
+   },
+   {
+    "id": "pa-14",
+    "kind": "texto",
+    "front": "Quantas medidas fazer, e com que intervalo?",
+    "back": "Pelo menos **duas**, com **cerca de 1 minuto** entre elas, e usar a **média**. Se forem muito diferentes, medir de novo."
+   },
+   {
+    "id": "pa-15",
+    "kind": "texto",
+    "front": "Na **primeira avaliação**, em qual braço medir?",
+    "back": "Nos **dois braços**. As medidas seguintes são feitas no braço de **maior valor**.",
+    "tip": { "label": "Correlação clínica", "text": "Diferença persistente acima de **15 mmHg** na PAS entre os braços sugere doença vascular." }
+   },
+   {
+    "id": "pa-16",
+    "kind": "texto",
+    "front": "Braço **abaixo** ou **acima** do nível do coração: qual o erro?",
+    "back": "Braço **abaixo** do coração **superestima** a PA; **acima**, **subestima**. Braço **sem apoio** (contração muscular) também eleva a medida."
+   },
+   {
+    "id": "pa-17",
+    "kind": "texto",
+    "front": "Quando medir também **em pé**, e o que define hipotensão ortostática?",
+    "back": "Em **idosos**, **diabéticos**, quem tem **disautonomia** ou usa **anti-hipertensivo**: medir após **1 e 3 minutos em pé**. **Hipotensão ortostática** = queda da **PAS ≥ 20 mmHg** ou da **PAD ≥ 10 mmHg** em até 3 minutos."
+   },
+   {
+    "id": "pa-18",
+    "kind": "texto",
+    "front": "Como **registrar** a medida?",
+    "back": "Os valores exatos, **sem arredondar** para 0 ou 5, o **braço** usado, a **posição** do paciente e o **tamanho do manguito**. Informar o resultado ao paciente."
+   },
+   {
+    "id": "pa-19",
+    "kind": "texto",
+    "front": "Classificação da PA no consultório (adulto): **ótima**, **normal** e **pré-hipertensão**.",
+    "back": "**Ótima:** < 120 **e** < 80. **Normal:** 120–129 **e/ou** 80–84. **Pré-hipertensão:** 130–139 **e/ou** 85–89 mmHg.",
+    "tip": { "label": "Atenção", "text": "Quando PAS e PAD caem em categorias diferentes, vale a **maior**." }
+   },
+   {
+    "id": "pa-20",
+    "kind": "texto",
+    "front": "Classificação da PA no consultório (adulto): **hipertensão estágios 1, 2 e 3**.",
+    "back": "**Estágio 1:** 140–159 **e/ou** 90–99. **Estágio 2:** 160–179 **e/ou** 100–109. **Estágio 3:** ≥ 180 **e/ou** ≥ 110 mmHg."
+   },
+   {
+    "id": "pa-21",
+    "kind": "texto",
+    "front": "Que cuidados com o **aparelho** antes de medir?",
+    "back": "Esfigmomanômetro **calibrado** e com o ponteiro **no zero** (aneroide); manguito íntegro; estetoscópio com olivas para a frente. **Higienizar as mãos** e as olivas/diafragma antes e depois.",
+    "tip": { "label": "Como identificar", "text": "Higiene das mãos e identificação do paciente são itens de **segurança do paciente** — também caem no checklist." }
+   }
+  ],
+  "images": []
+ }
+]

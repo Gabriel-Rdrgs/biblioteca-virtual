@@ -10,7 +10,12 @@ export const metadata: Metadata = {
 };
 export const dynamic = "force-dynamic";
 
-export default function ImagemPage() {
+export default async function ImagemPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ materia?: string }>;
+}) {
+  const { materia } = await searchParams;
   const decks: ImageDeck[] = getImageDecks().map((deck) => {
     const cards = deck.cards.filter(
       (card): card is OcclusionCard | PhotoCard => card.kind !== "texto",
@@ -18,6 +23,7 @@ export default function ImagemPage() {
     const used = new Set(cards.map((card) => card.imageId));
     return {
       id: deck.id,
+      disciplineId: deck.disciplineId,
       title: deck.title,
       collection: deck.collection ?? deck.title,
       ...(deck.color ? { color: deck.color } : {}),
@@ -39,9 +45,14 @@ export default function ImagemPage() {
       <SectionHeading
         as="h1"
         title="Simulado de imagem"
-        description={`O formato da TV da prova prática: uma figura por vez, sem legenda. Escreva o nome no papel, revele e marque se acertou. ${total} figuras entre fotos de semiologia e estruturas marcadas do Moore.`}
+        description={`O formato da TV da prova prática: uma figura por vez, sem legenda. Escreva o nome no papel, revele e marque se acertou. ${total} figuras — fotos de semiologia e estruturas marcadas do Moore.`}
       />
-      <ImageExam decks={decks} />
+      <ImageExam
+        decks={decks}
+        {...(materia
+          ? { initialSelected: decks.filter((d) => d.disciplineId === materia).map((d) => d.id) }
+          : {})}
+      />
     </div>
   );
 }

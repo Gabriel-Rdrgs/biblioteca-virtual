@@ -15,7 +15,7 @@ import {
   formatAssessmentDate,
   isExam,
 } from "@/lib/domain/assessment-types";
-import { getAssessmentsForDiscipline } from "@/lib/repository/assessments";
+import { getAssessments, getAssessmentsForDiscipline } from "@/lib/repository/assessments";
 import {
   getBooksForDiscipline,
   getDisciplineBySlug,
@@ -24,7 +24,10 @@ import {
   toCatalogEntries,
 } from "@/lib/repository";
 import { getSummaries } from "@/lib/repository/summaries";
-import { isLesson, lessonDayLabel, summaryLabel } from "@/lib/domain/summary-types";
+import { DeckUnits } from "@/components/flashcards/deck-units";
+import { SummaryTimeline } from "@/components/summaries/summary-timeline";
+import { orderDecks } from "@/lib/data/flashcards/units";
+import { getDeckSummaries } from "@/lib/repository/flashcards";
 
 export async function generateMetadata({
   params,
@@ -40,9 +43,6 @@ export async function generateMetadata({
     description: discipline.description.slice(0, 180),
   };
 }
-
-/** Quantos dias separam uma data de hoje, para qualquer um dos dois lados. */
-const distanciaDeHoje = (date: string) => Math.abs(Date.parse(`${date}T12:00:00`) - Date.now());
 
 const order: BibliographyType[] = [
   "basica",
@@ -69,24 +69,29 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
   const plan = await getTeachingPlanForDiscipline(discipline.id);
   const summaries = await getSummaries(discipline.id);
   /*
-    A matéria mostra os resumos de ciclo — os da véspera da prova — e as
-    aulas mais perto de hoje. Com 26 encontros, a lista inteira empurrava a
-    ementa e a bibliografia para fora da tela; o resto fica a um toque, em
-    /resumos.
+    Os resumos entram como índice: agrupados pela prova em que caem, na
+    ordem das aulas, com o grupo da próxima prova aberto. Antes eram uma
+    nuvem de pílulas com seis aulas "perto de hoje" — e ninguém achava a
+    aula 3 sem ir a /resumos.
   */
-  const emDestaque = [
-    ...summaries.filter((summary) => !isLesson(summary)),
-    ...summaries
-      .filter(isLesson)
-      .sort((a, b) => distanciaDeHoje(a.date) - distanciaDeHoje(b.date))
-      .slice(0, 6)
-      .sort((a, b) => a.lesson - b.lesson),
-  ];
+  const cycles = (await getAssessments(discipline.id)).map((a) => ({
+    id: a.id,
+    label: assessmentLabel(a),
+    date: a.date,
+  }));
+  const deckSummaries = await getDeckSummaries();
+  const deckUnits = orderDecks(
+    discipline.id,
+    [...deckSummaries.oficiais, ...deckSummaries.banco, ...deckSummaries.turma].filter(
+      (deck) => deck.disciplineId === discipline.id,
+    ),
+  );
   // The next three dates that are ahead; a whole term of them would
   // bury the ementa under a wall of chips.
   const assessments = (await getAssessmentsForDiscipline(discipline.id))
     .filter((a) => !a.past)
     .slice(0, 3);
+  const proximaProva = assessments.find(({ assessment }) => isExam(assessment));
   const palette = motifPalettes[discipline.motif];
 
   const grouped = order
@@ -181,7 +186,7 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
             {assessments.map(({ assessment, daysLeft }) => (
               <li key={assessment.id}>
                 <Link
-                  href="/calendario"
+                  href={`/provas/${assessment.id}`}
                   className="glass hover:glass-strong inline-flex items-center gap-2.5 rounded-full py-2 pr-3 pl-4 text-sm transition-colors"
                 >
                   <span className="font-semibold">{assessmentLabel(assessment)}</span>
@@ -211,36 +216,42 @@ export default async function DisciplinePage({ params }: { params: Promise<{ slu
           color={discipline.color}
         />
 
-        {summaries.length > 0 ? (
-          <section className="mb-10" aria-labelledby="resumos-da-materia">
-            <div className="mb-3 flex flex-wrap items-baseline justify-between gap-3">
-              <h2 id="resumos-da-materia" className="text-lg font-semibold">
-                Resumos das aulas
+        {deckUnits.length > 0 ? (
+          <section className="mb-12" aria-labelledby="flashcards-da-materia">
+            <div className="mb-4 flex flex-wrap items-baseline justify-between gap-3">
+              <h2 id="flashcards-da-materia" className="text-xl font-semibold">
+                Flashcards
               </h2>
-              <Link href="/resumos" className="text-primary text-sm font-medium hover:underline">
-                {summaries.length > emDestaque.length
-                  ? `Ver todos os ${summaries.length}`
-                  : "Ver todos"}
+              <Link
+                href={`/flashcards?materia=${discipline.id}`}
+                className="text-primary text-sm font-medium hover:underline"
+              >
+                Abrir em Flashcards
               </Link>
             </div>
-            <ul className="flex flex-wrap gap-2">
-              {emDestaque.map((summary) => (
-                <li key={summary.id}>
-                  <Link
-                    href={`/resumos/${summary.slug}`}
-                    className="glass hover:glass-strong inline-flex items-center gap-2.5 rounded-full py-2 pr-4 pl-3 text-sm transition-colors"
-                  >
-                    <span className="bg-primary text-on-primary text-micro rounded-full px-2 py-0.5 font-semibold whitespace-nowrap">
-                      {summaryLabel(summary)}
-                    </span>
-                    <span className="font-medium">{summary.title}</span>
-                    {summary.kind === "aula" ? (
-                      <span className="text-ink-faint text-xs">{lessonDayLabel(summary.date)}</span>
-                    ) : null}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <DeckUnits units={deckUnits} color={discipline.color} />
+          </section>
+        ) : null}
+
+        {summaries.length > 0 ? (
+          <section className="mb-12" aria-labelledby="resumos-da-materia">
+            <div className="mb-4 flex flex-wrap items-baseline justify-between gap-3">
+              <h2 id="resumos-da-materia" className="text-xl font-semibold">
+                Resumos das aulas
+              </h2>
+              <span className="text-ink-faint text-sm">
+                {summaries.length} {summaries.length === 1 ? "resumo" : "resumos"}, na ordem das
+                aulas
+              </span>
+            </div>
+            <SummaryTimeline
+              summaries={summaries}
+              cycles={cycles}
+              {...(proximaProva
+                ? { openKey: assessmentLabel(proximaProva.assessment).split(" — ")[0] }
+                : {})}
+              color={discipline.color}
+            />
           </section>
         ) : null}
 
