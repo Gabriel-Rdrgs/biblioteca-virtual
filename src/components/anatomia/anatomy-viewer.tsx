@@ -913,9 +913,12 @@ export function AnatomyViewer({
   }, [selectedSig, focusSig, resultSig, hiddenSig, layerSig, superficialOpacity, emphasis, xray, hoverKey, ready]);
 
   /* ------------------------------------------------- câmera e vistas */
+  // Só um pedido novo (outro nome ou outro nonce) move a câmera — não um objeto recriado.
+  const viewName = view?.name;
+  const viewNonce = view?.nonce;
   useEffect(() => {
-    if (view && ready) ctl.current?.setView(view.name);
-  }, [view, ready]);
+    if (viewName && ready) ctl.current?.setView(viewName);
+  }, [viewName, viewNonce, ready]);
 
   const focusSigReq = focus ? `${focus.nonce}:${focus.side ?? ""}:${focus.keys.join("|")}` : "";
   useEffect(() => {

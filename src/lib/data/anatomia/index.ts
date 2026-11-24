@@ -1,15 +1,24 @@
-import { buildLessons, isTrainable, type Lesson } from "@/lib/domain/anatomy-lessons";
+import { buildLessons, isTrainable, trainingText, type Lesson } from "@/lib/domain/anatomy-lessons";
 import type { AnatomyData, AnatomyStructure } from "@/lib/domain/anatomy-types";
 import miolab from "./miolab.json";
+import ossos from "./ossos.json";
 
 /**
  * Os dados da anatomia 3D: regiões, referências e estruturas com ficha.
  *
- * Vêm do MioLab (extraídos do app publicado) e moram em JSON, como os
- * baralhos. `tests/anatomia.test.ts` confere a forma, por isso a conversão
- * abaixo pode ser direta.
+ * Os músculos vêm do MioLab (extraídos do app publicado); os ossos e as
+ * demais peças do esqueleto do modelo foram escritos para o Atlas, com base
+ * em Moore e Netter. Moram em JSON, como os baralhos; `tests/anatomia.test.ts`
+ * confere a forma, por isso a conversão abaixo pode ser direta.
  */
-export const anatomyData = miolab as unknown as AnatomyData;
+const muscles = miolab as unknown as AnatomyData;
+export const anatomyData: AnatomyData = {
+  ...muscles,
+  structures: [
+    ...muscles.structures,
+    ...(ossos as unknown as { structures: AnatomyStructure[] }).structures,
+  ],
+};
 
 const byId = new Map(anatomyData.structures.map((s) => [s.id, s]));
 const regionNames = new Map(anatomyData.regions.map((r) => [r.id, r.name]));
@@ -30,9 +39,10 @@ export function nextLesson(id: string): Lesson | undefined {
   return i >= 0 ? anatomyLessons[i + 1] : undefined;
 }
 
-/** Só o que o treino precisa de cada músculo — a ficha inteira fica no servidor. */
+/** Só o que o treino precisa de cada músculo ou osso — a ficha inteira fica no servidor. */
 export interface TrainableMuscle {
   readonly id: string;
+  readonly kind: "muscle" | "bone";
   readonly namePt: string;
   readonly region: string;
   readonly regionName: string;
@@ -43,15 +53,16 @@ export interface TrainableMuscle {
 
 export function trainableMuscle(id: string): TrainableMuscle | undefined {
   const s = byId.get(id);
-  if (!s || !isTrainable(s) || !s.ficha) return undefined;
+  const text = s && isTrainable(s) ? trainingText(s) : null;
+  if (!s || !text) return undefined;
   return {
     id: s.id,
+    kind: s.kind === "bone" ? "bone" : "muscle",
     namePt: s.namePt,
     region: s.region,
     regionName: regionNames.get(s.region) ?? s.region,
     parts: s.parts,
-    clue: s.ficha.clue,
-    explanation: s.ficha.explanation,
+    ...text,
   };
 }
 

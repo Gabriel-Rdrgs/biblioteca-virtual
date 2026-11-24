@@ -153,8 +153,9 @@ câmera vai até ele e duas vistas pequenas giram em volta. A pessoa **escreve o
 nome** e cada tecla é corrigida na hora — som, cor, tremida no erro; acento e
 maiúscula não contam, o espaço pode ser omitido.
 
-- **Lições** (`/anatomia/licao/<região>-L<n>`): 25 lições de até 7 músculos,
-  do mais fácil ao mais difícil, superficiais antes dos profundos. Três
+- **Lições** (`/anatomia/licao/<região>-L<n>` e `<região>-ossos-L<n>`): 37
+  lições de até 7 estruturas — 25 de músculos e 12 de ossos —, do mais fácil
+  ao mais difícil, superficiais antes dos profundos. Três
   rodadas pelos mesmos músculos: com o nome à vista, só com a primeira letra
   e de memória olhando o outro lado (com **Pista** e **Não sei**). Três erros
   na mesma letra a revelam; na rodada de memória, letra revelada é erro.
@@ -165,7 +166,7 @@ maiúscula não contam, o espaço pode ser omitido.
 - **Atlas** (`/anatomia/atlas`): girar o corpo, ligar e desligar camadas;
   passar o mouse acende e nomeia a estrutura; escolher uma prende nela uma
   etiqueta, leva a câmera até ela e permite esmaecer o resto, ver em raio-X,
-  isolar ou ocultar o que atrapalha. Tocar num músculo — ou procurá-lo pelo
+  isolar ou ocultar o que atrapalha. Tocar num músculo ou osso — ou procurá-lo pelo
   nome em português, inglês ou latim — abre a ficha: origem, inserção, ação, inervação, relações, ponto de
   prova e mnemônico, com as fontes (Moore, Gray, Netter, Sobotta, TA2).
 - **Desafiar** (`/anatomia/quiz`): identificar, localizar tocando e
@@ -183,8 +184,13 @@ são puros (`src/lib/domain/anatomy-typing.ts`, `anatomy-lessons.ts`) e testados
   em 8 regiões, cada uma com a camada (superficial/profunda) lida do modelo.
   Cada estrutura lista as peças do modelo pelo nome em inglês sem o lado
   (`meshKey`), e é isso que liga a malha tocada à ficha.
-- Próximas etapas: fichas dos ossos (as peças já estão no modelo e o toque já
-  diz o nome), depois nervos, tendões e ligamentos, que pedem um modelo com
+- Ossos: `src/lib/data/anatomia/ossos.json` — 52 ossos com ficha (classificação,
+  articulações, acidentes, músculos que se prendem, o que passa pelos forames,
+  ponto de prova), escritos para o Atlas com base em Moore e Netter, mais
+  discos, cartilagens, dentes, orelha e olho com resumo. Cobrem as 165 peças do
+  esqueleto do modelo. Gerado por um script a partir de uma lista revisável;
+  para corrigir uma ficha, edite o JSON.
+- Próximas etapas: nervos, tendões e ligamentos, que pedem um modelo com
   essas estruturas (Z-Anatomy).
 
 ## Administração (/admin)

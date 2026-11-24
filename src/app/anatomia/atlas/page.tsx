@@ -16,14 +16,17 @@ export default async function AtlasPage({
 }) {
   const { estrutura } = await searchParams;
   return (
-    <div className="mx-auto max-w-[96rem] px-3 py-4 sm:px-5">
-      <Breadcrumbs
-        trail={[
-          { label: "Início", href: "/" },
-          { label: "Anatomia 3D", href: "/anatomia" },
-          { label: "Atlas" },
-        ]}
-      />
+    <div className="mx-auto max-w-[96rem] px-2 py-2 sm:px-5 sm:py-4">
+      {/* No celular cada centímetro vai para o corpo; o caminho volta pela barra de baixo. */}
+      <div className="hidden sm:block">
+        <Breadcrumbs
+          trail={[
+            { label: "Início", href: "/" },
+            { label: "Anatomia 3D", href: "/anatomia" },
+            { label: "Atlas" },
+          ]}
+        />
+      </div>
       <h1 className="sr-only">Atlas 3D</h1>
       <AnatomyAtlas data={anatomyData} {...(estrutura ? { initialId: estrutura } : {})} />
       <p className="text-ink-faint mt-4 text-xs leading-relaxed">{MODEL_CREDIT}</p>

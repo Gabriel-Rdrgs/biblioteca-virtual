@@ -144,8 +144,8 @@ export default async function EstudarPage() {
       href: "/anatomia",
       icon: PersonStanding,
       title: "Anatomia 3D",
-      text: "O músculo acende no corpo em 3D e você escreve o nome; o app corrige letra por letra e traz de volta na hora certa.",
-      stat: "141 músculos · 25 lições",
+      text: "Músculos e ossos acendem no corpo em 3D e você escreve o nome; o app corrige letra por letra e traz de volta na hora certa.",
+      stat: "141 músculos · 52 ossos · 37 lições",
     },
     {
       href: "/estudar/imagem",

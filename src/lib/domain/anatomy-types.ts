@@ -40,19 +40,43 @@ export interface StructureCard {
   readonly note?: string;
 }
 
+/** A ficha de um osso: o que se pergunta em prova sobre ele. */
+export interface BoneCard {
+  readonly nameLatin: string;
+  readonly nameEn: string;
+  readonly synonyms: readonly string[];
+  /** "Osso longo, par", "Osso sesamoide"… */
+  readonly classification: string;
+  readonly location: string;
+  readonly articulations: string;
+  /** Acidentes ósseos. */
+  readonly landmarks: readonly string[];
+  /** Músculos que se prendem nele. */
+  readonly muscles?: string;
+  /** O que passa pelos forames, canais e sulcos. */
+  readonly passages?: string;
+  readonly explanation: string;
+  readonly clue: string;
+  readonly examTip: string;
+  readonly mnemonic?: string;
+  readonly difficulty: number;
+  readonly refs: readonly string[];
+}
+
 export interface AnatomyStructure {
   /** Slug em português, estável: "pronador-redondo". */
   readonly id: string;
   readonly namePt: string;
   readonly region: string;
   readonly kind: StructureKind;
-  /** Superficial se alguma parte está na camada superficial do modelo. */
-  readonly layer: "superficial" | "deep";
+  /** Músculos: superficial se alguma parte está na camada superficial. Ossos e cartilagens: esqueleto. */
+  readonly layer: "superficial" | "deep" | "skeleton";
   /** Chaves das malhas que formam a estrutura (inglês, sem lado). */
   readonly parts: readonly string[];
   /** Para o que não é músculo (linha alba, tendão do calcâneo…). */
   readonly summary?: string;
   readonly ficha?: StructureCard;
+  readonly bone?: BoneCard;
 }
 
 export interface AnatomyData {
@@ -81,10 +105,10 @@ export function fold(text: string): string {
 
 /** Todos os nomes pelos quais a estrutura pode ser procurada ou respondida. */
 export function structureNames(structure: AnatomyStructure): string[] {
-  const ficha = structure.ficha;
+  const card = structure.ficha ?? structure.bone;
   return [
     structure.namePt,
-    ...(ficha ? [ficha.nameEn, ficha.nameLatin, ...ficha.synonyms] : []),
+    ...(card ? [card.nameEn, card.nameLatin, ...card.synonyms] : []),
   ].filter(Boolean);
 }
 
@@ -95,4 +119,4 @@ export const LAYER_LABELS: Record<AnatomyLayer, string> = {
 };
 
 export const MODEL_CREDIT =
-  "Modelo 3D “ecorche”, de Charleeh (github.com/Charleeh/ecorche), CC BY-SA 4.0 — baseado em BodyParts3D (© The Database Center for Life Science, CC BY 4.0) e em Z-Anatomy (Gauthier Kervyn, CC BY-SA 4.0). Usado sem alterações na geometria. Fichas do MioLab.";
+  "Modelo 3D “ecorche”, de Charleeh (github.com/Charleeh/ecorche), CC BY-SA 4.0 — baseado em BodyParts3D (© The Database Center for Life Science, CC BY 4.0) e em Z-Anatomy (Gauthier Kervyn, CC BY-SA 4.0). Usado sem alterações na geometria. Fichas dos músculos do MioLab.";

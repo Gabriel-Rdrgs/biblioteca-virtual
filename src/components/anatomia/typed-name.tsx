@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Keyboard } from "lucide-react";
 import type { Slot, TypingState } from "@/lib/domain/anatomy-typing";
 import { cn } from "@/lib/utils";
 
@@ -127,18 +128,18 @@ export function KeyCatcher({
   const input = useRef<HTMLInputElement>(null);
   const previous = useRef("");
   const [focused, setFocused] = useState(false);
-  const coarse = useMemo(
-    () => typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches,
-    [],
-  );
+  // Tela de toque só se sabe no navegador; no servidor, começa como computador.
+  const [coarse, setCoarse] = useState(false);
+  useEffect(() => setCoarse(window.matchMedia("(pointer: coarse)").matches), []);
 
   useEffect(() => {
     const el = input.current;
     if (!el) return;
     el.value = "";
     previous.current = "";
-    if (!coarse) el.focus({ preventScroll: true });
-  }, [resetKey, coarse]);
+    // No celular, focar sozinho abriria o teclado sem a pessoa pedir.
+    if (!window.matchMedia("(pointer: coarse)").matches) el.focus({ preventScroll: true });
+  }, [resetKey]);
 
   const feed = (value: string) => {
     let same = 0;
@@ -180,8 +181,10 @@ export function KeyCatcher({
         }}
       />
       {coarse && !focused ? (
-        <p className="pointer-events-none mt-1 font-mono text-[11px] tracking-wide text-[#ff8a78]">
-          toque aqui para digitar
+        // O campo invisível cobre este botão: tocar nele abre o teclado.
+        <p className="pointer-events-none mx-auto mt-2 inline-flex min-h-11 items-center gap-2 rounded-full bg-[#ff4d3a] px-5 text-sm font-semibold text-white shadow-lg">
+          <Keyboard className="size-4" aria-hidden="true" />
+          Toque para digitar
         </p>
       ) : null}
     </div>

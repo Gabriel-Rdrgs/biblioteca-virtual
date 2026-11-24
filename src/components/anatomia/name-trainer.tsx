@@ -3,7 +3,17 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, Check, CornerDownLeft, Flame, RotateCcw, Volume2, VolumeX, X } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  CornerDownLeft,
+  Crosshair,
+  Flame,
+  RotateCcw,
+  Volume2,
+  VolumeX,
+  X,
+} from "lucide-react";
 import {
   giveUp as revealRest,
   isCorrect,
@@ -45,6 +55,7 @@ import { KeyCatcher, TypedName } from "./typed-name";
 
 export interface TrainerMuscle {
   readonly id: string;
+  readonly kind: "muscle" | "bone";
   readonly namePt: string;
   readonly region: string;
   readonly regionName: string;
@@ -102,29 +113,45 @@ function duration(ms: number): string {
   return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 }
 
-/** No celular, o teclado virtual encolhe a área visível; o palco acompanha. */
-function useVisibleHeight(): { height: number | null; keyboard: boolean } {
-  const [state, setState] = useState<{ height: number | null; keyboard: boolean }>({
-    height: null,
-    keyboard: false,
-  });
+/**
+ * No celular, o teclado virtual encolhe a área visível — e no iPhone ainda
+ * rola a página para cima. O palco acompanha as duas coisas, para o nome
+ * nunca ficar escondido atrás do teclado.
+ */
+interface Visible {
+  height: number | null;
+  top: number;
+  keyboard: boolean;
+}
+
+function useVisibleHeight(): Visible {
+  const [state, setState] = useState<Visible>({ height: null, top: 0, keyboard: false });
   useEffect(() => {
     const vv = window.visualViewport;
     if (!vv) return;
     let tallest = 0;
     let width = 0;
     const update = () => {
-      if (Math.abs(vv.scale - 1) > 0.01) return setState({ height: null, keyboard: false });
+      // Com zoom de pinça, deixa o navegador cuidar.
+      if (Math.abs(vv.scale - 1) > 0.01) return setState({ height: null, top: 0, keyboard: false });
       if (vv.width !== width) {
         width = vv.width;
         tallest = 0;
       }
       tallest = Math.max(tallest, vv.height);
-      setState({ height: Math.round(vv.height), keyboard: tallest - vv.height > 140 });
+      setState({
+        height: Math.round(vv.height),
+        top: Math.max(0, Math.round(vv.offsetTop)),
+        keyboard: tallest - vv.height > 140,
+      });
     };
     vv.addEventListener("resize", update);
+    vv.addEventListener("scroll", update);
     update();
-    return () => vv.removeEventListener("resize", update);
+    return () => {
+      vv.removeEventListener("resize", update);
+      vv.removeEventListener("scroll", update);
+    };
   }, []);
   return state;
 }
@@ -180,7 +207,7 @@ export function NameTrainer({
   const [bottomHeight, setBottomHeight] = useState(0);
   // "Centralizar": pede de novo o enquadramento do músculo depois de girar à vontade.
   const [refocus, setRefocus] = useState(0);
-  const { height: visibleHeight, keyboard } = useVisibleHeight();
+  const { height: visibleHeight, top: visibleTop, keyboard } = useVisibleHeight();
 
   const cue = useCallback((c: Cue, p = 0) => {
     if (getAnatomyProgress().sound) playCue(c, p);
@@ -373,7 +400,9 @@ export function NameTrainer({
   const accuracy = state.keys ? 1 - state.wrongKeys / state.keys : null;
   const text =
     state.round === 3 && !state.hint && !answered
-      ? ROUND_INFO[3].instruction
+      ? muscle?.kind === "bone"
+        ? "Nomeie o osso em vermelho."
+        : ROUND_INFO[3].instruction
       : state.round === 3 && answered
         ? muscle?.explanation
         : muscle?.clue;
@@ -381,7 +410,7 @@ export function NameTrainer({
   return (
     <div
       className="fixed inset-x-0 top-0 z-50 overflow-hidden bg-[#0a0d14] text-white"
-      style={{ height: visibleHeight ? `${visibleHeight}px` : "100dvh" }}
+      style={{ height: visibleHeight ? `${visibleHeight}px` : "100dvh", top: visibleTop }}
     >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,#161d2b,#0a0d14_70%)]" />
       <AnatomyViewer
@@ -424,13 +453,13 @@ export function NameTrainer({
           ) : null}
         </div>
         <div
-          className="ml-auto flex shrink-0 items-center gap-3 pt-3 font-mono text-[12.5px] text-white/50"
+          className="ml-auto flex shrink-0 items-center gap-2.5 pt-3 font-mono text-[12.5px] text-white/50 sm:gap-3"
           aria-label="Desempenho"
         >
           <span title="Palavras por minuto">
             <b className="font-medium text-white/90">{wordsPerMinute(state.chars, now - state.startedAt)}</b> ppm
           </span>
-          <span title="Teclas certas">
+          <span title="Teclas certas" className="hidden sm:inline">
             <b className="font-medium text-white/90">{percent(accuracy)}</b>
           </span>
           <span
@@ -441,6 +470,15 @@ export function NameTrainer({
             <b className="font-medium">{state.streak}</b>
           </span>
         </div>
+        <button
+          type="button"
+          onPointerDown={(e) => e.preventDefault()}
+          onClick={() => setRefocus((n) => n + 1)}
+          aria-label="Centralizar no músculo"
+          className="grid size-11 shrink-0 place-items-center rounded-xl text-white/70 hover:bg-white/5 sm:hidden"
+        >
+          <Crosshair className="size-[18px]" />
+        </button>
         <button
           type="button"
           onPointerDown={(e) => e.preventDefault()}

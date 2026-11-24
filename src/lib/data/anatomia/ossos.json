@@ -1,0 +1,1990 @@
+{
+ "structures": [
+  {
+   "id": "frontal",
+   "namePt": "Frontal",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "frontal bone"
+   ],
+   "bone": {
+    "nameLatin": "Os frontale",
+    "nameEn": "Frontal bone",
+    "synonyms": [],
+    "classification": "Osso plano e pneumático (seio frontal), ímpar",
+    "location": "Forma a fronte e o teto das órbitas.",
+    "articulations": "Parietais (sutura coronal), esfenoide, etmoide, nasais, maxilas, lacrimais e zigomáticos.",
+    "landmarks": [
+     "Escama frontal",
+     "Arcos superciliares",
+     "Glabela",
+     "Margem supraorbital com incisura ou forame supraorbital",
+     "Parte orbital (teto da órbita)",
+     "Seio frontal"
+    ],
+    "muscles": "Corrugador do supercílio; o temporal se prende na linha temporal.",
+    "passages": "Incisura/forame supraorbital: nervo e vasos supraorbitais.",
+    "explanation": "Forma a testa e o teto das órbitas e une-se aos dois parietais pela sutura coronal. No recém-nascido, o encontro com os parietais é a fontanela anterior — a moleira.",
+    "clue": "Osso ímpar da testa que forma o teto das órbitas e guarda um seio paranasal acima do nariz.",
+    "examTip": "Bregma é o encontro das suturas coronal e sagital; no bebê, é a fontanela anterior, que fecha por volta dos 18 meses.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "parietal",
+   "namePt": "Parietal",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "parietal bone"
+   ],
+   "bone": {
+    "nameLatin": "Os parietale",
+    "nameEn": "Parietal bone",
+    "synonyms": [],
+    "classification": "Osso plano, par",
+    "location": "Teto e paredes laterais da calvária.",
+    "articulations": "O outro parietal (sutura sagital), frontal (coronal), occipital (lambdóidea), temporal (escamosa) e asa maior do esfenoide.",
+    "landmarks": [
+     "Túber parietal",
+     "Linhas temporais superior e inferior",
+     "Forame parietal",
+     "Sulcos da artéria meníngea média (face interna)"
+    ],
+    "muscles": "Temporal (linha temporal inferior e fossa temporal).",
+    "explanation": "Os dois parietais fecham o teto do crânio entre o frontal e o occipital. Por dentro, levam o desenho dos ramos da artéria meníngea média.",
+    "clue": "Par de ossos planos que formam o teto e as paredes laterais do crânio, entre as suturas coronal, sagital e lambdóidea.",
+    "examTip": "O ptério — onde frontal, parietal, temporal e esfenoide se encontram — é a parte mais fina da calvária e cobre o ramo anterior da artéria meníngea média: fratura ali dá hematoma extradural.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "occipital",
+   "namePt": "Occipital",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "occipital bone"
+   ],
+   "bone": {
+    "nameLatin": "Os occipitale",
+    "nameEn": "Occipital bone",
+    "synonyms": [],
+    "classification": "Osso plano, ímpar",
+    "location": "Parte posterior e inferior do crânio (nuca e base).",
+    "articulations": "Parietais (sutura lambdóidea), temporais, esfenoide (clivo) e atlas (articulação atlantoccipital, pelos côndilos).",
+    "landmarks": [
+     "Forame magno",
+     "Côndilos occipitais",
+     "Protuberância occipital externa (ínio)",
+     "Linhas nucais superior e inferior",
+     "Canal do nervo hipoglosso",
+     "Clivo"
+    ],
+    "muscles": "Trapézio, semiespinal da cabeça, esplênio da cabeça e ECM (linha nucal superior); retos posteriores e oblíquo superior da cabeça (região nucal).",
+    "passages": "Forame magno: bulbo/medula, artérias vertebrais e raiz espinal do nervo acessório. Canal do hipoglosso: nervo hipoglosso (NC XII).",
+    "explanation": "Fecha o crânio por trás e por baixo. Pelo forame magno o encéfalo continua na medula, e os côndilos apoiam o crânio no atlas.",
+    "clue": "Osso ímpar da nuca e da base do crânio, atravessado pela grande abertura por onde passa a medula.",
+    "examTip": "A articulação dos côndilos com o atlas faz o movimento de 'sim'. O ínio é palpável na linha média da nuca.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "temporal-osso",
+   "namePt": "Temporal (osso)",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "temporal bone"
+   ],
+   "bone": {
+    "nameLatin": "Os temporale",
+    "nameEn": "Temporal bone",
+    "synonyms": [],
+    "classification": "Osso irregular e pneumático (células mastóideas), par",
+    "location": "Parede lateral e base do crânio; abriga a orelha média e a interna.",
+    "articulations": "Parietal, occipital, esfenoide, zigomático (arco zigomático) e mandíbula (articulação temporomandibular).",
+    "landmarks": [
+     "Parte escamosa",
+     "Processo zigomático",
+     "Processo mastoide",
+     "Processo estiloide",
+     "Meato acústico externo",
+     "Parte petrosa",
+     "Fossa mandibular e tubérculo articular"
+    ],
+    "muscles": "ECM (processo mastoide), temporal (fossa temporal), masseter (arco zigomático), ventre posterior do digástrico (incisura mastóidea), estilo-hióideo (processo estiloide).",
+    "passages": "Meato acústico interno: nervos facial e vestibulococlear. Forame estilomastóideo: nervo facial. Canal carótico: carótida interna. Forame jugular (com o occipital): veia jugular interna e nervos IX, X e XI.",
+    "explanation": "É o osso das orelhas e da mandíbula: guarda a orelha média e a interna na parte petrosa e forma, na fossa mandibular, a articulação temporomandibular.",
+    "clue": "Osso par da lateral do crânio que forma a articulação da mandíbula, guarda a orelha e tem um processo palpável atrás dela.",
+    "examTip": "Fratura da parte petrosa: sangue ou líquor saindo pelo ouvido e equimose atrás da orelha (sinal de Battle).",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "esfenoide",
+   "namePt": "Esfenoide",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "sphenoid bone"
+   ],
+   "bone": {
+    "nameLatin": "Os sphenoidale",
+    "nameEn": "Sphenoid bone",
+    "synonyms": [],
+    "classification": "Osso irregular e pneumático (seio esfenoidal), ímpar",
+    "location": "Centro da base do crânio, entre a fossa anterior e a média.",
+    "articulations": "Articula-se com todos os ossos do neurocrânio — frontal, parietais, temporais, occipital e etmoide — e com vômer, zigomáticos e palatinos.",
+    "landmarks": [
+     "Corpo com a sela turca (fossa hipofisial)",
+     "Asas menores",
+     "Asas maiores",
+     "Processos pterigoides (lâminas medial e lateral)",
+     "Seio esfenoidal"
+    ],
+    "muscles": "Pterigóideos medial e lateral (lâmina lateral do processo pterigoide); temporal (asa maior).",
+    "passages": "Canal óptico: nervo óptico e artéria oftálmica. Fissura orbital superior: nervos III, IV, V1 e VI e veia oftálmica superior. Forame redondo: V2. Forame oval: V3. Forame espinhoso: artéria meníngea média.",
+    "explanation": "A 'borboleta' no meio da base do crânio: o corpo com a sela turca, onde fica a hipófise, e as asas por onde passam quase todos os nervos que vão para a órbita e a face.",
+    "clue": "Osso ímpar em forma de borboleta no centro da base do crânio, com a sela turca que aloja a hipófise.",
+    "examTip": "Os três forames da asa maior, de frente para trás: redondo (V2), oval (V3) e espinhoso (artéria meníngea média).",
+    "mnemonic": "R-O-E: Redondo, Oval, Espinhoso → V2, V3, meníngea média.",
+    "difficulty": 3,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "etmoide",
+   "namePt": "Etmoide",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "ethmoid"
+   ],
+   "bone": {
+    "nameLatin": "Os ethmoidale",
+    "nameEn": "Ethmoid bone",
+    "synonyms": [],
+    "classification": "Osso irregular e pneumático (células etmoidais), ímpar",
+    "location": "Entre as órbitas; forma o teto e parte das paredes da cavidade nasal.",
+    "articulations": "Frontal, esfenoide, nasais, maxilas, lacrimais, palatinos, vômer e conchas nasais inferiores.",
+    "landmarks": [
+     "Lâmina cribriforme",
+     "Crista etmoidal (crista galli)",
+     "Lâmina perpendicular (septo nasal)",
+     "Labirintos com as células etmoidais",
+     "Conchas nasais superior e média",
+     "Lâmina orbital"
+    ],
+    "passages": "Lâmina cribriforme: filetes do nervo olfatório (NC I).",
+    "explanation": "Leve e cheio de células de ar, separa a cavidade nasal da fossa anterior do crânio. As conchas superior e média são parte dele.",
+    "clue": "Osso leve e esponjoso entre as órbitas, com uma lâmina perfurada por onde passam os filetes do olfato.",
+    "examTip": "Fratura da lâmina cribriforme: líquor escorrendo pelo nariz (rinoliquorreia) e perda do olfato.",
+    "difficulty": 3,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "maxila",
+   "namePt": "Maxila",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "maxilla"
+   ],
+   "bone": {
+    "nameLatin": "Maxilla",
+    "nameEn": "Maxilla",
+    "synonyms": [],
+    "classification": "Osso irregular e pneumático (seio maxilar, o maior), par",
+    "location": "Maxilar superior: centro da face, entre a órbita, o nariz e a boca.",
+    "articulations": "A outra maxila, frontal, etmoide, nasal, lacrimal, zigomático, palatino, vômer e concha nasal inferior.",
+    "landmarks": [
+     "Processo alveolar (dentes superiores)",
+     "Processo palatino",
+     "Processo frontal",
+     "Processo zigomático",
+     "Forame infraorbital",
+     "Seio maxilar"
+    ],
+    "muscles": "Levantador do lábio superior, bucinador (processo alveolar) e parte do masseter (processo zigomático).",
+    "passages": "Forame infraorbital: nervo infraorbital (V2) e vasos.",
+    "explanation": "As duas maxilas formam o maxilar superior, os dois terços anteriores do palato duro e o assoalho da órbita, e carregam os dentes de cima.",
+    "clue": "Par de ossos do centro da face que carregam os dentes de cima e formam a maior parte do palato duro e o assoalho da órbita, com o maior seio paranasal.",
+    "examTip": "As raízes dos molares superiores ficam rente ao seio maxilar: sinusite pode doer como dor de dente, e uma extração pode abrir o seio.",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "mandibula",
+   "namePt": "Mandíbula",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "mandible"
+   ],
+   "bone": {
+    "nameLatin": "Mandibula",
+    "nameEn": "Mandible",
+    "synonyms": [],
+    "classification": "Osso irregular, ímpar — o único osso móvel do crânio",
+    "location": "Maxilar inferior.",
+    "articulations": "Temporais (articulações temporomandibulares).",
+    "landmarks": [
+     "Corpo",
+     "Ramo",
+     "Ângulo",
+     "Processo condilar (côndilo)",
+     "Processo coronoide",
+     "Incisura da mandíbula",
+     "Forame da mandíbula",
+     "Forame mentual",
+     "Protuberância mentual"
+    ],
+    "muscles": "Masseter (face lateral do ramo e ângulo), pterigóideo medial (face medial do ângulo), temporal (processo coronoide), pterigóideo lateral (colo do côndilo), digástrico, milo-hióideo, gênio-hióideo e platisma.",
+    "passages": "Forame da mandíbula: nervo alveolar inferior (V3) e vasos. Forame mentual: nervo mentual.",
+    "explanation": "Em forma de ferradura, leva os dentes de baixo e se move nas articulações temporomandibulares. Os músculos da mastigação se prendem no ramo.",
+    "clue": "O único osso móvel do crânio: em forma de ferradura, carrega os dentes inferiores e articula-se com os temporais.",
+    "examTip": "A anestesia do nervo alveolar inferior é feita junto ao forame da mandíbula. Na luxação da ATM, o côndilo passa à frente do tubérculo articular e a boca não fecha.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "zigomatico-osso",
+   "namePt": "Zigomático",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "zygomatic bone"
+   ],
+   "bone": {
+    "nameLatin": "Os zygomaticum",
+    "nameEn": "Zygomatic bone",
+    "synonyms": [],
+    "classification": "Osso irregular, par",
+    "location": "Maçã do rosto; parede lateral e parte do assoalho da órbita.",
+    "articulations": "Frontal, maxila, temporal e esfenoide.",
+    "landmarks": [
+     "Processo temporal (forma o arco zigomático)",
+     "Processo frontal",
+     "Face orbital",
+     "Forame zigomático-facial"
+    ],
+    "muscles": "Zigomáticos maior e menor; masseter (arco zigomático).",
+    "explanation": "Forma a proeminência da bochecha e, com o processo zigomático do temporal, o arco zigomático, onde se origina o masseter.",
+    "clue": "Osso par da maçã do rosto que, com o temporal, forma um arco palpável de baixo do olho até a orelha.",
+    "examTip": "Fratura do complexo zigomático: afundamento da maçã do rosto, visão dupla e dormência na face (nervo infraorbital).",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "nasal-osso",
+   "namePt": "Nasal (osso)",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "nasal bone"
+   ],
+   "bone": {
+    "nameLatin": "Os nasale",
+    "nameEn": "Nasal bone",
+    "synonyms": [],
+    "classification": "Osso plano pequeno, par",
+    "location": "Dorso (ponte) do nariz.",
+    "articulations": "O outro nasal, frontal, processo frontal da maxila e etmoide.",
+    "landmarks": [
+     "Margem inferior (continua na cartilagem lateral do nariz)"
+    ],
+    "explanation": "Os dois nasais formam a parte óssea da ponte do nariz; o resto do nariz é cartilagem.",
+    "clue": "Par de pequenos ossos que formam a ponte do nariz, os mais fraturados da face.",
+    "examTip": "É o osso da face que mais se fratura.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "lacrimal",
+   "namePt": "Lacrimal",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "lacrimal bone"
+   ],
+   "bone": {
+    "nameLatin": "Os lacrimale",
+    "nameEn": "Lacrimal bone",
+    "synonyms": [],
+    "classification": "Osso plano, par — o menor osso da face",
+    "location": "Parede medial da órbita.",
+    "articulations": "Frontal, maxila, etmoide e concha nasal inferior.",
+    "landmarks": [
+     "Fossa do saco lacrimal",
+     "Crista lacrimal posterior"
+    ],
+    "passages": "Com a maxila, forma o canal lacrimonasal (ducto lacrimonasal → meato nasal inferior).",
+    "explanation": "Pequeno e frágil, aloja o saco lacrimal; dali a lágrima desce pelo ducto lacrimonasal até o nariz.",
+    "clue": "O menor osso da face, na parede medial da órbita, onde se aloja o saco que recolhe a lágrima.",
+    "examTip": "Por isso o nariz escorre quando se chora: a lágrima drena para o meato nasal inferior.",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "palatino",
+   "namePt": "Palatino",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "palatine bone"
+   ],
+   "bone": {
+    "nameLatin": "Os palatinum",
+    "nameEn": "Palatine bone",
+    "synonyms": [],
+    "classification": "Osso irregular em forma de L, par",
+    "location": "Parte posterior do palato duro e parede lateral da cavidade nasal.",
+    "articulations": "Maxila, o outro palatino, esfenoide, etmoide, vômer e concha nasal inferior.",
+    "landmarks": [
+     "Lâmina horizontal (terço posterior do palato duro)",
+     "Lâmina perpendicular",
+     "Forames palatinos maior e menor"
+    ],
+    "passages": "Forames palatinos maior e menor: nervos e vasos palatinos.",
+    "explanation": "A lâmina horizontal completa atrás o palato duro; a perpendicular sobe na parede lateral do nariz até a órbita.",
+    "clue": "Osso par em forma de L que completa atrás o palato duro e sobe na parede lateral do nariz.",
+    "examTip": "Palato duro = processos palatinos das maxilas (2/3 anteriores) + lâminas horizontais dos palatinos (1/3 posterior).",
+    "difficulty": 3,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "vomer",
+   "namePt": "Vômer",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "vomer"
+   ],
+   "bone": {
+    "nameLatin": "Vomer",
+    "nameEn": "Vomer",
+    "synonyms": [],
+    "classification": "Osso plano, ímpar",
+    "location": "Parte posteroinferior do septo nasal.",
+    "articulations": "Esfenoide, etmoide (lâmina perpendicular), maxilas e palatinos; cartilagem do septo.",
+    "landmarks": [
+     "Asas do vômer",
+     "Margem anterior (cartilagem do septo)"
+    ],
+    "explanation": "Com a lâmina perpendicular do etmoide e a cartilagem do septo, forma o septo nasal.",
+    "clue": "Lâmina óssea ímpar, em forma de arado, que forma a parte de trás e de baixo do septo nasal.",
+    "examTip": "Septo nasal: lâmina perpendicular do etmoide (em cima), vômer (embaixo e atrás) e cartilagem do septo (na frente).",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "concha-nasal-inferior",
+   "namePt": "Concha nasal inferior",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "inferior nasal concha"
+   ],
+   "bone": {
+    "nameLatin": "Concha nasalis inferior",
+    "nameEn": "Inferior nasal concha",
+    "synonyms": [],
+    "classification": "Osso independente, par",
+    "location": "Parede lateral da cavidade nasal.",
+    "articulations": "Maxila, palatino, lacrimal e etmoide.",
+    "landmarks": [
+     "Processo lacrimal",
+     "Processo maxilar"
+    ],
+    "explanation": "Diferente das conchas superior e média (que são do etmoide), a inferior é um osso próprio. Embaixo dela fica o meato inferior.",
+    "clue": "Lâmina óssea curva e independente na parede lateral do nariz, sob a qual desemboca o ducto da lágrima.",
+    "examTip": "O ducto lacrimonasal desemboca no meato inferior, abaixo desta concha.",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "atlas",
+   "namePt": "Atlas (C1)",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "atlas"
+   ],
+   "bone": {
+    "nameLatin": "Atlas",
+    "nameEn": "Atlas",
+    "synonyms": [
+     "C1",
+     "primeira vértebra cervical"
+    ],
+    "classification": "Osso irregular (vértebra atípica)",
+    "location": "Primeira vértebra cervical, logo abaixo do crânio.",
+    "articulations": "Côndilos occipitais (atlantoccipital) e áxis (atlantoaxiais).",
+    "landmarks": [
+     "Arco anterior com tubérculo anterior e fóvea do dente",
+     "Arco posterior com sulco da artéria vertebral",
+     "Massas laterais",
+     "Processos transversos com forame transversário"
+    ],
+    "muscles": "Reto posterior menor da cabeça, oblíquos da cabeça e levantador da escápula (processos transversos).",
+    "passages": "Forame transversário e sulco do arco posterior: artéria vertebral.",
+    "explanation": "Um anel sem corpo e sem processo espinhoso que sustenta o crânio. Com o occipital faz o 'sim'; girando sobre o dente do áxis faz o 'não'.",
+    "clue": "Primeira vértebra do pescoço, um anel sem corpo que sustenta o crânio e permite o movimento de 'sim'.",
+    "examTip": "Fratura de Jefferson: o anel do atlas explode por carga axial (mergulho em água rasa).",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "axis",
+   "namePt": "Áxis (C2)",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "axis"
+   ],
+   "bone": {
+    "nameLatin": "Axis",
+    "nameEn": "Axis",
+    "synonyms": [
+     "C2",
+     "segunda vértebra cervical"
+    ],
+    "classification": "Osso irregular (vértebra atípica)",
+    "location": "Segunda vértebra cervical.",
+    "articulations": "Atlas (articulação atlantoaxial mediana, em pivô, e laterais) e C3.",
+    "landmarks": [
+     "Dente do áxis (processo odontoide)",
+     "Corpo",
+     "Processo espinhoso grande e bífido"
+    ],
+    "muscles": "Oblíquo inferior da cabeça e reto posterior maior da cabeça (processo espinhoso).",
+    "explanation": "O dente sobe e serve de eixo para o atlas girar — o movimento de 'não'. O ligamento transverso do atlas o mantém no lugar, longe da medula.",
+    "clue": "Segunda vértebra cervical, com um dente que sobe como eixo em torno do qual a primeira gira no movimento de 'não'.",
+    "examTip": "Fratura do dente do áxis e 'fratura do enforcado' (pedículos de C2). O processo espinhoso de C2 é o primeiro que se palpa abaixo do occipital.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "vertebras-cervicais",
+   "namePt": "Vértebras cervicais (C3–C6)",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "third cervical vertebra",
+    "fourth cervical vertebra",
+    "fifth cervical vertebra",
+    "sixth cervical vertebra"
+   ],
+   "bone": {
+    "nameLatin": "Vertebrae cervicales",
+    "nameEn": "Cervical vertebrae",
+    "synonyms": [],
+    "classification": "Ossos irregulares",
+    "location": "Pescoço.",
+    "articulations": "As vizinhas, pelos discos e pelas articulações dos processos articulares e uncovertebrais.",
+    "landmarks": [
+     "Corpo pequeno e largo, com uncos",
+     "Forame vertebral grande e triangular",
+     "Forame transversário",
+     "Tubérculos anterior e posterior do processo transverso",
+     "Processo espinhoso curto e bífido"
+    ],
+    "muscles": "Escalenos (tubérculos dos processos transversos), levantador da escápula, esplênio, semiespinal e multífido.",
+    "passages": "Forames transversários: artéria vertebral, que entra em C6 e sobe até C1.",
+    "explanation": "Pequenas e muito móveis. O furo em cada processo transverso é a marca das cervicais: por ele sobe a artéria vertebral.",
+    "clue": "Vértebras pequenas do pescoço com um furo em cada processo transverso, por onde sobe a artéria vertebral, e processo espinhoso bífido.",
+    "examTip": "O tubérculo anterior de C6 (tubérculo carótico) é onde se comprime a carótida comum contra a coluna.",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "vertebra-proeminente",
+   "namePt": "Vértebra proeminente (C7)",
+   "region": "cabeca-pescoco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "seventh cervical vertebra"
+   ],
+   "bone": {
+    "nameLatin": "Vertebra prominens",
+    "nameEn": "Vertebra prominens",
+    "synonyms": [
+     "C7"
+    ],
+    "classification": "Osso irregular (vértebra de transição)",
+    "location": "Base do pescoço.",
+    "articulations": "C6 e T1.",
+    "landmarks": [
+     "Processo espinhoso longo e não bífido",
+     "Forame transversário pequeno"
+    ],
+    "muscles": "Trapézio, romboide menor, ligamento nucal e eretores da espinha.",
+    "passages": "Forame transversário: em geral só veias vertebrais — a artéria entra em C6.",
+    "explanation": "O processo espinhoso longo faz uma saliência na base da nuca, o ponto de partida para contar as vértebras na palpação.",
+    "clue": "Última vértebra do pescoço, com processo espinhoso longo que faz saliência na base da nuca.",
+    "examTip": "Na palpação, C7 é o processo espinhoso mais saliente da base do pescoço; com a cabeça fletida, ele não some sob os dedos (o de C6 sim).",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "vertebras-toracicas",
+   "namePt": "Vértebras torácicas (T1–T12)",
+   "region": "dorso",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "first thoracic vertebra",
+    "second thoracic vertebra",
+    "third thoracic vertebra",
+    "fourth thoracic vertebra",
+    "fifth thoracic vertebra",
+    "sixth thoracic vertebra",
+    "seventh thoracic vertebra",
+    "eighth thoracic vertebra",
+    "ninth thoracic vertebra",
+    "tenth thoracic vertebra",
+    "eleventh thoracic vertebra",
+    "twelfth thoracic vertebra"
+   ],
+   "bone": {
+    "nameLatin": "Vertebrae thoracicae",
+    "nameEn": "Thoracic vertebrae",
+    "synonyms": [],
+    "classification": "Ossos irregulares",
+    "location": "Meio da coluna, atrás do tórax.",
+    "articulations": "As vizinhas e as costelas (articulações costovertebrais e costotransversárias).",
+    "landmarks": [
+     "Corpo em forma de coração",
+     "Fóveas costais no corpo (cabeça da costela)",
+     "Fóveas costais nos processos transversos (T1–T10)",
+     "Forame vertebral circular",
+     "Processo espinhoso longo, inclinado para baixo"
+    ],
+    "muscles": "Trapézio, romboides (C7–T5), latíssimo do dorso (T7–T12), serráteis posteriores, eretores da espinha e transversoespinais.",
+    "explanation": "Cada uma recebe costelas, o que torna esta parte da coluna a menos móvel. Os processos espinhosos se sobrepõem como telhas.",
+    "clue": "As doze vértebras do meio da coluna, com facetas para as costelas e processos espinhosos longos inclinados para baixo.",
+    "examTip": "As fóveas costais são a marca das torácicas. O processo espinhoso de uma torácica média fica no nível do corpo da vértebra de baixo.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "vertebras-lombares",
+   "namePt": "Vértebras lombares (L1–L5)",
+   "region": "dorso",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "first lumbar vertebra",
+    "second lumbar vertebra",
+    "third lumbar vertebra",
+    "fourth lumbar vertebra",
+    "fifth lumbar vertebra"
+   ],
+   "bone": {
+    "nameLatin": "Vertebrae lumbales",
+    "nameEn": "Lumbar vertebrae",
+    "synonyms": [],
+    "classification": "Ossos irregulares",
+    "location": "Parte baixa das costas.",
+    "articulations": "As vizinhas e o sacro (articulação lombossacral).",
+    "landmarks": [
+     "Corpo grande em forma de rim",
+     "Processo espinhoso curto e quadrangular",
+     "Processos mamilares e acessórios",
+     "Processos articulares em plano sagital"
+    ],
+    "muscles": "Psoas maior (corpos e processos transversos), quadrado do lombo, pilares do diafragma (L1–L3), multífido e eretores; latíssimo do dorso pela fáscia toracolombar.",
+    "explanation": "As maiores vértebras, que carregam mais peso. Sem forames transversários e sem facetas para costelas.",
+    "clue": "As cinco maiores vértebras, na parte baixa das costas, com corpo grosso em forma de rim e sem facetas para costelas.",
+    "examTip": "A medula termina em L1–L2 (cone medular): a punção lombar é feita entre L3–L4 ou L4–L5. A linha que une as cristas ilíacas passa em L4.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "sacro",
+   "namePt": "Sacro",
+   "region": "quadril-pelve",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "sacrum"
+   ],
+   "bone": {
+    "nameLatin": "Os sacrum",
+    "nameEn": "Sacrum",
+    "synonyms": [],
+    "classification": "Osso irregular — cinco vértebras fundidas",
+    "location": "Parte posterior da pelve, entre os dois ossos do quadril.",
+    "articulations": "L5 (lombossacral), ílios (sacroilíacas) e cóccix.",
+    "landmarks": [
+     "Promontório",
+     "Asas",
+     "Forames sacrais anteriores e posteriores",
+     "Crista sacral mediana",
+     "Hiato sacral e cornos sacrais",
+     "Face auricular"
+    ],
+    "muscles": "Glúteo máximo (face posterior), piriforme (face anterior), eretores da espinha e multífido.",
+    "passages": "Forames sacrais: ramos dos nervos sacrais. Hiato sacral: fim do canal sacral.",
+    "explanation": "Cinco vértebras fundidas que transmitem o peso da coluna para a pelve pelas articulações sacroilíacas.",
+    "clue": "Osso triangular formado por cinco vértebras fundidas, encaixado entre os dois ossos do quadril na parte de trás da pelve.",
+    "examTip": "O promontório é a referência do diâmetro obstétrico do estreito superior. Pelo hiato sacral se faz a anestesia caudal.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "esterno",
+   "namePt": "Esterno",
+   "region": "tronco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "manubrium",
+    "body of sternum",
+    "xiphoid process"
+   ],
+   "bone": {
+    "nameLatin": "Sternum",
+    "nameEn": "Sternum",
+    "synonyms": [],
+    "classification": "Osso plano, ímpar",
+    "location": "Linha média da parede anterior do tórax.",
+    "articulations": "Clavículas (esternoclaviculares) e cartilagens costais da 1ª à 7ª.",
+    "landmarks": [
+     "Manúbrio com incisura jugular e incisuras claviculares",
+     "Ângulo do esterno (de Louis)",
+     "Corpo com incisuras costais",
+     "Processo xifoide"
+    ],
+    "muscles": "Peitoral maior, ECM (manúbrio), esterno-hióideo e esternotireóideo, reto do abdome e diafragma (processo xifoide).",
+    "explanation": "Manúbrio, corpo e processo xifoide formam a 'gravata' do tórax, onde chegam as clavículas e as costelas verdadeiras.",
+    "clue": "Osso plano no meio do peito, em forma de gravata, onde se prendem as clavículas e as cartilagens das costelas verdadeiras.",
+    "examTip": "O ângulo do esterno fica no nível da 2ª cartilagem costal — o ponto de partida para contar costelas — e marca o plano de T4–T5, a bifurcação da traqueia e o arco da aorta.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "primeira-costela",
+   "namePt": "Primeira costela",
+   "region": "tronco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "first rib"
+   ],
+   "bone": {
+    "nameLatin": "Costa prima",
+    "nameEn": "First rib",
+    "synonyms": [],
+    "classification": "Osso plano (costela atípica), par",
+    "location": "Abertura superior do tórax.",
+    "articulations": "T1 e manúbrio (pela primeira cartilagem costal).",
+    "landmarks": [
+     "Tubérculo do músculo escaleno anterior",
+     "Sulco da veia subclávia (anterior ao tubérculo)",
+     "Sulco da artéria subclávia (posterior ao tubérculo)"
+    ],
+    "muscles": "Escalenos anterior e médio, subclávio e serrátil anterior.",
+    "explanation": "A mais curta, larga e curva das costelas, achatada de cima para baixo. Sobre ela passam os vasos e o plexo que vão para o braço.",
+    "clue": "A mais curta, larga e achatada das costelas, com sulcos para a veia e a artéria que vão para o braço.",
+    "examTip": "O escaleno anterior separa a veia subclávia (na frente) da artéria subclávia e do plexo braquial (atrás) — o desfiladeiro torácico.",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "costelas-verdadeiras",
+   "namePt": "Costelas verdadeiras (2ª–7ª)",
+   "region": "tronco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "second rib",
+    "third rib",
+    "fourth rib",
+    "fifth rib",
+    "sixth rib",
+    "seventh rib"
+   ],
+   "bone": {
+    "nameLatin": "Costae verae",
+    "nameEn": "True ribs",
+    "synonyms": [],
+    "classification": "Ossos planos, pares",
+    "location": "Parede do tórax.",
+    "articulations": "Vértebras torácicas (cabeça e tubérculo) e esterno, pela própria cartilagem costal.",
+    "landmarks": [
+     "Cabeça com duas faces articulares",
+     "Colo",
+     "Tubérculo",
+     "Ângulo",
+     "Sulco da costela"
+    ],
+    "muscles": "Intercostais, serrátil anterior, peitoral menor (3ª–5ª) e eretores (ângulos).",
+    "passages": "Sulco da costela: veia, artéria e nervo intercostais, de cima para baixo.",
+    "explanation": "Chamam-se verdadeiras porque a cartilagem chega diretamente ao esterno. A primeira também é verdadeira, mas tem ficha própria.",
+    "clue": "Costelas que chegam ao esterno pela própria cartilagem — da segunda à sétima.",
+    "examTip": "O feixe intercostal corre na borda inferior de cada costela: a agulha da drenagem de tórax entra rente à borda superior da costela de baixo.",
+    "mnemonic": "VAN — Veia, Artéria, Nervo, de cima para baixo no sulco da costela.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "costelas-falsas",
+   "namePt": "Costelas falsas (8ª–10ª)",
+   "region": "tronco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "eighth rib",
+    "ninth rib",
+    "tenth rib"
+   ],
+   "bone": {
+    "nameLatin": "Costae spuriae",
+    "nameEn": "False ribs",
+    "synonyms": [],
+    "classification": "Ossos planos, pares",
+    "location": "Parte inferior da parede do tórax.",
+    "articulations": "Vértebras torácicas; a cartilagem une-se à cartilagem da costela de cima.",
+    "landmarks": [
+     "Cartilagens unidas formando a margem costal"
+    ],
+    "muscles": "Intercostais, diafragma, oblíquos externo e interno e transverso do abdome.",
+    "explanation": "A cartilagem não chega ao esterno: junta-se à de cima, e juntas formam a margem costal, palpável embaixo do tórax.",
+    "clue": "Costelas cuja cartilagem não chega ao esterno, unindo-se à de cima e formando a margem costal.",
+    "examTip": "A margem costal é a referência para palpar fígado (à direita) e baço (à esquerda) no exame do abdome.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "costelas-flutuantes",
+   "namePt": "Costelas flutuantes (11ª–12ª)",
+   "region": "tronco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "eleventh rib",
+    "twelfth rib"
+   ],
+   "bone": {
+    "nameLatin": "Costae fluctuantes",
+    "nameEn": "Floating ribs",
+    "synonyms": [],
+    "classification": "Ossos planos, pares",
+    "location": "Parede posterolateral, na transição do tórax para o abdome.",
+    "articulations": "Só com a vértebra correspondente; a ponta anterior é livre.",
+    "landmarks": [
+     "Extremidade anterior livre, coberta de cartilagem"
+    ],
+    "muscles": "Diafragma, quadrado do lombo (12ª), latíssimo do dorso e oblíquos.",
+    "explanation": "Curtas, terminam livres na musculatura da parede, sem se ligar a nenhuma cartilagem da frente.",
+    "clue": "As duas últimas costelas, curtas, com a ponta da frente livre na musculatura.",
+    "examTip": "A 12ª costela cruza o polo superior do rim: referência nos acessos ao rim e na punção renal.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "cartilagens-costais",
+   "namePt": "Cartilagens costais",
+   "region": "tronco",
+   "kind": "connective",
+   "layer": "skeleton",
+   "parts": [
+    "first costal cartilage",
+    "second costal cartilage",
+    "third costal cartilage",
+    "fourth costal cartilage",
+    "fifth costal cartilage",
+    "sixth costal cartilage",
+    "seventh costal cartilage"
+   ],
+   "summary": "Barras de cartilagem hialina que prolongam as costelas para a frente. As sete primeiras chegam ao esterno; da 8ª à 10ª, unem-se à de cima e formam a margem costal. Dão elasticidade ao tórax na respiração e calcificam com a idade."
+  },
+  {
+   "id": "discos-intervertebrais",
+   "namePt": "Discos intervertebrais",
+   "region": "dorso",
+   "kind": "connective",
+   "layer": "skeleton",
+   "parts": [
+    "intervertebral disk of axis",
+    "intervertebral disk of third cervical vertebra",
+    "intervertebral disk of fourth cervical vertebra",
+    "intervertebral disk of fifth cervical vertebra",
+    "intervertebral disk of sixth cervical vertebra",
+    "intervertebral disk of seventh cervical vertebra",
+    "intervertebral disk of first thoracic vertebra",
+    "intervertebral disk of second thoracic vertebra",
+    "intervertebral disk of third thoracic vertebra",
+    "intervertebral disk of fourth thoracic vertebra",
+    "intervertebral disk of fifth thoracic vertebra",
+    "intervertebral disk of sixth thoracic vertebra",
+    "intervertebral disk of seventh thoracic vertebra",
+    "intervertebral disk of eighth thoracic vertebra",
+    "intervertebral disk of ninth thoracic vertebra",
+    "intervertebral disk of tenth thoracic vertebra",
+    "intervertebral disk of eleventh thoracic vertebra",
+    "intervertebral disk of first lumbar vertebra",
+    "intervertebral disk of second lumbar vertebra",
+    "intervertebral disk of third lumbar vertebra",
+    "intervertebral disk of fourth lumbar vertebra",
+    "intervertebral disk of fifth lumbar vertebra"
+   ],
+   "summary": "Fibrocartilagem entre os corpos vertebrais: anel fibroso por fora e núcleo pulposo gelatinoso no centro. Na hérnia de disco, o núcleo escapa pelo anel, quase sempre para trás e para o lado, e comprime a raiz que sai abaixo — a hérnia de L4–L5 pega a raiz de L5."
+  },
+  {
+   "id": "clavicula",
+   "namePt": "Clavícula",
+   "region": "ombro-braco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "clavicle"
+   ],
+   "bone": {
+    "nameLatin": "Clavicula",
+    "nameEn": "Clavicle",
+    "synonyms": [],
+    "classification": "Osso longo, par — o único osso longo horizontal",
+    "location": "Base do pescoço, entre o esterno e o acrômio.",
+    "articulations": "Esterno (esternoclavicular) e acrômio (acromioclavicular).",
+    "landmarks": [
+     "Extremidade esternal",
+     "Extremidade acromial",
+     "Tubérculo conoide e linha trapezóidea",
+     "Sulco do músculo subclávio"
+    ],
+    "muscles": "ECM (cabeça clavicular), peitoral maior (parte clavicular), deltoide e trapézio (terço lateral), subclávio.",
+    "explanation": "Escora o ombro afastado do tórax, deixando o braço livre, e transmite ao esqueleto axial a força que vem do membro superior.",
+    "clue": "Osso em forma de S deitado na base do pescoço, que escora o ombro longe do tórax.",
+    "examTip": "O osso mais fraturado do corpo, em geral na junção dos terços médio e lateral: o fragmento medial sobe (puxado pelo ECM) e o lateral cai (peso do braço).",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "escapula",
+   "namePt": "Escápula",
+   "region": "ombro-braco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "scapula"
+   ],
+   "bone": {
+    "nameLatin": "Scapula",
+    "nameEn": "Scapula",
+    "synonyms": [
+     "omoplata"
+    ],
+    "classification": "Osso plano, par",
+    "location": "Parte posterolateral do tórax, da 2ª à 7ª costela.",
+    "articulations": "Úmero (glenoumeral), clavícula (acromioclavicular); desliza sobre o tórax (escapulotorácica, funcional).",
+    "landmarks": [
+     "Espinha",
+     "Acrômio",
+     "Processo coracoide",
+     "Cavidade glenoidal",
+     "Fossas supraespinal, infraespinal e subescapular",
+     "Ângulos superior e inferior",
+     "Incisura da escápula",
+     "Tubérculos supraglenoidal e infraglenoidal"
+    ],
+    "muscles": "Dezessete músculos: o manguito rotador (supraespinal, infraespinal, redondo menor, subescapular), deltoide, trapézio, romboides, levantador da escápula, serrátil anterior, redondo maior, bíceps (cabeça longa no tubérculo supraglenoidal, curta no coracoide), tríceps (cabeça longa no infraglenoidal), coracobraquial, peitoral menor e omo-hióideo.",
+    "passages": "Incisura da escápula: nervo supraescapular por baixo do ligamento transverso; a artéria passa por cima.",
+    "explanation": "A base móvel do ombro: dela saem os músculos que posicionam a cavidade glenoidal para o úmero trabalhar.",
+    "clue": "Osso plano triangular nas costas que forma o ombro com o acrômio e a cavidade onde gira a cabeça do úmero.",
+    "examTip": "Escápula alada: a margem medial se descola do tórax por lesão do nervo torácico longo (serrátil anterior).",
+    "mnemonic": "Na incisura da escápula, o Exército passa por cima da Marinha: artéria sobre o ligamento, nervo embaixo.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "umero",
+   "namePt": "Úmero",
+   "region": "ombro-braco",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "humerus"
+   ],
+   "bone": {
+    "nameLatin": "Humerus",
+    "nameEn": "Humerus",
+    "synonyms": [],
+    "classification": "Osso longo, par",
+    "location": "Braço.",
+    "articulations": "Escápula (glenoumeral), rádio e ulna (cotovelo).",
+    "landmarks": [
+     "Cabeça",
+     "Colo anatômico",
+     "Colo cirúrgico",
+     "Tubérculos maior e menor",
+     "Sulco intertubercular",
+     "Tuberosidade para o deltoide",
+     "Sulco do nervo radial",
+     "Epicôndilos medial e lateral",
+     "Tróclea e capítulo",
+     "Fossas do olécrano, coronóidea e radial"
+    ],
+    "muscles": "Manguito rotador (tubérculos), peitoral maior, latíssimo do dorso e redondo maior (sulco intertubercular), deltoide, coracobraquial, braquial, tríceps (cabeças lateral e medial); flexores do antebraço no epicôndilo medial e extensores no lateral.",
+    "passages": "Colo cirúrgico: nervo axilar e artéria circunflexa posterior do úmero. Sulco radial: nervo radial e artéria braquial profunda. Atrás do epicôndilo medial: nervo ulnar.",
+    "explanation": "Do ombro ao cotovelo: a cabeça gira na glenoide, e embaixo a tróclea recebe a ulna e o capítulo, o rádio.",
+    "clue": "O osso do braço: cabeça arredondada no ombro e, embaixo, tróclea e capítulo para o cotovelo.",
+    "examTip": "Três fraturas, três nervos: colo cirúrgico → axilar; diáfise → radial (mão caída); epicôndilo medial → ulnar.",
+    "mnemonic": "No sulco intertubercular, a dama entre dois cavalheiros: o latíssimo do dorso entre o peitoral maior e o redondo maior.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "radio",
+   "namePt": "Rádio",
+   "region": "antebraco-mao",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "radius"
+   ],
+   "bone": {
+    "nameLatin": "Radius",
+    "nameEn": "Radius",
+    "synonyms": [],
+    "classification": "Osso longo, par",
+    "location": "Lado lateral do antebraço (lado do polegar).",
+    "articulations": "Úmero (capítulo), ulna (radiulnares proximal e distal) e carpo — escafoide e semilunar (radiocarpal).",
+    "landmarks": [
+     "Cabeça em disco",
+     "Colo",
+     "Tuberosidade do rádio",
+     "Processo estiloide",
+     "Tubérculo dorsal (de Lister)",
+     "Incisura ulnar"
+    ],
+    "muscles": "Bíceps braquial (tuberosidade), supinador, pronador redondo, pronador quadrado, braquiorradial (estiloide), flexor longo do polegar e abdutor longo do polegar.",
+    "explanation": "A cabeça gira dentro do ligamento anular na pronação e na supinação, e a extremidade de baixo carrega a mão consigo.",
+    "clue": "Osso lateral do antebraço, do lado do polegar, cuja cabeça gira na pronação e na supinação.",
+    "examTip": "Fratura de Colles: extremidade distal do rádio com desvio dorsal ('dorso de garfo'), por queda sobre a mão estendida. Na criança, puxão pelo braço subluxa a cabeça do rádio (pronação dolorosa).",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "ulna",
+   "namePt": "Ulna",
+   "region": "antebraco-mao",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "ulna"
+   ],
+   "bone": {
+    "nameLatin": "Ulna",
+    "nameEn": "Ulna",
+    "synonyms": [
+     "cúbito"
+    ],
+    "classification": "Osso longo, par",
+    "location": "Lado medial do antebraço (lado do dedo mínimo).",
+    "articulations": "Úmero (tróclea) e rádio (radiulnares proximal e distal).",
+    "landmarks": [
+     "Olécrano",
+     "Processo coronoide",
+     "Incisura troclear",
+     "Incisura radial",
+     "Tuberosidade da ulna",
+     "Cabeça",
+     "Processo estiloide"
+    ],
+    "muscles": "Tríceps braquial (olécrano), braquial (tuberosidade e coronoide), ancôneo, supinador, pronador quadrado, flexor profundo dos dedos e flexor ulnar do carpo.",
+    "explanation": "É a ulna, não o rádio, que forma a dobradiça do cotovelo: a incisura troclear abraça a tróclea do úmero.",
+    "clue": "Osso medial do antebraço, do lado do dedo mínimo, que forma a ponta do cotovelo.",
+    "examTip": "O olécrano é a ponta do cotovelo. Fratura de Monteggia: ulna proximal fraturada com luxação da cabeça do rádio.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "escafoide",
+   "namePt": "Escafoide",
+   "region": "antebraco-mao",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "scaphoid"
+   ],
+   "bone": {
+    "nameLatin": "Os scaphoideum",
+    "nameEn": "Scaphoid",
+    "synonyms": [],
+    "classification": "Osso curto, par",
+    "location": "Fileira proximal do carpo, do lado do polegar.",
+    "articulations": "Rádio, semilunar, capitato, trapézio e trapezoide.",
+    "landmarks": [
+     "Tubérculo",
+     "Colo",
+     "Polo proximal"
+    ],
+    "explanation": "O maior osso da fileira proximal; liga as duas fileiras do carpo e forma o assoalho da tabaqueira anatômica.",
+    "clue": "Osso do carpo do lado do polegar, no fundo da tabaqueira anatômica, o que mais se fratura.",
+    "examTip": "O carpal mais fraturado (queda sobre a mão estendida): dor na tabaqueira anatômica. A irrigação entra pelo polo distal, então o proximal pode necrosar.",
+    "mnemonic": "Carpo, de lateral para medial: proximais — escafoide, semilunar, piramidal, pisiforme; distais — trapézio, trapezoide, capitato, hamato.",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "semilunar",
+   "namePt": "Semilunar",
+   "region": "antebraco-mao",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "lunate"
+   ],
+   "bone": {
+    "nameLatin": "Os lunatum",
+    "nameEn": "Lunate",
+    "synonyms": [],
+    "classification": "Osso curto, par",
+    "location": "Centro da fileira proximal do carpo.",
+    "articulations": "Rádio, escafoide, piramidal e capitato.",
+    "landmarks": [
+     "Face proximal convexa (articula com o rádio)",
+     "Face distal côncava (recebe o capitato)"
+    ],
+    "explanation": "Em meia-lua, encaixa-se entre o rádio e o capitato no centro do punho.",
+    "clue": "Osso do carpo em meia-lua, no centro da fileira proximal, o que mais luxa.",
+    "examTip": "O carpal que mais luxa: deslocado para a frente, comprime o nervo mediano no túnel do carpo. Doença de Kienböck é a necrose do semilunar.",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "pisiforme",
+   "namePt": "Pisiforme",
+   "region": "antebraco-mao",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "pisiform"
+   ],
+   "bone": {
+    "nameLatin": "Os pisiforme",
+    "nameEn": "Pisiform",
+    "synonyms": [],
+    "classification": "Osso sesamoide, par",
+    "location": "Face palmar do piramidal, na base da eminência hipotenar.",
+    "articulations": "Piramidal (o piramidal não está no modelo 3D).",
+    "landmarks": [
+     "Palpável na base da eminência hipotenar"
+    ],
+    "muscles": "Flexor ulnar do carpo (é sesamoide no tendão dele) e abdutor do dedo mínimo.",
+    "passages": "Ao lado dele, entre o pisiforme e o hâmulo do hamato, passam o nervo e a artéria ulnares (canal de Guyon).",
+    "explanation": "Do tamanho de uma ervilha, é um sesamoide dentro do tendão do flexor ulnar do carpo.",
+    "clue": "Osso do tamanho de uma ervilha, sesamoide no tendão do flexor ulnar do carpo, palpável na base da mão do lado do mínimo.",
+    "examTip": "Pisiforme e hâmulo do hamato limitam o canal de Guyon, onde o nervo ulnar pode ser comprimido (ciclistas).",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "trapezio-osso",
+   "namePt": "Trapézio (osso)",
+   "region": "antebraco-mao",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "trapezium"
+   ],
+   "bone": {
+    "nameLatin": "Os trapezium",
+    "nameEn": "Trapezium",
+    "synonyms": [],
+    "classification": "Osso curto, par",
+    "location": "Fileira distal do carpo, na base do polegar.",
+    "articulations": "Escafoide, trapezoide, 1º e 2º metacarpais.",
+    "landmarks": [
+     "Tubérculo do trapézio",
+     "Sulco do tendão do flexor radial do carpo",
+     "Face em sela para o 1º metacarpal"
+    ],
+    "muscles": "Músculos tenares (abdutor curto, flexor curto e oponente do polegar) pelo retináculo dos flexores.",
+    "explanation": "A articulação em sela com o 1º metacarpal é o que dá ao polegar a oposição.",
+    "clue": "Osso do carpo na base do polegar, que forma com o primeiro metacarpal uma articulação em sela.",
+    "examTip": "A carpometacarpal do polegar (trapézio–1º metacarpal) é selar e é sede frequente de artrose (rizartrose).",
+    "mnemonic": "TrapéziO fica no pOlegar; o trapezoide fica ao lado, no indicador.",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "trapezoide",
+   "namePt": "Trapezoide",
+   "region": "antebraco-mao",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "trapezoid"
+   ],
+   "bone": {
+    "nameLatin": "Os trapezoideum",
+    "nameEn": "Trapezoid",
+    "synonyms": [],
+    "classification": "Osso curto, par",
+    "location": "Fileira distal do carpo, entre o trapézio e o capitato.",
+    "articulations": "Escafoide, trapézio, capitato e 2º metacarpal.",
+    "landmarks": [
+     "Forma de cunha"
+    ],
+    "explanation": "O menor osso da fileira distal, encaixado na base do 2º metacarpal.",
+    "clue": "Pequeno osso em cunha da fileira distal do carpo, na base do indicador.",
+    "examTip": "Raramente se fratura sozinho; importa saber a posição na sequência do carpo.",
+    "difficulty": 3,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "capitato",
+   "namePt": "Capitato",
+   "region": "antebraco-mao",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "capitate"
+   ],
+   "bone": {
+    "nameLatin": "Os capitatum",
+    "nameEn": "Capitate",
+    "synonyms": [],
+    "classification": "Osso curto, par — o maior osso do carpo",
+    "location": "Centro da fileira distal do carpo.",
+    "articulations": "Escafoide, semilunar, trapezoide, hamato e 2º a 4º metacarpais (principalmente o 3º).",
+    "landmarks": [
+     "Cabeça arredondada",
+     "Colo",
+     "Corpo"
+    ],
+    "explanation": "O maior do carpo: a cabeça encaixa na concavidade do escafoide e do semilunar e o corpo apoia o 3º metacarpal.",
+    "clue": "O maior osso do carpo, no centro do punho, com uma cabeça arredondada na base do dedo médio.",
+    "examTip": "É o primeiro osso do carpo a ossificar — referência da idade óssea na radiografia da mão.",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "hamato",
+   "namePt": "Hamato",
+   "region": "antebraco-mao",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "hamate"
+   ],
+   "bone": {
+    "nameLatin": "Os hamatum",
+    "nameEn": "Hamate",
+    "synonyms": [],
+    "classification": "Osso curto, par",
+    "location": "Fileira distal do carpo, do lado do dedo mínimo.",
+    "articulations": "Capitato, semilunar, piramidal, 4º e 5º metacarpais.",
+    "landmarks": [
+     "Hâmulo (gancho) do hamato"
+    ],
+    "muscles": "Flexor curto e oponente do dedo mínimo (hâmulo).",
+    "passages": "O hâmulo limita o túnel do carpo por dentro e o canal de Guyon por fora.",
+    "explanation": "Leva um gancho na face palmar onde se prende o retináculo dos flexores.",
+    "clue": "Osso do carpo do lado do mínimo, com um gancho na palma que limita o túnel do carpo.",
+    "examTip": "Fratura do hâmulo em golfistas e tenistas pode lesar o nervo ulnar.",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "metacarpais",
+   "namePt": "Metacarpais",
+   "region": "antebraco-mao",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "first metacarpal bone",
+    "second metacarpal bone",
+    "third metacarpal bone",
+    "fourth metacarpal bone",
+    "fifth metacarpal bone"
+   ],
+   "bone": {
+    "nameLatin": "Ossa metacarpi",
+    "nameEn": "Metacarpal bones",
+    "synonyms": [],
+    "classification": "Ossos longos (em miniatura), cinco em cada mão",
+    "location": "Palma da mão, numerados do polegar (I) ao mínimo (V).",
+    "articulations": "Carpo (carpometacarpais), entre si e falanges proximais (metacarpofalângicas).",
+    "landmarks": [
+     "Base",
+     "Corpo",
+     "Cabeça (os nós dos dedos)"
+    ],
+    "muscles": "Interósseos (entre eles), oponentes do polegar (1º) e do mínimo (5º), adutor do polegar (3º); extensores e flexores do carpo nas bases.",
+    "explanation": "Formam o esqueleto da palma; as cabeças são os nós dos dedos quando se fecha a mão.",
+    "clue": "Os cinco ossos longos da palma, cujas cabeças formam os nós dos dedos.",
+    "examTip": "Fratura do boxeador: colo do 5º metacarpal. Fratura de Bennett: base do 1º, entrando na articulação.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "falanges-da-mao",
+   "namePt": "Falanges da mão",
+   "region": "antebraco-mao",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "proximal phalanx of thumb",
+    "proximal phalanx of index finger",
+    "proximal phalanx of middle finger",
+    "proximal phalanx of ring finger",
+    "proximal phalanx of little finger",
+    "middle phalanx of index finger",
+    "middle phalanx of middle finger",
+    "middle phalanx of ring finger",
+    "middle phalanx of little finger",
+    "distal phalanx of thumb",
+    "distal phalanx of index finger",
+    "distal phalanx of middle finger",
+    "distal phalanx of ring finger",
+    "distal phalanx of little finger"
+   ],
+   "bone": {
+    "nameLatin": "Phalanges manus",
+    "nameEn": "Phalanges of the hand",
+    "synonyms": [],
+    "classification": "Ossos longos (em miniatura), catorze em cada mão",
+    "location": "Dedos: três em cada dedo (proximal, média e distal), duas no polegar.",
+    "articulations": "Metacarpais (metacarpofalângicas) e entre si (interfalângicas proximais e distais).",
+    "landmarks": [
+     "Base",
+     "Corpo",
+     "Cabeça (tróclea)",
+     "Tuberosidade da falange distal"
+    ],
+    "muscles": "Flexor superficial dos dedos (falange média), flexor profundo dos dedos (distal), flexor longo do polegar (distal do polegar); extensores pela expansão dorsal.",
+    "explanation": "Três em cada dedo e duas no polegar. O superficial dobra a interfalângica proximal; só o profundo dobra a distal.",
+    "clue": "Os catorze ossos dos dedos da mão: três em cada dedo, dois no polegar.",
+    "examTip": "Dedo em martelo: o tendão extensor arranca da base da falange distal e a ponta do dedo cai.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "osso-do-quadril",
+   "namePt": "Osso do quadril",
+   "region": "quadril-pelve",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "hip bone"
+   ],
+   "bone": {
+    "nameLatin": "Os coxae",
+    "nameEn": "Hip bone",
+    "synonyms": [
+     "osso ilíaco",
+     "coxal"
+    ],
+    "classification": "Osso plano/irregular, par — ílio, ísquio e púbis fundidos",
+    "location": "Pelve, dos lados e na frente.",
+    "articulations": "Sacro (sacroilíaca), o outro osso do quadril (sínfise púbica) e fêmur (articulação do quadril, no acetábulo).",
+    "landmarks": [
+     "Crista ilíaca",
+     "Espinhas ilíacas anterossuperior (EIAS), anteroinferior e posterossuperior",
+     "Fossa ilíaca",
+     "Incisuras isquiáticas maior e menor",
+     "Espinha isquiática",
+     "Túber isquiático",
+     "Ramos do púbis",
+     "Forame obturado",
+     "Acetábulo",
+     "Face sinfisial"
+    ],
+    "muscles": "Glúteos (face glútea), ilíaco (fossa ilíaca), sartório (EIAS), reto femoral (EIAI), isquiotibiais (túber isquiático), adutores (púbis e ramo isquiopúbico), músculos da parede do abdome (crista ilíaca e púbis), tensor da fáscia lata.",
+    "passages": "Forame isquiático maior: piriforme, nervo isquiático e vasos glúteos. Forame isquiático menor: nervo pudendo e tendão do obturador interno. Canal obturatório: nervo e vasos obturatórios.",
+    "explanation": "Três ossos — ílio, ísquio e púbis — que se fundem no acetábulo na adolescência. Os dois, com o sacro, formam o anel pélvico.",
+    "clue": "Osso grande e irregular da pelve, formado por três ossos fundidos numa cavidade onde se encaixa a cabeça do fêmur.",
+    "examTip": "A EIAS ancora o ligamento inguinal; a espinha isquiática guia o bloqueio do nervo pudendo; sentamos sobre os túberes isquiáticos.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "femur",
+   "namePt": "Fêmur",
+   "region": "coxa",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "femur"
+   ],
+   "bone": {
+    "nameLatin": "Femur",
+    "nameEn": "Femur",
+    "synonyms": [],
+    "classification": "Osso longo, par — o maior e mais forte do corpo",
+    "location": "Coxa.",
+    "articulations": "Osso do quadril (acetábulo), tíbia (joelho) e patela.",
+    "landmarks": [
+     "Cabeça com fóvea",
+     "Colo",
+     "Trocânteres maior e menor",
+     "Linha e crista intertrocantéricas",
+     "Linha áspera",
+     "Côndilos medial e lateral",
+     "Epicôndilos",
+     "Tubérculo do adutor",
+     "Fossa intercondilar",
+     "Face patelar"
+    ],
+    "muscles": "Glúteos médio e mínimo e rotadores laterais (trocânter maior), iliopsoas (trocânter menor), glúteo máximo (tuberosidade glútea), adutores e vastos (linha áspera), gastrocnêmio (acima dos côndilos).",
+    "passages": "A cabeça é irrigada sobretudo pela artéria circunflexa femoral medial, que sobe pelo colo.",
+    "explanation": "O colo forma com a diáfise um ângulo de cerca de 125°, que leva o peso do tronco do acetábulo ao joelho.",
+    "clue": "O osso mais longo e forte do corpo, o da coxa, com a cabeça no quadril e dois côndilos no joelho.",
+    "examTip": "Fratura do colo no idoso: membro encurtado e em rotação lateral, com risco de necrose da cabeça (lesão das circunflexas).",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "patela",
+   "namePt": "Patela",
+   "region": "coxa",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "patella"
+   ],
+   "bone": {
+    "nameLatin": "Patella",
+    "nameEn": "Patella",
+    "synonyms": [
+     "rótula"
+    ],
+    "classification": "Osso sesamoide, par — o maior do corpo",
+    "location": "Frente do joelho.",
+    "articulations": "Face patelar do fêmur.",
+    "landmarks": [
+     "Base (superior)",
+     "Ápice (inferior)",
+     "Face articular, com faceta lateral maior"
+    ],
+    "muscles": "Quadríceps femoral: o tendão chega à base e continua como ligamento da patela até a tuberosidade da tíbia.",
+    "explanation": "Dentro do tendão do quadríceps, afasta o tendão do eixo do joelho e aumenta a força da extensão.",
+    "clue": "O maior osso sesamoide do corpo, na frente do joelho, dentro do tendão do quadríceps.",
+    "examTip": "Tende a luxar para o lado lateral; o vasto medial a segura. O reflexo patelar testa L3–L4.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "tibia",
+   "namePt": "Tíbia",
+   "region": "perna-pe",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "tibia"
+   ],
+   "bone": {
+    "nameLatin": "Tibia",
+    "nameEn": "Tibia",
+    "synonyms": [],
+    "classification": "Osso longo, par",
+    "location": "Lado medial da perna; sustenta o peso.",
+    "articulations": "Fêmur (joelho), fíbula (tibiofibulares proximal e distal) e tálus (tornozelo).",
+    "landmarks": [
+     "Côndilos medial e lateral",
+     "Eminência intercondilar",
+     "Tuberosidade da tíbia",
+     "Margem anterior (canela)",
+     "Face medial subcutânea",
+     "Linha do sóleo",
+     "Maléolo medial"
+    ],
+    "muscles": "Quadríceps (pelo ligamento da patela, na tuberosidade), sartório, grácil e semitendíneo (pata de ganso), semimembranáceo, poplíteo, sóleo (linha do sóleo), tibial anterior e tibial posterior.",
+    "explanation": "Leva quase todo o peso do fêmur ao tálus. A face medial e a margem anterior ficam logo sob a pele — a canela.",
+    "clue": "O osso medial e mais forte da perna, que sustenta o peso e se sente sob a pele da canela.",
+    "examTip": "Por ser subcutânea, a tíbia tem muitas fraturas expostas. A face medial proximal é local de acesso intraósseo na emergência.",
+    "mnemonic": "Pata de ganso: SarGenTo — Sartório, Grácil, semiTendíneo.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "fibula",
+   "namePt": "Fíbula",
+   "region": "perna-pe",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "fibula"
+   ],
+   "bone": {
+    "nameLatin": "Fibula",
+    "nameEn": "Fibula",
+    "synonyms": [
+     "perônio"
+    ],
+    "classification": "Osso longo, par",
+    "location": "Lado lateral da perna.",
+    "articulations": "Tíbia (tibiofibulares) e tálus (tornozelo).",
+    "landmarks": [
+     "Cabeça",
+     "Colo",
+     "Maléolo lateral (mais baixo e mais posterior que o medial)"
+    ],
+    "muscles": "Bíceps femoral (cabeça), fibulares longo e curto, extensor longo dos dedos, extensor longo do hálux, sóleo, tibial posterior e flexor longo do hálux.",
+    "passages": "O nervo fibular comum contorna o colo da fíbula, logo abaixo da pele.",
+    "explanation": "Fina e quase sem carga, serve de inserção para músculos e fecha o tornozelo do lado de fora com o maléolo lateral.",
+    "clue": "Osso lateral e fino da perna, quase sem carga, cuja ponta inferior forma o tornozelo do lado de fora.",
+    "examTip": "Fratura do colo ou gesso apertado ali lesa o nervo fibular comum: pé caído. A fíbula é doadora de enxerto ósseo.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "talus",
+   "namePt": "Tálus",
+   "region": "perna-pe",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "talus"
+   ],
+   "bone": {
+    "nameLatin": "Talus",
+    "nameEn": "Talus",
+    "synonyms": [
+     "astrágalo"
+    ],
+    "classification": "Osso curto, par",
+    "location": "Tornozelo, entre a perna e o calcâneo.",
+    "articulations": "Tíbia e fíbula (talocrural), calcâneo (subtalar) e navicular.",
+    "landmarks": [
+     "Tróclea",
+     "Colo",
+     "Cabeça"
+    ],
+    "explanation": "Recebe o peso da perna na tróclea, encaixada entre os maléolos, e o distribui para o calcâneo e o antepé.",
+    "clue": "Osso do tornozelo sem nenhum músculo inserido, encaixado entre os maléolos, que passa o peso ao pé.",
+    "examTip": "É o único osso do tarso sem inserção muscular. Fratura do colo pode levar à necrose do corpo.",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "calcaneo",
+   "namePt": "Calcâneo",
+   "region": "perna-pe",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "calcaneus"
+   ],
+   "bone": {
+    "nameLatin": "Calcaneus",
+    "nameEn": "Calcaneus",
+    "synonyms": [],
+    "classification": "Osso curto, par — o maior do pé",
+    "location": "Calcanhar.",
+    "articulations": "Tálus (subtalar) e cuboide.",
+    "landmarks": [
+     "Túber do calcâneo",
+     "Sustentáculo do tálus",
+     "Tróclea fibular"
+    ],
+    "muscles": "Tendão do calcâneo (gastrocnêmio, sóleo e plantar) no túber; flexor curto dos dedos, abdutores do hálux e do dedo mínimo, quadrado plantar e extensor curto dos dedos.",
+    "passages": "Sob o sustentáculo do tálus corre o tendão do flexor longo do hálux.",
+    "explanation": "Forma o calcanhar, primeira parte do pé a tocar o chão, e é a alavanca onde o tríceps sural levanta o corpo na ponta dos pés.",
+    "clue": "O maior osso do pé, que forma o calcanhar e recebe o tendão mais forte do corpo.",
+    "examTip": "Fratura do calcâneo por queda de altura: procure também fratura da coluna lombar, pelo mesmo mecanismo.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "navicular",
+   "namePt": "Navicular",
+   "region": "perna-pe",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "navicular bone of foot"
+   ],
+   "bone": {
+    "nameLatin": "Os naviculare",
+    "nameEn": "Navicular bone",
+    "synonyms": [],
+    "classification": "Osso curto, par",
+    "location": "Lado medial do pé, entre o tálus e os cuneiformes.",
+    "articulations": "Tálus, três cuneiformes e, às vezes, cuboide.",
+    "landmarks": [
+     "Tuberosidade do navicular"
+    ],
+    "muscles": "Tibial posterior (tuberosidade).",
+    "explanation": "Em forma de barco, é a pedra-chave do arco longitudinal medial.",
+    "clue": "Osso em forma de barco no lado medial do pé, cuja tuberosidade recebe o tibial posterior.",
+    "examTip": "A tuberosidade é palpável à frente e abaixo do maléolo medial. Navicular acessório pode doer no calçado.",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "cuboide",
+   "namePt": "Cuboide",
+   "region": "perna-pe",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "cuboid bone"
+   ],
+   "bone": {
+    "nameLatin": "Os cuboideum",
+    "nameEn": "Cuboid bone",
+    "synonyms": [],
+    "classification": "Osso curto, par",
+    "location": "Lado lateral do pé, à frente do calcâneo.",
+    "articulations": "Calcâneo, cuneiforme lateral, navicular e 4º e 5º metatarsais.",
+    "landmarks": [
+     "Sulco do tendão do fibular longo",
+     "Tuberosidade do cuboide"
+    ],
+    "explanation": "O osso lateral do tarso; o tendão do fibular longo passa num sulco embaixo dele para cruzar a planta do pé.",
+    "clue": "Osso em forma de cubo no lado de fora do pé, com um sulco por onde passa o tendão do fibular longo.",
+    "examTip": "Pelo sulco do cuboide, o fibular longo cruza a planta até o 1º metatarsal e sustenta os arcos.",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "cuneiformes",
+   "namePt": "Cuneiformes",
+   "region": "perna-pe",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "medial cuneiform bone",
+    "intermediate cuneiform bone",
+    "lateral cuneiform bone"
+   ],
+   "bone": {
+    "nameLatin": "Ossa cuneiformia",
+    "nameEn": "Cuneiform bones",
+    "synonyms": [],
+    "classification": "Ossos curtos, três em cada pé",
+    "location": "Entre o navicular e os três primeiros metatarsais.",
+    "articulations": "Navicular, entre si, cuboide (o lateral) e 1º a 3º metatarsais.",
+    "landmarks": [
+     "Cuneiforme medial (o maior)",
+     "Cuneiforme intermédio (o menor)",
+     "Cuneiforme lateral"
+    ],
+    "muscles": "Tibial anterior e fibular longo no cuneiforme medial e na base do 1º metatarsal; tibial posterior.",
+    "explanation": "Três cunhas que, vistas de frente, montam o arco transverso do pé.",
+    "clue": "Três ossos em cunha entre o navicular e os primeiros metatarsais, que formam o arco transverso do pé.",
+    "examTip": "Tibial anterior e fibular longo chegam ao mesmo ponto (cuneiforme medial e 1º metatarsal) por lados opostos — o 'estribo' que sustenta o arco.",
+    "difficulty": 2,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "metatarsais",
+   "namePt": "Metatarsais",
+   "region": "perna-pe",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "first metatarsal bone",
+    "second metatarsal bone",
+    "third metatarsal bone",
+    "fourth metatarsal bone",
+    "fifth metatarsal bone"
+   ],
+   "bone": {
+    "nameLatin": "Ossa metatarsi",
+    "nameEn": "Metatarsal bones",
+    "synonyms": [],
+    "classification": "Ossos longos (em miniatura), cinco em cada pé",
+    "location": "Antepé, numerados do hálux (I) ao dedo mínimo (V).",
+    "articulations": "Tarso (tarsometatarsais), entre si e falanges proximais (metatarsofalângicas).",
+    "landmarks": [
+     "Base",
+     "Corpo",
+     "Cabeça",
+     "Tuberosidade do 5º metatarsal",
+     "Sesamoides sob a cabeça do 1º"
+    ],
+    "muscles": "Fibular curto e fibular terceiro (5º), tibial anterior e fibular longo (base do 1º), interósseos.",
+    "explanation": "As cabeças, com o calcanhar, são os pontos de apoio do pé no chão.",
+    "clue": "Os cinco ossos longos do meio do pé, entre o tarso e os dedos.",
+    "examTip": "Fratura de estresse ('de marcha') no 2º metatarsal; avulsão da base do 5º pelo fibular curto na entorse em inversão.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "falanges-do-pe",
+   "namePt": "Falanges do pé",
+   "region": "perna-pe",
+   "kind": "bone",
+   "layer": "skeleton",
+   "parts": [
+    "proximal phalanx of big toe",
+    "proximal phalanx of second toe",
+    "proximal phalanx of third toe",
+    "proximal phalanx of fourth toe",
+    "proximal phalanx of little toe",
+    "middle phalanx of second toe",
+    "middle phalanx of third toe",
+    "middle phalanx of fourth toe",
+    "middle phalanx of little toe",
+    "distal phalanx of big toe",
+    "distal phalanx of second toe",
+    "distal phalanx of third toe",
+    "distal phalanx of fourth toe",
+    "distal phalanx of little toe"
+   ],
+   "bone": {
+    "nameLatin": "Phalanges pedis",
+    "nameEn": "Phalanges of the foot",
+    "synonyms": [],
+    "classification": "Ossos longos (em miniatura), catorze em cada pé",
+    "location": "Dedos do pé: três em cada dedo, duas no hálux.",
+    "articulations": "Metatarsais (metatarsofalângicas) e entre si (interfalângicas).",
+    "landmarks": [
+     "Base",
+     "Corpo",
+     "Cabeça"
+    ],
+    "muscles": "Flexor longo do hálux (distal do hálux), flexor longo dos dedos (distais), flexor curto dos dedos (médias), extensores longo e curto.",
+    "explanation": "Mais curtas que as da mão. O hálux tem duas, como o polegar.",
+    "clue": "Os catorze ossos dos dedos do pé: três em cada dedo, dois no hálux.",
+    "examTip": "Hálux valgo (joanete): a falange proximal desvia para fora e a cabeça do 1º metatarsal salta para dentro.",
+    "difficulty": 1,
+    "refs": [
+     "moore",
+     "netter",
+     "ta2"
+    ]
+   }
+  },
+  {
+   "id": "dentes",
+   "namePt": "Dentes permanentes",
+   "region": "cabeca-pescoco",
+   "kind": "connective",
+   "layer": "skeleton",
+   "parts": [
+    "upper central secondary incisor tooth",
+    "upper lateral secondary incisor tooth",
+    "upper secondary canine tooth",
+    "upper first secondary premolar tooth",
+    "upper second secondary premolar tooth",
+    "upper first secondary molar tooth",
+    "upper second secondary molar tooth",
+    "lower central secondary incisor tooth",
+    "lower lateral secondary incisor tooth",
+    "lower secondary canine tooth",
+    "lower first secondary premolar tooth",
+    "lower second secondary premolar tooth",
+    "lower first secondary molar tooth",
+    "lower second secondary molar tooth"
+   ],
+   "summary": "O adulto tem 32 dentes: em cada hemiarcada, 2 incisivos, 1 canino, 2 pré-molares e 3 molares (o terceiro molar, o siso, não está no modelo). Os de cima são inervados pelos nervos alveolares superiores (V2); os de baixo, pelo alveolar inferior (V3)."
+  },
+  {
+   "id": "cartilagens-do-nariz",
+   "namePt": "Cartilagens do nariz",
+   "region": "cabeca-pescoco",
+   "kind": "connective",
+   "layer": "skeleton",
+   "parts": [
+    "lateral nasal cartilage",
+    "major alar cartilage",
+    "septal nasal cartilage"
+   ],
+   "summary": "Cartilagem hialina dá forma à parte móvel do nariz: a do septo divide as cavidades, as laterais continuam os ossos nasais e as alares maiores contornam as narinas."
+  },
+  {
+   "id": "orelha-externa",
+   "namePt": "Orelha externa (pavilhão)",
+   "region": "cabeca-pescoco",
+   "kind": "connective",
+   "layer": "skeleton",
+   "parts": [
+    "external ear"
+   ],
+   "summary": "Cartilagem elástica coberta de pele, exceto o lóbulo, que é só gordura. Um hematoma não drenado deforma a cartilagem — a 'orelha em couve-flor' dos lutadores."
+  },
+  {
+   "id": "bulbo-do-olho",
+   "namePt": "Bulbo do olho (esclera e córnea)",
+   "region": "cabeca-pescoco",
+   "kind": "connective",
+   "layer": "skeleton",
+   "parts": [
+    "sclera",
+    "cornea"
+   ],
+   "summary": "A túnica externa do olho: a esclera, branca e opaca, continua na frente com a córnea, transparente e sem vasos. A córnea é inervada pelo V1: no reflexo corneano, o aferente é o trigêmeo e o eferente, o facial."
+  }
+ ]
+}

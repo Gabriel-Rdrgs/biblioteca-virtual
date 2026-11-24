@@ -67,6 +67,40 @@ describe("os dados da anatomia 3D", () => {
   });
 });
 
+describe("os ossos", () => {
+  const bones = anatomyData.structures.filter((s) => s.kind === "bone");
+
+  it("são 52, cada um com a ficha completa", () => {
+    expect(bones).toHaveLength(52);
+    for (const s of bones) {
+      const b = s.bone;
+      expect(b, s.id).toBeDefined();
+      expect(s.layer).toBe("skeleton");
+      for (const field of ["classification", "location", "articulations", "explanation", "clue", "examTip"] as const) {
+        expect(b?.[field].trim(), `${s.id}.${field}`).not.toBe("");
+      }
+      expect(b?.landmarks.length, s.id).toBeGreaterThan(0);
+      // A dica do treino não pode entregar o nome (o qualificador entre parênteses não conta).
+      const name = fold(s.namePt.replace(/\s*\(.*\)\s*$/, ""));
+      expect(fold(b?.clue ?? "").includes(name), `${s.id}: dica com o nome`).toBe(false);
+    }
+  });
+
+  it("acham-se pelo nome em latim e pelo sinônimo", () => {
+    const ulna = anatomyData.structures.find((s) => s.id === "ulna");
+    expect(structureNames(ulna!)).toContain("cúbito");
+    const patela = anatomyData.structures.find((s) => s.id === "patela");
+    expect(structureNames(patela!).map(fold)).toContain("rotula");
+  });
+
+  it("cobrem as 165 peças do esqueleto do modelo, sem repetir nenhuma", () => {
+    const skeleton = anatomyData.structures.filter((s) => s.layer === "skeleton");
+    const parts = skeleton.flatMap((s) => s.parts);
+    expect(new Set(parts).size).toBe(parts.length);
+    expect(parts).toHaveLength(165);
+  });
+});
+
 describe("a chave que liga malha e estrutura", () => {
   it("tira o lado e normaliza", () => {
     expect(meshKey("Left Pronator teres")).toBe("pronator teres");
@@ -162,17 +196,24 @@ describe("digitar o nome", () => {
 describe("lições e revisão espaçada", () => {
   const lessons = buildLessons(anatomyData);
 
-  it("cobrem cada músculo treinável uma vez, com no máximo sete por lição", () => {
+  it("cobrem cada músculo e cada osso uma vez, com no máximo sete por lição", () => {
     const ids = lessons.flatMap((l) => l.muscleIds);
     expect(new Set(ids).size).toBe(ids.length);
-    expect(ids.length).toBe(141);
+    expect(lessons.filter((l) => l.kind === "muscle").flatMap((l) => l.muscleIds)).toHaveLength(141);
+    expect(lessons.filter((l) => l.kind === "bone").flatMap((l) => l.muscleIds)).toHaveLength(52);
+    expect(lessons).toHaveLength(37);
     for (const l of lessons) {
       expect(l.muscleIds.length).toBeGreaterThan(0);
       expect(l.muscleIds.length).toBeLessThanOrEqual(7);
+      for (const id of l.muscleIds) {
+        expect(anatomyData.structures.find((s) => s.id === id)?.kind, id).toBe(l.kind);
+      }
     }
-    expect(lessons.filter((l) => l.region === "cabeca-pescoco").map((l) => l.muscleIds.length)).toEqual([
-      6, 6, 6, 6, 5,
-    ]);
+    const head = lessons.filter((l) => l.region === "cabeca-pescoco" && l.kind === "muscle");
+    expect(head.map((l) => l.muscleIds.length)).toEqual([6, 6, 6, 6, 5]);
+    expect(lessons.find((l) => l.id === "cabeca-pescoco-ossos-L1")?.title).toBe(
+      "Cabeça e pescoço · Ossos L1",
+    );
   });
 
   it("começam pelos fáceis e superficiais", () => {

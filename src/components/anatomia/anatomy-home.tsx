@@ -71,10 +71,10 @@ export function AnatomyHome({
           <p className="text-ink-faint text-micro font-semibold tracking-[0.14em] uppercase">Hoje</p>
           <h2 id="hoje" className="mt-1 text-2xl font-semibold">
             {due.length
-              ? `${due.length} ${due.length === 1 ? "músculo" : "músculos"} para revisar`
+              ? `${due.length} ${due.length === 1 ? "nome" : "nomes"} para revisar`
               : started
                 ? "Revisões em dia"
-                : "Memorize os músculos vendo, digitando e revisando"}
+                : "Memorize músculos e ossos vendo, digitando e revisando"}
           </h2>
           <p className="text-ink-muted mt-1 text-sm leading-relaxed">
             {due.length
@@ -225,9 +225,9 @@ export function AnatomyHome({
                         </span>
                         <span className="min-w-0 flex-1">
                           <span className="block text-sm font-semibold">
-                            Lição {lesson.number}
+                            {lesson.kind === "bone" ? "Ossos" : "Músculos"} · L{lesson.number}
                             <span className="text-ink-faint ml-2 font-mono text-xs font-normal">
-                              {lesson.muscleIds.length} músculos
+                              {lesson.muscleIds.length} {lesson.kind === "bone" ? "ossos" : "músculos"}
                               {record ? ` · melhor ${Math.round(record.best * 100)}%` : ""}
                             </span>
                           </span>
@@ -245,7 +245,7 @@ export function AnatomyHome({
                         </span>
                         <Link
                           href={`/anatomia/licao/${lesson.id}`}
-                          aria-label={`${record ? "Repetir" : "Começar"} lição ${lesson.number} de ${region.name}`}
+                          aria-label={`${record ? "Repetir" : "Começar"} lição ${lesson.number} de ${lesson.kind === "bone" ? "ossos" : "músculos"} de ${region.name}`}
                           className={cn(
                             "inline-flex min-h-9 shrink-0 items-center rounded-full px-3.5 text-sm font-semibold",
                             mastered ? "glass-strong" : "bg-primary text-on-primary",

@@ -2,9 +2,10 @@ import type { ReactNode } from "react";
 import type { AnatomyRegion, AnatomyStructure } from "@/lib/domain/anatomy-types";
 
 /**
- * A ficha de uma estrutura: o que se pergunta em prova primeiro (origem,
- * inserção, ação, inervação), depois o que ajuda a lembrar (explicação,
- * mnemônico, associação) e o ponto de prova em destaque.
+ * A ficha de uma estrutura: o que se pergunta em prova primeiro, depois o
+ * que ajuda a lembrar, com o ponto de prova em destaque. Músculo: origem,
+ * inserção, ação, inervação. Osso: localização, articulações, acidentes,
+ * músculos que se prendem e o que passa pelos forames.
  */
 
 const REF_SHORT: Record<string, string> = {
@@ -25,6 +26,21 @@ function Row({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
+function Sources({ ids, refs }: { ids: readonly string[]; refs: Readonly<Record<string, string>> }) {
+  if (ids.length === 0) return null;
+  return (
+    <p className="text-ink-faint text-xs">
+      Fontes:{" "}
+      {ids.map((r, i) => (
+        <span key={r} title={refs[r] ?? r}>
+          {i > 0 ? " · " : ""}
+          {REF_SHORT[r] ?? r}
+        </span>
+      ))}
+    </p>
+  );
+}
+
 export function StructureCardView({
   structure,
   region,
@@ -35,21 +51,24 @@ export function StructureCardView({
   refs: Readonly<Record<string, string>>;
 }) {
   const f = structure.ficha;
+  const b = structure.bone;
+  const names = f ?? b;
   return (
     <article className="space-y-5">
       <header>
         <p className="text-ink-faint text-micro font-semibold tracking-[0.14em] uppercase">
           {region?.name ?? structure.region}
           {structure.kind === "connective" ? " · tecido conjuntivo" : ""}
+          {b ? ` · ${b.classification}` : ""}
         </p>
         <h2 className="mt-1 text-2xl font-semibold">{structure.namePt}</h2>
-        {f ? (
+        {names ? (
           <p className="text-ink-muted mt-1 text-sm italic">
-            {f.nameLatin} · {f.nameEn}
+            {names.nameLatin} · {names.nameEn}
           </p>
         ) : null}
-        {f && f.synonyms.length > 0 ? (
-          <p className="text-ink-faint mt-1 text-xs">Também: {f.synonyms.join(", ")}</p>
+        {names && names.synonyms.length > 0 ? (
+          <p className="text-ink-faint mt-1 text-xs">Também: {names.synonyms.join(", ")}</p>
         ) : null}
       </header>
 
@@ -104,17 +123,55 @@ export function StructureCardView({
 
           {f.note ? <p className="text-ink-muted text-xs leading-relaxed">{f.note}</p> : null}
 
-          {f.refs.length > 0 ? (
-            <p className="text-ink-faint text-xs">
-              Fontes:{" "}
-              {f.refs.map((r, i) => (
-                <span key={r} title={refs[r] ?? r}>
-                  {i > 0 ? " · " : ""}
-                  {REF_SHORT[r] ?? r}
-                </span>
-              ))}
+          <Sources ids={f.refs} refs={refs} />
+        </>
+      ) : null}
+
+      {b ? (
+        <>
+          <dl className="space-y-4">
+            <Row label="Localização">{b.location}</Row>
+            <Row label="Articula-se com">{b.articulations}</Row>
+          </dl>
+
+          <div>
+            <p className="text-ink-faint text-micro font-semibold tracking-[0.12em] uppercase">
+              Acidentes
             </p>
+            <ul className="mt-1.5 flex flex-wrap gap-1.5">
+              {b.landmarks.map((l) => (
+                <li key={l} className="bg-surface-sunken rounded-full px-2.5 py-1 text-xs">
+                  {l}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="bg-danger-soft rounded-panel px-4 py-3">
+            <p className="text-danger text-micro font-semibold tracking-[0.14em] uppercase">
+              Ponto de prova
+            </p>
+            <p className="mt-1 text-sm leading-relaxed text-pretty">{b.examTip}</p>
+          </div>
+
+          <dl className="space-y-4">
+            {b.muscles ? <Row label="Músculos que se prendem">{b.muscles}</Row> : null}
+            {b.passages ? <Row label="O que passa por ele">{b.passages}</Row> : null}
+            <Row label="Como funciona">{b.explanation}</Row>
+          </dl>
+
+          {b.mnemonic ? (
+            <div className="bg-primary-soft rounded-panel px-4 py-3">
+              <p className="text-sm leading-relaxed">
+                <span className="text-primary text-micro block font-semibold tracking-[0.14em] uppercase">
+                  Para memorizar
+                </span>
+                {b.mnemonic}
+              </p>
+            </div>
           ) : null}
+
+          <Sources ids={b.refs} refs={refs} />
         </>
       ) : null}
     </article>

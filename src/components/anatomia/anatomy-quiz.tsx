@@ -241,17 +241,29 @@ export function AnatomyQuiz({ data }: { data: AnatomyData }) {
         ? `Toque no ${q.target.namePt.toLowerCase()}`
         : `${FIELD_LABEL[q.field ?? "action"]}: de que músculo?`;
 
+  // A câmera vai até o músculo sempre que ele é mostrado: no celular, o corpo
+  // inteiro deixaria o alvo do tamanho de um grão. No "localizar", só depois
+  // da resposta — antes, achar é a pergunta.
+  const showTarget = q.kind !== "locate" || answer !== null;
+  const focus = showTarget
+    ? { keys: targetKeys, padding: 2.8, nonce: `${index}-${answer ? 1 : 0}` }
+    : { keys: [] as string[], nonce: `${index}-home` };
+
   return (
-    <div className="grid gap-4 lg:h-[calc(100dvh-9rem)] lg:grid-cols-[minmax(0,1fr)_24rem]">
+    <div className="flex flex-col gap-3 lg:grid lg:h-[calc(100dvh-9rem)] lg:grid-cols-[minmax(0,1fr)_24rem] lg:gap-4">
+      {/* No celular o corpo fica preso no topo e as alternativas rolam embaixo dele. */}
       <section
         aria-label="Corpo em 3D"
-        className="rounded-panel relative h-[58vh] min-h-[22rem] overflow-hidden bg-[radial-gradient(ellipse_at_center,#1b2333,#0a0d14_70%)] lg:h-auto"
+        className="rounded-panel sticky top-[4.75rem] z-10 h-[42dvh] min-h-[16rem] overflow-hidden bg-[radial-gradient(ellipse_at_center,#1b2333,#0a0d14_70%)] shadow-lg lg:static lg:h-auto lg:shadow-none"
       >
         <AnatomyViewer
           focusKeys={focusKeys}
           result={result}
           layers={ALL_LAYERS}
           superficialOpacity={opacity}
+          emphasis={q.kind === "locate" && !answer ? "none" : "xray"}
+          focus={focus.keys.length ? focus : null}
+          view={q.kind === "locate" && !answer ? { name: "front", nonce: index } : undefined}
           onPick={onPick}
         />
         <label className="glass-strong absolute top-2 left-2 flex items-center gap-2 rounded-full px-3 py-1.5 text-xs">
@@ -268,7 +280,7 @@ export function AnatomyQuiz({ data }: { data: AnatomyData }) {
         </label>
       </section>
 
-      <aside className="glass rounded-panel flex flex-col gap-4 overflow-y-auto p-5">
+      <aside className="glass rounded-panel flex flex-col gap-4 p-4 sm:p-5 lg:overflow-y-auto">
         <div className="flex items-center gap-3">
           <div className="bg-line h-1.5 flex-1 overflow-hidden rounded-full">
             <div

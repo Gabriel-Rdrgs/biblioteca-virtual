@@ -344,7 +344,9 @@ export function FlashcardSession({
         )}
 
         {!finished && current ? (
-          <div className="grid grid-cols-3 gap-2 sm:grid-cols-[3rem_1fr_1fr_1.3fr_3rem]">
+          // No celular, as notas ficam presas logo acima da barra de baixo: o polegar
+          // não precisa rolar até elas a cada cartão.
+          <div className="glass-strong sticky bottom-[calc(env(safe-area-inset-bottom)+5.25rem)] z-20 -mx-1 grid grid-cols-3 gap-2 rounded-full p-1 sm:static sm:mx-0 sm:grid-cols-[3rem_1fr_1fr_1.3fr_3rem] sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none md:bottom-auto">
             <button
               type="button"
               onClick={() => go(-1)}
@@ -582,7 +584,7 @@ function CardView({
 
   if (card.kind === "oclusao" && image) {
     front = (
-      <div className="bg-surface border-line flex min-h-[28rem] flex-col gap-3 rounded-hero border p-5 sm:p-6">
+      <div className="bg-surface border-line flex min-h-[21rem] sm:min-h-[28rem] flex-col gap-3 rounded-hero border p-5 sm:p-6">
         {meta("Image occlusion", image.caption ?? "")}
         <p className="text-ink-muted text-sm">Qual estrutura está marcada com “?”</p>
         <div className="flex flex-1 items-center justify-center">
@@ -591,7 +593,7 @@ function CardView({
       </div>
     );
     back = (
-      <div className="bg-surface border-line flex min-h-[28rem] flex-col gap-3 rounded-hero border p-5 sm:p-6">
+      <div className="bg-surface border-line flex min-h-[21rem] sm:min-h-[28rem] flex-col gap-3 rounded-hero border p-5 sm:p-6">
         {meta(`→ ${String(position).padStart(2, "0")}`, image.caption ?? "")}
         <div className="flex flex-1 flex-col items-center gap-5 md:flex-row">
           <div className="flex flex-1 justify-center">
@@ -608,7 +610,7 @@ function CardView({
     );
   } else if (card.kind === "foto" && image) {
     front = (
-      <div className="bg-surface border-line flex min-h-[28rem] flex-col gap-3 rounded-hero border p-5 sm:p-6">
+      <div className="bg-surface border-line flex min-h-[21rem] sm:min-h-[28rem] flex-col gap-3 rounded-hero border p-5 sm:p-6">
         {meta(deck.title, "Foto")}
         <p className="text-ink-muted text-sm">Qual é esta alteração? Diga o nome antes de virar.</p>
         <div className="flex flex-1 items-center justify-center">
@@ -617,7 +619,7 @@ function CardView({
       </div>
     );
     back = (
-      <div className="bg-surface border-line flex min-h-[28rem] flex-col gap-3 rounded-hero border p-5 sm:p-6">
+      <div className="bg-surface border-line flex min-h-[21rem] sm:min-h-[28rem] flex-col gap-3 rounded-hero border p-5 sm:p-6">
         {meta(`→ ${String(position).padStart(2, "0")}`, "Resposta")}
         <PhotoAnswer card={card} />
       </div>
@@ -636,7 +638,7 @@ function CardView({
         : [];
     front = (
       <div
-        className="relative flex min-h-[28rem] flex-col gap-4 overflow-hidden rounded-hero p-6 text-white sm:p-8"
+        className="relative flex min-h-[21rem] sm:min-h-[28rem] flex-col gap-4 overflow-hidden rounded-hero p-6 text-white sm:p-8"
         style={{
           background: `linear-gradient(135deg, ${color}, color-mix(in oklab, ${color} 70%, #1e1b4b))`,
         }}
@@ -660,7 +662,7 @@ function CardView({
       </div>
     );
     back = (
-      <div className="bg-surface border-line flex min-h-[28rem] flex-col gap-4 rounded-hero border p-6 shadow-[var(--shadow-lift)] sm:p-8">
+      <div className="bg-surface border-line flex min-h-[21rem] sm:min-h-[28rem] flex-col gap-4 rounded-hero border p-6 shadow-[var(--shadow-lift)] sm:p-8">
         {meta(`→ ${String(position).padStart(2, "0")}`, "Resposta")}
         <RichText
           text={backText}

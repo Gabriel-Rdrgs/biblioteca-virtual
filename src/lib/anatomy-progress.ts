@@ -82,10 +82,17 @@ export function getAnatomyProgress(): AnatomyProgress {
 }
 
 export function recordMuscleAnswer(
-  muscle: { readonly id: string; readonly namePt: string; readonly region: string; readonly regionName: string },
+  muscle: {
+    readonly id: string;
+    readonly namePt: string;
+    readonly region: string;
+    readonly regionName: string;
+    readonly kind?: "muscle" | "bone";
+  },
   ok: boolean,
   now = Date.now(),
 ): void {
+  const bone = muscle.kind === "bone";
   const state = read();
   write({ ...state, cards: { ...state.cards, [muscle.id]: scheduleAnswer(state.cards[muscle.id], ok, now) } });
   recordAnswer({
@@ -95,8 +102,8 @@ export function recordMuscleAnswer(
     t: now,
     group: muscle.region,
     groupLabel: `Anatomia · ${muscle.regionName}`,
-    axis: `anatomia:${muscle.region}`,
-    axisLabel: `Músculos · ${muscle.regionName}`,
+    axis: `anatomia${bone ? "-ossos" : ""}:${muscle.region}`,
+    axisLabel: `${bone ? "Ossos" : "Músculos"} · ${muscle.regionName}`,
   });
 }
 
