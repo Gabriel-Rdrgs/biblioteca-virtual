@@ -1,4 +1,5 @@
 import type { FlashDeck } from "@/lib/domain/flashcard-types";
+import curados from "./curados.json";
 import membrosSuperiores from "./membros-superiores.json";
 import pele from "./pele.json";
 import pressaoArterial from "./pressao-arterial.json";
@@ -15,6 +16,11 @@ import virus from "./virus.json";
  * repositório, como as dos simulados. O de aferição da PA foi escrito a
  * partir das Diretrizes Brasileiras de Hipertensão (2020).
  *
+ * Os de `curados.json` substituem os cartões gerados do banco de questões:
+ * um conceito por cartão, por eixo, escritos a partir do gabarito e dos
+ * comentários, com figuras do Gray's Anatomy (domínio público) e do
+ * Wikimedia Commons, cada uma com autor e licença na legenda.
+ *
  * A ordem em que aparecem para a turma não é esta: é a de `units.ts`.
  *
  * O JSON não carrega tipos; `tests/flashcards.test.ts` confere a forma de
@@ -26,4 +32,5 @@ export const seedDecks: readonly FlashDeck[] = [
   ...(pressaoArterial as unknown as FlashDeck[]),
   ...(pele as unknown as FlashDeck[]),
   ...(virus as unknown as FlashDeck[]),
+  ...(curados as unknown as FlashDeck[]),
 ];

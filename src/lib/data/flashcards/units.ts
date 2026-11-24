@@ -50,9 +50,42 @@ export const deckUnits: Readonly<Record<string, readonly DeckUnit[]>> = {
       ],
     },
     {
-      title: "Questões do banco",
-      note: "Cada questão vira cartão: o caso na frente, o gabarito no verso.",
-      slugs: ["banco-anatomia", "banco-parasitologia"],
+      title: "Anatomia · orientação e ossos",
+      note: "Referenciais, osteologia, crânio e coluna.",
+      slugs: ["anat-referenciais", "anat-osteologia-geral", "anat-cranio", "anat-coluna"],
+    },
+    {
+      title: "Anatomia · músculos",
+      note: "Da contração aos músculos da cabeça, do dorso, do abdome e da pelve.",
+      slugs: [
+        "anat-contracao",
+        "anat-miologia",
+        "anat-dorso",
+        "anat-parede-abdominal",
+        "anat-assoalho-pelvico",
+      ],
+    },
+    {
+      title: "Parasitologia · protozoários",
+      note: "Da introdução às espécies que caem em prova.",
+      slugs: [
+        "paras-introducao",
+        "paras-giardia-amebiase",
+        "paras-malaria-chagas",
+        "paras-leishmania-toxo",
+        "paras-tricomoniase",
+      ],
+    },
+    {
+      title: "Parasitologia · helmintos",
+      note: "Cestódeos, trematódeos e nematódeos.",
+      slugs: [
+        "paras-tenia",
+        "paras-esquistossomose",
+        "paras-larva-migrans",
+        "paras-ascaris-enterobius",
+        "paras-ancilostoma-strongyloides",
+      ],
     },
   ],
   "aes-3": [
@@ -70,16 +103,26 @@ export const deckUnits: Readonly<Record<string, readonly DeckUnit[]>> = {
   ],
   "aes-2": [
     {
-      title: "Questões do banco",
-      note: "Cada questão vira cartão: o caso na frente, o gabarito no verso.",
-      slugs: ["banco-biologia-celular"],
+      title: "Do DNA à proteína",
+      note: "Genoma, replicação, transcrição, tradução e regulação.",
+      slugs: ["bio-genoma", "bio-replicacao", "bio-transcricao-traducao", "bio-regulacao-epigenetica"],
+    },
+    {
+      title: "A célula ao longo da vida",
+      note: "Células-tronco, ciclo celular, neoplasia, senescência e apoptose.",
+      slugs: ["bio-celulas-tronco", "bio-ciclo-neoplasia", "bio-senescencia-apoptose"],
     },
   ],
   "ic-1": [
     {
-      title: "Questões do banco",
-      note: "Cada questão vira cartão: o caso na frente, o gabarito no verso.",
-      slugs: ["banco-iniciacao-cientifica"],
+      title: "Ciência e evidência",
+      note: "Do conhecimento científico à leitura crítica de um estudo.",
+      slugs: ["ic-ciencia-conhecimento", "ic-mbe", "ic-tipos-pesquisa", "ic-busca-ia", "ic-vieses"],
+    },
+    {
+      title: "Ética e integridade",
+      note: "Pesquisa com seres humanos e com animais, e as regras do jogo.",
+      slugs: ["ic-etica-humanos", "ic-animais", "ic-integridade"],
     },
   ],
 };

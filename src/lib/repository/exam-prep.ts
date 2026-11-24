@@ -10,7 +10,6 @@ import { getAssessments } from "@/lib/repository/assessments";
 import { getExams, getQuestionAreas } from "@/lib/repository/exams";
 import {
   deckHref,
-  getBankDecks,
   getImageDecks,
   getOfficialDecks,
   getSharedDecks,
@@ -65,7 +64,6 @@ export async function getExamPrep(assessmentId: string): Promise<ExamPrep | unde
   const shared = await getSharedDecks().catch((): readonly FlashDeck[] => []);
   const decks = [
     ...getOfficialDecks(id),
-    ...getBankDecks().filter((d) => d.disciplineId === id),
     ...shared.filter((d) => d.disciplineId === id),
   ].map((deck) => summariseDeck(deck, deckHref(deck)));
 

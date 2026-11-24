@@ -136,7 +136,9 @@ export async function getDeckSummaries(): Promise<{
   const summarise = (deck: FlashDeck) => summariseDeck(deck, deckHref(deck));
   return {
     oficiais: seedDecks.map(summarise),
-    banco: getBankDecks().map(summarise),
+    // Os cartões gerados das questões deram lugar aos baralhos curtos por
+    // eixo (curados.json); seguem abrindo pelo endereço antigo.
+    banco: [],
     turma: shared.map(summarise),
   };
 }
