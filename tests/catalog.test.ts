@@ -182,8 +182,8 @@ describe("stats", () => {
     const visible = books.filter((b) => b.visibility === "visivel");
     expect(stats.books).toBe(visible.length);
     expect(visible.length).toBeGreaterThan(0);
-    expect(stats.disciplines).toBe(7);
-    expect(stats.teachingPlans).toBe(7);
+    expect(stats.disciplines).toBe(8);
+    expect(stats.teachingPlans).toBe(8);
     expect(stats.sharedBooks).toBe((await getSharedBooks()).length);
     expect(stats.sharedBooks).toBeGreaterThan(0);
   });

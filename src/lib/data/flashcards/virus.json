@@ -1,0 +1,1189 @@
+[
+ {
+  "id": "oficial:virus-estrutura-e-genetica",
+  "slug": "virus-estrutura-e-genetica",
+  "origin": "oficial",
+  "title": "Estrutura e genética",
+  "description": "Do que um vírus é feito, como é classificado e que genoma carrega.",
+  "disciplineId": "aes-3",
+  "collection": "Vírus",
+  "color": "#2f7df0",
+  "sourceNote": "Escrito a partir do Tortora, Microbiologia, 12ª ed., capítulo 13. Figuras do livro, reproduzidas só para estudo da turma.",
+  "cards": [
+   {
+    "id": "virus-1-01",
+    "kind": "texto",
+    "front": "O que é um vírus?",
+    "back": "Agente infeccioso **acelular**: **um único tipo de ácido nucleico** (DNA ou RNA) envolto por **capsídeo** de proteína, às vezes com **envelope**. É **parasito intracelular obrigatório**: só se multiplica dentro de célula viva."
+   },
+   {
+    "id": "virus-1-02",
+    "kind": "texto",
+    "front": "Um vírus pode ter DNA e RNA ao mesmo tempo?",
+    "back": "**Não.** Só um tipo de ácido nucleico. Bactérias, fungos e protozoários têm os dois.",
+    "tip": {
+     "label": "Atenção",
+     "text": "Pegadinha clássica: 'vírus têm DNA e RNA' está errado."
+    }
+   },
+   {
+    "id": "virus-1-03",
+    "kind": "texto",
+    "front": "Por que um vírus fora da célula é considerado inerte?",
+    "back": "Não tem metabolismo, **ribossomos** nem geração de **ATP**, e não se divide. Só 'ganha vida' quando o ácido nucleico entra na célula e usa a maquinaria dela."
+   },
+   {
+    "id": "virus-1-04",
+    "kind": "texto",
+    "front": "Vírus se multiplicam por fissão binária?",
+    "back": "**Não.** São **montados**: a célula sintetiza as partes (biossíntese) e elas se reúnem (maturação), o que gera centenas de vírions."
+   },
+   {
+    "id": "virus-1-05",
+    "kind": "texto",
+    "front": "Vírion, nucleocapsídeo, capsídeo: qual a diferença?",
+    "back": "**Capsídeo** = capa de proteína. **Nucleocapsídeo** = capsídeo + ácido nucleico. **Vírion** = partícula viral completa e infecciosa (com envelope, se houver)."
+   },
+   {
+    "id": "virus-1-06",
+    "kind": "texto",
+    "front": "Do que é feito o capsídeo e para que serve?",
+    "back": "De subunidades proteicas, os **capsômeros**. Protege o genoma de nucleases e, nos vírus sem envelope, também **liga o vírus ao receptor** da célula.",
+    "backImageIds": [
+     "virus-hv"
+    ]
+   },
+   {
+    "id": "virus-1-07",
+    "kind": "texto",
+    "front": "Envelope: de onde vem e como é feito?",
+    "back": "Membrana de **lipídeos, proteínas e carboidratos** que cobre o capsídeo de alguns vírus. É **obtida da célula hospedeira** quando o vírus sai por brotamento.",
+    "backImageIds": [
+     "virus-env"
+    ]
+   },
+   {
+    "id": "virus-1-08",
+    "kind": "texto",
+    "front": "O que são espículas e por que importam?",
+    "back": "Complexos de **carboidrato + proteína** que se projetam do envelope. Ligam-se ao receptor (**fixação**), são **alvo de anticorpos** e **mutam**, o que ajuda o vírus a escapar.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Na microscopia eletrônica, o envelopado aparece como partícula redonda com 'halo' de espículas."
+    },
+    "backImageIds": [
+     "virus-env"
+    ]
+   },
+   {
+    "id": "virus-1-09",
+    "kind": "texto",
+    "front": "Quais são os 4 formatos de vírus?",
+    "back": "**Helicoidal** (cilindro), **poliédrico** (icosaedro), **envelopado** (nucleocapsídeo dentro de membrana) e **complexo** (fagos, poxvírus).",
+    "backImageIds": [
+     "virus-ico",
+     "virus-ebola",
+     "virus-env",
+     "virus-cplx"
+    ]
+   },
+   {
+    "id": "virus-1-10",
+    "kind": "texto",
+    "front": "O que é um capsídeo icosaédrico?",
+    "back": "Poliedro de **20 faces triangulares** e **12 vértices**. Exemplos: adenovírus, poliovírus, rinovírus.",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "Icosa = 20 faces."
+    },
+    "backImageIds": [
+     "virus-ico"
+    ]
+   },
+   {
+    "id": "virus-1-11",
+    "kind": "texto",
+    "front": "Dê exemplos de vírus helicoidais.",
+    "back": "Vírus do mosaico do tabaco, **Ebola** (filamentoso), **raiva**. O influenza é helicoidal **envelopado**.",
+    "backImageIds": [
+     "virus-ebola"
+    ]
+   },
+   {
+    "id": "virus-1-12",
+    "kind": "texto",
+    "front": "O que torna um vírus 'complexo'?",
+    "back": "Estrutura com várias partes. O **bacteriófago T** tem cabeça poliédrica e cauda helicoidal com fibras; o **poxvírus** é ovoide, com membranas e corpos laterais.",
+    "backImageIds": [
+     "virus-cplx"
+    ]
+   },
+   {
+    "id": "virus-1-13",
+    "kind": "texto",
+    "front": "Qual a faixa de tamanho dos vírus?",
+    "back": "De **20 a 1.000 nm** (nanômetro = bilionésima parte do metro). A maioria é menor que bactérias; os maiores (poxvírus, vírus gigantes) se igualam a bactérias pequenas.",
+    "backImageIds": [
+     "virus-tam"
+    ]
+   },
+   {
+    "id": "virus-1-14",
+    "kind": "texto",
+    "front": "O que define o espectro de hospedeiros?",
+    "back": "A presença do **receptor** certo na superfície da célula e dos fatores celulares de que o vírus precisa. Por isso a maioria infecta um tipo de célula de uma espécie.",
+    "tip": {
+     "label": "Atenção",
+     "text": "Quem não tem o receptor é resistente: fago não infecta humano."
+    }
+   },
+   {
+    "id": "virus-1-15",
+    "kind": "texto",
+    "front": "O que é tropismo? Dê um exemplo.",
+    "back": "Preferência do vírus por certos tecidos, definida pelo receptor. O **HIV** usa **CD4** e o correceptor **CCR5**, por isso infecta linfócitos T auxiliares."
+   },
+   {
+    "id": "virus-1-16",
+    "kind": "texto",
+    "front": "Vírus envelopado × não envelopado: o que muda?",
+    "back": "**Envelopado:** frágil, entra por fusão, sai por brotamento (célula pode sobreviver). **Nu:** resistente ao meio, sai por ruptura (mata a célula). Exemplos de nus: adeno, polio, rino, hepatite A."
+   },
+   {
+    "id": "virus-1-17",
+    "kind": "texto",
+    "front": "Como se nomeiam as famílias e gêneros virais?",
+    "back": "Família **-viridae**, gênero **-virus**, ordem **-ales**. A espécie não leva epíteto como em bactérias."
+   },
+   {
+    "id": "virus-1-18",
+    "kind": "texto",
+    "front": "Quantos genes tem um vírus? De onde vêm as demais funções?",
+    "back": "**Poucos:** proteínas do capsídeo e algumas enzimas para copiar e processar o ácido nucleico. Ribossomos, tRNA, aminoácidos e energia vêm da **célula**."
+   },
+   {
+    "id": "virus-1-19",
+    "kind": "texto",
+    "front": "Tipos de genoma viral: quais existem?",
+    "back": "DNA fita dupla, DNA fita simples, RNA fita dupla, RNA fita simples (+), RNA fita simples (−), e os que usam **transcriptase reversa** (retrovírus e hepadnavírus).",
+    "backImageIds": [
+     "virus-genomas"
+    ]
+   },
+   {
+    "id": "virus-1-20",
+    "kind": "texto",
+    "front": "RNA (+) e RNA (−): qual a diferença na prática?",
+    "back": "O RNA (+) **já é mRNA**: vai direto ao ribossomo (polio, rino, dengue). O RNA (−) é o **complemento**: precisa de uma **RNA-polimerase levada no vírion** para virar mRNA (influenza, sarampo, raiva).",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "(+) já é mRNA; (−) precisa ser copiado."
+    },
+    "backImageIds": [
+     "virus-genomas"
+    ]
+   },
+   {
+    "id": "virus-1-21",
+    "kind": "texto",
+    "front": "Como o DNA fita dupla viral vira proteína?",
+    "back": "É transcrito pela polimerase da célula, no **núcleo** (herpes, adeno, HPV). Exceção: o **poxvírus** replica no **citoplasma** com polimerase própria."
+   },
+   {
+    "id": "virus-1-22",
+    "kind": "texto",
+    "front": "Por que reovírus (RNA fita dupla) levam uma enzima no vírion?",
+    "back": "A célula não copia RNA a partir de RNA. Sem a **polimerase viral** dentro do vírion, o genoma de RNA dupla-fita não geraria mRNA."
+   },
+   {
+    "id": "virus-1-23",
+    "kind": "texto",
+    "front": "O que é transcriptase reversa?",
+    "back": "Enzima que copia **RNA em DNA**, o inverso do usual. Está em **retrovírus** (HIV, HTLV) e hepadnavírus (hepatite B). A célula humana não faz esse passo."
+   },
+   {
+    "id": "virus-1-24",
+    "kind": "texto",
+    "front": "Como se cultiva um bacteriófago?",
+    "back": "Em bactérias crescendo em ágar. Cada vírus infectante forma uma **placa de lise** (área clara); contam-se **UFP** (unidades formadoras de placa).",
+    "backImageIds": [
+     "virus-placa"
+    ]
+   },
+   {
+    "id": "virus-1-25",
+    "kind": "texto",
+    "front": "Como se cultivam vírus animais?",
+    "back": "Em animais vivos, em **ovos embrionados** ou em **cultura de células** (ex.: HeLa). Em cultura, o dano aparece como **efeito citopático (ECP)**.",
+    "backImageIds": [
+     "virus-ovo",
+     "virus-ecp"
+    ]
+   },
+   {
+    "id": "virus-1-26",
+    "kind": "texto",
+    "front": "Vírus são sensíveis a antibióticos?",
+    "back": "**Não.** Não têm parede, ribossomos nem metabolismo. São sensíveis ao **interferon**, proteína antiviral liberada por células infectadas."
+   },
+   {
+    "id": "virus-1-27",
+    "kind": "texto",
+    "front": "Riquétsias e clamídias são vírus?",
+    "back": "**Não.** São bactérias, embora também sejam parasitos intracelulares obrigatórios e pequenas. Têm membrana, ribossomos, DNA e RNA e se dividem por fissão."
+   },
+   {
+    "id": "virus-1-28",
+    "kind": "texto",
+    "front": "O que são vírus gigantes?",
+    "back": "Vírus com genomas de centenas de milhares a milhões de pares de bases (mimivírus ~1,2 milhão), do tamanho de bactérias pequenas, o que desafia a ideia de vírus sempre minúsculos."
+   }
+  ],
+  "images": [
+   {
+    "id": "virus-hv",
+    "file": "virus-hv.jpg",
+    "width": 1033,
+    "height": 396,
+    "caption": "Capsômeros: adenovírus e herpes-vírus. Tortora, cap. 13"
+   },
+   {
+    "id": "virus-env",
+    "file": "virus-env.jpg",
+    "width": 658,
+    "height": 551,
+    "caption": "Helicoidal envelopado (influenza): (a) esquema com espículas; (b) micrografia. Tortora, Fig. 13.3"
+   },
+   {
+    "id": "virus-ico",
+    "file": "virus-ico.jpg",
+    "width": 667,
+    "height": 595,
+    "caption": "Poliédrico (icosaédrico): (a) esquema; (b) adenovírus ao microscópio eletrônico. Tortora, Fig. 13.2"
+   },
+   {
+    "id": "virus-ebola",
+    "file": "virus-ebola.jpg",
+    "width": 671,
+    "height": 566,
+    "caption": "Helicoidal: (a) esquema; (b) vírus Ebola ao microscópio. Tortora, Fig. 13.4"
+   },
+   {
+    "id": "virus-cplx",
+    "file": "virus-cplx.jpg",
+    "width": 663,
+    "height": 956,
+    "caption": "Complexos: (a) bacteriófago T-par; (b) vírus da varíola. Tortora, Fig. 13.5"
+   },
+   {
+    "id": "virus-tam",
+    "file": "virus-tam.jpg",
+    "width": 581,
+    "height": 1100,
+    "caption": "Tamanhos comparados de vírus e bactérias. Tortora, Fig. 13.1"
+   },
+   {
+    "id": "virus-genomas",
+    "file": "virus-genomas.jpg",
+    "width": 1100,
+    "height": 508,
+    "caption": "Tipos de genoma e caminho até o mRNA (esquema original, base: Tortora, Tab. 13.4)"
+   },
+   {
+    "id": "virus-placa",
+    "file": "virus-placa.jpg",
+    "width": 649,
+    "height": 423,
+    "caption": "Placas de lise de bacteriófagos. Tortora, Fig. 13.6"
+   },
+   {
+    "id": "virus-ovo",
+    "file": "virus-ovo.jpg",
+    "width": 680,
+    "height": 520,
+    "caption": "Inoculação em ovo embrionado. Tortora, Fig. 13.7"
+   },
+   {
+    "id": "virus-ecp",
+    "file": "virus-ecp.jpg",
+    "width": 511,
+    "height": 331,
+    "caption": "Efeito citopático: (a) células normais; (b) célula infectada. Tortora, Fig. 13.9"
+   }
+  ]
+ },
+ {
+  "id": "oficial:virus-infeccao-replicacao-e-evolucao",
+  "slug": "virus-infeccao-replicacao-e-evolucao",
+  "origin": "oficial",
+  "title": "Infecção, replicação e evolução",
+  "description": "Como estrutura e genoma explicam ciclo, doença, latência, câncer e escape.",
+  "disciplineId": "aes-3",
+  "collection": "Vírus",
+  "color": "#7b4de0",
+  "sourceNote": "Escrito a partir do Tortora, Microbiologia, 12ª ed., capítulo 13. Figuras do livro, reproduzidas só para estudo da turma.",
+  "cards": [
+   {
+    "id": "virus-2-01",
+    "kind": "texto",
+    "front": "Quais as 5 etapas do ciclo lítico do fago T?",
+    "back": "**Adsorção, penetração, biossíntese, maturação e liberação.**",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "A-P-B-M-L."
+    },
+    "backImageIds": [
+     "virus-lit"
+    ]
+   },
+   {
+    "id": "virus-2-02",
+    "kind": "texto",
+    "front": "Como o fago T entra na bactéria?",
+    "back": "**Fibras da cauda** ligam-se ao receptor da parede; a **lisozima** do fago abre a parede; a **bainha se contrai** e injeta o **DNA**. O capsídeo fica fora.",
+    "tip": {
+     "label": "Atenção",
+     "text": "Só o DNA entra; o capsídeo permanece do lado de fora."
+    },
+    "backImageIds": [
+     "virus-lit"
+    ]
+   },
+   {
+    "id": "virus-2-03",
+    "kind": "texto",
+    "front": "O que acontece na biossíntese do fago?",
+    "back": "Genes **precoces** codificam enzimas que degradam o DNA da bactéria e replicam o do fago; genes **tardios** fazem as proteínas do capsídeo e da cauda."
+   },
+   {
+    "id": "virus-2-04",
+    "kind": "texto",
+    "front": "O que é o período de eclipse?",
+    "back": "Intervalo em que a célula está infectada mas **não há vírions completos** dentro dela: o ácido nucleico e as proteínas estão sendo feitos separadamente."
+   },
+   {
+    "id": "virus-2-05",
+    "kind": "texto",
+    "front": "Como o fago sai da bactéria?",
+    "back": "Uma **lisozima codificada pelo fago** destrói a parede por dentro; a célula sofre **lise** e libera os novos vírions."
+   },
+   {
+    "id": "virus-2-06",
+    "kind": "texto",
+    "front": "Ciclo lítico × ciclo lisogênico",
+    "back": "**Lítico:** multiplica e mata a célula. **Lisogênico:** o DNA do fago se **integra** ao cromossomo (**prófago**), é reprimido e passa às células-filhas; a bactéria vive.",
+    "backImageIds": [
+     "virus-lis"
+    ]
+   },
+   {
+    "id": "virus-2-07",
+    "kind": "texto",
+    "front": "O que é um prófago e como volta ao ciclo lítico?",
+    "back": "DNA do fago integrado e reprimido na bactéria. Eventos raros (luz **UV**, certas substâncias) causam **excisão** e iniciam o ciclo lítico.",
+    "backImageIds": [
+     "virus-lis"
+    ]
+   },
+   {
+    "id": "virus-2-08",
+    "kind": "texto",
+    "front": "O que é conversão fágica? Dê exemplos.",
+    "back": "O prófago confere à bactéria **novas propriedades**, como produzir toxina. Exemplos: toxina da **difteria**, do **botulismo**, da **cólera** e Shiga de E. coli.",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Evolução horizontal: fagos transformam bactérias inofensivas em patogênicas."
+    }
+   },
+   {
+    "id": "virus-2-09",
+    "kind": "texto",
+    "front": "Transdução generalizada × especializada",
+    "back": "**Generalizada:** o fago empacota qualquer pedaço de DNA da bactéria. **Especializada:** só genes vizinhos ao ponto de integração do prófago (excisão imprecisa).",
+    "backImageIds": [
+     "virus-transd"
+    ]
+   },
+   {
+    "id": "virus-2-10",
+    "kind": "texto",
+    "front": "Como um vírus animal entra na célula?",
+    "back": "Por **endocitose** (célula engloba o vírion) ou por **fusão** do envelope com a membrana. Depois ocorre o **desnudamento**: o ácido nucleico é liberado do capsídeo.",
+    "backImageIds": [
+     "virus-entry"
+    ]
+   },
+   {
+    "id": "virus-2-11",
+    "kind": "texto",
+    "front": "Qual a ordem do ciclo de um vírus animal?",
+    "back": "Adsorção → penetração → **desnudamento** → biossíntese → maturação → liberação.",
+    "backImageIds": [
+     "virus-dna"
+    ]
+   },
+   {
+    "id": "virus-2-12",
+    "kind": "texto",
+    "front": "Onde replicam vírus de DNA e de RNA?",
+    "back": "DNA no **núcleo** (exceção: poxvírus, no citoplasma). RNA em geral no **citoplasma** (exceções: influenza e retrovírus, que usam o núcleo).",
+    "tip": {
+     "label": "Atenção",
+     "text": "'Vírus de RNA replicam no núcleo' é pegadinha, mas há exceções."
+    },
+    "backImageIds": [
+     "virus-dna",
+     "virus-rna"
+    ]
+   },
+   {
+    "id": "virus-2-13",
+    "kind": "texto",
+    "front": "Como o vírus sai da célula: brotamento × ruptura?",
+    "back": "**Envelopados brotam**, levando um pedaço da membrana (a célula pode sobreviver, causando infecção crônica). **Não envelopados rompem** a membrana e matam a célula.",
+    "backImageIds": [
+     "virus-budd"
+    ]
+   },
+   {
+    "id": "virus-2-14",
+    "kind": "texto",
+    "front": "Como o HIV replica?",
+    "back": "Espículas ligam **CD4 + CCR5**; fusão; **transcriptase reversa** faz DNA; **integrase** o insere no cromossomo (**provírus**); a célula o transcreve; **protease** maturam proteínas; brotamento.",
+    "backImageIds": [
+     "virus-retro"
+    ]
+   },
+   {
+    "id": "virus-2-15",
+    "kind": "texto",
+    "front": "O que é provírus e por que é problema?",
+    "back": "DNA do retrovírus **integrado** ao cromossomo. **Nunca é removido**: fica latente, escapa do sistema imune e dos fármacos, e pode causar câncer.",
+    "tip": {
+     "label": "Atenção",
+     "text": "Diferente do prófago, o provírus não sai do cromossomo."
+    },
+    "backImageIds": [
+     "virus-retro"
+    ]
+   },
+   {
+    "id": "virus-2-16",
+    "kind": "texto",
+    "front": "Por que o HIV causa imunodeficiência?",
+    "back": "Infecta e destrói **linfócitos T CD4⁺**, que coordenam a resposta imune. Com a queda de CD4, surgem **infecções oportunistas**.",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "As oportunistas definem a fase de Aids."
+    }
+   },
+   {
+    "id": "virus-2-17",
+    "kind": "texto",
+    "front": "Como os vírus causam câncer?",
+    "back": "Pelo genoma viral **integrado** e por **oncogenes** (genes que transformam a célula). Cerca de **10%** dos cânceres humanos têm origem viral: **HPV, EBV, HBV, HTLV**."
+   },
+   {
+    "id": "virus-2-18",
+    "kind": "texto",
+    "front": "O HPV causa qual câncer?",
+    "back": "Câncer do **colo do útero** (e verrugas). O DNA viral se integra e as proteínas virais interferem no controle do ciclo celular.",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Prevenção por vacina."
+    }
+   },
+   {
+    "id": "virus-2-19",
+    "kind": "texto",
+    "front": "Infecção latente × persistente",
+    "back": "**Latente:** vírus silencioso, sem vírions, reativa depois (herpes labial, **zóster**). **Persistente:** vírus se multiplica lentamente por anos (**HIV**, SSPE do sarampo).",
+    "tip": {
+     "label": "Atenção",
+     "text": "Zóster é latente, não persistente."
+    },
+    "backImageIds": [
+     "virus-lat"
+    ]
+   },
+   {
+    "id": "virus-2-20",
+    "kind": "texto",
+    "front": "Por que o herpes reativa?",
+    "back": "O DNA viral fica **latente em neurônios**. Febre, sol, estresse ou queda da imunidade reativam e geram lesões de novo."
+   },
+   {
+    "id": "virus-2-21",
+    "kind": "texto",
+    "front": "Catapora e zóster: qual a relação?",
+    "back": "Mesmo vírus (**varicela-zóster**). Catapora é a infecção primária; o **zóster** é a **reativação do vírus latente**, em faixa dolorosa."
+   },
+   {
+    "id": "virus-2-22",
+    "kind": "texto",
+    "front": "Como é o genoma do vírus influenza?",
+    "back": "**RNA fita simples (−), segmentado em 8 partes**, em vírion helicoidal envelopado com espículas **HA** (hemaglutinina, 16 tipos) e **NA** (neuraminidase, 9 tipos)."
+   },
+   {
+    "id": "virus-2-23",
+    "kind": "texto",
+    "front": "Deriva antigênica × rearranjo (shift)",
+    "back": "**Deriva:** pequenas mutações em HA/NA, a cada ano (reinfecção). **Rearranjo:** troca de segmentos entre vírus de espécies diferentes gera subtipo **novo** e pode causar **pandemia**.",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "Segmentado = mistura de segmentos = pandemia."
+    },
+    "backImageIds": [
+     "virus-gripe"
+    ]
+   },
+   {
+    "id": "virus-2-24",
+    "kind": "texto",
+    "front": "Por que o genoma segmentado favorece pandemias?",
+    "back": "Quando dois vírus infectam a mesma célula, os segmentos se **misturam** (reassortment). Isso gera combinações novas de HA e NA às quais a população **não tem imunidade**.",
+    "backImageIds": [
+     "virus-gripe"
+    ]
+   },
+   {
+    "id": "virus-2-25",
+    "kind": "texto",
+    "front": "Por que RNA vírus mutam tanto? (complemento)",
+    "back": "As polimerases de RNA **não corrigem seus erros**, então surgem muitas variantes: escape de anticorpos e **resistência a fármacos**. A ribavirina explora isso, aumentando as mutações até matar o vírus."
+   },
+   {
+    "id": "virus-2-26",
+    "kind": "texto",
+    "front": "Vírus nus resistentes: exemplos e via de transmissão",
+    "back": "Hepatite A, poliovírus e rinovírus: capsídeo **resiste** a secagem e ácido do estômago. Hepatite A e polio são **fecal-orais**."
+   },
+   {
+    "id": "virus-2-27",
+    "kind": "texto",
+    "front": "Por que há tantos resfriados?",
+    "back": "O **rinovírus** tem mais de 100 tipos antigênicos: imunidade a um não protege contra os outros."
+   },
+   {
+    "id": "virus-2-28",
+    "kind": "texto",
+    "front": "Hepatites A a E: genoma e via",
+    "back": "**A:** RNA (+) nu, fecal-oral. **B:** DNA envelopado com transcriptase reversa; sangue/sexual. **C:** RNA (+) envelopado; sangue. **D:** RNA (−), depende do B. **E:** RNA (+) nu.",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "A e E pela boca; B, C e D pelo sangue."
+    }
+   },
+   {
+    "id": "virus-2-29",
+    "kind": "texto",
+    "front": "Hepatite B e câncer: qual a relação?",
+    "back": "A infecção pode ser **crônica**, com cirrose e **câncer de fígado**. É um vírus de **DNA** que usa transcriptase reversa."
+   },
+   {
+    "id": "virus-2-30",
+    "kind": "texto",
+    "front": "Dengue e febre amarela: como se transmitem?",
+    "back": "Por **mosquitos** (arbovírus). São vírus de RNA (+) envelopados que replicam no vetor e no humano."
+   },
+   {
+    "id": "virus-2-31",
+    "kind": "texto",
+    "front": "Ebola: estrutura e doença",
+    "back": "Vírus **helicoidal filamentoso envelopado** de RNA (−), cerca de **970 nm**. Causa **febre hemorrágica** grave, por contato com fluidos.",
+    "backImageIds": [
+     "virus-ebola"
+    ]
+   }
+  ],
+  "images": [
+   {
+    "id": "virus-lit",
+    "file": "virus-lit.jpg",
+    "width": 1100,
+    "height": 914,
+    "caption": "Ciclo lítico do fago T-par. Tortora, Fig. 13.11"
+   },
+   {
+    "id": "virus-lis",
+    "file": "virus-lis.jpg",
+    "width": 1100,
+    "height": 554,
+    "caption": "Ciclo lítico × lisogênico do fago λ. Tortora, Fig. 13.12"
+   },
+   {
+    "id": "virus-transd",
+    "file": "virus-transd.jpg",
+    "width": 551,
+    "height": 1100,
+    "caption": "Transdução especializada. Tortora, cap. 13"
+   },
+   {
+    "id": "virus-entry",
+    "file": "virus-entry.jpg",
+    "width": 662,
+    "height": 440,
+    "caption": "Entrada: (a) endocitose; (b) fusão. Tortora, Fig. 13.14"
+   },
+   {
+    "id": "virus-dna",
+    "file": "virus-dna.jpg",
+    "width": 1100,
+    "height": 642,
+    "caption": "Replicação de um vírus animal de DNA. Tortora, Fig. 13.15"
+   },
+   {
+    "id": "virus-rna",
+    "file": "virus-rna.jpg",
+    "width": 968,
+    "height": 1100,
+    "caption": "Multiplicação dos vírus de RNA (+), (−) e dupla-fita. Tortora, Fig. 13.17"
+   },
+   {
+    "id": "virus-budd",
+    "file": "virus-budd.jpg",
+    "width": 685,
+    "height": 1027,
+    "caption": "Brotamento (HIV saindo de um linfócito T). Tortora, Fig. 13.20"
+   },
+   {
+    "id": "virus-retro",
+    "file": "virus-retro.jpg",
+    "width": 1097,
+    "height": 1100,
+    "caption": "Multiplicação e manutenção dos retrovírus. Tortora, Fig. 13.19"
+   },
+   {
+    "id": "virus-lat",
+    "file": "virus-lat.jpg",
+    "width": 577,
+    "height": 449,
+    "caption": "Infecção aguda, latente e persistente. Tortora, Fig. 13.21"
+   },
+   {
+    "id": "virus-gripe",
+    "file": "virus-gripe.jpg",
+    "width": 1100,
+    "height": 460,
+    "caption": "Rearranjo antigênico no porco (esquema original, base: Tortora, cap. 13)"
+   },
+   {
+    "id": "virus-ebola",
+    "file": "virus-ebola.jpg",
+    "width": 671,
+    "height": 566,
+    "caption": "Helicoidal: (a) esquema; (b) vírus Ebola ao microscópio. Tortora, Fig. 13.4"
+   }
+  ]
+ },
+ {
+  "id": "oficial:virus-elisa-e-western-blot",
+  "slug": "virus-elisa-e-western-blot",
+  "origin": "oficial",
+  "title": "ELISA e Western blot",
+  "description": "Triagem e confirmação sorológica e molecular de infecções virais.",
+  "disciplineId": "aes-3",
+  "collection": "Vírus",
+  "color": "#d6336f",
+  "sourceNote": "Escrito a partir do Tortora, Microbiologia, 12ª ed., capítulo 13. Figuras do livro, reproduzidas só para estudo da turma.",
+  "cards": [
+   {
+    "id": "virus-3-01",
+    "kind": "texto",
+    "front": "O que significa ELISA?",
+    "back": "**Enzyme-Linked ImmunoSorbent Assay**, ensaio imunoenzimático. Usa uma **reação antígeno-anticorpo** e uma **enzima** que, ao receber o substrato, produz **cor**.",
+    "backImageIds": [
+     "virus-elisa"
+    ]
+   },
+   {
+    "id": "virus-3-02",
+    "kind": "texto",
+    "front": "Qual o princípio do ELISA?",
+    "back": "Antígeno e anticorpo específicos se ligam. Um segundo anticorpo marcado com **enzima** reconhece o complexo; o **substrato** vira produto colorido que indica reação positiva."
+   },
+   {
+    "id": "virus-3-03",
+    "kind": "texto",
+    "front": "ELISA direto: o que detecta e como é montado?",
+    "back": "Detecta **antígeno** (vírus ou proteína viral) na amostra. Anticorpo fixo no poço → amostra com antígeno → anticorpo com enzima ('sanduíche') → substrato → cor.",
+    "backImageIds": [
+     "virus-elisa"
+    ]
+   },
+   {
+    "id": "virus-3-04",
+    "kind": "texto",
+    "front": "ELISA indireto: o que detecta e como é montado?",
+    "back": "Detecta **anticorpos** do paciente. **Antígeno fixo** no poço → soro do paciente → **anti-imunoglobulina humana** com enzima → substrato → cor.",
+    "tip": {
+     "label": "Atenção",
+     "text": "Anti-HIV no sangue = ELISA indireto."
+    },
+    "backImageIds": [
+     "virus-elisa"
+    ]
+   },
+   {
+    "id": "virus-3-05",
+    "kind": "texto",
+    "front": "Por que o ELISA é tão usado em triagem?",
+    "back": "Em placas de microtitulação, é **rápido, automatizável**, tem leitura nítida (positivo/negativo) e existem kits comerciais, inclusive testes rápidos para sangue, urina ou fluido oral."
+   },
+   {
+    "id": "virus-3-06",
+    "kind": "texto",
+    "front": "Cite exemplos de uso do ELISA.",
+    "back": "Anticorpos anti-HIV, **teste de gravidez** (hCG), pesquisa de fármacos na urina, outras viroses."
+   },
+   {
+    "id": "virus-3-07",
+    "kind": "texto",
+    "front": "O que é o Western blot e para que serve?",
+    "back": "Técnica para **confirmar** a presença de anticorpos contra **proteínas virais específicas**. É mais **específico** que o ELISA."
+   },
+   {
+    "id": "virus-3-08",
+    "kind": "texto",
+    "front": "Quais as etapas do Western blot?",
+    "back": "1) **Eletroforese** em gel separa as proteínas por tamanho e carga. 2) **Transferência** (blotting) para filtro de nitrocelulose. 3) Filtro com **soro do paciente** e depois anticorpo anti-humano com enzima. 4) **Substrato** revela bandas coloridas.",
+    "backImageIds": [
+     "virus-wb"
+    ]
+   },
+   {
+    "id": "virus-3-09",
+    "kind": "texto",
+    "front": "O que o resultado do Western blot mostra?",
+    "back": "**Quais proteínas virais** o soro reconhece (bandas em posições específicas). O padrão de bandas confirma a infecção."
+   },
+   {
+    "id": "virus-3-10",
+    "kind": "texto",
+    "front": "Qual o fluxo da triagem do HIV?",
+    "back": "**1. ELISA** (triagem, sensível) → **2. Western blot** (confirmação, específico) ou teste de RNA por PCR em tempo real.",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "ELISA triagem, Western blot confirma."
+    }
+   },
+   {
+    "id": "virus-3-11",
+    "kind": "texto",
+    "front": "Por que usar dois testes no HIV?",
+    "back": "A triagem deve **não deixar escapar** infectados (alta sensibilidade) e por isso pode dar **falsos-positivos**. O confirmatório é mais **específico** e elimina esses casos."
+   },
+   {
+    "id": "virus-3-12",
+    "kind": "texto",
+    "front": "O que é a janela imunológica?",
+    "back": "Intervalo entre a infecção e o aparecimento de anticorpos detectáveis, em que o **ELISA e o Western blot podem ser negativos**. Hoje é de cerca de **21 a 25 dias** com ensaios melhores.",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Negativo muito cedo não exclui HIV; repete-se o teste ou usa-se o RNA."
+    }
+   },
+   {
+    "id": "virus-3-13",
+    "kind": "texto",
+    "front": "Para que serve o teste de RNA (APTIMA) no HIV?",
+    "back": "Detecta **RNA do HIV-1 por PCR em tempo real**: alternativa ao Western blot, útil na **infecção primária** (antes dos anticorpos) e para a **carga viral plasmática**."
+   },
+   {
+    "id": "virus-3-14",
+    "kind": "texto",
+    "front": "O que é título de anticorpos?",
+    "back": "A **maior diluição** do soro que ainda dá reação positiva. Quanto maior, maior a resposta. Sozinho vale pouco: o que importa é o **aumento** do título durante a doença."
+   },
+   {
+    "id": "virus-3-15",
+    "kind": "texto",
+    "front": "O que é soroconversão?",
+    "back": "Passagem de **ausência de anticorpos** para presença deles (ou de título insignificante para significativo). É sinal de infecção recente e é comum no HIV."
+   },
+   {
+    "id": "virus-3-16",
+    "kind": "texto",
+    "front": "O que indica a presença de IgM?",
+    "back": "**IgM** é de vida curta e sugere **infecção recente**. **IgG** persiste e indica infecção passada ou vacina (complemento)."
+   },
+   {
+    "id": "virus-3-17",
+    "kind": "texto",
+    "front": "O que é hemaglutinação viral?",
+    "back": "Alguns vírus (**caxumba, sarampo, influenza**) aglutinam hemácias **sem reação antígeno-anticorpo**. Anticorpos neutralizantes **inibem** essa aglutinação, o que permite diagnóstico."
+   },
+   {
+    "id": "virus-3-18",
+    "kind": "texto",
+    "front": "O que são testes de aglutinação em látex?",
+    "back": "Antígenos solúveis são fixados em **esferas de látex**; o anticorpo do soro liga as esferas e forma agregados visíveis. Detecção rápida de anticorpos virais e bacterianos."
+   },
+   {
+    "id": "virus-3-19",
+    "kind": "texto",
+    "front": "O que é uma reação de neutralização?",
+    "back": "Anticorpos específicos **bloqueiam os efeitos nocivos** do vírus (ou da toxina). Em cultura, impedem o efeito citopático, o que identifica o vírus ou mede anticorpos protetores."
+   },
+   {
+    "id": "virus-3-20",
+    "kind": "texto",
+    "front": "Sensibilidade × especificidade (complemento)",
+    "back": "**Sensibilidade:** acha os infectados (poucos falsos-negativos); a triagem precisa dela. **Especificidade:** não rotula quem não está infectado (poucos falsos-positivos); o confirmatório precisa dela."
+   },
+   {
+    "id": "virus-3-21",
+    "kind": "texto",
+    "front": "ELISA positivo para HIV fecha o diagnóstico?",
+    "back": "**Não.** Pede-se Western blot ou teste de RNA. Um positivo isolado pode ser falso-positivo.",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Gestante com ELISA reagente: confirmar antes de concluir."
+    }
+   }
+  ],
+  "images": [
+   {
+    "id": "virus-elisa",
+    "file": "virus-elisa.jpg",
+    "width": 1100,
+    "height": 604,
+    "caption": "ELISA (a) direto e (b) indireto. Tortora, Fig. 18.14"
+   },
+   {
+    "id": "virus-wb",
+    "file": "virus-wb.jpg",
+    "width": 1100,
+    "height": 956,
+    "caption": "Western blot, passo a passo. Tortora, Fig. 10.12"
+   }
+  ]
+ },
+ {
+  "id": "oficial:virus-farmacos-antivirais",
+  "slug": "virus-farmacos-antivirais",
+  "origin": "oficial",
+  "title": "Fármacos antivirais",
+  "description": "Cada classe de antiviral bloqueia uma etapa do ciclo viral.",
+  "disciplineId": "aes-3",
+  "collection": "Vírus",
+  "color": "#e5632b",
+  "sourceNote": "Escrito a partir do Tortora, Microbiologia, 12ª ed., capítulo 13. Figuras do livro, reproduzidas só para estudo da turma.",
+  "cards": [
+   {
+    "id": "virus-4-01",
+    "kind": "texto",
+    "front": "Por que é difícil tratar infecções virais?",
+    "back": "O vírus usa a **maquinaria da própria célula**: atingi-lo sem lesar o hospedeiro é difícil, e muitos fármacos são tóxicos. Por isso existem poucos antivirais; os alvos devem ser **exclusivos do vírus**."
+   },
+   {
+    "id": "virus-4-02",
+    "kind": "texto",
+    "front": "Em quais etapas do ciclo os antivirais atuam?",
+    "back": "**Entrada/fusão → desnudamento → síntese de ácidos nucleicos → integração → montagem (protease) → liberação (neuraminidase).**",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "Entrada, desnudamento, ácido nucleico, integração, protease, neuraminidase."
+    },
+    "backImageIds": [
+     "virus-antivirais"
+    ]
+   },
+   {
+    "id": "virus-4-03",
+    "kind": "texto",
+    "front": "Como o maraviroc age?",
+    "back": "Antagonista do receptor **CCR5** do HIV: bloqueia a **entrada** do vírus na célula.",
+    "backImageIds": [
+     "virus-antivirais"
+    ]
+   },
+   {
+    "id": "virus-4-04",
+    "kind": "texto",
+    "front": "Como a enfuvirtida age?",
+    "back": "Peptídeo que imita a **gp41** do HIV e impede a **fusão** do envelope viral com a membrana da célula."
+   },
+   {
+    "id": "virus-4-05",
+    "kind": "texto",
+    "front": "Amantadina e rimantadina: alvo e uso",
+    "back": "Impedem o **desnudamento** (separação do ácido nucleico do capsídeo) do **influenza A**."
+   },
+   {
+    "id": "virus-4-06",
+    "kind": "texto",
+    "front": "Como agem os análogos de nucleosídeos/nucleotídeos?",
+    "back": "São **incorporados** pela polimerase ao ácido nucleico em síntese e **interrompem** a cadeia, bloqueando a síntese de DNA ou RNA viral."
+   },
+   {
+    "id": "virus-4-07",
+    "kind": "texto",
+    "front": "Por que o aciclovir é seletivo para o herpes?",
+    "back": "Parece **guanina** e só é **ativado** (fosforilado) pela **timidina-cinase viral**. Em célula não infectada quase nada acontece. Na infectada vira falso nucleotídeo que **bloqueia a DNA-polimerase**.",
+    "tip": {
+     "label": "Atenção",
+     "text": "Cai muito: o aciclovir poupa a célula normal porque precisa da cinase do vírus."
+    },
+    "backImageIds": [
+     "virus-aciclo"
+    ]
+   },
+   {
+    "id": "virus-4-08",
+    "kind": "texto",
+    "front": "Ganciclovir e famciclovir: usos",
+    "back": "Também **análogos** que bloqueiam síntese de DNA. **Ganciclovir:** citomegalovírus (CMV) e herpes. **Famciclovir:** herpes e zóster."
+   },
+   {
+    "id": "virus-4-09",
+    "kind": "texto",
+    "front": "AZT, tenofovir e lamivudina: qual o mecanismo?",
+    "back": "Análogos que inibem a **transcriptase reversa** do HIV, bloqueando a síntese de DNA a partir do RNA. Lamivudina e adefovir também são usados na **hepatite B**."
+   },
+   {
+    "id": "virus-4-10",
+    "kind": "texto",
+    "front": "Nevirapina: em que difere do AZT?",
+    "back": "É um inibidor **não nucleosídeo** da transcriptase reversa: liga-se à enzima (**sítio alostérico**) e a inibe, sem ser incorporado."
+   },
+   {
+    "id": "virus-4-11",
+    "kind": "texto",
+    "front": "Raltegravir e elvitegravir: alvo?",
+    "back": "Inibem a **integrase**: o DNA viral não se integra ao cromossomo e não forma provírus."
+   },
+   {
+    "id": "virus-4-12",
+    "kind": "texto",
+    "front": "Como agem os inibidores de protease?",
+    "back": "Impedem a **clivagem de proteínas precursoras** na maturação, gerando vírions imaturos e não infecciosos. **HIV:** saquinavir, atazanavir, indinavir. **Hepatite C:** boceprevir, telaprevir."
+   },
+   {
+    "id": "virus-4-13",
+    "kind": "texto",
+    "front": "Oseltamivir e zanamivir: mecanismo?",
+    "back": "Inibem a **neuraminidase** do influenza, enzima de **saída** dos vírions. Sem ela, os vírus ficam presos à célula."
+   },
+   {
+    "id": "virus-4-14",
+    "kind": "texto",
+    "front": "Ribavirina: como age?",
+    "back": "Análoga da guanina que **acelera a taxa de mutação** do RNA viral até um limite crítico (**mutagênese letal**)."
+   },
+   {
+    "id": "virus-4-15",
+    "kind": "texto",
+    "front": "Para que serve o interferon alfa?",
+    "back": "Células infectadas liberam interferon, que **protege as vizinhas** e reduz a disseminação do vírus. Usado nas **hepatites virais**, às vezes com ribavirina."
+   },
+   {
+    "id": "virus-4-16",
+    "kind": "texto",
+    "front": "Por que tratar o HIV com combinações de fármacos?",
+    "back": "Para **minimizar vírus resistentes**: com alvos diferentes, o vírus precisa de várias mutações ao mesmo tempo. É a **HAART** (ex.: tenofovir + emtricitabina + efavirenz)."
+   },
+   {
+    "id": "virus-4-17",
+    "kind": "texto",
+    "front": "Como surge a resistência a um antiviral?",
+    "back": "O vírus **muta muito**; o fármaco elimina os sensíveis e **seleciona** variantes resistentes. Monoterapia e uso irregular favorecem isso."
+   },
+   {
+    "id": "virus-4-18",
+    "kind": "texto",
+    "front": "Antibiótico trata infecção viral?",
+    "back": "**Não.** Vírus não têm os alvos dos antibióticos. Antivirais agem em **enzimas ou etapas do vírus**; vacinas **previnem**."
+   },
+   {
+    "id": "virus-4-19",
+    "kind": "texto",
+    "front": "Qual o sufixo dos antivirais?",
+    "back": "**-vir**: aciclovir, oseltamivir, saquinavir, raltegravir."
+   },
+   {
+    "id": "virus-4-20",
+    "kind": "texto",
+    "front": "Por que a transcriptase reversa é bom alvo contra o HIV?",
+    "back": "Porque a célula humana **não faz** esse passo: o fármaco atinge o vírus com pouco efeito sobre o hospedeiro."
+   },
+   {
+    "id": "virus-4-21",
+    "kind": "texto",
+    "front": "Por que o HIV não é curado pelos antirretrovirais?",
+    "back": "O **provírus latente** integrado ao DNA não é atingido pelos fármacos nem pelo sistema imune: o tratamento controla a multiplicação, mas não elimina o vírus."
+   },
+   {
+    "id": "virus-4-22",
+    "kind": "texto",
+    "front": "Qual antiviral para qual doença? (resumo)",
+    "back": "**Herpes/zóster:** aciclovir. **CMV:** ganciclovir. **Influenza:** oseltamivir, zanamivir, amantadina (A). **HIV:** combinações. **Hepatite B:** adefovir, lamivudina, interferon. **Hepatite C:** boceprevir, telaprevir, ribavirina, interferon."
+   }
+  ],
+  "images": [
+   {
+    "id": "virus-antivirais",
+    "file": "virus-antivirais.jpg",
+    "width": 1100,
+    "height": 457,
+    "caption": "Classes de antivirais por etapa do ciclo (esquema original, base: Tortora, Tab. 20.5)"
+   },
+   {
+    "id": "virus-aciclo",
+    "file": "virus-aciclo.jpg",
+    "width": 632,
+    "height": 1100,
+    "caption": "Aciclovir: seletividade pela timidina-cinase viral. Tortora, Fig. 20.16"
+   }
+  ]
+ },
+ {
+  "id": "oficial:virus-agentes-acelulares",
+  "slug": "virus-agentes-acelulares",
+  "origin": "oficial",
+  "title": "Agentes acelulares",
+  "description": "Vírus, viroides e príons: o que são e que doenças causam.",
+  "disciplineId": "aes-3",
+  "collection": "Vírus",
+  "color": "#d68a0e",
+  "sourceNote": "Escrito a partir do Tortora, Microbiologia, 12ª ed., capítulo 13. Figuras do livro, reproduzidas só para estudo da turma.",
+  "cards": [
+   {
+    "id": "virus-5-01",
+    "kind": "texto",
+    "front": "Quais são os agentes infecciosos acelulares?",
+    "back": "**Vírus** (ácido nucleico + capsídeo), **viroides** (só RNA curto) e **príons** (só proteína)."
+   },
+   {
+    "id": "virus-5-02",
+    "kind": "texto",
+    "front": "O que é um viroide?",
+    "back": "Segmento curto de **RNA** (cerca de 300 a 400 nucleotídeos), **sem capa proteica**, fita pareada internamente e fechada, que **não codifica proteína**. Só foi encontrado em **plantas**.",
+    "backImageIds": [
+     "virus-viroide"
+    ]
+   },
+   {
+    "id": "virus-5-03",
+    "kind": "texto",
+    "front": "Dê exemplos de doenças causadas por viroides.",
+    "back": "**Tubérculo afilado da batata** (PSTVd), cadang-cadang do coco, mancha-de-sol do abacate. Causam atraso do crescimento e deformações."
+   },
+   {
+    "id": "virus-5-04",
+    "kind": "texto",
+    "front": "Como viroides se transmitem?",
+    "back": "Por **abrasões** na planta, sementes, pólen e insetos. A parede celular protege a planta; o viroide precisa de uma lesão."
+   },
+   {
+    "id": "virus-5-05",
+    "kind": "texto",
+    "front": "O que é um príon?",
+    "back": "**Prion = proteinaceous infectious particle** (termo de **Prusiner**, 1982): proteína infecciosa **sem ácido nucleico**."
+   },
+   {
+    "id": "virus-5-06",
+    "kind": "texto",
+    "front": "Como um príon causa doença?",
+    "back": "A **PrPc** (proteína príon celular normal, gene no cromossomo 20) é convertida na forma anormal **PrPSc** (scrapie). Cada PrPSc converte outras PrPc em cadeia; acumula-se e leva à **morte neuronal**.",
+    "tip": {
+     "label": "Atenção",
+     "text": "Príon replica por conversão de proteína, não por síntese de ácido nucleico."
+    },
+    "backImageIds": [
+     "virus-prion"
+    ]
+   },
+   {
+    "id": "virus-5-07",
+    "kind": "texto",
+    "front": "O que é encefalopatia espongiforme?",
+    "back": "Doença do cérebro com grandes **vacúolos** (aspecto de esponja). Os príons causam as **EETs** (encefalopatias espongiformes transmissíveis), sempre fatais."
+   },
+   {
+    "id": "virus-5-08",
+    "kind": "texto",
+    "front": "Quais doenças priônicas acometem humanos?",
+    "back": "**Kuru, doença de Creutzfeldt-Jakob (CJD, inclusive nova variante), síndrome de Gerstmann-Sträussler-Scheinker e insônia familiar fatal.**"
+   },
+   {
+    "id": "virus-5-09",
+    "kind": "texto",
+    "front": "Quais doenças priônicas acometem animais?",
+    "back": "**Scrapie** (ovelhas e cabras) e a **vaca louca** (encefalopatia espongiforme bovina, Grã-Bretanha, 1987), entre outras."
+   },
+   {
+    "id": "virus-5-10",
+    "kind": "texto",
+    "front": "Como se transmitem as doenças priônicas?",
+    "back": "Alimentação com **carne contaminada** (vaca louca por ração; nova variante da CJD por carne bovina malcozida), **transplantes** de tecido nervoso e **instrumentos cirúrgicos**. Também há formas genéticas.",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Não são puramente hereditárias nem puramente infecciosas."
+    }
+   },
+   {
+    "id": "virus-5-11",
+    "kind": "texto",
+    "front": "Por que príons e viroides não respondem a antibióticos ou antivirais?",
+    "back": "Não têm os alvos: príon é proteína **sem genoma**; viroide não codifica proteína nem tem enzimas. Não há tratamento específico para príons."
+   },
+   {
+    "id": "virus-5-12",
+    "kind": "texto",
+    "front": "Vírus × viroide × príon: tabela comparativa",
+    "back": "**Vírus:** ácido nucleico + capsídeo; codifica proteínas; todos os hospedeiros. **Viroide:** só RNA; não codifica; plantas. **Príon:** só proteína; sem genoma; animais.",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "Príon = proteína; viroide = RNA nu; vírus = ácido nucleico + capa."
+    }
+   },
+   {
+    "id": "virus-5-13",
+    "kind": "texto",
+    "front": "Como os vírus de plantas entram na planta?",
+    "back": "Pelas **abrasões** ou por **parasitos** (nematódeos, fungos e, sobretudo, **insetos sugadores de seiva**), podendo se espalhar por pólen. A parede celular dificulta a entrada direta."
+   },
+   {
+    "id": "virus-5-14",
+    "kind": "texto",
+    "front": "O que causam os vírus de plantas?",
+    "back": "Mudança de cor (mosaicos), deformações, atraso do crescimento e perdas na lavoura, como o vírus do mosaico do tabaco."
+   },
+   {
+    "id": "virus-5-15",
+    "kind": "texto",
+    "front": "Doenças virais humanas mais citadas: liste.",
+    "back": "**Gripe** (influenza), **Aids** (HIV), **herpes**, **catapora/zóster**, **hepatites A–E**, poliomielite, raiva, dengue, sarampo, caxumba, Ebola, verrugas e **câncer cervical** (HPV), COVID-19."
+   },
+   {
+    "id": "virus-5-16",
+    "kind": "texto",
+    "front": "O que mostra uma lâmina de microscopia eletrônica de vírus?",
+    "back": "Partículas minúsculas: **poliédricas** (hexágonos regulares), **helicoidais** (filamentos) ou **envelopadas** (redondas, com halo de espículas). Fago: cabeça + cauda."
+   },
+   {
+    "id": "virus-5-17",
+    "kind": "texto",
+    "front": "Qual a regra para memorizar os agentes acelulares?",
+    "back": "Do mais complexo ao mais simples: **vírus** (genoma + capa) → **viroide** (só RNA) → **príon** (só proteína)."
+   }
+  ],
+  "images": [
+   {
+    "id": "virus-viroide",
+    "file": "virus-viroide.jpg",
+    "width": 344,
+    "height": 307,
+    "caption": "Viroide do tubérculo afilado da batata (PSTV). Tortora, Fig. 13.23"
+   },
+   {
+    "id": "virus-prion",
+    "file": "virus-prion.jpg",
+    "width": 539,
+    "height": 1100,
+    "caption": "Como uma proteína pode ser infecciosa. Tortora, Fig. 13.22"
+   }
+  ]
+ }
+]

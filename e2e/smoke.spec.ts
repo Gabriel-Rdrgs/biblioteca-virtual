@@ -14,12 +14,12 @@ test.beforeEach(async ({ page }) => {
 
 test("home leads to the catalogue and back to a discipline", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("A estante da turma");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("O estudo da turma");
 
   // A home deixou de ter um botão só para isso: a estante está na navegação.
   await page
     .getByRole("navigation", { name: "Navegação principal" })
-    .getByRole("link", { name: "Estante" })
+    .getByRole("link", { name: "Biblioteca" })
     .click();
   await expect(page).toHaveURL(/\/livros$/);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Todos os livros");
@@ -125,7 +125,7 @@ test("a class-posted book can be read and downloaded behind the password", async
 });
 
 test("os cinco destinos são os mesmos no celular e no desktop", async ({ page }) => {
-  const destinos = ["Início", "Estante", "Matérias", "Estudar", "Calendário"];
+  const destinos = ["Início", "Estudar", "Matérias", "Biblioteca", "Agenda"];
   await page.goto("/");
   const nav = page.getByRole("navigation", { name: "Navegação principal" }).first();
 
@@ -142,7 +142,7 @@ test("os cinco destinos são os mesmos no celular e no desktop", async ({ page }
   // está escondido é o cabeçalho, no desktop é a barra de baixo.
   const atual = page.locator('[aria-current="page"]:visible');
   await expect(atual.first()).toBeVisible();
-  await expect(atual.first()).toContainText("Calendário");
+  await expect(atual.first()).toContainText("Agenda");
 });
 
 test("o plano de ensino se apresenta como parte da matéria", async ({ page }) => {

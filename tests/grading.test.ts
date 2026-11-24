@@ -221,7 +221,7 @@ describe("a conta da recuperação", () => {
 describe("o semestre inteiro, em uma linha", () => {
   it("conta as matérias anotadas, e não as que ainda estão em branco", () => {
     const vazio = semesterOverview(gradeSchemes, {}, {});
-    expect(vazio.total).toBe(7);
+    expect(vazio.total).toBe(8);
     expect(vazio.started).toBe(0);
     expect(vazio.media).toBeNull();
 

@@ -91,6 +91,14 @@ silêncio.
 Capas: todas são placeholders editoriais gerados (`coverSource: "placeholder"`), com uma
 linguagem visual por área. A página do livro deixa isso explícito.
 
+## Navegação
+
+Cinco destinos, iguais no topo e na barra do celular (`src/lib/navigation.ts`):
+**Início** (o painel do dia), **Estudar** (simulados, modo rápido, simulado de
+imagem, flashcards, fila de erros e desempenho), **Matérias**, **Biblioteca**
+(livros e resumos) e **Agenda** (datas e notas). Os endereços antigos valem
+todos.
+
 ## Estudar
 
 Tudo o que é do aluno — tentativas, progresso dos cartões, diário de estudo,
@@ -120,8 +128,10 @@ cartões; **Quase** fica na caixa e volta amanhã; **Sei** sobe e demora mais
 Quatro origens:
 
 - **Oficiais** — `src/lib/data/flashcards/*.json`, importados dos roteiros
-  interativos de membros superiores (Moore, cap. 6, com image occlusion) e de
-  semiologia de cabeça e pescoço (fotos de crânio e fácies, linfonodos). As
+  interativos de membros superiores (Moore, cap. 6, com image occlusion),
+  semiologia de cabeça e pescoço (fotos de crânio e fácies, linfonodos),
+  lesões elementares de pele (fotos) e vírus (Tortora, cap. 13, com as
+  figuras do livro no verso). As
   figuras ficam em `storage/flashcards/` (fora do Git, como as dos simulados) e
   são servidas por `/api/flashcards/figuras/<arquivo>`, atrás da senha.
 - **Do banco** — gerados na hora a partir do banco de questões: cada objetiva

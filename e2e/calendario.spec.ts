@@ -53,7 +53,7 @@ test.describe("calendário de provas", () => {
   test("carries the dates from the teaching plans, with their source", async ({ page }) => {
     await loginClass(page);
     await page.goto("/calendario");
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Calendário");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Agenda");
 
     // A date the plans state, and the page says where it came from.
     await expect(
@@ -218,9 +218,12 @@ test("an N2 that is cumulative says so, with the page that says it", async ({ pa
   await loginClass(page);
   await page.goto("/calendario");
 
+  const passado = page.getByRole("button", { name: /mostrar o que já passou/i });
+  if (await passado.count()) await passado.click();
   const card = page
     .locator("section li")
     .filter({ hasText: "N2 — avaliação somativa tutorial" })
+    .filter({ hasText: /problemas 1 a 4, cobrados na N1/i })
     .first();
   await expect(card.getByText(/problemas 1 a 4, cobrados na N1/i)).toBeVisible();
   await expect(

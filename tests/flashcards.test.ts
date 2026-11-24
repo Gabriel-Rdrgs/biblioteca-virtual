@@ -53,6 +53,9 @@ describe("os baralhos oficiais", () => {
         if (card.kind === "texto") {
           expect(card.front.trim(), card.id).not.toBe("");
           expect(card.back.trim(), card.id).not.toBe("");
+          for (const id of card.backImageIds ?? []) {
+            expect(images.has(id), `${card.id} -> ${id}`).toBe(true);
+          }
         } else {
           expect(images.has(card.imageId), `${card.id} -> ${card.imageId}`).toBe(true);
           expect(card.answer.trim(), card.id).not.toBe("");
@@ -75,6 +78,8 @@ describe("os baralhos oficiais", () => {
     const collections = new Set(seedDecks.map((d) => d.collection));
     expect(collections.has("Membros superiores")).toBe(true);
     expect(collections.has("Semiologia de cabeça e pescoço")).toBe(true);
+    expect(collections.has("Lesões elementares de pele")).toBe(true);
+    expect(collections.has("Vírus")).toBe(true);
     expect(seedDecks.reduce((n, d) => n + d.cards.length, 0)).toBeGreaterThan(400);
   });
 });

@@ -12,8 +12,8 @@ export function Footer() {
               <span className="font-display text-base font-semibold">Atlas</span>
             </div>
             <p className="text-ink-muted mt-3 text-sm leading-relaxed">
-              A estante da turma de Medicina do 1º período do UNIEURO, montada a partir dos planos
-              de ensino de 2026.2.
+              O lugar onde a turma de Medicina do UNIEURO estuda: provas, simulados, flashcards,
+              resumos e a bibliografia dos planos de ensino de 2026.2.
             </p>
           </div>
 
@@ -22,12 +22,13 @@ export function Footer() {
             className="grid grid-cols-2 gap-x-10 gap-y-2 text-sm sm:gap-x-16"
           >
             {[
-              ["/livros", "Estante"],
-              ["/disciplinas", "Matérias"],
               ["/estudar", "Estudar"],
+              ["/flashcards", "Flashcards"],
+              ["/disciplinas", "Matérias"],
+              ["/livros", "Biblioteca"],
               ["/resumos", "Resumos"],
+              ["/calendario", "Agenda"],
               ["/notas", "Minhas notas"],
-              ["/calendario", "Calendário"],
               ["/planos-de-ensino", "Planos de ensino"],
               ["/busca", "Busca"],
               ["/uso-responsavel", "Combinados de uso"],

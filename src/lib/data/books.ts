@@ -14,6 +14,8 @@ const CATALOGUED_AT = "2026-09-18";
 
 interface BookSeed {
   id: string;
+  /** Quando entrou no catálogo; sem isto, a data da transcrição dos planos. */
+  addedAt?: string;
   title: string;
   subtitle?: string;
   authors: string[];
@@ -98,7 +100,7 @@ function defineBook(seed: BookSeed): Book {
             reviewStatus: seed.source.status ?? "ok",
             ...(seed.source.note ? { reviewNote: seed.source.note } : {}),
           },
-    addedAt: CATALOGUED_AT,
+    addedAt: seed.addedAt ?? CATALOGUED_AT,
   };
 }
 
@@ -1426,6 +1428,7 @@ const seeds: BookSeed[] = [
   // Dados lidos da ficha catalográfica de cada arquivo (CIP), como os de cima.
   {
     id: "embriologia-clinica",
+    addedAt: "2026-11-20",
     title: "Embriologia Clínica",
     authors: ["MOORE, Keith L.", "PERSAUD, T. V. N.", "TORCHIA, Mark G."],
     publisher: "Elsevier",
@@ -1448,6 +1451,7 @@ const seeds: BookSeed[] = [
   },
   {
     id: "histologia-basica-junqueira",
+    addedAt: "2026-11-20",
     title: "Histologia Básica",
     authors: ["JUNQUEIRA, L. C.", "CARNEIRO, José"],
     edition: "10. ed.",
@@ -1470,6 +1474,7 @@ const seeds: BookSeed[] = [
   },
   {
     id: "imunologia-basica-abbas",
+    addedAt: "2026-11-20",
     title: "Imunologia Básica",
     subtitle: "Funções e Distúrbios do Sistema Imunológico",
     authors: ["ABBAS, Abul K.", "LICHTMAN, Andrew H.", "PILLAI, Shiv"],
@@ -1491,10 +1496,13 @@ const seeds: BookSeed[] = [
       section: "Bibliografia Complementar",
       page: 10,
       raw: "ABBAS, Abul K. Imunologia Básica - Funções e Distúrbios do Sistema Imunológico. Rio de Janeiro, Guanabara Koogan, 2021. Disponível em: https://integrada.minhabiblioteca.com.br/#/books/9788595158672/. Acesso em: 01 jul. 2024.",
+      status: "pendente",
+      note: "O plano cita só o primeiro autor e a edição de 2021 (Guanabara Koogan); Lichtman e Pillai vêm da ficha catalográfica do arquivo, que é a 4ª edição (Elsevier, 2014).",
     },
   },
   {
     id: "imunologia-celular-e-molecular-abbas",
+    addedAt: "2026-11-20",
     title: "Imunologia Celular e Molecular",
     authors: ["ABBAS, Abul K.", "LICHTMAN, Andrew H.", "PILLAI, Shiv"],
     publisher: "Guanabara Koogan",
@@ -1522,6 +1530,7 @@ const seeds: BookSeed[] = [
   },
   {
     id: "microbiologia-medica-jawetz",
+    addedAt: "2026-11-20",
     title: "Microbiologia Médica de Jawetz, Melnick & Adelberg",
     authors: ["RIEDEL, Stefan", "et al."],
     publisher: "AMGH",
@@ -1547,6 +1556,7 @@ const seeds: BookSeed[] = [
   },
   {
     id: "microbiologia-tortora",
+    addedAt: "2026-11-20",
     title: "Microbiologia",
     authors: ["TORTORA, Gerard J.", "FUNKE, Berdell R.", "CASE, Christine L."],
     publisher: "Artmed",
@@ -1573,6 +1583,7 @@ const seeds: BookSeed[] = [
   // oculta até alguém postar o PDF, como as outras referências.
   {
     id: "roitt-fundamentos-de-imunologia",
+    addedAt: "2026-11-20",
     title: "Roitt — Fundamentos de Imunologia",
     authors: ["DELVES, Peter J."],
     publisher: "Guanabara Koogan",
@@ -1589,6 +1600,7 @@ const seeds: BookSeed[] = [
   },
   {
     id: "coura-doencas-infecciosas-e-parasitarias",
+    addedAt: "2026-11-20",
     title: "Dinâmica das Doenças Infecciosas e Parasitárias",
     authors: ["COURA, José R."],
     publisher: "Guanabara Koogan",
@@ -1605,6 +1617,7 @@ const seeds: BookSeed[] = [
   },
   {
     id: "mims-microbiologia-medica-e-imunologia",
+    addedAt: "2026-11-20",
     title: "Mims Microbiologia Médica e Imunologia",
     authors: ["GOERING, Richard V."],
     publisher: "Guanabara Koogan",
@@ -1616,11 +1629,12 @@ const seeds: BookSeed[] = [
       plan: "aes-3",
       section: "Bibliografia Complementar",
       page: 10,
-      raw: "GOERING, Richard V. Mims Microbiologia Médica e Imunologia. Rio de Janeiro: GuanabaraKoogan, 2020. Disponível em: https://integrada.minhabiblioteca.com.br/#/books/9788595157057/. Acesso em: 01 jul. 2024.",
+      raw: "GOERING, Richard V. Mims Microbiologia Médica e Imunologia. Rio de Janeiro: Guanabara Koogan, 2020. Disponível em: https://integrada.minhabiblioteca.com.br/#/books/9788595157057/. Acesso em: 01 jul. 2024.",
     },
   },
   {
     id: "goldman-cecil-medicina",
+    addedAt: "2026-11-20",
     title: "Goldman-Cecil Medicina",
     authors: ["GOLDMAN, Lee", "SCHAFER, Andrew I."],
     publisher: "Artmed",
@@ -1639,6 +1653,7 @@ const seeds: BookSeed[] = [
   },
   {
     id: "levinson-microbiologia-medica-e-imunologia",
+    addedAt: "2026-11-20",
     title: "Microbiologia Médica e Imunologia",
     subtitle: "Um manual clínico para doenças infecciosas",
     authors: ["LEVINSON, Warren"],
@@ -1658,6 +1673,7 @@ const seeds: BookSeed[] = [
   // ---------------------------------------------------------------- IESCG I
   {
     id: "iescg-1-ubs-02-santa-maria-territorio",
+    addedAt: "2026-11-20",
     title: "Quem vive no território?",
     subtitle:
       "Caracterização da população cadastrada na área de abrangência da UBS 02 de Santa Maria — Equipe Dourada",

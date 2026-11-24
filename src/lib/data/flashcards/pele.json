@@ -1,0 +1,1874 @@
+[
+ {
+  "id": "oficial:pele-lesoes-primarias",
+  "slug": "pele-lesoes-primarias",
+  "origin": "oficial",
+  "title": "Lesões primárias",
+  "description": "Manchas vásculo-sanguíneas e pigmentares, lesões sólidas e de conteúdo líquido: o tamanho e a vitropressão decidem.",
+  "disciplineId": "ha-1",
+  "collection": "Lesões elementares de pele",
+  "color": "#7c5cd6",
+  "sourceNote": "Roteiro de semiologia da turma (lesões elementares). Fotos reunidas de material didático, só para estudo.",
+  "cards": [
+   {
+    "id": "pele-foto-44",
+    "kind": "foto",
+    "imageId": "pele-44",
+    "answer": "Eritema",
+    "note": "Eritema difuso",
+    "description": "Mácula vermelha por vasodilatação; desaparece à vitropressão.",
+    "howToSpot": "Mancha vermelha plana, sem relevo. Se você pressionar com vidro, a cor SOME (sangue ainda dentro do vaso). Arroxeado e frio = cianose; vermelho vivo e quente = rubor; espalhado e agudo = exantema; em mucosa = enantema.",
+    "confuseWith": [
+     "Púrpura (equimose / petéquia)",
+     "Mancha angiomatosa",
+     "Telangiectasia"
+    ],
+    "association": "Exantema pode ser morbiliforme (áreas de mácula entre pele sã) ou escarlatiforme (difuso e uniforme)."
+   },
+   {
+    "id": "pele-foto-45",
+    "kind": "foto",
+    "imageId": "pele-45",
+    "answer": "Eritema",
+    "note": "Mácula eritematosa na face",
+    "description": "Mácula vermelha por vasodilatação; desaparece à vitropressão.",
+    "howToSpot": "Mancha vermelha plana, sem relevo. Se você pressionar com vidro, a cor SOME (sangue ainda dentro do vaso). Arroxeado e frio = cianose; vermelho vivo e quente = rubor; espalhado e agudo = exantema; em mucosa = enantema.",
+    "confuseWith": [
+     "Púrpura (equimose / petéquia)",
+     "Mancha angiomatosa",
+     "Telangiectasia"
+    ],
+    "association": "Exantema pode ser morbiliforme (áreas de mácula entre pele sã) ou escarlatiforme (difuso e uniforme)."
+   },
+   {
+    "id": "pele-foto-51",
+    "kind": "foto",
+    "imageId": "pele-51",
+    "answer": "Púrpura (equimose / petéquia)",
+    "note": "Equimose (púrpura > 1 cm)",
+    "description": "Mácula vermelho-violácea que NÃO desaparece à vitropressão (hemácias extravasadas na derme).",
+    "howToSpot": "Mancha roxo-avermelhada plana que não empalidece à pressão. Meça: menor que 1 cm = petéquia; maior que 1 cm = equimose.",
+    "confuseWith": [
+     "Eritema",
+     "Mancha angiomatosa",
+     "Hematoma"
+    ],
+    "association": "Trombocitopenia imune primária (PTI) cursa com lesões purpúricas."
+   },
+   {
+    "id": "pele-foto-52",
+    "kind": "foto",
+    "imageId": "pele-52",
+    "answer": "Púrpura (equimose / petéquia)",
+    "note": "Púrpura/equimose (ex.: PTI)",
+    "description": "Mácula vermelho-violácea que NÃO desaparece à vitropressão (hemácias extravasadas na derme).",
+    "howToSpot": "Mancha roxo-avermelhada plana que não empalidece à pressão. Meça: menor que 1 cm = petéquia; maior que 1 cm = equimose.",
+    "confuseWith": [
+     "Eritema",
+     "Mancha angiomatosa",
+     "Hematoma"
+    ],
+    "association": "Trombocitopenia imune primária (PTI) cursa com lesões purpúricas."
+   },
+   {
+    "id": "pele-foto-59",
+    "kind": "foto",
+    "imageId": "pele-59",
+    "answer": "Telangiectasia",
+    "note": "Telangiectasias (rede de vasos finos)",
+    "description": "Dilatação de vasos de pequeno calibre (< 2 mm): linhas sinuosas, estreladas ou puntiformes.",
+    "howToSpot": "Fios vermelhos finíssimos, sinuosos, em forma de estrela/aranha ou pontilhado, visíveis na superfície.",
+    "confuseWith": [
+     "Mancha angiomatosa",
+     "Eritema",
+     "Púrpura (equimose / petéquia)"
+    ]
+   },
+   {
+    "id": "pele-foto-58b",
+    "kind": "foto",
+    "imageId": "pele-58b",
+    "answer": "Telangiectasia",
+    "note": "Telangiectasias no nariz",
+    "description": "Dilatação de vasos de pequeno calibre (< 2 mm): linhas sinuosas, estreladas ou puntiformes.",
+    "howToSpot": "Fios vermelhos finíssimos, sinuosos, em forma de estrela/aranha ou pontilhado, visíveis na superfície.",
+    "confuseWith": [
+     "Mancha angiomatosa",
+     "Eritema",
+     "Púrpura (equimose / petéquia)"
+    ]
+   },
+   {
+    "id": "pele-foto-58a",
+    "kind": "foto",
+    "imageId": "pele-58a",
+    "answer": "Telangiectasia",
+    "note": "Telangiectasia estelar",
+    "description": "Dilatação de vasos de pequeno calibre (< 2 mm): linhas sinuosas, estreladas ou puntiformes.",
+    "howToSpot": "Fios vermelhos finíssimos, sinuosos, em forma de estrela/aranha ou pontilhado, visíveis na superfície.",
+    "confuseWith": [
+     "Mancha angiomatosa",
+     "Eritema",
+     "Púrpura (equimose / petéquia)"
+    ]
+   },
+   {
+    "id": "pele-foto-64",
+    "kind": "foto",
+    "imageId": "pele-64",
+    "answer": "Mancha angiomatosa",
+    "note": "Mancha angiomatosa (face)",
+    "description": "Mancha eritematosa por neoformação vascular; regride só à forte digitopressão.",
+    "howToSpot": "Mancha vermelho-vinhosa bem delimitada (ex.: em face de bebê), que só clareia com pressão forte.",
+    "confuseWith": [
+     "Eritema",
+     "Telangiectasia",
+     "Púrpura (equimose / petéquia)"
+    ]
+   },
+   {
+    "id": "pele-foto-65",
+    "kind": "foto",
+    "imageId": "pele-65",
+    "answer": "Mancha angiomatosa",
+    "note": "Mancha angiomatosa (face)",
+    "description": "Mancha eritematosa por neoformação vascular; regride só à forte digitopressão.",
+    "howToSpot": "Mancha vermelho-vinhosa bem delimitada (ex.: em face de bebê), que só clareia com pressão forte.",
+    "confuseWith": [
+     "Eritema",
+     "Telangiectasia",
+     "Púrpura (equimose / petéquia)"
+    ]
+   },
+   {
+    "id": "pele-foto-70",
+    "kind": "foto",
+    "imageId": "pele-70",
+    "answer": "Mancha anêmica",
+    "note": "Mancha anêmica (áreas brancas por falta de vasos)",
+    "description": "Mácula branca por ausência da rede vascular na derme superficial.",
+    "howToSpot": "Mácula branca de causa VASCULAR (falta de vasos), não de pigmento. Cuidado para não confundir com leucodermia.",
+    "confuseWith": [
+     "Leucodermia",
+     "Hipercromia"
+    ]
+   },
+   {
+    "id": "pele-foto-72",
+    "kind": "foto",
+    "imageId": "pele-72",
+    "answer": "Mancha anêmica",
+    "note": "Máculas claras no dorso",
+    "description": "Mácula branca por ausência da rede vascular na derme superficial.",
+    "howToSpot": "Mácula branca de causa VASCULAR (falta de vasos), não de pigmento. Cuidado para não confundir com leucodermia.",
+    "confuseWith": [
+     "Leucodermia",
+     "Hipercromia"
+    ]
+   },
+   {
+    "id": "pele-foto-77a",
+    "kind": "foto",
+    "imageId": "pele-77a",
+    "answer": "Leucodermia",
+    "note": "Leucodermia (vitiligo)",
+    "description": "Mácula branca por alteração da melanina: hipocromia (diminuição) ou acromia (ausência).",
+    "howToSpot": "Mácula branca por falta de pigmento (melanina). O exemplo clássico é o vitiligo, com manchas brancas bem delimitadas.",
+    "confuseWith": [
+     "Mancha anêmica",
+     "Hipercromia"
+    ],
+    "association": "Vitiligo: perda de melanócitos."
+   },
+   {
+    "id": "pele-foto-77b",
+    "kind": "foto",
+    "imageId": "pele-77b",
+    "answer": "Leucodermia",
+    "note": "Leucodermia (acromia/hipocromia)",
+    "description": "Mácula branca por alteração da melanina: hipocromia (diminuição) ou acromia (ausência).",
+    "howToSpot": "Mácula branca por falta de pigmento (melanina). O exemplo clássico é o vitiligo, com manchas brancas bem delimitadas.",
+    "confuseWith": [
+     "Mancha anêmica",
+     "Hipercromia"
+    ],
+    "association": "Vitiligo: perda de melanócitos."
+   },
+   {
+    "id": "pele-foto-78",
+    "kind": "foto",
+    "imageId": "pele-78",
+    "answer": "Leucodermia",
+    "note": "Vitiligo",
+    "description": "Mácula branca por alteração da melanina: hipocromia (diminuição) ou acromia (ausência).",
+    "howToSpot": "Mácula branca por falta de pigmento (melanina). O exemplo clássico é o vitiligo, com manchas brancas bem delimitadas.",
+    "confuseWith": [
+     "Mancha anêmica",
+     "Hipercromia"
+    ],
+    "association": "Vitiligo: perda de melanócitos."
+   },
+   {
+    "id": "pele-foto-84",
+    "kind": "foto",
+    "imageId": "pele-84",
+    "answer": "Hipercromia",
+    "note": "Hipercromia localizada",
+    "description": "Mácula de cor variável por aumento de melanina ou outros pigmentos (ex.: tatuagem).",
+    "howToSpot": "Mancha escura/amarronzada plana. Generalizada: Cushing, Addison, porfiria, pelagra. Localizada: cloasma/melasma (face), eritema pigmentar fixo. Espessamento associado: acantose nigricans, hiperqueratose.",
+    "confuseWith": [
+     "Leucodermia",
+     "Mancha anêmica",
+     "Cicatriz"
+    ],
+    "association": "Melasma: hiperpigmentação facial adquirida."
+   },
+   {
+    "id": "pele-foto-85a",
+    "kind": "foto",
+    "imageId": "pele-85a",
+    "answer": "Hipercromia",
+    "note": "Hipercromia em mucosa (doença de Addison)",
+    "description": "Mácula de cor variável por aumento de melanina ou outros pigmentos (ex.: tatuagem).",
+    "howToSpot": "Mancha escura/amarronzada plana. Generalizada: Cushing, Addison, porfiria, pelagra. Localizada: cloasma/melasma (face), eritema pigmentar fixo. Espessamento associado: acantose nigricans, hiperqueratose.",
+    "confuseWith": [
+     "Leucodermia",
+     "Mancha anêmica",
+     "Cicatriz"
+    ],
+    "association": "Melasma: hiperpigmentação facial adquirida."
+   },
+   {
+    "id": "pele-foto-85b",
+    "kind": "foto",
+    "imageId": "pele-85b",
+    "answer": "Hipercromia",
+    "note": "Hipercromia (pelagra)",
+    "description": "Mácula de cor variável por aumento de melanina ou outros pigmentos (ex.: tatuagem).",
+    "howToSpot": "Mancha escura/amarronzada plana. Generalizada: Cushing, Addison, porfiria, pelagra. Localizada: cloasma/melasma (face), eritema pigmentar fixo. Espessamento associado: acantose nigricans, hiperqueratose.",
+    "confuseWith": [
+     "Leucodermia",
+     "Mancha anêmica",
+     "Cicatriz"
+    ],
+    "association": "Melasma: hiperpigmentação facial adquirida."
+   },
+   {
+    "id": "pele-foto-86",
+    "kind": "foto",
+    "imageId": "pele-86",
+    "answer": "Hipercromia",
+    "note": "Melasma (hipercromia localizada)",
+    "description": "Mácula de cor variável por aumento de melanina ou outros pigmentos (ex.: tatuagem).",
+    "howToSpot": "Mancha escura/amarronzada plana. Generalizada: Cushing, Addison, porfiria, pelagra. Localizada: cloasma/melasma (face), eritema pigmentar fixo. Espessamento associado: acantose nigricans, hiperqueratose.",
+    "confuseWith": [
+     "Leucodermia",
+     "Mancha anêmica",
+     "Cicatriz"
+    ],
+    "association": "Melasma: hiperpigmentação facial adquirida."
+   },
+   {
+    "id": "pele-foto-92",
+    "kind": "foto",
+    "imageId": "pele-92",
+    "answer": "Pápula",
+    "note": "Pápulas (< 1 cm)",
+    "description": "Lesão sólida, circunscrita e elevada, < 1 cm (epidérmica, dérmica ou mista).",
+    "howToSpot": "Elevaçãozinha sólida e palpável, menor que 1 cm (use a régua!).",
+    "confuseWith": [
+     "Placa",
+     "Nódulo",
+     "Vegetação",
+     "Urtica"
+    ]
+   },
+   {
+    "id": "pele-foto-97",
+    "kind": "foto",
+    "imageId": "pele-97",
+    "answer": "Pápula",
+    "note": "Pápulas disseminadas",
+    "description": "Lesão sólida, circunscrita e elevada, < 1 cm (epidérmica, dérmica ou mista).",
+    "howToSpot": "Elevaçãozinha sólida e palpável, menor que 1 cm (use a régua!).",
+    "confuseWith": [
+     "Placa",
+     "Nódulo",
+     "Vegetação",
+     "Urtica"
+    ]
+   },
+   {
+    "id": "pele-foto-106",
+    "kind": "foto",
+    "imageId": "pele-106",
+    "answer": "Placa",
+    "note": "Placa",
+    "description": "Lesão elevada > 1 cm, em geral plana, podendo ser descamativa, crostosa ou macerada; confluência de pápulas.",
+    "howToSpot": "Área elevada maior que 1 cm, geralmente de topo plano, às vezes com descamação.",
+    "confuseWith": [
+     "Pápula",
+     "Escama",
+     "Queratose",
+     "Liquenificação"
+    ]
+   },
+   {
+    "id": "pele-foto-107",
+    "kind": "foto",
+    "imageId": "pele-107",
+    "answer": "Placa",
+    "note": "Placa eritemato-descamativa",
+    "description": "Lesão elevada > 1 cm, em geral plana, podendo ser descamativa, crostosa ou macerada; confluência de pápulas.",
+    "howToSpot": "Área elevada maior que 1 cm, geralmente de topo plano, às vezes com descamação.",
+    "confuseWith": [
+     "Pápula",
+     "Escama",
+     "Queratose",
+     "Liquenificação"
+    ]
+   },
+   {
+    "id": "pele-foto-113",
+    "kind": "foto",
+    "imageId": "pele-113",
+    "answer": "Urtica",
+    "note": "Urticária (urticas)",
+    "description": "Lesão edematosa, circunscrita, vermelho-rósea ou branco-porcelana, pruriginosa e efêmera, com halo.",
+    "howToSpot": "Placas elevadas rosadas, tipo \"vergões\", com halo; coçam e mudam/somem em horas (edema dérmico).",
+    "confuseWith": [
+     "Pápula",
+     "Edema",
+     "Eritema"
+    ]
+   },
+   {
+    "id": "pele-foto-114",
+    "kind": "foto",
+    "imageId": "pele-114",
+    "answer": "Urtica",
+    "note": "Urticas confluentes",
+    "description": "Lesão edematosa, circunscrita, vermelho-rósea ou branco-porcelana, pruriginosa e efêmera, com halo.",
+    "howToSpot": "Placas elevadas rosadas, tipo \"vergões\", com halo; coçam e mudam/somem em horas (edema dérmico).",
+    "confuseWith": [
+     "Pápula",
+     "Edema",
+     "Eritema"
+    ]
+   },
+   {
+    "id": "pele-foto-120",
+    "kind": "foto",
+    "imageId": "pele-120",
+    "answer": "Nódulo",
+    "note": "Nódulo (1–3 cm)",
+    "description": "Infiltrado sólido circunscrito, persistente, na derme ou hipoderme, de 1 a 3 cm.",
+    "howToSpot": "Massa sólida e palpável de 1 a 3 cm, mais profunda que a pápula.",
+    "confuseWith": [
+     "Cisto",
+     "Pápula",
+     "Goma",
+     "Abscesso"
+    ]
+   },
+   {
+    "id": "pele-foto-128",
+    "kind": "foto",
+    "imageId": "pele-128",
+    "answer": "Goma",
+    "note": "Goma",
+    "description": "Nódulo ou tumor > 3 cm que liquefaz/necrosa no centro e drena por fistulização ou ulceração.",
+    "howToSpot": "Lesão grande (> 3 cm) com centro necrótico/ulcerado e drenagem.",
+    "confuseWith": [
+     "Nódulo",
+     "Abscesso",
+     "Úlcera"
+    ],
+    "association": "Exemplo clássico: goma sifilítica (sífilis terciária)."
+   },
+   {
+    "id": "pele-foto-129",
+    "kind": "foto",
+    "imageId": "pele-129",
+    "answer": "Goma",
+    "note": "Goma sifilítica (sífilis terciária)",
+    "description": "Nódulo ou tumor > 3 cm que liquefaz/necrosa no centro e drena por fistulização ou ulceração.",
+    "howToSpot": "Lesão grande (> 3 cm) com centro necrótico/ulcerado e drenagem.",
+    "confuseWith": [
+     "Nódulo",
+     "Abscesso",
+     "Úlcera"
+    ],
+    "association": "Exemplo clássico: goma sifilítica (sífilis terciária)."
+   },
+   {
+    "id": "pele-foto-135",
+    "kind": "foto",
+    "imageId": "pele-135",
+    "answer": "Vegetação",
+    "note": "Verrugas vulgares (vegetação, HPV)",
+    "description": "Pápula elevada, pediculada ou não, de superfície irregular, queratósica, dura e amarelada (verrucosa).",
+    "howToSpot": "Lesões \"em couve-flor\", de superfície irregular e áspera. Exemplos: papiloma e verruga vulgar (HPV).",
+    "confuseWith": [
+     "Pápula",
+     "Queratose",
+     "Placa"
+    ]
+   },
+   {
+    "id": "pele-foto-137",
+    "kind": "foto",
+    "imageId": "pele-137",
+    "answer": "Vegetação",
+    "note": "Papilomas (vegetação)",
+    "description": "Pápula elevada, pediculada ou não, de superfície irregular, queratósica, dura e amarelada (verrucosa).",
+    "howToSpot": "Lesões \"em couve-flor\", de superfície irregular e áspera. Exemplos: papiloma e verruga vulgar (HPV).",
+    "confuseWith": [
+     "Pápula",
+     "Queratose",
+     "Placa"
+    ]
+   },
+   {
+    "id": "pele-foto-141",
+    "kind": "foto",
+    "imageId": "pele-141",
+    "answer": "Vesícula",
+    "note": "Vesícula – herpes labial",
+    "description": "Elevação circunscrita de até 1 cm, pontiaguda ou umbilicada, com líquido claro.",
+    "howToSpot": "Bolinhas pequenas (até 1 cm) com líquido claro, muitas vezes agrupadas. Exemplo: herpes labial.",
+    "confuseWith": [
+     "Bolha / Flictena",
+     "Pústula",
+     "Pápula"
+    ],
+    "association": "Herpes labial."
+   },
+   {
+    "id": "pele-foto-147",
+    "kind": "foto",
+    "imageId": "pele-147",
+    "answer": "Vesícula",
+    "note": "Vesículas agrupadas",
+    "description": "Elevação circunscrita de até 1 cm, pontiaguda ou umbilicada, com líquido claro.",
+    "howToSpot": "Bolinhas pequenas (até 1 cm) com líquido claro, muitas vezes agrupadas. Exemplo: herpes labial.",
+    "confuseWith": [
+     "Bolha / Flictena",
+     "Pústula",
+     "Pápula"
+    ],
+    "association": "Herpes labial."
+   },
+   {
+    "id": "pele-foto-151",
+    "kind": "foto",
+    "imageId": "pele-151",
+    "answer": "Bolha / Flictena",
+    "note": "Bolhas",
+    "description": "Elevação circunscrita > 1 cm, na epiderme ou entre epiderme e derme, com conteúdo seroso.",
+    "howToSpot": "Elevação com líquido maior que 1 cm. Exemplo do professor: herpes-zóster.",
+    "confuseWith": [
+     "Vesícula",
+     "Exulceração / Erosão",
+     "Pústula"
+    ],
+    "association": "Herpes-zóster."
+   },
+   {
+    "id": "pele-foto-156",
+    "kind": "foto",
+    "imageId": "pele-156",
+    "answer": "Bolha / Flictena",
+    "note": "Herpes-zóster (classificado como bolha no slide)",
+    "description": "Elevação circunscrita > 1 cm, na epiderme ou entre epiderme e derme, com conteúdo seroso.",
+    "howToSpot": "Elevação com líquido maior que 1 cm. Exemplo do professor: herpes-zóster.",
+    "confuseWith": [
+     "Vesícula",
+     "Exulceração / Erosão",
+     "Pústula"
+    ],
+    "association": "Herpes-zóster."
+   },
+   {
+    "id": "pele-foto-161",
+    "kind": "foto",
+    "imageId": "pele-161",
+    "answer": "Pústula",
+    "note": "Pústula",
+    "description": "Elevação circunscrita da epiderme, até 1 cm, com conteúdo purulento.",
+    "howToSpot": "Bolinha pequena com pus (amarelada/esbranquiçada) no topo. Exemplo: foliculite.",
+    "confuseWith": [
+     "Vesícula",
+     "Abscesso",
+     "Pápula"
+    ],
+    "association": "Foliculite."
+   },
+   {
+    "id": "pele-foto-163",
+    "kind": "foto",
+    "imageId": "pele-163",
+    "answer": "Pústula",
+    "note": "Foliculite (pústulas)",
+    "description": "Elevação circunscrita da epiderme, até 1 cm, com conteúdo purulento.",
+    "howToSpot": "Bolinha pequena com pus (amarelada/esbranquiçada) no topo. Exemplo: foliculite.",
+    "confuseWith": [
+     "Vesícula",
+     "Abscesso",
+     "Pápula"
+    ],
+    "association": "Foliculite."
+   },
+   {
+    "id": "pele-foto-169",
+    "kind": "foto",
+    "imageId": "pele-169",
+    "answer": "Abscesso",
+    "note": "Abscesso",
+    "description": "Coleção de pus profunda, circunscrita, com sinais flogísticos.",
+    "howToSpot": "Nódulo/abaulamento profundo, vermelho, quente e doloroso, às vezes com ponto de drenagem.",
+    "confuseWith": [
+     "Pústula",
+     "Cisto",
+     "Nódulo",
+     "Hematoma"
+    ],
+    "association": "Causado por infecção, inflamação ou degeneração tumoral."
+   },
+   {
+    "id": "pele-foto-170",
+    "kind": "foto",
+    "imageId": "pele-170",
+    "answer": "Abscesso",
+    "note": "Abscesso com ponto de drenagem",
+    "description": "Coleção de pus profunda, circunscrita, com sinais flogísticos.",
+    "howToSpot": "Nódulo/abaulamento profundo, vermelho, quente e doloroso, às vezes com ponto de drenagem.",
+    "confuseWith": [
+     "Pústula",
+     "Cisto",
+     "Nódulo",
+     "Hematoma"
+    ],
+    "association": "Causado por infecção, inflamação ou degeneração tumoral."
+   },
+   {
+    "id": "pele-foto-178",
+    "kind": "foto",
+    "imageId": "pele-178",
+    "answer": "Cisto",
+    "note": "Cisto epidermoide",
+    "description": "Cavidade revestida por epitélio, conteúdo líquido ou pastoso, sem anexos; móvel, exceto no centro.",
+    "howToSpot": "Abaulamento arredondado, móvel sob a pele, às vezes com ponto central. Exemplos: cisto sebáceo e epidermoide.",
+    "confuseWith": [
+     "Nódulo",
+     "Abscesso",
+     "Hematoma"
+    ]
+   },
+   {
+    "id": "pele-foto-180",
+    "kind": "foto",
+    "imageId": "pele-180",
+    "answer": "Cisto",
+    "note": "Cisto",
+    "description": "Cavidade revestida por epitélio, conteúdo líquido ou pastoso, sem anexos; móvel, exceto no centro.",
+    "howToSpot": "Abaulamento arredondado, móvel sob a pele, às vezes com ponto central. Exemplos: cisto sebáceo e epidermoide.",
+    "confuseWith": [
+     "Nódulo",
+     "Abscesso",
+     "Hematoma"
+    ]
+   },
+   {
+    "id": "pele-foto-184",
+    "kind": "foto",
+    "imageId": "pele-184",
+    "answer": "Hematoma",
+    "note": "Hematoma pós-trauma",
+    "description": "Coleção sanguínea geralmente restrita ao local do trauma.",
+    "howToSpot": "Abaulamento roxo/azulado no local de um trauma.",
+    "confuseWith": [
+     "Púrpura (equimose / petéquia)",
+     "Cisto",
+     "Abscesso"
+    ]
+   },
+   {
+    "id": "pele-def-eritema",
+    "kind": "texto",
+    "front": "**Eritema**: o que é e como se reconhece?",
+    "back": "Mácula vermelha por vasodilatação; desaparece à vitropressão.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Mancha vermelha plana, sem relevo. Se você pressionar com vidro, a cor SOME (sangue ainda dentro do vaso). Arroxeado e frio = cianose; vermelho vivo e quente = rubor; espalhado e agudo = exantema; em mucosa = enantema."
+    }
+   },
+   {
+    "id": "pele-grupo-eritema",
+    "kind": "texto",
+    "front": "**Eritema** é lesão de que tipo?",
+    "back": "**Primária · Plana · Vásculo-sanguínea**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Púrpura (equimose / petéquia), Mancha angiomatosa, Telangiectasia."
+    }
+   },
+   {
+    "id": "pele-def-purpura",
+    "kind": "texto",
+    "front": "**Púrpura (equimose / petéquia)**: o que é e como se reconhece?",
+    "back": "Mácula vermelho-violácea que NÃO desaparece à vitropressão (hemácias extravasadas na derme).",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Mancha roxo-avermelhada plana que não empalidece à pressão. Meça: menor que 1 cm = petéquia; maior que 1 cm = equimose."
+    }
+   },
+   {
+    "id": "pele-grupo-purpura",
+    "kind": "texto",
+    "front": "**Púrpura (equimose / petéquia)** é lesão de que tipo?",
+    "back": "**Primária · Plana · Vásculo-sanguínea**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Eritema, Mancha angiomatosa, Hematoma."
+    }
+   },
+   {
+    "id": "pele-def-telang",
+    "kind": "texto",
+    "front": "**Telangiectasia**: o que é e como se reconhece?",
+    "back": "Dilatação de vasos de pequeno calibre (< 2 mm): linhas sinuosas, estreladas ou puntiformes.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Fios vermelhos finíssimos, sinuosos, em forma de estrela/aranha ou pontilhado, visíveis na superfície."
+    }
+   },
+   {
+    "id": "pele-grupo-telang",
+    "kind": "texto",
+    "front": "**Telangiectasia** é lesão de que tipo?",
+    "back": "**Primária · Plana · Vásculo-sanguínea**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Mancha angiomatosa, Eritema, Púrpura (equimose / petéquia)."
+    }
+   },
+   {
+    "id": "pele-def-angio",
+    "kind": "texto",
+    "front": "**Mancha angiomatosa**: o que é e como se reconhece?",
+    "back": "Mancha eritematosa por neoformação vascular; regride só à forte digitopressão.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Mancha vermelho-vinhosa bem delimitada (ex.: em face de bebê), que só clareia com pressão forte."
+    }
+   },
+   {
+    "id": "pele-grupo-angio",
+    "kind": "texto",
+    "front": "**Mancha angiomatosa** é lesão de que tipo?",
+    "back": "**Primária · Plana · Vásculo-sanguínea**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Eritema, Telangiectasia, Púrpura (equimose / petéquia)."
+    }
+   },
+   {
+    "id": "pele-def-anemica",
+    "kind": "texto",
+    "front": "**Mancha anêmica**: o que é e como se reconhece?",
+    "back": "Mácula branca por ausência da rede vascular na derme superficial.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Mácula branca de causa VASCULAR (falta de vasos), não de pigmento. Cuidado para não confundir com leucodermia."
+    }
+   },
+   {
+    "id": "pele-grupo-anemica",
+    "kind": "texto",
+    "front": "**Mancha anêmica** é lesão de que tipo?",
+    "back": "**Primária · Plana · Vásculo-sanguínea**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Leucodermia, Hipercromia."
+    }
+   },
+   {
+    "id": "pele-def-leuco",
+    "kind": "texto",
+    "front": "**Leucodermia**: o que é e como se reconhece?",
+    "back": "Mácula branca por alteração da melanina: hipocromia (diminuição) ou acromia (ausência).",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Mácula branca por falta de pigmento (melanina). O exemplo clássico é o vitiligo, com manchas brancas bem delimitadas."
+    }
+   },
+   {
+    "id": "pele-grupo-leuco",
+    "kind": "texto",
+    "front": "**Leucodermia** é lesão de que tipo?",
+    "back": "**Primária · Plana · Pigmentar**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Mancha anêmica, Hipercromia."
+    }
+   },
+   {
+    "id": "pele-def-hiper",
+    "kind": "texto",
+    "front": "**Hipercromia**: o que é e como se reconhece?",
+    "back": "Mácula de cor variável por aumento de melanina ou outros pigmentos (ex.: tatuagem).",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Mancha escura/amarronzada plana. Generalizada: Cushing, Addison, porfiria, pelagra. Localizada: cloasma/melasma (face), eritema pigmentar fixo. Espessamento associado: acantose nigricans, hiperqueratose."
+    }
+   },
+   {
+    "id": "pele-grupo-hiper",
+    "kind": "texto",
+    "front": "**Hipercromia** é lesão de que tipo?",
+    "back": "**Primária · Plana · Pigmentar**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Leucodermia, Mancha anêmica, Cicatriz."
+    }
+   },
+   {
+    "id": "pele-def-papula",
+    "kind": "texto",
+    "front": "**Pápula**: o que é e como se reconhece?",
+    "back": "Lesão sólida, circunscrita e elevada, < 1 cm (epidérmica, dérmica ou mista).",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Elevaçãozinha sólida e palpável, menor que 1 cm (use a régua!)."
+    }
+   },
+   {
+    "id": "pele-grupo-papula",
+    "kind": "texto",
+    "front": "**Pápula** é lesão de que tipo?",
+    "back": "**Primária · Sólida**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Placa, Nódulo, Vegetação, Urtica."
+    }
+   },
+   {
+    "id": "pele-def-placa",
+    "kind": "texto",
+    "front": "**Placa**: o que é e como se reconhece?",
+    "back": "Lesão elevada > 1 cm, em geral plana, podendo ser descamativa, crostosa ou macerada; confluência de pápulas.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Área elevada maior que 1 cm, geralmente de topo plano, às vezes com descamação."
+    }
+   },
+   {
+    "id": "pele-grupo-placa",
+    "kind": "texto",
+    "front": "**Placa** é lesão de que tipo?",
+    "back": "**Primária · Sólida**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Pápula, Escama, Queratose, Liquenificação."
+    }
+   },
+   {
+    "id": "pele-def-urtica",
+    "kind": "texto",
+    "front": "**Urtica**: o que é e como se reconhece?",
+    "back": "Lesão edematosa, circunscrita, vermelho-rósea ou branco-porcelana, pruriginosa e efêmera, com halo.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Placas elevadas rosadas, tipo \"vergões\", com halo; coçam e mudam/somem em horas (edema dérmico)."
+    }
+   },
+   {
+    "id": "pele-grupo-urtica",
+    "kind": "texto",
+    "front": "**Urtica** é lesão de que tipo?",
+    "back": "**Primária · Sólida**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Pápula, Edema, Eritema."
+    }
+   },
+   {
+    "id": "pele-def-nodulo",
+    "kind": "texto",
+    "front": "**Nódulo**: o que é e como se reconhece?",
+    "back": "Infiltrado sólido circunscrito, persistente, na derme ou hipoderme, de 1 a 3 cm.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Massa sólida e palpável de 1 a 3 cm, mais profunda que a pápula."
+    }
+   },
+   {
+    "id": "pele-grupo-nodulo",
+    "kind": "texto",
+    "front": "**Nódulo** é lesão de que tipo?",
+    "back": "**Primária · Sólida**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Cisto, Pápula, Goma, Abscesso."
+    }
+   },
+   {
+    "id": "pele-def-goma",
+    "kind": "texto",
+    "front": "**Goma**: o que é e como se reconhece?",
+    "back": "Nódulo ou tumor > 3 cm que liquefaz/necrosa no centro e drena por fistulização ou ulceração.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Lesão grande (> 3 cm) com centro necrótico/ulcerado e drenagem."
+    }
+   },
+   {
+    "id": "pele-grupo-goma",
+    "kind": "texto",
+    "front": "**Goma** é lesão de que tipo?",
+    "back": "**Primária · Sólida**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Nódulo, Abscesso, Úlcera."
+    }
+   },
+   {
+    "id": "pele-def-veget",
+    "kind": "texto",
+    "front": "**Vegetação**: o que é e como se reconhece?",
+    "back": "Pápula elevada, pediculada ou não, de superfície irregular, queratósica, dura e amarelada (verrucosa).",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Lesões \"em couve-flor\", de superfície irregular e áspera. Exemplos: papiloma e verruga vulgar (HPV)."
+    }
+   },
+   {
+    "id": "pele-grupo-veget",
+    "kind": "texto",
+    "front": "**Vegetação** é lesão de que tipo?",
+    "back": "**Primária · Sólida**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Pápula, Queratose, Placa."
+    }
+   },
+   {
+    "id": "pele-def-vesic",
+    "kind": "texto",
+    "front": "**Vesícula**: o que é e como se reconhece?",
+    "back": "Elevação circunscrita de até 1 cm, pontiaguda ou umbilicada, com líquido claro.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Bolinhas pequenas (até 1 cm) com líquido claro, muitas vezes agrupadas. Exemplo: herpes labial."
+    }
+   },
+   {
+    "id": "pele-grupo-vesic",
+    "kind": "texto",
+    "front": "**Vesícula** é lesão de que tipo?",
+    "back": "**Primária · Conteúdo líquido**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Bolha / Flictena, Pústula, Pápula."
+    }
+   },
+   {
+    "id": "pele-def-bolha",
+    "kind": "texto",
+    "front": "**Bolha / Flictena**: o que é e como se reconhece?",
+    "back": "Elevação circunscrita > 1 cm, na epiderme ou entre epiderme e derme, com conteúdo seroso.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Elevação com líquido maior que 1 cm. Exemplo do professor: herpes-zóster."
+    }
+   },
+   {
+    "id": "pele-grupo-bolha",
+    "kind": "texto",
+    "front": "**Bolha / Flictena** é lesão de que tipo?",
+    "back": "**Primária · Conteúdo líquido**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Vesícula, Exulceração / Erosão, Pústula."
+    }
+   },
+   {
+    "id": "pele-def-pustula",
+    "kind": "texto",
+    "front": "**Pústula**: o que é e como se reconhece?",
+    "back": "Elevação circunscrita da epiderme, até 1 cm, com conteúdo purulento.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Bolinha pequena com pus (amarelada/esbranquiçada) no topo. Exemplo: foliculite."
+    }
+   },
+   {
+    "id": "pele-grupo-pustula",
+    "kind": "texto",
+    "front": "**Pústula** é lesão de que tipo?",
+    "back": "**Primária · Conteúdo líquido**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Vesícula, Abscesso, Pápula."
+    }
+   },
+   {
+    "id": "pele-def-abscesso",
+    "kind": "texto",
+    "front": "**Abscesso**: o que é e como se reconhece?",
+    "back": "Coleção de pus profunda, circunscrita, com sinais flogísticos.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Nódulo/abaulamento profundo, vermelho, quente e doloroso, às vezes com ponto de drenagem."
+    }
+   },
+   {
+    "id": "pele-grupo-abscesso",
+    "kind": "texto",
+    "front": "**Abscesso** é lesão de que tipo?",
+    "back": "**Primária · Conteúdo líquido**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Pústula, Cisto, Nódulo, Hematoma."
+    }
+   },
+   {
+    "id": "pele-def-cisto",
+    "kind": "texto",
+    "front": "**Cisto**: o que é e como se reconhece?",
+    "back": "Cavidade revestida por epitélio, conteúdo líquido ou pastoso, sem anexos; móvel, exceto no centro.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Abaulamento arredondado, móvel sob a pele, às vezes com ponto central. Exemplos: cisto sebáceo e epidermoide."
+    }
+   },
+   {
+    "id": "pele-grupo-cisto",
+    "kind": "texto",
+    "front": "**Cisto** é lesão de que tipo?",
+    "back": "**Primária · Conteúdo líquido**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Nódulo, Abscesso, Hematoma."
+    }
+   },
+   {
+    "id": "pele-def-hemato",
+    "kind": "texto",
+    "front": "**Hematoma**: o que é e como se reconhece?",
+    "back": "Coleção sanguínea geralmente restrita ao local do trauma.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Abaulamento roxo/azulado no local de um trauma."
+    }
+   },
+   {
+    "id": "pele-grupo-hemato",
+    "kind": "texto",
+    "front": "**Hematoma** é lesão de que tipo?",
+    "back": "**Primária · Conteúdo líquido**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Púrpura (equimose / petéquia), Cisto, Abscesso."
+    }
+   }
+  ],
+  "images": [
+   {
+    "id": "pele-44",
+    "file": "pele-44.jpg",
+    "width": 251,
+    "height": 176
+   },
+   {
+    "id": "pele-45",
+    "file": "pele-45.jpg",
+    "width": 281,
+    "height": 184
+   },
+   {
+    "id": "pele-51",
+    "file": "pele-51.jpg",
+    "width": 346,
+    "height": 207
+   },
+   {
+    "id": "pele-52",
+    "file": "pele-52.jpg",
+    "width": 603,
+    "height": 536
+   },
+   {
+    "id": "pele-59",
+    "file": "pele-59.jpg",
+    "width": 192,
+    "height": 152
+   },
+   {
+    "id": "pele-58b",
+    "file": "pele-58b.jpg",
+    "width": 201,
+    "height": 141
+   },
+   {
+    "id": "pele-58a",
+    "file": "pele-58a.jpg",
+    "width": 167,
+    "height": 141
+   },
+   {
+    "id": "pele-64",
+    "file": "pele-64.jpg",
+    "width": 275,
+    "height": 233
+   },
+   {
+    "id": "pele-65",
+    "file": "pele-65.jpg",
+    "width": 292,
+    "height": 241
+   },
+   {
+    "id": "pele-70",
+    "file": "pele-70.jpg",
+    "width": 268,
+    "height": 157
+   },
+   {
+    "id": "pele-72",
+    "file": "pele-72.jpg",
+    "width": 300,
+    "height": 193
+   },
+   {
+    "id": "pele-77a",
+    "file": "pele-77a.jpg",
+    "width": 158,
+    "height": 184
+   },
+   {
+    "id": "pele-77b",
+    "file": "pele-77b.jpg",
+    "width": 445,
+    "height": 184
+   },
+   {
+    "id": "pele-78",
+    "file": "pele-78.jpg",
+    "width": 900,
+    "height": 675
+   },
+   {
+    "id": "pele-84",
+    "file": "pele-84.jpg",
+    "width": 313,
+    "height": 237
+   },
+   {
+    "id": "pele-85a",
+    "file": "pele-85a.jpg",
+    "width": 257,
+    "height": 209
+   },
+   {
+    "id": "pele-85b",
+    "file": "pele-85b.jpg",
+    "width": 321,
+    "height": 209
+   },
+   {
+    "id": "pele-86",
+    "file": "pele-86.jpg",
+    "width": 300,
+    "height": 225
+   },
+   {
+    "id": "pele-92",
+    "file": "pele-92.jpg",
+    "width": 430,
+    "height": 325
+   },
+   {
+    "id": "pele-97",
+    "file": "pele-97.jpg",
+    "width": 291,
+    "height": 187
+   },
+   {
+    "id": "pele-106",
+    "file": "pele-106.jpg",
+    "width": 182,
+    "height": 163
+   },
+   {
+    "id": "pele-107",
+    "file": "pele-107.jpg",
+    "width": 195,
+    "height": 163
+   },
+   {
+    "id": "pele-113",
+    "file": "pele-113.jpg",
+    "width": 371,
+    "height": 177
+   },
+   {
+    "id": "pele-114",
+    "file": "pele-114.jpg",
+    "width": 226,
+    "height": 168
+   },
+   {
+    "id": "pele-120",
+    "file": "pele-120.jpg",
+    "width": 270,
+    "height": 225
+   },
+   {
+    "id": "pele-128",
+    "file": "pele-128.jpg",
+    "width": 331,
+    "height": 261
+   },
+   {
+    "id": "pele-129",
+    "file": "pele-129.jpg",
+    "width": 443,
+    "height": 360
+   },
+   {
+    "id": "pele-135",
+    "file": "pele-135.jpg",
+    "width": 260,
+    "height": 169
+   },
+   {
+    "id": "pele-137",
+    "file": "pele-137.jpg",
+    "width": 880,
+    "height": 576
+   },
+   {
+    "id": "pele-141",
+    "file": "pele-141.jpg",
+    "width": 750,
+    "height": 450
+   },
+   {
+    "id": "pele-147",
+    "file": "pele-147.jpg",
+    "width": 500,
+    "height": 340
+   },
+   {
+    "id": "pele-151",
+    "file": "pele-151.jpg",
+    "width": 252,
+    "height": 261
+   },
+   {
+    "id": "pele-156",
+    "file": "pele-156.jpg",
+    "width": 600,
+    "height": 372
+   },
+   {
+    "id": "pele-161",
+    "file": "pele-161.jpg",
+    "width": 675,
+    "height": 900
+   },
+   {
+    "id": "pele-163",
+    "file": "pele-163.jpg",
+    "width": 439,
+    "height": 327
+   },
+   {
+    "id": "pele-169",
+    "file": "pele-169.jpg",
+    "width": 672,
+    "height": 900
+   },
+   {
+    "id": "pele-170",
+    "file": "pele-170.jpg",
+    "width": 900,
+    "height": 618
+   },
+   {
+    "id": "pele-178",
+    "file": "pele-178.jpg",
+    "width": 288,
+    "height": 212
+   },
+   {
+    "id": "pele-180",
+    "file": "pele-180.jpg",
+    "width": 294,
+    "height": 222
+   },
+   {
+    "id": "pele-184",
+    "file": "pele-184.jpg",
+    "width": 286,
+    "height": 265
+   }
+  ]
+ },
+ {
+  "id": "oficial:pele-lesoes-secundarias",
+  "slug": "pele-lesoes-secundarias",
+  "origin": "oficial",
+  "title": "Lesões secundárias",
+  "description": "Alterações de consistência e espessura e perdas teciduais: profundidade, cicatriz e o que sobra na superfície.",
+  "disciplineId": "ha-1",
+  "collection": "Lesões elementares de pele",
+  "color": "#d6336c",
+  "sourceNote": "Roteiro de semiologia da turma (lesões elementares). Fotos reunidas de material didático, só para estudo.",
+  "cards": [
+   {
+    "id": "pele-foto-190a",
+    "kind": "foto",
+    "imageId": "pele-190a",
+    "answer": "Queratose",
+    "note": "Queratose",
+    "description": "Espessamento da camada córnea: endurecida, inelástica, amarelada/pardacenta, áspera.",
+    "howToSpot": "Pele espessada, áspera e amarelada, com aspecto de calo.",
+    "confuseWith": [
+     "Liquenificação",
+     "Escama",
+     "Placa"
+    ]
+   },
+   {
+    "id": "pele-foto-195a",
+    "kind": "foto",
+    "imageId": "pele-195a",
+    "answer": "Liquenificação",
+    "note": "Liquenificação",
+    "description": "Espessamento da pele com acentuação dos sulcos (quadriculado), por coçadura.",
+    "howToSpot": "Pele grossa com quadriculado exagerado (sulcos marcados), típica de áreas coçadas.",
+    "confuseWith": [
+     "Queratose",
+     "Esclerose",
+     "Atrofia"
+    ]
+   },
+   {
+    "id": "pele-foto-195b",
+    "kind": "foto",
+    "imageId": "pele-195b",
+    "answer": "Liquenificação",
+    "note": "Liquenificação (quadriculado)",
+    "description": "Espessamento da pele com acentuação dos sulcos (quadriculado), por coçadura.",
+    "howToSpot": "Pele grossa com quadriculado exagerado (sulcos marcados), típica de áreas coçadas.",
+    "confuseWith": [
+     "Queratose",
+     "Esclerose",
+     "Atrofia"
+    ]
+   },
+   {
+    "id": "pele-foto-202",
+    "kind": "foto",
+    "imageId": "pele-202",
+    "answer": "Edema",
+    "note": "Edema de membros inferiores",
+    "description": "Extravasamento de líquido na derme ou hipoderme; cor normal ou eritema.",
+    "howToSpot": "Pele inchada, às vezes brilhante ou avermelhada (ex.: pernas e pés edemaciados).",
+    "confuseWith": [
+     "Urtica",
+     "Esclerose",
+     "Eritema"
+    ]
+   },
+   {
+    "id": "pele-foto-203",
+    "kind": "foto",
+    "imageId": "pele-203",
+    "answer": "Edema",
+    "note": "Edema com eritema",
+    "description": "Extravasamento de líquido na derme ou hipoderme; cor normal ou eritema.",
+    "howToSpot": "Pele inchada, às vezes brilhante ou avermelhada (ex.: pernas e pés edemaciados).",
+    "confuseWith": [
+     "Urtica",
+     "Esclerose",
+     "Eritema"
+    ]
+   },
+   {
+    "id": "pele-foto-209a",
+    "kind": "foto",
+    "imageId": "pele-209a",
+    "answer": "Esclerose",
+    "note": "Esclerose",
+    "description": "Pele brilhante, firme, lisa, endurecida e branca, sem pregueamento.",
+    "howToSpot": "Pele dura, lisa, brilhante e esbranquiçada, que não forma pregas.",
+    "confuseWith": [
+     "Atrofia",
+     "Cicatriz",
+     "Liquenificação"
+    ]
+   },
+   {
+    "id": "pele-foto-209b",
+    "kind": "foto",
+    "imageId": "pele-209b",
+    "answer": "Esclerose",
+    "note": "Esclerose (dedos)",
+    "description": "Pele brilhante, firme, lisa, endurecida e branca, sem pregueamento.",
+    "howToSpot": "Pele dura, lisa, brilhante e esbranquiçada, que não forma pregas.",
+    "confuseWith": [
+     "Atrofia",
+     "Cicatriz",
+     "Liquenificação"
+    ]
+   },
+   {
+    "id": "pele-foto-214a",
+    "kind": "foto",
+    "imageId": "pele-214a",
+    "answer": "Atrofia",
+    "note": "Atrofia (estrias)",
+    "description": "Diminuição da espessura: pele pregueável, enrugada, elevada ou deprimida.",
+    "howToSpot": "Pele fina e enrugada (como papel de cigarro), que pregueia fácil. Ex.: estrias.",
+    "confuseWith": [
+     "Esclerose",
+     "Cicatriz"
+    ]
+   },
+   {
+    "id": "pele-foto-214b",
+    "kind": "foto",
+    "imageId": "pele-214b",
+    "answer": "Atrofia",
+    "note": "Atrofia linear cutânea",
+    "description": "Diminuição da espessura: pele pregueável, enrugada, elevada ou deprimida.",
+    "howToSpot": "Pele fina e enrugada (como papel de cigarro), que pregueia fácil. Ex.: estrias.",
+    "confuseWith": [
+     "Esclerose",
+     "Cicatriz"
+    ]
+   },
+   {
+    "id": "pele-foto-218a",
+    "kind": "foto",
+    "imageId": "pele-218a",
+    "answer": "Cicatriz",
+    "note": "Cicatriz atrófica",
+    "description": "Lesão brilhante, sem anexos cutâneos, por reparação: normotrófica, atrófica, hipertrófica ou queloide.",
+    "howToSpot": "Área lisa e brilhante, sem pelos, que pode ser plana, deprimida ou elevada (queloide).",
+    "confuseWith": [
+     "Atrofia",
+     "Esclerose",
+     "Úlcera"
+    ]
+   },
+   {
+    "id": "pele-foto-218c",
+    "kind": "foto",
+    "imageId": "pele-218c",
+    "answer": "Cicatriz",
+    "note": "Cicatriz queloide",
+    "description": "Lesão brilhante, sem anexos cutâneos, por reparação: normotrófica, atrófica, hipertrófica ou queloide.",
+    "howToSpot": "Área lisa e brilhante, sem pelos, que pode ser plana, deprimida ou elevada (queloide).",
+    "confuseWith": [
+     "Atrofia",
+     "Esclerose",
+     "Úlcera"
+    ]
+   },
+   {
+    "id": "pele-foto-223",
+    "kind": "foto",
+    "imageId": "pele-223",
+    "answer": "Exulceração / Erosão",
+    "note": "Erosão (ralado)",
+    "description": "Perda PARCIAL da epiderme; não deixa cicatriz; pode ser secundária à ruptura de bolha.",
+    "howToSpot": "Área úmida e \"raspada\", rasa, que atinge só a epiderme (ex.: ralado no joelho, bolha rompida no calcanhar).",
+    "confuseWith": [
+     "Úlcera",
+     "Fissura",
+     "Crosta"
+    ]
+   },
+   {
+    "id": "pele-foto-225",
+    "kind": "foto",
+    "imageId": "pele-225",
+    "answer": "Exulceração / Erosão",
+    "note": "Erosão após ruptura de bolha",
+    "description": "Perda PARCIAL da epiderme; não deixa cicatriz; pode ser secundária à ruptura de bolha.",
+    "howToSpot": "Área úmida e \"raspada\", rasa, que atinge só a epiderme (ex.: ralado no joelho, bolha rompida no calcanhar).",
+    "confuseWith": [
+     "Úlcera",
+     "Fissura",
+     "Crosta"
+    ]
+   },
+   {
+    "id": "pele-foto-237",
+    "kind": "foto",
+    "imageId": "pele-237",
+    "answer": "Úlcera",
+    "note": "Úlcera de pressão (escara)",
+    "description": "Perda circunscrita de epiderme e DERME, podendo atingir hipoderme; deixa cicatriz.",
+    "howToSpot": "Cratera profunda que vai além da epiderme. A escara é uma úlcera de pressão.",
+    "confuseWith": [
+     "Exulceração / Erosão",
+     "Fissura",
+     "Goma"
+    ],
+    "association": "Escara (úlcera de pressão)."
+   },
+   {
+    "id": "pele-foto-245",
+    "kind": "foto",
+    "imageId": "pele-245",
+    "answer": "Fissura",
+    "note": "Fissuras plantares",
+    "description": "Fenda linear, estreita e profunda; pele quebradiça ou macerada em áreas de distensão.",
+    "howToSpot": "Rachadura linear fina e profunda, comum em calcanhares, mãos, lábios e dobras.",
+    "confuseWith": [
+     "Exulceração / Erosão",
+     "Úlcera",
+     "Fístula"
+    ]
+   },
+   {
+    "id": "pele-foto-250a",
+    "kind": "foto",
+    "imageId": "pele-250a",
+    "answer": "Crosta",
+    "note": "Crosta hemática",
+    "description": "Massa de exsudato ressecado em área de perda tecidual: hemática, sero-hemática ou purulenta.",
+    "howToSpot": "Casca escura (sangue seco) ou amarelo-melicérica (soro/pus seco) sobre uma lesão.",
+    "confuseWith": [
+     "Escama",
+     "Exulceração / Erosão",
+     "Úlcera"
+    ]
+   },
+   {
+    "id": "pele-foto-250b",
+    "kind": "foto",
+    "imageId": "pele-250b",
+    "answer": "Crosta",
+    "note": "Crosta melicérica (sero-purulenta)",
+    "description": "Massa de exsudato ressecado em área de perda tecidual: hemática, sero-hemática ou purulenta.",
+    "howToSpot": "Casca escura (sangue seco) ou amarelo-melicérica (soro/pus seco) sobre uma lesão.",
+    "confuseWith": [
+     "Escama",
+     "Exulceração / Erosão",
+     "Úlcera"
+    ]
+   },
+   {
+    "id": "pele-foto-254a",
+    "kind": "foto",
+    "imageId": "pele-254a",
+    "answer": "Escama",
+    "note": "Escamas (pele ictiótica/seca)",
+    "description": "Massa seca ou gordurosa de queratinócitos desprendidos: laminar, nacarada ou furfurácea.",
+    "howToSpot": "Lamelas ou \"farelo\" esbranquiçado que se solta da pele (ex.: psoríase).",
+    "confuseWith": [
+     "Crosta",
+     "Queratose",
+     "Placa"
+    ]
+   },
+   {
+    "id": "pele-foto-254b",
+    "kind": "foto",
+    "imageId": "pele-254b",
+    "answer": "Escama",
+    "note": "Escama (psoríase)",
+    "description": "Massa seca ou gordurosa de queratinócitos desprendidos: laminar, nacarada ou furfurácea.",
+    "howToSpot": "Lamelas ou \"farelo\" esbranquiçado que se solta da pele (ex.: psoríase).",
+    "confuseWith": [
+     "Crosta",
+     "Queratose",
+     "Placa"
+    ]
+   },
+   {
+    "id": "pele-foto-259a",
+    "kind": "foto",
+    "imageId": "pele-259a",
+    "answer": "Fístula",
+    "note": "Fístula cutânea",
+    "description": "Pertuito da pele com borda fibrótica que drena foco supurativo ou necrótico profundo.",
+    "howToSpot": "Orifício puntiforme que drena secreção de um foco profundo (ex.: fístula cutânea odontogênica).",
+    "confuseWith": [
+     "Fissura",
+     "Úlcera",
+     "Abscesso"
+    ]
+   },
+   {
+    "id": "pele-def-quera",
+    "kind": "texto",
+    "front": "**Queratose**: o que é e como se reconhece?",
+    "back": "Espessamento da camada córnea: endurecida, inelástica, amarelada/pardacenta, áspera.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Pele espessada, áspera e amarelada, com aspecto de calo."
+    }
+   },
+   {
+    "id": "pele-grupo-quera",
+    "kind": "texto",
+    "front": "**Queratose** é lesão de que tipo?",
+    "back": "**Secundária · Consistência/espessura**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Liquenificação, Escama, Placa."
+    }
+   },
+   {
+    "id": "pele-def-liquen",
+    "kind": "texto",
+    "front": "**Liquenificação**: o que é e como se reconhece?",
+    "back": "Espessamento da pele com acentuação dos sulcos (quadriculado), por coçadura.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Pele grossa com quadriculado exagerado (sulcos marcados), típica de áreas coçadas."
+    }
+   },
+   {
+    "id": "pele-grupo-liquen",
+    "kind": "texto",
+    "front": "**Liquenificação** é lesão de que tipo?",
+    "back": "**Secundária · Consistência/espessura**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Queratose, Esclerose, Atrofia."
+    }
+   },
+   {
+    "id": "pele-def-edema",
+    "kind": "texto",
+    "front": "**Edema**: o que é e como se reconhece?",
+    "back": "Extravasamento de líquido na derme ou hipoderme; cor normal ou eritema.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Pele inchada, às vezes brilhante ou avermelhada (ex.: pernas e pés edemaciados)."
+    }
+   },
+   {
+    "id": "pele-grupo-edema",
+    "kind": "texto",
+    "front": "**Edema** é lesão de que tipo?",
+    "back": "**Secundária · Consistência/espessura**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Urtica, Esclerose, Eritema."
+    }
+   },
+   {
+    "id": "pele-def-escler",
+    "kind": "texto",
+    "front": "**Esclerose**: o que é e como se reconhece?",
+    "back": "Pele brilhante, firme, lisa, endurecida e branca, sem pregueamento.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Pele dura, lisa, brilhante e esbranquiçada, que não forma pregas."
+    }
+   },
+   {
+    "id": "pele-grupo-escler",
+    "kind": "texto",
+    "front": "**Esclerose** é lesão de que tipo?",
+    "back": "**Secundária · Consistência/espessura**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Atrofia, Cicatriz, Liquenificação."
+    }
+   },
+   {
+    "id": "pele-def-atrofia",
+    "kind": "texto",
+    "front": "**Atrofia**: o que é e como se reconhece?",
+    "back": "Diminuição da espessura: pele pregueável, enrugada, elevada ou deprimida.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Pele fina e enrugada (como papel de cigarro), que pregueia fácil. Ex.: estrias."
+    }
+   },
+   {
+    "id": "pele-grupo-atrofia",
+    "kind": "texto",
+    "front": "**Atrofia** é lesão de que tipo?",
+    "back": "**Secundária · Consistência/espessura**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Esclerose, Cicatriz."
+    }
+   },
+   {
+    "id": "pele-def-cicatriz",
+    "kind": "texto",
+    "front": "**Cicatriz**: o que é e como se reconhece?",
+    "back": "Lesão brilhante, sem anexos cutâneos, por reparação: normotrófica, atrófica, hipertrófica ou queloide.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Área lisa e brilhante, sem pelos, que pode ser plana, deprimida ou elevada (queloide)."
+    }
+   },
+   {
+    "id": "pele-grupo-cicatriz",
+    "kind": "texto",
+    "front": "**Cicatriz** é lesão de que tipo?",
+    "back": "**Secundária · Consistência/espessura**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Atrofia, Esclerose, Úlcera."
+    }
+   },
+   {
+    "id": "pele-def-erosao",
+    "kind": "texto",
+    "front": "**Exulceração / Erosão**: o que é e como se reconhece?",
+    "back": "Perda PARCIAL da epiderme; não deixa cicatriz; pode ser secundária à ruptura de bolha.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Área úmida e \"raspada\", rasa, que atinge só a epiderme (ex.: ralado no joelho, bolha rompida no calcanhar)."
+    }
+   },
+   {
+    "id": "pele-grupo-erosao",
+    "kind": "texto",
+    "front": "**Exulceração / Erosão** é lesão de que tipo?",
+    "back": "**Secundária · Perda tecidual**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Úlcera, Fissura, Crosta."
+    }
+   },
+   {
+    "id": "pele-def-ulcera",
+    "kind": "texto",
+    "front": "**Úlcera**: o que é e como se reconhece?",
+    "back": "Perda circunscrita de epiderme e DERME, podendo atingir hipoderme; deixa cicatriz.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Cratera profunda que vai além da epiderme. A escara é uma úlcera de pressão."
+    }
+   },
+   {
+    "id": "pele-grupo-ulcera",
+    "kind": "texto",
+    "front": "**Úlcera** é lesão de que tipo?",
+    "back": "**Secundária · Perda tecidual**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Exulceração / Erosão, Fissura, Goma."
+    }
+   },
+   {
+    "id": "pele-def-fissura",
+    "kind": "texto",
+    "front": "**Fissura**: o que é e como se reconhece?",
+    "back": "Fenda linear, estreita e profunda; pele quebradiça ou macerada em áreas de distensão.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Rachadura linear fina e profunda, comum em calcanhares, mãos, lábios e dobras."
+    }
+   },
+   {
+    "id": "pele-grupo-fissura",
+    "kind": "texto",
+    "front": "**Fissura** é lesão de que tipo?",
+    "back": "**Secundária · Perda tecidual**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Exulceração / Erosão, Úlcera, Fístula."
+    }
+   },
+   {
+    "id": "pele-def-crosta",
+    "kind": "texto",
+    "front": "**Crosta**: o que é e como se reconhece?",
+    "back": "Massa de exsudato ressecado em área de perda tecidual: hemática, sero-hemática ou purulenta.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Casca escura (sangue seco) ou amarelo-melicérica (soro/pus seco) sobre uma lesão."
+    }
+   },
+   {
+    "id": "pele-grupo-crosta",
+    "kind": "texto",
+    "front": "**Crosta** é lesão de que tipo?",
+    "back": "**Secundária · Perda tecidual**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Escama, Exulceração / Erosão, Úlcera."
+    }
+   },
+   {
+    "id": "pele-def-escama",
+    "kind": "texto",
+    "front": "**Escama**: o que é e como se reconhece?",
+    "back": "Massa seca ou gordurosa de queratinócitos desprendidos: laminar, nacarada ou furfurácea.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Lamelas ou \"farelo\" esbranquiçado que se solta da pele (ex.: psoríase)."
+    }
+   },
+   {
+    "id": "pele-grupo-escama",
+    "kind": "texto",
+    "front": "**Escama** é lesão de que tipo?",
+    "back": "**Secundária · Perda tecidual**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Crosta, Queratose, Placa."
+    }
+   },
+   {
+    "id": "pele-def-fistula",
+    "kind": "texto",
+    "front": "**Fístula**: o que é e como se reconhece?",
+    "back": "Pertuito da pele com borda fibrótica que drena foco supurativo ou necrótico profundo.",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Orifício puntiforme que drena secreção de um foco profundo (ex.: fístula cutânea odontogênica)."
+    }
+   },
+   {
+    "id": "pele-grupo-fistula",
+    "kind": "texto",
+    "front": "**Fístula** é lesão de que tipo?",
+    "back": "**Secundária · Perda tecidual**",
+    "tip": {
+     "label": "Atenção",
+     "text": "Não confunda com: Fissura, Úlcera, Abscesso."
+    }
+   }
+  ],
+  "images": [
+   {
+    "id": "pele-190a",
+    "file": "pele-190a.jpg",
+    "width": 293,
+    "height": 185
+   },
+   {
+    "id": "pele-195a",
+    "file": "pele-195a.jpg",
+    "width": 287,
+    "height": 178
+   },
+   {
+    "id": "pele-195b",
+    "file": "pele-195b.jpg",
+    "width": 313,
+    "height": 178
+   },
+   {
+    "id": "pele-202",
+    "file": "pele-202.jpg",
+    "width": 900,
+    "height": 884
+   },
+   {
+    "id": "pele-203",
+    "file": "pele-203.jpg",
+    "width": 900,
+    "height": 675
+   },
+   {
+    "id": "pele-209a",
+    "file": "pele-209a.jpg",
+    "width": 286,
+    "height": 146
+   },
+   {
+    "id": "pele-209b",
+    "file": "pele-209b.jpg",
+    "width": 303,
+    "height": 146
+   },
+   {
+    "id": "pele-214a",
+    "file": "pele-214a.jpg",
+    "width": 295,
+    "height": 232
+   },
+   {
+    "id": "pele-214b",
+    "file": "pele-214b.jpg",
+    "width": 316,
+    "height": 205
+   },
+   {
+    "id": "pele-218a",
+    "file": "pele-218a.jpg",
+    "width": 162,
+    "height": 169
+   },
+   {
+    "id": "pele-218c",
+    "file": "pele-218c.jpg",
+    "width": 152,
+    "height": 169
+   },
+   {
+    "id": "pele-223",
+    "file": "pele-223.jpg",
+    "width": 606,
+    "height": 600
+   },
+   {
+    "id": "pele-225",
+    "file": "pele-225.jpg",
+    "width": 700,
+    "height": 466
+   },
+   {
+    "id": "pele-237",
+    "file": "pele-237.jpg",
+    "width": 284,
+    "height": 237
+   },
+   {
+    "id": "pele-245",
+    "file": "pele-245.jpg",
+    "width": 259,
+    "height": 194
+   },
+   {
+    "id": "pele-250a",
+    "file": "pele-250a.jpg",
+    "width": 270,
+    "height": 232
+   },
+   {
+    "id": "pele-250b",
+    "file": "pele-250b.jpg",
+    "width": 291,
+    "height": 225
+   },
+   {
+    "id": "pele-254a",
+    "file": "pele-254a.jpg",
+    "width": 284,
+    "height": 206
+   },
+   {
+    "id": "pele-254b",
+    "file": "pele-254b.jpg",
+    "width": 304,
+    "height": 172
+   },
+   {
+    "id": "pele-259a",
+    "file": "pele-259a.jpg",
+    "width": 260,
+    "height": 190
+   }
+  ]
+ }
+]

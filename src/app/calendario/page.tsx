@@ -10,7 +10,7 @@ import { getDisciplines } from "@/lib/repository";
 import { getExams } from "@/lib/repository/exams";
 
 export const metadata: Metadata = {
-  title: "Calendário",
+  title: "Agenda",
   description: "As datas do semestre, o que cai em cada avaliação, as aulas e como treinar.",
 };
 
@@ -77,11 +77,11 @@ export default async function CalendarioPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-      <Breadcrumbs trail={[{ label: "Início", href: "/" }, { label: "Calendário" }]} />
+      <Breadcrumbs trail={[{ label: "Início", href: "/" }, { label: "Agenda" }]} />
       <SectionHeading
         as="h1"
-        title="Calendário"
-        description="As datas do semestre, transcritas dos cronogramas dos planos de ensino, com o que cai em cada avaliação, o simulado para treinar e o resumo da aula."
+        title="Agenda"
+        description="As datas do semestre, transcritas dos cronogramas dos planos de ensino, com o que cai em cada avaliação, o simulado para treinar, o resumo da aula — e, na aba Notas, o que você tirou."
       />
 
       <CalendarViews

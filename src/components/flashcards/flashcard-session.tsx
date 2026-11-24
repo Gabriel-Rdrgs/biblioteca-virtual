@@ -627,6 +627,13 @@ function CardView({
     const frontText = card.kind === "texto" ? card.front : "Figura indisponível neste aparelho.";
     const backText = card.kind === "texto" ? card.back : `**${card.answer}**`;
     const tip = card.kind === "texto" ? card.tip : undefined;
+    const backImages =
+      card.kind === "texto"
+        ? (card.backImageIds ?? []).flatMap((id) => {
+            const found = images.get(id);
+            return found ? [found] : [];
+          })
+        : [];
     front = (
       <div
         className="relative flex min-h-[28rem] flex-col gap-4 overflow-hidden rounded-hero p-6 text-white sm:p-8"
@@ -662,6 +669,24 @@ function CardView({
             backText.length > 400 ? "text-base sm:text-lg" : "text-xl sm:text-2xl",
           )}
         />
+        {backImages.length > 0 ? (
+          <div className={cn("grid gap-3", backImages.length > 1 && "sm:grid-cols-2")}>
+            {backImages.map((figure) => (
+              <figure key={figure.id} className="m-0">
+                <CardFigure
+                  image={figure}
+                  onZoom={onZoom}
+                  maxHeight={backImages.length > 1 ? "max-h-48" : "max-h-72"}
+                />
+                {figure.caption ? (
+                  <figcaption className="text-ink-faint mt-1 text-center text-xs">
+                    {figure.caption}
+                  </figcaption>
+                ) : null}
+              </figure>
+            ))}
+          </div>
+        ) : null}
         {tip ? (
           <div className="bg-surface-sunken border-ink mt-auto rounded-card border-l-2 px-4 py-3 text-sm">
             <strong className="text-danger block text-[0.62rem] tracking-[0.18em] uppercase">

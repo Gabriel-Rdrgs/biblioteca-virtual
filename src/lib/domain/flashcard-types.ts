@@ -42,6 +42,11 @@ export interface TextCard {
   readonly axisId?: string;
   /** Figura que acompanha a frente (as questões do banco que citam uma). */
   readonly imageId?: string;
+  /**
+   * Figuras que só aparecem com a resposta — o esquema do livro que explica
+   * o que o verso diz, e que na frente entregaria a resposta.
+   */
+  readonly backImageIds?: readonly string[];
 }
 
 /**

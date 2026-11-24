@@ -8,6 +8,7 @@ import {
   Layers,
   LineChart,
   Sparkles,
+  Stethoscope,
   TriangleAlert,
   WalletCards,
   Zap,
@@ -64,7 +65,13 @@ const MODES = [
     title: "Desempenho",
     text: "Acerto por área, assuntos fracos e dias estudados.",
   },
-] as const;
+];
+
+/** O simulador de prova prática de MAC I chega na próxima etapa. */
+const SOON = {
+  title: "Prova prática",
+  text: "Estações cronometradas de anatomia, histologia e embriologia, como na N2 prática.",
+};
 
 export default async function EstudarPage() {
   const disciplines = await getDisciplines();
@@ -99,7 +106,7 @@ export default async function EstudarPage() {
       </div>
 
       <nav aria-label="Modos de estudo" className="mb-10">
-        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {MODES.map(({ href, icon: Icon, title, text }) => (
             <li key={href}>
               <CardLink href={href} className="flex h-full flex-col gap-2">
@@ -109,6 +116,14 @@ export default async function EstudarPage() {
               </CardLink>
             </li>
           ))}
+          <li className="rounded-panel border-line-strong flex flex-col gap-2 border border-dashed p-5 opacity-80">
+            <span className="flex items-center justify-between">
+              <Stethoscope className="text-primary size-5" aria-hidden="true" />
+              <Badge tom="acento">em breve</Badge>
+            </span>
+            <span className="font-semibold">{SOON.title}</span>
+            <span className="text-ink-muted text-sm leading-relaxed">{SOON.text}</span>
+          </li>
         </ul>
       </nav>
 

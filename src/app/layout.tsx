@@ -23,11 +23,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Atlas — Biblioteca Médica",
+    default: "Atlas — Estudo de Medicina",
     template: "%s · Atlas",
   },
   description:
-    "Biblioteca de referência da turma de Medicina do 1º período do UNIEURO. Livros, disciplinas e planos de ensino de 2026.2 em um só lugar.",
+    "O lugar onde a turma de Medicina do UNIEURO estuda: datas de prova, simulados, flashcards, resumos, notas e a bibliografia dos planos de ensino.",
 };
 
 export const viewport: Viewport = {

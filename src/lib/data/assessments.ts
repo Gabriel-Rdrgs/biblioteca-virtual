@@ -470,7 +470,7 @@ export const seedAssessments: readonly Assessment[] = [
     weight: "8,0",
     content: ["Problemas 1 a 3."],
     examIds: [],
-    note: "Prova de 2 horas, com questões subjetivas e objetivas.",
+    note: "Prova de 2 horas, com questões subjetivas e objetivas, conforme o plano de ensino de AES 3, p. 5.",
     source: plano("AES 3", 8),
   },
   {
@@ -494,7 +494,7 @@ export const seedAssessments: readonly Assessment[] = [
     weight: "8,0",
     content: ["Problemas 4 a 6."],
     examIds: [],
-    note: "Prova de 2 horas, com questões subjetivas e objetivas.",
+    note: "Prova de 2 horas, com questões subjetivas e objetivas, conforme o plano de ensino de AES 3, p. 5.",
     source: plano("AES 3", 8),
   },
   {

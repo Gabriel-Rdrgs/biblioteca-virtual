@@ -51,7 +51,7 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
       <Breadcrumbs
         trail={[
           { label: "Início", href: "/" },
-          { label: "Estante", href: "/livros" },
+          { label: "Biblioteca", href: "/livros" },
           { label: book.title },
         ]}
       />

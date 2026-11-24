@@ -11,6 +11,10 @@ import { BookMarked, CalendarDays, Home, Layers, PencilRuler, type LucideIcon } 
  *
  * Agora são cinco destinos iguais nos dois tamanhos. Busca não está aqui de
  * propósito: busca é ação, não lugar, e fica no cabeçalho.
+ *
+ * Em novembro de 2026 a ordem passou a ser a do uso: o Atlas deixou de ser
+ * só estante, então Estudar vem logo depois do Início, a estante virou
+ * Biblioteca (livros e resumos) e o calendário virou Agenda (datas e notas).
  */
 
 export interface NavItem {
@@ -25,7 +29,13 @@ export interface NavItem {
 
 export const navItems: readonly NavItem[] = [
   { href: "/", label: "Início", icon: Home, exact: true },
-  { href: "/livros", label: "Estante", icon: BookMarked },
+  {
+    href: "/estudar",
+    label: "Estudar",
+    icon: PencilRuler,
+    // Simulados, flashcards, os modos de treino e o desempenho são um lugar só.
+    alsoMatches: ["/simulados", "/progresso", "/flashcards"],
+  },
   {
     href: "/disciplinas",
     label: "Matérias",
@@ -34,12 +44,19 @@ export const navItems: readonly NavItem[] = [
     alsoMatches: ["/planos-de-ensino"],
   },
   {
-    href: "/estudar",
-    label: "Estudar",
-    icon: PencilRuler,
-    alsoMatches: ["/simulados", "/progresso", "/notas", "/flashcards"],
+    href: "/livros",
+    label: "Biblioteca",
+    icon: BookMarked,
+    // Livros e resumos são o material de leitura da turma.
+    alsoMatches: ["/resumos"],
   },
-  { href: "/calendario", label: "Calendário", icon: CalendarDays },
+  {
+    href: "/calendario",
+    label: "Agenda",
+    icon: CalendarDays,
+    // As datas e o que se tirou nelas.
+    alsoMatches: ["/notas"],
+  },
 ];
 
 export function isActive(item: NavItem, pathname: string): boolean {
