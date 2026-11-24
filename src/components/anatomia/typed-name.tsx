@@ -58,10 +58,10 @@ export function TypedName({
     const typed = i < typing.pos;
     const revealed = typing.revealed.includes(i);
     let char: string | null = slot.char;
-    let tone = "text-white/25";
+    let tone = "text-white/45";
     if (revealed) tone = "text-amber-400";
     else if (typed) tone = "text-[#ff6a55]";
-    else if (reveal) tone = "text-white/70";
+    else if (reveal) tone = "text-white/85";
     else if (round === 2) char = i === first || slot.key === null ? slot.char : "•";
     else if (round === 3) char = null;
     if (char === null) return null;

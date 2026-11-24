@@ -178,6 +178,8 @@ export function NameTrainer({
   const [now, setNow] = useState(() => Date.now());
   const bottom = useRef<HTMLDivElement>(null);
   const [bottomHeight, setBottomHeight] = useState(0);
+  // "Centralizar": pede de novo o enquadramento do músculo depois de girar à vontade.
+  const [refocus, setRefocus] = useState(0);
   const { height: visibleHeight, keyboard } = useVisibleHeight();
 
   const cue = useCallback((c: Cue, p = 0) => {
@@ -348,10 +350,10 @@ export function NameTrainer({
       keys: parts,
       side: (state.round === 3 ? "right" : "left") as "left" | "right",
       padding: 3.1,
-      nonce: `${state.round}-${state.index}`,
+      nonce: `${state.round}-${state.index}-${refocus}`,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [state.round, state.index, parts.join("|")],
+    [state.round, state.index, refocus, parts.join("|")],
   );
 
   if (!active) {
@@ -389,12 +391,13 @@ export function NameTrainer({
         result={green ? { keys: parts, ok: true } : null}
         focus={focus}
         insets
+        sway
         bottomInset={bottomHeight}
         className="absolute inset-0"
       />
 
       {/* ------------------------------------------------ barra de cima */}
-      <div className="absolute inset-x-0 top-0 flex items-start gap-2 p-2 pt-[max(8px,env(safe-area-inset-top))] sm:p-4">
+      <div className="pointer-events-none absolute inset-x-0 top-0 flex items-start gap-2 p-2 pt-[max(8px,env(safe-area-inset-top))] sm:p-4 [&_button]:pointer-events-auto">
         <button
           type="button"
           onClick={exit}
@@ -453,19 +456,30 @@ export function NameTrainer({
         </button>
       </div>
 
-      <p className="pointer-events-none absolute bottom-1 left-2 hidden text-[10px] text-white/25 sm:block">
+      <p className="pointer-events-none absolute bottom-1 left-2 hidden text-[10px] text-white/30 sm:block">
         Modelo 3D “ecorche”, Charleeh · CC BY-SA 4.0 · BodyParts3D, Z-Anatomy
       </p>
+      <div className="absolute right-2 bottom-1 hidden items-center gap-2 text-[11px] text-white/45 sm:flex">
+        <span className="pointer-events-none">Arraste para girar · role para aproximar</span>
+        <button
+          type="button"
+          onPointerDown={(e) => e.preventDefault()}
+          onClick={() => setRefocus((n) => n + 1)}
+          className="rounded-full border border-white/15 px-2.5 py-1 text-white/70 hover:bg-white/5 hover:text-white"
+        >
+          Centralizar
+        </button>
+      </div>
 
       {/* ------------------------------------------------ o nome */}
       <div
         ref={bottom}
         className={cn(
-          "absolute inset-x-0 bottom-0 flex flex-col items-center px-3 pt-2 text-center",
+          "pointer-events-none absolute inset-x-0 bottom-0 flex flex-col items-center px-3 pt-2 text-center [text-shadow:0_1px_10px_rgba(0,0,0,0.95)]",
           keyboard ? "pb-1" : "pb-4 sm:pb-8",
         )}
       >
-        <p className="mb-1.5 font-mono text-[12px] tracking-wide text-white/50">
+        <p className="mb-1.5 font-mono text-[12px] tracking-wide text-white/60">
           rodada {state.round} · {ROUND_INFO[state.round].label} · {state.index + 1} / {state.order.length}
         </p>
         <KeyCatcher onKey={key} onEnter={() => stateRef.current.phase === "missed" && advance()} resetKey={`${state.round}-${state.index}`}>
@@ -480,14 +494,14 @@ export function NameTrainer({
         </KeyCatcher>
         <p
           className={cn(
-            "mx-auto max-w-xl leading-snug text-white/75 lg:text-[13.5px]",
+            "mx-auto max-w-xl leading-snug text-white/90 lg:text-[14px]",
             keyboard ? "mt-1 line-clamp-2 text-[13.5px]" : "mt-2 line-clamp-3 min-h-[2.6em] text-[14.5px]",
           )}
         >
           {text}
         </p>
         <div
-          className={cn("flex items-center gap-2", keyboard ? "mt-0.5" : "mt-2", "min-h-11")}
+          className={cn("pointer-events-auto flex items-center gap-2", keyboard ? "mt-0.5" : "mt-2", "min-h-11")}
           onPointerDown={(e) => e.preventDefault()}
         >
           {state.phase === "missed" ? (

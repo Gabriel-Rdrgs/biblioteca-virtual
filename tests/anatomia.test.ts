@@ -48,6 +48,14 @@ describe("os dados da anatomia 3D", () => {
     }
   });
 
+  it("cada músculo tem a própria ficha, não a do vizinho", () => {
+    // Regressão: a extração lia além do fim de algumas fichas e as trocava.
+    const names = anatomyData.structures.flatMap((s) => (s.ficha ? [s.ficha.nameEn] : []));
+    expect(new Set(names).size).toBe(names.length);
+    const frontal = anatomyData.structures.find((s) => s.id === "occipitofrontal-ventre-frontal");
+    expect(frontal?.ficha?.nameEn).toMatch(/frontal/i);
+  });
+
   it("uma peça não pertence a duas estruturas", () => {
     const seen = new Map<string, string>();
     for (const s of anatomyData.structures) {

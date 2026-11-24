@@ -162,9 +162,11 @@ maiúscula não contam, o espaço pode ser omitido.
 - **Revisão espaçada** (`/anatomia/revisar`): cada nome escrito de memória
   volta em 1, 3, 7, 14 e 30 dias; o que se erra volta no mesmo dia. O painel
   `/anatomia` mostra o que venceu hoje, a próxima lição e as regiões.
-- **Atlas** (`/anatomia/atlas`): girar o corpo, ligar e desligar camadas e
-  tocar num músculo — ou procurá-lo pelo nome em português, inglês ou latim —
-  para abrir a ficha: origem, inserção, ação, inervação, relações, ponto de
+- **Atlas** (`/anatomia/atlas`): girar o corpo, ligar e desligar camadas;
+  passar o mouse acende e nomeia a estrutura; escolher uma prende nela uma
+  etiqueta, leva a câmera até ela e permite esmaecer o resto, ver em raio-X,
+  isolar ou ocultar o que atrapalha. Tocar num músculo — ou procurá-lo pelo
+  nome em português, inglês ou latim — abre a ficha: origem, inserção, ação, inervação, relações, ponto de
   prova e mnemônico, com as fontes (Moore, Gray, Netter, Sobotta, TA2).
 - **Desafiar** (`/anatomia/quiz`): identificar, localizar tocando e
   reconhecer pela função, por região.

@@ -60,29 +60,32 @@
     "frontalis"
    ],
    "ficha": {
-    "nameEn": "Orbicularis oris",
-    "nameLatin": "Musculus orbicularis oris",
+    "nameEn": "Frontal belly of occipitofrontalis",
+    "nameLatin": "Musculus occipitofrontalis (venter frontalis)",
     "synonyms": [
-     "orbicular dos lábios"
+     "frontal",
+     "occipitofrontal",
+     "músculo frontal",
+     "ventre frontal"
     ],
-    "location": "Dentro dos lábios superior e inferior, circundando a rima da boca.",
-    "origin": "Parte medial da maxila e da mandíbula, face profunda da pele perioral e ângulo da boca (modíolo).",
-    "insertion": "Pele e túnica mucosa dos lábios.",
-    "action": "Fecha a rima da boca; comprime os lábios contra os dentes e os protrai (beijo, assobio); resiste à distensão ao soprar.",
-    "innervation": "Ramos bucais do nervo facial (VII); a parte inferior recebe também o ramo marginal da mandíbula.",
-    "relations": "Suas fibras se entrelaçam, no modíolo, com as do bucinador e dos músculos levantadores e depressores dos lábios. As artérias labiais (ramos da artéria facial) correm entre o músculo e a mucosa.",
-    "explanation": "É o esfíncter da boca, mas não é um anel simples: é formado em grande parte por fibras que vêm do bucinador e de outros músculos da face e se cruzam nos ângulos da boca.",
-    "mnemonic": "Orbicular = \"pequeno círculo\": há dois esfíncteres na face, um para as pálpebras e um para os lábios.",
-    "association": "Beijar, assobiar, tocar um instrumento de sopro, segurar um canudo; articular os sons \"p\", \"b\" e \"m\".",
-    "examTip": "Na paralisia facial o paciente não consegue assobiar nem encher as bochechas de ar, e saliva e alimento escapam pelo ângulo da boca do lado paralisado.",
-    "clue": "Esfíncter contido nos lábios, formado em grande parte por fibras de músculos vizinhos que se cruzam no modíolo; fecha a rima oral e projeta os lábios, como no beijo e no assobio.",
+    "location": "Fronte, logo abaixo da pele, à frente da aponeurose epicrânica.",
+    "origin": "Aponeurose epicrânica (gálea aponeurótica), sem fixação óssea.",
+    "insertion": "Pele e tela subcutânea dos supercílios e da fronte, entrelaçando-se com o prócero, o corrugador do supercílio e o orbicular do olho.",
+    "action": "Eleva os supercílios e enruga horizontalmente a pele da fronte (expressão de surpresa); puxa o couro cabeludo para a frente.",
+    "innervation": "Ramos temporais do nervo facial (VII).",
+    "relations": "Faz parte do epicrânio, unido ao ventre occipital pela aponeurose epicrânica. Os vasos e nervos supraorbitais e supratrocleares sobem pela fronte em relação com o músculo.",
+    "explanation": "É a metade anterior do occipitofrontal: uma lâmina fina que não se prende a osso, apenas à aponeurose epicrânica e à pele. Por isso, ao contrair, move a pele da fronte e os supercílios.",
+    "mnemonic": "Músculo do espanto: sobrancelhas para cima e rugas horizontais na testa. Ramos do facial de cima para baixo: \"Tio Zeca Bebe Muito Café\" (Temporal, Zigomático, Bucal, Marginal da mandíbula, Cervical).",
+    "association": "Levantar as sobrancelhas de surpresa; pedir ao paciente que \"enrugue a testa\" no exame do nervo facial.",
+    "examTip": "Na paralisia facial periférica (de Bell) as rugas da fronte desaparecem no lado lesado; na lesão central (supranuclear) a fronte é poupada, pois a parte superior do núcleo do facial recebe inervação cortical bilateral.",
+    "clue": "Lâmina muscular fina e larga da testa, sem inserção óssea, presa à aponeurose epicrânica; eleva as sobrancelhas e forma as rugas horizontais do espanto.",
     "difficulty": 1,
     "refs": [
      "moore",
      "gray",
      "ta2"
     ],
-    "note": "O modelo 3D mostra as partes orbital e palpebral; a parte profunda (lacrimal), atrás do saco lacrimal, não aparece separada."
+    "note": "O modelo 3D representa apenas o ventre frontal. O ventre occipital (da linha nucal suprema à aponeurose epicrânica; nervo auricular posterior, ramo do facial) não está modelado."
    }
   },
   {
@@ -96,26 +99,28 @@
     "palpebral part of orbicularis oculi"
    ],
    "ficha": {
-    "nameEn": "Orbicularis oris",
-    "nameLatin": "Musculus orbicularis oris",
+    "nameEn": "Orbicularis oculi",
+    "nameLatin": "Musculus orbicularis oculi",
     "synonyms": [
-     "orbicular dos lábios"
+     "orbicular das pálpebras",
+     "orbicular dos olhos"
     ],
-    "location": "Dentro dos lábios superior e inferior, circundando a rima da boca.",
-    "origin": "Parte medial da maxila e da mandíbula, face profunda da pele perioral e ângulo da boca (modíolo).",
-    "insertion": "Pele e túnica mucosa dos lábios.",
-    "action": "Fecha a rima da boca; comprime os lábios contra os dentes e os protrai (beijo, assobio); resiste à distensão ao soprar.",
-    "innervation": "Ramos bucais do nervo facial (VII); a parte inferior recebe também o ramo marginal da mandíbula.",
-    "relations": "Suas fibras se entrelaçam, no modíolo, com as do bucinador e dos músculos levantadores e depressores dos lábios. As artérias labiais (ramos da artéria facial) correm entre o músculo e a mucosa.",
-    "explanation": "É o esfíncter da boca, mas não é um anel simples: é formado em grande parte por fibras que vêm do bucinador e de outros músculos da face e se cruzam nos ângulos da boca.",
-    "mnemonic": "Orbicular = \"pequeno círculo\": há dois esfíncteres na face, um para as pálpebras e um para os lábios.",
-    "association": "Beijar, assobiar, tocar um instrumento de sopro, segurar um canudo; articular os sons \"p\", \"b\" e \"m\".",
-    "examTip": "Na paralisia facial o paciente não consegue assobiar nem encher as bochechas de ar, e saliva e alimento escapam pelo ângulo da boca do lado paralisado.",
-    "clue": "Esfíncter contido nos lábios, formado em grande parte por fibras de músculos vizinhos que se cruzam no modíolo; fecha a rima oral e projeta os lábios, como no beijo e no assobio.",
+    "location": "Ao redor da abertura da órbita e dentro das pálpebras, logo abaixo da pele.",
+    "origin": "Margem medial da órbita (parte nasal do frontal e processo frontal da maxila), ligamento palpebral medial e osso lacrimal.",
+    "insertion": "Pele ao redor da margem da órbita (parte orbital) e tarsos superior e inferior, até a rafe palpebral lateral (parte palpebral).",
+    "action": "Fecha as pálpebras: a parte palpebral suavemente (piscar, sono) e a parte orbital com força (apertar os olhos). Ajuda a conduzir a lágrima para as vias lacrimais.",
+    "innervation": "Ramos temporais e zigomáticos do nervo facial (VII).",
+    "relations": "A parte orbital recobre a margem da órbita e se mistura com o ventre frontal do occipitofrontal e o corrugador do supercílio; a parte palpebral fica à frente do septo orbital e dos tarsos.",
+    "explanation": "É o esfíncter das pálpebras. Tem uma parte orbital, larga e de contração voluntária forte, e uma parte palpebral, fina, responsável pelo piscar.",
+    "mnemonic": "O VII fecha, o III abre: o orbicular (nervo facial) fecha as pálpebras; o levantador da pálpebra superior (nervo oculomotor) abre.",
+    "association": "Piscar; apertar os olhos contra a luz forte; os \"pés de galinha\" são as rugas perpendiculares às fibras da parte orbital.",
+    "examTip": "Paralisia facial: o olho não fecha (lagoftalmo), a pálpebra inferior cai (ectrópio paralítico) e há lacrimejamento e risco de ceratite. No reflexo corneano, a via aferente é o nervo oftálmico (V1) e a eferente é o facial, para este músculo.",
+    "clue": "Músculo esfinctérico plano que circunda a abertura da órbita e se estende pelas pálpebras; fecha as pálpebras, do piscar ao apertar com força.",
     "difficulty": 1,
     "refs": [
      "moore",
      "gray",
+     "netter",
      "ta2"
     ],
     "note": "O modelo 3D mostra as partes orbital e palpebral; a parte profunda (lacrimal), atrás do saco lacrimal, não aparece separada."
@@ -405,26 +410,26 @@
     "procerus"
    ],
    "ficha": {
-    "nameEn": "Risorius",
-    "nameLatin": "Musculus risorius",
+    "nameEn": "Procerus",
+    "nameLatin": "Musculus procerus",
     "synonyms": [
-     "risório de Santorini"
+     "piramidal do nariz"
     ],
-    "location": "Bochecha: faixa fina e quase horizontal, superficial ao masseter, lateral ao ângulo da boca.",
-    "origin": "Fáscia parotídea e fáscia massetérica (e pele da bochecha); muito variável.",
-    "insertion": "Ângulo da boca (modíolo).",
-    "action": "Puxa o ângulo da boca lateralmente, alargando a rima da boca.",
-    "innervation": "Ramos bucais do nervo facial (VII).",
-    "relations": "Superficial ao masseter e à glândula parótida; fica acima das fibras mais altas do platisma, com as quais muitas vezes se confunde.",
-    "explanation": "Não tem origem óssea: nasce da fáscia que recobre a parótida e o masseter. Estira a boca para os lados em um sorriso sem alegria.",
-    "mnemonic": "Do latim \"risus\" (riso) — mas produz o sorriso \"amarelo\", que só estica a boca; o sorriso verdadeiro é do zigomático maior.",
-    "association": "Sorriso forçado para a foto; esticar os lábios para os lados.",
-    "examTip": "O \"riso sardônico\" do tétano é o espasmo mantido dos músculos da face, com os ângulos da boca puxados lateralmente. Origem em fáscia (parotídea), não em osso.",
-    "clue": "Faixa fina e quase horizontal da bochecha, sem origem óssea: vai da fáscia sobre a glândula parótida ao canto dos lábios e o puxa lateralmente, alargando a rima oral.",
+    "location": "Raiz do nariz e glabela, entre os dois supercílios.",
+    "origin": "Fáscia e aponeurose que recobrem a parte inferior do osso nasal e a cartilagem nasal lateral.",
+    "insertion": "Pele da glabela, entre os supercílios, misturando-se com o ventre frontal do occipitofrontal.",
+    "action": "Puxa para baixo a extremidade medial dos supercílios e a pele da glabela, formando rugas transversais sobre a raiz do nariz.",
+    "innervation": "Nervo facial (VII).",
+    "relations": "Continua-se para cima com a margem medial do ventre frontal do occipitofrontal e para baixo com a aponeurose da parte transversa do nasal.",
+    "explanation": "Pequena lâmina muscular mediana sobre a raiz do nariz. Age contra o ventre frontal: em vez de levantar os supercílios, puxa a pele entre eles para baixo.",
+    "mnemonic": "Ruga do prócero é horizontal (na raiz do nariz); ruga do corrugador é vertical (entre as sobrancelhas).",
+    "association": "Franzir a raiz do nariz diante de luz forte ou em expressão de agressividade ou concentração.",
+    "examTip": "Junto com o corrugador do supercílio forma as rugas da glabela, alvo clássico da toxina botulínica: prócero = linhas transversais; corrugador = linhas verticais.",
+    "clue": "Pequena lâmina muscular mediana sobre a raiz do nariz, entre as sobrancelhas; puxa a pele da glabela para baixo e forma rugas transversais nessa região.",
     "difficulty": 2,
     "refs": [
-     "moore",
      "gray",
+     "moore",
      "ta2"
     ],
     "note": "Os livros divergem quanto ao ramo do nervo facial que o inerva (temporal, zigomático ou bucal); por isso a ficha cita apenas o nervo facial."
@@ -861,28 +866,28 @@
     "scalenus medius"
    ],
    "ficha": {
-    "nameEn": "Obliquus capitis inferior",
-    "nameLatin": "Musculus obliquus capitis inferior",
+    "nameEn": "Middle scalene",
+    "nameLatin": "Musculus scalenus medius",
     "synonyms": [],
-    "location": "Região suboccipital, profundo ao semiespinal da cabeça; estende-se entre o áxis e o atlas.",
-    "origin": "Processo espinhoso do áxis (C2).",
-    "insertion": "Processo transverso do atlas (C1).",
-    "action": "Gira o atlas, e com ele a cabeça, para o mesmo lado (rotação na articulação atlantoaxial).",
-    "innervation": "Nervo suboccipital (ramo posterior de C1).",
-    "relations": "Forma o limite inferior do trígono suboccipital. O nervo occipital maior (ramo posterior de C2) contorna sua margem inferior antes de subir para o couro cabeludo.",
-    "explanation": "É o maior dos dois oblíquos suboccipitais. Apesar de se chamar \"da cabeça\", não se prende ao crânio: vai de uma vértebra a outra e é um rotador puro.",
-    "mnemonic": "Dos quatro suboccipitais, é o único \"da cabeça\" que não toca a cabeça: do espinhoso de C2 ao transverso de C1.",
-    "association": "Girar a cabeça para dizer \"não\"; ajustes finos da posição da cabeça.",
-    "examTip": "Limite inferior do trígono suboccipital, cujo conteúdo é a artéria vertebral e o nervo suboccipital. O nervo occipital maior emerge abaixo deste músculo — ponto de referência na neuralgia occipital.",
-    "clue": "Músculo profundo da nuca que forma o limite de baixo do trígono suboccipital; vai do processo espinhoso do áxis ao processo transverso do atlas, sem se prender ao crânio, e gira a face para o mesmo lado.",
+    "location": "Região lateral profunda do pescoço, atrás do escaleno anterior e do plexo braquial; forma parte do assoalho do trígono lateral do pescoço.",
+    "origin": "Processos transversos das vértebras cervicais (áxis e tubérculos posteriores de C3 a C7).",
+    "insertion": "Face superior da 1ª costela, atrás do sulco da artéria subclávia.",
+    "action": "Eleva a 1ª costela na inspiração forçada; com a costela fixa, inclina o pescoço para o mesmo lado.",
+    "innervation": "Ramos anteriores dos nervos espinais cervicais (C3–C8).",
+    "relations": "A artéria subclávia e os troncos do plexo braquial passam à sua frente, entre ele e o escaleno anterior. É atravessado pelo nervo dorsal da escápula e pelas raízes superiores (C5, C6) do nervo torácico longo.",
+    "explanation": "É o maior e o mais longo dos três escalenos. Forma a parede posterior do hiato interescalênico, por onde saem o plexo braquial e a artéria subclávia.",
+    "mnemonic": "Escaleno vem do grego \"skalenos\" (desigual), como o triângulo escaleno: três músculos de tamanhos diferentes — e o médio, apesar do nome, é o maior.",
+    "association": "Inclinar o pescoço para o lado; músculo acessório da inspiração.",
+    "examTip": "O nervo dorsal da escápula (C5) e as raízes C5 e C6 do nervo torácico longo perfuram o escaleno médio. Com o escaleno anterior, delimita o hiato interescalênico.",
+    "clue": "Maior e mais longo do trio de músculos laterais profundos do pescoço; prende-se à 1ª costela atrás do sulco da artéria subclávia, de modo que essa artéria e o plexo braquial passam à sua frente, e é perfurado pelo nervo dorsal da escápula.",
     "difficulty": 3,
     "refs": [
-     "moore",
      "gray",
+     "moore",
      "netter",
      "ta2"
     ],
-    "note": "Os níveis de origem (C4–C6 ou C5–C7) e de inervação (C6–C8 ou C7–C8) variam conforme o livro; o músculo pode estar fundido ao escaleno médio."
+    "note": "A extensão da origem varia entre os livros (de C2–C7 a apenas as vértebras cervicais inferiores) e o músculo pode alcançar o atlas."
    }
   },
   {
@@ -895,24 +900,24 @@
     "scalenus posterior"
    ],
    "ficha": {
-    "nameEn": "Obliquus capitis inferior",
-    "nameLatin": "Musculus obliquus capitis inferior",
+    "nameEn": "Posterior scalene",
+    "nameLatin": "Musculus scalenus posterior",
     "synonyms": [],
-    "location": "Região suboccipital, profundo ao semiespinal da cabeça; estende-se entre o áxis e o atlas.",
-    "origin": "Processo espinhoso do áxis (C2).",
-    "insertion": "Processo transverso do atlas (C1).",
-    "action": "Gira o atlas, e com ele a cabeça, para o mesmo lado (rotação na articulação atlantoaxial).",
-    "innervation": "Nervo suboccipital (ramo posterior de C1).",
-    "relations": "Forma o limite inferior do trígono suboccipital. O nervo occipital maior (ramo posterior de C2) contorna sua margem inferior antes de subir para o couro cabeludo.",
-    "explanation": "É o maior dos dois oblíquos suboccipitais. Apesar de se chamar \"da cabeça\", não se prende ao crânio: vai de uma vértebra a outra e é um rotador puro.",
-    "mnemonic": "Dos quatro suboccipitais, é o único \"da cabeça\" que não toca a cabeça: do espinhoso de C2 ao transverso de C1.",
-    "association": "Girar a cabeça para dizer \"não\"; ajustes finos da posição da cabeça.",
-    "examTip": "Limite inferior do trígono suboccipital, cujo conteúdo é a artéria vertebral e o nervo suboccipital. O nervo occipital maior emerge abaixo deste músculo — ponto de referência na neuralgia occipital.",
-    "clue": "Músculo profundo da nuca que forma o limite de baixo do trígono suboccipital; vai do processo espinhoso do áxis ao processo transverso do atlas, sem se prender ao crânio, e gira a face para o mesmo lado.",
+    "location": "Região lateral profunda do pescoço, atrás do escaleno médio, com o qual frequentemente se funde.",
+    "origin": "Tubérculos posteriores dos processos transversos das vértebras cervicais inferiores (C4 a C6).",
+    "insertion": "Face externa da 2ª costela.",
+    "action": "Eleva a 2ª costela na inspiração forçada; com a costela fixa, inclina o pescoço para o mesmo lado.",
+    "innervation": "Ramos anteriores dos nervos espinais cervicais inferiores (C6–C8).",
+    "relations": "Situa-se atrás do escaleno médio e à frente do levantador da escápula; faz parte do assoalho do trígono lateral do pescoço.",
+    "explanation": "É o menor e o mais profundo dos escalenos, e o único que ultrapassa a 1ª costela para se inserir na 2ª.",
+    "mnemonic": "Costelas dos escalenos: anterior e médio = 1ª costela; posterior = 2ª costela (\"1, 1, 2\").",
+    "association": "Inclinar o pescoço para o lado; auxilia a elevar a parte superior do tórax na inspiração profunda.",
+    "examTip": "Único escaleno que se insere na 2ª costela. Não participa do hiato interescalênico, que fica entre os escalenos anterior e médio.",
+    "clue": "Menor e mais profundo do trio de músculos laterais do pescoço que vão da coluna cervical às costelas; é o único que alcança a 2ª costela, que ele eleva, além de inclinar o pescoço para o mesmo lado.",
     "difficulty": 3,
     "refs": [
-     "moore",
      "gray",
+     "moore",
      "netter",
      "ta2"
     ],
@@ -1169,31 +1174,30 @@
     "serratus anterior"
    ],
    "ficha": {
-    "nameEn": "Rectus abdominis",
-    "nameLatin": "Musculus rectus abdominis",
+    "nameEn": "Serratus anterior",
+    "nameLatin": "Musculus serratus anterior",
     "synonyms": [
-     "reto abdominal",
-     "reto anterior do abdome"
+     "grande denteado"
     ],
-    "location": "Parede anterior do abdome, de cada lado da linha alba, dentro da bainha do músculo reto do abdome.",
-    "origin": "Sínfise púbica e crista púbica.",
-    "insertion": "Processo xifoide e 5ª a 7ª cartilagens costais.",
-    "action": "Flete o tronco (coluna lombar), comprime as vísceras abdominais e controla a inclinação da pelve.",
-    "innervation": "Nervos toracoabdominais (ramos anteriores de T7–T11) e nervo subcostal (T12).",
-    "relations": "Envolvido pela bainha do músculo reto do abdome e separado do contralateral pela linha alba. Os vasos epigástricos superiores e inferiores correm em sua face posterior, dentro da bainha.",
-    "explanation": "Músculo longo e vertical da frente do abdome. As interseções tendíneas (geralmente três) o dividem em segmentos, responsáveis pelo aspecto de \"tanquinho\".",
-    "mnemonic": "Rectus = reto: fibras verticais, do púbis ao tórax. As interseções tendíneas desenham o \"tanquinho\".",
-    "association": "Exercício abdominal (flexão do tronco); também contrai com força na tosse, na defecação e no parto.",
-    "examTip": "Abaixo da linha arqueada não há lâmina posterior da bainha: o músculo apoia-se diretamente na fáscia transversal. Os vasos epigástricos inferiores entram na bainha nesse nível.",
-    "clue": "Músculo longo e vertical ao lado da linha mediana da parede abdominal anterior, dividido por interseções tendíneas; é o principal flexor do tronco.",
-    "difficulty": 1,
+    "location": "Parede lateral do tórax; forma a parede medial da axila e passa entre a escápula e as costelas.",
+    "origin": "Faces externas das partes laterais da 1ª à 8ª (ou 9ª) costelas, por digitações carnosas.",
+    "insertion": "Face anterior (costal) da margem medial da escápula, do ângulo superior ao ângulo inferior.",
+    "action": "Protrai a escápula e a mantém aplicada contra a parede torácica. Suas fibras inferiores rodam a escápula para cima, permitindo elevar o braço acima de 90°.",
+    "innervation": "Nervo torácico longo (C5, C6, C7).",
+    "relations": "O nervo torácico longo desce sobre sua face superficial. Suas digitações inferiores interdigitam-se com as do oblíquo externo do abdome; a escápula e o subescapular deslizam sobre ele.",
+    "explanation": "Músculo em \"dentes de serra\" na lateral do tórax. Empurra a escápula para a frente e a mantém colada às costelas; sem ele, não se consegue elevar o braço acima da cabeça.",
+    "mnemonic": "SALT: Serrátil Anterior — Longo Torácico. O nome vem de serra: as digitações lembram os dentes de uma serra.",
+    "association": "O soco do boxeador (protração da escápula) e a fase final da flexão de braço; empurrar uma parede.",
+    "examTip": "Lesão do nervo torácico longo (por exemplo em cirurgias da axila) causa escápula alada: a margem medial se destaca do tórax ao empurrar uma parede, e a abdução acima de 90° fica prejudicada.",
+    "clue": "Recobre a parede lateral do tórax com digitações que saem das oito primeiras costelas e vão à margem medial da escápula; protrai a escápula e a mantém colada ao tórax.",
+    "difficulty": 2,
     "refs": [
      "moore",
      "gray",
      "netter",
      "ta2"
     ],
-    "note": "Ficha única para o conjunto dos onze pares; o modelo 3D os representa como uma só estrutura de cada lado."
+    "note": "O número de digitações varia: Moore descreve origem da 1ª à 8ª costelas; o Gray, das oito a dez costelas superiores."
    }
   },
   {
@@ -1206,28 +1210,26 @@
     "external intercostal muscle"
    ],
    "ficha": {
-    "nameEn": "Rectus abdominis",
-    "nameLatin": "Musculus rectus abdominis",
+    "nameEn": "External intercostal muscles",
+    "nameLatin": "Musculi intercostales externi",
     "synonyms": [
-     "reto abdominal",
-     "reto anterior do abdome"
+     "intercostal externo"
     ],
-    "location": "Parede anterior do abdome, de cada lado da linha alba, dentro da bainha do músculo reto do abdome.",
-    "origin": "Sínfise púbica e crista púbica.",
-    "insertion": "Processo xifoide e 5ª a 7ª cartilagens costais.",
-    "action": "Flete o tronco (coluna lombar), comprime as vísceras abdominais e controla a inclinação da pelve.",
-    "innervation": "Nervos toracoabdominais (ramos anteriores de T7–T11) e nervo subcostal (T12).",
-    "relations": "Envolvido pela bainha do músculo reto do abdome e separado do contralateral pela linha alba. Os vasos epigástricos superiores e inferiores correm em sua face posterior, dentro da bainha.",
-    "explanation": "Músculo longo e vertical da frente do abdome. As interseções tendíneas (geralmente três) o dividem em segmentos, responsáveis pelo aspecto de \"tanquinho\".",
-    "mnemonic": "Rectus = reto: fibras verticais, do púbis ao tórax. As interseções tendíneas desenham o \"tanquinho\".",
-    "association": "Exercício abdominal (flexão do tronco); também contrai com força na tosse, na defecação e no parto.",
-    "examTip": "Abaixo da linha arqueada não há lâmina posterior da bainha: o músculo apoia-se diretamente na fáscia transversal. Os vasos epigástricos inferiores entram na bainha nesse nível.",
-    "clue": "Músculo longo e vertical ao lado da linha mediana da parede abdominal anterior, dividido por interseções tendíneas; é o principal flexor do tronco.",
-    "difficulty": 1,
+    "location": "Camada mais superficial dos onze espaços intercostais, dos tubérculos das costelas às junções costocondrais.",
+    "origin": "Margem inferior da costela acima.",
+    "insertion": "Margem superior da costela abaixo; as fibras descem obliquamente para a frente.",
+    "action": "Elevam as costelas na inspiração e mantêm a rigidez dos espaços intercostais.",
+    "innervation": "Nervos intercostais.",
+    "relations": "Superficiais aos intercostais internos. Anteriormente, das junções costocondrais ao esterno, são substituídos pela membrana intercostal externa. O feixe vasculonervoso intercostal corre mais profundamente, entre os intercostais internos e os íntimos.",
+    "explanation": "São onze pares de lâminas musculares finas que fecham os espaços entre as costelas. Suas fibras têm a mesma direção das do oblíquo externo do abdome.",
+    "mnemonic": "\"Mãos nos bolsos da frente\": as fibras descem para a frente e para medial, como os dedos ao entrar nos bolsos — igual ao oblíquo externo do abdome.",
+    "association": "A elevação das costelas na inspiração (movimento em \"alça de balde\"), mais evidente na respiração forçada.",
+    "examTip": "O feixe vasculonervoso intercostal corre no sulco da costela (veia, artéria e nervo, de cima para baixo); por isso a toracocentese é feita rente à margem superior da costela inferior.",
+    "clue": "Camada mais superficial dos músculos que preenchem os espaços entre costelas vizinhas, com fibras oblíquas para baixo e para a frente; elevam as costelas na inspiração.",
+    "difficulty": 2,
     "refs": [
      "moore",
      "gray",
-     "netter",
      "ta2"
     ],
     "note": "Ficha única para o conjunto dos onze pares; o modelo 3D os representa como uma só estrutura de cada lado."
@@ -1610,28 +1612,31 @@
     "serratus posterior superior"
    ],
    "ficha": {
-    "nameEn": "Splenius capitis",
-    "nameLatin": "Musculus splenius capitis",
-    "synonyms": [],
-    "location": "Nuca, na camada superficial dos músculos próprios do dorso; profundo ao trapézio e ao esternocleidomastóideo.",
-    "origin": "Metade inferior do ligamento nucal e processos espinhosos de C7 a T3 ou T4.",
-    "insertion": "Processo mastoide do temporal e terço lateral da linha nucal superior do occipital.",
-    "action": "Unilateralmente, inclina a cabeça e roda a face para o mesmo lado. Bilateralmente, estende a cabeça e o pescoço.",
-    "innervation": "Ramos posteriores dos nervos espinais cervicais.",
-    "relations": "Coberto pelo trapézio e pelo esternocleidomastóideo; recobre o semiespinal da cabeça e o longuíssimo da cabeça. Aparece no assoalho do trígono cervical lateral.",
-    "explanation": "Faixa muscular larga que sobe obliquamente da coluna ao crânio, envolvendo os músculos profundos da nuca. É a parte mais alta e mais larga do par de esplênios.",
-    "mnemonic": "Do grego splenion, \"atadura\": os esplênios envolvem os músculos profundos da nuca como uma faixa. O \"da cabeça\" é o que chega ao crânio.",
-    "association": "Olhar para trás por cima do ombro (rotação para o mesmo lado) e levantar a cabeça ao ficar de bruços.",
-    "examTip": "Roda a face para o mesmo lado — o oposto do esternocleidomastóideo, que a roda para o lado contrário. Como todo músculo próprio do dorso, é inervado por ramos posteriores.",
-    "clue": "Faixa muscular larga da nuca, sob o trapézio: sobe do ligamento nucal e dos processos espinhosos de C7–T3 até o crânio (processo mastoide e linha nucal superior). Sozinho, vira o rosto para o mesmo lado; com seu par, estende a nuca.",
+    "nameEn": "Serratus posterior superior",
+    "nameLatin": "Musculus serratus posterior superior",
+    "synonyms": [
+     "serrátil posterossuperior",
+     "serrátil póstero-superior"
+    ],
+    "location": "Camada intermédia do dorso, na transição cervicotorácica, profundo aos romboides.",
+    "origin": "Parte inferior do ligamento nucal e processos espinhosos de C7–T3.",
+    "insertion": "Margens superiores da 2ª à 5ª costelas, por quatro digitações.",
+    "action": "Eleva as costelas superiores (ação inspiratória classicamente descrita); sua função pode ser sobretudo proprioceptiva.",
+    "innervation": "2º ao 5º nervos intercostais.",
+    "relations": "Coberto pelos romboides e pelo trapézio; recobre os esplênios e o eretor da espinha.",
+    "explanation": "Músculo fino, em grande parte aponeurótico, que desce obliquamente da coluna para as costelas superiores. Pertence à camada intermédia do dorso, com seu par inferior.",
+    "mnemonic": "O superior sobe as costelas de cima; o inferior desce as de baixo. Os dois puxam as costelas em direção à sua origem na coluna.",
+    "association": "Classicamente considerado músculo acessório da inspiração.",
+    "examTip": "Embora esteja no dorso, é inervado por ramos anteriores (nervos intercostais), e não pelos ramos posteriores que suprem os músculos próprios do dorso.",
+    "clue": "Músculo fino e denteado da camada intermédia das costas, sob os romboides: desce dos processos espinhosos de C7–T3 até a 2ª–5ª costelas e tende a elevá-las.",
     "difficulty": 3,
     "refs": [
-     "moore",
      "gray",
-     "netter",
+     "moore",
+     "sobotta",
      "ta2"
     ],
-    "note": "O Gray e o Sobotta descrevem inserção da 9ª à 12ª costelas; Moore, da 8ª à 12ª. Moore considera a função principalmente proprioceptiva."
+    "note": "O Gray e o Sobotta descrevem inserção da 2ª à 5ª costelas; Moore, da 2ª à 4ª. Moore considera a função principalmente proprioceptiva."
    }
   },
   {
@@ -1644,25 +1649,28 @@
     "serratus posterior inferior"
    ],
    "ficha": {
-    "nameEn": "Splenius capitis",
-    "nameLatin": "Musculus splenius capitis",
-    "synonyms": [],
-    "location": "Nuca, na camada superficial dos músculos próprios do dorso; profundo ao trapézio e ao esternocleidomastóideo.",
-    "origin": "Metade inferior do ligamento nucal e processos espinhosos de C7 a T3 ou T4.",
-    "insertion": "Processo mastoide do temporal e terço lateral da linha nucal superior do occipital.",
-    "action": "Unilateralmente, inclina a cabeça e roda a face para o mesmo lado. Bilateralmente, estende a cabeça e o pescoço.",
-    "innervation": "Ramos posteriores dos nervos espinais cervicais.",
-    "relations": "Coberto pelo trapézio e pelo esternocleidomastóideo; recobre o semiespinal da cabeça e o longuíssimo da cabeça. Aparece no assoalho do trígono cervical lateral.",
-    "explanation": "Faixa muscular larga que sobe obliquamente da coluna ao crânio, envolvendo os músculos profundos da nuca. É a parte mais alta e mais larga do par de esplênios.",
-    "mnemonic": "Do grego splenion, \"atadura\": os esplênios envolvem os músculos profundos da nuca como uma faixa. O \"da cabeça\" é o que chega ao crânio.",
-    "association": "Olhar para trás por cima do ombro (rotação para o mesmo lado) e levantar a cabeça ao ficar de bruços.",
-    "examTip": "Roda a face para o mesmo lado — o oposto do esternocleidomastóideo, que a roda para o lado contrário. Como todo músculo próprio do dorso, é inervado por ramos posteriores.",
-    "clue": "Faixa muscular larga da nuca, sob o trapézio: sobe do ligamento nucal e dos processos espinhosos de C7–T3 até o crânio (processo mastoide e linha nucal superior). Sozinho, vira o rosto para o mesmo lado; com seu par, estende a nuca.",
+    "nameEn": "Serratus posterior inferior",
+    "nameLatin": "Musculus serratus posterior inferior",
+    "synonyms": [
+     "serrátil posteroinferior",
+     "serrátil póstero-inferior"
+    ],
+    "location": "Camada intermédia do dorso, na transição toracolombar, profundo ao latíssimo do dorso.",
+    "origin": "Processos espinhosos de T11–L2.",
+    "insertion": "Margens inferiores das quatro últimas costelas (9ª a 12ª), por quatro digitações.",
+    "action": "Abaixa as costelas inferiores, tracionando-as para baixo e para trás; sua função pode ser sobretudo proprioceptiva.",
+    "innervation": "Ramos anteriores de T9–T12 (9º ao 11º nervos intercostais e nervo subcostal).",
+    "relations": "Coberto pelo latíssimo do dorso; recobre o eretor da espinha. Sua aponeurose de origem funde-se à fáscia toracolombar.",
+    "explanation": "Músculo fino que sobe obliquamente da coluna toracolombar para as últimas costelas. Pertence à camada intermédia do dorso, com seu par superior.",
+    "mnemonic": "O inferior desce as costelas de baixo; o superior sobe as de cima. Os dois puxam as costelas em direção à sua origem na coluna.",
+    "association": "Classicamente descrito como músculo acessório da respiração, por tracionar as últimas costelas para baixo.",
+    "examTip": "Embora esteja no dorso, é inervado por ramos anteriores (nervos intercostais e subcostal), e não pelos ramos posteriores que suprem os músculos próprios do dorso.",
+    "clue": "Músculo fino e denteado da camada intermédia das costas, sob o latíssimo do dorso: sobe dos processos espinhosos de T11–L2 até as quatro últimas costelas e tende a abaixá-las.",
     "difficulty": 3,
     "refs": [
-     "moore",
      "gray",
-     "netter",
+     "moore",
+     "sobotta",
      "ta2"
     ],
     "note": "O Gray e o Sobotta descrevem inserção da 9ª à 12ª costelas; Moore, da 8ª à 12ª. Moore considera a função principalmente proprioceptiva."
@@ -1747,27 +1755,28 @@
     "iliocostalis lumborum"
    ],
    "ficha": {
-    "nameEn": "Rotatores",
-    "nameLatin": "Musculi rotatores",
+    "nameEn": "Iliocostalis",
+    "nameLatin": "Musculus iliocostalis",
     "synonyms": [],
-    "location": "Camada mais profunda do grupo transversoespinal, sob o multífido; mais desenvolvidos na região torácica.",
-    "origin": "Processos transversos das vértebras.",
-    "insertion": "Junção da lâmina com o processo transverso ou processo espinhoso da vértebra imediatamente acima (rotadores curtos) ou da segunda vértebra acima (rotadores longos).",
-    "action": "Estabilizam as vértebras e auxiliam a extensão e a rotação locais da coluna; podem atuar como órgãos de propriocepção.",
+    "location": "Coluna lateral do músculo eretor da espinha, ao longo dos ângulos das costelas, da pelve à região cervical.",
+    "origin": "Parte lombar: tendão comum do eretor da espinha (parte posterior da crista ilíaca, face posterior do sacro, ligamentos sacroilíacos e processos espinhosos sacrais e lombares inferiores). Parte torácica: ângulos das seis costelas inferiores. Parte cervical: ângulos da 3ª à 6ª costelas.",
+    "insertion": "Parte lombar: ângulos das seis ou sete costelas inferiores. Parte torácica: ângulos das seis costelas superiores e processo transverso de C7. Parte cervical: tubérculos posteriores dos processos transversos de C4–C6.",
+    "action": "Bilateralmente, estende a coluna vertebral e controla sua flexão (contração excêntrica). Unilateralmente, inclina a coluna para o mesmo lado.",
     "innervation": "Ramos posteriores dos nervos espinais.",
-    "relations": "Cobertos pelo multífido; aplicados diretamente sobre as lâminas vertebrais.",
-    "explanation": "São os feixes mais curtos e profundos dos transversoespinais: cada um une uma vértebra à seguinte ou à segunda acima. Pequenos demais para gerar movimento amplo, funcionam sobretudo como estabilizadores e sensores de posição.",
-    "mnemonic": "O nome indica a ação (rotação entre vértebras vizinhas). Nos transversoespinais, quanto mais profundo, mais curto: semiespinal (4–6 segmentos), multífido (2–4), rotadores (1–2).",
-    "association": "Ajustes finos de postura e controle segmentar da coluna torácica durante a rotação do tronco.",
-    "examTip": "São a camada mais profunda dos transversoespinais e os mais bem desenvolvidos na região torácica. Inervação: ramos posteriores dos nervos espinais.",
-    "clue": "Os feixes mais profundos e curtos do grupo transversoespinal, mais desenvolvidos na região torácica: ligam o processo transverso de uma vértebra à vértebra logo acima ou à segunda acima; estabilizam a coluna e têm função proprioceptiva.",
+    "relations": "Lateral ao longuíssimo. Na região lombar é coberto pela fáscia toracolombar; no tórax, pelos serráteis posteriores, pelos romboides e pelo latíssimo do dorso.",
+    "explanation": "É a coluna mais lateral do eretor da espinha (com o longuíssimo e o espinal). Seus feixes sobem em revezamento, de costela em costela, da pelve até as vértebras cervicais.",
+    "mnemonic": "\"I Love Spine\", de lateral para medial: Iliocostal, Longuíssimo, eSpinal. O nome mostra o trajeto: do ílio às costelas.",
+    "association": "Voltar à posição ereta depois de se curvar para a frente; levantamento terra; inclinar o tronco para o lado.",
+    "examTip": "Forma o eretor da espinha com o longuíssimo (intermédio) e o espinal (medial); é o mais lateral. Como todos os músculos próprios do dorso, é inervado por ramos posteriores dos nervos espinais.",
+    "clue": "Coluna mais lateral do eretor da espinha: sobe da crista ilíaca e do sacro, prendendo-se aos ângulos das costelas e, no alto, aos processos transversos cervicais; estende e inclina lateralmente a coluna.",
     "difficulty": 3,
     "refs": [
      "moore",
      "gray",
+     "sobotta",
      "ta2"
     ],
-    "note": "Ficha única para as partes lombar, torácica e cervical, que o modelo 3D mostra separadas."
+    "note": "Ficha única para as partes lombar, torácica e cervical, que o modelo 3D mostra separadas. Os níveis exatos de cada feixe variam entre os livros."
    }
   },
   {
@@ -1782,27 +1791,30 @@
     "longissimus thoracis"
    ],
    "ficha": {
-    "nameEn": "Rotatores",
-    "nameLatin": "Musculi rotatores",
-    "synonyms": [],
-    "location": "Camada mais profunda do grupo transversoespinal, sob o multífido; mais desenvolvidos na região torácica.",
-    "origin": "Processos transversos das vértebras.",
-    "insertion": "Junção da lâmina com o processo transverso ou processo espinhoso da vértebra imediatamente acima (rotadores curtos) ou da segunda vértebra acima (rotadores longos).",
-    "action": "Estabilizam as vértebras e auxiliam a extensão e a rotação locais da coluna; podem atuar como órgãos de propriocepção.",
+    "nameEn": "Longissimus",
+    "nameLatin": "Musculus longissimus",
+    "synonyms": [
+     "longíssimo"
+    ],
+    "location": "Coluna intermédia do músculo eretor da espinha, entre o iliocostal (lateral) e o espinal (medial), do sacro ao crânio.",
+    "origin": "Parte torácica: tendão comum do eretor da espinha (sacro, crista ilíaca e processos espinhosos lombares e sacrais). Partes cervical e da cabeça: processos transversos das quatro ou cinco primeiras vértebras torácicas; a parte da cabeça também dos processos articulares das últimas vértebras cervicais.",
+    "insertion": "Parte torácica: processos transversos das vértebras torácicas e lombares e costelas, entre os tubérculos e os ângulos. Parte cervical: tubérculos posteriores dos processos transversos de C2–C6. Parte da cabeça: processo mastoide do temporal.",
+    "action": "Bilateralmente, estende a coluna vertebral e a cabeça e controla a flexão do tronco. Unilateralmente, inclina a coluna para o mesmo lado; a parte da cabeça roda a face para o mesmo lado.",
     "innervation": "Ramos posteriores dos nervos espinais.",
-    "relations": "Cobertos pelo multífido; aplicados diretamente sobre as lâminas vertebrais.",
-    "explanation": "São os feixes mais curtos e profundos dos transversoespinais: cada um une uma vértebra à seguinte ou à segunda acima. Pequenos demais para gerar movimento amplo, funcionam sobretudo como estabilizadores e sensores de posição.",
-    "mnemonic": "O nome indica a ação (rotação entre vértebras vizinhas). Nos transversoespinais, quanto mais profundo, mais curto: semiespinal (4–6 segmentos), multífido (2–4), rotadores (1–2).",
-    "association": "Ajustes finos de postura e controle segmentar da coluna torácica durante a rotação do tronco.",
-    "examTip": "São a camada mais profunda dos transversoespinais e os mais bem desenvolvidos na região torácica. Inervação: ramos posteriores dos nervos espinais.",
-    "clue": "Os feixes mais profundos e curtos do grupo transversoespinal, mais desenvolvidos na região torácica: ligam o processo transverso de uma vértebra à vértebra logo acima ou à segunda acima; estabilizam a coluna e têm função proprioceptiva.",
+    "relations": "Medial ao iliocostal e lateral ao espinal e ao semiespinal. A parte da cabeça fica profunda ao esplênio da cabeça e lateral ao semiespinal da cabeça.",
+    "explanation": "É a coluna intermédia e a mais volumosa do eretor da espinha (com o iliocostal e o espinal). É a única das três que alcança o crânio de forma constante, no processo mastoide.",
+    "mnemonic": "\"I Love Spine\", de lateral para medial: Iliocostal, Longuíssimo, eSpinal. Longissimus = \"o mais longo\": vai do sacro ao crânio.",
+    "association": "Manter a postura ereta, voltar da posição curvada e sustentar a cabeça; trabalha no levantamento terra e na extensão do tronco.",
+    "examTip": "É a coluna intermédia do eretor da espinha e a que se insere no processo mastoide (longuíssimo da cabeça). Inervação: ramos posteriores dos nervos espinais.",
+    "clue": "Coluna intermédia — e a mais volumosa — do eretor da espinha: prende-se aos processos transversos e às costelas e chega ao processo mastoide; estende e inclina lateralmente a coluna e a cabeça.",
     "difficulty": 3,
     "refs": [
      "moore",
      "gray",
+     "sobotta",
      "ta2"
     ],
-    "note": "Ficha única para as partes lombar, torácica e cervical, que o modelo 3D mostra separadas."
+    "note": "Ficha única para as partes torácica, cervical e da cabeça, que o modelo 3D mostra separadas. Os níveis exatos de cada feixe variam entre os livros."
    }
   },
   {
@@ -1815,27 +1827,31 @@
     "spinalis thoracis"
    ],
    "ficha": {
-    "nameEn": "Rotatores",
-    "nameLatin": "Musculi rotatores",
-    "synonyms": [],
-    "location": "Camada mais profunda do grupo transversoespinal, sob o multífido; mais desenvolvidos na região torácica.",
-    "origin": "Processos transversos das vértebras.",
-    "insertion": "Junção da lâmina com o processo transverso ou processo espinhoso da vértebra imediatamente acima (rotadores curtos) ou da segunda vértebra acima (rotadores longos).",
-    "action": "Estabilizam as vértebras e auxiliam a extensão e a rotação locais da coluna; podem atuar como órgãos de propriocepção.",
+    "nameEn": "Spinalis thoracis",
+    "nameLatin": "Musculus spinalis thoracis",
+    "synonyms": [
+     "espinal torácico",
+     "espinhal do tórax"
+    ],
+    "location": "Coluna medial do músculo eretor da espinha, junto aos processos espinhosos torácicos, medial ao longuíssimo.",
+    "origin": "Processos espinhosos de T11–L2.",
+    "insertion": "Processos espinhosos das vértebras torácicas superiores (em número variável).",
+    "action": "Bilateralmente, estende a coluna torácica; unilateralmente, auxilia sua inclinação para o mesmo lado.",
     "innervation": "Ramos posteriores dos nervos espinais.",
-    "relations": "Cobertos pelo multífido; aplicados diretamente sobre as lâminas vertebrais.",
-    "explanation": "São os feixes mais curtos e profundos dos transversoespinais: cada um une uma vértebra à seguinte ou à segunda acima. Pequenos demais para gerar movimento amplo, funcionam sobretudo como estabilizadores e sensores de posição.",
-    "mnemonic": "O nome indica a ação (rotação entre vértebras vizinhas). Nos transversoespinais, quanto mais profundo, mais curto: semiespinal (4–6 segmentos), multífido (2–4), rotadores (1–2).",
-    "association": "Ajustes finos de postura e controle segmentar da coluna torácica durante a rotação do tronco.",
-    "examTip": "São a camada mais profunda dos transversoespinais e os mais bem desenvolvidos na região torácica. Inervação: ramos posteriores dos nervos espinais.",
-    "clue": "Os feixes mais profundos e curtos do grupo transversoespinal, mais desenvolvidos na região torácica: ligam o processo transverso de uma vértebra à vértebra logo acima ou à segunda acima; estabilizam a coluna e têm função proprioceptiva.",
+    "relations": "Medial ao longuíssimo do tórax, com o qual se funde em parte; superficial ao semiespinal do tórax e ao multífido.",
+    "explanation": "É a coluna mais medial e mais delgada do eretor da espinha (com o iliocostal e o longuíssimo). Liga processos espinhosos entre si, saltando as vértebras torácicas médias.",
+    "mnemonic": "\"I Love Spine\", de lateral para medial: Iliocostal, Longuíssimo, eSpinal. Vai de processo espinhoso a processo espinhoso — daí o nome.",
+    "association": "Estender a coluna torácica: endireitar as costas e \"abrir o peito\".",
+    "examTip": "É a parte mais medial e a menor do eretor da espinha; origina-se e insere-se em processos espinhosos. Inervação: ramos posteriores dos nervos espinais.",
+    "clue": "Coluna mais medial e mais delgada do eretor da espinha: liga os processos espinhosos da transição toracolombar aos processos espinhosos torácicos altos; estende a coluna.",
     "difficulty": 3,
     "refs": [
-     "moore",
      "gray",
+     "moore",
+     "sobotta",
      "ta2"
     ],
-    "note": "Ficha única para as partes lombar, torácica e cervical, que o modelo 3D mostra separadas."
+    "note": "O modelo 3D traz apenas a parte torácica do músculo espinal; as partes cervical e da cabeça são inconstantes."
    }
   },
   {
@@ -1850,27 +1866,30 @@
     "semispinalis thoracis"
    ],
    "ficha": {
-    "nameEn": "Rotatores",
-    "nameLatin": "Musculi rotatores",
-    "synonyms": [],
-    "location": "Camada mais profunda do grupo transversoespinal, sob o multífido; mais desenvolvidos na região torácica.",
-    "origin": "Processos transversos das vértebras.",
-    "insertion": "Junção da lâmina com o processo transverso ou processo espinhoso da vértebra imediatamente acima (rotadores curtos) ou da segunda vértebra acima (rotadores longos).",
-    "action": "Estabilizam as vértebras e auxiliam a extensão e a rotação locais da coluna; podem atuar como órgãos de propriocepção.",
+    "nameEn": "Semispinalis",
+    "nameLatin": "Musculus semispinalis",
+    "synonyms": [
+     "semiespinhal"
+    ],
+    "location": "Camada mais superficial do grupo transversoespinal, profunda ao eretor da espinha e aos esplênios; existe apenas nas regiões torácica e cervical e na nuca.",
+    "origin": "Parte torácica: processos transversos de T6–T10. Parte cervical: processos transversos das cinco ou seis primeiras vértebras torácicas. Parte da cabeça: processos transversos de C7 e das seis ou sete primeiras vértebras torácicas e processos articulares de C4–C6.",
+    "insertion": "Parte torácica: processos espinhosos de C6–T4. Parte cervical: processos espinhosos de C2–C5. Parte da cabeça: osso occipital, entre as linhas nucais superior e inferior.",
+    "action": "Estende a cabeça e as regiões cervical e torácica da coluna e as roda para o lado oposto.",
     "innervation": "Ramos posteriores dos nervos espinais.",
-    "relations": "Cobertos pelo multífido; aplicados diretamente sobre as lâminas vertebrais.",
-    "explanation": "São os feixes mais curtos e profundos dos transversoespinais: cada um une uma vértebra à seguinte ou à segunda acima. Pequenos demais para gerar movimento amplo, funcionam sobretudo como estabilizadores e sensores de posição.",
-    "mnemonic": "O nome indica a ação (rotação entre vértebras vizinhas). Nos transversoespinais, quanto mais profundo, mais curto: semiespinal (4–6 segmentos), multífido (2–4), rotadores (1–2).",
-    "association": "Ajustes finos de postura e controle segmentar da coluna torácica durante a rotação do tronco.",
-    "examTip": "São a camada mais profunda dos transversoespinais e os mais bem desenvolvidos na região torácica. Inervação: ramos posteriores dos nervos espinais.",
-    "clue": "Os feixes mais profundos e curtos do grupo transversoespinal, mais desenvolvidos na região torácica: ligam o processo transverso de uma vértebra à vértebra logo acima ou à segunda acima; estabilizam a coluna e têm função proprioceptiva.",
+    "relations": "Recobre o multífido. A parte da cabeça é coberta pelos esplênios e pelo trapézio, recobre o trígono suboccipital e é perfurada pelo nervo occipital maior.",
+    "explanation": "É o mais superficial dos músculos transversoespinais. Seus feixes sobem dos processos transversos aos espinhosos cruzando de quatro a seis vértebras; a parte da cabeça é um potente extensor da cabeça.",
+    "mnemonic": "Semi = metade: só existe na metade superior da coluna (do tórax para cima). Nos transversoespinais, quanto mais profundo, mais curto: semiespinal (4–6 segmentos), multífido (2–4), rotadores (1–2).",
+    "association": "Sustentar e estender a cabeça, por exemplo ao olhar para cima; forma o relevo longitudinal de cada lado da linha mediana da nuca.",
+    "examTip": "O nervo occipital maior (ramo posterior de C2) perfura o semiespinal da cabeça, que forma o teto do trígono suboccipital. Roda para o lado oposto, como os demais transversoespinais.",
+    "clue": "Camada mais superficial do grupo transversoespinal, presente só do tórax para cima: feixes que cruzam de 4 a 6 vértebras, dos processos transversos aos processos espinhosos e ao occipital; estende a cabeça e a coluna e as roda para o lado oposto.",
     "difficulty": 3,
     "refs": [
      "moore",
      "gray",
+     "sobotta",
      "ta2"
     ],
-    "note": "Ficha única para as partes lombar, torácica e cervical, que o modelo 3D mostra separadas."
+    "note": "Ficha única para as partes torácica, cervical e da cabeça, que o modelo 3D mostra separadas. Os níveis vertebrais seguem o Gray e variam ligeiramente entre os livros."
    }
   },
   {
@@ -1885,20 +1904,22 @@
     "multifidus lumborum"
    ],
    "ficha": {
-    "nameEn": "Rotatores",
-    "nameLatin": "Musculi rotatores",
-    "synonyms": [],
-    "location": "Camada mais profunda do grupo transversoespinal, sob o multífido; mais desenvolvidos na região torácica.",
-    "origin": "Processos transversos das vértebras.",
-    "insertion": "Junção da lâmina com o processo transverso ou processo espinhoso da vértebra imediatamente acima (rotadores curtos) ou da segunda vértebra acima (rotadores longos).",
-    "action": "Estabilizam as vértebras e auxiliam a extensão e a rotação locais da coluna; podem atuar como órgãos de propriocepção.",
+    "nameEn": "Multifidus",
+    "nameLatin": "Musculi multifidi",
+    "synonyms": [
+     "multífidos"
+    ],
+    "location": "Camada média do grupo transversoespinal, no sulco entre os processos espinhosos e transversos, do sacro a C2; mais espesso na região lombar.",
+    "origin": "Parte lombar: face posterior do sacro, espinha ilíaca posterossuperior, aponeurose do eretor da espinha, ligamentos sacroilíacos e processos mamilares das vértebras lombares. Parte torácica: processos transversos das vértebras torácicas. Parte cervical: processos articulares de C4–C7.",
+    "insertion": "Processos espinhosos situados de dois a quatro segmentos acima da origem, até C2.",
+    "action": "Estabiliza as vértebras durante os movimentos locais da coluna; auxilia a extensão e a rotação para o lado oposto.",
     "innervation": "Ramos posteriores dos nervos espinais.",
-    "relations": "Cobertos pelo multífido; aplicados diretamente sobre as lâminas vertebrais.",
-    "explanation": "São os feixes mais curtos e profundos dos transversoespinais: cada um une uma vértebra à seguinte ou à segunda acima. Pequenos demais para gerar movimento amplo, funcionam sobretudo como estabilizadores e sensores de posição.",
-    "mnemonic": "O nome indica a ação (rotação entre vértebras vizinhas). Nos transversoespinais, quanto mais profundo, mais curto: semiespinal (4–6 segmentos), multífido (2–4), rotadores (1–2).",
-    "association": "Ajustes finos de postura e controle segmentar da coluna torácica durante a rotação do tronco.",
-    "examTip": "São a camada mais profunda dos transversoespinais e os mais bem desenvolvidos na região torácica. Inervação: ramos posteriores dos nervos espinais.",
-    "clue": "Os feixes mais profundos e curtos do grupo transversoespinal, mais desenvolvidos na região torácica: ligam o processo transverso de uma vértebra à vértebra logo acima ou à segunda acima; estabilizam a coluna e têm função proprioceptiva.",
+    "relations": "Profundo ao eretor da espinha e, do tórax para cima, ao semiespinal; recobre os rotadores. Preenche o sulco ao lado dos processos espinhosos.",
+    "explanation": "Série de feixes curtos e oblíquos que sobem dos processos transversos (ou equivalentes) aos espinhosos, cruzando de duas a quatro vértebras. É um estabilizador segmentar da coluna, sobretudo lombar.",
+    "mnemonic": "Do latim multi + findere: \"dividido em muitos\" feixes. Nos transversoespinais, quanto mais profundo, mais curto: semiespinal (4–6 segmentos), multífido (2–4), rotadores (1–2).",
+    "association": "Exercícios de estabilização lombar (\"core\"); é um dos músculos avaliados e treinados na reabilitação da dor lombar.",
+    "examTip": "É mais desenvolvido na região lombar, onde nasce do sacro e dos processos mamilares. Pertence aos transversoespinais e é inervado por ramos posteriores dos nervos espinais.",
+    "clue": "Camada média do grupo transversoespinal, mais espessa na região lombar: feixes curtos que sobem obliquamente, cruzando de 2 a 4 vértebras até os processos espinhosos; estabiliza as vértebras entre si.",
     "difficulty": 3,
     "refs": [
      "moore",
@@ -2836,26 +2857,28 @@
     "supinator"
    ],
    "ficha": {
-    "nameEn": "Abductor pollicis longus",
-    "nameLatin": "Musculus abductor pollicis longus",
+    "nameEn": "Supinator",
+    "nameLatin": "Musculus supinator",
     "synonyms": [
-     "longo abdutor do polegar"
+     "curto supinador",
+     "supinador curto"
     ],
-    "location": "Compartimento posterior do antebraço, camada profunda; emerge na face lateral do antebraço distal, entre o extensor dos dedos e o extensor radial curto do carpo.",
-    "origin": "Faces posteriores da ulna e do rádio, em suas metades proximais, e membrana interóssea.",
-    "insertion": "Base do I metacarpal.",
-    "action": "Abduz o polegar e o estende na articulação carpometacarpal.",
-    "innervation": "Nervo interósseo posterior, continuação do ramo profundo do nervo radial (C7, C8).",
-    "relations": "Seu tendão cruza os dos extensores radiais do carpo e passa com o do extensor curto do polegar pelo primeiro compartimento dorsal do punho; os dois formam o limite anterior da tabaqueira anatômica.",
-    "explanation": "É o mais lateral dos músculos profundos que \"afloram\" para o polegar. Age sobre o I metacarpal, levando o polegar para longe da palma.",
-    "mnemonic": "Tabaqueira anatômica: na frente, dois tendões juntos (abdutor longo e extensor curto); atrás, um sozinho (extensor longo).",
-    "association": "Abrir a mão para pegar um copo largo; o tendão salta na base do polegar quando ele é afastado.",
-    "examTip": "Tenossinovite de De Quervain: inflamação da bainha do primeiro compartimento dorsal (abdutor longo e extensor curto do polegar), com teste de Finkelstein positivo.",
-    "clue": "Músculo profundo do compartimento posterior do antebraço cujo tendão passa pelo primeiro compartimento dorsal do punho, forma o limite anterior da tabaqueira anatômica e termina na base do I metacarpal. Afasta o primeiro dedo da palma e o estende na articulação carpometacarpal.",
+    "location": "Parte proximal do antebraço, profundo; envolve o terço proximal do rádio e forma, com o braquial, o assoalho da fossa cubital.",
+    "origin": "Epicôndilo lateral do úmero, ligamento colateral radial, ligamento anular do rádio, fossa do supinador e crista do músculo supinador da ulna.",
+    "insertion": "Faces lateral, posterior e anterior do terço proximal do rádio.",
+    "action": "Supina o antebraço, rodando o rádio lateralmente.",
+    "innervation": "Ramo profundo do nervo radial.",
+    "relations": "O ramo profundo do nervo radial atravessa o músculo entre suas camadas superficial e profunda e sai dele como nervo interósseo posterior.",
+    "explanation": "Lâmina muscular que abraça o rádio. É o supinador que atua em qualquer posição do cotovelo e nos movimentos lentos e sem resistência; o bíceps braquial é mais potente, mas depende do cotovelo fletido.",
+    "mnemonic": "SUPinar é segurar a SOPa: a palma vira para cima, como um prato.",
+    "association": "Girar uma maçaneta ou apertar um parafuso com a mão direita, com o cotovelo estendido.",
+    "examTip": "O ramo profundo do nervo radial pode ser comprimido ao atravessar o supinador (arcada de Frohse), causando fraqueza dos extensores dos dedos sem perda de sensibilidade cutânea.",
+    "clue": "Músculo profundo que envolve o terço proximal do rádio, no assoalho da fossa cubital; o ramo profundo do nervo radial o atravessa. Gira o rádio lateralmente, virando a palma da mão para cima, em qualquer posição do cotovelo.",
     "difficulty": 3,
     "refs": [
      "moore",
      "gray",
+     "netter",
      "ta2"
     ],
     "note": "As raízes nervosas variam entre os livros (C5–C6, C6–C7 ou C7–C8) e por isso não foram indicadas."
@@ -3042,20 +3065,22 @@
     "flexor pollicis brevis"
    ],
    "ficha": {
-    "nameEn": "Opponens pollicis",
-    "nameLatin": "Musculus opponens pollicis",
-    "synonyms": [],
-    "location": "Eminência tenar, plano profundo; coberto pelo abdutor curto do polegar e lateral ao flexor curto do polegar.",
-    "origin": "Retináculo dos músculos flexores e tubérculo do trapézio.",
-    "insertion": "Margem lateral do I metacarpal, em toda a sua extensão.",
-    "action": "Faz a oposição do polegar: leva o I metacarpal em direção ao centro da palma e o roda medialmente.",
+    "nameEn": "Flexor pollicis brevis",
+    "nameLatin": "Musculus flexor pollicis brevis",
+    "synonyms": [
+     "curto flexor do polegar"
+    ],
+    "location": "Eminência tenar, medial ao abdutor curto do polegar.",
+    "origin": "Cabeça superficial: retináculo dos músculos flexores e tubérculo do trapézio. Cabeça profunda: trapezoide e capitato.",
+    "insertion": "Lado lateral da base da falange proximal do polegar, por um tendão que contém o osso sesamoide lateral.",
+    "action": "Flete o polegar na articulação metacarpofalângica; auxilia a oposição.",
     "innervation": "Ramo recorrente do nervo mediano (C8, T1).",
-    "relations": "Situa-se profundamente ao abdutor curto do polegar. O ramo recorrente do nervo mediano alcança os músculos tenares junto à margem distal do retináculo dos músculos flexores.",
-    "explanation": "É o único músculo tenar que termina no metacarpal, e não em uma falange. A oposição ocorre na articulação carpometacarpal do polegar, uma articulação selar.",
-    "mnemonic": "Os dois oponentes da mão terminam no metacarpal do próprio dedo (I e V), e não em uma falange: movem o osso que dá a volta na palma.",
-    "association": "Tocar a polpa do polegar na polpa de cada um dos outros dedos; segurar uma caneta ou abotoar uma camisa.",
-    "examTip": "A oposição do polegar depende do nervo mediano. Na lesão do ramo recorrente, o polegar fica no plano da palma, aduzido e sem oposição (\"mão simiesca\").",
-    "clue": "Músculo da eminência tenar, coberto pelo mais superficial do grupo, que se insere ao longo de toda a margem lateral do I metacarpal, e não em uma falange. Leva esse osso em direção ao centro da palma e o roda medialmente, para que a polpa do primeiro dedo toque a dos outros.",
+    "relations": "O tendão do flexor longo do polegar passa entre suas duas cabeças. Fica medial ao abdutor curto e superficial ao oponente do polegar.",
+    "explanation": "É o músculo tenar que flete a falange proximal do polegar; a falange distal é fletida apenas pelo flexor longo, que vem do antebraço.",
+    "mnemonic": "Curto para na falange proximal; o longo passa entre suas duas cabeças e segue até a distal.",
+    "association": "Apertar um objeto entre o polegar e a palma, como ao segurar um cartão ou uma chave.",
+    "examTip": "A inervação varia: a cabeça superficial recebe o ramo recorrente do mediano, mas a cabeça profunda é frequentemente inervada pelo ramo profundo do nervo ulnar. Por isso alguma flexão do polegar pode persistir na lesão do mediano.",
+    "clue": "Músculo da eminência tenar situado medialmente ao mais superficial do grupo; tem cabeças superficial e profunda, e entre elas passa um tendão vindo do antebraço. Dobra a articulação metacarpofalângica do primeiro dedo.",
     "difficulty": 3,
     "refs": [
      "moore",
@@ -3246,29 +3271,31 @@
     "set of lumbricals of hand"
    ],
    "ficha": {
-    "nameEn": "Orbicularis oris",
-    "nameLatin": "Musculus orbicularis oris",
+    "nameEn": "Lumbricals of hand",
+    "nameLatin": "Musculi lumbricales manus",
     "synonyms": [
-     "orbicular dos lábios"
+     "lumbricais da mão",
+     "músculos lumbricais da mão"
     ],
-    "location": "Dentro dos lábios superior e inferior, circundando a rima da boca.",
-    "origin": "Parte medial da maxila e da mandíbula, face profunda da pele perioral e ângulo da boca (modíolo).",
-    "insertion": "Pele e túnica mucosa dos lábios.",
-    "action": "Fecha a rima da boca; comprime os lábios contra os dentes e os protrai (beijo, assobio); resiste à distensão ao soprar.",
-    "innervation": "Ramos bucais do nervo facial (VII); a parte inferior recebe também o ramo marginal da mandíbula.",
-    "relations": "Suas fibras se entrelaçam, no modíolo, com as do bucinador e dos músculos levantadores e depressores dos lábios. As artérias labiais (ramos da artéria facial) correm entre o músculo e a mucosa.",
-    "explanation": "É o esfíncter da boca, mas não é um anel simples: é formado em grande parte por fibras que vêm do bucinador e de outros músculos da face e se cruzam nos ângulos da boca.",
-    "mnemonic": "Orbicular = \"pequeno círculo\": há dois esfíncteres na face, um para as pálpebras e um para os lábios.",
-    "association": "Beijar, assobiar, tocar um instrumento de sopro, segurar um canudo; articular os sons \"p\", \"b\" e \"m\".",
-    "examTip": "Na paralisia facial o paciente não consegue assobiar nem encher as bochechas de ar, e saliva e alimento escapam pelo ângulo da boca do lado paralisado.",
-    "clue": "Esfíncter contido nos lábios, formado em grande parte por fibras de músculos vizinhos que se cruzam no modíolo; fecha a rima oral e projeta os lábios, como no beijo e no assobio.",
-    "difficulty": 1,
+    "location": "Compartimento central da palma, junto aos tendões do flexor profundo dos dedos; são quatro, um para cada dedo de II a V.",
+    "origin": "1º e 2º: lado lateral dos dois tendões laterais do flexor profundo dos dedos (unipenados). 3º e 4º: lados adjacentes dos três tendões mediais do flexor profundo dos dedos (bipenados).",
+    "insertion": "Lado lateral das expansões extensoras dos dedos II a V.",
+    "action": "Fletem as articulações metacarpofalângicas e estendem as interfalângicas dos dedos II a V.",
+    "innervation": "1º e 2º: nervo mediano (C8, T1). 3º e 4º: ramo profundo do nervo ulnar (C8, T1).",
+    "relations": "Passam pelo lado radial de cada articulação metacarpofalângica, anteriormente ao ligamento metacarpal transverso profundo; os interósseos passam posteriormente a esse ligamento.",
+    "explanation": "Não têm fixação óssea: nascem dos tendões flexores profundos e terminam nas expansões extensoras, ligando o sistema flexor ao extensor. A inervação acompanha a da parte do flexor profundo de onde nascem.",
+    "mnemonic": "Lumbricus é \"minhoca\" em latim, pela forma. Os lumbricais põem a mão em \"L\": metacarpofalângicas fletidas e dedos esticados.",
+    "association": "Segurar uma folha, um prato ou um jornal com os dedos retos e as articulações metacarpofalângicas fletidas.",
+    "examTip": "Inervação dividida: dois laterais pelo mediano, dois mediais pelo ulnar. Na lesão do nervo ulnar, a perda dos lumbricais mediais e dos interósseos produz a garra dos dedos IV e V.",
+    "clue": "Quatro pequenos músculos da palma sem origem óssea: nascem dos tendões do flexor profundo dos dedos e terminam nas expansões extensoras. Fletem as articulações metacarpofalângicas e estendem as interfalângicas; os dois laterais recebem o nervo mediano e os dois mediais, o ulnar.",
+    "difficulty": 2,
     "refs": [
      "moore",
      "gray",
+     "netter",
      "ta2"
     ],
-    "note": "O modelo 3D mostra as partes orbital e palpebral; a parte profunda (lacrimal), atrás do saco lacrimal, não aparece separada."
+    "note": "Ficha única para os quatro lumbricais da mão."
    }
   },
   {
@@ -3281,29 +3308,31 @@
     "set of dorsal interossei of hand"
    ],
    "ficha": {
-    "nameEn": "Orbicularis oris",
-    "nameLatin": "Musculus orbicularis oris",
+    "nameEn": "Dorsal interossei of hand",
+    "nameLatin": "Musculi interossei dorsales manus",
     "synonyms": [
-     "orbicular dos lábios"
+     "interósseos dorsais da mão",
+     "músculos interósseos dorsais da mão"
     ],
-    "location": "Dentro dos lábios superior e inferior, circundando a rima da boca.",
-    "origin": "Parte medial da maxila e da mandíbula, face profunda da pele perioral e ângulo da boca (modíolo).",
-    "insertion": "Pele e túnica mucosa dos lábios.",
-    "action": "Fecha a rima da boca; comprime os lábios contra os dentes e os protrai (beijo, assobio); resiste à distensão ao soprar.",
-    "innervation": "Ramos bucais do nervo facial (VII); a parte inferior recebe também o ramo marginal da mandíbula.",
-    "relations": "Suas fibras se entrelaçam, no modíolo, com as do bucinador e dos músculos levantadores e depressores dos lábios. As artérias labiais (ramos da artéria facial) correm entre o músculo e a mucosa.",
-    "explanation": "É o esfíncter da boca, mas não é um anel simples: é formado em grande parte por fibras que vêm do bucinador e de outros músculos da face e se cruzam nos ângulos da boca.",
-    "mnemonic": "Orbicular = \"pequeno círculo\": há dois esfíncteres na face, um para as pálpebras e um para os lábios.",
-    "association": "Beijar, assobiar, tocar um instrumento de sopro, segurar um canudo; articular os sons \"p\", \"b\" e \"m\".",
-    "examTip": "Na paralisia facial o paciente não consegue assobiar nem encher as bochechas de ar, e saliva e alimento escapam pelo ângulo da boca do lado paralisado.",
-    "clue": "Esfíncter contido nos lábios, formado em grande parte por fibras de músculos vizinhos que se cruzam no modíolo; fecha a rima oral e projeta os lábios, como no beijo e no assobio.",
-    "difficulty": 1,
+    "location": "Espaços entre os metacarpais, no plano mais dorsal da mão; são quatro, e o primeiro forma o relevo entre o polegar e o indicador.",
+    "origin": "Lados adjacentes de dois metacarpais vizinhos (músculos bipenados).",
+    "insertion": "Bases das falanges proximais e expansões extensoras dos dedos II a IV: 1º no lado lateral do indicador, 2º no lado lateral do dedo médio, 3º no lado medial do dedo médio e 4º no lado medial do anular.",
+    "action": "Abduzem os dedos II a IV em relação ao eixo do dedo médio; com os lumbricais, fletem as articulações metacarpofalângicas e estendem as interfalângicas.",
+    "innervation": "Ramo profundo do nervo ulnar (C8, T1).",
+    "relations": "A artéria radial passa entre as duas cabeças do primeiro interósseo dorsal para chegar à palma. Seus tendões passam posteriormente ao ligamento metacarpal transverso profundo.",
+    "explanation": "O dedo médio é o eixo da mão e recebe dois interósseos dorsais, que o desviam para um lado ou para o outro. O polegar e o dedo mínimo não recebem interósseos dorsais porque têm abdutores próprios.",
+    "mnemonic": "DAB e PAD: Dorsais ABduzem, Palmares ADuzem. Dorsais são bipenados e são quatro; palmares são unipenados e são três.",
+    "association": "Abrir os dedos em leque; o primeiro interósseo dorsal estabiliza o indicador na pinça com o polegar.",
+    "examTip": "Teste do nervo ulnar: afastar os dedos contra resistência. A atrofia do primeiro interósseo dorsal, com depressão entre o polegar e o indicador, é sinal clássico de lesão do nervo ulnar.",
+    "clue": "Quatro músculos bipenados que preenchem os espaços entre os metacarpais; o primeiro forma o relevo entre o primeiro e o segundo dedos, visto pelo dorso da mão. Afastam os dedos do eixo do dedo médio (abdução) e são inervados pelo ramo profundo do nervo ulnar.",
+    "difficulty": 2,
     "refs": [
      "moore",
      "gray",
+     "netter",
      "ta2"
     ],
-    "note": "O modelo 3D mostra as partes orbital e palpebral; a parte profunda (lacrimal), atrás do saco lacrimal, não aparece separada."
+    "note": "Ficha única para os quatro interósseos dorsais da mão."
    }
   },
   {
@@ -3316,29 +3345,31 @@
     "set of palmar interossei of hand"
    ],
    "ficha": {
-    "nameEn": "Orbicularis oris",
-    "nameLatin": "Musculus orbicularis oris",
+    "nameEn": "Palmar interossei",
+    "nameLatin": "Musculi interossei palmares",
     "synonyms": [
-     "orbicular dos lábios"
+     "interósseos palmares da mão",
+     "músculos interósseos palmares"
     ],
-    "location": "Dentro dos lábios superior e inferior, circundando a rima da boca.",
-    "origin": "Parte medial da maxila e da mandíbula, face profunda da pele perioral e ângulo da boca (modíolo).",
-    "insertion": "Pele e túnica mucosa dos lábios.",
-    "action": "Fecha a rima da boca; comprime os lábios contra os dentes e os protrai (beijo, assobio); resiste à distensão ao soprar.",
-    "innervation": "Ramos bucais do nervo facial (VII); a parte inferior recebe também o ramo marginal da mandíbula.",
-    "relations": "Suas fibras se entrelaçam, no modíolo, com as do bucinador e dos músculos levantadores e depressores dos lábios. As artérias labiais (ramos da artéria facial) correm entre o músculo e a mucosa.",
-    "explanation": "É o esfíncter da boca, mas não é um anel simples: é formado em grande parte por fibras que vêm do bucinador e de outros músculos da face e se cruzam nos ângulos da boca.",
-    "mnemonic": "Orbicular = \"pequeno círculo\": há dois esfíncteres na face, um para as pálpebras e um para os lábios.",
-    "association": "Beijar, assobiar, tocar um instrumento de sopro, segurar um canudo; articular os sons \"p\", \"b\" e \"m\".",
-    "examTip": "Na paralisia facial o paciente não consegue assobiar nem encher as bochechas de ar, e saliva e alimento escapam pelo ângulo da boca do lado paralisado.",
-    "clue": "Esfíncter contido nos lábios, formado em grande parte por fibras de músculos vizinhos que se cruzam no modíolo; fecha a rima oral e projeta os lábios, como no beijo e no assobio.",
-    "difficulty": 1,
+    "location": "Plano profundo da palma, sobre as faces palmares dos metacarpais, anteriores aos interósseos dorsais; são três.",
+    "origin": "Faces palmares dos metacarpais II, IV e V (músculos unipenados).",
+    "insertion": "Bases das falanges proximais e expansões extensoras dos dedos II, IV e V: lado medial do indicador e lado lateral do anular e do dedo mínimo.",
+    "action": "Aduzem os dedos II, IV e V em direção ao eixo do dedo médio; com os lumbricais, fletem as articulações metacarpofalângicas e estendem as interfalângicas.",
+    "innervation": "Ramo profundo do nervo ulnar (C8, T1).",
+    "relations": "Ficam profundamente ao adutor do polegar e aos tendões flexores longos; o arco palmar profundo e o ramo profundo do nervo ulnar cruzam sua face anterior. Seus tendões passam posteriormente ao ligamento metacarpal transverso profundo.",
+    "explanation": "Cada um nasce de um só metacarpal e puxa o próprio dedo em direção ao dedo médio. O dedo médio, por ser o eixo, não recebe interósseo palmar.",
+    "mnemonic": "PAD e DAB: Palmares ADuzem, Dorsais ABduzem. Três palmares para os três dedos que precisam voltar ao eixo: II, IV e V.",
+    "association": "Juntar os dedos para fazer uma concha com a mão ou segurar uma folha de papel entre dois dedos estendidos.",
+    "examTip": "Teste do nervo ulnar: o paciente prende uma folha de papel entre dois dedos estendidos enquanto o examinador tenta puxá-la. Fraqueza indica lesão do ramo profundo do nervo ulnar.",
+    "clue": "Três pequenos músculos unipenados situados na face anterior dos metacarpais II, IV e V, no plano mais profundo da palma. Aproximam os dedos indicador, anular e mínimo do dedo médio (adução) e são inervados pelo ramo profundo do nervo ulnar.",
+    "difficulty": 3,
     "refs": [
      "moore",
      "gray",
+     "netter",
      "ta2"
     ],
-    "note": "O modelo 3D mostra as partes orbital e palpebral; a parte profunda (lacrimal), atrás do saco lacrimal, não aparece separada."
+    "note": "Ficha única para os três interósseos palmares. Alguns autores descrevem um quarto interósseo palmar, destinado ao polegar; a descrição com três músculos é a mais adotada."
    }
   },
   {
@@ -3572,20 +3603,22 @@
     "obturator externus"
    ],
    "ficha": {
-    "nameEn": "Gemellus superior",
-    "nameLatin": "Musculus gemellus superior",
-    "synonyms": [],
-    "location": "Região glútea profunda, entre o piriforme (acima) e o tendão do obturador interno (abaixo).",
-    "origin": "Espinha isquiática.",
-    "insertion": "Face medial do trocanter maior do fêmur, por meio do tendão do obturador interno.",
-    "action": "Roda lateralmente a coxa estendida e abduz a coxa fletida; estabiliza a cabeça do fêmur no acetábulo.",
-    "innervation": "Nervo para o músculo obturador interno (L5, S1).",
-    "relations": "Acompanha a margem superior do tendão do obturador interno; é coberto pelo glúteo máximo e cruzado posteriormente pelo nervo isquiático.",
-    "explanation": "Pequeno fascículo muscular que reforça o tendão do obturador interno por cima. Com o gêmeo inferior e o obturador interno forma o tríceps do quadril.",
-    "mnemonic": "Cada gêmeo divide o nervo com o vizinho: o de cima com o obturador interno; o de baixo com o quadrado femoral.",
-    "association": "Rotação lateral do quadril, em conjunto com o obturador interno.",
-    "examTip": "Origem na espinha isquiática e inervação pelo nervo para o obturador interno — é o que o diferencia do gêmeo inferior (túber isquiático; nervo para o quadrado femoral).",
-    "clue": "Pequeno rotador lateral do quadril que nasce na espinha isquiática e acompanha por cima o tendão do obturador interno, com o qual divide o nervo.",
+    "nameEn": "Obturator externus",
+    "nameLatin": "Musculus obturatorius externus",
+    "synonyms": [
+     "obturatório externo"
+    ],
+    "location": "Profundo na parte proximal e medial da coxa, recobrindo por fora o forame obturado, atrás do pectíneo.",
+    "origin": "Face externa da membrana obturadora e margens ósseas do forame obturado.",
+    "insertion": "Fossa trocantérica do fêmur.",
+    "action": "Roda lateralmente a coxa; estabiliza a cabeça do fêmur no acetábulo.",
+    "innervation": "Nervo obturatório (L3, L4).",
+    "relations": "Seu tendão passa abaixo e atrás do colo do fêmur para alcançar a fossa trocantérica. É recoberto anteriormente pelo pectíneo e pelos adutores e, na região glútea, fica profundo ao quadrado femoral.",
+    "explanation": "Músculo plano e triangular que cobre a face externa da pelve na região do forame obturado. Apesar de rodar lateralmente o quadril, tem a mesma inervação dos adutores.",
+    "mnemonic": "Externo = por fora da membrana obturadora, e inervado pelo nervo de mesmo nome (obturatório).",
+    "association": "Rotação lateral e estabilização do quadril durante a marcha.",
+    "examTip": "É o único dos rotadores laterais curtos do quadril inervado pelo nervo obturatório (plexo lombar); os demais recebem ramos do plexo sacral.",
+    "clue": "Rotador lateral do quadril que nasce na face de fora da membrana que fecha o grande forame do osso do quadril, passa abaixo do colo do fêmur até a fossa trocantérica e é inervado pelo nervo obturatório.",
     "difficulty": 3,
     "refs": [
      "moore",
@@ -4097,24 +4130,24 @@
     "adductor minimus"
    ],
    "ficha": {
-    "nameEn": "Biceps femoris",
-    "nameLatin": "Musculus biceps femoris",
+    "nameEn": "Adductor magnus",
+    "nameLatin": "Musculus adductor magnus",
     "synonyms": [
-     "bíceps da coxa",
-     "bíceps crural"
+     "grande adutor",
+     "adutor maior"
     ],
-    "location": "Compartimento posterior da coxa, lado lateral.",
-    "origin": "Cabeça longa: túber isquiático, por tendão comum com o semitendíneo. Cabeça curta: lábio lateral da linha áspera e linha supracondilar lateral do fêmur.",
-    "insertion": "Face lateral da cabeça da fíbula; o tendão é dividido nesse ponto pelo ligamento colateral fibular.",
-    "action": "Flete a perna no joelho e, com o joelho fletido, roda-a lateralmente; a cabeça longa também estende a coxa no quadril.",
-    "innervation": "Cabeça longa: divisão tibial do nervo isquiático (L5, S1, S2). Cabeça curta: divisão fibular comum do nervo isquiático (L5, S1, S2).",
-    "relations": "A cabeça longa cruza posteriormente o nervo isquiático. Seu tendão forma o limite superolateral da fossa poplítea, e o nervo fibular comum desce ao longo de sua margem medial.",
-    "explanation": "É o isquiotibial lateral, com duas cabeças. A cabeça longa cruza o quadril e o joelho; a cabeça curta nasce do fêmur e atua apenas no joelho.",
-    "mnemonic": "Duas cabeças, dois nervos: a longa fica com a divisão tibial e a curta com a divisão fibular comum — e o músculo termina na fíbula.",
-    "association": "Mesa flexora; arrancadas de velocidade, em que são comuns os estiramentos dos isquiotibiais.",
-    "examTip": "Inervação dupla. A cabeça curta não é um isquiotibial verdadeiro: não nasce do túber isquiático, não cruza o quadril e é inervada pela divisão fibular comum.",
-    "clue": "Músculo posterolateral da coxa com duas cabeças, uma do túber isquiático e outra da linha áspera, cada qual inervada por uma divisão diferente do nervo isquiático; termina na cabeça da fíbula, flete o joelho e roda lateralmente a perna.",
-    "difficulty": 1,
+    "location": "Compartimento medial da coxa, na camada mais profunda e posterior; estende-se do ramo isquiopúbico e do túber isquiático a toda a extensão do fêmur.",
+    "origin": "Parte adutora: ramo inferior do púbis e ramo do ísquio. Parte isquiotibial: túber isquiático.",
+    "insertion": "Parte adutora: tuberosidade glútea, linha áspera e linha supracondilar medial do fêmur. Parte isquiotibial: tubérculo do adutor do fêmur.",
+    "action": "Aduz a coxa. A parte adutora também a flete; a parte isquiotibial a estende.",
+    "innervation": "Parte adutora: nervo obturatório (L2, L3, L4), pelo ramo posterior. Parte isquiotibial: divisão tibial do nervo isquiático (L4).",
+    "relations": "Entre as inserções das duas partes fica o hiato dos adutores, por onde os vasos femorais passam para a fossa poplítea. Anteriormente ficam os adutores curto e longo; posteriormente, os músculos isquiotibiais e o nervo isquiático.",
+    "explanation": "É o maior músculo do compartimento medial, grande e triangular. Reúne dois músculos em um, com origens, ações e nervos diferentes: uma parte adutora e uma parte isquiotibial.",
+    "mnemonic": "Magno = grande. Dois músculos em um: a parte adutora segue os adutores (nervo obturatório) e a parte isquiotibial segue os isquiotibiais (túber isquiático, divisão tibial do nervo isquiático).",
+    "association": "Adução potente do quadril (cavalgar) e extensão do quadril ao levantar-se do agachamento.",
+    "examTip": "Inervação dupla: nervo obturatório (parte adutora) e divisão tibial do nervo isquiático (parte isquiotibial). Pelo hiato dos adutores, a artéria e a veia femorais passam a se chamar poplíteas.",
+    "clue": "Maior músculo do compartimento medial da coxa, triangular e profundo, com inervação dupla (nervo obturatório e divisão tibial do nervo isquiático); junto à sua inserção há um hiato por onde os vasos femorais passam para a fossa poplítea.",
+    "difficulty": 2,
     "refs": [
      "moore",
      "gray",
@@ -4313,20 +4346,22 @@
     "plantaris"
    ],
    "ficha": {
-    "nameEn": "Popliteus",
-    "nameLatin": "Musculus popliteus",
-    "synonyms": [],
-    "location": "Compartimento posterior da perna, camada profunda; músculo triangular e delgado no assoalho da parte inferior da fossa poplítea.",
-    "origin": "Face lateral do côndilo lateral do fêmur e menisco lateral.",
-    "insertion": "Face posterior da tíbia, acima da linha do músculo sóleo.",
-    "action": "Flete fracamente o joelho e o destrava: roda lateralmente o fêmur sobre a tíbia fixa (ou roda medialmente a tíbia com o pé fora do chão).",
-    "innervation": "Nervo tibial (L4, L5, S1).",
-    "relations": "Seu tendão é intracapsular e passa profundamente ao ligamento colateral fibular. Os vasos poplíteos e o nervo tibial descem sobre sua face posterior.",
-    "explanation": "Na extensão completa o joelho \"trava\" por uma pequena rotação medial do fêmur. O poplíteo desfaz essa rotação e permite iniciar a flexão.",
-    "mnemonic": "É a \"chave do joelho\": destranca a articulação travada em extensão.",
-    "association": "Iniciar o agachamento a partir da posição em pé com os joelhos estendidos.",
-    "examTip": "Pergunta clássica: qual músculo destrava o joelho? Lembre que a origem (proximal) é lateral, no fêmur, e a inserção (distal) é medial, na tíbia.",
-    "clue": "Músculo pequeno e triangular, profundo, na face posterior do joelho; vai do côndilo lateral do fêmur à face posterior da tíbia e \"destrava\" o joelho estendido para iniciar a flexão.",
+    "nameEn": "Plantaris",
+    "nameLatin": "Musculus plantaris",
+    "synonyms": [
+     "plantar delgado"
+    ],
+    "location": "Compartimento posterior da perna, camada superficial; pequeno ventre na fossa poplítea, entre o gastrocnêmio e o sóleo.",
+    "origin": "Extremidade inferior da linha supracondilar lateral do fêmur e ligamento poplíteo oblíquo.",
+    "insertion": "Face posterior do calcâneo, medialmente ao tendão do calcâneo ou fundido a ele.",
+    "action": "Auxilia fracamente o gastrocnêmio na flexão plantar do tornozelo e na flexão do joelho.",
+    "innervation": "Nervo tibial (S1, S2).",
+    "relations": "O ventre fica sob a cabeça lateral do gastrocnêmio; o tendão, longo e fino, desce obliquamente entre o gastrocnêmio e o sóleo até a margem medial do tendão do calcâneo.",
+    "explanation": "Tem um ventre curto e um tendão muito longo e delgado. Sua força é desprezível, mas o tendão pode ser retirado como enxerto sem prejuízo funcional.",
+    "mnemonic": "\"Nervo do calouro\": o tendão longo e fino costuma ser confundido com um nervo por quem começa a dissecar.",
+    "association": "Tendão doador em cirurgias de reconstrução (por exemplo, de tendões da mão).",
+    "examTip": "É inconstante (pode faltar) e seu tendão é usado como enxerto. A ruptura provoca dor súbita na panturrilha, como uma \"pedrada\".",
+    "clue": "Pequeno ventre muscular atrás do joelho, com um tendão muito longo e fino que desce entre os dois grandes músculos da panturrilha até o calcâneo; ação fraca e pode estar ausente.",
     "difficulty": 3,
     "refs": [
      "moore",
@@ -4654,28 +4689,28 @@
     "fibularis tertius"
    ],
    "ficha": {
-    "nameEn": "Fibularis longus",
-    "nameLatin": "Musculus fibularis longus",
+    "nameEn": "Fibularis tertius",
+    "nameLatin": "Musculus fibularis tertius",
     "synonyms": [
-     "peroneiro longo",
-     "peroneiro lateral longo"
+     "terceiro fibular",
+     "peroneiro terceiro",
+     "peroneiro anterior"
     ],
-    "location": "Compartimento lateral da perna; é o mais superficial dos dois músculos do compartimento.",
-    "origin": "Cabeça e dois terços superiores da face lateral da fíbula.",
-    "insertion": "Base do 1º metatarsal e cuneiforme medial, na face plantar.",
-    "action": "Eversão do pé e flexão plantar fraca do tornozelo; sustenta o arco transverso do pé.",
-    "innervation": "Nervo fibular superficial (L5, S1, S2).",
-    "relations": "O nervo fibular comum contorna o colo da fíbula profundamente a ele. Seu tendão passa atrás do maléolo lateral, posterior ao do fibular curto, e abaixo da tróclea fibular do calcâneo; depois cruza a planta obliquamente pelo sulco do cuboide.",
-    "explanation": "Seu tendão percorre o caminho mais longo: desce pelo lado lateral da perna, contorna o cuboide e atravessa toda a planta até o lado medial do pé.",
-    "mnemonic": "O \"estribo\" do pé: ele (por baixo e por fora) e o tibial anterior (por dentro) chegam aos mesmos ossos, o cuneiforme medial e o 1º metatarsal.",
-    "association": "Virar a planta do pé para fora; estabilizar o tornozelo ao andar em terreno irregular.",
-    "examTip": "A lesão do nervo fibular superficial abole a eversão do pé. Os fibulares protegem contra a entorse em inversão, a mais comum do tornozelo.",
-    "clue": "No compartimento lateral da perna, é o mais superficial e nasce mais alto, desde a cabeça da fíbula; seu tendão passa atrás do maléolo lateral, cruza a planta pelo sulco do cuboide e alcança o 1º metatarsal e o cuneiforme medial. Everte o pé.",
-    "difficulty": 2,
+    "location": "Compartimento anterior da perna, na parte inferior e lateral; é uma parte separada do extensor longo dos dedos.",
+    "origin": "Terço inferior da face medial da fíbula e membrana interóssea.",
+    "insertion": "Dorso da base do 5º metatarsal.",
+    "action": "Dorsiflexão do tornozelo e auxílio na eversão do pé.",
+    "innervation": "Nervo fibular profundo (L5, S1).",
+    "relations": "Seu tendão acompanha os do extensor longo dos dedos sob os retináculos dos músculos extensores e passa à frente do maléolo lateral, ao contrário dos fibulares longo e curto, que passam atrás.",
+    "explanation": "Apesar do nome, não pertence ao compartimento lateral. Parece um \"quinto tendão\" do extensor longo dos dedos que, em vez de chegar a um dedo, se fixa no 5º metatarsal.",
+    "mnemonic": "Fibular só no nome: mora no compartimento anterior, passa à frente do maléolo lateral e recebe o nervo fibular profundo.",
+    "association": "Levantar a margem lateral do pé durante a fase de balanço da marcha.",
+    "examTip": "Pegadinha clássica: é inervado pelo nervo fibular profundo, e não pelo superficial. É um músculo inconstante.",
+    "clue": "Feixe inconstante da parte inferior da frente da perna, que parece um quinto tendão do músculo que estende os dedos; passa à frente do maléolo lateral e fixa-se no dorso da base do 5º metatarsal. Faz dorsiflexão com eversão.",
+    "difficulty": 3,
     "refs": [
      "moore",
      "gray",
-     "netter",
      "ta2"
     ],
     "note": "Músculo inconstante: pode estar ausente."
@@ -4691,25 +4726,24 @@
     "extensor hallucis brevis"
    ],
    "ficha": {
-    "nameEn": "Abductor hallucis",
-    "nameLatin": "Musculus abductor hallucis",
+    "nameEn": "Extensor hallucis brevis",
+    "nameLatin": "Musculus extensor hallucis brevis",
     "synonyms": [],
-    "location": "Planta do pé, 1ª camada (superficial); forma a margem medial do pé.",
-    "origin": "Processo medial da tuberosidade do calcâneo, retináculo dos músculos flexores e aponeurose plantar.",
-    "insertion": "Lado medial da base da falange proximal do hálux.",
-    "action": "Abduz e flete o hálux; ajuda a sustentar o arco longitudinal medial.",
-    "innervation": "Nervo plantar medial (S2, S3).",
-    "relations": "Os vasos e nervos plantares medial e lateral entram na planta profundamente a ele. O flexor curto dos dedos fica lateralmente.",
-    "explanation": "No pé, abdução e adução são definidas em relação ao 2º dedo, e não ao 3º como na mão. Abduzir o hálux é afastá-lo do 2º dedo, em direção medial.",
-    "mnemonic": "O nervo plantar medial inerva só quatro músculos (\"LAFF\"): 1º Lumbrical, Abdutor do hálux, Flexor curto dos dedos e Flexor curto do hálux.",
-    "association": "Afastar o dedão dos outros dedos; apoio do arco medial na marcha descalça.",
-    "examTip": "É a \"porta de entrada\" da planta: o feixe neurovascular plantar passa sob ele, onde o nervo plantar medial pode ser comprimido.",
-    "clue": "Na 1ª camada da planta, forma a margem medial do pé: vai do calcâneo ao lado medial da falange proximal do primeiro dedo, que ele afasta do 2º; recebe o nervo plantar medial.",
-    "difficulty": 2,
+    "location": "Dorso do pé, sob os tendões dos extensores longos; é a parte medial do extensor curto dos dedos.",
+    "origin": "Face dorsal do calcâneo, à frente do seio do tarso, em comum com o extensor curto dos dedos.",
+    "insertion": "Face dorsal da base da falange proximal do hálux.",
+    "action": "Estende o hálux na articulação metatarsofalângica, auxiliando o extensor longo do hálux.",
+    "innervation": "Nervo fibular profundo (L5, S1).",
+    "relations": "Seu tendão dirige-se medialmente e cruza superficialmente a artéria dorsal do pé.",
+    "explanation": "Os músculos do dorso do pé são intrínsecos, mas recebem o mesmo nervo do compartimento anterior da perna. Este vai à falange proximal do hálux; o extensor longo, à distal.",
+    "mnemonic": "Curto nasce no próprio pé (calcâneo) e para na falange proximal; longo nasce na perna e chega à falange distal.",
+    "association": "Seu ventre forma, com o extensor curto dos dedos, a saliência carnosa à frente do maléolo lateral ao estender os dedos.",
+    "examTip": "É inervado pelo nervo fibular profundo, e não pelos nervos plantares. Um hematoma nesse ventre muscular pode ser confundido com entorse do tornozelo.",
+    "clue": "Pequeno ventre muscular do dorso do pé: nasce no calcâneo e termina na falange proximal do primeiro dedo, que ele levanta na articulação metatarsofalângica; recebe o nervo fibular profundo.",
+    "difficulty": 3,
     "refs": [
      "moore",
      "gray",
-     "netter",
      "ta2"
     ],
     "note": "O modelo 3D não traz o extensor curto dos dedos, do qual este músculo é a parte medial."
@@ -4898,31 +4932,31 @@
     "flexor digiti minimi brevis of foot"
    ],
    "ficha": {
-    "nameEn": "Gluteus maximus",
-    "nameLatin": "Musculus gluteus maximus",
+    "nameEn": "Flexor digiti minimi brevis of foot",
+    "nameLatin": "Musculus flexor digiti minimi brevis pedis",
     "synonyms": [
-     "grande glúteo",
-     "glúteo maior"
+     "flexor curto do dedo mínimo do pé",
+     "flexor curto do quinto dedo do pé",
+     "flexor curto do 5º dedo do pé"
     ],
-    "location": "Região glútea, camada superficial; é o músculo que dá o volume da nádega.",
-    "origin": "Ílio posterior à linha glútea posterior, face dorsal do sacro e do cóccix e ligamento sacrotuberal.",
-    "insertion": "A maior parte das fibras termina no trato iliotibial (que se fixa ao côndilo lateral da tíbia); as fibras profundas inferiores, na tuberosidade glútea do fêmur.",
-    "action": "Estende a coxa, sobretudo a partir da posição fletida (levantar-se, subir escadas, correr), e auxilia a rotação lateral; ajuda a erguer o tronco a partir da flexão.",
-    "innervation": "Nervo glúteo inferior (L5, S1, S2).",
-    "relations": "Recobre a parte posterior do glúteo médio, o piriforme, os rotadores laterais curtos, o nervo isquiático e o túber isquiático (na posição de pé). Bolsas trocantérica e isquiática separam-no do trocanter maior e do túber isquiático.",
-    "explanation": "É o maior e mais superficial músculo da região glútea. Atua pouco na marcha tranquila em terreno plano e é recrutado com força quando o quadril precisa ser estendido contra resistência.",
-    "mnemonic": "O nervo glúteo INFERIOR supre só o MÁXIMO; o nervo glúteo SUPERIOR supre todo o resto (médio, mínimo e tensor da fáscia lata).",
-    "association": "Levantar-se da cadeira, subir escadas, agachamento e a arrancada da corrida.",
-    "examTip": "Lesão do nervo glúteo inferior dificulta levantar-se da posição sentada e subir escadas. Injeções intramusculares na nádega são feitas no quadrante superolateral para evitar o nervo isquiático.",
-    "clue": "Músculo mais volumoso e superficial da nádega; estende o quadril com força ao levantar da cadeira, subir escadas e correr, e a maior parte de suas fibras termina no trato iliotibial.",
-    "difficulty": 1,
+    "location": "Planta do pé, 3ª camada; sobre a face plantar do 5º metatarsal.",
+    "origin": "Base do 5º metatarsal.",
+    "insertion": "Base da falange proximal do 5º dedo, no lado lateral.",
+    "action": "Flete a falange proximal do 5º dedo (articulação metatarsofalângica).",
+    "innervation": "Nervo plantar lateral, ramo superficial (S2, S3).",
+    "relations": "Fica profundamente e medialmente ao abdutor do dedo mínimo, acompanhando o 5º metatarsal.",
+    "explanation": "Pequeno ventre que lembra um interósseo. A 3ª camada tem três músculos, todos curtos e ligados aos dedos das extremidades: dois para o hálux e este para o 5º dedo.",
+    "mnemonic": "3ª camada da planta: dois flexores curtos (do hálux e do dedo mínimo) e um adutor (do hálux).",
+    "association": "Dobrar o dedinho do pé contra o chão.",
+    "examTip": "Nasce do 5º metatarsal, e não do calcâneo, o que o diferencia do abdutor do dedo mínimo. Inervação: nervo plantar lateral.",
+    "clue": "Na 3ª camada da planta, é um pequeno ventre deitado sobre o 5º metatarsal, de cuja base nasce; termina na falange proximal do 5º dedo e o dobra na articulação metatarsofalângica. Recebe o nervo plantar lateral.",
+    "difficulty": 3,
     "refs": [
      "moore",
      "gray",
-     "netter",
      "ta2"
     ],
-    "note": "O modelo 3D não inclui os interósseos dorsais do pé."
+    "note": "Suas fibras profundas que se inserem no 5º metatarsal são descritas como oponente do dedo mínimo, que o modelo 3D mostra como estrutura separada."
    }
   },
   {
@@ -4975,24 +5009,23 @@
     "third plantar interosseous of foot"
    ],
    "ficha": {
-    "nameEn": "Gluteus maximus",
-    "nameLatin": "Musculus gluteus maximus",
+    "nameEn": "Plantar interossei",
+    "nameLatin": "Musculi interossei plantares",
     "synonyms": [
-     "grande glúteo",
-     "glúteo maior"
+     "interósseos plantares do pé"
     ],
-    "location": "Região glútea, camada superficial; é o músculo que dá o volume da nádega.",
-    "origin": "Ílio posterior à linha glútea posterior, face dorsal do sacro e do cóccix e ligamento sacrotuberal.",
-    "insertion": "A maior parte das fibras termina no trato iliotibial (que se fixa ao côndilo lateral da tíbia); as fibras profundas inferiores, na tuberosidade glútea do fêmur.",
-    "action": "Estende a coxa, sobretudo a partir da posição fletida (levantar-se, subir escadas, correr), e auxilia a rotação lateral; ajuda a erguer o tronco a partir da flexão.",
-    "innervation": "Nervo glúteo inferior (L5, S1, S2).",
-    "relations": "Recobre a parte posterior do glúteo médio, o piriforme, os rotadores laterais curtos, o nervo isquiático e o túber isquiático (na posição de pé). Bolsas trocantérica e isquiática separam-no do trocanter maior e do túber isquiático.",
-    "explanation": "É o maior e mais superficial músculo da região glútea. Atua pouco na marcha tranquila em terreno plano e é recrutado com força quando o quadril precisa ser estendido contra resistência.",
-    "mnemonic": "O nervo glúteo INFERIOR supre só o MÁXIMO; o nervo glúteo SUPERIOR supre todo o resto (médio, mínimo e tensor da fáscia lata).",
-    "association": "Levantar-se da cadeira, subir escadas, agachamento e a arrancada da corrida.",
-    "examTip": "Lesão do nervo glúteo inferior dificulta levantar-se da posição sentada e subir escadas. Injeções intramusculares na nádega são feitas no quadrante superolateral para evitar o nervo isquiático.",
-    "clue": "Músculo mais volumoso e superficial da nádega; estende o quadril com força ao levantar da cadeira, subir escadas e correr, e a maior parte de suas fibras termina no trato iliotibial.",
-    "difficulty": 1,
+    "location": "Planta do pé, 4ª camada (a mais profunda); três músculos junto ao 3º, 4º e 5º metatarsais.",
+    "origin": "Bases e faces mediais do 3º, 4º e 5º metatarsais.",
+    "insertion": "Lado medial das bases das falanges proximais do 3º, 4º e 5º dedos.",
+    "action": "Aduzem o 3º, o 4º e o 5º dedos, aproximando-os do 2º, e fletem as articulações metatarsofalângicas.",
+    "innervation": "Nervo plantar lateral (S2, S3).",
+    "relations": "Ficam na camada mais profunda da planta, junto dos interósseos dorsais. O arco plantar profundo e o ramo profundo do nervo plantar lateral correm sobre sua face plantar.",
+    "explanation": "São três músculos unipenados, cada um preso a um único metatarsal. O eixo de referência do pé é o 2º dedo, por isso só o 3º, o 4º e o 5º têm interósseo plantar.",
+    "mnemonic": "\"PAD e DAB\": os Plantares ADuzem, os Dorsais ABduzem. São 3 plantares e 4 dorsais.",
+    "association": "Juntar os dedos do pé; estabilizar o antepé durante o impulso.",
+    "examTip": "No pé, o eixo de adução e abdução passa pelo 2º dedo; na mão, pelo 3º. Todos os interósseos do pé são inervados pelo nervo plantar lateral.",
+    "clue": "Três pequenos músculos unipenados da camada mais profunda da planta, presos às faces mediais do 3º, 4º e 5º metatarsais; aproximam os dedos correspondentes do 2º, que é o eixo do pé. Recebem o nervo plantar lateral.",
+    "difficulty": 3,
     "refs": [
      "moore",
      "gray",
