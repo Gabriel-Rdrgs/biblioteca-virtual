@@ -34,7 +34,7 @@ export const navItems: readonly NavItem[] = [
     label: "Estudar",
     icon: PencilRuler,
     // Simulados, flashcards, os modos de treino e o desempenho são um lugar só.
-    alsoMatches: ["/simulados", "/progresso", "/flashcards"],
+    alsoMatches: ["/simulados", "/progresso", "/flashcards", "/anatomia", "/provas"],
   },
   {
     href: "/disciplinas",

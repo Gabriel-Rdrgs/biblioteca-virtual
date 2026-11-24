@@ -9,6 +9,7 @@ import {
   FileText,
   Images,
   LineChart,
+  PersonStanding,
   Sparkles,
   Stethoscope,
   TriangleAlert,
@@ -138,6 +139,13 @@ export default async function EstudarPage() {
       title: "Modo rápido",
       text: "Uma objetiva por vez, corrigida na hora, com o comentário.",
       stat: `${objetivas} questões`,
+    },
+    {
+      href: "/anatomia",
+      icon: PersonStanding,
+      title: "Anatomia 3D",
+      text: "O músculo acende no corpo em 3D e você escreve o nome; o app corrige letra por letra e traz de volta na hora certa.",
+      stat: "141 músculos · 25 lições",
     },
     {
       href: "/estudar/imagem",

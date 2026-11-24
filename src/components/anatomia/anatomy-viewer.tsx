@@ -1,0 +1,748 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import type {
+  Box3,
+  Group,
+  Material,
+  Mesh,
+  MeshStandardMaterial,
+  PerspectiveCamera,
+  Scene,
+  Spherical,
+  Vector3,
+  WebGLRenderer,
+} from "three";
+import type { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { meshKey, type AnatomyLayer } from "@/lib/domain/anatomy-types";
+import { MODEL_URL } from "@/lib/data/anatomia/model-url";
+import { cn } from "@/lib/utils";
+
+/**
+ * O corpo em 3D.
+ *
+ * Three.js puro, carregado só no navegador (import dinâmico), para não pesar
+ * nas outras páginas. O componente é "controlado": quem está em volta diz
+ * o que destacar, que camadas mostrar e para onde olhar; ele só desenha e
+ * avisa o que foi tocado.
+ *
+ * Dois jeitos de mostrar:
+ * - **normal**: o corpo inteiro com as cores do modelo, camadas ligáveis;
+ * - **raio-X**: só o destacado fica sólido; ossos e músculos superficiais
+ *   viram um vulto translúcido, os profundos somem. É o modo do treino —
+ *   o músculo aparece inteiro, sem nada na frente, mas no lugar dele.
+ *
+ * No treino, duas vistas pequenas giram devagar em volta do mesmo ponto,
+ * para o músculo ser visto de mais de um ângulo sem ninguém girar nada.
+ *
+ * Destaque e transparência trocam apenas o material — a geometria não é
+ * alterada, como pede a licença do modelo.
+ */
+
+export type ViewName = "front" | "back" | "left" | "right" | "perspective";
+type Side = "left" | "right" | "midline";
+
+export interface AnatomyPick {
+  readonly key: string;
+  readonly layer: AnatomyLayer;
+  readonly name: string;
+}
+
+export interface FocusRequest {
+  readonly keys: readonly string[];
+  /** Enquadrar só um lado do corpo (os dois continuam acesos). */
+  readonly side?: "left" | "right";
+  /** Quanto de folga em volta: 2,3 é justo; 3 mostra a vizinhança. */
+  readonly padding?: number;
+  /** Muda para pedir de novo o mesmo enquadramento. */
+  readonly nonce: number | string;
+}
+
+export interface AnatomyViewerProps {
+  /** Chaves (inglês, sem lado) a destacar como selecionadas. */
+  readonly selectedKeys?: readonly string[];
+  /** Chaves a destacar como alvo do quiz. */
+  readonly focusKeys?: readonly string[];
+  /** Depois da resposta: o que acendeu e se estava certo. */
+  readonly result?: { readonly keys: readonly string[]; readonly ok: boolean } | null;
+  readonly layers?: Readonly<Record<AnatomyLayer, boolean>>;
+  /** 0 a 1: deixa ver o que está embaixo dos músculos superficiais. */
+  readonly superficialOpacity?: number;
+  readonly xray?: boolean;
+  readonly view?: { readonly name: ViewName; readonly nonce: number };
+  readonly focus?: FocusRequest | null;
+  /** As duas vistas pequenas que giram em volta do foco. */
+  readonly insets?: boolean;
+  /** Altura (px) coberta embaixo por texto: o corpo é enquadrado acima dela. */
+  readonly bottomInset?: number;
+  readonly interactive?: boolean;
+  readonly onPick?: (pick: AnatomyPick | null) => void;
+  readonly onReady?: (stats: { readonly meshes: number; readonly keys: readonly string[] }) => void;
+  readonly className?: string;
+}
+
+interface Entry {
+  readonly mesh: Mesh;
+  readonly key: string;
+  readonly layer: AnatomyLayer;
+  readonly side: Side;
+  readonly name: string;
+  readonly box: Box3;
+  readonly center: Vector3;
+}
+
+interface Tween {
+  t0: number | null;
+  readonly fromTarget: Vector3;
+  readonly toTarget: Vector3;
+  readonly from: Spherical;
+  readonly to: Spherical;
+}
+
+interface Controller {
+  readonly entries: Entry[];
+  readonly mats: {
+    layer: Record<AnatomyLayer, MeshStandardMaterial>;
+    soft: MeshStandardMaterial;
+    ghostBone: MeshStandardMaterial;
+    ghostMuscle: MeshStandardMaterial;
+    selected: MeshStandardMaterial;
+    focus: MeshStandardMaterial;
+    correct: MeshStandardMaterial;
+    wrong: MeshStandardMaterial;
+  };
+  setView: (name: ViewName, animate?: boolean) => void;
+  focusOn: (req: FocusRequest) => void;
+  setInsets: (on: boolean) => void;
+  setBottomInset: (px: number) => void;
+  invalidate: () => void;
+}
+
+const LAYERS: readonly AnatomyLayer[] = ["skeleton", "deep muscles", "superficial muscles"];
+const GHOST_LAYER = 1;
+const TWEEN_MS = 620;
+const ALL_LAYERS: Readonly<Record<AnatomyLayer, boolean>> = {
+  skeleton: true,
+  "deep muscles": true,
+  "superficial muscles": true,
+};
+
+function isLayer(value: unknown): value is AnatomyLayer {
+  return typeof value === "string" && (LAYERS as readonly string[]).includes(value);
+}
+
+const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
+
+export function AnatomyViewer({
+  selectedKeys = [],
+  focusKeys = [],
+  result = null,
+  layers = ALL_LAYERS,
+  superficialOpacity = 1,
+  xray = false,
+  view,
+  focus,
+  insets = false,
+  bottomInset = 0,
+  interactive = true,
+  onPick,
+  onReady,
+  className,
+}: AnatomyViewerProps) {
+  const host = useRef<HTMLDivElement>(null);
+  const ctl = useRef<Controller | null>(null);
+  const [status, setStatus] = useState<{ phase: "loading" | "ready" | "error"; progress: number }>({
+    phase: "loading",
+    progress: 0,
+  });
+
+  // Callbacks e estado mudam a cada render; o controlador lê sempre o mais recente.
+  const pickRef = useRef(onPick);
+  pickRef.current = onPick;
+  const readyRef = useRef(onReady);
+  readyRef.current = onReady;
+  const stateRef = useRef({ interactive, pickable: [] as Mesh[] });
+  stateRef.current.interactive = interactive;
+
+  /* -------------------------------------------- montar e carregar */
+  useEffect(() => {
+    const el = host.current;
+    if (!el) return;
+    let cancelled = false;
+    let cleanup: (() => void) | null = null;
+
+    (async () => {
+      const THREE = await import("three");
+      const { GLTFLoader } = await import("three/examples/jsm/loaders/GLTFLoader.js");
+      const { OrbitControls } = await import("three/examples/jsm/controls/OrbitControls.js");
+      const { MeshoptDecoder } = await import("three/examples/jsm/libs/meshopt_decoder.module.js");
+      await MeshoptDecoder.ready;
+      if (cancelled) return;
+
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const coarse = window.matchMedia("(pointer: coarse)").matches;
+      const renderer: WebGLRenderer = new THREE.WebGLRenderer({
+        antialias: !coarse,
+        alpha: true,
+        powerPreference: "high-performance",
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, coarse ? 1.75 : 2));
+      renderer.setClearColor(0x000000, 0);
+      renderer.toneMapping = THREE.AgXToneMapping;
+      renderer.toneMappingExposure = 1.1;
+      const canvas = renderer.domElement;
+      canvas.style.display = "block";
+      canvas.style.width = "100%";
+      canvas.style.height = "100%";
+      canvas.style.touchAction = "none";
+      canvas.setAttribute("aria-label", "Modelo anatômico 3D interativo");
+      el.appendChild(canvas);
+
+      // Moldura das vistas pequenas: as bordas esfumam no fundo do palco.
+      const frames = [0, 1].map(() => {
+        const frame = document.createElement("div");
+        frame.style.cssText =
+          "position:absolute;pointer-events:none;display:none;box-shadow:inset 0 0 26px 20px #0a0d14;";
+        el.appendChild(frame);
+        return frame;
+      });
+
+      const scene: Scene = new THREE.Scene();
+      const camera: PerspectiveCamera = new THREE.PerspectiveCamera(30, 1, 0.02, 40);
+      camera.layers.enable(GHOST_LAYER);
+      const insetCams = [0, 1].map(() => new THREE.PerspectiveCamera(30, 1, 0.02, 40));
+      scene.add(camera);
+      scene.add(new THREE.HemisphereLight(0xe6f0ff, 0x1c1622, 0.85));
+
+      // As luzes acompanham a câmera que está desenhando: o lado visto está sempre iluminado.
+      const rig: Group = new THREE.Group();
+      const addLight = (color: number, intensity: number, x: number, y: number, z: number) => {
+        const light = new THREE.DirectionalLight(color, intensity);
+        light.position.set(x, y, z);
+        light.target.position.set(0, 0, -1);
+        rig.add(light, light.target);
+      };
+      addLight(0xfff4e6, 1.9, 0.9, 1.2, 1.4);
+      addLight(0xbcd2ff, 0.55, -1.4, -0.2, 0.6);
+      addLight(0xdfeaff, 0.7, 0, 1.5, -2);
+      scene.add(rig);
+      const lightFrom = (cam: PerspectiveCamera) => {
+        cam.updateMatrixWorld();
+        rig.position.setFromMatrixPosition(cam.matrixWorld);
+        rig.quaternion.setFromRotationMatrix(cam.matrixWorld);
+        rig.updateMatrixWorld(true);
+      };
+
+      const base = { vertexColors: true, metalness: 0 } as const;
+      const tone = (color: number, emissive: number) =>
+        new THREE.MeshStandardMaterial({ color, emissive, emissiveIntensity: 0.55, roughness: 0.55, metalness: 0 });
+      const ghost = (color: number, opacity: number) =>
+        new THREE.MeshStandardMaterial({
+          color,
+          roughness: 0.9,
+          metalness: 0,
+          transparent: true,
+          opacity,
+          depthWrite: false,
+          blending: THREE.AdditiveBlending,
+        });
+      const mats: Controller["mats"] = {
+        layer: {
+          skeleton: new THREE.MeshStandardMaterial({ ...base, roughness: 0.62 }),
+          "deep muscles": new THREE.MeshStandardMaterial({ ...base, roughness: 0.72 }),
+          "superficial muscles": new THREE.MeshStandardMaterial({ ...base, roughness: 0.72 }),
+        },
+        soft: new THREE.MeshStandardMaterial({ ...base, roughness: 0.8, transparent: true, opacity: 0.4, depthWrite: false }),
+        ghostBone: ghost(0xdfe8f5, 0.16),
+        ghostMuscle: ghost(0x9fb0cc, 0.05),
+        selected: tone(0xff4d3a, 0xb51b0c),
+        focus: tone(0x3d8bff, 0x0b3fa8),
+        correct: tone(0x35d07f, 0x0c7a48),
+        wrong: tone(0xff4d3a, 0xb51b0c),
+      };
+
+      const controls: OrbitControls = new OrbitControls(camera, canvas);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.09;
+      controls.rotateSpeed = 0.8;
+      controls.zoomSpeed = 0.9;
+      controls.minDistance = 0.12;
+      controls.maxDistance = 9;
+      controls.screenSpacePanning = true;
+
+      let dirty = true;
+      const invalidate = () => {
+        dirty = true;
+      };
+      let tween: Tween | null = null;
+      let showInsets = false;
+      let reserved = 0;
+      controls.addEventListener("change", invalidate);
+      controls.addEventListener("start", () => {
+        tween = null;
+      });
+
+      /* ----------------------------------------- medidas do palco */
+      const width = () => el.clientWidth || 1;
+      const height = () => el.clientHeight || 1;
+      // A parte de cima do palco, livre do texto do treino.
+      const freeHeight = () => Math.max(height() * 0.35, height() - reserved);
+      const roomForInsets = () => freeHeight() >= 230;
+      const applyViewOffset = () => {
+        const shift = (height() - freeHeight()) / 2;
+        if (shift > 0) camera.setViewOffset(width(), height(), 0, shift, width(), height());
+        else camera.clearViewOffset();
+      };
+      const insetRects = () => {
+        const w = width();
+        const h = height();
+        const free = freeHeight();
+        const small = w < 640;
+        const a = small
+          ? { x: 0.01 * w, top: 0.12 * free, w: 0.27 * w, h: 0.3 * free }
+          : { x: 0.03 * w, top: 0.03 * free, w: 0.25 * w, h: 0.52 * free };
+        const b = small
+          ? { x: 0.72 * w, top: 0.12 * free, w: 0.27 * w, h: 0.3 * free }
+          : { x: 0.75 * w, top: 0.26 * free, w: 0.2 * w, h: 0.42 * free };
+        return [
+          { x: a.x, y: h - a.top - a.h, w: a.w, h: a.h, turn: 1.75, tilt: -0.12 },
+          { x: b.x, y: h - b.top - b.h, w: b.w, h: b.h, turn: -1.15, tilt: 0.1 },
+        ];
+      };
+      const placeFrames = () => {
+        const rects = insetRects();
+        frames.forEach((frame, i) => {
+          const r = rects[i];
+          if (!r) return;
+          frame.style.display = showInsets && width() >= 640 && roomForInsets() ? "block" : "none";
+          frame.style.left = `${r.x}px`;
+          frame.style.top = `${height() - r.y - r.h}px`;
+          frame.style.width = `${r.w}px`;
+          frame.style.height = `${r.h}px`;
+        });
+      };
+
+      const render = () => {
+        const w = width();
+        const h = height();
+        renderer.setScissorTest(false);
+        renderer.setViewport(0, 0, w, h);
+        lightFrom(camera);
+        renderer.render(scene, camera);
+        if (!showInsets || !roomForInsets()) return;
+        const time = performance.now() / 1000;
+        const target = controls.target;
+        const sph = new THREE.Spherical().setFromVector3(camera.position.clone().sub(target));
+        renderer.autoClear = false;
+        renderer.setScissorTest(true);
+        insetRects().forEach((r, i) => {
+          const cam = insetCams[i];
+          if (!cam) return;
+          const swing = reducedMotion.matches ? 0 : Math.sin(time * 0.3 + i * 2.1) * 0.3;
+          const s = new THREE.Spherical(
+            sph.radius * 0.92,
+            THREE.MathUtils.clamp(sph.phi + r.tilt, 0.35, 2.7),
+            sph.theta + r.turn + swing,
+          );
+          cam.position.setFromSpherical(s).add(target);
+          cam.lookAt(target);
+          cam.fov = camera.fov;
+          cam.aspect = r.w / r.h;
+          cam.updateProjectionMatrix();
+          renderer.setViewport(r.x, r.y, r.w, r.h);
+          renderer.setScissor(r.x, r.y, r.w, r.h);
+          renderer.clearDepth();
+          lightFrom(cam);
+          renderer.render(scene, cam);
+        });
+        renderer.setScissorTest(false);
+        renderer.autoClear = true;
+        renderer.setViewport(0, 0, w, h);
+      };
+
+      const resize = () => {
+        renderer.setSize(width(), height(), false);
+        camera.aspect = width() / height();
+        camera.updateProjectionMatrix();
+        applyViewOffset();
+        placeFrames();
+        invalidate();
+      };
+      const observer = new ResizeObserver(resize);
+      observer.observe(el);
+
+      let raf = 0;
+      let skip = false;
+      const loop = () => {
+        raf = requestAnimationFrame(loop);
+        if (document.hidden) return;
+        if (tween) {
+          const now = performance.now();
+          tween.t0 ??= now;
+          const t = Math.min(1, (now - tween.t0) / TWEEN_MS);
+          const k = ease(t);
+          const s = new THREE.Spherical(
+            THREE.MathUtils.lerp(tween.from.radius, tween.to.radius, k),
+            THREE.MathUtils.lerp(tween.from.phi, tween.to.phi, k),
+            THREE.MathUtils.lerp(tween.from.theta, tween.to.theta, k),
+          );
+          controls.target.lerpVectors(tween.fromTarget, tween.toTarget, k);
+          camera.position.setFromSpherical(s).add(controls.target);
+          if (t >= 1) tween = null;
+          dirty = true;
+        }
+        if (controls.update()) dirty = true;
+        // As vistas pequenas balançam sempre; a 30 quadros por segundo basta.
+        if (showInsets && !reducedMotion.matches && roomForInsets() && !dirty) {
+          skip = !skip;
+          if (skip) return;
+          dirty = true;
+        }
+        if (!dirty) return;
+        dirty = false;
+        render();
+      };
+
+      const gltf = await new GLTFLoader()
+        .setMeshoptDecoder(MeshoptDecoder)
+        .loadAsync(MODEL_URL, (event) => {
+          if (!cancelled && event.total) {
+            setStatus({ phase: "loading", progress: event.loaded / event.total });
+          }
+        })
+        .catch(() => null);
+      if (cancelled || !gltf) {
+        renderer.dispose();
+        canvas.remove();
+        frames.forEach((f) => f.remove());
+        if (!cancelled) setStatus({ phase: "error", progress: 0 });
+        return;
+      }
+
+      scene.add(gltf.scene);
+      gltf.scene.updateMatrixWorld(true);
+      const entries: Entry[] = [];
+      gltf.scene.traverse((object) => {
+        const mesh = object as Mesh;
+        if (!mesh.isMesh) return;
+        const data = mesh.userData as { name?: unknown; layer?: unknown; side?: unknown };
+        if (typeof data.name !== "string" || !isLayer(data.layer)) return;
+        mesh.material = mats.layer[data.layer];
+        mesh.geometry.computeBoundingBox();
+        const box = (mesh.geometry.boundingBox ?? new THREE.Box3()).clone().applyMatrix4(mesh.matrixWorld);
+        const side: Side = data.side === "left" || data.side === "right" ? data.side : "midline";
+        entries.push({
+          mesh,
+          key: meshKey(data.name),
+          layer: data.layer,
+          side,
+          name: data.name,
+          box,
+          center: box.getCenter(new THREE.Vector3()),
+        });
+      });
+      const bones = entries.filter((e) => e.layer === "skeleton");
+      const bounds = new THREE.Box3();
+      entries.forEach((e) => bounds.union(e.box));
+
+      /* ------------------------------------------------ câmera */
+      const freeFov = () => {
+        const fov = THREE.MathUtils.degToRad(camera.fov);
+        return 2 * Math.atan(Math.tan(fov / 2) * (freeHeight() / height()));
+      };
+      const animateTo = (position: Vector3, target: Vector3, animate: boolean) => {
+        if (!animate || reducedMotion.matches) {
+          tween = null;
+          camera.position.copy(position);
+          controls.target.copy(target);
+          controls.update();
+          invalidate();
+          return;
+        }
+        const from = new THREE.Spherical().setFromVector3(camera.position.clone().sub(controls.target));
+        const to = new THREE.Spherical().setFromVector3(position.clone().sub(target));
+        // Gira pelo caminho mais curto.
+        let turn = to.theta - from.theta;
+        if (turn > Math.PI) turn -= 2 * Math.PI;
+        if (turn < -Math.PI) turn += 2 * Math.PI;
+        to.theta = from.theta + turn;
+        tween = { t0: null, fromTarget: controls.target.clone(), toTarget: target.clone(), from, to };
+        invalidate();
+      };
+      const direction = (name: ViewName) =>
+        name === "front"
+          ? new THREE.Vector3(0, 0, 1)
+          : name === "back"
+            ? new THREE.Vector3(0, 0, -1)
+            : name === "left"
+              ? new THREE.Vector3(1, 0, 0)
+              : name === "right"
+                ? new THREE.Vector3(-1, 0, 0)
+                : new THREE.Vector3(0.62, 0.3, 0.72).normalize();
+
+      const home = (dir: Vector3, animate: boolean) => {
+        const center = bounds.getCenter(new THREE.Vector3());
+        const size = bounds.getSize(new THREE.Vector3());
+        const hFov = 2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) * camera.aspect);
+        const distance =
+          Math.max((size.y / 2 / Math.tan(freeFov() / 2)) * 1.12, (size.x / 2 / Math.tan(hFov / 2)) * 1.1) +
+          size.z / 2;
+        animateTo(center.clone().addScaledVector(dir, distance), center, animate);
+      };
+
+      // Os botões de vista mostram o corpo inteiro, de frente, de costas, de lado.
+      const setView = (name: ViewName, animate = true) => home(direction(name), animate);
+
+      /**
+       * De que lado olhar um músculo: do osso mais próximo para o músculo.
+       * O bíceps está na frente do úmero, o tríceps atrás, o masseter do lado
+       * e à frente do crânio — e é de lá que se vê cada um. Arredonda para
+       * oito direções, com leve preferência pela frente.
+       */
+      const viewCache = new Map<string, Vector3>();
+      const bestDirection = (sig: string, center: Vector3): Vector3 => {
+        const cached = viewCache.get(sig);
+        if (cached) return cached.clone();
+        const near = bones
+          .map((b) => ({ b, d: b.box.distanceToPoint(center) }))
+          .sort((x, y) => x.d - y.d)
+          .slice(0, 3);
+        const axis = new THREE.Vector3();
+        let total = 0;
+        for (const { b, d } of near) {
+          const w = 1 / (d + 0.01);
+          axis.addScaledVector(b.center, w);
+          total += w;
+        }
+        if (total > 0) axis.divideScalar(total);
+        const off = new THREE.Vector3(center.x - axis.x, 0, center.z - axis.z);
+        let best = new THREE.Vector3(0, 0.1, 1).normalize();
+        if (off.lengthSq() > 1e-6) {
+          off.normalize();
+          let score = -Infinity;
+          for (let i = 0; i < 8; i++) {
+            const a = (i * Math.PI) / 4;
+            const dir = new THREE.Vector3(Math.sin(a), 0.1, Math.cos(a)).normalize();
+            const s = dir.dot(off) + (i % 2 === 0 ? 0.04 : 0) + (i === 0 ? 0.06 : 0);
+            if (s > score) {
+              score = s;
+              best = dir;
+            }
+          }
+        }
+        viewCache.set(sig, best.clone());
+        return best;
+      };
+
+      const focusOn = (req: FocusRequest) => {
+        const keys = new Set(req.keys);
+        const all = entries.filter((e) => keys.has(e.key));
+        const sided = req.side ? all.filter((e) => e.side === req.side || e.side === "midline") : all;
+        const chosen = sided.length ? sided : all;
+        if (chosen.length === 0) return;
+        const box = new THREE.Box3();
+        chosen.forEach((e) => box.union(e.box));
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3());
+        const hFov = 2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) * camera.aspect);
+        const fit = size.length() / 2 / Math.sin(Math.min(freeFov(), hFov) / 2);
+        const distance = Math.max(fit * (req.padding ?? 2.3), 0.7);
+        const sig = `${[...keys].sort().join("|")}:${req.side ?? "both"}`;
+        animateTo(center.clone().addScaledVector(bestDirection(sig, center), distance), center, true);
+      };
+
+      resize();
+      home(direction("front"), false);
+
+      /* ----------------------------------------------------- tocar */
+      const raycaster = new THREE.Raycaster();
+      raycaster.layers.enableAll();
+      let down: { x: number; y: number; t: number } | null = null;
+      const onDown = (event: PointerEvent) => {
+        down = { x: event.clientX, y: event.clientY, t: performance.now() };
+      };
+      const onUp = (event: PointerEvent) => {
+        const start = down;
+        down = null;
+        if (!start || event.button !== 0 || !stateRef.current.interactive) return;
+        const moved = Math.hypot(event.clientX - start.x, event.clientY - start.y);
+        if (moved > 6 || performance.now() - start.t > 600) return; // foi um giro, não um toque
+        const rect = canvas.getBoundingClientRect();
+        const pointer = new THREE.Vector2(
+          ((event.clientX - rect.left) / rect.width) * 2 - 1,
+          -((event.clientY - rect.top) / rect.height) * 2 + 1,
+        );
+        raycaster.setFromCamera(pointer, camera);
+        const hit = raycaster.intersectObjects(stateRef.current.pickable, false)[0];
+        const entry = hit ? entries.find((e) => e.mesh === hit.object) : undefined;
+        pickRef.current?.(entry ? { key: entry.key, layer: entry.layer, name: entry.name } : null);
+      };
+      canvas.addEventListener("pointerdown", onDown);
+      canvas.addEventListener("pointerup", onUp);
+
+      loop();
+
+      ctl.current = {
+        entries,
+        mats,
+        setView,
+        focusOn,
+        setInsets: (on) => {
+          showInsets = on;
+          placeFrames();
+          invalidate();
+        },
+        setBottomInset: (px) => {
+          const next = Math.max(0, Math.round(px));
+          if (next === reserved) return;
+          reserved = next;
+          applyViewOffset();
+          placeFrames();
+          invalidate();
+        },
+        invalidate,
+      };
+      cleanup = () => {
+        cancelAnimationFrame(raf);
+        observer.disconnect();
+        canvas.removeEventListener("pointerdown", onDown);
+        canvas.removeEventListener("pointerup", onUp);
+        controls.dispose();
+        gltf.scene.traverse((object) => {
+          const mesh = object as Mesh;
+          if (mesh.isMesh) mesh.geometry.dispose();
+        });
+        const all: Material[] = [
+          ...Object.values(mats.layer),
+          mats.soft,
+          mats.ghostBone,
+          mats.ghostMuscle,
+          mats.selected,
+          mats.focus,
+          mats.correct,
+          mats.wrong,
+        ];
+        all.forEach((m) => m.dispose());
+        renderer.dispose();
+        canvas.remove();
+        frames.forEach((f) => f.remove());
+      };
+      setStatus({ phase: "ready", progress: 1 });
+      readyRef.current?.({ meshes: entries.length, keys: [...new Set(entries.map((e) => e.key))] });
+    })();
+
+    return () => {
+      cancelled = true;
+      ctl.current = null;
+      cleanup?.();
+    };
+  }, []);
+
+  const ready = status.phase === "ready";
+
+  /* ------------------------------------ aplicar o estado aos materiais */
+  const selectedSig = selectedKeys.join("|");
+  const focusSig = focusKeys.join("|");
+  const resultSig = result ? `${result.ok}:${result.keys.join("|")}` : "";
+  const layerSig = LAYERS.map((l) => (layers[l] ? 1 : 0)).join("");
+
+  useEffect(() => {
+    const c = ctl.current;
+    if (!c || !ready) return;
+    const selected = new Set(selectedKeys);
+    const focused = new Set(focusKeys);
+    const answered = new Set(result?.keys ?? []);
+    const pickable: Mesh[] = [];
+    c.mats.soft.opacity = Math.max(0.05, superficialOpacity);
+
+    for (const { mesh, key, layer } of c.entries) {
+      let lit: Material | null = null;
+      if (answered.has(key)) lit = result?.ok ? c.mats.correct : c.mats.wrong;
+      else if (focused.has(key)) lit = c.mats.focus;
+      else if (selected.has(key)) lit = c.mats.selected;
+
+      mesh.layers.set(0);
+      mesh.renderOrder = 0;
+      if (lit) {
+        mesh.visible = true;
+        mesh.material = lit;
+        pickable.push(mesh);
+        continue;
+      }
+
+      if (xray) {
+        if (layer === "deep muscles") {
+          mesh.visible = false;
+          continue;
+        }
+        mesh.visible = true;
+        mesh.renderOrder = 2;
+        if (layer === "skeleton") {
+          mesh.material = c.mats.ghostBone;
+        } else {
+          // O vulto dos músculos só aparece na vista grande; nas pequenas, só osso.
+          mesh.material = c.mats.ghostMuscle;
+          mesh.layers.set(GHOST_LAYER);
+        }
+        continue;
+      }
+
+      mesh.visible = layers[layer];
+      if (!mesh.visible) continue;
+      const soft = layer === "superficial muscles" && superficialOpacity < 0.999;
+      mesh.material = soft ? c.mats.soft : c.mats.layer[layer];
+      mesh.renderOrder = soft ? 1 : 0;
+      // Com a camada superficial quase transparente, o toque atravessa.
+      if (!(soft && superficialOpacity < 0.35)) pickable.push(mesh);
+    }
+    stateRef.current.pickable = pickable;
+    c.invalidate();
+    // As assinaturas em texto evitam recalcular a cada render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedSig, focusSig, resultSig, layerSig, superficialOpacity, xray, ready]);
+
+  /* ------------------------------------------------- câmera e vistas */
+  useEffect(() => {
+    if (view && ready) ctl.current?.setView(view.name);
+  }, [view, ready]);
+
+  const focusSigReq = focus ? `${focus.nonce}:${focus.side ?? ""}:${focus.keys.join("|")}` : "";
+  useEffect(() => {
+    if (focus && ready) ctl.current?.focusOn(focus);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focusSigReq, ready]);
+
+  useEffect(() => {
+    if (ready) ctl.current?.setInsets(insets);
+  }, [insets, ready]);
+
+  useEffect(() => {
+    if (ready) ctl.current?.setBottomInset(bottomInset);
+  }, [bottomInset, ready]);
+
+  return (
+    <div className={cn("relative h-full w-full", className)}>
+      <div ref={host} className="absolute inset-0" />
+      {!ready ? (
+        <div className="absolute inset-0 grid place-items-center">
+          {status.phase === "error" ? (
+            <p className="max-w-xs text-center text-sm text-white/70">
+              Não foi possível carregar o modelo 3D. Recarregue a página; se continuar, o navegador
+              pode estar sem suporte a WebGL.
+            </p>
+          ) : (
+            <div className="w-48 text-center">
+              <p className="text-sm text-white/70">Carregando o modelo anatômico…</p>
+              <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10">
+                <div
+                  className="bg-primary h-full transition-[width]"
+                  style={{ width: `${Math.round(status.progress * 100)}%` }}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      ) : null}
+    </div>
+  );
+}

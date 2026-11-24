@@ -1,13 +1,13 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  BookMarked,
   BookOpen,
   CalendarDays,
   ClipboardCheck,
   Images,
   LineChart,
   PencilRuler,
+  PersonStanding,
   Search,
   Stethoscope,
   WalletCards,
@@ -196,11 +196,11 @@ export default async function HomePage() {
       text: "Acerto por área, os assuntos mais fracos e os dias em que você estudou.",
     },
     {
-      href: "/livros",
-      icon: BookMarked,
-      title: "Biblioteca",
-      text: "A bibliografia dos planos de ensino, com os PDFs da turma.",
-      stat: `${stats.withFile} PDFs`,
+      href: "/anatomia",
+      icon: PersonStanding,
+      title: "Anatomia 3D",
+      text: "O músculo acende no corpo em 3D e você escreve o nome; o app corrige letra por letra e traz de volta na hora certa.",
+      stat: "141 músculos · 25 lições",
     },
     {
       href: "/estudar",

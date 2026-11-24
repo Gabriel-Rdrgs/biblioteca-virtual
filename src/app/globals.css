@@ -372,3 +372,80 @@
     transition-delay: 0s !important;
   }
 }
+
+/* ---------- anatomia 3D: digitar o nome ---------- */
+
+/* O cursor pisca como num editor. */
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  55%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.type-caret {
+  display: inline-block;
+  width: 0.06em;
+  height: 0.95em;
+  margin-right: -0.06em;
+  vertical-align: -0.1em;
+  background: #ff6a55;
+  border-radius: 1px;
+  animation: caret-blink 1.05s step-end infinite;
+}
+
+/* Tecla errada: o nome treme. */
+@keyframes type-shake {
+  20% {
+    transform: translateX(-0.06em);
+  }
+  40% {
+    transform: translateX(0.05em);
+  }
+  60% {
+    transform: translateX(-0.03em);
+  }
+  80% {
+    transform: translateX(0.02em);
+  }
+}
+
+.type-shake {
+  animation: type-shake 0.28s ease-out;
+}
+
+/* Letra certa: entra subindo um pouco. */
+@keyframes letter-in {
+  from {
+    transform: translateY(0.08em);
+    opacity: 0.4;
+  }
+}
+
+.letter-in {
+  display: inline-block;
+  animation: letter-in 0.12s ease-out;
+}
+
+/* Nome completo sem erro: um pulso. */
+@keyframes type-done {
+  40% {
+    transform: scale(1.04);
+  }
+}
+
+.type-done {
+  animation: type-done 0.4s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .type-shake,
+  .letter-in,
+  .type-done {
+    animation: none;
+  }
+}
