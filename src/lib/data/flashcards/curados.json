@@ -1,0 +1,1878 @@
+[
+ {
+  "id": "oficial:anat-referenciais",
+  "slug": "anat-referenciais",
+  "origin": "oficial",
+  "title": "Referenciais anatômicos",
+  "description": "Posição anatômica, planos, eixos e termos de relação.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Anatomia clínica",
+  "color": "#0f766e",
+  "sourceNote": "Escrito a partir do banco de questões de anatomia da turma (Moore, Anatomia Orientada para a Clínica). Figuras: pranchas do Gray's Anatomy (domínio público) e ilustrações livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "anat-referenciais-01",
+    "kind": "texto",
+    "front": "Descreva a **posição anatômica**.",
+    "back": "Ereto, olhando para a frente, **membros superiores ao lado do tronco com as palmas para a frente**, membros inferiores juntos com os pés para a frente.",
+    "axisId": "referenciais",
+    "tip": {
+     "label": "Atenção",
+     "text": "Todo termo de relação vale como se o corpo estivesse nessa posição — mesmo com o paciente deitado."
+    }
+   },
+   {
+    "id": "anat-referenciais-02",
+    "kind": "texto",
+    "front": "Que plano separa **superior** de **inferior**?",
+    "back": "O **transverso (axial)**, horizontal.",
+    "axisId": "referenciais",
+    "backImageIds": [
+     "cc-human-anatomy-planes-be"
+    ]
+   },
+   {
+    "id": "anat-referenciais-03",
+    "kind": "texto",
+    "front": "Que plano separa **direita** de **esquerda**? E **anterior** de **posterior**?",
+    "back": "**Mediano** (sagital mediano) separa direita e esquerda. **Frontal (coronal)** separa anterior e posterior.",
+    "axisId": "referenciais"
+   },
+   {
+    "id": "anat-referenciais-04",
+    "kind": "texto",
+    "front": "Abdução e adução acontecem em que **plano** e em torno de que **eixo**?",
+    "back": "No **plano frontal**, em torno de um **eixo anteroposterior (sagital)**.",
+    "axisId": "referenciais",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "Flexão/extensão: plano sagital. Rotação: plano transverso."
+    }
+   },
+   {
+    "id": "anat-referenciais-05",
+    "kind": "texto",
+    "front": "**Lateral** × **medial**; **proximal** × **distal**.",
+    "back": "**Lateral**: mais longe do plano mediano. **Proximal**: mais perto da **raiz do membro**; distal, mais longe.",
+    "axisId": "referenciais",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Polegar é lateral ao dedo mínimo; punho é distal ao cotovelo."
+    }
+   },
+   {
+    "id": "anat-referenciais-06",
+    "kind": "texto",
+    "front": "**Ipsilateral** × **contralateral**.",
+    "back": "**Ipsilateral**: do **mesmo lado**. **Contralateral**: do **lado oposto**.",
+    "axisId": "referenciais"
+   }
+  ],
+  "images": [
+   {
+    "id": "cc-human-anatomy-planes-be",
+    "file": "cc-human-anatomy-planes-be.png",
+    "width": 960,
+    "height": 837,
+    "caption": "Human anatomy planes be — A potato hater · CC BY 4.0 · Wikimedia Commons"
+   }
+  ]
+ },
+ {
+  "id": "oficial:anat-osteologia-geral",
+  "slug": "anat-osteologia-geral",
+  "origin": "oficial",
+  "title": "Osteologia e remodelação óssea",
+  "description": "Tipos de osso, medula, ossificação e as células que fazem e desfazem o osso.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Anatomia clínica",
+  "color": "#0f766e",
+  "sourceNote": "Escrito a partir do banco de questões de anatomia da turma (Moore, Anatomia Orientada para a Clínica). Figuras: pranchas do Gray's Anatomy (domínio público) e ilustrações livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "anat-osteologia-geral-01",
+    "kind": "texto",
+    "front": "O que é um osso **sesamoide**? Qual o maior?",
+    "back": "Osso que se forma **dentro de um tendão**; protege o tendão e melhora a alavanca. O maior é a **patela**.",
+    "axisId": "osteologia-geral"
+   },
+   {
+    "id": "anat-osteologia-geral-02",
+    "kind": "texto",
+    "front": "Onde persiste a **medula óssea vermelha** no adulto?",
+    "back": "No **osso esponjoso** de ossos **planos e irregulares** (ílio, esterno, vértebras) e nas epífises proximais do fêmur e do úmero.",
+    "axisId": "osteologia-geral",
+    "tip": {
+     "label": "Atenção",
+     "text": "A cavidade medular dos ossos longos do adulto tem medula **amarela**."
+    }
+   },
+   {
+    "id": "anat-osteologia-geral-03",
+    "kind": "texto",
+    "front": "**Osteoclasto**, **osteoblasto** e **osteócito**: o que cada um faz?",
+    "back": "**Osteoclasto** reabsorve (multinucleado, ácido e enzimas). **Osteoblasto** forma matriz. **Osteócito** mantém a matriz e percebe a carga.",
+    "axisId": "osteologia-geral",
+    "backImageIds": [
+     "cc-bone-regeneration-bone-remodeling-cycle-ii-pre-osteoblast-os"
+    ]
+   },
+   {
+    "id": "anat-osteologia-geral-04",
+    "kind": "texto",
+    "front": "Como o **PTH** aumenta a reabsorção óssea?",
+    "back": "**Indiretamente**: age nos **osteoblastos**, que estimulam os osteoclastos.",
+    "axisId": "osteologia-geral"
+   },
+   {
+    "id": "anat-osteologia-geral-05",
+    "kind": "texto",
+    "front": "O osso para de ser remodelado no adulto?",
+    "back": "**Não.** É remodelado a vida toda e responde à carga: o **desuso reduz a massa óssea**.",
+    "axisId": "osteologia-geral"
+   },
+   {
+    "id": "anat-osteologia-geral-06",
+    "kind": "texto",
+    "front": "**Endocondral** × **intramembranosa**: o que cada uma forma?",
+    "back": "**Endocondral** (sobre molde de cartilagem): **crescimento em comprimento** dos ossos longos, na lâmina epifisial. **Intramembranosa**: ossos planos da **calvária**.",
+    "axisId": "osteologia-geral",
+    "backImageIds": [
+     "cc-intramembranous-ossification-and-endochondral-ossification"
+    ]
+   },
+   {
+    "id": "anat-osteologia-geral-07",
+    "kind": "texto",
+    "front": "Partes de um **osso longo**.",
+    "back": "**Diáfise** (corpo), **metáfises**, **epífises** (extremidades) e **lâmina epifisial** (de crescimento); cavidade medular revestida por endósteo; periósteo por fora.",
+    "axisId": "osteologia-geral"
+   }
+  ],
+  "images": [
+   {
+    "id": "cc-bone-regeneration-bone-remodeling-cycle-ii-pre-osteoblast-os",
+    "file": "cc-bone-regeneration-bone-remodeling-cycle-ii-pre-osteoblast-os.jpg",
+    "width": 960,
+    "height": 663,
+    "caption": "Bone regeneration-Bone remodeling cycle II-Pre-Osteoblast Osteoblast Bone-lining cell etc --Smart-Servie cropped — Laboratoires Servier · CC BY-SA 3.0 · Wikimedia Commons"
+   },
+   {
+    "id": "cc-intramembranous-ossification-and-endochondral-ossification",
+    "file": "cc-intramembranous-ossification-and-endochondral-ossification.png",
+    "width": 960,
+    "height": 419,
+    "caption": "Intramembranous ossification and endochondral ossification — Ge, R.; Liu, C.; Zhao, Y.; Wang, K.; Wang, X. · CC BY 4.0 · Wikimedia Commons"
+   }
+  ]
+ },
+ {
+  "id": "oficial:anat-cranio",
+  "slug": "anat-cranio",
+  "origin": "oficial",
+  "title": "Osteologia do crânio",
+  "description": "Ossos, suturas e o que passa por cada forame.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Anatomia clínica",
+  "color": "#0f766e",
+  "sourceNote": "Escrito a partir do banco de questões de anatomia da turma (Moore, Anatomia Orientada para a Clínica). Figuras: pranchas do Gray's Anatomy (domínio público) e ilustrações livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "anat-cranio-01",
+    "kind": "texto",
+    "front": "Pelo **forame oval** passa…",
+    "back": "O **nervo mandibular (V3)**.",
+    "axisId": "cranio",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "V1 fissura orbital superior · V2 forame **redondo** · V3 forame **oval**."
+    }
+   },
+   {
+    "id": "anat-cranio-02",
+    "kind": "texto",
+    "front": "Pelo **forame redondo** e pelo **espinhoso** passam…",
+    "back": "**Redondo**: nervo **maxilar (V2)**. **Espinhoso**: **artéria meníngea média**.",
+    "axisId": "cranio"
+   },
+   {
+    "id": "anat-cranio-03",
+    "kind": "texto",
+    "front": "Pelo **forame jugular** passam…",
+    "back": "Os nervos **IX, X e XI** e a drenagem para a **veia jugular interna**.",
+    "axisId": "cranio",
+    "tip": {
+     "label": "Atenção",
+     "text": "VII e VIII: meato acústico interno. XII: canal do hipoglosso. III, IV, VI: fissura orbital superior."
+    }
+   },
+   {
+    "id": "anat-cranio-04",
+    "kind": "texto",
+    "front": "O **nervo alveolar inferior** entra e sai da mandíbula por onde?",
+    "back": "Entra pelo **forame da mandíbula**, percorre o canal e sai como **nervo mentual** pelo **forame mentual**.",
+    "axisId": "cranio"
+   },
+   {
+    "id": "anat-cranio-05",
+    "kind": "texto",
+    "front": "A **sutura sagital** une quais ossos?",
+    "back": "Os **dois parietais**, do bregma ao lambda.",
+    "axisId": "cranio",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Fechamento precoce = **escafocefalia** (crânio longo e estreito)."
+    }
+   },
+   {
+    "id": "anat-cranio-06",
+    "kind": "texto",
+    "front": "**Lâmina cribriforme**: de que osso, e o que sua fratura causa?",
+    "back": "Do **etmoide**. Fratura: **rinoliquorreia** (LCR pelo nariz) e lesão dos filamentos do **nervo olfatório**.",
+    "axisId": "cranio"
+   },
+   {
+    "id": "anat-cranio-07",
+    "kind": "texto",
+    "front": "Ossos da face na vista anterior: frontal, zigomático e…",
+    "back": "**Maxila** (centro da face), **zigomático** (maçã do rosto), **nasais**, **mandíbula**.",
+    "axisId": "cranio"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:anat-contracao",
+  "slug": "anat-contracao",
+  "origin": "oficial",
+  "title": "Contração muscular",
+  "description": "Sarcômero, cálcio, junção neuromuscular e tipos de contração.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Anatomia clínica",
+  "color": "#0f766e",
+  "sourceNote": "Escrito a partir do banco de questões de anatomia da turma (Moore, Anatomia Orientada para a Clínica). Figuras: pranchas do Gray's Anatomy (domínio público) e ilustrações livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "anat-contracao-01",
+    "kind": "texto",
+    "front": "Na contração, o que **encurta** e o que fica **constante** no sarcômero?",
+    "back": "Encurtam a **banda I** e a **zona H**; a **banda A** fica **constante**; as linhas Z se aproximam.",
+    "axisId": "contracao",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "Os filamentos **deslizam**, não encurtam."
+    }
+   },
+   {
+    "id": "anat-contracao-02",
+    "kind": "texto",
+    "front": "Qual o papel do **Ca²⁺** no músculo esquelético?",
+    "back": "Liga-se à **troponina C**, que desloca a **tropomiosina** e **expõe os sítios** da actina para a miosina.",
+    "axisId": "contracao"
+   },
+   {
+    "id": "anat-contracao-03",
+    "kind": "texto",
+    "front": "Como age a **toxina botulínica**?",
+    "back": "Impede a **exocitose das vesículas de acetilcolina** no terminal motor → paralisia flácida.",
+    "axisId": "contracao",
+    "tip": {
+     "label": "Atenção",
+     "text": "Curare bloqueia o **receptor**; anticolinesterásico tem efeito **oposto**."
+    }
+   },
+   {
+    "id": "anat-contracao-04",
+    "kind": "texto",
+    "front": "O que é uma **unidade motora**?",
+    "back": "Um **neurônio motor + todas as fibras que ele inerva**. Menos fibras por unidade = movimento **mais preciso** (músculos do olho).",
+    "axisId": "contracao"
+   },
+   {
+    "id": "anat-contracao-05",
+    "kind": "texto",
+    "front": "**Concêntrica**, **excêntrica** e **isométrica**.",
+    "back": "**Concêntrica**: encurta. **Excêntrica**: gera tensão **alongando** (freia o movimento). **Isométrica**: comprimento não muda.",
+    "axisId": "contracao"
+   },
+   {
+    "id": "anat-contracao-06",
+    "kind": "texto",
+    "front": "Qual a ordem dos eventos na contração?",
+    "back": "Potencial de ação → **ACh** na placa → despolarização → túbulos T → **Ca²⁺** do retículo → troponina → **pontes cruzadas** (ATP).",
+    "axisId": "contracao"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:anat-miologia",
+  "slug": "anat-miologia",
+  "origin": "oficial",
+  "title": "Miologia da face e do pescoço",
+  "description": "Expressão facial (VII) × mastigação (V3), e os músculos do pescoço.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Anatomia clínica",
+  "color": "#0f766e",
+  "sourceNote": "Escrito a partir do banco de questões de anatomia da turma (Moore, Anatomia Orientada para a Clínica). Figuras: pranchas do Gray's Anatomy (domínio público) e ilustrações livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "anat-miologia-01",
+    "kind": "texto",
+    "front": "Quem inerva os **músculos da mastigação**? E os da **expressão facial**?",
+    "back": "Mastigação: **nervo mandibular (V3)**. Expressão facial: **nervo facial (VII)**.",
+    "axisId": "miologia",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "Quase toda questão do eixo vive nessa fronteira."
+    }
+   },
+   {
+    "id": "anat-miologia-02",
+    "kind": "texto",
+    "front": "Quais são os músculos da **mastigação**?",
+    "back": "**Masseter**, **temporal**, **pterigóideo medial** e **pterigóideo lateral**.",
+    "axisId": "miologia"
+   },
+   {
+    "id": "anat-miologia-03",
+    "kind": "texto",
+    "front": "Qual músculo da mastigação **abre** a boca?",
+    "back": "O **pterigóideo lateral** (protrai a mandíbula). Masseter, temporal e pterigóideo medial **fecham**.",
+    "axisId": "miologia"
+   },
+   {
+    "id": "anat-miologia-04",
+    "kind": "texto",
+    "front": "**Bucinador**: o que faz e quem o inerva?",
+    "back": "Comprime a **bochecha contra os dentes**, mantendo o alimento entre eles. Inervado pelo **VII**.",
+    "axisId": "miologia"
+   },
+   {
+    "id": "anat-miologia-05",
+    "kind": "texto",
+    "front": "Fechar × abrir o olho: músculos e nervos.",
+    "back": "**Fecha**: **orbicular do olho** (VII). **Abre**: **levantador da pálpebra superior** (III) — sua paralisia causa **ptose**.",
+    "axisId": "miologia"
+   },
+   {
+    "id": "anat-miologia-06",
+    "kind": "texto",
+    "front": "**Platisma**: onde fica e quem inerva?",
+    "back": "Na **tela subcutânea do pescoço**; ramo **cervical do VII**.",
+    "axisId": "miologia"
+   },
+   {
+    "id": "anat-miologia-07",
+    "kind": "texto",
+    "front": "Lesão do **nervo acessório (XI)** no trígono cervical lateral paralisa…",
+    "back": "O **trapézio** (o ECM é inervado antes).",
+    "axisId": "miologia"
+   },
+   {
+    "id": "anat-miologia-08",
+    "kind": "texto",
+    "front": "**Infra-hióideos**: função e inervação.",
+    "back": "**Abaixam** o hioide e a laringe; **alça cervical (C1–C3)**, exceto o tíreo-hióideo (C1 via XII).",
+    "axisId": "miologia"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:anat-coluna",
+  "slug": "anat-coluna",
+  "origin": "oficial",
+  "title": "Coluna vertebral",
+  "description": "Curvaturas, vértebras típicas e a hérnia de disco.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Anatomia clínica",
+  "color": "#0f766e",
+  "sourceNote": "Escrito a partir do banco de questões de anatomia da turma (Moore, Anatomia Orientada para a Clínica). Figuras: pranchas do Gray's Anatomy (domínio público) e ilustrações livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "anat-coluna-01",
+    "kind": "texto",
+    "front": "Curvaturas **primárias** × **secundárias**.",
+    "back": "**Primárias** (fetais): **torácica** e **sacral**. **Secundárias**: **cervical** e **lombar**.",
+    "axisId": "coluna"
+   },
+   {
+    "id": "anat-coluna-02",
+    "kind": "texto",
+    "front": "O que passa pelo **forame transversário**?",
+    "back": "Os **vasos vertebrais** (só nas cervicais).",
+    "axisId": "coluna"
+   },
+   {
+    "id": "anat-coluna-03",
+    "kind": "texto",
+    "front": "Há disco entre **C I** e **C II**?",
+    "back": "**Não.** O atlas não tem corpo; o **dente do áxis** articula-se com ele.",
+    "axisId": "coluna"
+   },
+   {
+    "id": "anat-coluna-04",
+    "kind": "texto",
+    "front": "Qual é a **vértebra proeminente**?",
+    "back": "**C VII**: processo espinhoso **longo, não bífido**, palpável. C III–C VI têm espinhosos curtos e **bífidos**.",
+    "axisId": "coluna"
+   },
+   {
+    "id": "anat-coluna-05",
+    "kind": "texto",
+    "front": "Para onde **hernia** o disco, e por quê?",
+    "back": "**Posterolateral**: o **anel fibroso é mais fino** ali e o **ligamento longitudinal posterior** não reforça lateralmente → comprime a **raiz nervosa**.",
+    "axisId": "coluna"
+   },
+   {
+    "id": "anat-coluna-06",
+    "kind": "texto",
+    "front": "**Espondilólise** × **espondilolistese**.",
+    "back": "**Espondilólise**: fratura da **parte interarticular**. **Espondilolistese**: **deslizamento anterior** do corpo (ex.: L V sobre o sacro).",
+    "axisId": "coluna"
+   },
+   {
+    "id": "anat-coluna-07",
+    "kind": "texto",
+    "front": "Fóveas costais das vértebras torácicas.",
+    "back": "Do **processo transverso**: **tubérculo** da costela. Do **corpo**: **cabeça** da costela.",
+    "axisId": "coluna"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:anat-dorso",
+  "slug": "anat-dorso",
+  "origin": "oficial",
+  "title": "Músculos do dorso",
+  "description": "Extrínsecos movem o braço; próprios movem a coluna.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Anatomia clínica",
+  "color": "#0f766e",
+  "sourceNote": "Escrito a partir do banco de questões de anatomia da turma (Moore, Anatomia Orientada para a Clínica). Figuras: pranchas do Gray's Anatomy (domínio público) e ilustrações livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "anat-dorso-01",
+    "kind": "texto",
+    "front": "Músculos **extrínsecos** × **próprios** do dorso.",
+    "back": "**Extrínsecos**: movem o **membro superior**, ramos **anteriores**. **Próprios (intrínsecos)**: movem a **coluna**, ramos **posteriores**.",
+    "axisId": "dorso"
+   },
+   {
+    "id": "anat-dorso-02",
+    "kind": "texto",
+    "front": "**Romboides**: ação e nervo.",
+    "back": "**Retraem e fixam a escápula** à parede torácica; nervo **dorsal da escápula**.",
+    "axisId": "dorso"
+   },
+   {
+    "id": "anat-dorso-03",
+    "kind": "texto",
+    "front": "**Latíssimo do dorso**: ação e nervo.",
+    "back": "**Estende, aduz e roda medialmente** o úmero; nervo **toracodorsal**.",
+    "axisId": "dorso",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "O músculo de **remar, nadar e escalar**."
+    }
+   },
+   {
+    "id": "anat-dorso-04",
+    "kind": "texto",
+    "front": "Trapézio e latíssimo são inervados por ramos posteriores?",
+    "back": "**Não.** São **extrínsecos superficiais**: trapézio pelo **XI**, latíssimo pelo **toracodorsal**.",
+    "axisId": "dorso"
+   },
+   {
+    "id": "anat-dorso-05",
+    "kind": "texto",
+    "front": "Qual transversoespinal é mais desenvolvido na **região lombar**?",
+    "back": "O **multífido**, que estabiliza as vértebras.",
+    "axisId": "dorso"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:anat-parede-abdominal",
+  "slug": "anat-parede-abdominal",
+  "origin": "oficial",
+  "title": "Parede abdominal",
+  "description": "Camadas, canal inguinal e inervação.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Anatomia clínica",
+  "color": "#0f766e",
+  "sourceNote": "Escrito a partir do banco de questões de anatomia da turma (Moore, Anatomia Orientada para a Clínica). Figuras: pranchas do Gray's Anatomy (domínio público) e ilustrações livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "anat-parede-abdominal-01",
+    "kind": "texto",
+    "front": "Camadas musculares da parede anterolateral, de fora para dentro.",
+    "back": "**Oblíquo externo → oblíquo interno → transverso do abdome** → fáscia transversal → gordura extraperitoneal → peritônio.",
+    "axisId": "parede-abdominal"
+   },
+   {
+    "id": "anat-parede-abdominal-02",
+    "kind": "texto",
+    "front": "O **anel inguinal superficial** é uma abertura em quê? E o **profundo**?",
+    "back": "**Superficial**: na aponeurose do **oblíquo externo**. **Profundo**: na **fáscia transversal**, lateral aos vasos epigástricos inferiores.",
+    "axisId": "parede-abdominal"
+   },
+   {
+    "id": "anat-parede-abdominal-03",
+    "kind": "texto",
+    "front": "O **ligamento inguinal** é formado por…",
+    "back": "A **margem inferior** da aponeurose do **oblíquo externo**, da EIAS ao tubérculo púbico.",
+    "axisId": "parede-abdominal"
+   },
+   {
+    "id": "anat-parede-abdominal-04",
+    "kind": "texto",
+    "front": "O **umbigo** está em que dermátomo?",
+    "back": "**T10**.",
+    "axisId": "parede-abdominal",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "Parede anterolateral: toracoabdominais (T7–T11) e subcostal (T12)."
+    }
+   },
+   {
+    "id": "anat-parede-abdominal-05",
+    "kind": "texto",
+    "front": "**Cremaster**: de onde deriva e quem inerva?",
+    "back": "Continuação do **oblíquo interno**; ramo **genital do genitofemoral** (L1–L2).",
+    "axisId": "parede-abdominal"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:anat-assoalho-pelvico",
+  "slug": "anat-assoalho-pelvico",
+  "origin": "oficial",
+  "title": "Assoalho pélvico",
+  "description": "Diafragma da pelve e o que sustenta as vísceras.",
+  "disciplineId": "mac-1",
+  "areaId": "anatomia",
+  "collection": "Anatomia clínica",
+  "color": "#0f766e",
+  "sourceNote": "Escrito a partir do banco de questões de anatomia da turma (Moore, Anatomia Orientada para a Clínica). Figuras: pranchas do Gray's Anatomy (domínio público) e ilustrações livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "anat-assoalho-pelvico-01",
+    "kind": "texto",
+    "front": "O que forma o **diafragma da pelve**?",
+    "back": "**Levantador do ânus** (puborretal, pubococcígeo, iliococcígeo) + **isquiococcígeo**.",
+    "axisId": "assoalho-pelvico"
+   },
+   {
+    "id": "anat-assoalho-pelvico-02",
+    "kind": "texto",
+    "front": "Função do **puborretal**.",
+    "back": "Forma uma **alça** atrás da junção anorretal e mantém o **ângulo anorretal** (continência). Relaxa para evacuar.",
+    "axisId": "assoalho-pelvico"
+   },
+   {
+    "id": "anat-assoalho-pelvico-03",
+    "kind": "texto",
+    "front": "O que é o **corpo do períneo**?",
+    "back": "Ponto de **convergência dos músculos do períneo**, entre a vagina (ou bulbo) e o canal anal. Sua lesão **enfraquece o suporte** pélvico.",
+    "axisId": "assoalho-pelvico"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:paras-introducao",
+  "slug": "paras-introducao",
+  "origin": "oficial",
+  "title": "Introdução à parasitologia",
+  "description": "Hospedeiros, reservatórios, vetores e tipos de relação.",
+  "disciplineId": "mac-1",
+  "areaId": "parasitologia",
+  "collection": "Parasitologia",
+  "color": "#9a3412",
+  "sourceNote": "Escrito a partir do banco de questões de parasitologia da turma (Parasitologia Contemporânea). Figuras: micrografias do CDC (domínio público) e imagens livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "paras-introducao-01",
+    "kind": "texto",
+    "front": "**Reservatório** × **vetor**.",
+    "back": "**Reservatório**: animal que alberga o parasito e é **fonte de infecção** (cão na leishmaniose). **Vetor**: transmite (flebotomíneo).",
+    "axisId": "introducao"
+   },
+   {
+    "id": "paras-introducao-02",
+    "kind": "texto",
+    "front": "O que é uma **zoonose**?",
+    "back": "Infecção que **circula entre animais e seres humanos**.",
+    "axisId": "introducao"
+   },
+   {
+    "id": "paras-introducao-03",
+    "kind": "texto",
+    "front": "Parasito **heteroxeno** × **monoxeno**.",
+    "back": "**Heteroxeno**: precisa de **dois ou mais hospedeiros** (S. mansoni + Biomphalaria). **Monoxeno**: um só.",
+    "axisId": "introducao"
+   },
+   {
+    "id": "paras-introducao-04",
+    "kind": "texto",
+    "front": "**Comensalismo**.",
+    "back": "Um parceiro **se beneficia**, o outro **não é prejudicado**.",
+    "axisId": "introducao",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Comensal no exame de fezes indica que houve **ingestão de material fecal**."
+    }
+   },
+   {
+    "id": "paras-introducao-05",
+    "kind": "texto",
+    "front": "Hospedeiro **definitivo** × **intermediário**.",
+    "back": "**Definitivo**: abriga a fase **adulta/sexuada**. **Intermediário**: a fase **larval/assexuada**.",
+    "axisId": "introducao"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:paras-giardia-amebiase",
+  "slug": "paras-giardia-amebiase",
+  "origin": "oficial",
+  "title": "Giardíase e amebíase",
+  "description": "Cistos, trofozoítos, diagnóstico e tratamento.",
+  "disciplineId": "mac-1",
+  "areaId": "parasitologia",
+  "collection": "Parasitologia",
+  "color": "#9a3412",
+  "sourceNote": "Escrito a partir do banco de questões de parasitologia da turma (Parasitologia Contemporânea). Figuras: micrografias do CDC (domínio público) e imagens livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "paras-giardia-amebiase-01",
+    "kind": "texto",
+    "front": "Qual o estágio **infectante** de Giardia?",
+    "back": "O **cisto** (oval, 2–4 núcleos), resistente, veiculado por **água e alimentos**.",
+    "axisId": "giardia-amebiase"
+   },
+   {
+    "id": "paras-giardia-amebiase-02",
+    "kind": "texto",
+    "front": "Como Giardia causa **má absorção**?",
+    "back": "Trofozoítos **aderem** ao duodeno/jejuno **sem invadir** e lesam a borda em escova → falta de **dissacaridases (lactase)**.",
+    "axisId": "giardia-amebiase"
+   },
+   {
+    "id": "paras-giardia-amebiase-03",
+    "kind": "texto",
+    "front": "Por que pedir **3 amostras** de fezes em dias diferentes?",
+    "back": "A eliminação de cistos é **intermitente**: uma amostra detecta 60–80%; três, **mais de 90%**.",
+    "axisId": "giardia-amebiase"
+   },
+   {
+    "id": "paras-giardia-amebiase-04",
+    "kind": "texto",
+    "front": "Trofozoíto com **hemácias fagocitadas** nas fezes sugere…",
+    "back": "**Entamoeba histolytica**, a espécie **invasiva**.",
+    "axisId": "giardia-amebiase"
+   },
+   {
+    "id": "paras-giardia-amebiase-05",
+    "kind": "texto",
+    "front": "Como se forma a úlcera **em botão de camisa**?",
+    "back": "Adesão (lectina **Gal/GalNAc**) → lise por contato → a necrose **se alarga na submucosa**.",
+    "axisId": "giardia-amebiase"
+   },
+   {
+    "id": "paras-giardia-amebiase-06",
+    "kind": "texto",
+    "front": "**Abscesso hepático amebiano**: via e tratamento.",
+    "back": "Chega pela **veia porta**. Trata-se com **metronidazol** (tecidual) **e depois** um amebicida **luminal**.",
+    "axisId": "giardia-amebiase"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:paras-malaria-chagas",
+  "slug": "paras-malaria-chagas",
+  "origin": "oficial",
+  "title": "Malária e doença de Chagas",
+  "description": "Plasmodium, vetores, diagnóstico e as formas da doença.",
+  "disciplineId": "mac-1",
+  "areaId": "parasitologia",
+  "collection": "Parasitologia",
+  "color": "#9a3412",
+  "sourceNote": "Escrito a partir do banco de questões de parasitologia da turma (Parasitologia Contemporânea). Figuras: micrografias do CDC (domínio público) e imagens livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "paras-malaria-chagas-01",
+    "kind": "texto",
+    "front": "Por que a malária por **P. falciparum** é grave?",
+    "back": "**Citoaderência**: hemácias parasitadas aderem ao endotélio e ficam **sequestradas** (malária cerebral).",
+    "axisId": "malaria-chagas",
+    "tip": {
+     "label": "Atenção",
+     "text": "**Hipnozoítos** (recaídas) são de **P. vivax**."
+    }
+   },
+   {
+    "id": "paras-malaria-chagas-02",
+    "kind": "texto",
+    "front": "**Gota espessa** × **esfregaço delgado**.",
+    "back": "**Gota espessa**: mais **sensível** (mais sangue por campo). **Esfregaço**: identifica a **espécie**.",
+    "axisId": "malaria-chagas"
+   },
+   {
+    "id": "paras-malaria-chagas-03",
+    "kind": "texto",
+    "front": "Gametócito em **crescente (banana)** é de…",
+    "back": "**Plasmodium falciparum**.",
+    "axisId": "malaria-chagas"
+   },
+   {
+    "id": "paras-malaria-chagas-04",
+    "kind": "texto",
+    "front": "Quem transmite a malária no Brasil?",
+    "back": "**Fêmeas de Anopheles** (A. darlingi), que inoculam **esporozoítos** com a saliva.",
+    "axisId": "malaria-chagas"
+   },
+   {
+    "id": "paras-malaria-chagas-05",
+    "kind": "texto",
+    "front": "Como reconhecer o **tripomastigota** de T. cruzi?",
+    "back": "Alongado, **flagelo livre**, **membrana ondulante** e **cinetoplasto** grande **posterior** ao núcleo.",
+    "axisId": "malaria-chagas",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Surtos agudos atuais: **via oral** (açaí, caldo de cana contaminados)."
+    }
+   },
+   {
+    "id": "paras-malaria-chagas-06",
+    "kind": "texto",
+    "front": "Por que a doença de Chagas causa **megaesôfago** e **megacólon**?",
+    "back": "**Destruição dos neurônios** dos plexos intramurais → perda do peristaltismo e dilatação.",
+    "axisId": "malaria-chagas"
+   },
+   {
+    "id": "paras-malaria-chagas-07",
+    "kind": "texto",
+    "front": "Diagnóstico da doença de Chagas **crônica**.",
+    "back": "**Sorologia IgG por dois métodos diferentes** — a parasitemia é baixa.",
+    "axisId": "malaria-chagas"
+   },
+   {
+    "id": "paras-malaria-chagas-08",
+    "kind": "texto",
+    "front": "Qual o vetor da doença de Chagas?",
+    "back": "**Triatomíneos** (barbeiro), que eliminam o parasito nas **fezes** durante o repasto.",
+    "axisId": "malaria-chagas"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:paras-leishmania-toxo",
+  "slug": "paras-leishmania-toxo",
+  "origin": "oficial",
+  "title": "Leishmanioses e toxoplasmose",
+  "description": "Espécies, vetores, formas e transmissão.",
+  "disciplineId": "mac-1",
+  "areaId": "parasitologia",
+  "collection": "Parasitologia",
+  "color": "#9a3412",
+  "sourceNote": "Escrito a partir do banco de questões de parasitologia da turma (Parasitologia Contemporânea). Figuras: micrografias do CDC (domínio público) e imagens livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "paras-leishmania-toxo-01",
+    "kind": "texto",
+    "front": "Leishmaniose **visceral** no Brasil: agente, vetor e reservatório.",
+    "back": "**L. infantum**, **Lutzomyia longipalpis** e o **cão**.",
+    "axisId": "leishmania-toxo"
+   },
+   {
+    "id": "paras-leishmania-toxo-02",
+    "kind": "texto",
+    "front": "Que forma da Leishmania vive **no ser humano**?",
+    "back": "O **amastigota**, dentro de **macrófagos**. O promastigota vive no vetor.",
+    "axisId": "leishmania-toxo"
+   },
+   {
+    "id": "paras-leishmania-toxo-03",
+    "kind": "texto",
+    "front": "**Leishmaniose mucosa**: espécie e quando surge.",
+    "back": "**L. braziliensis**; meses ou anos após a lesão cutânea, destruindo **nariz e palato**.",
+    "axisId": "leishmania-toxo"
+   },
+   {
+    "id": "paras-leishmania-toxo-04",
+    "kind": "texto",
+    "front": "Toxoplasmose em imunodeprimido: o que acontece?",
+    "back": "**Reativação**: bradizoítos dos cistos voltam a ser **taquizoítos**, sobretudo no **SNC**.",
+    "axisId": "leishmania-toxo",
+    "tip": {
+     "label": "Como identificar",
+     "text": "**IgG+ / IgM−** = infecção antiga."
+    }
+   },
+   {
+    "id": "paras-leishmania-toxo-05",
+    "kind": "texto",
+    "front": "O gato elimina o quê?",
+    "back": "**Oocistos** nas fezes, que precisam de **dias no ambiente** para esporular.",
+    "axisId": "leishmania-toxo"
+   },
+   {
+    "id": "paras-leishmania-toxo-06",
+    "kind": "texto",
+    "front": "Quando há **toxoplasmose congênita**?",
+    "back": "Na **infecção primária da mãe na gestação** (taquizoítos circulantes atravessam a placenta).",
+    "axisId": "leishmania-toxo"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:paras-tricomoniase",
+  "slug": "paras-tricomoniase",
+  "origin": "oficial",
+  "title": "Tricomoníase",
+  "description": "Trichomonas vaginalis: transmissão e tratamento.",
+  "disciplineId": "mac-1",
+  "areaId": "parasitologia",
+  "collection": "Parasitologia",
+  "color": "#9a3412",
+  "sourceNote": "Escrito a partir do banco de questões de parasitologia da turma (Parasitologia Contemporânea). Figuras: micrografias do CDC (domínio público) e imagens livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "paras-tricomoniase-01",
+    "kind": "texto",
+    "front": "Por que a tricomoníase é transmitida quase só por **via sexual**?",
+    "back": "Só tem **trofozoíto**, **sem cisto**, e resiste pouco fora do hospedeiro.",
+    "axisId": "tricomoniase"
+   },
+   {
+    "id": "paras-tricomoniase-02",
+    "kind": "texto",
+    "front": "Por que tratar o **parceiro**?",
+    "back": "O homem alberga o parasito na **uretra e próstata**, quase sempre **sem sintomas** → reinfecção.",
+    "axisId": "tricomoniase"
+   },
+   {
+    "id": "paras-tricomoniase-03",
+    "kind": "texto",
+    "front": "Que organela faz o metabolismo energético de Trichomonas?",
+    "back": "O **hidrogenossomo**.",
+    "axisId": "tricomoniase",
+    "tip": {
+     "label": "Atenção",
+     "text": "Cinetoplasto: tripanossomatídeos. Disco adesivo: Giardia."
+    }
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:paras-tenia",
+  "slug": "paras-tenia",
+  "origin": "oficial",
+  "title": "Teníase e cisticercose",
+  "description": "T. solium × T. saginata.",
+  "disciplineId": "mac-1",
+  "areaId": "parasitologia",
+  "collection": "Parasitologia",
+  "color": "#9a3412",
+  "sourceNote": "Escrito a partir do banco de questões de parasitologia da turma (Parasitologia Contemporânea). Figuras: micrografias do CDC (domínio público) e imagens livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "paras-tenia-01",
+    "kind": "texto",
+    "front": "Escólex com **ventosas e coroa de ganchos** é de…",
+    "back": "**Taenia solium** (porco). T. saginata **não tem ganchos**.",
+    "axisId": "tenia"
+   },
+   {
+    "id": "paras-tenia-02",
+    "kind": "texto",
+    "front": "Proglote com **15 a 30 ramificações** uterinas é de…",
+    "back": "**Taenia saginata** (boi). T. solium tem **7 a 12**.",
+    "axisId": "tenia"
+   },
+   {
+    "id": "paras-tenia-03",
+    "kind": "texto",
+    "front": "Como se adquire **cisticercose**?",
+    "back": "Ingerindo **ovos de T. solium** (de um portador do verme). Comer carne com cisticercos dá **teníase**.",
+    "axisId": "tenia",
+    "tip": {
+     "label": "Atenção",
+     "text": "Ovo → cisticercose. Carne → teníase."
+    }
+   },
+   {
+    "id": "paras-tenia-04",
+    "kind": "texto",
+    "front": "Dá para distinguir as espécies pelo **ovo**?",
+    "back": "**Não.** Os ovos são **iguais**; a espécie sai das **proglotes** ou do **escólex** (tamisação).",
+    "axisId": "tenia"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:paras-esquistossomose",
+  "slug": "paras-esquistossomose",
+  "origin": "oficial",
+  "title": "Esquistossomose",
+  "description": "S. mansoni, Biomphalaria e as formas da doença.",
+  "disciplineId": "mac-1",
+  "areaId": "parasitologia",
+  "collection": "Parasitologia",
+  "color": "#9a3412",
+  "sourceNote": "Escrito a partir do banco de questões de parasitologia da turma (Parasitologia Contemporânea). Figuras: micrografias do CDC (domínio público) e imagens livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "paras-esquistossomose-01",
+    "kind": "texto",
+    "front": "Ovo grande com **espícula lateral** é de…",
+    "back": "**Schistosoma mansoni**; adultos nas **vênulas mesentéricas**.",
+    "axisId": "esquistossomose"
+   },
+   {
+    "id": "paras-esquistossomose-02",
+    "kind": "texto",
+    "front": "Quem infecta o caramujo e quem infecta o ser humano?",
+    "back": "**Miracídio** → caramujo **Biomphalaria**. **Cercária** → penetra a **pele** humana.",
+    "axisId": "esquistossomose"
+   },
+   {
+    "id": "paras-esquistossomose-03",
+    "kind": "texto",
+    "front": "**Febre de Katayama**.",
+    "back": "**Forma aguda**: febre e **eosinofilia** semanas após a exposição, sobretudo em quem não vive em área endêmica.",
+    "axisId": "esquistossomose"
+   },
+   {
+    "id": "paras-esquistossomose-04",
+    "kind": "texto",
+    "front": "Exame de escolha para ovos de S. mansoni.",
+    "back": "**Kato-Katz**: quantitativo (**ovos por grama** de fezes).",
+    "axisId": "esquistossomose"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:paras-larva-migrans",
+  "slug": "paras-larva-migrans",
+  "origin": "oficial",
+  "title": "Larva migrans cutânea",
+  "description": "O bicho-geográfico.",
+  "disciplineId": "mac-1",
+  "areaId": "parasitologia",
+  "collection": "Parasitologia",
+  "color": "#9a3412",
+  "sourceNote": "Escrito a partir do banco de questões de parasitologia da turma (Parasitologia Contemporânea). Figuras: micrografias do CDC (domínio público) e imagens livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "paras-larva-migrans-01",
+    "kind": "texto",
+    "front": "Quem causa a **larva migrans cutânea**?",
+    "back": "Larva filarioide de **Ancylostoma braziliense** (cão e gato).",
+    "axisId": "larva-migrans",
+    "tip": {
+     "label": "Atenção",
+     "text": "**Toxocara** causa larva migrans **visceral**, por **ingestão** de ovos."
+    }
+   },
+   {
+    "id": "paras-larva-migrans-02",
+    "kind": "texto",
+    "front": "Por que não há ovos nas fezes?",
+    "back": "O ser humano é **hospedeiro acidental**: a larva fica na **pele** e não vira adulta. Diagnóstico **clínico**.",
+    "axisId": "larva-migrans"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:paras-ascaris-enterobius",
+  "slug": "paras-ascaris-enterobius",
+  "origin": "oficial",
+  "title": "Ascaridíase e enterobíase",
+  "description": "Ovos, complicações e reinfecção.",
+  "disciplineId": "mac-1",
+  "areaId": "parasitologia",
+  "collection": "Parasitologia",
+  "color": "#9a3412",
+  "sourceNote": "Escrito a partir do banco de questões de parasitologia da turma (Parasitologia Contemporânea). Figuras: micrografias do CDC (domínio público) e imagens livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "paras-ascaris-enterobius-01",
+    "kind": "texto",
+    "front": "Ovo com **membrana mamilonada** é de…",
+    "back": "**Ascaris lumbricoides** (fértil).",
+    "axisId": "ascaris-enterobius"
+   },
+   {
+    "id": "paras-ascaris-enterobius-02",
+    "kind": "texto",
+    "front": "Complicação da **migração errática** do Ascaris.",
+    "back": "Obstrução das **vias biliares**, ducto pancreático ou apêndice.",
+    "axisId": "ascaris-enterobius"
+   },
+   {
+    "id": "paras-ascaris-enterobius-03",
+    "kind": "texto",
+    "front": "**Prurido anal noturno** sugere…",
+    "back": "**Enterobius vermicularis**: fêmeas migram à noite para a região perianal.",
+    "axisId": "ascaris-enterobius"
+   },
+   {
+    "id": "paras-ascaris-enterobius-04",
+    "kind": "texto",
+    "front": "Como evitar reinfecção por Enterobius?",
+    "back": "**Tratar toda a família** e **repetir a dose em 2 semanas**, com higiene de mãos e roupas.",
+    "axisId": "ascaris-enterobius"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:paras-ancilostoma-strongyloides",
+  "slug": "paras-ancilostoma-strongyloides",
+  "origin": "oficial",
+  "title": "Ancilostomíase e estrongiloidíase",
+  "description": "Ancilostomídeos, anemia e Strongyloides.",
+  "disciplineId": "mac-1",
+  "areaId": "parasitologia",
+  "collection": "Parasitologia",
+  "color": "#9a3412",
+  "sourceNote": "Escrito a partir do banco de questões de parasitologia da turma (Parasitologia Contemporânea). Figuras: micrografias do CDC (domínio público) e imagens livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "paras-ancilostoma-strongyloides-01",
+    "kind": "texto",
+    "front": "**Dentes** × **lâminas cortantes** na cápsula bucal.",
+    "back": "Dentes: **Ancylostoma duodenale**. Lâminas: **Necator americanus**.",
+    "axisId": "ancilostoma-strongyloides"
+   },
+   {
+    "id": "paras-ancilostoma-strongyloides-02",
+    "kind": "texto",
+    "front": "Por que a ancilostomíase causa **anemia ferropriva**?",
+    "back": "**Perda crônica de sangue** no intestino delgado (vermes sugam a mucosa).",
+    "axisId": "ancilostoma-strongyloides"
+   },
+   {
+    "id": "paras-ancilostoma-strongyloides-03",
+    "kind": "texto",
+    "front": "Método para pesquisar **Strongyloides**.",
+    "back": "**Baermann**: larvas vivas migram para a **água aquecida**.",
+    "axisId": "ancilostoma-strongyloides"
+   },
+   {
+    "id": "paras-ancilostoma-strongyloides-04",
+    "kind": "texto",
+    "front": "O que sai nas fezes na estrongiloidíase?",
+    "back": "**Larvas rabditoides** — os ovos eclodem na mucosa.",
+    "axisId": "ancilostoma-strongyloides",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Só S. stercoralis faz **autoinfecção** (hiperinfecção no imunodeprimido)."
+    }
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:ic-ciencia-conhecimento",
+  "slug": "ic-ciencia-conhecimento",
+  "origin": "oficial",
+  "title": "Ciência e conhecimento",
+  "description": "Tipos de conhecimento, pesquisa básica × aplicada e falseabilidade.",
+  "disciplineId": "ic-1",
+  "areaId": "iniciacao-cientifica",
+  "collection": "Iniciação científica",
+  "color": "#8a5a1e",
+  "sourceNote": "Escrito a partir do banco de questões de Iniciação Científica da turma. Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "ic-ciencia-conhecimento-01",
+    "kind": "texto",
+    "front": "**Conhecimento popular** × **científico**.",
+    "back": "**Popular**: tradição e experiência, **assistemático**, sem verificação. **Científico**: **metódico**, verificável e **provisório**.",
+    "axisId": "ciencia-conhecimento"
+   },
+   {
+    "id": "ic-ciencia-conhecimento-02",
+    "kind": "texto",
+    "front": "O conhecimento científico é definitivo?",
+    "back": "**Não.** É **provisório**: ser corrigível diante de novas evidências é o que o separa do dogma.",
+    "axisId": "ciencia-conhecimento"
+   },
+   {
+    "id": "ic-ciencia-conhecimento-03",
+    "kind": "texto",
+    "front": "Pesquisa **básica** × **aplicada**.",
+    "back": "**Básica (pura)**: conhecimento novo sem aplicação prevista. **Aplicada**: resolver um **problema concreto**.",
+    "axisId": "ciencia-conhecimento"
+   },
+   {
+    "id": "ic-ciencia-conhecimento-04",
+    "kind": "texto",
+    "front": "O que torna uma hipótese **científica**, segundo Popper?",
+    "back": "Ser **falseável**: dizer que resultado a **refutaria**. O que se ajusta a qualquer desfecho não é testável.",
+    "axisId": "ciencia-conhecimento"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:ic-mbe",
+  "slug": "ic-mbe",
+  "origin": "oficial",
+  "title": "Medicina baseada em evidências",
+  "description": "O tripé, a pergunta PICO e desfechos.",
+  "disciplineId": "ic-1",
+  "areaId": "iniciacao-cientifica",
+  "collection": "Iniciação científica",
+  "color": "#8a5a1e",
+  "sourceNote": "Escrito a partir do banco de questões de Iniciação Científica da turma. Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "ic-mbe-01",
+    "kind": "texto",
+    "front": "O **tripé** da MBE.",
+    "back": "**Melhor evidência** + **experiência clínica** + **valores e preferências do paciente**.",
+    "axisId": "mbe"
+   },
+   {
+    "id": "ic-mbe-02",
+    "kind": "texto",
+    "front": "O que significa **PICO**?",
+    "back": "**P**opulação · **I**ntervenção · **C**omparação · **O** (desfecho, *outcome*).",
+    "axisId": "mbe",
+    "tip": {
+     "label": "Como identificar",
+     "text": "Lombalgia (P), fisioterapia (I), repouso (C), dias de afastamento (O)."
+    }
+   },
+   {
+    "id": "ic-mbe-03",
+    "kind": "texto",
+    "front": "As **5 etapas** da MBE.",
+    "back": "**Perguntar → buscar → avaliar criticamente → aplicar → avaliar** o resultado.",
+    "axisId": "mbe"
+   },
+   {
+    "id": "ic-mbe-04",
+    "kind": "texto",
+    "front": "Desfecho **substituto** × **clínico**.",
+    "back": "**Substituto**: exame (arritmia no ECG, colesterol). **Clínico**: o que importa ao paciente (**morte, AVC, qualidade de vida**).",
+    "axisId": "mbe",
+    "tip": {
+     "label": "Atenção",
+     "text": "Melhorar o substituto **não garante** benefício clínico."
+    }
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:ic-tipos-pesquisa",
+  "slug": "ic-tipos-pesquisa",
+  "origin": "oficial",
+  "title": "Tipos de pesquisa e de estudo",
+  "description": "Desenhos, pirâmide da evidência, RR e OR.",
+  "disciplineId": "ic-1",
+  "areaId": "iniciacao-cientifica",
+  "collection": "Iniciação científica",
+  "color": "#8a5a1e",
+  "sourceNote": "Escrito a partir do banco de questões de Iniciação Científica da turma. Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "ic-tipos-pesquisa-01",
+    "kind": "texto",
+    "front": "Estudo **transversal**: para que serve e qual o limite?",
+    "back": "Mede exposição e desfecho **ao mesmo tempo** (fotografia) → **prevalência**. Não mostra o que veio **antes**.",
+    "axisId": "tipos-pesquisa"
+   },
+   {
+    "id": "ic-tipos-pesquisa-02",
+    "kind": "texto",
+    "front": "Pesquisa **exploratória**, **descritiva** e **explicativa**.",
+    "back": "**Exploratória**: familiarizar com o problema. **Descritiva**: características de uma população. **Explicativa**: **fatores que causam** o fenômeno.",
+    "axisId": "tipos-pesquisa"
+   },
+   {
+    "id": "ic-tipos-pesquisa-03",
+    "kind": "texto",
+    "front": "**Qualitativa** × **quantitativa**.",
+    "back": "**Qualitativa**: significados e experiências, amostra intencional. **Quantitativa**: mede variáveis e **generaliza** com estatística.",
+    "axisId": "tipos-pesquisa"
+   },
+   {
+    "id": "ic-tipos-pesquisa-04",
+    "kind": "texto",
+    "front": "Pesquisa **bibliográfica** × **documental**.",
+    "back": "**Bibliográfica**: livros e artigos já publicados. **Documental**: fontes primárias (**prontuários**, bancos oficiais).",
+    "axisId": "tipos-pesquisa"
+   },
+   {
+    "id": "ic-tipos-pesquisa-05",
+    "kind": "texto",
+    "front": "Pirâmide da evidência, da base ao topo.",
+    "back": "Relatos/séries de casos → caso-controle → coorte → **ensaio clínico randomizado** → **revisão sistemática / metanálise**.",
+    "axisId": "tipos-pesquisa"
+   },
+   {
+    "id": "ic-tipos-pesquisa-06",
+    "kind": "texto",
+    "front": "Como se calcula o **risco relativo (RR)**?",
+    "back": "**Incidência nos expostos ÷ incidência nos não expostos**. RR = 1: sem associação; > 1: risco; < 1: proteção.",
+    "axisId": "tipos-pesquisa",
+    "tip": {
+     "label": "Como identificar",
+     "text": "30/1.000 fumantes ÷ 10/1.000 não fumantes = **RR 3**."
+    }
+   },
+   {
+    "id": "ic-tipos-pesquisa-07",
+    "kind": "texto",
+    "front": "Por que o **caso-controle** usa **odds ratio** e não RR?",
+    "back": "Os participantes são escolhidos **pelo desfecho**: a proporção de casos é fixada pelo pesquisador, então **não há incidência**.",
+    "axisId": "tipos-pesquisa"
+   },
+   {
+    "id": "ic-tipos-pesquisa-08",
+    "kind": "texto",
+    "front": "**Estudo ecológico** e **falácia ecológica**.",
+    "back": "Unidade de análise = **grupo** (países). Falácia: atribuir a **indivíduos** uma associação vista só entre grupos.",
+    "axisId": "tipos-pesquisa"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:ic-busca-ia",
+  "slug": "ic-busca-ia",
+  "origin": "oficial",
+  "title": "Busca bibliográfica e IA",
+  "description": "Operadores booleanos, descritores, bases e o uso responsável de IA.",
+  "disciplineId": "ic-1",
+  "areaId": "iniciacao-cientifica",
+  "collection": "Iniciação científica",
+  "color": "#8a5a1e",
+  "sourceNote": "Escrito a partir do banco de questões de Iniciação Científica da turma. Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "ic-busca-ia-01",
+    "kind": "texto",
+    "front": "**AND**, **OR** e **NOT**.",
+    "back": "**AND**: interseção, **restringe**. **OR**: união, **amplia** (sinônimos). **NOT**: exclui.",
+    "axisId": "busca-ia"
+   },
+   {
+    "id": "ic-busca-ia-02",
+    "kind": "texto",
+    "front": "Para que servem **MeSH** e **DeCS**?",
+    "back": "Vocabulários controlados: recuperam artigos **pelo conceito**, qualquer que seja a palavra usada. **MeSH** (NLM, MEDLINE); **DeCS** (BIREME, multilíngue).",
+    "axisId": "busca-ia"
+   },
+   {
+    "id": "ic-busca-ia-03",
+    "kind": "texto",
+    "front": "Base da produção da **América Latina e Caribe**.",
+    "back": "**LILACS**.",
+    "axisId": "busca-ia",
+    "tip": {
+     "label": "Atenção",
+     "text": "Cochrane Library: revisões sistemáticas. Embase e Web of Science: internacionais."
+    }
+   },
+   {
+    "id": "ic-busca-ia-04",
+    "kind": "texto",
+    "front": "A IA citou uma referência que você não achou. O que fazer?",
+    "back": "**Descartar** e citar só o que foi **localizado e lido** na fonte: IA pode **inventar referências** (alucinação).",
+    "axisId": "busca-ia"
+   },
+   {
+    "id": "ic-busca-ia-05",
+    "kind": "texto",
+    "front": "IA pode ser **autora** de um artigo?",
+    "back": "**Não.** Autoria exige **responsabilidade**; o uso deve ser **declarado** e os autores humanos respondem por tudo.",
+    "axisId": "busca-ia"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:ic-vieses",
+  "slug": "ic-vieses",
+  "origin": "oficial",
+  "title": "Vieses e qualidade dos estudos",
+  "description": "Seleção, aferição, publicação e as ferramentas de avaliação.",
+  "disciplineId": "ic-1",
+  "areaId": "iniciacao-cientifica",
+  "collection": "Iniciação científica",
+  "color": "#8a5a1e",
+  "sourceNote": "Escrito a partir do banco de questões de Iniciação Científica da turma. Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "ic-vieses-01",
+    "kind": "texto",
+    "front": "**Efeito do trabalhador sadio** é que viés?",
+    "back": "**Viés de seleção**: para estar empregado é preciso ter saúde, então os grupos não são comparáveis.",
+    "axisId": "vieses"
+   },
+   {
+    "id": "ic-vieses-02",
+    "kind": "texto",
+    "front": "**Funil assimétrico** sugere…",
+    "back": "**Viés de publicação**: estudos pequenos com resultado nulo não são publicados.",
+    "axisId": "vieses"
+   },
+   {
+    "id": "ic-vieses-03",
+    "kind": "texto",
+    "front": "Como reduzir o viés de **aferição** de um desfecho subjetivo (dor)?",
+    "back": "**Cegamento** dos avaliadores (e dos participantes).",
+    "axisId": "vieses"
+   },
+   {
+    "id": "ic-vieses-04",
+    "kind": "texto",
+    "front": "Aumentar a amostra corrige viés?",
+    "back": "**Não.** Reduz o **erro aleatório**; o erro **sistemático** continua — só fica mais preciso.",
+    "axisId": "vieses"
+   },
+   {
+    "id": "ic-vieses-05",
+    "kind": "texto",
+    "front": "**STROBE**, **CONSORT** e **PRISMA** servem para quê?",
+    "back": "Guias de **relato**: STROBE (observacionais), CONSORT (ensaios), PRISMA (revisões). **Não** são escalas de qualidade.",
+    "axisId": "vieses"
+   },
+   {
+    "id": "ic-vieses-06",
+    "kind": "texto",
+    "front": "Na **RoB 2**, um domínio com alto risco deixa o estudo…",
+    "back": "Com **alto risco global**.",
+    "axisId": "vieses"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:ic-etica-humanos",
+  "slug": "ic-etica-humanos",
+  "origin": "oficial",
+  "title": "Ética em pesquisa com seres humanos",
+  "description": "Marcos históricos, princípios, CEP e TCLE.",
+  "disciplineId": "ic-1",
+  "areaId": "iniciacao-cientifica",
+  "collection": "Iniciação científica",
+  "color": "#8a5a1e",
+  "sourceNote": "Escrito a partir do banco de questões de Iniciação Científica da turma. Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "ic-etica-humanos-01",
+    "kind": "texto",
+    "front": "Marcos da ética em pesquisa, em ordem.",
+    "back": "**Nuremberg (1947) → Helsinque (1964) → Belmont (1979) → Res. CNS 466 (2012) → Lei 14.874 (2024)**.",
+    "axisId": "etica-humanos"
+   },
+   {
+    "id": "ic-etica-humanos-02",
+    "kind": "texto",
+    "front": "Revisão da literatura passa pelo **CEP**?",
+    "back": "**Não** (Res. CNS 510/2016), nem pesquisa com dados de **domínio público**.",
+    "axisId": "etica-humanos"
+   },
+   {
+    "id": "ic-etica-humanos-03",
+    "kind": "texto",
+    "front": "Princípio da **justiça**.",
+    "back": "Distribuir **ônus e benefícios** de forma equitativa; não escolher participantes por **conveniência ou vulnerabilidade**.",
+    "axisId": "etica-humanos"
+   },
+   {
+    "id": "ic-etica-humanos-04",
+    "kind": "texto",
+    "front": "**Ressarcimento** × **indenização**.",
+    "back": "**Ressarcimento**: cobre **despesas** da participação. **Indenização**: repara **danos** causados pela pesquisa.",
+    "axisId": "etica-humanos"
+   },
+   {
+    "id": "ic-etica-humanos-05",
+    "kind": "texto",
+    "front": "Placebo quando já existe tratamento eficaz.",
+    "back": "**Inaceitável**: comparar com a **melhor intervenção comprovada** (Helsinque). O TCLE não legitima dano evitável.",
+    "axisId": "etica-humanos"
+   },
+   {
+    "id": "ic-etica-humanos-06",
+    "kind": "texto",
+    "front": "A participante quer **desistir** no meio do estudo.",
+    "back": "**Respeitar**: o consentimento é **revogável a qualquer momento**, sem prejuízo ao cuidado.",
+    "axisId": "etica-humanos"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:ic-animais",
+  "slug": "ic-animais",
+  "origin": "oficial",
+  "title": "Pesquisa com animais",
+  "description": "Os 3Rs e a CEUA.",
+  "disciplineId": "ic-1",
+  "areaId": "iniciacao-cientifica",
+  "collection": "Iniciação científica",
+  "color": "#8a5a1e",
+  "sourceNote": "Escrito a partir do banco de questões de Iniciação Científica da turma. Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "ic-animais-01",
+    "kind": "texto",
+    "front": "Quais são os **3Rs**?",
+    "back": "**Substituição** (sem animais), **Redução** (menos animais) e **Refinamento** (menos dor e estresse).",
+    "axisId": "animais"
+   },
+   {
+    "id": "ic-animais-02",
+    "kind": "texto",
+    "front": "Quem aprova pesquisa com animais?",
+    "back": "A **CEUA** da instituição (Lei 11.794/2008, que criou o **CONCEA**).",
+    "axisId": "animais"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:ic-integridade",
+  "slug": "ic-integridade",
+  "origin": "oficial",
+  "title": "Integridade científica",
+  "description": "FFP, plágio e os identificadores da pesquisa.",
+  "disciplineId": "ic-1",
+  "areaId": "iniciacao-cientifica",
+  "collection": "Iniciação científica",
+  "color": "#8a5a1e",
+  "sourceNote": "Escrito a partir do banco de questões de Iniciação Científica da turma. Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "ic-integridade-01",
+    "kind": "texto",
+    "front": "O que é **FFP**?",
+    "back": "**Fabricação** (inventar dados), **falsificação** (manipular dados existentes) e **plágio**.",
+    "axisId": "integridade"
+   },
+   {
+    "id": "ic-integridade-02",
+    "kind": "texto",
+    "front": "Parafrasear ideia alheia **sem citar** é plágio?",
+    "back": "**Sim.** Plágio é apropriar-se de **ideias**, não só de palavras. Reusar texto próprio sem citar é **autoplágio**.",
+    "axisId": "integridade"
+   },
+   {
+    "id": "ic-integridade-03",
+    "kind": "texto",
+    "front": "**ORCID** × **DOI**.",
+    "back": "**ORCID** identifica o **pesquisador**. **DOI** identifica o **documento** (artigo, dados).",
+    "axisId": "integridade"
+   },
+   {
+    "id": "ic-integridade-04",
+    "kind": "texto",
+    "front": "Para que serve a **Plataforma Brasil**?",
+    "back": "Submeter e acompanhar projetos com **seres humanos** no sistema **CEP/CONEP**.",
+    "axisId": "integridade",
+    "tip": {
+     "label": "Atenção",
+     "text": "Lattes: currículo (CNPq). Sucupira: pós-graduação."
+    }
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:bio-genoma",
+  "slug": "bio-genoma",
+  "origin": "oficial",
+  "title": "Genoma e DNA",
+  "description": "Onde está a informação e como as fitas pareiam.",
+  "disciplineId": "aes-2",
+  "areaId": "biologia-celular",
+  "collection": "Biologia celular e molecular",
+  "color": "#7b3f62",
+  "sourceNote": "Escrito a partir do banco de questões de AES 2 da turma (Alberts; Junqueira & Carneiro). Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "bio-genoma-01",
+    "kind": "texto",
+    "front": "Onde fica a **informação hereditária**?",
+    "back": "Na **sequência de nucleotídeos do DNA**, que flui para o RNAm e, dele, para a proteína.",
+    "axisId": "genoma"
+   },
+   {
+    "id": "bio-genoma-02",
+    "kind": "texto",
+    "front": "Regras de **pareamento** e orientação das fitas.",
+    "back": "**A–T** e **G–C**; fitas **antiparalelas** (5′→3′ diante de 3′→5′). Uracila só no **RNA**.",
+    "axisId": "genoma"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:bio-replicacao",
+  "slug": "bio-replicacao",
+  "origin": "oficial",
+  "title": "Replicação do DNA",
+  "description": "Semiconservativa, forquilha e as enzimas.",
+  "disciplineId": "aes-2",
+  "areaId": "biologia-celular",
+  "collection": "Biologia celular e molecular",
+  "color": "#7b3f62",
+  "sourceNote": "Escrito a partir do banco de questões de AES 2 da turma (Alberts; Junqueira & Carneiro). Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "bio-replicacao-01",
+    "kind": "texto",
+    "front": "A replicação é…",
+    "back": "**Semiconservativa**: cada molécula-filha tem **uma fita parental** e **uma nova**.",
+    "axisId": "replicacao"
+   },
+   {
+    "id": "bio-replicacao-02",
+    "kind": "texto",
+    "front": "**Helicase**, **primase**, **DNA ligase** e **topoisomerase**.",
+    "back": "**Helicase**: separa as fitas. **Primase**: faz o **primer** de RNA. **Ligase**: **une os fragmentos de Okazaki**. **Topoisomerase**: alivia a torção.",
+    "axisId": "replicacao"
+   },
+   {
+    "id": "bio-replicacao-03",
+    "kind": "texto",
+    "front": "O que são **fragmentos de Okazaki**?",
+    "back": "Trechos da **fita tardia**, cada um com seu **primer**, depois unidos pela **DNA ligase**.",
+    "axisId": "replicacao"
+   },
+   {
+    "id": "bio-replicacao-04",
+    "kind": "texto",
+    "front": "Em que fase o genoma é replicado?",
+    "back": "Na **fase S**, inteiro (não só os genes ativos).",
+    "axisId": "replicacao"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:bio-transcricao-traducao",
+  "slug": "bio-transcricao-traducao",
+  "origin": "oficial",
+  "title": "Transcrição e tradução",
+  "description": "Do pré-RNAm à proteína.",
+  "disciplineId": "aes-2",
+  "areaId": "biologia-celular",
+  "collection": "Biologia celular e molecular",
+  "color": "#7b3f62",
+  "sourceNote": "Escrito a partir do banco de questões de AES 2 da turma (Alberts; Junqueira & Carneiro). Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "bio-transcricao-traducao-01",
+    "kind": "texto",
+    "front": "O que é o **pré-RNAm**?",
+    "back": "O transcrito primário da **RNA polimerase II**, com **íntrons**; ganha **cap 5′**, **cauda poli-A** e passa por **splicing**.",
+    "axisId": "transcricao-traducao"
+   },
+   {
+    "id": "bio-transcricao-traducao-02",
+    "kind": "texto",
+    "front": "O que faz o **splicing**?",
+    "back": "Remove os **íntrons** e une os **éxons**, no **núcleo**, pelo **spliceossomo**. O DNA não muda.",
+    "axisId": "transcricao-traducao"
+   },
+   {
+    "id": "bio-transcricao-traducao-03",
+    "kind": "texto",
+    "front": "Mutação no **promotor** altera a proteína?",
+    "back": "Altera a **quantidade** de RNAm e de proteína, **não a sequência** de aminoácidos.",
+    "axisId": "transcricao-traducao"
+   },
+   {
+    "id": "bio-transcricao-traducao-04",
+    "kind": "texto",
+    "front": "Função do **RNAt**.",
+    "back": "Adaptador: reconhece o **códon** pelo **anticódon** e traz o **aminoácido**.",
+    "axisId": "transcricao-traducao",
+    "tip": {
+     "label": "Atenção",
+     "text": "A ligação peptídica é catalisada pelo **RNAr**."
+    }
+   },
+   {
+    "id": "bio-transcricao-traducao-05",
+    "kind": "texto",
+    "front": "Código genético **degenerado** quer dizer…",
+    "back": "**Vários códons → o mesmo aminoácido**. Não é ambíguo: cada códon dá **um só** aminoácido.",
+    "axisId": "transcricao-traducao"
+   },
+   {
+    "id": "bio-transcricao-traducao-06",
+    "kind": "texto",
+    "front": "Mutação **sem sentido (nonsense)**.",
+    "back": "Cria um **códon de parada** precoce (ex.: CAG → **UAG**) → proteína **truncada**.",
+    "axisId": "transcricao-traducao"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:bio-regulacao-epigenetica",
+  "slug": "bio-regulacao-epigenetica",
+  "origin": "oficial",
+  "title": "Regulação gênica e epigenética",
+  "description": "Expressão diferencial, enhancers, metilação e histonas.",
+  "disciplineId": "aes-2",
+  "areaId": "biologia-celular",
+  "collection": "Biologia celular e molecular",
+  "color": "#7b3f62",
+  "sourceNote": "Escrito a partir do banco de questões de AES 2 da turma (Alberts; Junqueira & Carneiro). Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "bio-regulacao-epigenetica-01",
+    "kind": "texto",
+    "front": "Fígado e neurônio têm o mesmo genoma. Por que são diferentes?",
+    "back": "**Expressão gênica diferencial**: cada tipo celular transcreve genes diferentes.",
+    "axisId": "regulacao-epigenetica"
+   },
+   {
+    "id": "bio-regulacao-epigenetica-02",
+    "kind": "texto",
+    "front": "O que é um **enhancer**?",
+    "back": "Sequência de DNA que, ligando ativadores, **aumenta a transcrição** mesmo **distante** do gene — a cromatina faz uma **alça**.",
+    "axisId": "regulacao-epigenetica"
+   },
+   {
+    "id": "bio-regulacao-epigenetica-03",
+    "kind": "texto",
+    "front": "**Metilação** de ilhas CpG no promotor causa…",
+    "back": "**Silenciamento** do gene, **sem mudar a sequência** de bases.",
+    "axisId": "regulacao-epigenetica"
+   },
+   {
+    "id": "bio-regulacao-epigenetica-04",
+    "kind": "texto",
+    "front": "**Acetilação** de histonas.",
+    "back": "Neutraliza cargas positivas → cromatina **aberta (eucromatina)** → **mais transcrição**.",
+    "axisId": "regulacao-epigenetica",
+    "tip": {
+     "label": "Para memorizar",
+     "text": "Acetilar **abre**; desacetilar e metilar o DNA **fecham**."
+    }
+   },
+   {
+    "id": "bio-regulacao-epigenetica-05",
+    "kind": "texto",
+    "front": "Como agem os **microRNAs**?",
+    "back": "Pareiam com o **RNAm-alvo** (região 3′ UTR) no **RISC** e **reduzem tradução** ou estabilidade.",
+    "axisId": "regulacao-epigenetica"
+   },
+   {
+    "id": "bio-regulacao-epigenetica-06",
+    "kind": "texto",
+    "front": "**MECP2** × **MeCP2**.",
+    "back": "**MECP2** (itálico) é o **gene**; **MeCP2** é a **proteína** que **lê o DNA metilado**.",
+    "axisId": "regulacao-epigenetica"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:bio-celulas-tronco",
+  "slug": "bio-celulas-tronco",
+  "origin": "oficial",
+  "title": "Células-tronco e adaptação celular",
+  "description": "Divisão assimétrica, potência e as adaptações.",
+  "disciplineId": "aes-2",
+  "areaId": "biologia-celular",
+  "collection": "Biologia celular e molecular",
+  "color": "#7b3f62",
+  "sourceNote": "Escrito a partir do banco de questões de AES 2 da turma (Alberts; Junqueira & Carneiro). Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "bio-celulas-tronco-01",
+    "kind": "texto",
+    "front": "**Divisão assimétrica** serve para…",
+    "back": "**Manter a célula-tronco** (autorrenovação) e gerar uma célula que vai se **diferenciar**.",
+    "axisId": "celulas-tronco"
+   },
+   {
+    "id": "bio-celulas-tronco-02",
+    "kind": "texto",
+    "front": "O que é **diferenciação**?",
+    "back": "Ganhar estrutura e função especializadas por **expressão seletiva de genes** — o DNA não muda.",
+    "axisId": "celulas-tronco"
+   },
+   {
+    "id": "bio-celulas-tronco-03",
+    "kind": "texto",
+    "front": "Célula-tronco **mesenquimal** origina…",
+    "back": "**Osteoblastos, condrócitos e adipócitos**.",
+    "axisId": "celulas-tronco"
+   },
+   {
+    "id": "bio-celulas-tronco-04",
+    "kind": "texto",
+    "front": "**Hipertrofia** × **hiperplasia**.",
+    "back": "**Hipertrofia**: células **maiores** (cardiomiócito). **Hiperplasia**: **mais** células (próstata).",
+    "axisId": "celulas-tronco"
+   },
+   {
+    "id": "bio-celulas-tronco-05",
+    "kind": "texto",
+    "front": "O que é **metaplasia**?",
+    "back": "Troca adaptativa de um tipo celular diferenciado **por outro** (esôfago de Barrett). Reversível, mas **aumenta o risco** de câncer.",
+    "axisId": "celulas-tronco"
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:bio-ciclo-neoplasia",
+  "slug": "bio-ciclo-neoplasia",
+  "origin": "oficial",
+  "title": "Ciclo celular e neoplasia",
+  "description": "Fases, p53, Rb e invasão.",
+  "disciplineId": "aes-2",
+  "areaId": "biologia-celular",
+  "collection": "Biologia celular e molecular",
+  "color": "#7b3f62",
+  "sourceNote": "Escrito a partir do banco de questões de AES 2 da turma (Alberts; Junqueira & Carneiro). Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "bio-ciclo-neoplasia-01",
+    "kind": "texto",
+    "front": "Fases do ciclo celular, em ordem.",
+    "back": "**G1 → S (replica o DNA) → G2 → M (mitose)**.",
+    "axisId": "ciclo-neoplasia",
+    "tip": {
+     "label": "Correlação clínica",
+     "text": "Metotrexato age em **S**; vincristina em **M**."
+    }
+   },
+   {
+    "id": "bio-ciclo-neoplasia-02",
+    "kind": "texto",
+    "front": "Por que a **p53** é a guardiã do genoma?",
+    "back": "Com DNA lesado, ela **para o ciclo** ou induz **apoptose**. Sem p53, as mutações **se acumulam**.",
+    "axisId": "ciclo-neoplasia"
+   },
+   {
+    "id": "bio-ciclo-neoplasia-03",
+    "kind": "texto",
+    "front": "O que a **Rb** controla?",
+    "back": "A transição **G1/S**: hipofosforilada, **sequestra E2F**. Sem Rb, E2F livre → entrada em S **sem controle**.",
+    "axisId": "ciclo-neoplasia"
+   },
+   {
+    "id": "bio-ciclo-neoplasia-04",
+    "kind": "texto",
+    "front": "**In situ** × **invasivo**.",
+    "back": "**Invasivo**: rompeu a **membrana basal** e invadiu o estroma. In situ: ainda **não rompeu**.",
+    "axisId": "ciclo-neoplasia",
+    "tip": {
+     "label": "Atenção",
+     "text": "Invasão local ≠ **metástase**."
+    }
+   }
+  ],
+  "images": []
+ },
+ {
+  "id": "oficial:bio-senescencia-apoptose",
+  "slug": "bio-senescencia-apoptose",
+  "origin": "oficial",
+  "title": "Senescência e apoptose",
+  "description": "Telômeros, vias intrínseca e extrínseca.",
+  "disciplineId": "aes-2",
+  "areaId": "biologia-celular",
+  "collection": "Biologia celular e molecular",
+  "color": "#7b3f62",
+  "sourceNote": "Escrito a partir do banco de questões de AES 2 da turma (Alberts; Junqueira & Carneiro). Figuras livres do Wikimedia Commons.",
+  "cards": [
+   {
+    "id": "bio-senescencia-apoptose-01",
+    "kind": "texto",
+    "front": "O que é **senescência**?",
+    "back": "**Parada proliferativa duradoura** em célula **viva** e metabolicamente ativa.",
+    "axisId": "senescencia-apoptose"
+   },
+   {
+    "id": "bio-senescencia-apoptose-02",
+    "kind": "texto",
+    "front": "Telômeros **curtos** levam a quê?",
+    "back": "São lidos como **dano ao DNA** → **p53** → parada do ciclo (esgotamento de tecidos de alta renovação).",
+    "axisId": "senescencia-apoptose"
+   },
+   {
+    "id": "bio-senescencia-apoptose-03",
+    "kind": "texto",
+    "front": "**Via intrínseca** (mitocondrial), passo a passo.",
+    "back": "**BAX/BAK** permeabilizam a mitocôndria → **citocromo c** + APAF-1 + pró-caspase-9 = **apoptossomo** → caspase-9 → caspases **3, 6, 7**.",
+    "axisId": "senescencia-apoptose"
+   },
+   {
+    "id": "bio-senescencia-apoptose-04",
+    "kind": "texto",
+    "front": "**Via extrínseca**, passo a passo.",
+    "back": "**FasL → Fas → FADD → DISC → caspase-8** → caspases executoras.",
+    "axisId": "senescencia-apoptose"
+   },
+   {
+    "id": "bio-senescencia-apoptose-05",
+    "kind": "texto",
+    "front": "**BCL-2** é pró ou antiapoptótica?",
+    "back": "**Antiapoptótica**: segura BAX/BAK. Em excesso, células sobrevivem e acumulam mutações (linfoma folicular).",
+    "axisId": "senescencia-apoptose"
+   },
+   {
+    "id": "bio-senescencia-apoptose-06",
+    "kind": "texto",
+    "front": "**Apoptose** × **necrose** ao microscópio.",
+    "back": "**Apoptose**: célula isolada, **retraída**, cromatina condensada, corpos apoptóticos, **sem inflamação**. Necrose: membrana **rompe**, inflama.",
+    "axisId": "senescencia-apoptose"
+   },
+   {
+    "id": "bio-senescencia-apoptose-07",
+    "kind": "texto",
+    "front": "Para que serve a **fosfatidilserina** exposta?",
+    "back": "Sinal de **“coma-me”**: macrófagos fagocitam a célula **sem inflamação**.",
+    "axisId": "senescencia-apoptose"
+   },
+   {
+    "id": "bio-senescencia-apoptose-08",
+    "kind": "texto",
+    "front": "Qual a ponte entre as duas vias?",
+    "back": "**BID**: a caspase-8 a cliva em **tBID**, que ativa **BAX/BAK**.",
+    "axisId": "senescencia-apoptose"
+   }
+  ],
+  "images": []
+ }
+]
