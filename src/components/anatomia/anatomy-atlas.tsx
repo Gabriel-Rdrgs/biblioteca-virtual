@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import {
+  Box,
+  ChevronDown,
   ChevronUp,
   Contrast,
   Crosshair,
@@ -21,6 +23,7 @@ import {
   type AnatomyData,
   type AnatomyLayer,
   type AnatomyStructure,
+  type LandmarkIndex,
 } from "@/lib/domain/anatomy-types";
 import { cn } from "@/lib/utils";
 import {
@@ -28,6 +31,7 @@ import {
   type AnatomyPick,
   type Emphasis,
   type FocusRequest,
+  type Marker,
   type ViewName,
 } from "./anatomy-viewer";
 import { StructureCardView } from "./structure-card";
@@ -36,17 +40,21 @@ import { ViewerControls } from "./viewer-controls";
 /**
  * O atlas: procurar pelo nome ou tocar no corpo, e ler a ficha.
  *
- * Funciona como os atlas 3D de estudo: passar o mouse acende a estrutura e
- * diz o nome; escolher uma leva a câmera até ela e prende uma etiqueta nela;
- * e o que está na frente pode sair do caminho — esmaecer o resto, ver em
- * raio-X, isolar a estrutura ou ocultar o que atrapalha.
+ * Organizado como um atlas de papel: escolhe-se o sistema (ossos ou
+ * músculos), a região e então a estrutura — ou busca-se pelo nome. A câmera
+ * vai até o que foi escolhido e uma etiqueta fica presa nele. Num osso, os
+ * acidentes aparecem como pontos numerados no próprio modelo.
  *
- * No computador são três colunas: lista, corpo, ficha. No celular o corpo
- * ocupa a tela; a busca abre por cima e a ficha sobe numa gaveta, com as
- * ações sempre à mão do polegar.
+ * Como nos atlas 3D de estudo, o que está na frente pode sair do caminho:
+ * esmaecer o resto, ver em raio-X, isolar ou ocultar.
+ *
+ * No computador são três colunas: índice, corpo, ficha. No celular o corpo
+ * ocupa a tela; o índice abre por cima e a ficha sobe numa gaveta.
  */
 
-/** "Left Humerus" → "Humerus (esquerdo)": o nome do modelo, enquanto os ossos não têm ficha. */
+export type AtlasSystem = "ossos" | "musculos";
+
+/** "Left Humerus" → "Humerus (esquerdo)": nome do modelo, para peças sem estrutura. */
 function modelName(name: string): string {
   const side = /\bleft\b/i.test(name) ? " (esquerdo)" : /\bright\b/i.test(name) ? " (direito)" : "";
   const base = name.replace(/\b(left|right)\b/gi, "").replace(/\s+/g, " ").trim();
@@ -59,34 +67,82 @@ const EMPHASIS: readonly { id: Exclude<Emphasis, "none">; label: string; icon: t
   { id: "isolate", label: "Isolar", icon: Focus },
 ];
 
-/* -------------------------------------------------- busca e lista */
+const keysOf = (structures: readonly AnatomyStructure[]) =>
+  structures.flatMap((s) => s.parts.map((p) => p.toLowerCase()));
 
-function StructureList({
+/* -------------------------------------------------- o índice */
+
+function StructureTree({
   data,
+  landmarks,
   selectedId,
-  onSelect,
+  initialTab,
+  initialRegion,
   autoFocus,
+  onSelect,
+  onRegion,
 }: {
   data: AnatomyData;
+  landmarks: LandmarkIndex;
   selectedId: string | null;
-  onSelect: (s: AnatomyStructure) => void;
+  initialTab: AtlasSystem;
+  initialRegion: string | null;
   autoFocus?: boolean;
+  onSelect: (s: AnatomyStructure) => void;
+  onRegion: (regionId: string) => void;
 }) {
-  const [region, setRegion] = useState<string | null>(null);
   const [query, setQuery] = useState("");
-  const [tab, setTab] = useState<"muscles" | "bones">(() =>
-    data.structures.find((s) => s.id === selectedId)?.layer === "skeleton" ? "bones" : "muscles",
-  );
-  const list = useMemo(() => {
+  const [tab, setTab] = useState<AtlasSystem>(initialTab);
+  const [open, setOpen] = useState<string | null>(initialRegion);
+
+  const results = useMemo(() => {
     const q = fold(query);
-    return data.structures.filter(
-      (s) =>
-        // Buscando pelo nome, procura em tudo; navegando, só a aba aberta.
-        (q.length >= 2 || (tab === "bones") === (s.layer === "skeleton")) &&
-        (!region || s.region === region) &&
-        (q.length < 2 || structureNames(s).some((n) => fold(n).includes(q))),
+    if (q.length < 2) return [];
+    const starts = data.structures.filter((s) => fold(s.namePt).startsWith(q));
+    const rest = data.structures.filter(
+      (s) => !starts.includes(s) && structureNames(s).some((n) => fold(n).includes(q)),
     );
-  }, [data.structures, region, query, tab]);
+    return [...starts, ...rest];
+  }, [data.structures, query]);
+
+  const item = (s: AnatomyStructure) => {
+    const marks = landmarks[s.id]?.length ?? 0;
+    return (
+      <li key={s.id}>
+        <button
+          type="button"
+          onClick={() => onSelect(s)}
+          aria-current={s.id === selectedId ? "true" : undefined}
+          className={cn(
+            "flex min-h-11 w-full items-center justify-between gap-2 rounded-lg px-2.5 py-2 text-left text-[15px] transition-colors lg:min-h-9 lg:py-1.5 lg:text-sm",
+            s.id === selectedId ? "bg-primary-soft text-primary font-semibold" : "hover:glass-strong",
+          )}
+        >
+          <span className="min-w-0 truncate">{s.namePt}</span>
+          {marks ? (
+            <span className="text-ink-faint shrink-0 font-mono text-[11px]" title="Acidentes no modelo">
+              {marks} pts
+            </span>
+          ) : null}
+        </button>
+      </li>
+    );
+  };
+
+  const groups = (regionId: string): { title: string | null; items: AnatomyStructure[] }[] => {
+    const here = data.structures.filter((s) => s.region === regionId);
+    if (tab === "ossos") {
+      return [
+        { title: null, items: here.filter((s) => s.kind === "bone") },
+        { title: "Outras estruturas", items: here.filter((s) => s.kind !== "bone" && s.layer === "skeleton") },
+      ];
+    }
+    return [
+      { title: "Superficiais", items: here.filter((s) => s.kind === "muscle" && s.layer === "superficial") },
+      { title: "Profundos", items: here.filter((s) => s.kind === "muscle" && s.layer === "deep") },
+      { title: "Fáscias e tendões", items: here.filter((s) => s.kind !== "muscle" && s.layer !== "skeleton") },
+    ];
+  };
 
   return (
     <>
@@ -101,106 +157,147 @@ function StructureList({
           value={query}
           autoFocus={autoFocus}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Músculo em português, inglês ou latim…"
+          placeholder="Buscar em português, inglês ou latim…"
           className="bg-surface border-line focus:border-primary min-h-11 w-full rounded-full border py-2 pr-3 pl-9 text-base outline-none lg:min-h-10 lg:text-sm"
         />
       </label>
-      <div className="bg-surface-sunken mt-3 grid grid-cols-2 gap-1 rounded-full p-1 text-sm" role="tablist">
-        {(
-          [
-            ["muscles", "Músculos"],
-            ["bones", "Ossos"],
-          ] as const
-        ).map(([id, text]) => (
-          <button
-            key={id}
-            type="button"
-            role="tab"
-            aria-selected={tab === id}
-            onClick={() => setTab(id)}
-            className={cn(
-              "min-h-9 rounded-full font-medium transition-colors lg:min-h-8",
-              tab === id ? "bg-surface text-ink shadow-sm" : "text-ink-muted",
-            )}
-          >
-            {text}
-          </button>
-        ))}
-      </div>
-      {/* No celular as regiões rolam de lado, numa linha só. */}
-      <div className="-mx-1 mt-3 flex gap-1.5 overflow-x-auto px-1 pb-1 lg:flex-wrap lg:overflow-visible">
-        {[{ id: null, short: "Todas" }, ...data.regions].map((r) => (
-          <button
-            key={r.id ?? "todas"}
-            type="button"
-            onClick={() => setRegion(r.id)}
-            className={cn(
-              "min-h-9 shrink-0 rounded-full px-3 text-xs font-medium lg:min-h-0 lg:px-2.5 lg:py-1",
-              region === r.id ? "bg-primary text-on-primary" : "glass-strong text-ink-muted",
-            )}
-          >
-            {r.short}
-          </button>
-        ))}
-      </div>
-      <ul className="mt-2 min-h-0 flex-1 space-y-0.5 overflow-y-auto pr-1">
-        {list.map((s) => (
-          <li key={s.id}>
-            <button
-              type="button"
-              onClick={() => onSelect(s)}
-              aria-current={s.id === selectedId ? "true" : undefined}
-              className={cn(
-                "min-h-11 w-full rounded-lg px-2.5 py-2 text-left text-[15px] transition-colors lg:min-h-0 lg:py-1.5 lg:text-sm",
-                s.id === selectedId
-                  ? "bg-primary-soft text-primary font-semibold"
-                  : "hover:glass-strong",
-              )}
-            >
-              {s.namePt}
-              {s.kind === "connective" ? (
-                <span className="text-ink-faint ml-1 text-xs">
-                  · {s.layer === "skeleton" ? "outras" : "conjuntivo"}
-                </span>
-              ) : null}
-            </button>
-          </li>
-        ))}
-        {list.length === 0 ? (
-          <li className="text-ink-muted px-2 py-3 text-sm">Nenhuma estrutura com esse nome.</li>
-        ) : null}
-      </ul>
+
+      {query.trim().length >= 2 ? (
+        <ul className="mt-3 min-h-0 flex-1 space-y-0.5 overflow-y-auto pr-1">
+          {results.map(item)}
+          {results.length === 0 ? (
+            <li className="text-ink-muted px-2 py-3 text-sm">Nada com esse nome.</li>
+          ) : null}
+        </ul>
+      ) : (
+        <>
+          <div className="bg-surface-sunken mt-3 grid grid-cols-2 gap-1 rounded-full p-1 text-sm" role="tablist">
+            {(
+              [
+                ["ossos", "Ossos"],
+                ["musculos", "Músculos"],
+              ] as const
+            ).map(([id, text]) => (
+              <button
+                key={id}
+                type="button"
+                role="tab"
+                aria-selected={tab === id}
+                onClick={() => setTab(id)}
+                className={cn(
+                  "min-h-9 rounded-full font-medium transition-colors lg:min-h-8",
+                  tab === id ? "bg-surface text-ink shadow-sm" : "text-ink-muted",
+                )}
+              >
+                {text}
+              </button>
+            ))}
+          </div>
+
+          {/* Uma região aberta por vez: o índice não vira uma parede de nomes. */}
+          <ul className="mt-2 min-h-0 flex-1 space-y-1 overflow-y-auto pr-1">
+            {data.regions.map((r) => {
+              const g = groups(r.id).filter((x) => x.items.length);
+              const total = g.reduce((n, x) => n + x.items.length, 0);
+              if (!total) return null;
+              const isOpen = open === r.id;
+              return (
+                <li key={r.id} className={cn("rounded-xl", isOpen && "bg-surface-sunken/60")}>
+                  <div className="flex items-center">
+                    <button
+                      type="button"
+                      onClick={() => setOpen(isOpen ? null : r.id)}
+                      aria-expanded={isOpen}
+                      className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-xl px-2.5 text-left font-medium"
+                    >
+                      <ChevronDown
+                        className={cn("text-ink-faint size-4 shrink-0 transition-transform", !isOpen && "-rotate-90")}
+                        aria-hidden="true"
+                      />
+                      <span className="min-w-0 truncate">{r.name}</span>
+                      <span className="text-ink-faint ml-auto shrink-0 font-mono text-xs">{total}</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => onRegion(r.id)}
+                      className="text-ink-muted hover:text-primary grid size-11 shrink-0 place-items-center rounded-xl lg:size-9"
+                      aria-label={`Ver ${r.name.toLowerCase()} em 3D`}
+                      title="Ver a região em 3D"
+                    >
+                      <Box className="size-4" aria-hidden="true" />
+                    </button>
+                  </div>
+                  {isOpen ? (
+                    <div className="px-1 pb-2">
+                      {g.map((x) => (
+                        <div key={x.title ?? "itens"}>
+                          {x.title ? (
+                            <p className="text-ink-faint text-micro mt-2 mb-0.5 px-2.5 font-semibold tracking-[0.12em] uppercase">
+                              {x.title}
+                            </p>
+                          ) : null}
+                          <ul className="space-y-0.5">{x.items.map(item)}</ul>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      )}
     </>
   );
 }
 
 /* ------------------------------------------------------------ atlas */
 
-export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId?: string }) {
-  const initial =
-    initialId && data.structures.some((s) => s.id === initialId) ? initialId : null;
-  const [selectedId, setSelectedId] = useState<string | null>(initial);
+export function AnatomyAtlas({
+  data,
+  landmarks,
+  initialId,
+  initialSystem,
+  initialRegion,
+}: {
+  data: AnatomyData;
+  landmarks: LandmarkIndex;
+  initialId?: string;
+  initialSystem?: AtlasSystem;
+  initialRegion?: string;
+}) {
+  const initialStructure = initialId ? data.structures.find((s) => s.id === initialId) : undefined;
+  const region0 =
+    initialRegion && data.regions.some((r) => r.id === initialRegion) ? initialRegion : null;
+  const system0: AtlasSystem =
+    initialSystem ?? (initialStructure?.layer === "skeleton" ? "ossos" : "musculos");
+
+  const [selectedId, setSelectedId] = useState<string | null>(initialStructure?.id ?? null);
   const [bonePick, setBonePick] = useState<AnatomyPick | null>(null);
-  const [layers, setLayers] = useState<Record<AnatomyLayer, boolean>>({
-    skeleton: true,
-    "deep muscles": true,
-    "superficial muscles": true,
+  // Entrando pelo sistema esquelético, os músculos começam desligados.
+  const [layers, setLayers] = useState<Record<AnatomyLayer, boolean>>(() => {
+    const bonesOnly = initialSystem === "ossos";
+    return { skeleton: true, "deep muscles": !bonesOnly, "superficial muscles": !bonesOnly };
   });
   const [opacity, setOpacity] = useState(1);
   const [view, setView] = useState<{ name: ViewName; nonce: number }>({ name: "front", nonce: 0 });
-  // Chegando direto num osso, ele estaria escondido pelos músculos: começa em raio-X.
+  // Chegando direto num osso com os músculos ligados, ele estaria escondido: começa em raio-X.
   const [emphasis, setEmphasis] = useState<Emphasis>(() =>
-    data.structures.find((s) => s.id === initial)?.layer === "skeleton" ? "xray" : "none",
+    initialStructure?.layer === "skeleton" && initialSystem !== "ossos" ? "xray" : "none",
   );
   const [hidden, setHidden] = useState<readonly string[]>([]);
-  // Chegando pela ficha (?estrutura=), a câmera já vai até ela.
+  // A câmera já começa no que foi pedido: a estrutura, ou a região inteira.
   const [focusReq, setFocusReq] = useState<FocusRequest | null>(() => {
-    const s = initial ? data.structures.find((x) => x.id === initial) : undefined;
-    return s ? { keys: s.parts.map((p) => p.toLowerCase()), padding: 2.6, nonce: 1 } : null;
+    if (initialStructure) return { keys: keysOf([initialStructure]), padding: 2.6, nonce: 1 };
+    if (region0) {
+      return { keys: keysOf(data.structures.filter((s) => s.region === region0)), padding: 1.25, nonce: 1 };
+    }
+    return null;
   });
   const [hover, setHover] = useState<{ label: string; x: number; y: number } | null>(null);
   const [searching, setSearching] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [activeMark, setActiveMark] = useState<string | null>(null);
 
   const byKey = useMemo(() => {
     const map = new Map<string, AnatomyStructure>();
@@ -210,11 +307,16 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
 
   const regionById = useMemo(() => new Map(data.regions.map((r) => [r.id, r])), [data.regions]);
   const selected = selectedId ? data.structures.find((s) => s.id === selectedId) : undefined;
-  const selectedKeys =
-    selected?.parts.map((p) => p.toLowerCase()) ?? (bonePick ? [bonePick.key] : []);
+  const selectedKeys = selected ? keysOf([selected]) : bonePick ? [bonePick.key] : [];
   const label = selected?.namePt ?? (bonePick ? modelName(bonePick.name) : "");
+  const marks = useMemo(() => (selected ? (landmarks[selected.id] ?? []) : []), [landmarks, selected]);
+  const markers: Marker[] = useMemo(
+    () => marks.map((m) => ({ id: m.id, label: m.name, pos: m.pos, normal: m.normal, mirror: m.mirror })),
+    [marks],
+  );
+  const activeInfo = marks.find((m) => m.id === activeMark);
 
-  // Com a busca aberta no celular, a página de trás não rola.
+  // Com o índice aberto no celular, a página de trás não rola.
   useEffect(() => {
     if (!searching) return;
     const previous = document.body.style.overflow;
@@ -224,18 +326,26 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
     };
   }, [searching]);
 
-  const flyTo = (keys: readonly string[]) =>
-    setFocusReq((f) => ({ keys, padding: 2.6, nonce: (Number(f?.nonce) || 0) + 1 }));
+  const flyTo = (keys: readonly string[], padding = 2.6) =>
+    setFocusReq((f) => ({ keys, padding, nonce: (Number(f?.nonce) || 0) + 1 }));
 
   const select = (structure: AnatomyStructure | undefined, fly = true) => {
     setSelectedId(structure?.id ?? null);
     setBonePick(null);
     setSheetOpen(false);
+    setActiveMark(null);
     if (!structure) return setEmphasis("none");
     if (!fly) return;
-    flyTo(structure.parts.map((p) => p.toLowerCase()));
-    // Osso escolhido pela lista está embaixo dos músculos: mostra em raio-X.
-    if (structure.layer === "skeleton") setEmphasis((e) => (e === "none" ? "xray" : e));
+    flyTo(keysOf([structure]));
+    // Osso escolhido pelo índice com os músculos à vista: mostra em raio-X.
+    if (structure.layer === "skeleton" && layers["superficial muscles"]) {
+      setEmphasis((e) => (e === "none" ? "xray" : e));
+    }
+  };
+
+  const showRegion = (regionId: string) => {
+    select(undefined);
+    flyTo(keysOf(data.structures.filter((s) => s.region === regionId)), 1.25);
   };
 
   const onPick = (pick: AnatomyPick | null) => {
@@ -244,6 +354,7 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
     if (found) return select(found, false);
     setSelectedId(null);
     setSheetOpen(false);
+    setActiveMark(null);
     setBonePick(pick);
   };
 
@@ -259,6 +370,8 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
     select(undefined);
   };
 
+  const toggleMark = (id: string) => setActiveMark((a) => (a === id ? null : id));
+
   /** As ações sobre o selecionado; no celular, só os ícones. */
   const actions = (compact: boolean) => (
     <div
@@ -273,10 +386,11 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
         type="button"
         onClick={() => flyTo(selectedKeys)}
         className={cn(
-          "inline-flex items-center gap-1.5 rounded-full font-medium",
+          "inline-flex shrink-0 items-center gap-1.5 rounded-full font-medium",
           compact ? "glass size-11 justify-center" : "hover:glass min-h-8 px-3",
         )}
         aria-label="Focar"
+        title="Focar"
       >
         <Crosshair className="size-4" aria-hidden="true" />
         {compact ? null : "Focar"}
@@ -290,7 +404,7 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
           title={text}
           onClick={() => setEmphasis((e) => (e === id ? "none" : id))}
           className={cn(
-            "inline-flex items-center gap-1.5 rounded-full font-medium",
+            "inline-flex shrink-0 items-center gap-1.5 rounded-full font-medium",
             compact ? "size-11 justify-center" : "min-h-8 px-3",
             emphasis === id ? "bg-primary text-on-primary" : compact ? "glass" : "hover:glass",
           )}
@@ -303,7 +417,7 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
         type="button"
         onClick={hideSelection}
         className={cn(
-          "inline-flex items-center gap-1.5 rounded-full font-medium",
+          "inline-flex shrink-0 items-center gap-1.5 rounded-full font-medium",
           compact ? "glass size-11 justify-center" : "hover:glass min-h-8 px-3",
         )}
         aria-label="Ocultar"
@@ -316,28 +430,48 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
   );
 
   const card = selected ? (
-    <StructureCardView structure={selected} region={regionById.get(selected.region)} refs={data.refs} />
+    <StructureCardView
+      structure={selected}
+      region={regionById.get(selected.region)}
+      refs={data.refs}
+      landmarks={marks}
+      activeLandmark={activeMark}
+      onLandmark={toggleMark}
+    />
   ) : bonePick ? (
     <div className="space-y-2">
-      <p className="text-ink-faint text-micro font-semibold tracking-[0.14em] uppercase">
-        {bonePick.layer === "skeleton" ? "Esqueleto" : "Estrutura"}
-      </p>
+      <p className="text-ink-faint text-micro font-semibold tracking-[0.14em] uppercase">Peça do modelo</p>
       <h2 className="text-2xl font-semibold">{modelName(bonePick.name)}</h2>
-      <p className="text-ink-muted text-sm leading-relaxed">
-        As fichas dos ossos — acidentes, articulações, o que passa por cada forame — são a
-        próxima etapa da anatomia 3D. Por enquanto, o nome do modelo.
-      </p>
     </div>
   ) : null;
 
+  const tree = (mobile: boolean) => (
+    <StructureTree
+      data={data}
+      landmarks={landmarks}
+      selectedId={selectedId}
+      initialTab={system0}
+      initialRegion={region0 ?? selected?.region ?? null}
+      autoFocus={mobile}
+      onSelect={(s) => {
+        if (mobile) setSearching(false);
+        select(s);
+      }}
+      onRegion={(id) => {
+        if (mobile) setSearching(false);
+        showRegion(id);
+      }}
+    />
+  );
+
   return (
-    <div className="flex flex-col gap-4 lg:grid lg:h-[calc(100dvh-9rem)] lg:grid-cols-[17rem_minmax(0,1fr)_24rem]">
-      {/* ------------------------------------------------ lista (computador) */}
+    <div className="flex flex-col gap-4 lg:grid lg:h-[calc(100dvh-9rem)] lg:grid-cols-[18rem_minmax(0,1fr)_24rem]">
+      {/* ------------------------------------------------ índice (computador) */}
       <aside className="glass rounded-panel hidden min-h-0 flex-col p-3 lg:flex">
-        <StructureList data={data} selectedId={selectedId} onSelect={(s) => select(s)} />
+        {tree(false)}
         <div className="mt-3 grid grid-cols-2 gap-2">
           <Link
-            href="/anatomia"
+            href="/anatomia/licoes"
             className="bg-primary text-on-primary inline-flex min-h-10 items-center justify-center gap-1.5 rounded-full text-sm font-semibold"
           >
             <GraduationCap className="size-4" aria-hidden="true" />
@@ -366,7 +500,10 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
           emphasis={emphasis}
           view={view}
           focus={focusReq}
-          pin={label ? { keys: selectedKeys, text: label } : null}
+          pin={label && !marks.length ? { keys: selectedKeys, text: label } : null}
+          markers={markers}
+          activeMarker={activeMark}
+          onMarker={toggleMark}
           onPick={onPick}
           onHover={onHover}
         />
@@ -380,14 +517,13 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
         ) : null}
 
         <div className="absolute inset-x-2 top-2 flex items-start gap-2">
-          {/* Busca no celular: um botão que abre a lista por cima. */}
           <button
             type="button"
             onClick={() => setSearching(true)}
             className="glass-strong inline-flex min-h-10 shrink-0 items-center gap-2 rounded-full px-3.5 text-sm font-semibold lg:hidden"
           >
             <Search className="size-4" aria-hidden="true" />
-            Buscar
+            Índice
           </button>
           <div className="min-w-0 flex-1">
             <ViewerControls
@@ -409,9 +545,7 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
                 Arraste para girar · roda para aproximar · passe o mouse para ver o nome · clique
                 para abrir a ficha
               </span>
-              <span className="lg:hidden">
-                Arraste para girar · pinça para aproximar · toque num músculo
-              </span>
+              <span className="lg:hidden">Arraste para girar · pinça para aproximar · toque numa estrutura</span>
             </p>
           )}
           {hidden.length ? (
@@ -428,10 +562,7 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
       </section>
 
       {/* ------------------------------------------------ ficha (computador) */}
-      <aside
-        className="glass rounded-panel hidden min-h-0 overflow-y-auto p-5 lg:block"
-        aria-live="polite"
-      >
+      <aside className="glass rounded-panel hidden min-h-0 overflow-y-auto p-5 lg:block" aria-live="polite">
         {card ? (
           <>
             <button
@@ -446,17 +577,16 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
           </>
         ) : (
           <div className="text-ink-muted space-y-3 text-sm leading-relaxed">
-            <h2 className="text-ink text-lg font-semibold">Toque num músculo ou osso</h2>
+            <h2 className="text-ink text-lg font-semibold">Escolha uma estrutura</h2>
             <p>
-              Passe o mouse para ver o nome; clique para abrir origem, inserção, ação, inervação e
-              o ponto de prova — ou procure pelo nome na lista, e a câmera vai até ele.
+              No índice, escolha o sistema e a região; ou toque direto no corpo. O botão{" "}
+              <Box className="inline size-3.5" aria-label="3D" /> ao lado de cada região leva a câmera
+              até ela.
             </p>
             <p>
-              Com uma estrutura escolhida, dá para esmaecer o resto, ver em raio-X, isolá-la ou
-              ocultar o que está na frente. São{" "}
+              Nos ossos, os acidentes aparecem como pontos numerados no modelo. São{" "}
               {data.structures.filter((s) => s.kind === "muscle").length} músculos e{" "}
-              {data.structures.filter((s) => s.kind === "bone").length} ossos com ficha, em{" "}
-              {data.regions.length} regiões. Para ver os ossos, desligue as camadas de músculos.
+              {data.structures.filter((s) => s.kind === "bone").length} ossos com ficha.
             </p>
           </div>
         )}
@@ -465,7 +595,7 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
       {/* ------------------------------------------------ celular: atalhos */}
       <div className="grid grid-cols-2 gap-2 lg:hidden">
         <Link
-          href="/anatomia"
+          href="/anatomia/licoes"
           className="bg-primary text-on-primary inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full text-sm font-semibold"
         >
           <GraduationCap className="size-4" aria-hidden="true" />
@@ -515,7 +645,7 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
               <button
                 type="button"
                 onClick={() => select(undefined)}
-                className="text-ink-faint -mr-1 grid size-10 place-items-center"
+                className="text-ink-faint -mr-1 grid size-10 shrink-0 place-items-center"
                 aria-label="Fechar"
               >
                 <X className="size-5" />
@@ -526,35 +656,55 @@ export function AnatomyAtlas({ data, initialId }: { data: AnatomyData; initialId
                 {card}
               </div>
             ) : (
-              <div className="px-3 pb-3">{actions(true)}</div>
+              <div className="space-y-2 px-3 pb-3">
+                {/* Acidentes do osso: uma fileira que rola de lado; o escolhido diz o que é. */}
+                {marks.length ? (
+                  <>
+                    <ul className="-mx-1 flex gap-1.5 overflow-x-auto px-1 pb-0.5">
+                      {marks.map((m, i) => (
+                        <li key={m.id} className="shrink-0">
+                          <button
+                            type="button"
+                            onClick={() => toggleMark(m.id)}
+                            aria-pressed={activeMark === m.id}
+                            className={cn(
+                              "inline-flex min-h-9 items-center gap-1.5 rounded-full px-3 text-xs font-medium whitespace-nowrap",
+                              activeMark === m.id ? "bg-[#ff4d3a] text-white" : "glass",
+                            )}
+                          >
+                            <span className="font-mono font-bold">{i + 1}</span>
+                            {m.name}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                    {activeInfo ? (
+                      <p className="text-ink-muted px-1 text-xs leading-snug">{activeInfo.info}</p>
+                    ) : null}
+                  </>
+                ) : null}
+                {actions(true)}
+              </div>
             )}
           </div>
         </div>
       ) : null}
 
-      {/* ------------------------------------------------ celular: busca */}
+      {/* ------------------------------------------------ celular: índice */}
       {searching ? (
         <div className="bg-canvas fixed inset-0 z-50 flex flex-col p-3 pt-[max(0.75rem,env(safe-area-inset-top))] lg:hidden">
           <div className="mb-3 flex items-center justify-between">
-            <p className="text-lg font-semibold">Buscar estrutura</p>
+            <p className="text-lg font-semibold">Índice do atlas</p>
             <button
               type="button"
               onClick={() => setSearching(false)}
               className="glass-strong grid size-10 place-items-center rounded-full"
-              aria-label="Fechar busca"
+              aria-label="Fechar o índice"
             >
               <X className="size-5" />
             </button>
           </div>
-          <StructureList
-            data={data}
-            selectedId={selectedId}
-            autoFocus
-            onSelect={(s) => {
-              setSearching(false);
-              select(s);
-            }}
-          />
+          {tree(true)}
         </div>
       ) : null}
     </div>

@@ -200,7 +200,7 @@ export default async function HomePage() {
       icon: PersonStanding,
       title: "Anatomia 3D",
       text: "Músculos e ossos acendem no corpo em 3D e você escreve o nome; o app corrige letra por letra e traz de volta na hora certa.",
-      stat: "141 músculos · 52 ossos · 37 lições",
+      stat: "141 músculos · 52 ossos · 68 acidentes",
     },
     {
       href: "/estudar",

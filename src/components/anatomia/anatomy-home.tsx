@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { useMemo } from "react";
-import { ArrowRight, Check, Flame, GraduationCap, PersonStanding, RotateCcw, Target, Trophy } from "lucide-react";
+import { ArrowRight, Check, Flame, Trophy } from "lucide-react";
 import {
   cardStatus,
-  dueIds,
   lessonMastered,
   STATUS_LABELS,
   type CardStatus,
@@ -16,8 +15,9 @@ import { useAnatomyProgress } from "@/lib/anatomy-progress";
 import { cn } from "@/lib/utils";
 
 /**
- * O painel da anatomia 3D: o que revisar hoje, a próxima lição e as
- * regiões do corpo com suas lições, na ordem em que se estuda.
+ * O quadro das lições: um resumo do progresso e as regiões do corpo, cada
+ * uma com suas lições de músculos e de ossos, na ordem em que se estuda.
+ * A próxima lição a fazer já vem aberta.
  */
 
 export interface HomeMuscle {
@@ -44,8 +44,6 @@ export function AnatomyHome({
 }) {
   const progress = useAnatomyProgress();
   const byId = useMemo(() => new Map(muscles.map((m) => [m.id, m])), [muscles]);
-  const now = Date.now();
-  const due = dueIds(progress.cards, now).filter((id) => byId.has(id));
   const started = muscles.some((m) => progress.cards[m.id]) || Object.keys(progress.lessons).length > 0;
 
   const counts = { mastered: 0, studied: 0, seen: 0, correct: 0 };
@@ -60,91 +58,9 @@ export function AnatomyHome({
 
   // A próxima: a primeira lição ainda não dominada, na ordem do corpo.
   const next = lessons.find((l) => !lessonMastered(progress.lessons[l.id]?.best)) ?? lessons[0];
-  const names = (ids: readonly string[]) =>
-    ids.map((id) => byId.get(id)?.namePt ?? id).join(", ");
 
   return (
     <div className="space-y-8">
-      {/* ------------------------------------------------------ hoje */}
-      <section aria-labelledby="hoje" className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-        <div className="lg:col-span-2">
-          <p className="text-ink-faint text-micro font-semibold tracking-[0.14em] uppercase">Hoje</p>
-          <h2 id="hoje" className="mt-1 text-2xl font-semibold">
-            {due.length
-              ? `${due.length} ${due.length === 1 ? "nome" : "nomes"} para revisar`
-              : started
-                ? "Revisões em dia"
-                : "Memorize músculos e ossos vendo, digitando e revisando"}
-          </h2>
-          <p className="text-ink-muted mt-1 text-sm leading-relaxed">
-            {due.length
-              ? "Revisar agora empurra a próxima revisão para mais longe."
-              : started
-                ? "Aproveite para aprender músculos novos."
-                : "O músculo acende no corpo em 3D e você escreve o nome — primeiro vendo, depois com a primeira letra, por fim de memória. O que você acerta volta em 1, 3, 7, 14 e 30 dias."}
-          </p>
-        </div>
-
-        {due.length ? (
-          <Link
-            href="/anatomia/revisar"
-            className="flex min-h-[76px] items-center gap-3 rounded-2xl bg-[#e5432f] p-4 text-white transition-colors hover:bg-[#f0543f]"
-          >
-            <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-white/15">
-              <RotateCcw className="size-5" aria-hidden="true" />
-            </span>
-            <span className="min-w-0 flex-1">
-              <span className="block text-[17px] font-semibold">Revisar agora</span>
-              <span className="block truncate text-[13.5px] text-white/80">
-                {names(due.slice(0, 3))}
-                {due.length > 3 ? ` e mais ${due.length - 3}` : ""}
-              </span>
-            </span>
-            <ArrowRight className="size-5 shrink-0" aria-hidden="true" />
-          </Link>
-        ) : null}
-
-        {next ? (
-          <Link
-            href={`/anatomia/licao/${next.id}`}
-            className={cn(
-              "glass flex min-h-[76px] items-center gap-3 rounded-2xl p-4 transition-colors",
-              !due.length && "lg:col-span-1",
-            )}
-          >
-            <span className="bg-primary-soft text-primary grid size-11 shrink-0 place-items-center rounded-xl">
-              <GraduationCap className="size-5" aria-hidden="true" />
-            </span>
-            <span className="min-w-0 flex-1">
-              <span className="block text-[16px] font-semibold">
-                {progress.lessons[next.id] ? "Repetir lição" : started ? "Próxima lição" : "Começar a primeira lição"}
-              </span>
-              <span className="text-ink-muted block truncate text-[13.5px]">
-                {next.title} · {names(next.muscleIds)}
-              </span>
-            </span>
-            <ArrowRight className="text-ink-faint size-5 shrink-0" aria-hidden="true" />
-          </Link>
-        ) : null}
-
-        <div className={cn("grid grid-cols-2 gap-3", due.length && "lg:col-span-2")}>
-          <Link href="/anatomia/atlas" className="glass flex min-h-[76px] flex-col justify-between rounded-2xl p-3.5">
-            <PersonStanding className="text-primary size-5" aria-hidden="true" />
-            <span>
-              <span className="block text-[15px] font-semibold">Atlas 3D</span>
-              <span className="text-ink-muted block text-[13px]">Girar o corpo e ler as fichas</span>
-            </span>
-          </Link>
-          <Link href="/anatomia/quiz" className="glass flex min-h-[76px] flex-col justify-between rounded-2xl p-3.5">
-            <Target className="text-primary size-5" aria-hidden="true" />
-            <span>
-              <span className="block text-[15px] font-semibold">Desafiar</span>
-              <span className="text-ink-muted block text-[13px]">Identificar, localizar, pela função</span>
-            </span>
-          </Link>
-        </div>
-      </section>
-
       {started ? (
         <section aria-label="Resumo" className="grid grid-cols-3 gap-2">
           {[
@@ -184,7 +100,7 @@ export function AnatomyHome({
             const done = regionLessons.filter((l) => lessonMastered(progress.lessons[l.id]?.best)).length;
             const isNext = next?.region === region.id;
             return (
-              <details key={region.id} open={isNext} className="glass group rounded-2xl">
+              <details key={region.id} id={region.id} open={isNext} className="glass group scroll-mt-24 rounded-2xl">
                 <summary className="flex cursor-pointer list-none items-center gap-3 p-4">
                   <span className="min-w-0 flex-1">
                     <span className="flex items-baseline justify-between gap-2">

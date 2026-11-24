@@ -39,7 +39,7 @@ export default async function LicaoPage({ params }: { params: Promise<{ id: stri
         lesson={{ id: lesson.id, title: lesson.title }}
         muscles={muscles}
         nextLesson={next ? { href: `/anatomia/licao/${next.id}`, title: next.title } : null}
-        exitHref="/anatomia"
+        exitHref="/anatomia/licoes"
       />
     </>
   );

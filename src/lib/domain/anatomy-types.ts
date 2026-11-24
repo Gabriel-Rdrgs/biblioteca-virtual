@@ -79,6 +79,26 @@ export interface AnatomyStructure {
   readonly bone?: BoneCard;
 }
 
+/**
+ * Um acidente ósseo marcado no modelo: o ponto foi calculado sobre a malha
+ * do osso (scripts/anatomia/acidentes.py) e conferido em vistas anterior e
+ * lateral. A posição é a do lado esquerdo do corpo; `mirror` diz que o osso é
+ * par e o ponto vale espelhado para o direito.
+ */
+export interface Landmark {
+  readonly id: string;
+  readonly name: string;
+  readonly info: string;
+  /** A peça do modelo onde o ponto está (chave em inglês, sem lado). */
+  readonly part: string;
+  readonly pos: readonly number[];
+  readonly normal: readonly number[];
+  readonly mirror: boolean;
+}
+
+/** Acidentes por estrutura (id do osso). */
+export type LandmarkIndex = Readonly<Record<string, readonly Landmark[]>>;
+
 export interface AnatomyData {
   readonly regions: readonly AnatomyRegion[];
   readonly refs: Readonly<Record<string, string>>;

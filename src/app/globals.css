@@ -217,6 +217,17 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /*
+   * Item de grade pode encolher abaixo da largura do próprio texto. Sem isso,
+   * um nome longo com "truncate" empurra a coluna para fora da tela no
+   * celular, em vez de ganhar reticências. Especificidade zero (:where):
+   * qualquer utilitário, como min-w-24, continua valendo. (Flex fica de fora:
+   * ali, ícones sem shrink-0 seriam esmagados.)
+   */
+  :where(.grid) > * {
+    min-width: 0;
+  }
+
   body {
     background-color: var(--canvas);
     color: var(--ink);

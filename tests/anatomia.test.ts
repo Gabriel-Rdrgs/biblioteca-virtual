@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { anatomyData } from "@/lib/data/anatomia";
+import { anatomyData, anatomyLandmarks, regionIndex } from "@/lib/data/anatomia";
 import { fold, meshKey, structureNames } from "@/lib/domain/anatomy-types";
 import {
   giveUp,
@@ -98,6 +98,43 @@ describe("os ossos", () => {
     const parts = skeleton.flatMap((s) => s.parts);
     expect(new Set(parts).size).toBe(parts.length);
     expect(parts).toHaveLength(165);
+  });
+});
+
+describe("os acidentes ósseos no modelo", () => {
+  const all = Object.entries(anatomyLandmarks).flatMap(([id, list]) => list.map((m) => ({ id, m })));
+
+  it("estão em ossos que existem, numa peça do próprio osso", () => {
+    expect(all.length).toBeGreaterThanOrEqual(60);
+    for (const { id, m } of all) {
+      const bone = anatomyData.structures.find((s) => s.id === id);
+      expect(bone?.kind, id).toBe("bone");
+      expect(bone?.parts, `${id}/${m.id}`).toContain(m.part);
+    }
+  });
+
+  it("têm id único e posição dentro do corpo", () => {
+    const ids = all.map(({ m }) => m.id);
+    expect(new Set(ids).size).toBe(ids.length);
+    for (const { m } of all) {
+      expect(m.pos).toHaveLength(3);
+      const [x = 0, y = 0, z = 0] = m.pos;
+      // O corpo do modelo vai de 0 a 1,72 m de altura e ±0,33 m de largura.
+      expect(Math.abs(x), m.id).toBeLessThan(0.35);
+      expect(y, m.id).toBeGreaterThan(0);
+      expect(y, m.id).toBeLessThan(1.75);
+      expect(Math.abs(z), m.id).toBeLessThan(0.3);
+      // Osso par: o ponto guardado é o do lado esquerdo (+X).
+      if (m.mirror) expect(x, m.id).toBeGreaterThan(0);
+    }
+  });
+});
+
+describe("o índice por região", () => {
+  it("põe cada estrutura em exatamente um grupo de uma região", () => {
+    const listed = regionIndex().flatMap((r) => [...r.bones, ...r.superficial, ...r.deep, ...r.others]);
+    expect(listed).toHaveLength(anatomyData.structures.length);
+    expect(new Set(listed.map((s) => s.id)).size).toBe(listed.length);
   });
 });
 

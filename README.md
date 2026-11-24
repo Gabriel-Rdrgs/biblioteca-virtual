@@ -145,36 +145,36 @@ Quatro origens:
   O admin oculta ou exclui em `/admin`. Só texto: imagem de aluno exigiria
   upload aberto a qualquer um com a senha da turma.
 
-### Anatomia 3D (`/anatomia`)
+### Atlas de anatomia (`/anatomia`)
 
-O simulador do MioLab dentro do Atlas: o músculo acende em vermelho no corpo
-em raio-X (osso e músculos superficiais viram vulto, os profundos somem), a
-câmera vai até ele e duas vistas pequenas giram em volta. A pessoa **escreve o
-nome** e cada tecla é corrigida na hora — som, cor, tremida no erro; acento e
-maiúscula não contam, o espaço pode ser omitido.
+Organizado como um atlas: primeiro achar, depois estudar.
 
-- **Lições** (`/anatomia/licao/<região>-L<n>` e `<região>-ossos-L<n>`): 37
-  lições de até 7 estruturas — 25 de músculos e 12 de ossos —, do mais fácil
-  ao mais difícil, superficiais antes dos profundos. Três
-  rodadas pelos mesmos músculos: com o nome à vista, só com a primeira letra
-  e de memória olhando o outro lado (com **Pista** e **Não sei**). Três erros
-  na mesma letra a revelam; na rodada de memória, letra revelada é erro.
-  Velocidade (ppm), teclas certas e sequência ficam no topo.
-- **Revisão espaçada** (`/anatomia/revisar`): cada nome escrito de memória
-  volta em 1, 3, 7, 14 e 30 dias; o que se erra volta no mesmo dia. O painel
-  `/anatomia` mostra o que venceu hoje, a próxima lição e as regiões.
-- **Atlas** (`/anatomia/atlas`): girar o corpo, ligar e desligar camadas;
-  passar o mouse acende e nomeia a estrutura; escolher uma prende nela uma
-  etiqueta, leva a câmera até ela e permite esmaecer o resto, ver em raio-X,
-  isolar ou ocultar o que atrapalha. Tocar num músculo ou osso — ou procurá-lo pelo
-  nome em português, inglês ou latim — abre a ficha: origem, inserção, ação, inervação, relações, ponto de
-  prova e mnemônico, com as fontes (Moore, Gray, Netter, Sobotta, TA2).
+- **Início** (`/anatomia`): busca (português, inglês ou latim), os dois
+  sistemas (esquelético e muscular), as oito regiões do corpo e, embaixo,
+  Lições, Revisar e Desafiar.
+- **Região** (`/anatomia/regiao/<id>`): o sumário da região — ossos (com
+  quantos acidentes estão marcados), músculos superficiais, profundos e outras
+  estruturas —, com "Ver em 3D" e as lições da região.
+- **Atlas 3D** (`/anatomia/atlas`): índice em árvore (Ossos/Músculos → região
+  → estrutura, uma região aberta por vez) e o corpo em 3D. Entradas:
+  `?estrutura=femur`, `?sistema=ossos` (músculos desligados), `?regiao=coxa`
+  (câmera na região). Passar o mouse acende e nomeia; escolher prende uma
+  etiqueta e leva a câmera até a estrutura; dá para esmaecer o resto, ver em
+  raio-X, isolar ou ocultar. **Nos ossos, os acidentes aparecem como pontos
+  numerados no modelo**, ligados à lista da ficha. No celular, o índice abre
+  por cima e a ficha sobe numa gaveta com os acidentes numa fileira.
+- **Lições** (`/anatomia/licoes`, `/anatomia/licao/<id>`): a estrutura acende
+  em raio-X e a pessoa escreve o nome, corrigido letra por letra (acento e
+  maiúscula não contam). Três rodadas — com o nome à vista, só com a primeira
+  letra, de memória olhando o outro lado. 37 lições (25 de músculos, 12 de
+  ossos).
+- **Revisar** (`/anatomia/revisar`): o que acertou de memória volta em 1, 3,
+  7, 14 e 30 dias; o que errou volta no mesmo dia.
 - **Desafiar** (`/anatomia/quiz`): identificar, localizar tocando e
-  reconhecer pela função, por região.
+  reconhecer pela função.
 
-Tudo entra no diário de estudo como "Anatomia 3D" e na revisão espaçada,
-guardada no aparelho (`atlas:anatomia:v1`). O motor de digitação e as lições
-são puros (`src/lib/domain/anatomy-typing.ts`, `anatomy-lessons.ts`) e testados.
+Tudo entra no diário de estudo como "Anatomia 3D"; o progresso fica no
+aparelho (`atlas:anatomia:v1`).
 
 - Modelo: `public/anatomia/ecorche.meshopt.glb` (6 MB, compressão meshopt).
   "Ecorche" de Charleeh, **CC BY-SA 4.0**, a partir do BodyParts3D (CC BY 4.0)
@@ -190,6 +190,13 @@ são puros (`src/lib/domain/anatomy-typing.ts`, `anatomy-lessons.ts`) e testados
   discos, cartilagens, dentes, orelha e olho com resumo. Cobrem as 165 peças do
   esqueleto do modelo. Gerado por um script a partir de uma lista revisável;
   para corrigir uma ficha, edite o JSON.
+- Acidentes: `src/lib/data/anatomia/acidentes.json` — 68 pontos em 20 ossos,
+  calculados sobre a malha de cada osso por `scripts/anatomia/acidentes.py`
+  (regra por acidente: na faixa de altura do osso, o vértice mais extremo numa
+  direção) e conferidos em folhas de vista anterior e lateral. O script lê o
+  GLB com um decodificador do meshopt em Python puro (`glbgeom.py`, só numpy).
+  O ponto guardado é o do lado esquerdo; o modelo é simétrico (mediana de
+  0,9 mm entre o ponto espelhado e o osso direito), então o atlas espelha.
 - Próximas etapas: nervos, tendões e ligamentos, que pedem um modelo com
   essas estruturas (Z-Anatomy).
 

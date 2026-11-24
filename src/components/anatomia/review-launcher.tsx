@@ -40,7 +40,7 @@ export function ReviewLauncher({ muscles }: { muscles: readonly TrainerMuscle[] 
           volta aqui amanhã.
         </p>
         <Link
-          href="/anatomia"
+          href="/anatomia/licoes"
           className="bg-primary text-on-primary mt-5 inline-flex min-h-10 items-center rounded-full px-5 text-sm font-semibold"
         >
           Ver as lições
@@ -49,5 +49,5 @@ export function ReviewLauncher({ muscles }: { muscles: readonly TrainerMuscle[] 
     );
   }
 
-  return <NameTrainer mode="revisao" title="Revisar hoje" muscles={queue} exitHref="/anatomia" />;
+  return <NameTrainer mode="revisao" title="Revisar hoje" muscles={queue} exitHref="/anatomia/licoes" />;
 }

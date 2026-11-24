@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import type { AnatomyRegion, AnatomyStructure } from "@/lib/domain/anatomy-types";
+import type { AnatomyRegion, AnatomyStructure, Landmark } from "@/lib/domain/anatomy-types";
+import { cn } from "@/lib/utils";
 
 /**
  * A ficha de uma estrutura: o que se pergunta em prova primeiro, depois o
@@ -45,10 +46,17 @@ export function StructureCardView({
   structure,
   region,
   refs,
+  landmarks = [],
+  activeLandmark = null,
+  onLandmark,
 }: {
   structure: AnatomyStructure;
   region?: AnatomyRegion;
   refs: Readonly<Record<string, string>>;
+  /** Acidentes marcados no modelo, na mesma ordem dos números. */
+  landmarks?: readonly Landmark[];
+  activeLandmark?: string | null;
+  onLandmark?: (id: string) => void;
 }) {
   const f = structure.ficha;
   const b = structure.bone;
@@ -134,9 +142,50 @@ export function StructureCardView({
             <Row label="Articula-se com">{b.articulations}</Row>
           </dl>
 
+          {landmarks.length ? (
+            <div>
+              <p className="text-ink-faint text-micro font-semibold tracking-[0.12em] uppercase">
+                No modelo — toque para achar
+              </p>
+              <ol className="mt-1.5 space-y-1">
+                {landmarks.map((m, i) => {
+                  const on = m.id === activeLandmark;
+                  return (
+                    <li key={m.id}>
+                      <button
+                        type="button"
+                        onClick={() => onLandmark?.(m.id)}
+                        aria-pressed={on}
+                        className={cn(
+                          "flex w-full items-start gap-2.5 rounded-xl px-2.5 py-2 text-left text-sm transition-colors",
+                          on ? "bg-[#ff4d3a]/10" : "hover:bg-surface-sunken",
+                        )}
+                      >
+                        <span
+                          className={cn(
+                            "grid size-6 shrink-0 place-items-center rounded-full border-2 border-[#ff4d3a] font-mono text-[11px] font-bold",
+                            on ? "bg-[#ff4d3a] text-white" : "text-[#c62f20]",
+                          )}
+                        >
+                          {i + 1}
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block font-medium">{m.name}</span>
+                          {on ? (
+                            <span className="text-ink-muted mt-0.5 block text-xs leading-snug">{m.info}</span>
+                          ) : null}
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+          ) : null}
+
           <div>
             <p className="text-ink-faint text-micro font-semibold tracking-[0.12em] uppercase">
-              Acidentes
+              {landmarks.length ? "Todos os acidentes" : "Acidentes"}
             </p>
             <ul className="mt-1.5 flex flex-wrap gap-1.5">
               {b.landmarks.map((l) => (

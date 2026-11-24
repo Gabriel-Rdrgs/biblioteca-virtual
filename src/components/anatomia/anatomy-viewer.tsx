@@ -62,6 +62,18 @@ export interface FocusRequest {
   readonly nonce: number | string;
 }
 
+/** Um acidente ósseo: ponto numerado preso ao osso. */
+export interface Marker {
+  readonly id: string;
+  readonly label: string;
+  /** Posição no lado esquerdo do corpo (+X), ou na linha média. */
+  readonly pos: readonly number[];
+  /** Para onde a superfície olha ali: de costas para a câmera, o ponto esmaece. */
+  readonly normal: readonly number[];
+  /** Osso par: o ponto vai para o lado do corpo que está virado para a câmera. */
+  readonly mirror: boolean;
+}
+
 export interface AnatomyViewerProps {
   /** Chaves (inglês, sem lado) a destacar como selecionadas. */
   readonly selectedKeys?: readonly string[];
@@ -82,6 +94,10 @@ export interface AnatomyViewerProps {
   readonly focus?: FocusRequest | null;
   /** Etiqueta presa na estrutura, que acompanha o giro. */
   readonly pin?: { readonly keys: readonly string[]; readonly text: string } | null;
+  /** Acidentes do osso selecionado, numerados na ordem da lista. */
+  readonly markers?: readonly Marker[];
+  readonly activeMarker?: string | null;
+  readonly onMarker?: (id: string) => void;
   /** As duas vistas pequenas que giram em volta do foco. */
   readonly insets?: boolean;
   /** A câmera balança de leve em volta do foco até a pessoa girar. */
@@ -135,6 +151,7 @@ interface Controller {
   setSway: (on: boolean) => void;
   setBottomInset: (px: number) => void;
   setPin: (pin: { keys: readonly string[]; text: string } | null) => void;
+  setMarkers: (markers: readonly Marker[], active: string | null) => void;
   invalidate: () => void;
 }
 
@@ -165,6 +182,9 @@ export function AnatomyViewer({
   view,
   focus,
   pin = null,
+  markers,
+  activeMarker = null,
+  onMarker,
   insets = false,
   sway = false,
   bottomInset = 0,
@@ -186,6 +206,8 @@ export function AnatomyViewer({
   const pickRef = useRef(onPick);
   pickRef.current = onPick;
   const hoverRef = useRef<AnatomyViewerProps["onHover"]>(undefined);
+  const markerRef = useRef(onMarker);
+  markerRef.current = onMarker;
   const readyRef = useRef(onReady);
   readyRef.current = onReady;
   const stateRef = useRef({ interactive, pickable: [] as Mesh[], priority: [] as Mesh[] });
@@ -245,6 +267,43 @@ export function AnatomyViewer({
         '<span data-pin-text style="position:absolute;left:-2px;bottom:42px;transform:translateX(-50%);white-space:nowrap;padding:5px 11px;border-radius:9999px;background:rgba(10,13,20,.86);color:#fff;font:600 13px/1.2 system-ui,sans-serif;box-shadow:0 4px 18px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.14)"></span>';
       el.appendChild(pinEl);
       const pinText = pinEl.querySelector<HTMLElement>("[data-pin-text]");
+
+      // Acidentes: um botão numerado por ponto; o ativo mostra o nome ao lado.
+      const markerLayer = document.createElement("div");
+      markerLayer.style.cssText = "position:absolute;inset:0;pointer-events:none;overflow:hidden;";
+      el.appendChild(markerLayer);
+      let markerList: readonly Marker[] = [];
+      let markerActive: string | null = null;
+      let markerEls: HTMLButtonElement[] = [];
+      const buildMarkers = () => {
+        markerLayer.replaceChildren();
+        markerEls = markerList.map((m, i) => {
+          const b = document.createElement("button");
+          b.type = "button";
+          b.setAttribute("aria-label", `${i + 1}. ${m.label}`);
+          const on = m.id === markerActive;
+          b.style.cssText =
+            "position:absolute;left:0;top:0;pointer-events:auto;display:none;align-items:center;gap:6px;" +
+            "padding:0;border:0;background:none;cursor:pointer;transform-origin:11px 11px;will-change:transform;";
+          b.innerHTML =
+            `<span style="display:grid;place-items:center;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:9999px;` +
+            `font:700 11px/1 system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.45);` +
+            (on
+              ? "background:#ff4d3a;color:#fff;border:2px solid #fff;"
+              : "background:#fff;color:#c62f20;border:2px solid #ff4d3a;") +
+            `">${i + 1}</span>` +
+            (on
+              ? `<span style="margin-top:-11px;white-space:nowrap;padding:4px 9px;border-radius:9999px;background:rgba(10,13,20,.88);` +
+                `color:#fff;font:600 12px/1.2 system-ui,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.4)">${m.label.replace(/</g, "&lt;")}</span>`
+              : "");
+          b.addEventListener("click", (event) => {
+            event.stopPropagation();
+            markerRef.current?.(m.id);
+          });
+          markerLayer.appendChild(b);
+          return b;
+        });
+      };
 
       const scene: Scene = new THREE.Scene();
       const camera: PerspectiveCamera = new THREE.PerspectiveCamera(30, 1, 0.02, 40);
@@ -402,6 +461,33 @@ export function AnatomyViewer({
 
       /* ------------------------------------------------ desenhar */
       const anchor = new THREE.Vector3();
+      const mp = new THREE.Vector3();
+      const mn = new THREE.Vector3();
+      const toCam = new THREE.Vector3();
+      const placeMarkers = () => {
+        if (!markerEls.length) return;
+        // Osso par: mostra no lado do corpo que está virado para a câmera.
+        const left = camera.position.x - controls.target.x >= 0;
+        markerList.forEach((m, i) => {
+          const elm = markerEls[i];
+          if (!elm) return;
+          const sx = m.mirror && !left ? -1 : 1;
+          mp.set((m.pos[0] ?? 0) * sx, m.pos[1] ?? 0, m.pos[2] ?? 0);
+          mn.set((m.normal[0] ?? 0) * sx, m.normal[1] ?? 0, m.normal[2] ?? 0);
+          const facing = mn.dot(toCam.copy(camera.position).sub(mp)) >= 0;
+          const ndc = mp.clone().project(camera);
+          const inside = ndc.z < 1 && Math.abs(ndc.x) < 1.05 && Math.abs(ndc.y) < 1.05;
+          elm.style.display = inside ? "flex" : "none";
+          if (!inside) return;
+          const x = ((ndc.x + 1) / 2) * width();
+          const y = ((1 - ndc.y) / 2) * height();
+          elm.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
+          // Do outro lado do osso: continua clicável, mas apagado.
+          elm.style.opacity = facing || m.id === markerActive ? "1" : "0.4";
+          elm.style.zIndex = m.id === markerActive ? "2" : "1";
+        });
+      };
+
       const placePin = () => {
         if (!pinKeys || !pinText?.textContent) {
           pinEl.style.display = "none";
@@ -439,6 +525,7 @@ export function AnatomyViewer({
         lightFrom(camera);
         renderer.render(scene, camera);
         placePin();
+        placeMarkers();
         if (!showInsets || !roomForInsets()) return;
         const time = performance.now() / 1000;
         const target = controls.target;
@@ -545,6 +632,7 @@ export function AnatomyViewer({
         canvas.remove();
         frames.forEach((f) => f.remove());
         pinEl.remove();
+        markerLayer.remove();
         if (!cancelled) setStatus({ phase: "error", progress: 0 });
         return;
       }
@@ -783,6 +871,12 @@ export function AnatomyViewer({
           placeFrames();
           invalidate();
         },
+        setMarkers: (list, active) => {
+          markerList = list;
+          markerActive = active;
+          buildMarkers();
+          invalidate();
+        },
         setPin: (next) => {
           pinKeys = next && next.text ? new Set(next.keys) : null;
           if (pinText) pinText.textContent = next?.text ?? "";
@@ -820,6 +914,7 @@ export function AnatomyViewer({
         canvas.remove();
         frames.forEach((f) => f.remove());
         pinEl.remove();
+        markerLayer.remove();
       };
       setStatus({ phase: "ready", progress: 1 });
       readyRef.current?.({ meshes: entries.length, keys: [...new Set(entries.map((e) => e.key))] });
@@ -925,6 +1020,12 @@ export function AnatomyViewer({
     if (focus && ready) ctl.current?.focusOn(focus);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [focusSigReq, ready]);
+
+  const markerSig = markers ? markers.map((m) => m.id).join("|") : "";
+  useEffect(() => {
+    if (ready) ctl.current?.setMarkers(markers ?? [], activeMarker);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [markerSig, activeMarker, ready]);
 
   const pinSig = pin ? `${pin.text}:${pin.keys.join("|")}` : "";
   useEffect(() => {

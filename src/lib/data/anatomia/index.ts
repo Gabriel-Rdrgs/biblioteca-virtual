@@ -1,5 +1,6 @@
 import { buildLessons, isTrainable, trainingText, type Lesson } from "@/lib/domain/anatomy-lessons";
-import type { AnatomyData, AnatomyStructure } from "@/lib/domain/anatomy-types";
+import type { AnatomyData, AnatomyStructure, LandmarkIndex } from "@/lib/domain/anatomy-types";
+import acidentes from "./acidentes.json";
 import miolab from "./miolab.json";
 import ossos from "./ossos.json";
 
@@ -19,6 +20,13 @@ export const anatomyData: AnatomyData = {
     ...(ossos as unknown as { structures: AnatomyStructure[] }).structures,
   ],
 };
+
+/** Os acidentes ósseos marcados no modelo, por osso. */
+export const anatomyLandmarks = acidentes as unknown as LandmarkIndex;
+
+export function landmarkCount(): number {
+  return Object.values(anatomyLandmarks).reduce((n, list) => n + list.length, 0);
+}
 
 const byId = new Map(anatomyData.structures.map((s) => [s.id, s]));
 const regionNames = new Map(anatomyData.regions.map((r) => [r.id, r.name]));
@@ -74,3 +82,39 @@ export function allTrainableMuscles(): TrainableMuscle[] {
 }
 
 export { MODEL_URL } from "./model-url";
+
+/* ------------------------------------------------ o índice do atlas */
+
+export interface RegionIndex {
+  readonly id: string;
+  readonly name: string;
+  readonly short: string;
+  readonly bones: readonly AnatomyStructure[];
+  readonly superficial: readonly AnatomyStructure[];
+  readonly deep: readonly AnatomyStructure[];
+  /** Fáscias, tendões, discos, dentes… */
+  readonly others: readonly AnatomyStructure[];
+  readonly landmarks: number;
+}
+
+/** Cada região do corpo com o que há nela, na ordem em que se estuda. */
+export function regionIndex(): RegionIndex[] {
+  return anatomyData.regions.map((r) => {
+    const here = anatomyData.structures.filter((s) => s.region === r.id);
+    const bones = here.filter((s) => s.kind === "bone");
+    return {
+      id: r.id,
+      name: r.name,
+      short: r.short,
+      bones,
+      superficial: here.filter((s) => s.kind === "muscle" && s.layer === "superficial"),
+      deep: here.filter((s) => s.kind === "muscle" && s.layer === "deep"),
+      others: here.filter((s) => s.kind !== "muscle" && s.kind !== "bone"),
+      landmarks: bones.reduce((n, b) => n + (anatomyLandmarks[b.id]?.length ?? 0), 0),
+    };
+  });
+}
+
+export function getRegion(id: string): RegionIndex | undefined {
+  return regionIndex().find((r) => r.id === id);
+}
