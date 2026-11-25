@@ -261,12 +261,15 @@ export function AnatomyAtlas({
   initialId,
   initialSystem,
   initialRegion,
+  initialLandmark,
 }: {
   data: AnatomyData;
   landmarks: LandmarkIndex;
   initialId?: string;
   initialSystem?: AtlasSystem;
   initialRegion?: string;
+  /** Um acidente do osso de `initialId`, já aceso. */
+  initialLandmark?: string;
 }) {
   const initialStructure = initialId ? data.structures.find((s) => s.id === initialId) : undefined;
   const region0 =
@@ -299,7 +302,11 @@ export function AnatomyAtlas({
   const [hover, setHover] = useState<{ label: string; x: number; y: number } | null>(null);
   const [searching, setSearching] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
-  const [activeMark, setActiveMark] = useState<string | null>(null);
+  const [activeMark, setActiveMark] = useState<string | null>(() =>
+    initialStructure && initialLandmark && landmarks[initialStructure.id]?.some((m) => m.id === initialLandmark)
+      ? initialLandmark
+      : null,
+  );
 
   const byKey = useMemo(() => {
     const map = new Map<string, AnatomyStructure>();

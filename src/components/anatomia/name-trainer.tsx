@@ -56,13 +56,16 @@ import { ViewToggle } from "./view-toggle";
 
 export interface TrainerMuscle {
   readonly id: string;
-  readonly kind: "muscle" | "bone";
+  /** Músculo, osso ou acidente ósseo. */
+  readonly kind: "muscle" | "bone" | "landmark";
   readonly namePt: string;
   readonly region: string;
   readonly regionName: string;
   readonly parts: readonly string[];
   readonly clue: string;
   readonly explanation: string;
+  /** Acidente: o ponto no osso, que acende com um "?". */
+  readonly marker?: { readonly pos: readonly number[]; readonly normal: readonly number[]; readonly mirror: boolean };
 }
 
 type Round = 1 | 2 | 3;
@@ -373,15 +376,26 @@ export function NameTrainer({
   /* ------------------------------------------------- o que o corpo mostra */
   const parts = muscle?.parts ?? [];
   const green = state.phase === "pause" && state.round === 3;
+  const point = muscle?.marker;
   const focus = useMemo(
     () => ({
       keys: parts,
       side: (state.round === 3 ? "right" : "left") as "left" | "right",
-      padding: 3.1,
+      // Acidente: a câmera mira o ponto, com o osso de contexto.
+      ...(point ? { point, padding: 1 } : { padding: 3.1 }),
       nonce: `${state.round}-${state.index}-${refocus}`,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [state.round, state.index, refocus, parts.join("|")],
+    [state.round, state.index, refocus, parts.join("|"), point],
+  );
+  // O "?" no osso; o nome só aparece depois da resposta. O osso fica azul
+  // (focusKeys), para o "?" vermelho saltar à vista.
+  const markers = useMemo(
+    () =>
+      muscle && point
+        ? [{ id: muscle.id, label: muscle.namePt, pos: point.pos, normal: point.normal, mirror: point.mirror, glyph: "?" }]
+        : [],
+    [muscle, point],
   );
 
   if (!active) {
@@ -403,7 +417,9 @@ export function NameTrainer({
     state.round === 3 && !state.hint && !answered
       ? muscle?.kind === "bone"
         ? "Nomeie o osso em vermelho."
-        : ROUND_INFO[3].instruction
+        : muscle?.kind === "landmark"
+          ? "Nomeie o acidente marcado com ?."
+          : ROUND_INFO[3].instruction
       : state.round === 3 && answered
         ? muscle?.explanation
         : muscle?.clue;
@@ -418,8 +434,12 @@ export function NameTrainer({
         xray={progress.view === "raiox"}
         emphasis="dim"
         interactive={false}
-        selectedKeys={green ? [] : parts}
+        selectedKeys={green || point ? [] : parts}
+        focusKeys={!green && point ? parts : []}
         result={green ? { keys: parts, ok: true } : null}
+        markers={markers}
+        activeMarker={muscle?.id ?? null}
+        markerLabels={answered}
         focus={focus}
         insets
         sway

@@ -135,6 +135,23 @@
     -0.159
    ],
    "mirror": true
+  },
+  {
+   "id": "colo-cirurgico",
+   "name": "Colo cirúrgico",
+   "info": "Onde o úmero mais se fratura; o nervo axilar contorna aqui.",
+   "part": "humerus",
+   "pos": [
+    0.1903,
+    1.3614,
+    0.0018
+   ],
+   "normal": [
+    0.944,
+    -0.147,
+    0.297
+   ],
+   "mirror": true
   }
  ],
  "radio": [
@@ -186,6 +203,23 @@
     0.844,
     -0.501,
     0.193
+   ],
+   "mirror": true
+  },
+  {
+   "id": "tuberculo-dorsal",
+   "name": "Tubérculo dorsal (de Lister)",
+   "info": "Polia do tendão do extensor longo do polegar.",
+   "part": "radius",
+   "pos": [
+    0.2643,
+    0.9003,
+    0.0235
+   ],
+   "normal": [
+    0.252,
+    0.312,
+    -0.916
    ],
    "mirror": true
   }
@@ -345,6 +379,57 @@
     -0.938
    ],
    "mirror": true
+  },
+  {
+   "id": "margem-medial",
+   "name": "Margem medial",
+   "info": "Recebe os romboides e o serrátil anterior; descola na escápula alada.",
+   "part": "scapula",
+   "pos": [
+    0.0576,
+    1.3699,
+    -0.0696
+   ],
+   "normal": [
+    -0.832,
+    -0.498,
+    -0.244
+   ],
+   "mirror": true
+  },
+  {
+   "id": "margem-lateral",
+   "name": "Margem lateral",
+   "info": "Origem do redondo menor e do redondo maior.",
+   "part": "scapula",
+   "pos": [
+    0.1307,
+    1.3443,
+    -0.0376
+   ],
+   "normal": [
+    0.457,
+    -0.861,
+    -0.223
+   ],
+   "mirror": true
+  },
+  {
+   "id": "fossa-infraespinal",
+   "name": "Fossa infraespinal",
+   "info": "Face posterior, abaixo da espinha: origem do infraespinal.",
+   "part": "scapula",
+   "pos": [
+    0.0692,
+    1.3125,
+    -0.0815
+   ],
+   "normal": [
+    -0.747,
+    0.127,
+    -0.653
+   ],
+   "mirror": true
   }
  ],
  "clavicula": [
@@ -379,6 +464,23 @@
     0.939,
     0.239,
     0.246
+   ],
+   "mirror": true
+  },
+  {
+   "id": "tuberculo-conoide",
+   "name": "Tubérculo conoide",
+   "info": "Fixa o ligamento coracoclavicular (parte conoide).",
+   "part": "clavicle",
+   "pos": [
+    0.1366,
+    1.4205,
+    -0.0217
+   ],
+   "normal": [
+    0.552,
+    -0.443,
+    -0.706
    ],
    "mirror": true
   }
@@ -572,6 +674,57 @@
     0.312
    ],
    "mirror": true
+  },
+  {
+   "id": "tuberosidade-glutea",
+   "name": "Tuberosidade glútea",
+   "info": "Inserção do glúteo máximo.",
+   "part": "femur",
+   "pos": [
+    0.1234,
+    0.8174,
+    -0.0176
+   ],
+   "normal": [
+    0.957,
+    -0.235,
+    -0.17
+   ],
+   "mirror": true
+  },
+  {
+   "id": "linha-aspera",
+   "name": "Linha áspera",
+   "info": "Crista posterior da diáfise: adutores e vastos.",
+   "part": "femur",
+   "pos": [
+    0.1005,
+    0.7013,
+    0.0
+   ],
+   "normal": [
+    0.266,
+    0.13,
+    -0.955
+   ],
+   "mirror": true
+  },
+  {
+   "id": "face-patelar",
+   "name": "Face patelar",
+   "info": "Onde a patela desliza.",
+   "part": "femur",
+   "pos": [
+    0.0975,
+    0.4721,
+    0.033
+   ],
+   "normal": [
+    0.578,
+    0.411,
+    0.705
+   ],
+   "mirror": true
   }
  ],
  "patela": [
@@ -695,6 +848,23 @@
     -0.06
    ],
    "mirror": true
+  },
+  {
+   "id": "margem-anterior-tibia",
+   "name": "Margem anterior",
+   "info": "A canela: subcutânea, sente-se com o dedo.",
+   "part": "tibia",
+   "pos": [
+    0.0849,
+    0.2784,
+    0.0245
+   ],
+   "normal": [
+    0.591,
+    -0.151,
+    0.792
+   ],
+   "mirror": true
   }
  ],
  "fibula": [
@@ -731,6 +901,23 @@
     -0.28
    ],
    "mirror": true
+  },
+  {
+   "id": "colo-fibula",
+   "name": "Colo da fíbula",
+   "info": "O nervo fibular comum contorna aqui: pé caído na lesão.",
+   "part": "fibula",
+   "pos": [
+    0.1121,
+    0.4013,
+    -0.0183
+   ],
+   "normal": [
+    0.42,
+    -0.857,
+    -0.299
+   ],
+   "mirror": true
   }
  ],
  "calcaneo": [
@@ -765,6 +952,23 @@
     -0.9,
     0.314,
     -0.301
+   ],
+   "mirror": true
+  },
+  {
+   "id": "troclea-fibular",
+   "name": "Tróclea fibular",
+   "info": "Separa os tendões dos fibulares longo e curto.",
+   "part": "calcaneus",
+   "pos": [
+    0.1006,
+    0.0392,
+    0.0019
+   ],
+   "normal": [
+    0.926,
+    -0.246,
+    0.286
    ],
    "mirror": true
   }
@@ -886,6 +1090,40 @@
     0.689,
     0.281,
     0.668
+   ],
+   "mirror": true
+  },
+  {
+   "id": "eiai",
+   "name": "Espinha ilíaca anteroinferior",
+   "info": "Origem do reto femoral.",
+   "part": "hip bone",
+   "pos": [
+    0.1186,
+    0.9499,
+    0.0392
+   ],
+   "normal": [
+    -0.195,
+    -0.721,
+    -0.665
+   ],
+   "mirror": true
+  },
+  {
+   "id": "tuberculo-iliaco",
+   "name": "Tubérculo ilíaco",
+   "info": "O ponto mais largo da crista ilíaca.",
+   "part": "hip bone",
+   "pos": [
+    0.1445,
+    1.0061,
+    0.0211
+   ],
+   "normal": [
+    0.998,
+    -0.063,
+    0.03
    ],
    "mirror": true
   }
@@ -1066,6 +1304,57 @@
     0.73
    ],
    "mirror": false
+  },
+  {
+   "id": "arco-superciliar",
+   "name": "Arco superciliar",
+   "info": "Saliência acima da órbita, sob a sobrancelha.",
+   "part": "frontal bone",
+   "pos": [
+    0.0297,
+    1.6467,
+    0.0935
+   ],
+   "normal": [
+    0.396,
+    0.606,
+    0.689
+   ],
+   "mirror": false
+  },
+  {
+   "id": "processo-zigomatico-frontal",
+   "name": "Processo zigomático do frontal",
+   "info": "Desce para encontrar o zigomático na lateral da órbita.",
+   "part": "frontal bone",
+   "pos": [
+    0.0597,
+    1.6371,
+    0.0479
+   ],
+   "normal": [
+    0.874,
+    -0.142,
+    -0.464
+   ],
+   "mirror": false
+  },
+  {
+   "id": "tuber-frontal",
+   "name": "Túber frontal",
+   "info": "A bossa da testa.",
+   "part": "frontal bone",
+   "pos": [
+    0.0268,
+    1.6555,
+    0.0922
+   ],
+   "normal": [
+    0.525,
+    0.559,
+    0.642
+   ],
+   "mirror": false
   }
  ],
  "atlas": [
@@ -1193,6 +1482,635 @@
     0.25
    ],
    "mirror": false
+  },
+  {
+   "id": "crista-sacral-mediana",
+   "name": "Crista sacral mediana",
+   "info": "Processos espinhosos fundidos, na linha média de trás.",
+   "part": "sacrum",
+   "pos": [
+    0.0093,
+    0.923,
+    -0.0865
+   ],
+   "normal": [
+    0.359,
+    0.09,
+    -0.929
+   ],
+   "mirror": false
+  },
+  {
+   "id": "asa-sacro",
+   "name": "Asa do sacro",
+   "info": "Parte lateral da base; apoia o ílio na sacroilíaca.",
+   "part": "sacrum",
+   "pos": [
+    0.0562,
+    0.9908,
+    -0.0296
+   ],
+   "normal": [
+    0.896,
+    0.374,
+    0.24
+   ],
+   "mirror": false
+  }
+ ],
+ "parietal": [
+  {
+   "id": "tuber-parietal",
+   "name": "Túber parietal",
+   "info": "O ponto mais saliente da lateral da calvária.",
+   "part": "parietal bone",
+   "pos": [
+    0.0719,
+    1.6667,
+    -0.0184
+   ],
+   "normal": [
+    0.89,
+    0.416,
+    -0.186
+   ],
+   "mirror": true
+  }
+ ],
+ "maxila": [
+  {
+   "id": "processo-alveolar",
+   "name": "Processo alveolar",
+   "info": "Onde ficam os dentes de cima.",
+   "part": "maxilla",
+   "pos": [
+    0.0075,
+    1.5422,
+    0.0984
+   ],
+   "normal": [
+    -0.309,
+    -0.597,
+    0.74
+   ],
+   "mirror": true
+  },
+  {
+   "id": "processo-frontal-maxila",
+   "name": "Processo frontal da maxila",
+   "info": "Sobe ao lado do nariz até o frontal.",
+   "part": "maxilla",
+   "pos": [
+    0.0075,
+    1.6114,
+    0.0886
+   ],
+   "normal": [
+    0.031,
+    0.999,
+    -0.029
+   ],
+   "mirror": true
+  },
+  {
+   "id": "processo-zigomatico-maxila",
+   "name": "Processo zigomático da maxila",
+   "info": "Encontra o zigomático na maçã do rosto.",
+   "part": "maxilla",
+   "pos": [
+    0.045,
+    1.5702,
+    0.0653
+   ],
+   "normal": [
+    0.897,
+    0.428,
+    -0.109
+   ],
+   "mirror": true
+  }
+ ],
+ "zigomatico-osso": [
+  {
+   "id": "processo-temporal-zigomatico",
+   "name": "Processo temporal do zigomático",
+   "info": "Vai para trás e forma o arco zigomático.",
+   "part": "zygomatic bone",
+   "pos": [
+    0.0605,
+    1.5765,
+    0.0424
+   ],
+   "normal": [
+    0.399,
+    -0.119,
+    -0.909
+   ],
+   "mirror": true
+  },
+  {
+   "id": "processo-frontal-zigomatico",
+   "name": "Processo frontal do zigomático",
+   "info": "Sobe pela lateral da órbita.",
+   "part": "zygomatic bone",
+   "pos": [
+    0.0499,
+    1.6149,
+    0.0741
+   ],
+   "normal": [
+    0.228,
+    0.809,
+    0.542
+   ],
+   "mirror": true
+  }
+ ],
+ "esfenoide": [
+  {
+   "id": "processo-pterigoide",
+   "name": "Processo pterigoide",
+   "info": "Desce atrás da maxila: origem dos pterigóideos.",
+   "part": "sphenoid bone",
+   "pos": [
+    0.0259,
+    1.5592,
+    0.04
+   ],
+   "normal": [
+    0.208,
+    -0.912,
+    0.353
+   ],
+   "mirror": false
+  },
+  {
+   "id": "asa-maior",
+   "name": "Asa maior",
+   "info": "Parte lateral: fossa temporal e parede da órbita; tem os forames redondo, oval e espinhoso.",
+   "part": "sphenoid bone",
+   "pos": [
+    0.0539,
+    1.612,
+    0.0421
+   ],
+   "normal": [
+    0.885,
+    0.136,
+    -0.445
+   ],
+   "mirror": false
+  }
+ ],
+ "etmoide": [
+  {
+   "id": "crista-galli",
+   "name": "Crista etmoidal (crista galli)",
+   "info": "Crista que sobe na fossa anterior; prende a foice do cérebro.",
+   "part": "ethmoid",
+   "pos": [
+    -0.0005,
+    1.6105,
+    0.0738
+   ],
+   "normal": [
+    0.006,
+    0.976,
+    0.217
+   ],
+   "mirror": false
+  },
+  {
+   "id": "lamina-perpendicular",
+   "name": "Lâmina perpendicular",
+   "info": "Desce e forma a parte de cima do septo nasal.",
+   "part": "ethmoid",
+   "pos": [
+    0.0033,
+    1.5762,
+    0.0565
+   ],
+   "normal": [
+    0.267,
+    -0.938,
+    -0.22
+   ],
+   "mirror": false
+  }
+ ],
+ "vertebras-cervicais": [
+  {
+   "id": "espinhoso-cervical",
+   "name": "Processo espinhoso bífido (C5)",
+   "info": "Curto e bífido: a marca das cervicais típicas.",
+   "part": "fifth cervical vertebra",
+   "pos": [
+    -0.004,
+    1.4734,
+    -0.0432
+   ],
+   "normal": [
+    -0.225,
+    -0.3,
+    -0.927
+   ],
+   "mirror": false
+  },
+  {
+   "id": "transverso-cervical",
+   "name": "Processo transverso (C5)",
+   "info": "Tem o forame transversário, por onde sobe a artéria vertebral.",
+   "part": "fifth cervical vertebra",
+   "pos": [
+    0.0283,
+    1.4813,
+    -0.0002
+   ],
+   "normal": [
+    0.932,
+    -0.298,
+    0.207
+   ],
+   "mirror": false
+  },
+  {
+   "id": "corpo-cervical",
+   "name": "Corpo vertebral (C5)",
+   "info": "Pequeno e largo, com os uncos nos lados de cima.",
+   "part": "fifth cervical vertebra",
+   "pos": [
+    -0.0007,
+    1.4858,
+    0.0115
+   ],
+   "normal": [
+    -0.066,
+    -0.012,
+    0.998
+   ],
+   "mirror": false
+  }
+ ],
+ "vertebras-toracicas": [
+  {
+   "id": "espinhoso-toracico",
+   "name": "Processo espinhoso (T6)",
+   "info": "Longo e inclinado para baixo, como uma telha.",
+   "part": "sixth thoracic vertebra",
+   "pos": [
+    -0.0007,
+    1.2885,
+    -0.0772
+   ],
+   "normal": [
+    0.007,
+    -0.866,
+    -0.5
+   ],
+   "mirror": false
+  },
+  {
+   "id": "transverso-toracico",
+   "name": "Processo transverso (T6)",
+   "info": "Tem a fóvea para o tubérculo da costela.",
+   "part": "sixth thoracic vertebra",
+   "pos": [
+    0.0347,
+    1.3331,
+    -0.0679
+   ],
+   "normal": [
+    0.822,
+    0.096,
+    -0.561
+   ],
+   "mirror": false
+  },
+  {
+   "id": "corpo-toracico",
+   "name": "Corpo vertebral (T6)",
+   "info": "Em forma de coração, com fóveas para a cabeça das costelas.",
+   "part": "sixth thoracic vertebra",
+   "pos": [
+    -0.0011,
+    1.3162,
+    -0.0141
+   ],
+   "normal": [
+    -0.033,
+    -0.462,
+    0.886
+   ],
+   "mirror": false
+  }
+ ],
+ "vertebras-lombares": [
+  {
+   "id": "espinhoso-lombar",
+   "name": "Processo espinhoso (L3)",
+   "info": "Curto, largo e quadrado, quase horizontal.",
+   "part": "third lumbar vertebra",
+   "pos": [
+    0.0012,
+    1.051,
+    -0.0497
+   ],
+   "normal": [
+    0.084,
+    -0.214,
+    -0.973
+   ],
+   "mirror": false
+  },
+  {
+   "id": "transverso-lombar",
+   "name": "Processo transverso (L3)",
+   "info": "Longo e fino; dá origem ao psoas e ao quadrado do lombo.",
+   "part": "third lumbar vertebra",
+   "pos": [
+    0.0386,
+    1.0722,
+    -0.0144
+   ],
+   "normal": [
+    0.989,
+    -0.086,
+    -0.122
+   ],
+   "mirror": false
+  },
+  {
+   "id": "corpo-lombar",
+   "name": "Corpo vertebral (L3)",
+   "info": "Grande, em forma de rim: carrega o peso do tronco.",
+   "part": "third lumbar vertebra",
+   "pos": [
+    0.0019,
+    1.0777,
+    0.036
+   ],
+   "normal": [
+    0.164,
+    0.616,
+    0.77
+   ],
+   "mirror": false
+  }
+ ],
+ "costelas-verdadeiras": [
+  {
+   "id": "cabeca-costela",
+   "name": "Cabeça da costela (6ª)",
+   "info": "Articula-se com os corpos de duas vértebras.",
+   "part": "sixth rib",
+   "pos": [
+    0.0135,
+    1.3352,
+    -0.0447
+   ],
+   "normal": [
+    -0.952,
+    0.02,
+    0.304
+   ],
+   "mirror": true
+  },
+  {
+   "id": "angulo-costela",
+   "name": "Ângulo da costela (6ª)",
+   "info": "Onde a costela vira para a frente; o ponto mais posterior.",
+   "part": "sixth rib",
+   "pos": [
+    0.0763,
+    1.3109,
+    -0.075
+   ],
+   "normal": [
+    0.146,
+    -0.365,
+    -0.919
+   ],
+   "mirror": true
+  },
+  {
+   "id": "extremidade-anterior-costela",
+   "name": "Extremidade anterior (6ª)",
+   "info": "Continua na cartilagem costal.",
+   "part": "sixth rib",
+   "pos": [
+    0.0885,
+    1.2301,
+    0.1142
+   ],
+   "normal": [
+    -0.489,
+    0.127,
+    0.863
+   ],
+   "mirror": true
+  }
+ ],
+ "escafoide": [
+  {
+   "id": "tuberculo-escafoide",
+   "name": "Tubérculo do escafoide",
+   "info": "Palpável na base da eminência tenar; fixa o retináculo dos flexores.",
+   "part": "scaphoid",
+   "pos": [
+    0.2718,
+    0.8824,
+    0.0465
+   ],
+   "normal": [
+    0.817,
+    0.014,
+    0.576
+   ],
+   "mirror": true
+  }
+ ],
+ "hamato": [
+  {
+   "id": "hamulo-hamato",
+   "name": "Hâmulo do hamato",
+   "info": "Gancho na palma: limita o túnel do carpo e o canal de Guyon.",
+   "part": "hamate",
+   "pos": [
+    0.2459,
+    0.8676,
+    0.0545
+   ],
+   "normal": [
+    0.065,
+    -0.031,
+    0.997
+   ],
+   "mirror": true
+  }
+ ],
+ "trapezio-osso": [
+  {
+   "id": "tuberculo-trapezio",
+   "name": "Tubérculo do trapézio",
+   "info": "Fixa o retináculo dos flexores; ao lado, o sulco do flexor radial do carpo.",
+   "part": "trapezium",
+   "pos": [
+    0.2698,
+    0.876,
+    0.0552
+   ],
+   "normal": [
+    -0.419,
+    0.257,
+    0.871
+   ],
+   "mirror": true
+  }
+ ],
+ "metacarpais": [
+  {
+   "id": "base-1-metacarpal",
+   "name": "Base do 1º metacarpal",
+   "info": "Articulação em sela com o trapézio; fratura de Bennett.",
+   "part": "first metacarpal bone",
+   "pos": [
+    0.2824,
+    0.8755,
+    0.0519
+   ],
+   "normal": [
+    -0.05,
+    0.995,
+    -0.086
+   ],
+   "mirror": true
+  },
+  {
+   "id": "colo-5-metacarpal",
+   "name": "Colo do 5º metacarpal",
+   "info": "Fratura do boxeador.",
+   "part": "fifth metacarpal bone",
+   "pos": [
+    0.2293,
+    0.8217,
+    0.0519
+   ],
+   "normal": [
+    -0.578,
+    -0.198,
+    -0.792
+   ],
+   "mirror": true
+  }
+ ],
+ "falanges-da-mao": [
+  {
+   "id": "tuberosidade-falange-distal",
+   "name": "Tuberosidade da falange distal",
+   "info": "A ponta do dedo, sob a polpa.",
+   "part": "distal phalanx of middle finger",
+   "pos": [
+    0.2765,
+    0.7315,
+    0.1142
+   ],
+   "normal": [
+    -0.025,
+    -0.684,
+    0.729
+   ],
+   "mirror": true
+  }
+ ],
+ "talus": [
+  {
+   "id": "troclea-talus",
+   "name": "Tróclea do tálus",
+   "info": "Encaixa entre os maléolos: a articulação do tornozelo.",
+   "part": "talus",
+   "pos": [
+    0.0645,
+    0.0812,
+    0.0016
+   ],
+   "normal": [
+    -0.297,
+    0.953,
+    -0.062
+   ],
+   "mirror": true
+  },
+  {
+   "id": "cabeca-talus",
+   "name": "Cabeça do tálus",
+   "info": "Articula-se com o navicular.",
+   "part": "talus",
+   "pos": [
+    0.0734,
+    0.0655,
+    0.0264
+   ],
+   "normal": [
+    0.063,
+    0.18,
+    0.982
+   ],
+   "mirror": true
+  }
+ ],
+ "navicular": [
+  {
+   "id": "tuberosidade-navicular",
+   "name": "Tuberosidade do navicular",
+   "info": "Inserção do tibial posterior; palpável na borda medial do pé.",
+   "part": "navicular bone of foot",
+   "pos": [
+    0.0579,
+    0.0536,
+    0.0287
+   ],
+   "normal": [
+    -0.978,
+    -0.194,
+    -0.077
+   ],
+   "mirror": true
+  }
+ ],
+ "metatarsais": [
+  {
+   "id": "tuberosidade-5-metatarsal",
+   "name": "Tuberosidade do 5º metatarsal",
+   "info": "Inserção do fibular curto; arranca na entorse em inversão.",
+   "part": "fifth metatarsal bone",
+   "pos": [
+    0.1491,
+    0.0161,
+    0.0609
+   ],
+   "normal": [
+    0.818,
+    -0.056,
+    -0.572
+   ],
+   "mirror": true
+  },
+  {
+   "id": "cabeca-1-metatarsal",
+   "name": "Cabeça do 1º metatarsal",
+   "info": "Apoio da frente do pé; o joanete se forma aqui.",
+   "part": "first metatarsal bone",
+   "pos": [
+    0.0925,
+    0.0214,
+    0.1126
+   ],
+   "normal": [
+    -0.096,
+    -0.007,
+    0.995
+   ],
+   "mirror": true
   }
  ]
 }

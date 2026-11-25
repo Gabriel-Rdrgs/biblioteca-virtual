@@ -1,15 +1,19 @@
-import type { AnatomyData, AnatomyStructure } from "./anatomy-types";
+import type { AnatomyData, AnatomyStructure, LandmarkIndex } from "./anatomy-types";
 
 /**
  * Lições e revisão espaçada da anatomia 3D.
  *
- * Uma lição tem até sete músculos (ou ossos) de uma região, do mais fácil ao mais
- * difícil, superficiais antes dos profundos. Passa por eles três vezes:
- * digitando com o nome à vista, só com a primeira letra e, por fim, de
- * memória olhando o outro lado do corpo. Só a terceira rodada conta.
+ * As lições seguem a ordem em que se estuda uma região num atlas: primeiro
+ * os ossos, depois os acidentes ósseos (onde os músculos se prendem), depois
+ * os músculos superficiais e, por fim, os profundos. Cada etapa é dividida
+ * em lições de até sete itens, do mais fácil ao mais difícil.
  *
- * Cada resposta de memória entra na revisão espaçada: acertou, o músculo
- * volta em 1, 3, 7, 14 e 30 dias; errou, volta hoje mesmo.
+ * Uma lição passa pelos mesmos itens três vezes: digitando com o nome à
+ * vista, só com a primeira letra e, por fim, de memória olhando o outro lado
+ * do corpo. Só a terceira rodada conta.
+ *
+ * Cada resposta de memória entra na revisão espaçada: acertou, volta em 1, 3,
+ * 7, 14 e 30 dias; errou, volta hoje mesmo.
  */
 
 export const LESSON_SIZE = 7;
@@ -18,14 +22,44 @@ export const REVIEW_INTERVALS = [1, 3, 7, 14, 30] as const;
 const DAY = 86_400_000;
 const MAX_HISTORY = 20;
 
+/** O que se treina: um músculo, um osso ou um acidente ósseo. */
+export type ItemKind = "muscle" | "bone" | "landmark";
+
+/** As etapas de cada região, na ordem em que aparecem. */
+export type LessonTrack = "ossos" | "acidentes" | "superficiais" | "profundos";
+
+export const TRACKS: readonly {
+  readonly id: LessonTrack;
+  readonly label: string;
+  readonly kind: ItemKind;
+  /** Uma linha sobre o que a etapa ensina. */
+  readonly hint: string;
+}[] = [
+  { id: "ossos", label: "Ossos", kind: "bone", hint: "O esqueleto da região, osso por osso." },
+  { id: "acidentes", label: "Acidentes ósseos", kind: "landmark", hint: "Os pontos do osso onde os músculos se prendem." },
+  { id: "superficiais", label: "Músculos superficiais", kind: "muscle", hint: "Os que se veem logo abaixo da pele." },
+  { id: "profundos", label: "Músculos profundos", kind: "muscle", hint: "Os que ficam embaixo dos superficiais." },
+];
+
+export function trackOf(id: LessonTrack) {
+  return TRACKS.find((t) => t.id === id) ?? TRACKS[0]!;
+}
+
 export interface Lesson {
-  /** "cabeca-pescoco-L1" */
+  /** "coxa-ossos-1", "coxa-superficiais-2" */
   readonly id: string;
   readonly region: string;
-  readonly kind: "muscle" | "bone";
+  readonly track: LessonTrack;
+  readonly kind: ItemKind;
+  /** Posição dentro da etapa (1, 2…) e quantas lições a etapa tem. */
   readonly number: number;
+  readonly of: number;
+  /** "Coxa · Músculos superficiais 2" */
   readonly title: string;
-  readonly muscleIds: readonly string[];
+  /** "Músculos superficiais 2" — o título dentro da página da região. */
+  readonly short: string;
+  /** Ids dos itens: estruturas (músculo, osso) ou acidentes. */
+  readonly itemIds: readonly string[];
 }
 
 const filled = (texts: readonly (string | undefined)[]) =>
@@ -52,39 +86,63 @@ export function trainingText(s: AnatomyStructure): { clue: string; explanation: 
 }
 
 /**
- * Por região, primeiro as lições de músculos ("cabeca-pescoco-L1"), depois
- * as de ossos ("cabeca-pescoco-ossos-L1").
+ * Divide por igual, no menor número de lições de até `size` itens: 29 viram
+ * 6+6+6+6+5 e 31 viram 7+6+6+6+6 — nunca uma lição de sobra com dois.
  */
-export function buildLessons(data: AnatomyData): Lesson[] {
+export function chunk<T>(items: readonly T[], size = LESSON_SIZE): T[][] {
+  if (items.length === 0) return [];
+  const count = Math.ceil(items.length / size);
+  const base = Math.floor(items.length / count);
+  const extra = items.length % count;
+  const out: T[][] = [];
+  let start = 0;
+  for (let i = 0; i < count; i++) {
+    const n = base + (i < extra ? 1 : 0);
+    out.push(items.slice(start, start + n));
+    start += n;
+  }
+  return out;
+}
+
+const difficulty = (s: AnatomyStructure) => (s.ficha ?? s.bone)?.difficulty ?? 3;
+
+export function buildLessons(data: AnatomyData, landmarks: LandmarkIndex = {}): Lesson[] {
   const lessons: Lesson[] = [];
   for (const region of data.regions) {
-    for (const kind of ["muscle", "bone"] as const) {
-      const pool = data.structures
-        .map((s, order) => ({ s, order }))
-        .filter(({ s }) => s.region === region.id && s.kind === kind && isTrainable(s))
-        .sort(
-          (a, b) =>
-            ((a.s.ficha ?? a.s.bone)?.difficulty ?? 3) - ((b.s.ficha ?? b.s.bone)?.difficulty ?? 3) ||
-            Number(a.s.layer === "deep") - Number(b.s.layer === "deep") ||
-            a.order - b.order,
-        )
+    const here = data.structures
+      .map((s, order) => ({ s, order }))
+      .filter(({ s }) => s.region === region.id && isTrainable(s));
+    const sorted = (pick: (s: AnatomyStructure) => boolean) =>
+      here
+        .filter(({ s }) => pick(s))
+        .sort((a, b) => difficulty(a.s) - difficulty(b.s) || a.order - b.order)
         .map(({ s }) => s.id);
-      if (pool.length === 0) continue;
-      // Divide por igual: 29 músculos viram 6+6+6+6+5, não 7+7+7+7+1.
-      const count = Math.ceil(pool.length / LESSON_SIZE);
-      const per = Math.ceil(pool.length / count);
-      const slug = kind === "bone" ? "-ossos" : "";
-      const label = kind === "bone" ? "Ossos " : "";
-      for (let i = 0; i < count; i++) {
+
+    const bones = sorted((s) => s.kind === "bone");
+    const pools: Record<LessonTrack, string[]> = {
+      ossos: bones,
+      // Acidentes na ordem dos ossos, para cada lição girar em torno de poucos ossos.
+      acidentes: bones.flatMap((id) => (landmarks[id] ?? []).map((m) => m.id)),
+      superficiais: sorted((s) => s.kind === "muscle" && s.layer === "superficial"),
+      profundos: sorted((s) => s.kind === "muscle" && s.layer === "deep"),
+    };
+
+    for (const track of TRACKS) {
+      const parts = chunk(pools[track.id]);
+      parts.forEach((itemIds, i) => {
+        const short = parts.length > 1 ? `${track.label} ${i + 1}` : track.label;
         lessons.push({
-          id: `${region.id}${slug}-L${i + 1}`,
+          id: `${region.id}-${track.id}-${i + 1}`,
           region: region.id,
-          kind,
+          track: track.id,
+          kind: track.kind,
           number: i + 1,
-          title: `${region.name} · ${label}L${i + 1}`,
-          muscleIds: pool.slice(i * per, (i + 1) * per),
+          of: parts.length,
+          title: `${region.name} · ${short}`,
+          short,
+          itemIds,
         });
-      }
+      });
     }
   }
   return lessons;

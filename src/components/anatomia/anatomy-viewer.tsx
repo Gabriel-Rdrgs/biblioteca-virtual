@@ -63,6 +63,16 @@ export interface FocusRequest {
   readonly padding?: number;
   /** Muda para pedir de novo o mesmo enquadramento. */
   readonly nonce: number | string;
+  /**
+   * Um ponto no osso (acidente): a câmera mira nele, olhando de frente para a
+   * superfície, com o osso inteiro de contexto. Lado esquerdo; espelha no
+   * direito quando `side` é "right" e o ponto é de osso par.
+   */
+  readonly point?: {
+    readonly pos: readonly number[];
+    readonly normal: readonly number[];
+    readonly mirror: boolean;
+  };
 }
 
 /** Um acidente ósseo: ponto numerado preso ao osso. */
@@ -75,6 +85,8 @@ export interface Marker {
   readonly normal: readonly number[];
   /** Osso par: o ponto vai para o lado do corpo que está virado para a câmera. */
   readonly mirror: boolean;
+  /** O que vai dentro da bolinha; sem isso, o número. */
+  readonly glyph?: string;
 }
 
 export interface AnatomyViewerProps {
@@ -101,6 +113,8 @@ export interface AnatomyViewerProps {
   readonly markers?: readonly Marker[];
   readonly activeMarker?: string | null;
   readonly onMarker?: (id: string) => void;
+  /** Sem rótulo, o ponto ativo não diz o nome (o treino pergunta qual é). */
+  readonly markerLabels?: boolean;
   /** As duas vistas pequenas que giram em volta do foco. */
   readonly insets?: boolean;
   /** A câmera balança de leve em volta do foco até a pessoa girar. */
@@ -157,7 +171,7 @@ interface Controller {
   setSway: (on: boolean) => void;
   setBottomInset: (px: number) => void;
   setPin: (pin: { keys: readonly string[]; text: string } | null) => void;
-  setMarkers: (markers: readonly Marker[], active: string | null) => void;
+  setMarkers: (markers: readonly Marker[], active: string | null, labels: boolean) => void;
   invalidate: () => void;
 }
 
@@ -190,6 +204,7 @@ export function AnatomyViewer({
   pin = null,
   markers,
   activeMarker = null,
+  markerLabels = true,
   onMarker,
   insets = false,
   sway = false,
@@ -280,6 +295,7 @@ export function AnatomyViewer({
       el.appendChild(markerLayer);
       let markerList: readonly Marker[] = [];
       let markerActive: string | null = null;
+      let labelsOn = true;
       let markerEls: HTMLButtonElement[] = [];
       const buildMarkers = () => {
         markerLayer.replaceChildren();
@@ -288,6 +304,7 @@ export function AnatomyViewer({
           b.type = "button";
           b.setAttribute("aria-label", `${i + 1}. ${m.label}`);
           const on = m.id === markerActive;
+          const showLabel = on && labelsOn;
           b.style.cssText =
             "position:absolute;left:0;top:0;pointer-events:auto;display:none;align-items:center;gap:6px;" +
             "padding:0;border:0;background:none;cursor:pointer;transform-origin:11px 11px;will-change:transform;";
@@ -297,8 +314,8 @@ export function AnatomyViewer({
             (on
               ? "background:#ff4d3a;color:#fff;border:2px solid #fff;"
               : "background:#fff;color:#c62f20;border:2px solid #ff4d3a;") +
-            `">${i + 1}</span>` +
-            (on
+            `">${(m.glyph ?? String(i + 1)).replace(/</g, "&lt;")}</span>` +
+            (showLabel
               ? `<span style="margin-top:-11px;white-space:nowrap;padding:4px 9px;border-radius:9999px;background:rgba(10,13,20,.88);` +
                 `color:#fff;font:600 12px/1.2 system-ui,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.4)">${m.label.replace(/</g, "&lt;")}</span>`
               : "");
@@ -799,6 +816,25 @@ export function AnatomyViewer({
         const hFov =
           2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) * camera.aspect);
         const fit = size.length() / 2 / Math.sin(Math.min(freeFov(), hFov) / 2);
+        if (req.point) {
+          // Mira no ponto, olhando a superfície de frente, com o osso como contexto.
+          const sx = req.side === "right" && req.point.mirror ? -1 : 1;
+          const p = new THREE.Vector3(
+            (req.point.pos[0] ?? 0) * sx,
+            req.point.pos[1] ?? 0,
+            req.point.pos[2] ?? 0,
+          );
+          const n = new THREE.Vector3(
+            (req.point.normal[0] ?? 0) * sx,
+            (req.point.normal[1] ?? 0) * 0.5 + 0.12,
+            req.point.normal[2] ?? 0,
+          );
+          if (n.lengthSq() < 1e-6) n.set(0, 0.1, 1);
+          n.normalize();
+          const d = THREE.MathUtils.clamp(fit * (req.padding ?? 1), 0.45, 1.5);
+          animateTo(p.clone().addScaledVector(n, d), p, true);
+          return;
+        }
         const distance = Math.max(fit * (req.padding ?? 2.3), 0.7);
         const sig = `${[...keys].sort().join("|")}:${req.side ?? "both"}`;
         animateTo(center.clone().addScaledVector(bestDirection(sig, center), distance), center, true);
@@ -882,7 +918,8 @@ export function AnatomyViewer({
           placeFrames();
           invalidate();
         },
-        setMarkers: (list, active) => {
+        setMarkers: (list, active, labels) => {
+          labelsOn = labels;
           markerList = list;
           markerActive = active;
           buildMarkers();
@@ -1059,9 +1096,9 @@ export function AnatomyViewer({
 
   const markerSig = markers ? markers.map((m) => m.id).join("|") : "";
   useEffect(() => {
-    if (ready) ctl.current?.setMarkers(markers ?? [], activeMarker);
+    if (ready) ctl.current?.setMarkers(markers ?? [], activeMarker, markerLabels);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [markerSig, activeMarker, ready]);
+  }, [markerSig, activeMarker, markerLabels, ready]);
 
   const pinSig = pin ? `${pin.text}:${pin.keys.join("|")}` : "";
   useEffect(() => {

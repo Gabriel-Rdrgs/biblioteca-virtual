@@ -26,3 +26,6 @@ storage/simulados/
 storage/resumos/
 storage/flashcards/
 storage/flashcards-turma.json
+
+# Python (scripts/anatomia)
+__pycache__/

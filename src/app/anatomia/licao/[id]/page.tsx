@@ -15,7 +15,7 @@ export async function generateMetadata({
   const { id } = await params;
   const lesson = getLesson(id);
   return lesson
-    ? { title: `Lição · ${lesson.title}`, description: "Três rodadas pelos mesmos músculos, até escrever o nome de memória." }
+    ? { title: `Lição · ${lesson.title}`, description: "Três rodadas pelos mesmos nomes, até escrever de memória." }
     : { title: "Lição não encontrada" };
 }
 
@@ -23,7 +23,7 @@ export default async function LicaoPage({ params }: { params: Promise<{ id: stri
   const { id } = await params;
   const lesson = getLesson(id);
   if (!lesson) notFound();
-  const muscles = lesson.muscleIds.flatMap((m) => {
+  const muscles = lesson.itemIds.flatMap((m) => {
     const muscle = trainableMuscle(m);
     return muscle ? [muscle] : [];
   });

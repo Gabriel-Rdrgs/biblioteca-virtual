@@ -12,14 +12,15 @@ export const metadata: Metadata = {
 
 /**
  * Entradas: ?estrutura=femur abre já na ficha; ?sistema=ossos começa com os
- * músculos desligados; ?regiao=coxa leva a câmera até a região.
+ * músculos desligados; ?regiao=coxa leva a câmera até a região;
+ * ?estrutura=femur&acidente=trocanter-maior já acende o ponto no osso.
  */
 export default async function AtlasPage({
   searchParams,
 }: {
-  searchParams: Promise<{ estrutura?: string; sistema?: string; regiao?: string }>;
+  searchParams: Promise<{ estrutura?: string; sistema?: string; regiao?: string; acidente?: string }>;
 }) {
-  const { estrutura, sistema, regiao } = await searchParams;
+  const { estrutura, sistema, regiao, acidente } = await searchParams;
   const system: AtlasSystem | undefined =
     sistema === "ossos" || sistema === "musculos" ? sistema : undefined;
   const regionName = regiao ? anatomyData.regions.find((r) => r.id === regiao)?.name : undefined;
@@ -43,6 +44,7 @@ export default async function AtlasPage({
         {...(estrutura ? { initialId: estrutura } : {})}
         {...(system ? { initialSystem: system } : {})}
         {...(regiao ? { initialRegion: regiao } : {})}
+        {...(acidente ? { initialLandmark: acidente } : {})}
       />
       <p className="text-ink-faint mt-4 text-xs leading-relaxed">{MODEL_CREDIT}</p>
     </div>

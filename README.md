@@ -152,9 +152,10 @@ Organizado como um atlas: primeiro achar, depois estudar.
 - **Início** (`/anatomia`): busca (português, inglês ou latim), os dois
   sistemas (esquelético e muscular), as oito regiões do corpo e, embaixo,
   Lições, Revisar e Desafiar.
-- **Região** (`/anatomia/regiao/<id>`): o sumário da região — ossos (com
-  quantos acidentes estão marcados), músculos superficiais, profundos e outras
-  estruturas —, com "Ver em 3D" e as lições da região.
+- **Região** (`/anatomia/regiao/<id>`): o sumário da região — as lições dela,
+  os ossos, os acidentes (cada um abre o atlas com o ponto aceso:
+  `?estrutura=femur&acidente=trocanter-maior`), músculos superficiais,
+  profundos e outras estruturas —, com "Ver em 3D".
 - **Atlas 3D** (`/anatomia/atlas`): índice em árvore (Ossos/Músculos → região
   → estrutura, uma região aberta por vez) e o corpo em 3D. Entradas:
   `?estrutura=femur`, `?sistema=ossos` (músculos desligados), `?regiao=coxa`
@@ -163,11 +164,17 @@ Organizado como um atlas: primeiro achar, depois estudar.
   esmaecer, ver em raio-X, isolar ou ocultar. **Nos ossos, os acidentes aparecem como pontos
   numerados no modelo**, ligados à lista da ficha. No celular, o índice abre
   por cima e a ficha sobe numa gaveta com os acidentes numa fileira.
-- **Lições** (`/anatomia/licoes`, `/anatomia/licao/<id>`): a estrutura acende
-  e a pessoa escreve o nome, corrigido letra por letra (acento e
-  maiúscula não contam). Três rodadas — com o nome à vista, só com a primeira
-  letra, de memória olhando o outro lado. 37 lições (25 de músculos, 12 de
-  ossos). Dois jeitos de ver, que o aluno alterna a qualquer momento (e que
+- **Lições** (`/anatomia/licoes`, `/anatomia/licao/<região>-<etapa>-<n>`):
+  organizadas como um curso — cada região é um módulo, e as etapas seguem a
+  ordem de um atlas: **ossos → acidentes ósseos → músculos superficiais →
+  músculos profundos**, em lições de até 7 itens divididas por igual (59
+  lições: 142 músculos, 52 ossos, 120 acidentes). A estrutura acende e a
+  pessoa escreve o nome, corrigido letra por letra (acento e maiúscula não
+  contam). Três rodadas — com o nome à vista, só com a primeira letra, de
+  memória olhando o outro lado. Nos acidentes, o ponto aparece como um "?" no
+  osso (azul), a câmera mira o ponto e o nome só aparece depois da resposta.
+  Um filtro no topo mostra uma etapa só no corpo inteiro; o módulo da próxima
+  lição abre sozinho. Dois jeitos de ver, que o aluno alterna a qualquer momento (e que
   valem também no Desafiar): **Corpo** — o corpo inteiro, os outros músculos
   apagados e o alvo aceso; se o alvo é profundo ou é um osso, só o que está na
   frente dele vira véu translúcido — e **Raio-X** — só o alvo sólido, o resto
@@ -185,7 +192,8 @@ aparelho (`atlas:anatomia:v1`).
   e do Z-Anatomy (CC BY-SA 4.0). O crédito aparece no rodapé das páginas e
   num canto do treino, e não pode sair.
 - Fichas: `src/lib/data/anatomia/miolab.json` — 146 estruturas (141 músculos)
-  em 8 regiões, cada uma com a camada (superficial/profunda) lida do modelo.
+  em 8 regiões, mais `musculos-atlas.json` com o que o MioLab deixou de fora
+  (o oponente do dedo mínimo do pé, inconstante), cada uma com a camada (superficial/profunda) lida do modelo.
   Cada estrutura lista as peças do modelo pelo nome em inglês sem o lado
   (`meshKey`), e é isso que liga a malha tocada à ficha.
 - Ossos: `src/lib/data/anatomia/ossos.json` — 52 ossos com ficha (classificação,
@@ -194,7 +202,7 @@ aparelho (`atlas:anatomia:v1`).
   discos, cartilagens, dentes, orelha e olho com resumo. Cobrem as 165 peças do
   esqueleto do modelo. Gerado por um script a partir de uma lista revisável;
   para corrigir uma ficha, edite o JSON.
-- Acidentes: `src/lib/data/anatomia/acidentes.json` — 68 pontos em 20 ossos,
+- Acidentes: `src/lib/data/anatomia/acidentes.json` — 120 pontos em 37 ossos,
   calculados sobre a malha de cada osso por `scripts/anatomia/acidentes.py`
   (regra por acidente: na faixa de altura do osso, o vértice mais extremo numa
   direção) e conferidos em folhas de vista anterior e lateral. O script lê o

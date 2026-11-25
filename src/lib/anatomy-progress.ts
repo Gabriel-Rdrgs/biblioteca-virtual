@@ -92,12 +92,14 @@ export function recordMuscleAnswer(
     readonly namePt: string;
     readonly region: string;
     readonly regionName: string;
-    readonly kind?: "muscle" | "bone";
+    readonly kind?: "muscle" | "bone" | "landmark";
   },
   ok: boolean,
   now = Date.now(),
 ): void {
-  const bone = muscle.kind === "bone";
+  const kind = muscle.kind ?? "muscle";
+  const label = kind === "bone" ? "Ossos" : kind === "landmark" ? "Acidentes" : "Músculos";
+  const suffix = kind === "bone" ? "-ossos" : kind === "landmark" ? "-acidentes" : "";
   const state = read();
   write({ ...state, cards: { ...state.cards, [muscle.id]: scheduleAnswer(state.cards[muscle.id], ok, now) } });
   recordAnswer({
@@ -107,8 +109,8 @@ export function recordMuscleAnswer(
     t: now,
     group: muscle.region,
     groupLabel: `Anatomia · ${muscle.regionName}`,
-    axis: `anatomia${bone ? "-ossos" : ""}:${muscle.region}`,
-    axisLabel: `${bone ? "Ossos" : "Músculos"} · ${muscle.regionName}`,
+    axis: `anatomia${suffix}:${muscle.region}`,
+    axisLabel: `${label} · ${muscle.regionName}`,
   });
 }
 

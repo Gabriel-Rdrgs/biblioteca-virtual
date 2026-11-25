@@ -141,6 +141,130 @@ lm("sacro", "sacrum", [
     ("apice-sacro", "Ápice do sacro", "Articula-se com o cóccix.", (0, 0.15), (0, -1, 0), {}),
 ])
 
+def more(structure, part, items):
+    """Acrescenta acidentes a um osso que já tem lista (ou cria a lista)."""
+    L.setdefault((structure, part), []).extend(items)
+
+
+# ---------------------------------------------------------------- segunda leva
+more("umero", "humerus", [
+    ("colo-cirurgico", "Colo cirúrgico", "Onde o úmero mais se fratura; o nervo axilar contorna aqui.", (0.8, 0.84), (1, 0, 0.3), {}),
+])
+more("radio", "radius", [
+    ("tuberculo-dorsal", "Tubérculo dorsal (de Lister)", "Polia do tendão do extensor longo do polegar.", (0.02, 0.1), (0, 0, -1), {}),
+])
+more("escapula", "scapula", [
+    ("margem-medial", "Margem medial", "Recebe os romboides e o serrátil anterior; descola na escápula alada.", (0.35, 0.65), (-1, 0, 0), {}),
+    ("margem-lateral", "Margem lateral", "Origem do redondo menor e do redondo maior.", (0.25, 0.5), (1, 0, 0), {}),
+    ("fossa-infraespinal", "Fossa infraespinal", "Face posterior, abaixo da espinha: origem do infraespinal.", (0.3, 0.5), (0, 0, -1), {}),
+])
+more("clavicula", "clavicle", [
+    ("tuberculo-conoide", "Tubérculo conoide", "Fixa o ligamento coracoclavicular (parte conoide).", (0, 1), (0.6, -1, -0.5), {}),
+])
+more("femur", "femur", [
+    ("tuberosidade-glutea", "Tuberosidade glútea", "Inserção do glúteo máximo.", (0.72, 0.8), (0.5, 0, -1), {}),
+    ("linha-aspera", "Linha áspera", "Crista posterior da diáfise: adutores e vastos.", (0.4, 0.6), (0, 0, -1), {}),
+    ("face-patelar", "Face patelar", "Onde a patela desliza.", (0.03, 0.1), (0, 0, 1), {}),
+])
+more("tibia", "tibia", [
+    ("margem-anterior-tibia", "Margem anterior", "A canela: subcutânea, sente-se com o dedo.", (0.4, 0.6), (0, 0, 1), {}),
+])
+more("fibula", "fibula", [
+    ("colo-fibula", "Colo da fíbula", "O nervo fibular comum contorna aqui: pé caído na lesão.", (0.86, 0.91), (1, 0, 0), {}),
+])
+more("calcaneo", "calcaneus", [
+    ("troclea-fibular", "Tróclea fibular", "Separa os tendões dos fibulares longo e curto.", (0.2, 0.7), (1, 0, 0), {}),
+])
+more("osso-do-quadril", "hip bone", [
+    ("eiai", "Espinha ilíaca anteroinferior", "Origem do reto femoral.", (0.45, 0.6), (0, 0, 1), {"half": 1}),
+    ("tuberculo-iliaco", "Tubérculo ilíaco", "O ponto mais largo da crista ilíaca.", (0.82, 0.95), (1, 0.2, 0.2), {}),
+])
+more("sacro", "sacrum", [
+    ("crista-sacral-mediana", "Crista sacral mediana", "Processos espinhosos fundidos, na linha média de trás.", (0.4, 0.7), (0, 0, -1), {"mid": 0.01}),
+    ("asa-sacro", "Asa do sacro", "Parte lateral da base; apoia o ílio na sacroilíaca.", (0.75, 1), (1, 0.3, 0), {}),
+])
+# crânio
+more("frontal", "frontal bone", [
+    ("arco-superciliar", "Arco superciliar", "Saliência acima da órbita, sob a sobrancelha.", (0.2, 0.45), (0.5, 0, 1), {"half": 1}),
+    ("processo-zigomatico-frontal", "Processo zigomático do frontal", "Desce para encontrar o zigomático na lateral da órbita.", (0, 0.4), (1, -0.3, 0), {"half": 1}),
+    ("tuber-frontal", "Túber frontal", "A bossa da testa.", (0.5, 0.8), (0.4, 0.2, 1), {"half": 1}),
+])
+more("parietal", "parietal bone", [
+    ("tuber-parietal", "Túber parietal", "O ponto mais saliente da lateral da calvária.", (0, 1), (1, 0.2, 0), {}),
+])
+more("maxila", "maxilla", [
+    ("processo-alveolar", "Processo alveolar", "Onde ficam os dentes de cima.", (0, 0.2), (0, -1, 0.3), {}),
+    ("processo-frontal-maxila", "Processo frontal da maxila", "Sobe ao lado do nariz até o frontal.", (0.8, 1), (0, 1, 0), {}),
+    ("processo-zigomatico-maxila", "Processo zigomático da maxila", "Encontra o zigomático na maçã do rosto.", (0.3, 0.8), (1, 0, 0), {}),
+])
+more("zigomatico-osso", "zygomatic bone", [
+    ("processo-temporal-zigomatico", "Processo temporal do zigomático", "Vai para trás e forma o arco zigomático.", (0, 1), (0, 0, -1), {}),
+    ("processo-frontal-zigomatico", "Processo frontal do zigomático", "Sobe pela lateral da órbita.", (0, 1), (0, 1, 0), {}),
+])
+more("esfenoide", "sphenoid bone", [
+    ("processo-pterigoide", "Processo pterigoide", "Desce atrás da maxila: origem dos pterigóideos.", (0, 0.4), (0.3, -1, 0), {"half": 1}),
+    ("asa-maior", "Asa maior", "Parte lateral: fossa temporal e parede da órbita; tem os forames redondo, oval e espinhoso.", (0.2, 0.9), (1, 0, 0), {}),
+])
+more("etmoide", "ethmoid", [
+    ("crista-galli", "Crista etmoidal (crista galli)", "Crista que sobe na fossa anterior; prende a foice do cérebro.", (0.7, 1), (0, 1, 0), {"mid": 0.004}),
+    ("lamina-perpendicular", "Lâmina perpendicular", "Desce e forma a parte de cima do septo nasal.", (0, 0.3), (0, -1, 0), {"mid": 0.004}),
+])
+# coluna e tórax
+more("vertebras-cervicais", "fifth cervical vertebra", [
+    ("espinhoso-cervical", "Processo espinhoso bífido (C5)", "Curto e bífido: a marca das cervicais típicas.", (0, 1), (0, -0.2, -1), {}),
+    ("transverso-cervical", "Processo transverso (C5)", "Tem o forame transversário, por onde sobe a artéria vertebral.", (0, 1), (1, 0, 0.3), {}),
+    ("corpo-cervical", "Corpo vertebral (C5)", "Pequeno e largo, com os uncos nos lados de cima.", (0, 1), (0, 0, 1), {"mid": 0.006}),
+])
+more("vertebras-toracicas", "sixth thoracic vertebra", [
+    ("espinhoso-toracico", "Processo espinhoso (T6)", "Longo e inclinado para baixo, como uma telha.", (0, 1), (0, -0.6, -1), {}),
+    ("transverso-toracico", "Processo transverso (T6)", "Tem a fóvea para o tubérculo da costela.", (0, 1), (1, 0, -0.4), {}),
+    ("corpo-toracico", "Corpo vertebral (T6)", "Em forma de coração, com fóveas para a cabeça das costelas.", (0, 1), (0, 0, 1), {"mid": 0.006}),
+])
+more("vertebras-lombares", "third lumbar vertebra", [
+    ("espinhoso-lombar", "Processo espinhoso (L3)", "Curto, largo e quadrado, quase horizontal.", (0, 1), (0, 0, -1), {}),
+    ("transverso-lombar", "Processo transverso (L3)", "Longo e fino; dá origem ao psoas e ao quadrado do lombo.", (0, 1), (1, 0, 0), {}),
+    ("corpo-lombar", "Corpo vertebral (L3)", "Grande, em forma de rim: carrega o peso do tronco.", (0, 1), (0, 0, 1), {"mid": 0.008}),
+])
+more("costelas-verdadeiras", "sixth rib", [
+    ("cabeca-costela", "Cabeça da costela (6ª)", "Articula-se com os corpos de duas vértebras.", (0, 1), (-1, 0, -0.6), {}),
+    ("angulo-costela", "Ângulo da costela (6ª)", "Onde a costela vira para a frente; o ponto mais posterior.", (0, 1), (0.3, 0, -1), {}),
+    ("extremidade-anterior-costela", "Extremidade anterior (6ª)", "Continua na cartilagem costal.", (0, 1), (0, 0, 1), {}),
+])
+# mão
+more("escafoide", "scaphoid", [
+    ("tuberculo-escafoide", "Tubérculo do escafoide", "Palpável na base da eminência tenar; fixa o retináculo dos flexores.", (0, 1), (0.4, -0.3, 1), {}),
+])
+more("hamato", "hamate", [
+    ("hamulo-hamato", "Hâmulo do hamato", "Gancho na palma: limita o túnel do carpo e o canal de Guyon.", (0, 1), (0, 0, 1), {}),
+])
+more("trapezio-osso", "trapezium", [
+    ("tuberculo-trapezio", "Tubérculo do trapézio", "Fixa o retináculo dos flexores; ao lado, o sulco do flexor radial do carpo.", (0, 1), (0, 0, 1), {}),
+])
+more("metacarpais", "first metacarpal bone", [
+    ("base-1-metacarpal", "Base do 1º metacarpal", "Articulação em sela com o trapézio; fratura de Bennett.", (0.75, 1), (0, 1, 0), {}),
+])
+more("metacarpais", "fifth metacarpal bone", [
+    ("colo-5-metacarpal", "Colo do 5º metacarpal", "Fratura do boxeador.", (0.05, 0.25), (-0.5, 0, -1), {}),
+])
+more("falanges-da-mao", "distal phalanx of middle finger", [
+    ("tuberosidade-falange-distal", "Tuberosidade da falange distal", "A ponta do dedo, sob a polpa.", (0, 0.3), (0, -1, 0), {}),
+])
+# pé
+more("talus", "talus", [
+    ("troclea-talus", "Tróclea do tálus", "Encaixa entre os maléolos: a articulação do tornozelo.", (0.7, 1), (0, 1, 0), {}),
+    ("cabeca-talus", "Cabeça do tálus", "Articula-se com o navicular.", (0, 1), (0, 0, 1), {}),
+])
+more("navicular", "navicular bone of foot", [
+    ("tuberosidade-navicular", "Tuberosidade do navicular", "Inserção do tibial posterior; palpável na borda medial do pé.", (0, 1), (-1, -0.3, 0), {}),
+])
+more("metatarsais", "fifth metatarsal bone", [
+    ("tuberosidade-5-metatarsal", "Tuberosidade do 5º metatarsal", "Inserção do fibular curto; arranca na entorse em inversão.", (0, 1), (1, 0, -0.6), {}),
+])
+more("metatarsais", "first metatarsal bone", [
+    ("cabeca-1-metatarsal", "Cabeça do 1º metatarsal", "Apoio da frente do pé; o joanete se forma aqui.", (0, 1), (0, -0.3, 1), {}),
+])
+
+
 ORDER = ["umero", "radio", "ulna", "escapula", "clavicula", "esterno", "femur", "patela", "tibia",
          "fibula", "calcaneo", "osso-do-quadril", "mandibula", "temporal-osso", "occipital",
          "frontal", "atlas", "axis", "vertebra-proeminente", "sacro"]

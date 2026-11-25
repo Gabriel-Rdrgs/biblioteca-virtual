@@ -1,0 +1,31 @@
+{
+ "structures": [
+  {
+   "id": "oponente-do-dedo-minimo-do-pe",
+   "namePt": "Oponente do dedo mínimo (pé)",
+   "region": "perna-pe",
+   "kind": "muscle",
+   "layer": "deep",
+   "parts": ["opponens digiti minimi of foot"],
+   "ficha": {
+    "nameEn": "Opponens digiti minimi (foot)",
+    "nameLatin": "Musculus opponens digiti minimi pedis",
+    "synonyms": ["parte lateral do flexor curto do dedo mínimo"],
+    "location": "Planta do pé, no lado lateral, por baixo do flexor curto do dedo mínimo.",
+    "origin": "Base do 5º metatarsal e bainha do tendão do fibular longo.",
+    "insertion": "Margem lateral do corpo do 5º metatarsal.",
+    "action": "Puxa o 5º metatarsal para baixo e para dentro — uma oposição discreta do dedo mínimo que acentua o arco transverso.",
+    "innervation": "Nervo plantar lateral (ramo superficial), S2–S3.",
+    "relations": "Profundo ao flexor curto do dedo mínimo, do qual muitas vezes é só um feixe; lateral aos interósseos plantares.",
+    "explanation": "Pequeno e inconstante: quando existe, é um feixe do flexor curto do dedo mínimo que termina no corpo do 5º metatarsal em vez de seguir até a falange.",
+    "mnemonic": "Como na mão, o oponente é o que para no metatarsal, não na falange.",
+    "association": "Ajuda a firmar a borda lateral do pé no apoio.",
+    "examTip": "Inconstante. Se cair, lembre que o compartimento lateral da planta inteiro é inervado pelo plantar lateral.",
+    "clue": "Pequeno feixe inconstante da planta do pé, do lado de fora, que termina no corpo do quinto metatarsal.",
+    "difficulty": 3,
+    "refs": ["moore", "gray"],
+    "note": "Inconstante: vários autores o descrevem como parte do flexor curto do dedo mínimo. Ficha escrita para o Atlas."
+   }
+  }
+ ]
+}
