@@ -382,20 +382,27 @@ export function NameTrainer({
       keys: parts,
       side: (state.round === 3 ? "right" : "left") as "left" | "right",
       // Acidente: a câmera mira o ponto, com o osso de contexto.
-      ...(point ? { point, padding: 1 } : { padding: 3.1 }),
+      ...(point ? { point } : { padding: 3.1 }),
       nonce: `${state.round}-${state.index}-${refocus}`,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [state.round, state.index, refocus, parts.join("|"), point],
   );
-  // O "?" no osso; o nome só aparece depois da resposta. O osso fica azul
-  // (focusKeys), para o "?" vermelho saltar à vista.
-  const markers = useMemo(
+  // Acidente: a região acende na própria superfície do osso, que mantém a
+  // cor natural; no acerto da rodada de memória, a mancha fica verde.
+  const spot = useMemo(
     () =>
-      muscle && point
-        ? [{ id: muscle.id, label: muscle.namePt, pos: point.pos, normal: point.normal, mirror: point.mirror, glyph: "?" }]
-        : [],
-    [muscle, point],
+      point
+        ? {
+            keys: parts,
+            pos: point.pos,
+            mirror: point.mirror,
+            side: (state.round === 3 ? "right" : "left") as "left" | "right",
+            tone: (green ? "correct" : "ask") as "ask" | "correct",
+          }
+        : null,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [point, parts.join("|"), state.round, green],
   );
 
   if (!active) {
@@ -418,7 +425,7 @@ export function NameTrainer({
       ? muscle?.kind === "bone"
         ? "Nomeie o osso em vermelho."
         : muscle?.kind === "landmark"
-          ? "Nomeie o acidente marcado com ?."
+          ? "Nomeie o acidente aceso no osso."
           : ROUND_INFO[3].instruction
       : state.round === 3 && answered
         ? muscle?.explanation
@@ -435,11 +442,8 @@ export function NameTrainer({
         emphasis="dim"
         interactive={false}
         selectedKeys={green || point ? [] : parts}
-        focusKeys={!green && point ? parts : []}
-        result={green ? { keys: parts, ok: true } : null}
-        markers={markers}
-        activeMarker={muscle?.id ?? null}
-        markerLabels={answered}
+        result={green && !point ? { keys: parts, ok: true } : null}
+        spot={spot}
         focus={focus}
         insets
         sway

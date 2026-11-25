@@ -89,6 +89,23 @@ export interface Marker {
   readonly glyph?: string;
 }
 
+/**
+ * Um acidente aceso na superfície do osso: uma mancha que brilha e pulsa em
+ * volta do ponto, com contorno — a região, não um alfinete. O resto do osso
+ * mantém a cor natural. É só material (shader); a geometria não muda.
+ */
+export interface Spot {
+  /** As peças do osso onde o acidente está. */
+  readonly keys: readonly string[];
+  /** O ponto, no lado esquerdo do corpo (ou na linha média). */
+  readonly pos: readonly number[];
+  readonly mirror: boolean;
+  /** Lado fixo, ou "auto": o lado do corpo virado para a câmera. */
+  readonly side: "left" | "right" | "auto";
+  /** Pergunta (vermelho) ou acerto (verde). */
+  readonly tone?: "ask" | "correct";
+}
+
 export interface AnatomyViewerProps {
   /** Chaves (inglês, sem lado) a destacar como selecionadas. */
   readonly selectedKeys?: readonly string[];
@@ -115,6 +132,8 @@ export interface AnatomyViewerProps {
   readonly onMarker?: (id: string) => void;
   /** Sem rótulo, o ponto ativo não diz o nome (o treino pergunta qual é). */
   readonly markerLabels?: boolean;
+  /** Um acidente aceso na superfície do osso. */
+  readonly spot?: Spot | null;
   /** As duas vistas pequenas que giram em volta do foco. */
   readonly insets?: boolean;
   /** A câmera balança de leve em volta do foco até a pessoa girar. */
@@ -157,6 +176,7 @@ interface Controller {
     dimMuscle: MeshStandardMaterial;
     dimBone: MeshStandardMaterial;
     veil: MeshStandardMaterial;
+    spot: MeshStandardMaterial;
     fadeBone: MeshStandardMaterial;
     ghostBone: MeshStandardMaterial;
     ghostMuscle: MeshStandardMaterial;
@@ -172,6 +192,7 @@ interface Controller {
   setBottomInset: (px: number) => void;
   setPin: (pin: { keys: readonly string[]; text: string } | null) => void;
   setMarkers: (markers: readonly Marker[], active: string | null, labels: boolean) => void;
+  setSpot: (spot: Spot | null) => void;
   invalidate: () => void;
 }
 
@@ -205,6 +226,7 @@ export function AnatomyViewer({
   markers,
   activeMarker = null,
   markerLabels = true,
+  spot = null,
   onMarker,
   insets = false,
   sway = false,
@@ -401,6 +423,7 @@ export function AnatomyViewer({
         dimMuscle: new THREE.MeshStandardMaterial({ ...base, color: 0x6e6e6e, roughness: 0.8 }),
         dimBone: new THREE.MeshStandardMaterial({ ...base, color: 0x8c8c8c, roughness: 0.7 }),
         veil: see(0.2, 0.8),
+        spot: new THREE.MeshStandardMaterial({ ...base, roughness: 0.6 }),
         ghostBone: ghost(0xdfe8f5, 0.16),
         ghostMuscle: ghost(0x9fb0cc, 0.05),
         selected: tone(0xff4d3a, 0xb51b0c),
@@ -409,7 +432,67 @@ export function AnatomyViewer({
         wrong: tone(0xff4d3a, 0xb51b0c),
       };
 
+      // A mancha do acidente: a cor do osso e, em volta do ponto, um núcleo que
+      // brilha e pulsa e um anel de contorno. Calculado por fragmento, pela
+      // distância ao ponto no espaço do mundo.
+      const spotUniforms = {
+        uSpot: { value: new THREE.Vector3() },
+        uRadius: { value: 0.02 },
+        uSpotColor: { value: new THREE.Color(0xff3b2a) },
+        uTime: { value: 0 },
+      };
+      mats.spot.onBeforeCompile = (shader) => {
+        Object.assign(shader.uniforms, spotUniforms);
+        shader.vertexShader = shader.vertexShader
+          .replace("#include <common>", "#include <common>\nvarying vec3 vSpotWorld;")
+          .replace(
+            "#include <project_vertex>",
+            "#include <project_vertex>\nvSpotWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;",
+          );
+        shader.fragmentShader = shader.fragmentShader
+          .replace(
+            "#include <common>",
+            [
+              "#include <common>",
+              "varying vec3 vSpotWorld;",
+              "uniform vec3 uSpot;",
+              "uniform float uRadius;",
+              "uniform vec3 uSpotColor;",
+              "uniform float uTime;",
+              "float spotCore;",
+              "float spotRing;",
+            ].join("\n"),
+          )
+          .replace(
+            "#include <color_fragment>",
+            [
+              "#include <color_fragment>",
+              "float spotD = distance(vSpotWorld, uSpot);",
+              "spotCore = 1.0 - smoothstep(uRadius * 0.55, uRadius, spotD);",
+              "spotRing = smoothstep(uRadius * 0.92, uRadius * 1.02, spotD) * (1.0 - smoothstep(uRadius * 1.02, uRadius * 1.18, spotD));",
+              "diffuseColor.rgb = mix(diffuseColor.rgb, uSpotColor, clamp(spotCore * 0.85 + spotRing, 0.0, 1.0));",
+            ].join("\n"),
+          )
+          .replace(
+            "#include <emissivemap_fragment>",
+            "#include <emissivemap_fragment>\ntotalEmissiveRadiance += uSpotColor * (spotCore * (0.35 + 0.25 * sin(uTime * 3.2)) + spotRing * 0.7);",
+          );
+      };
+      let spotState: Spot | null = null;
+      const spotPos = new THREE.Vector3();
+
       const controls: OrbitControls = new OrbitControls(camera, canvas);
+      const placeSpot = () => {
+        if (!spotState) return;
+        const p = spotState.pos;
+        const left =
+          spotState.side === "auto"
+            ? camera.position.x - controls.target.x >= 0
+            : spotState.side === "left";
+        const sx = spotState.mirror && !left ? -1 : 1;
+        spotPos.set((p[0] ?? 0) * sx, p[1] ?? 0, p[2] ?? 0);
+        spotUniforms.uSpot.value.copy(spotPos);
+      };
       controls.enableDamping = true;
       controls.dampingFactor = 0.09;
       controls.rotateSpeed = 0.8;
@@ -629,6 +712,12 @@ export function AnatomyViewer({
           dirty = true;
         }
         if (controls.update()) dirty = true;
+        if (spotState) {
+          // A mancha pulsa: o quadro precisa ser redesenhado.
+          spotUniforms.uTime.value = now / 1000;
+          placeSpot();
+          dirty = true;
+        }
         if (pendingHover && !tween) {
           const { x, y } = pendingHover;
           pendingHover = null;
@@ -831,7 +920,7 @@ export function AnatomyViewer({
           );
           if (n.lengthSq() < 1e-6) n.set(0, 0.1, 1);
           n.normalize();
-          const d = THREE.MathUtils.clamp(fit * (req.padding ?? 1), 0.45, 1.5);
+          const d = THREE.MathUtils.clamp(fit * (req.padding ?? 0.55), 0.3, 0.95);
           animateTo(p.clone().addScaledVector(n, d), p, true);
           return;
         }
@@ -918,6 +1007,20 @@ export function AnatomyViewer({
           placeFrames();
           invalidate();
         },
+        setSpot: (next) => {
+          spotState = next;
+          if (next) {
+            spotUniforms.uSpotColor.value.set(next.tone === "correct" ? 0x2fd27a : 0xff3b2a);
+            // O raio acompanha o tamanho do osso: maior no fêmur, menor no crânio.
+            const keys = new Set(next.keys);
+            const box = new THREE.Box3();
+            entries.filter((e) => keys.has(e.key)).forEach((e) => box.union(e.box));
+            const size = box.isEmpty() ? 0.3 : box.getSize(new THREE.Vector3()).length();
+            spotUniforms.uRadius.value = THREE.MathUtils.clamp(size * 0.07, 0.011, 0.03);
+            placeSpot();
+          }
+          invalidate();
+        },
         setMarkers: (list, active, labels) => {
           labelsOn = labels;
           markerList = list;
@@ -953,6 +1056,7 @@ export function AnatomyViewer({
           mats.dimMuscle,
           mats.dimBone,
           mats.veil,
+          mats.spot,
           mats.ghostBone,
           mats.ghostMuscle,
           mats.selected,
@@ -985,6 +1089,9 @@ export function AnatomyViewer({
   const focusSig = focusKeys.join("|");
   const resultSig = result ? `${result.ok}:${result.keys.join("|")}` : "";
   const hiddenSig = hiddenKeys.join("|");
+  const spotSig = spot
+    ? `${spot.keys.join("|")}:${spot.pos.join(",")}:${spot.side}:${spot.mirror}:${spot.tone ?? "ask"}`
+    : "";
   const layerSig = LAYERS.map((l) => (layers[l] ? 1 : 0)).join("");
 
   useEffect(() => {
@@ -994,7 +1101,13 @@ export function AnatomyViewer({
     const focused = new Set(focusKeys);
     const answered = new Set(result?.keys ?? []);
     const hidden = new Set(hiddenKeys);
-    const lit = selected.size + focused.size + answered.size > 0;
+    const spotKeys = new Set(spot?.keys ?? []);
+    // No lado fixo, só a peça daquele lado leva a mancha; no "auto", as duas.
+    const isSpot = (key: string, side: string) =>
+      !!spot &&
+      spotKeys.has(key) &&
+      (spot.side === "auto" || side === "midline" || side === spot.side);
+    const lit = selected.size + focused.size + answered.size + spotKeys.size > 0;
     const style: Emphasis = xray ? "xray" : lit ? emphasis : "none";
     const pickable: Mesh[] = [];
     const priority: Mesh[] = [];
@@ -1004,7 +1117,13 @@ export function AnatomyViewer({
     // superficial; alvo no esqueleto → as duas camadas de músculo.
     const litLayers = new Set(
       c.entries
-        .filter((e) => answered.has(e.key) || focused.has(e.key) || selected.has(e.key))
+        .filter(
+          (e) =>
+            answered.has(e.key) ||
+            focused.has(e.key) ||
+            selected.has(e.key) ||
+            isSpot(e.key, e.side),
+        )
         .map((e) => e.layer),
     );
     const veiled = new Set<AnatomyLayer>(
@@ -1015,9 +1134,10 @@ export function AnatomyViewer({
           : [],
     );
 
-    for (const { mesh, key, layer } of c.entries) {
+    for (const { mesh, key, layer, side } of c.entries) {
       let tone: Material | null = null;
-      if (answered.has(key)) tone = result?.ok ? c.mats.correct : c.mats.wrong;
+      if (isSpot(key, side)) tone = c.mats.spot;
+      else if (answered.has(key)) tone = result?.ok ? c.mats.correct : c.mats.wrong;
       else if (focused.has(key)) tone = c.mats.focus;
       else if (selected.has(key)) tone = c.mats.selected;
 
@@ -1078,7 +1198,12 @@ export function AnatomyViewer({
     c.invalidate();
     // As assinaturas em texto evitam recalcular a cada render.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedSig, focusSig, resultSig, hiddenSig, layerSig, superficialOpacity, emphasis, xray, hoverKey, ready]);
+  }, [selectedSig, focusSig, resultSig, hiddenSig, spotSig, layerSig, superficialOpacity, emphasis, xray, hoverKey, ready]);
+
+  useEffect(() => {
+    if (ready) ctl.current?.setSpot(spot);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [spotSig, ready]);
 
   /* ------------------------------------------------- câmera e vistas */
   // Só um pedido novo (outro nome ou outro nonce) move a câmera — não um objeto recriado.

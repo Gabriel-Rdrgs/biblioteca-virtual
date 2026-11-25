@@ -171,8 +171,11 @@ Organizado como um atlas: primeiro achar, depois estudar.
   lições: 142 músculos, 52 ossos, 120 acidentes). A estrutura acende e a
   pessoa escreve o nome, corrigido letra por letra (acento e maiúscula não
   contam). Três rodadas — com o nome à vista, só com a primeira letra, de
-  memória olhando o outro lado. Nos acidentes, o ponto aparece como um "?" no
-  osso (azul), a câmera mira o ponto e o nome só aparece depois da resposta.
+  memória olhando o outro lado. Nos acidentes, a própria região acende na
+  superfície do osso — uma mancha vermelha com contorno, que pulsa de leve,
+  sobre o osso na cor natural (verde no acerto) —, a câmera chega perto,
+  olhando a superfície de frente, e o nome só aparece depois da resposta. É
+  só um shader no material: a geometria do modelo não muda.
   Um filtro no topo mostra uma etapa só no corpo inteiro; o módulo da próxima
   lição abre sozinho. Dois jeitos de ver, que o aluno alterna a qualquer momento (e que
   valem também no Desafiar): **Corpo** — o corpo inteiro, os outros músculos

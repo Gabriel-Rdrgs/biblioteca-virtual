@@ -324,6 +324,14 @@ export function AnatomyAtlas({
     [marks],
   );
   const activeInfo = marks.find((m) => m.id === activeMark);
+  // O acidente escolhido acende na superfície do osso, no lado virado para a câmera.
+  const spot = useMemo(
+    () =>
+      activeInfo
+        ? { keys: [activeInfo.part], pos: activeInfo.pos, mirror: activeInfo.mirror, side: "auto" as const }
+        : null,
+    [activeInfo],
+  );
 
   // Com o índice aberto no celular, a página de trás não rola.
   useEffect(() => {
@@ -379,7 +387,19 @@ export function AnatomyAtlas({
     select(undefined);
   };
 
-  const toggleMark = (id: string) => setActiveMark((a) => (a === id ? null : id));
+  const toggleMark = (id: string) => {
+    const turningOn = activeMark !== id;
+    setActiveMark(turningOn ? id : null);
+    const m = marks.find((x) => x.id === id);
+    // Acender um acidente aproxima a câmera dele, de frente para a superfície.
+    if (turningOn && m) {
+      setFocusReq((f) => ({
+        keys: [m.part],
+        point: { pos: m.pos, normal: m.normal, mirror: m.mirror },
+        nonce: (Number(f?.nonce) || 0) + 1,
+      }));
+    }
+  };
 
   /** As ações sobre o selecionado; no celular, só os ícones. */
   const actions = (compact: boolean) => (
@@ -511,6 +531,7 @@ export function AnatomyAtlas({
           focus={focusReq}
           pin={label && !marks.length ? { keys: selectedKeys, text: label } : null}
           markers={markers}
+          spot={spot}
           activeMarker={activeMark}
           onMarker={toggleMark}
           onPick={onPick}
