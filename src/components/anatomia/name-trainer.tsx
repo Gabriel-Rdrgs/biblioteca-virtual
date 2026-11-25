@@ -39,6 +39,7 @@ import { recordSession } from "@/lib/study-log";
 import { cn } from "@/lib/utils";
 import { AnatomyViewer } from "./anatomy-viewer";
 import { KeyCatcher, TypedName } from "./typed-name";
+import { ViewToggle } from "./view-toggle";
 
 /**
  * O treino de nomes — o simulador 3D que corrige.
@@ -414,7 +415,8 @@ export function NameTrainer({
     >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,#161d2b,#0a0d14_70%)]" />
       <AnatomyViewer
-        xray
+        xray={progress.view === "raiox"}
+        emphasis="dim"
         interactive={false}
         selectedKeys={green ? [] : parts}
         result={green ? { keys: parts, ok: true } : null}
@@ -424,6 +426,11 @@ export function NameTrainer({
         bottomInset={bottomHeight}
         className="absolute inset-0"
       />
+
+      {/* Corpo ou raio-X: logo abaixo da barra, no meio, à vista mas fora do caminho. */}
+      <div className="absolute inset-x-0 top-[calc(max(8px,env(safe-area-inset-top))+3.25rem)] flex justify-center sm:top-[4.5rem]">
+        <ViewToggle />
+      </div>
 
       {/* ------------------------------------------------ barra de cima */}
       <div className="pointer-events-none absolute inset-x-0 top-0 flex items-start gap-2 p-2 pt-[max(8px,env(safe-area-inset-top))] sm:p-4 [&_button]:pointer-events-auto">

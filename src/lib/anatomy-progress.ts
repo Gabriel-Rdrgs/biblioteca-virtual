@@ -24,9 +24,13 @@ export interface AnatomyProgress {
   readonly cards: Readonly<Record<string, ReviewCard>>;
   readonly lessons: Readonly<Record<string, LessonRecord>>;
   readonly sound: boolean;
+  /** Como o treino mostra o corpo: inteiro e apagado ("corpo") ou em raio-X. */
+  readonly view: TrainerView;
 }
 
-const EMPTY: AnatomyProgress = { cards: {}, lessons: {}, sound: true };
+export type TrainerView = "corpo" | "raiox";
+
+const EMPTY: AnatomyProgress = { cards: {}, lessons: {}, sound: true, view: "corpo" };
 
 let cache: AnatomyProgress | null = null;
 const listeners = new Set<() => void>();
@@ -41,6 +45,7 @@ function read(): AnatomyProgress {
       cards: parsed.cards ?? {},
       lessons: parsed.lessons ?? {},
       sound: parsed.sound ?? true,
+      view: parsed.view === "raiox" ? "raiox" : "corpo",
     };
   } catch {
     cache = EMPTY;
@@ -128,4 +133,8 @@ export function recordLessonResult(
 
 export function setAnatomySound(on: boolean): void {
   write({ ...read(), sound: on });
+}
+
+export function setTrainerView(view: TrainerView): void {
+  write({ ...read(), view });
 }

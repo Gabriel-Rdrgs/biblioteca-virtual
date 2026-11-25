@@ -29,11 +29,14 @@ import { cn } from "@/lib/utils";
  * Como num atlas 3D de estudo, o que está selecionado pode ganhar destaque
  * de quatro jeitos (`emphasis`):
  * - **none**: o corpo inteiro com as cores do modelo;
+ * - **dim**: o corpo inteiro continua sólido, só que apagado, e o destacado
+ *   brilha; o que esconde o alvo (músculos por cima de um profundo ou de um
+ *   osso) vira um véu translúcido — o contexto fica, o alvo não some;
  * - **fade**: o resto fica translúcido, para ver através;
  * - **xray**: osso e músculos superficiais viram vulto, os profundos somem —
  *   o destacado aparece inteiro, sem nada na frente, mas no lugar dele;
  * - **isolate**: só o destacado e o esqueleto em vulto.
- * O treino usa `xray` sempre ligado.
+ * O treino alterna entre `dim` ("Corpo") e `xray` ("Raio-X"), à escolha do aluno.
  *
  * No treino, duas vistas pequenas giram devagar em volta do mesmo ponto, e
  * a câmera principal balança de leve até a pessoa pegar no modelo.
@@ -43,7 +46,7 @@ import { cn } from "@/lib/utils";
  */
 
 export type ViewName = "front" | "back" | "left" | "right" | "perspective";
-export type Emphasis = "none" | "fade" | "xray" | "isolate";
+export type Emphasis = "none" | "dim" | "fade" | "xray" | "isolate";
 type Side = "left" | "right" | "midline";
 
 export interface AnatomyPick {
@@ -137,6 +140,9 @@ interface Controller {
     hover: MeshStandardMaterial;
     soft: MeshStandardMaterial;
     fadeMuscle: MeshStandardMaterial;
+    dimMuscle: MeshStandardMaterial;
+    dimBone: MeshStandardMaterial;
+    veil: MeshStandardMaterial;
     fadeBone: MeshStandardMaterial;
     ghostBone: MeshStandardMaterial;
     ghostMuscle: MeshStandardMaterial;
@@ -373,6 +379,11 @@ export function AnatomyViewer({
         soft: see(0.4, 0.8),
         fadeMuscle: see(0.16, 0.8),
         fadeBone: see(0.42, 0.7),
+        // "Destacar": o corpo inteiro, sólido mas apagado (a cor do vértice escurecida),
+        // e só a camada que esconde o alvo vira um véu translúcido.
+        dimMuscle: new THREE.MeshStandardMaterial({ ...base, color: 0x6e6e6e, roughness: 0.8 }),
+        dimBone: new THREE.MeshStandardMaterial({ ...base, color: 0x8c8c8c, roughness: 0.7 }),
+        veil: see(0.2, 0.8),
         ghostBone: ghost(0xdfe8f5, 0.16),
         ghostMuscle: ghost(0x9fb0cc, 0.05),
         selected: tone(0xff4d3a, 0xb51b0c),
@@ -902,6 +913,9 @@ export function AnatomyViewer({
           mats.soft,
           mats.fadeMuscle,
           mats.fadeBone,
+          mats.dimMuscle,
+          mats.dimBone,
+          mats.veil,
           mats.ghostBone,
           mats.ghostMuscle,
           mats.selected,
@@ -949,6 +963,21 @@ export function AnatomyViewer({
     const priority: Mesh[] = [];
     c.mats.soft.opacity = Math.max(0.05, superficialOpacity);
 
+    // No "destacar", o que fica na frente do alvo vira véu: alvo profundo → a camada
+    // superficial; alvo no esqueleto → as duas camadas de músculo.
+    const litLayers = new Set(
+      c.entries
+        .filter((e) => answered.has(e.key) || focused.has(e.key) || selected.has(e.key))
+        .map((e) => e.layer),
+    );
+    const veiled = new Set<AnatomyLayer>(
+      litLayers.has("skeleton")
+        ? ["superficial muscles", "deep muscles"]
+        : litLayers.has("deep muscles")
+          ? ["superficial muscles"]
+          : [],
+    );
+
     for (const { mesh, key, layer } of c.entries) {
       let tone: Material | null = null;
       if (answered.has(key)) tone = result?.ok ? c.mats.correct : c.mats.wrong;
@@ -988,6 +1017,13 @@ export function AnatomyViewer({
 
       mesh.visible = layers[layer];
       if (!mesh.visible) continue;
+      if (style === "dim") {
+        const veil = veiled.has(layer);
+        mesh.material = veil ? c.mats.veil : layer === "skeleton" ? c.mats.dimBone : c.mats.dimMuscle;
+        mesh.renderOrder = veil ? 1 : 0;
+        if (!veil) pickable.push(mesh);
+        continue;
+      }
       if (style === "fade") {
         mesh.material = layer === "skeleton" ? c.mats.fadeBone : c.mats.fadeMuscle;
         mesh.renderOrder = 1;

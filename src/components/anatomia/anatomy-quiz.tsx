@@ -4,11 +4,12 @@ import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
 import { ArrowRight, Check, RotateCcw, X } from "lucide-react";
 import type { AnatomyData, AnatomyLayer, AnatomyStructure } from "@/lib/domain/anatomy-types";
-import { recordMuscleAnswer } from "@/lib/anatomy-progress";
+import { recordMuscleAnswer, useAnatomyProgress } from "@/lib/anatomy-progress";
 import { recordSession } from "@/lib/study-log";
 import { cn } from "@/lib/utils";
 import { Button, ButtonLink, ToggleChip } from "@/components/ui/primitives";
 import { AnatomyViewer, type AnatomyPick } from "./anatomy-viewer";
+import { ViewToggle } from "./view-toggle";
 
 /**
  * Quiz de anatomia sobre o modelo 3D, nos três formatos do MioLab:
@@ -83,6 +84,7 @@ export function AnatomyQuiz({ data }: { data: AnatomyData }) {
   const [answer, setAnswer] = useState<{ ok: boolean; keys: string[]; chosen?: string } | null>(null);
   const [score, setScore] = useState(0);
   const [opacity, setOpacity] = useState(1);
+  const { view: bodyView } = useAnatomyProgress();
   const started = useRef(Date.now());
   const regionName = useMemo(() => new Map(data.regions.map((r) => [r.id, r.name])), [data.regions]);
 
@@ -261,12 +263,13 @@ export function AnatomyQuiz({ data }: { data: AnatomyData }) {
           result={result}
           layers={ALL_LAYERS}
           superficialOpacity={opacity}
-          emphasis={q.kind === "locate" && !answer ? "none" : "xray"}
+          emphasis={q.kind === "locate" && !answer ? "none" : bodyView === "raiox" ? "xray" : "dim"}
           focus={focus.keys.length ? focus : null}
           view={q.kind === "locate" && !answer ? { name: "front", nonce: index } : undefined}
           onPick={onPick}
         />
-        <label className="glass-strong absolute top-2 left-2 flex items-center gap-2 rounded-full px-3 py-1.5 text-xs">
+        <ViewToggle className="absolute top-2 right-2" />
+        <label className="glass-strong absolute bottom-2 left-2 flex items-center gap-2 rounded-full px-3 py-1.5 text-xs sm:top-2 sm:bottom-auto">
           Transparência
           <input
             type="range"

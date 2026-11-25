@@ -12,6 +12,7 @@ import {
   EyeOff,
   Focus,
   GraduationCap,
+  Highlighter,
   ScanLine,
   Search,
   Target,
@@ -46,7 +47,7 @@ import { ViewerControls } from "./viewer-controls";
  * acidentes aparecem como pontos numerados no próprio modelo.
  *
  * Como nos atlas 3D de estudo, o que está na frente pode sair do caminho:
- * esmaecer o resto, ver em raio-X, isolar ou ocultar.
+ * destacar (o resto apagado), esmaecer, ver em raio-X, isolar ou ocultar.
  *
  * No computador são três colunas: índice, corpo, ficha. No celular o corpo
  * ocupa a tela; o índice abre por cima e a ficha sobe numa gaveta.
@@ -62,6 +63,7 @@ function modelName(name: string): string {
 }
 
 const EMPHASIS: readonly { id: Exclude<Emphasis, "none">; label: string; icon: typeof Eye }[] = [
+  { id: "dim", label: "Destacar", icon: Highlighter },
   { id: "fade", label: "Esmaecer o resto", icon: Contrast },
   { id: "xray", label: "Raio-X", icon: ScanLine },
   { id: "isolate", label: "Isolar", icon: Focus },
@@ -281,9 +283,9 @@ export function AnatomyAtlas({
   });
   const [opacity, setOpacity] = useState(1);
   const [view, setView] = useState<{ name: ViewName; nonce: number }>({ name: "front", nonce: 0 });
-  // Chegando direto num osso com os músculos ligados, ele estaria escondido: começa em raio-X.
+  // Chegando direto num osso com os músculos ligados, ele estaria escondido: começa destacado (músculos em véu).
   const [emphasis, setEmphasis] = useState<Emphasis>(() =>
-    initialStructure?.layer === "skeleton" && initialSystem !== "ossos" ? "xray" : "none",
+    initialStructure?.layer === "skeleton" && initialSystem !== "ossos" ? "dim" : "none",
   );
   const [hidden, setHidden] = useState<readonly string[]>([]);
   // A câmera já começa no que foi pedido: a estrutura, ou a região inteira.
@@ -337,9 +339,9 @@ export function AnatomyAtlas({
     if (!structure) return setEmphasis("none");
     if (!fly) return;
     flyTo(keysOf([structure]));
-    // Osso escolhido pelo índice com os músculos à vista: mostra em raio-X.
+    // Osso escolhido pelo índice com os músculos à vista: destaca, com os músculos em véu.
     if (structure.layer === "skeleton" && layers["superficial muscles"]) {
-      setEmphasis((e) => (e === "none" ? "xray" : e));
+      setEmphasis((e) => (e === "none" ? "dim" : e));
     }
   };
 

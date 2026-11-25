@@ -159,15 +159,19 @@ Organizado como um atlas: primeiro achar, depois estudar.
   → estrutura, uma região aberta por vez) e o corpo em 3D. Entradas:
   `?estrutura=femur`, `?sistema=ossos` (músculos desligados), `?regiao=coxa`
   (câmera na região). Passar o mouse acende e nomeia; escolher prende uma
-  etiqueta e leva a câmera até a estrutura; dá para esmaecer o resto, ver em
-  raio-X, isolar ou ocultar. **Nos ossos, os acidentes aparecem como pontos
+  etiqueta e leva a câmera até a estrutura; dá para destacar (o resto apagado),
+  esmaecer, ver em raio-X, isolar ou ocultar. **Nos ossos, os acidentes aparecem como pontos
   numerados no modelo**, ligados à lista da ficha. No celular, o índice abre
   por cima e a ficha sobe numa gaveta com os acidentes numa fileira.
 - **Lições** (`/anatomia/licoes`, `/anatomia/licao/<id>`): a estrutura acende
-  em raio-X e a pessoa escreve o nome, corrigido letra por letra (acento e
+  e a pessoa escreve o nome, corrigido letra por letra (acento e
   maiúscula não contam). Três rodadas — com o nome à vista, só com a primeira
   letra, de memória olhando o outro lado. 37 lições (25 de músculos, 12 de
-  ossos).
+  ossos). Dois jeitos de ver, que o aluno alterna a qualquer momento (e que
+  valem também no Desafiar): **Corpo** — o corpo inteiro, os outros músculos
+  apagados e o alvo aceso; se o alvo é profundo ou é um osso, só o que está na
+  frente dele vira véu translúcido — e **Raio-X** — só o alvo sólido, o resto
+  em vulto. Começa em Corpo; a escolha fica guardada no aparelho.
 - **Revisar** (`/anatomia/revisar`): o que acertou de memória volta em 1, 3,
   7, 14 e 30 dias; o que errou volta no mesmo dia.
 - **Desafiar** (`/anatomia/quiz`): identificar, localizar tocando e
