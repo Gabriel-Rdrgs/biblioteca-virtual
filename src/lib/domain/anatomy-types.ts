@@ -94,6 +94,8 @@ export interface Landmark {
   readonly pos: readonly number[];
   readonly normal: readonly number[];
   readonly mirror: boolean;
+  /** Acidente em linha (crista, margem, linha áspera): os pontos da linha, no lado esquerdo. */
+  readonly path?: readonly (readonly number[])[];
 }
 
 /** Acidentes por estrutura (id do osso). */

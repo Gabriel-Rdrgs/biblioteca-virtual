@@ -114,6 +114,18 @@ individual. A exceção são os baralhos publicados para a turma.
   acertou.
 - **Fila de erros** (`/estudar/erros`): toda objetiva errada (no modo rápido ou
   num simulado corrigido) entra, e só sai com dois acertos seguidos.
+- **Prova prática** (`/estudar/pratica`): o simulador da N2 prática de MAC I
+  que a turma usava, trazido para o Atlas. O **simulado** tem 10 estações
+  (Anatomia alternando com Embriologia/Histologia, duas questões cada): em cada
+  questão, leitura travada e depois o tempo de resposta (1:30 + 1:30, ou 0:30 +
+  1:00 no treino rápido), gabarito comentado e, no fim, relatório por tema. São
+  57 estações — peças do Netter, esquemas do Moore, lâminas do Gartner (com o
+  número perguntado circulado ou uma seta) e o modelo do laboratório. Os **15
+  temas** (`/estudar/pratica/tema/<id>`) trazem esquema, figuras com gabarito,
+  ficha de cinco campos, resposta-modelo, pegadinhas, autorrevisão e, na
+  anatomia, atalhos para o mesmo osso ou músculo no corpo em 3D. Dados em
+  `src/lib/data/pratica/mac1.json`, extraídos por `scripts/pratica/extrair.py`;
+  as figuras (`pratica-*.jpg`) moram com as dos flashcards, atrás da senha.
 - **Desempenho** (`/progresso`): respostas de todos os modos — acerto por área
   e por modo, assuntos mais fracos, últimos 14 dias, sessões recentes — e, logo
   abaixo, a evolução prova a prova dos simulados completos.
@@ -184,8 +196,11 @@ Organizado como um atlas: primeiro achar, depois estudar.
   em vulto. Começa em Corpo; a escolha fica guardada no aparelho.
 - **Revisar** (`/anatomia/revisar`): o que acertou de memória volta em 1, 3,
   7, 14 e 30 dias; o que errou volta no mesmo dia.
-- **Desafiar** (`/anatomia/quiz`): identificar, localizar tocando e
-  reconhecer pela função.
+- **Desafiar** (`/anatomia/quiz`): músculos, ossos e acidentes. Identificar
+  (a estrutura acende; o acidente, como região acesa no osso), localizar
+  tocando (para ossos e acidentes os músculos saem do caminho; no acidente vale
+  o toque a até 3 cm do ponto ou da linha, de qualquer lado) e, nos músculos,
+  reconhecer pela ação, origem ou inserção.
 
 Tudo entra no diário de estudo como "Anatomia 3D"; o progresso fica no
 aparelho (`atlas:anatomia:v1`).
@@ -212,6 +227,9 @@ aparelho (`atlas:anatomia:v1`).
   GLB com um decodificador do meshopt em Python puro (`glbgeom.py`, só numpy).
   O ponto guardado é o do lado esquerdo; o modelo é simétrico (mediana de
   0,9 mm entre o ponto espelhado e o osso direito), então o atlas espelha.
+  Cristas, margens e a linha áspera são **linhas** (`path`, até 8 pontos
+  tirados em fatias ao longo do osso): o destaque segue a borda em vez de ser
+  uma mancha redonda.
 - Próximas etapas: nervos, tendões e ligamentos, que pedem um modelo com
   essas estruturas (Z-Anatomy).
 

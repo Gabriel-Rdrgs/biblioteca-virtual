@@ -132,6 +132,37 @@ describe("os acidentes ósseos no modelo", () => {
   });
 });
 
+describe("os acidentes em linha", () => {
+  const lines = Object.values(anatomyLandmarks)
+    .flat()
+    .filter((m) => m.path);
+
+  it("são as cristas, margens e a linha áspera, com 2 a 8 pontos dentro do corpo", () => {
+    expect(lines.map((m) => m.id).sort()).toEqual(
+      [
+        "crista-iliaca",
+        "crista-sacral-mediana",
+        "espinha-escapula",
+        "linha-aspera",
+        "margem-anterior-tibia",
+        "margem-lateral",
+        "margem-medial",
+      ].sort(),
+    );
+    for (const m of lines) {
+      const path = m.path ?? [];
+      expect(path.length, m.id).toBeGreaterThanOrEqual(2);
+      // O shader recebe no máximo 8 pontos.
+      expect(path.length, m.id).toBeLessThanOrEqual(8);
+      for (const [x = 0, y = 0] of path) {
+        expect(Math.abs(x), m.id).toBeLessThan(0.35);
+        expect(y, m.id).toBeGreaterThan(0);
+        if (m.mirror) expect(x, m.id).toBeGreaterThan(0);
+      }
+    }
+  });
+});
+
 describe("o índice por região", () => {
   it("põe cada estrutura em exatamente um grupo de uma região", () => {
     const listed = regionIndex().flatMap((r) => [...r.bones, ...r.superficial, ...r.deep, ...r.others]);

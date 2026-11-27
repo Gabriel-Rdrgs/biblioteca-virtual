@@ -53,6 +53,7 @@ const MODE_LABELS: Record<string, string> = {
   flashcards: "Flashcards",
   simulado: "Simulado completo",
   anatomia: "Anatomia 3D",
+  pratica: "Prova prática",
 };
 
 export function modeLabel(mode: string): string {

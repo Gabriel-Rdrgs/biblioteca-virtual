@@ -6,3 +6,4 @@ package-lock.json
 # Baralhos importados dos artifacts da turma: dados gerados, não código.
 src/lib/data/flashcards/*.json
 src/lib/data/anatomia/*.json
+src/lib/data/pratica/*.json

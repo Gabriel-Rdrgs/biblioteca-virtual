@@ -54,7 +54,7 @@ lm("escapula", "scapula", [
     ("cavidade-glenoidal", "Cavidade glenoidal", "Recebe a cabeça do úmero.", (0.6, 0.84), (1, 0, 0.3), {"half": 1}),
     ("angulo-inferior", "Ângulo inferior", "Na altura da 7ª costela: referência na palpação das costas.", (0, 0.15), (0, -1, 0), {}),
     ("angulo-superior", "Ângulo superior", "Inserção do levantador da escápula.", (0.75, 1), (-1, 0.8, 0), {}),
-    ("espinha-escapula", "Espinha da escápula", "Separa as fossas supra e infraespinal; origem do deltoide e inserção do trapézio.", (0.6, 0.85), (0, 0.2, -1), {}),
+    ("espinha-escapula", "Espinha da escápula", "Separa as fossas supra e infraespinal; origem do deltoide e inserção do trapézio.", (0.6, 0.85), (0, 0.2, -1), {"line": "x"}),
 ])
 lm("clavicula", "clavicle", [
     ("extremidade-esternal", "Extremidade esternal", "Articula-se com o manúbrio.", (0, 1), (-1, 0, 0), {}),
@@ -99,7 +99,7 @@ lm("calcaneo", "calcaneus", [
     ("sustentaculo-talus", "Sustentáculo do tálus", "Prateleira medial que apoia o tálus; sob ela corre o flexor longo do hálux.", (0.4, 1), (-1, 0.3, 0), {}),
 ])
 lm("osso-do-quadril", "hip bone", [
-    ("crista-iliaca", "Crista ilíaca", "Borda superior do ílio; a linha entre as duas cristas passa em L4.", (0.9, 1), (0, 1, 0), {}),
+    ("crista-iliaca", "Crista ilíaca", "Borda superior do ílio; a linha entre as duas cristas passa em L4.", (0.6, 1), (0, 1, 0), {"line": "z"}),
     ("eias", "Espinha ilíaca anterossuperior", "Ponto mais anterior da crista; fixa o ligamento inguinal e o sartório.", (0.6, 1), (0.2, 0.3, 1), {}),
     ("eips", "Espinha ilíaca posterossuperior", "As 'covinhas' da lombar, no nível de S2.", (0.6, 1), (-0.2, 0.2, -1), {}),
     ("tuber-isquiatico", "Túber isquiático", "Onde se senta; origem dos isquiotibiais.", (0, 0.25), (0, -1, -0.6), {}),
@@ -154,8 +154,8 @@ more("radio", "radius", [
     ("tuberculo-dorsal", "Tubérculo dorsal (de Lister)", "Polia do tendão do extensor longo do polegar.", (0.02, 0.1), (0, 0, -1), {}),
 ])
 more("escapula", "scapula", [
-    ("margem-medial", "Margem medial", "Recebe os romboides e o serrátil anterior; descola na escápula alada.", (0.35, 0.65), (-1, 0, 0), {}),
-    ("margem-lateral", "Margem lateral", "Origem do redondo menor e do redondo maior.", (0.25, 0.5), (1, 0, 0), {}),
+    ("margem-medial", "Margem medial", "Recebe os romboides e o serrátil anterior; descola na escápula alada.", (0.12, 0.88), (-1, 0, 0), {"line": "y"}),
+    ("margem-lateral", "Margem lateral", "Origem do redondo menor e do redondo maior.", (0.12, 0.6), (1, 0, 0), {"line": "y"}),
     ("fossa-infraespinal", "Fossa infraespinal", "Face posterior, abaixo da espinha: origem do infraespinal.", (0.3, 0.5), (0, 0, -1), {}),
 ])
 more("clavicula", "clavicle", [
@@ -163,11 +163,11 @@ more("clavicula", "clavicle", [
 ])
 more("femur", "femur", [
     ("tuberosidade-glutea", "Tuberosidade glútea", "Inserção do glúteo máximo.", (0.72, 0.8), (0.5, 0, -1), {}),
-    ("linha-aspera", "Linha áspera", "Crista posterior da diáfise: adutores e vastos.", (0.4, 0.6), (0, 0, -1), {}),
+    ("linha-aspera", "Linha áspera", "Crista posterior da diáfise: adutores e vastos.", (0.28, 0.72), (0, 0, -1), {"line": "y"}),
     ("face-patelar", "Face patelar", "Onde a patela desliza.", (0.03, 0.1), (0, 0, 1), {}),
 ])
 more("tibia", "tibia", [
-    ("margem-anterior-tibia", "Margem anterior", "A canela: subcutânea, sente-se com o dedo.", (0.4, 0.6), (0, 0, 1), {}),
+    ("margem-anterior-tibia", "Margem anterior", "A canela: subcutânea, sente-se com o dedo.", (0.2, 0.8), (0, 0, 1), {"line": "y"}),
 ])
 more("fibula", "fibula", [
     ("colo-fibula", "Colo da fíbula", "O nervo fibular comum contorna aqui: pé caído na lesão.", (0.86, 0.91), (1, 0, 0), {}),
@@ -180,7 +180,7 @@ more("osso-do-quadril", "hip bone", [
     ("tuberculo-iliaco", "Tubérculo ilíaco", "O ponto mais largo da crista ilíaca.", (0.82, 0.95), (1, 0.2, 0.2), {}),
 ])
 more("sacro", "sacrum", [
-    ("crista-sacral-mediana", "Crista sacral mediana", "Processos espinhosos fundidos, na linha média de trás.", (0.4, 0.7), (0, 0, -1), {"mid": 0.01}),
+    ("crista-sacral-mediana", "Crista sacral mediana", "Processos espinhosos fundidos, na linha média de trás.", (0.3, 0.85), (0, 0, -1), {"mid": 0.01, "line": "y"}),
     ("asa-sacro", "Asa do sacro", "Parte lateral da base; apoia o ílio na sacroilíaca.", (0.75, 1), (1, 0.3, 0), {}),
 ])
 # crânio
@@ -270,6 +270,44 @@ ORDER = ["umero", "radio", "ulna", "escapula", "clavicula", "esterno", "femur", 
          "frontal", "atlas", "axis", "vertebra-proeminente", "sacro"]
 
 
+AXIS = {"x": 0, "y": 1, "z": 2}
+
+
+def trace(pos, band, direction, opts):
+    """Acidente em linha (crista, margem, linha áspera): em N fatias ao longo
+    de um eixo, dentro da faixa de altura, o vértice mais extremo na direção.
+    Devolve os pontos, do começo ao fim da linha."""
+    y = pos[:, 1]
+    lo, hi = y.min(), y.max()
+    h = hi - lo
+    sel = (y >= lo + band[0] * h - 1e-9) & (y <= lo + band[1] * h + 1e-9)
+    cx = (pos[:, 0].min() + pos[:, 0].max()) / 2
+    if "mid" in opts:
+        sel &= np.abs(pos[:, 0] - cx) <= opts["mid"] + 1e-9
+    if "half" in opts:
+        sel &= (pos[:, 0] - cx) * opts["half"] >= 0
+    cand = pos[sel]
+    ax = AXIS[opts["line"]]
+    a, b = cand[:, ax].min(), cand[:, ax].max()
+    span = b - a
+    n = opts.get("n", 7)
+    d = np.array(direction, dtype=float)
+    d /= np.linalg.norm(d)
+    path = []
+    for k in range(n):
+        # Fatias um pouco para dentro das pontas, para não pegar a beirada arredondada.
+        c = a + span * (0.06 + 0.88 * k / (n - 1))
+        w = span / (n * 1.5)
+        sl = cand[np.abs(cand[:, ax] - c) <= w]
+        if len(sl):
+            path.append(sl[int(np.argmax(sl @ d))].copy())
+    path = np.array(path)
+    # Na linha média, a linha fica na linha média: sem zigue-zague de um lado para o outro.
+    if "mid" in opts and len(path):
+        path[:, 0] = cx
+    return path
+
+
 def pick(pos, band, direction, opts):
     y = pos[:, 1]
     lo, hi = y.min(), y.max()
@@ -308,14 +346,25 @@ def main(glb, out_json, img_dir):
         mesh = next((m for m in cands if m["side"] == "left"), cands[0])
         bilateral = any(m["side"] == "right" for m in cands)
         for (lid, name, info, band, direction, opts) in items:
-            p, n = pick(mesh["pos"], band, direction, opts)
-            result.setdefault(structure, []).append({
+            path = trace(mesh["pos"], band, direction, opts) if "line" in opts else None
+            if path is not None and len(path) >= 2:
+                p = path[len(path) // 2]
+                near = mesh["pos"][np.linalg.norm(mesh["pos"] - p, axis=1) < 0.03]
+                n = p - near.mean(0)
+                n = n / (np.linalg.norm(n) or 1)
+            else:
+                p, n = pick(mesh["pos"], band, direction, opts)
+                path = None
+            entry = {
                 "id": lid, "name": name, "info": info, "part": part,
                 "pos": [round(float(v), 4) for v in p],
                 "normal": [round(float(v), 3) for v in n],
                 "mirror": bilateral,
-            })
-            sheets.setdefault(structure, []).append((mesh["pos"], p, name))
+            }
+            if path is not None:
+                entry["path"] = [[round(float(v), 4) for v in q] for q in path]
+            result.setdefault(structure, []).append(entry)
+            sheets.setdefault(structure, []).append((mesh["pos"], p, name, path))
     with open(out_json, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(result, fh, ensure_ascii=False, indent=1)
         fh.write("\n")
@@ -340,12 +389,14 @@ def main(glb, out_json, img_dir):
                 x, y = proj(v, view)
                 dr.point((x, y), fill=(150, 150, 150))
             dr.text((10 + view * (size + 20), 8), ("ANTERIOR (direita da imagem = lateral)" if view == 0 else "LATERAL (esquerda da imagem = frente)"), fill="black")
-        for k, (_, p, name) in enumerate(entries):
+        for k, (_, p, name, path) in enumerate(entries):
             for view in (0, 1):
+                if path is not None:
+                    dr.line([proj(q, view) for q in path], fill=(30, 120, 230), width=4)
                 x, y = proj(p, view)
                 dr.ellipse((x - 5, y - 5, x + 5, y + 5), fill=(230, 40, 30))
                 dr.text((x + 7, y - 6), str(k + 1), fill=(200, 0, 0))
-        legend = "  ".join(f"{k + 1}.{e[2]}" for k, e in enumerate(entries))
+        legend = "  ".join(f"{k + 1}.{e[2]}" for k, e in enumerate(entries))  # noqa: E501
         dr.text((10, size + 22), legend[:180], fill="black")
         img.save(os.path.join(img_dir, f"{structure}.png"))
 

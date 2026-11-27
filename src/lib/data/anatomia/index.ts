@@ -80,7 +80,12 @@ export interface TrainableMuscle {
   readonly clue: string;
   readonly explanation: string;
   /** Acidente: o ponto no osso (lado esquerdo; espelha se `mirror`). */
-  readonly marker?: { readonly pos: readonly number[]; readonly normal: readonly number[]; readonly mirror: boolean };
+  readonly marker?: {
+    readonly pos: readonly number[];
+    readonly normal: readonly number[];
+    readonly mirror: boolean;
+    readonly path?: readonly (readonly number[])[];
+  };
 }
 
 export type TrainableItem = TrainableMuscle;
@@ -101,7 +106,7 @@ export function trainableMuscle(id: string): TrainableMuscle | undefined {
       parts: [m.part],
       clue: `${bone.namePt}: ${m.info}`,
       explanation: `${m.name} — ${bone.namePt}. ${m.info}`,
-      marker: { pos: m.pos, normal: m.normal, mirror: m.mirror },
+      marker: { pos: m.pos, normal: m.normal, mirror: m.mirror, ...(m.path ? { path: m.path } : {}) },
     };
   }
   const s = byId.get(id);

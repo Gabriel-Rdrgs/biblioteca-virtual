@@ -27,10 +27,7 @@
     "kind": "texto",
     "front": "Que plano separa **superior** de **inferior**?",
     "back": "O **transverso (axial)**, horizontal.",
-    "axisId": "referenciais",
-    "backImageIds": [
-     "cc-human-anatomy-planes-be"
-    ]
+    "axisId": "referenciais"
    },
    {
     "id": "anat-referenciais-03",
@@ -69,15 +66,7 @@
     "axisId": "referenciais"
    }
   ],
-  "images": [
-   {
-    "id": "cc-human-anatomy-planes-be",
-    "file": "cc-human-anatomy-planes-be.png",
-    "width": 960,
-    "height": 837,
-    "caption": "Human anatomy planes be — A potato hater · CC BY 4.0 · Wikimedia Commons"
-   }
-  ]
+  "images": []
  },
  {
   "id": "oficial:anat-osteologia-geral",
@@ -148,7 +137,10 @@
     "kind": "texto",
     "front": "Partes de um **osso longo**.",
     "back": "**Diáfise** (corpo), **metáfises**, **epífises** (extremidades) e **lâmina epifisial** (de crescimento); cavidade medular revestida por endósteo; periósteo por fora.",
-    "axisId": "osteologia-geral"
+    "axisId": "osteologia-geral",
+    "backImageIds": [
+     "cc-anatomy-bone"
+    ]
    }
   ],
   "images": [
@@ -165,6 +157,13 @@
     "width": 960,
     "height": 419,
     "caption": "Intramembranous ossification and endochondral ossification — Ge, R.; Liu, C.; Zhao, Y.; Wang, K.; Wang, X. · CC BY 4.0 · Wikimedia Commons"
+   },
+   {
+    "id": "cc-anatomy-bone",
+    "file": "cc-anatomy-bone.jpg",
+    "width": 960,
+    "height": 733,
+    "caption": "Anatomy- bone — Unknown authorUnknown author Illustrator · Public domain · Wikimedia Commons"
    }
   ]
  },
@@ -189,7 +188,10 @@
     "tip": {
      "label": "Para memorizar",
      "text": "V1 fissura orbital superior · V2 forame **redondo** · V3 forame **oval**."
-    }
+    },
+    "backImageIds": [
+     "cc-posterior-fossa"
+    ]
    },
    {
     "id": "anat-cranio-02",
@@ -242,7 +244,15 @@
     "axisId": "cranio"
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-posterior-fossa",
+    "file": "cc-posterior-fossa.png",
+    "width": 712,
+    "height": 1057,
+    "caption": "Posterior fossa — Mikael Häggström. When using this image in external works, it may be cited as: H · Public domain · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:anat-contracao",
@@ -265,7 +275,10 @@
     "tip": {
      "label": "Para memorizar",
      "text": "Os filamentos **deslizam**, não encurtam."
-    }
+    },
+    "backImageIds": [
+     "cc-sarcomere-diagram"
+    ]
    },
    {
     "id": "anat-contracao-02",
@@ -283,7 +296,10 @@
     "tip": {
      "label": "Atenção",
      "text": "Curare bloqueia o **receptor**; anticolinesterásico tem efeito **oposto**."
-    }
+    },
+    "backImageIds": [
+     "cc-neuromuscular-junction"
+    ]
    },
    {
     "id": "anat-contracao-04",
@@ -307,7 +323,22 @@
     "axisId": "contracao"
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-sarcomere-diagram",
+    "file": "cc-sarcomere-diagram.png",
+    "width": 960,
+    "height": 427,
+    "caption": "Sarcomere diagram — SlothMcCarty · CC BY-SA 3.0 · Wikimedia Commons"
+   },
+   {
+    "id": "cc-neuromuscular-junction",
+    "file": "cc-neuromuscular-junction.png",
+    "width": 960,
+    "height": 857,
+    "caption": "Neuromuscular junction — Paul Hege · CC BY-SA 4.0 · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:anat-miologia",
@@ -401,7 +432,10 @@
     "kind": "texto",
     "front": "Curvaturas **primárias** × **secundárias**.",
     "back": "**Primárias** (fetais): **torácica** e **sacral**. **Secundárias**: **cervical** e **lombar**.",
-    "axisId": "coluna"
+    "axisId": "coluna",
+    "backImageIds": [
+     "cc-gray-111-vertebral-column-coloured-zh"
+    ]
    },
    {
     "id": "anat-coluna-02",
@@ -429,7 +463,10 @@
     "kind": "texto",
     "front": "Para onde **hernia** o disco, e por quê?",
     "back": "**Posterolateral**: o **anel fibroso é mais fino** ali e o **ligamento longitudinal posterior** não reforça lateralmente → comprime a **raiz nervosa**.",
-    "axisId": "coluna"
+    "axisId": "coluna",
+    "backImageIds": [
+     "cc-render-of-a-3d-depiction-of-a-herniated-disc"
+    ]
    },
    {
     "id": "anat-coluna-06",
@@ -446,7 +483,22 @@
     "axisId": "coluna"
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-gray-111-vertebral-column-coloured-zh",
+    "file": "cc-gray-111-vertebral-column-coloured-zh.png",
+    "width": 233,
+    "height": 800,
+    "caption": "Gray 111 - Vertebral column-coloured-zh — Henry Vandyke Carter · Public domain · Wikimedia Commons"
+   },
+   {
+    "id": "cc-render-of-a-3d-depiction-of-a-herniated-disc",
+    "file": "cc-render-of-a-3d-depiction-of-a-herniated-disc.png",
+    "width": 960,
+    "height": 614,
+    "caption": "Render of a 3D depiction of a herniated disc — https://www.myupchar.com/en · CC BY-SA 4.0 · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:anat-dorso",
@@ -465,7 +517,10 @@
     "kind": "texto",
     "front": "Músculos **extrínsecos** × **próprios** do dorso.",
     "back": "**Extrínsecos**: movem o **membro superior**, ramos **anteriores**. **Próprios (intrínsecos)**: movem a **coluna**, ramos **posteriores**.",
-    "axisId": "dorso"
+    "axisId": "dorso",
+    "backImageIds": [
+     "cc-back-muscles"
+    ]
    },
    {
     "id": "anat-dorso-02",
@@ -500,7 +555,15 @@
     "axisId": "dorso"
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-back-muscles",
+    "file": "cc-back-muscles.jpg",
+    "width": 700,
+    "height": 700,
+    "caption": "Back Muscles — henry Vandyke CarterLumbar_triangle: derivative work: Rafael Di Marcon Barros · Public domain · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:anat-parede-abdominal",
@@ -573,7 +636,10 @@
     "kind": "texto",
     "front": "O que forma o **diafragma da pelve**?",
     "back": "**Levantador do ânus** (puborretal, pubococcígeo, iliococcígeo) + **isquiococcígeo**.",
-    "axisId": "assoalho-pelvico"
+    "axisId": "assoalho-pelvico",
+    "backImageIds": [
+     "cc-levator-ani"
+    ]
    },
    {
     "id": "anat-assoalho-pelvico-02",
@@ -590,7 +656,15 @@
     "axisId": "assoalho-pelvico"
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-levator-ani",
+    "file": "cc-levator-ani.png",
+    "width": 455,
+    "height": 470,
+    "caption": "Levator ani — modified by Uwe Gille · Public domain · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:paras-introducao",
@@ -663,14 +737,20 @@
     "kind": "texto",
     "front": "Qual o estágio **infectante** de Giardia?",
     "back": "O **cisto** (oval, 2–4 núcleos), resistente, veiculado por **água e alimentos**.",
-    "axisId": "giardia-amebiase"
+    "axisId": "giardia-amebiase",
+    "backImageIds": [
+     "cc-cyst-of-giardia-lamblia-in-methylene-blue-stain"
+    ]
    },
    {
     "id": "paras-giardia-amebiase-02",
     "kind": "texto",
     "front": "Como Giardia causa **má absorção**?",
     "back": "Trofozoítos **aderem** ao duodeno/jejuno **sem invadir** e lesam a borda em escova → falta de **dissacaridases (lactase)**.",
-    "axisId": "giardia-amebiase"
+    "axisId": "giardia-amebiase",
+    "backImageIds": [
+     "cc-cesimon-giardia-trophozoite"
+    ]
    },
    {
     "id": "paras-giardia-amebiase-03",
@@ -684,7 +764,10 @@
     "kind": "texto",
     "front": "Trofozoíto com **hemácias fagocitadas** nas fezes sugere…",
     "back": "**Entamoeba histolytica**, a espécie **invasiva**.",
-    "axisId": "giardia-amebiase"
+    "axisId": "giardia-amebiase",
+    "backImageIds": [
+     "cc-entamoeba-histolytica-trophozoite"
+    ]
    },
    {
     "id": "paras-giardia-amebiase-05",
@@ -701,7 +784,29 @@
     "axisId": "giardia-amebiase"
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-cyst-of-giardia-lamblia-in-methylene-blue-stain",
+    "file": "cc-cyst-of-giardia-lamblia-in-methylene-blue-stain.jpg",
+    "width": 960,
+    "height": 540,
+    "caption": "Cyst of Giardia lamblia in Methylene blue stain — Ajay Kumar Chaurasiya · CC BY-SA 4.0 · Wikimedia Commons"
+   },
+   {
+    "id": "cc-cesimon-giardia-trophozoite",
+    "file": "cc-cesimon-giardia-trophozoite.jpg",
+    "width": 555,
+    "height": 582,
+    "caption": "CESimon Giardia Trophozoite — Charles E. Simon, Johns Hopkins University School of Hygiene and Public Health,  · Public domain · Wikimedia Commons"
+   },
+   {
+    "id": "cc-entamoeba-histolytica-trophozoite",
+    "file": "cc-entamoeba-histolytica-trophozoite.png",
+    "width": 695,
+    "height": 680,
+    "caption": "Entamoeba histolytica trophozoite — Original micrograph: CDC/ Dr. Mae Melvin; Dr. Greene Annotations by Mikael Häggs · CC0 · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:paras-malaria-chagas",
@@ -731,21 +836,30 @@
     "kind": "texto",
     "front": "**Gota espessa** × **esfregaço delgado**.",
     "back": "**Gota espessa**: mais **sensível** (mais sangue por campo). **Esfregaço**: identifica a **espécie**.",
-    "axisId": "malaria-chagas"
+    "axisId": "malaria-chagas",
+    "backImageIds": [
+     "cc-p-falciparum-thick-smear-with-gametocytes"
+    ]
    },
    {
     "id": "paras-malaria-chagas-03",
     "kind": "texto",
     "front": "Gametócito em **crescente (banana)** é de…",
     "back": "**Plasmodium falciparum**.",
-    "axisId": "malaria-chagas"
+    "axisId": "malaria-chagas",
+    "backImageIds": [
+     "cc-plasmodium-falciparum-gametocyte"
+    ]
    },
    {
     "id": "paras-malaria-chagas-04",
     "kind": "texto",
     "front": "Quem transmite a malária no Brasil?",
     "back": "**Fêmeas de Anopheles** (A. darlingi), que inoculam **esporozoítos** com a saliva.",
-    "axisId": "malaria-chagas"
+    "axisId": "malaria-chagas",
+    "backImageIds": [
+     "cc-anopheles-gambiae-mosquito-feeding-1354-p-lores"
+    ]
    },
    {
     "id": "paras-malaria-chagas-05",
@@ -756,7 +870,10 @@
     "tip": {
      "label": "Correlação clínica",
      "text": "Surtos agudos atuais: **via oral** (açaí, caldo de cana contaminados)."
-    }
+    },
+    "backImageIds": [
+     "cc-trypanosoma-cruzi-life-cycle"
+    ]
    },
    {
     "id": "paras-malaria-chagas-06",
@@ -777,10 +894,49 @@
     "kind": "texto",
     "front": "Qual o vetor da doença de Chagas?",
     "back": "**Triatomíneos** (barbeiro), que eliminam o parasito nas **fezes** durante o repasto.",
-    "axisId": "malaria-chagas"
+    "axisId": "malaria-chagas",
+    "backImageIds": [
+     "cc-triatoma-infestans-individuo-adulto-cat-logo-de-triatominos-"
+    ]
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-p-falciparum-thick-smear-with-gametocytes",
+    "file": "cc-p-falciparum-thick-smear-with-gametocytes.jpg",
+    "width": 960,
+    "height": 723,
+    "caption": "P. falciparum thick smear with gametocytes — Jenkayaks · CC BY-SA 3.0 · Wikimedia Commons"
+   },
+   {
+    "id": "cc-plasmodium-falciparum-gametocyte",
+    "file": "cc-plasmodium-falciparum-gametocyte.jpg",
+    "width": 960,
+    "height": 591,
+    "caption": "Plasmodium falciparum gametocyte — Microrao · CC BY-SA 4.0 · Wikimedia Commons"
+   },
+   {
+    "id": "cc-anopheles-gambiae-mosquito-feeding-1354-p-lores",
+    "file": "cc-anopheles-gambiae-mosquito-feeding-1354-p-lores.jpg",
+    "width": 700,
+    "height": 465,
+    "caption": "Anopheles gambiae mosquito feeding 1354.p lores — Content Providers(s): CDC/James Gathany Provider Email: jdg1@cdc.gov Photo Credi · Public domain · Wikimedia Commons"
+   },
+   {
+    "id": "cc-trypanosoma-cruzi-life-cycle",
+    "file": "cc-trypanosoma-cruzi-life-cycle.jpg",
+    "width": 960,
+    "height": 486,
+    "caption": "Trypanosoma cruzi life cycle — Kárita C. F. Lidani, Lorena Bavia, Altair R. Ambrosio and Iara J. de Messias-Rea · CC BY 4.0 · Wikimedia Commons"
+   },
+   {
+    "id": "cc-triatoma-infestans-individuo-adulto-cat-logo-de-triatominos-",
+    "file": "cc-triatoma-infestans-individuo-adulto-cat-logo-de-triatominos-.png",
+    "width": 690,
+    "height": 621,
+    "caption": "Triatoma infestans Individuo adulto. Catálogo-de-triatominos-argentinos-2023 — Fuente/Source: Centro Nacional de Diagnóstico e Investigación en Endemoepidemias · CC BY 4.0 · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:paras-leishmania-toxo",
@@ -799,14 +955,20 @@
     "kind": "texto",
     "front": "Leishmaniose **visceral** no Brasil: agente, vetor e reservatório.",
     "back": "**L. infantum**, **Lutzomyia longipalpis** e o **cão**.",
-    "axisId": "leishmania-toxo"
+    "axisId": "leishmania-toxo",
+    "backImageIds": [
+     "cc-lutzomyia-longipalpis-sandfly"
+    ]
    },
    {
     "id": "paras-leishmania-toxo-02",
     "kind": "texto",
     "front": "Que forma da Leishmania vive **no ser humano**?",
     "back": "O **amastigota**, dentro de **macrófagos**. O promastigota vive no vetor.",
-    "axisId": "leishmania-toxo"
+    "axisId": "leishmania-toxo",
+    "backImageIds": [
+     "cc-leishmania-donovani-amastigotes-in-giemsa-stained-smear-of-f"
+    ]
    },
    {
     "id": "paras-leishmania-toxo-03",
@@ -831,7 +993,10 @@
     "kind": "texto",
     "front": "O gato elimina o quê?",
     "back": "**Oocistos** nas fezes, que precisam de **dias no ambiente** para esporular.",
-    "axisId": "leishmania-toxo"
+    "axisId": "leishmania-toxo",
+    "backImageIds": [
+     "cc-toxoplasmosis-life-cycle-en"
+    ]
    },
    {
     "id": "paras-leishmania-toxo-06",
@@ -841,7 +1006,29 @@
     "axisId": "leishmania-toxo"
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-lutzomyia-longipalpis-sandfly",
+    "file": "cc-lutzomyia-longipalpis-sandfly.jpg",
+    "width": 650,
+    "height": 650,
+    "caption": "Lutzomyia longipalpis-sandfly — Ray Wilson, Liverpool School of Tropical Medicine · CC BY 2.5 · Wikimedia Commons"
+   },
+   {
+    "id": "cc-leishmania-donovani-amastigotes-in-giemsa-stained-smear-of-f",
+    "file": "cc-leishmania-donovani-amastigotes-in-giemsa-stained-smear-of-f.jpg",
+    "width": 960,
+    "height": 540,
+    "caption": "Leishmania donovani amastigotes in Giemsa stained smear of FNAC — Ajay Kumar Chaurasiya · CC BY-SA 4.0 · Wikimedia Commons"
+   },
+   {
+    "id": "cc-toxoplasmosis-life-cycle-en",
+    "file": "cc-toxoplasmosis-life-cycle-en.png",
+    "width": 960,
+    "height": 588,
+    "caption": "Toxoplasmosis life cycle en — LadyofHats · Public domain · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:paras-tricomoniase",
@@ -860,7 +1047,10 @@
     "kind": "texto",
     "front": "Por que a tricomoníase é transmitida quase só por **via sexual**?",
     "back": "Só tem **trofozoíto**, **sem cisto**, e resiste pouco fora do hospedeiro.",
-    "axisId": "tricomoniase"
+    "axisId": "tricomoniase",
+    "backImageIds": [
+     "cc-trichomonas-vaginalis-phase-contrast-microscopy"
+    ]
    },
    {
     "id": "paras-tricomoniase-02",
@@ -881,7 +1071,15 @@
     }
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-trichomonas-vaginalis-phase-contrast-microscopy",
+    "file": "cc-trichomonas-vaginalis-phase-contrast-microscopy.jpg",
+    "width": 448,
+    "height": 618,
+    "caption": "Trichomonas vaginalis phase contrast microscopy — Dr Graham Beards · CC BY-SA 3.0 · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:paras-tenia",
@@ -900,14 +1098,20 @@
     "kind": "texto",
     "front": "Escólex com **ventosas e coroa de ganchos** é de…",
     "back": "**Taenia solium** (porco). T. saginata **não tem ganchos**.",
-    "axisId": "tenia"
+    "axisId": "tenia",
+    "backImageIds": [
+     "cc-taenia-solium-scolex-under-microscope"
+    ]
    },
    {
     "id": "paras-tenia-02",
     "kind": "texto",
     "front": "Proglote com **15 a 30 ramificações** uterinas é de…",
     "back": "**Taenia saginata** (boi). T. solium tem **7 a 12**.",
-    "axisId": "tenia"
+    "axisId": "tenia",
+    "backImageIds": [
+     "cc-taenia-saginata-mature-proglottid"
+    ]
    },
    {
     "id": "paras-tenia-03",
@@ -925,10 +1129,35 @@
     "kind": "texto",
     "front": "Dá para distinguir as espécies pelo **ovo**?",
     "back": "**Não.** Os ovos são **iguais**; a espécie sai das **proglotes** ou do **escólex** (tamisação).",
-    "axisId": "tenia"
+    "axisId": "tenia",
+    "backImageIds": [
+     "cc-hooklets-in-taenia-egg"
+    ]
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-taenia-solium-scolex-under-microscope",
+    "file": "cc-taenia-solium-scolex-under-microscope.jpg",
+    "width": 960,
+    "height": 948,
+    "caption": "Taenia solium scolex under microscope — Nour Dawod · CC0 · Wikimedia Commons"
+   },
+   {
+    "id": "cc-taenia-saginata-mature-proglottid",
+    "file": "cc-taenia-saginata-mature-proglottid.jpg",
+    "width": 960,
+    "height": 540,
+    "caption": "Taenia saginata mature proglottid — The Other 95% · CC BY-SA 4.0 · Wikimedia Commons"
+   },
+   {
+    "id": "cc-hooklets-in-taenia-egg",
+    "file": "cc-hooklets-in-taenia-egg.jpg",
+    "width": 960,
+    "height": 540,
+    "caption": "Hooklets in Taenia egg — Ajay Kumar Chaurasiya · CC BY-SA 4.0 · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:paras-esquistossomose",
@@ -947,14 +1176,20 @@
     "kind": "texto",
     "front": "Ovo grande com **espícula lateral** é de…",
     "back": "**Schistosoma mansoni**; adultos nas **vênulas mesentéricas**.",
-    "axisId": "esquistossomose"
+    "axisId": "esquistossomose",
+    "backImageIds": [
+     "cc-schistosoma-mansoni-egg-4841-lores"
+    ]
    },
    {
     "id": "paras-esquistossomose-02",
     "kind": "texto",
     "front": "Quem infecta o caramujo e quem infecta o ser humano?",
     "back": "**Miracídio** → caramujo **Biomphalaria**. **Cercária** → penetra a **pele** humana.",
-    "axisId": "esquistossomose"
+    "axisId": "esquistossomose",
+    "backImageIds": [
+     "cc-biomphalaria-glabrata"
+    ]
    },
    {
     "id": "paras-esquistossomose-03",
@@ -971,7 +1206,22 @@
     "axisId": "esquistossomose"
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-schistosoma-mansoni-egg-4841-lores",
+    "file": "cc-schistosoma-mansoni-egg-4841-lores.jpg",
+    "width": 700,
+    "height": 454,
+    "caption": "Schistosoma mansoni egg 4841 lores — autor no Commons · Public domain · Wikimedia Commons"
+   },
+   {
+    "id": "cc-biomphalaria-glabrata",
+    "file": "cc-biomphalaria-glabrata.jpg",
+    "width": 960,
+    "height": 1211,
+    "caption": "Biomphalaria glabrata — Fred A. Lewis, Yung-san Liang, Nithya Raghavan & Matty Knight · CC BY 2.5 · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:paras-larva-migrans",
@@ -994,7 +1244,10 @@
     "tip": {
      "label": "Atenção",
      "text": "**Toxocara** causa larva migrans **visceral**, por **ingestão** de ovos."
-    }
+    },
+    "backImageIds": [
+     "cc-cutaneous-larva-migrans-1"
+    ]
    },
    {
     "id": "paras-larva-migrans-02",
@@ -1004,7 +1257,15 @@
     "axisId": "larva-migrans"
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-cutaneous-larva-migrans-1",
+    "file": "cc-cutaneous-larva-migrans-1.jpg",
+    "width": 169,
+    "height": 134,
+    "caption": "Cutaneous larva migrans 1 — Agbiotec · Public domain · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:paras-ascaris-enterobius",
@@ -1023,7 +1284,10 @@
     "kind": "texto",
     "front": "Ovo com **membrana mamilonada** é de…",
     "back": "**Ascaris lumbricoides** (fértil).",
-    "axisId": "ascaris-enterobius"
+    "axisId": "ascaris-enterobius",
+    "backImageIds": [
+     "cc-ascaris-lumbricoides-non-fertile-egg"
+    ]
    },
    {
     "id": "paras-ascaris-enterobius-02",
@@ -1037,7 +1301,10 @@
     "kind": "texto",
     "front": "**Prurido anal noturno** sugere…",
     "back": "**Enterobius vermicularis**: fêmeas migram à noite para a região perianal.",
-    "axisId": "ascaris-enterobius"
+    "axisId": "ascaris-enterobius",
+    "backImageIds": [
+     "cc-egg-of-enterobius-vermicularis"
+    ]
    },
    {
     "id": "paras-ascaris-enterobius-04",
@@ -1047,7 +1314,22 @@
     "axisId": "ascaris-enterobius"
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-ascaris-lumbricoides-non-fertile-egg",
+    "file": "cc-ascaris-lumbricoides-non-fertile-egg.jpg",
+    "width": 740,
+    "height": 814,
+    "caption": "Ascaris lumbricoides non-fertile egg — GrahamColm · CC BY-SA 3.0 · Wikimedia Commons"
+   },
+   {
+    "id": "cc-egg-of-enterobius-vermicularis",
+    "file": "cc-egg-of-enterobius-vermicularis.jpg",
+    "width": 960,
+    "height": 540,
+    "caption": "Egg of Enterobius vermicularis — Ajay Kumar Chaurasiya · CC BY 4.0 · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:paras-ancilostoma-strongyloides",
@@ -1091,10 +1373,21 @@
     "tip": {
      "label": "Correlação clínica",
      "text": "Só S. stercoralis faz **autoinfecção** (hiperinfecção no imunodeprimido)."
-    }
+    },
+    "backImageIds": [
+     "cc-larva-of-strongyloides-in-saline-wet-mount-of-stool-microsco"
+    ]
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-larva-of-strongyloides-in-saline-wet-mount-of-stool-microsco",
+    "file": "cc-larva-of-strongyloides-in-saline-wet-mount-of-stool-microsco.jpg",
+    "width": 960,
+    "height": 720,
+    "caption": "Larva of Strongyloides in Saline wet mount of stool microscopy — Ajay Kumar Chaurasiya · CC BY-SA 4.0 · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:ic-ciencia-conhecimento",
@@ -1235,7 +1528,10 @@
     "kind": "texto",
     "front": "Pirâmide da evidência, da base ao topo.",
     "back": "Relatos/séries de casos → caso-controle → coorte → **ensaio clínico randomizado** → **revisão sistemática / metanálise**.",
-    "axisId": "tipos-pesquisa"
+    "axisId": "tipos-pesquisa",
+    "backImageIds": [
+     "cc-evidence-based-medicine-ebm"
+    ]
    },
    {
     "id": "ic-tipos-pesquisa-06",
@@ -1263,7 +1559,15 @@
     "axisId": "tipos-pesquisa"
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-evidence-based-medicine-ebm",
+    "file": "cc-evidence-based-medicine-ebm.png",
+    "width": 300,
+    "height": 226,
+    "caption": "Evidence-based Medicine (EBM) — Tingjoh · CC BY-SA 4.0 · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:ic-busca-ia",
@@ -1343,7 +1647,10 @@
     "kind": "texto",
     "front": "**Funil assimétrico** sugere…",
     "back": "**Viés de publicação**: estudos pequenos com resultado nulo não são publicados.",
-    "axisId": "vieses"
+    "axisId": "vieses",
+    "backImageIds": [
+     "cc-funnelplot"
+    ]
    },
    {
     "id": "ic-vieses-03",
@@ -1374,7 +1681,15 @@
     "axisId": "vieses"
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-funnelplot",
+    "file": "cc-funnelplot.png",
+    "width": 300,
+    "height": 300,
+    "caption": "Funnelplot — Nousernamesleft · Public domain · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:ic-etica-humanos",
@@ -1555,7 +1870,10 @@
     "kind": "texto",
     "front": "A replicação é…",
     "back": "**Semiconservativa**: cada molécula-filha tem **uma fita parental** e **uma nova**.",
-    "axisId": "replicacao"
+    "axisId": "replicacao",
+    "backImageIds": [
+     "cc-dna-replication-en"
+    ]
    },
    {
     "id": "bio-replicacao-02",
@@ -1579,7 +1897,15 @@
     "axisId": "replicacao"
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-dna-replication-en",
+    "file": "cc-dna-replication-en.png",
+    "width": 960,
+    "height": 467,
+    "caption": "DNA replication en — LadyofHats Mariana Ruiz · Public domain · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:bio-transcricao-traducao",
@@ -1684,7 +2010,10 @@
     "tip": {
      "label": "Para memorizar",
      "text": "Acetilar **abre**; desacetilar e metilar o DNA **fecham**."
-    }
+    },
+    "backImageIds": [
+     "cc-closed-and-relaxed-chromatin"
+    ]
    },
    {
     "id": "bio-regulacao-epigenetica-05",
@@ -1701,7 +2030,15 @@
     "axisId": "regulacao-epigenetica"
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-closed-and-relaxed-chromatin",
+    "file": "cc-closed-and-relaxed-chromatin.jpg",
+    "width": 960,
+    "height": 286,
+    "caption": "Closed and relaxed chromatin — modified from original by Annabelle L. Rodd, Katherine Ververis, and Tom C. Kara · CC BY-SA 4.0 · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:bio-celulas-tronco",
@@ -1748,10 +2085,21 @@
     "kind": "texto",
     "front": "O que é **metaplasia**?",
     "back": "Troca adaptativa de um tipo celular diferenciado **por outro** (esôfago de Barrett). Reversível, mas **aumenta o risco** de câncer.",
-    "axisId": "celulas-tronco"
+    "axisId": "celulas-tronco",
+    "backImageIds": [
+     "cc-barrett-s-mucosa-h-e"
+    ]
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-barrett-s-mucosa-h-e",
+    "file": "cc-barrett-s-mucosa-h-e.jpg",
+    "width": 734,
+    "height": 512,
+    "caption": "Barrett's mucosa, H&E — The Armed Forces Institute of Pathology (AFIP) · Public domain · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:bio-ciclo-neoplasia",
@@ -1774,7 +2122,10 @@
     "tip": {
      "label": "Correlação clínica",
      "text": "Metotrexato age em **S**; vincristina em **M**."
-    }
+    },
+    "backImageIds": [
+     "cc-animal-cell-cycle-en"
+    ]
    },
    {
     "id": "bio-ciclo-neoplasia-02",
@@ -1802,7 +2153,15 @@
     }
    }
   ],
-  "images": []
+  "images": [
+   {
+    "id": "cc-animal-cell-cycle-en",
+    "file": "cc-animal-cell-cycle-en.png",
+    "width": 960,
+    "height": 933,
+    "caption": "Animal cell cycle-en — Kelvinsong · CC0 · Wikimedia Commons"
+   }
+  ]
  },
  {
   "id": "oficial:bio-senescencia-apoptose",

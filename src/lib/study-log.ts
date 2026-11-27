@@ -19,7 +19,7 @@ const QUEUE_KEY = "atlas:fila-erros:v1";
 const MAX_EVENTS = 5000;
 const MAX_SESSIONS = 300;
 
-export type StudyMode = "rapido" | "imagem" | "flashcards" | "simulado" | "anatomia";
+export type StudyMode = "rapido" | "imagem" | "flashcards" | "simulado" | "anatomia" | "pratica";
 
 export interface StudyEvent {
   /** Quando, em ms desde a época — compacto, porque são milhares. */

@@ -65,7 +65,12 @@ export interface TrainerMuscle {
   readonly clue: string;
   readonly explanation: string;
   /** Acidente: o ponto no osso, que acende com um "?". */
-  readonly marker?: { readonly pos: readonly number[]; readonly normal: readonly number[]; readonly mirror: boolean };
+  readonly marker?: {
+    readonly pos: readonly number[];
+    readonly normal: readonly number[];
+    readonly mirror: boolean;
+    readonly path?: readonly (readonly number[])[];
+  };
 }
 
 type Round = 1 | 2 | 3;
@@ -399,6 +404,7 @@ export function NameTrainer({
             mirror: point.mirror,
             side: (state.round === 3 ? "right" : "left") as "left" | "right",
             tone: (green ? "correct" : "ask") as "ask" | "correct",
+            ...(point.path ? { path: point.path } : {}),
           }
         : null,
     // eslint-disable-next-line react-hooks/exhaustive-deps

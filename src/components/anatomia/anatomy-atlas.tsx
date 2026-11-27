@@ -328,7 +328,13 @@ export function AnatomyAtlas({
   const spot = useMemo(
     () =>
       activeInfo
-        ? { keys: [activeInfo.part], pos: activeInfo.pos, mirror: activeInfo.mirror, side: "auto" as const }
+        ? {
+            keys: [activeInfo.part],
+            pos: activeInfo.pos,
+            mirror: activeInfo.mirror,
+            side: "auto" as const,
+            ...(activeInfo.path ? { path: activeInfo.path } : {}),
+          }
         : null,
     [activeInfo],
   );

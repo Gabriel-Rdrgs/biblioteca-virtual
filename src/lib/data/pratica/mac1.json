@@ -1,0 +1,4516 @@
+{
+ "title": "MAC I · Prova prática N2",
+ "case": [
+  "Mulher, 29 anos, **≈5 semanas de IG** (≈3ª semana do desenvolvimento), colisão automobilística.",
+  "**Fratura diafisária do úmero D** + **neuropatia do nervo radial** (punho em flexão, hipoestesia no dorso do 1º espaço interdigital).",
+  "**Ruptura completa do tendão distal do bíceps D** (↓ flexão do cotovelo e supinação).",
+  "**Fratura diafisária do fêmur E**; evoluiu com TVP proximal e TEP.",
+  "US: **saco gestacional intrauterino inicial**, ovários morfologicamente preservados; **β-hCG** seriado."
+ ],
+ "figures": {
+  "n400": {
+   "file": "pratica-n400.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 6-1",
+   "caption": "Úmero e escápula: vista anterior",
+   "topics": [
+    "umero"
+   ],
+   "key": [
+    "Acrômio",
+    "Tubérculo maior",
+    "Tubérculo menor",
+    "Sulco intertubercular",
+    "Côndilo do úmero (partes medial e lateral)",
+    "Capítulo do úmero",
+    "Fossa coronóidea",
+    "Cavidade glenoidal da escápula",
+    "Ângulo inferior",
+    "Fossa subescapular",
+    "Processo coracoide"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n402": {
+   "file": "pratica-n402.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 6-2",
+   "caption": "Úmero e escápula: vista posterior",
+   "topics": [
+    "umero"
+   ],
+   "key": [
+    "Clavícula (cortada)",
+    "Incisura da escápula",
+    "Ângulo superior",
+    "Fossa supraespinal",
+    "Espinha da escápula",
+    "Fossa infraespinal",
+    "Epicôndilo medial",
+    "Tróclea do úmero",
+    "Fossa do olécrano",
+    "Tuberosidade para o músculo deltoide",
+    "Cabeça do úmero"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n408": {
+   "file": "pratica-n408.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 6-5",
+   "caption": "Ossos do cotovelo em extensão",
+   "topics": [
+    "biceps",
+    "cotovelo"
+   ],
+   "key": [
+    "Capítulo do úmero",
+    "Cabeça do rádio",
+    "Tuberosidade do rádio",
+    "Tuberosidade da ulna",
+    "Colo do rádio",
+    "Cabeça do rádio",
+    "Olécrano",
+    "Epicôndilo lateral",
+    "Fossa do olécrano"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n410": {
+   "file": "pratica-n410.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 6-6",
+   "caption": "Ossos do cotovelo em 90° de flexão",
+   "topics": [
+    "cotovelo"
+   ],
+   "key": [
+    "Ulna (incisura radial; processo coronoide; incisura troclear; olécrano)",
+    "Rádio",
+    "Incisura troclear",
+    "Tuberosidade do rádio",
+    "Úmero"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n412": {
+   "file": "pratica-n412.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 6-7",
+   "caption": "Ligamentos do cotovelo",
+   "topics": [
+    "cotovelo"
+   ],
+   "key": [
+    "Cápsula articular",
+    "Ligamento colateral radial",
+    "Membrana sinovial",
+    "Cartilagem articular",
+    "Tendão do músculo bíceps braquial",
+    "Ligamento anular do rádio",
+    "Ligamento colateral ulnar",
+    "Tendão do músculo tríceps braquial"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n414": {
+   "file": "pratica-n414.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 6-8",
+   "caption": "Ossos do antebraço (supinação e pronação)",
+   "topics": [
+    "biceps"
+   ],
+   "key": [
+    "Cabeça do rádio",
+    "Colo do rádio",
+    "Tuberosidade do rádio",
+    "Membrana interóssea",
+    "Processo estiloide da ulna",
+    "Tuberosidade da ulna",
+    "Incisura troclear",
+    "Olécrano",
+    "Tubérculo dorsal",
+    "Processo estiloide (do rádio)"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n442": {
+   "file": "pratica-n442.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 6-22",
+   "caption": "Músculos do braço, camada superficial",
+   "topics": [
+    "biceps"
+   ],
+   "key": [
+    "Músculo bíceps braquial — cabeça curta: processo coracoide; cabeça longa: tubérculo supraglenoidal; inserção: tuberosidade do rádio (+ aponeurose). Supinador potente com antebraço fletido. N. musculocutâneo (C5–C6)"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n446": {
+   "file": "pratica-n446.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 6-24",
+   "caption": "Músculos do braço, camada profunda",
+   "topics": [
+    "biceps"
+   ],
+   "key": [
+    "Músculo braquial — flexor potente do antebraço; n. musculocutâneo (C5–C6), com pequeno ramo do radial (C7)"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n450": {
+   "file": "pratica-n450.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 6-26",
+   "caption": "Braço: cortes transversais seriados",
+   "topics": [
+    "radial",
+    "umero"
+   ],
+   "key": [
+    "Bíceps braquial (cabeças curta e longa)",
+    "Coracobraquial",
+    "Deltoide",
+    "Braquial",
+    "Nervo radial",
+    "Tríceps braquial (cabeças medial, lateral e longa)",
+    "Braquiorradial",
+    "Nervo musculocutâneo"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n470": {
+   "file": "pratica-n470.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 6-36",
+   "caption": "Antebraço, vista posterior (dorsal)",
+   "topics": [
+    "cotovelo"
+   ],
+   "key": [
+    "Extensor radial longo do carpo — extensão e abdução do punho; n. radial (C6–C7)"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n514": {
+   "file": "pratica-n514.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 6-58",
+   "caption": "Nervo radial no braço e nervos da região posterior do ombro",
+   "topics": [
+    "radial"
+   ],
+   "key": [
+    "Nervo dorsal da escápula (C5)",
+    "Nervo subescapular inferior (C5–C6)",
+    "Nervo cutâneo posterior do antebraço",
+    "Nervo radial (C5–C8, T1)",
+    "Nervo axilar (C5–C6)",
+    "Nervo supraescapular (C5–C6)"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n516": {
+   "file": "pratica-n516.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 6-59",
+   "caption": "Nervos do membro superior, vista anterior",
+   "topics": [
+    "radial"
+   ],
+   "key": [
+    "Nervo musculocutâneo",
+    "Nervo radial (ramo profundo; ramo superficial)",
+    "Nervo mediano",
+    "Ramo recorrente (motor) do mediano",
+    "Nervos digitais palmares comuns do mediano",
+    "Ramo superficial do nervo ulnar",
+    "Nervo mediano",
+    "Nervo ulnar",
+    "Nervo radial"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n542": {
+   "file": "pratica-n542.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 7-5",
+   "caption": "Fêmur: vistas anterior e posterior",
+   "topics": [
+    "femur"
+   ],
+   "key": [
+    "Trocanter maior",
+    "Diáfise do fêmur",
+    "Epicôndilo lateral",
+    "Côndilo lateral",
+    "Côndilo medial",
+    "Epicôndilo medial",
+    "Tubérculo do adutor",
+    "Linha áspera (lábios medial e lateral)",
+    "Trocanter menor",
+    "Crista intertrocantérica",
+    "Colo do fêmur",
+    "Cabeça do fêmur"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n546": {
+   "file": "pratica-n546.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 7-7",
+   "caption": "Joelho: ligamentos cruzados e colaterais",
+   "topics": [
+    "joelho"
+   ],
+   "key": [
+    "Ligamento cruzado anterior",
+    "Tendão do músculo poplíteo",
+    "Ligamento colateral fibular",
+    "Menisco lateral",
+    "Ligamento transverso do joelho",
+    "Ligamento colateral tibial",
+    "Menisco lateral",
+    "Ligamento cruzado anterior",
+    "Ligamento cruzado posterior",
+    "Ligamento cruzado posterior"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n548": {
+   "file": "pratica-n548.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 7-8",
+   "caption": "Joelho: vista interna (superior)",
+   "topics": [
+    "joelho"
+   ],
+   "key": [
+    "Menisco lateral",
+    "Trato iliotibial aderido à cápsula",
+    "Ligamento da patela",
+    "Ligamento cruzado anterior",
+    "Membrana sinovial",
+    "Menisco medial",
+    "Ligamento poplíteo oblíquo"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n568": {
+   "file": "pratica-n568.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 7-18",
+   "caption": "Coxa: vista anterior",
+   "topics": [
+    "joelho"
+   ],
+   "key": [
+    "Reto femoral — estende o joelho e ajuda a fletir o quadril; n. femoral (L2–L4)"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n570": {
+   "file": "pratica-n570.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 7-19",
+   "caption": "Coxa: vista anterior",
+   "topics": [
+    "joelho"
+   ],
+   "key": [
+    "Vasto lateral — extensão do joelho; n. femoral (L2–L4)"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n572": {
+   "file": "pratica-n572.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 7-20",
+   "caption": "Coxa: vista anterior",
+   "topics": [
+    "joelho"
+   ],
+   "key": [
+    "Vasto intermédio — extensão do joelho; n. femoral (L2–L4)"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "n574": {
+   "file": "pratica-n574.jpg",
+   "source": "Netter — Flash Cards de Anatomia",
+   "ref": "Ficha 7-21",
+   "caption": "Coxa: vista anterior",
+   "topics": [
+    "joelho"
+   ],
+   "key": [
+    "Vasto medial — extensão do joelho; n. femoral (L2–L4)"
+   ],
+   "width": 760,
+   "height": 976
+  },
+  "moore_88": {
+   "file": "pratica-moore-88.jpg",
+   "source": "Moore — Embriologia Básica, 10ª ed.",
+   "ref": "Figura 5.2",
+   "caption": "Formação do disco embrionário trilaminar (dias 15–16): invaginação de células do epiblasto pela linha primitiva",
+   "topics": [
+    "gastr"
+   ],
+   "key": [
+    "Âmnio",
+    "Vesícula umbilical (saco vitelino)",
+    "Cavidade amniótica",
+    "Linha primitiva",
+    "Ectoderma embrionário (epiblasto)",
+    "Mesoderma intraembrionário",
+    "Endoderma embrionário",
+    "Processo notocordal",
+    "Nó primitivo",
+    "Disco embrionário trilaminar"
+   ],
+   "width": 875,
+   "height": 1057
+  },
+  "moore_89": {
+   "file": "pratica-moore-89.jpg",
+   "source": "Moore — Embriologia Básica, 10ª ed.",
+   "ref": "Figura 5.3",
+   "caption": "Embrião de 16 dias: linha primitiva, nó primitivo e migração de células mesenquimais",
+   "topics": [
+    "gastr"
+   ],
+   "key": [],
+   "width": 883,
+   "height": 659
+  },
+  "moore_91": {
+   "file": "pratica-moore-91.jpg",
+   "source": "Moore — Embriologia Básica, 10ª ed.",
+   "ref": "Figura 5.5",
+   "caption": "Desenvolvimento do processo notocordal",
+   "topics": [
+    "neuro"
+   ],
+   "key": [],
+   "width": 856,
+   "height": 647
+  },
+  "moore_441": {
+   "file": "pratica-moore-441.jpg",
+   "source": "Moore — Embriologia Básica, 10ª ed.",
+   "ref": "Figura 16.1",
+   "caption": "Placa neural e seu dobramento para formar o tubo neural",
+   "topics": [
+    "neuro"
+   ],
+   "key": [
+    "Placa neural",
+    "Processo notocordal",
+    "Linha primitiva",
+    "Nó primitivo",
+    "Sulco neural",
+    "Prega neural",
+    "Crista neural",
+    "Somito",
+    "Notocorda",
+    "Tubo neural",
+    "Ectoderma superficial",
+    "Neuróporo rostral",
+    "Neuróporo caudal"
+   ],
+   "width": 824,
+   "height": 1048
+  },
+  "moore_395": {
+   "file": "pratica-moore-395.jpg",
+   "source": "Moore — Embriologia Básica, 10ª ed.",
+   "ref": "Figura 15.1",
+   "caption": "Formação e diferenciação inicial dos somitos (esclerótomo, miótomo, dermátomo)",
+   "topics": [
+    "neuro"
+   ],
+   "key": [
+    "Placa neural",
+    "Sulco neural",
+    "Prega neural",
+    "Mesoderma paraxial",
+    "Mesoderma intermediário",
+    "Mesoderma lateral",
+    "Notocorda",
+    "Somito",
+    "Tubo neural",
+    "Dermátomo",
+    "Miótomo",
+    "Esclerótomo",
+    "Intestino primitivo"
+   ],
+   "width": 845,
+   "height": 995
+  },
+  "moore_80": {
+   "file": "pratica-moore-80.jpg",
+   "source": "Moore — Embriologia Básica, 10ª ed.",
+   "ref": "Figura 4.2",
+   "caption": "Blastocistos implantados aos 10 e 12 dias: sinciciotrofoblasto, citotrofoblasto, rede lacunar",
+   "topics": [
+    "luteo"
+   ],
+   "key": [
+    "Sinciciotrofoblasto",
+    "Citotrofoblasto",
+    "Rede lacunar (no sinciciotrofoblasto)",
+    "Epiblasto",
+    "Hipoblasto",
+    "Âmnio",
+    "Vesícula umbilical primária (saco vitelino)",
+    "Cavidade amniótica",
+    "Disco embrionário",
+    "Sangue materno (nas lacunas)"
+   ],
+   "width": 447,
+   "height": 766
+  },
+  "moore_81": {
+   "file": "pratica-moore-81.jpg",
+   "source": "Moore — Embriologia Básica, 10ª ed.",
+   "ref": "Figura 4.3",
+   "caption": "Embriões implantados (~13 dias): vesícula umbilical secundária e saco coriônico",
+   "topics": [
+    "extra"
+   ],
+   "key": [
+    "Rede lacunar",
+    "Vilosidade coriônica primária",
+    "Endométrio",
+    "Saco coriônico (cavidade coriônica)",
+    "Vesícula umbilical primária",
+    "Celoma extraembrionário",
+    "Pedúnculo de conexão",
+    "Vesícula umbilical secundária",
+    "Mesoderma somático extraembrionário"
+   ],
+   "width": 886,
+   "height": 431
+  },
+  "moore_83": {
+   "file": "pratica-moore-83.jpg",
+   "source": "Moore — Embriologia Básica, 10ª ed.",
+   "ref": "Figura 4.4",
+   "caption": "Parede do saco coriônico e concepto com vilosidades coriônicas primárias",
+   "topics": [
+    "extra"
+   ],
+   "key": [],
+   "width": 770,
+   "height": 487
+  },
+  "moore_145": {
+   "file": "pratica-moore-145.jpg",
+   "source": "Moore — Embriologia Básica, 10ª ed.",
+   "ref": "Figura 8.4",
+   "caption": "US endovaginal: saco coriônico de 3 semanas — o \"saco gestacional\" do caso",
+   "topics": [
+    "extra"
+   ],
+   "key": [
+    "Saco coriônico (saco gestacional)"
+   ],
+   "width": 451,
+   "height": 351
+  },
+  "moore_51": {
+   "file": "pratica-moore-51.jpg",
+   "source": "Moore — Embriologia Básica, 10ª ed.",
+   "ref": "Figura 2.9",
+   "caption": "Fotomicrografias de ovário: A, folículos primordiais; B, folículo com antro e ovócito primário",
+   "topics": [
+    "ovario"
+   ],
+   "key": [
+    "Folículo primordial",
+    "Antro folicular",
+    "Ovócito primário"
+   ],
+   "width": 843,
+   "height": 378
+  },
+  "g_osso_diagrama": {
+   "file": "pratica-g-osso-diagrama.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 7.10",
+   "caption": "Osso compacto e esponjoso: ósteons, lamelas, canais de Havers e de Volkmann, lacunas, canalículos",
+   "topics": [
+    "compacto",
+    "esponjoso"
+   ],
+   "key": [
+    "Lamelas concêntricas",
+    "Ósteon (sistema de Havers)",
+    "Canalículos",
+    "Lacuna (abriga o osteócito)",
+    "Canal de Havers",
+    "Canal de Volkmann (com vaso)",
+    "Periósteo",
+    "Lamelas circunferenciais externas",
+    "Lamelas circunferenciais internas",
+    "Cavidade medular",
+    "Osso esponjoso",
+    "Osso compacto"
+   ],
+   "width": 900,
+   "height": 885
+  },
+  "g_osso_desgastado": {
+   "file": "pratica-g-osso-desgastado.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 7.11",
+   "caption": "Osso desgastado não descalcificado: canal de Havers, lamelas concêntricas, lacunas e canalículos",
+   "topics": [
+    "compacto"
+   ],
+   "key": [
+    "Canal de Havers",
+    "Lacuna (espaço do osteócito)",
+    "Canalículos",
+    "Lamelas concêntricas"
+   ],
+   "width": 517,
+   "height": 577
+  },
+  "g_osso_compacto": {
+   "file": "pratica-g-osso-compacto.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 7.12",
+   "caption": "Osso compacto descalcificado: ósteons com lamelas concêntricas e canal de Volkmann",
+   "topics": [
+    "compacto"
+   ],
+   "key": [
+    "Canal de Volkmann",
+    "Canal de Havers (centro do ósteon)",
+    "Lamelas concêntricas do ósteon"
+   ],
+   "width": 533,
+   "height": 795
+  },
+  "g_tendao_long": {
+   "file": "pratica-g-tendao-long.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 6.18",
+   "caption": "Tecido conjuntivo denso modelado (tendão): feixes paralelos de colágeno e núcleos alongados de fibroblastos",
+   "topics": [
+    "denso"
+   ],
+   "key": [
+    "Núcleo de fibroblasto (alongado, achatado)",
+    "Feixes paralelos de colágeno tipo I"
+   ],
+   "width": 472,
+   "height": 488
+  },
+  "g_tendao_trans": {
+   "file": "pratica-g-tendao-trans.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 6.19",
+   "caption": "Tendão em corte transversal",
+   "topics": [
+    "denso"
+   ],
+   "key": [],
+   "width": 525,
+   "height": 375
+  },
+  "g_nervo_long": {
+   "file": "pratica-g-nervo-long.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 9.20",
+   "caption": "Nervo periférico, corte longitudinal: fibras mielinizadas e núcleos de células de Schwann",
+   "topics": [
+    "nervo"
+   ],
+   "key": [
+    "Núcleo de célula de Schwann",
+    "Fibras nervosas mielinizadas (corte longitudinal)"
+   ],
+   "width": 533,
+   "height": 548
+  },
+  "g_nervo_trans": {
+   "file": "pratica-g-nervo-trans.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 9.21",
+   "caption": "Nervo periférico, corte transversal: axônios e perineuro envolvendo o fascículo",
+   "topics": [
+    "nervo"
+   ],
+   "key": [
+    "Fascículo nervoso",
+    "Perineuro",
+    "Epineuro (com adipócitos)",
+    "Fibras nervosas mielinizadas (corte transversal)"
+   ],
+   "width": 518,
+   "height": 668
+  },
+  "g_nervo_diagrama": {
+   "file": "pratica-g-nervo-diagrama.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 9.22",
+   "caption": "Estrutura de um nervo: epineuro, perineuro, endoneuro, células de Schwann e axônio",
+   "topics": [
+    "nervo"
+   ],
+   "key": [
+    "Epineuro",
+    "Perineuro",
+    "Endoneuro",
+    "Células de Schwann",
+    "Axônio"
+   ],
+   "width": 540,
+   "height": 488
+  },
+  "g_ovario_diagrama": {
+   "file": "pratica-g-ovario-diagrama.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 20.2",
+   "caption": "Ovário e desenvolvimento folicular; corpo lúteo com células teca-luteínicas e granulosa-luteínicas",
+   "topics": [
+    "ovario",
+    "luteo"
+   ],
+   "key": [
+    "Folículo primordial",
+    "Folículo primário (unilaminar)",
+    "Folículo primário multilaminar",
+    "Folículo secundário do Gartner (com antro = terciário/antral no roteiro)",
+    "Corpo albicans",
+    "Corpo lúteo: células teca-luteínicas",
+    "Corpo lúteo: células granulosa-luteínicas",
+    "Folículo maduro (de Graaf)",
+    "Teca interna",
+    "Corona radiata",
+    "Antro folicular",
+    "Ovócito no cúmulo oóforo",
+    "Zona pelúcida"
+   ],
+   "width": 900,
+   "height": 728
+  },
+  "g_ovario_primordiais": {
+   "file": "pratica-g-ovario-primordiais.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 20.3",
+   "caption": "Córtex do ovário com folículos primordiais",
+   "topics": [
+    "ovario"
+   ],
+   "key": [
+    "Folículo primordial",
+    "Estroma do córtex ovariano"
+   ],
+   "width": 510,
+   "height": 525
+  },
+  "g_foliculo_antral": {
+   "file": "pratica-g-foliculo-antral.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 20.5",
+   "caption": "Folículo com antro (o Gartner chama de \"secundário\"; no roteiro = terciário/antral)",
+   "topics": [
+    "ovario"
+   ],
+   "key": [
+    "Antro folicular",
+    "Ovócito (com corona radiata)",
+    "Células da granulosa"
+   ],
+   "width": 518,
+   "height": 533
+  },
+  "modelo": {
+   "file": "pratica-modelo.jpg",
+   "source": "Laboratório de anatomia",
+   "ref": "Modelo",
+   "caption": "Modelo do desenvolvimento embrionário (clivagem, blastocisto, implantação e embrião)",
+   "topics": [
+    "extra"
+   ],
+   "key": [],
+   "points": {
+    "morula": {
+     "x": 77.0,
+     "y": 7.104795737122558,
+     "label": "Mórula"
+    },
+    "blastocisto": {
+     "x": 68.8,
+     "y": 26.642984014209592,
+     "label": "Blastocisto"
+    },
+    "sacoVit": {
+     "x": 60.0,
+     "y": 83.48134991119005,
+     "label": "Saco vitelino (vesícula umbilical) com vasos"
+    },
+    "embriao": {
+     "x": 47.0,
+     "y": 58.614564831261106,
+     "label": "Embrião (dobrado)"
+    }
+   },
+   "width": 1000,
+   "height": 563
+  },
+  "m_g_osso_compacto_1": {
+   "file": "pratica-m-g-osso-compacto-1.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 7.12",
+   "caption": "Osso compacto descalcificado: ósteons com lamelas concêntricas e canal de Volkmann",
+   "topics": [
+    "compacto"
+   ],
+   "key": [],
+   "arrowOf": "g_osso_compacto",
+   "width": 533,
+   "height": 795
+  },
+  "m_g_osso_compacto_2": {
+   "file": "pratica-m-g-osso-compacto-2.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 7.12",
+   "caption": "Osso compacto descalcificado: ósteons com lamelas concêntricas e canal de Volkmann",
+   "topics": [
+    "compacto"
+   ],
+   "key": [],
+   "arrowOf": "g_osso_compacto",
+   "width": 533,
+   "height": 795
+  },
+  "m_g_osso_compacto_3": {
+   "file": "pratica-m-g-osso-compacto-3.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 7.12",
+   "caption": "Osso compacto descalcificado: ósteons com lamelas concêntricas e canal de Volkmann",
+   "topics": [
+    "compacto"
+   ],
+   "key": [],
+   "arrowOf": "g_osso_compacto",
+   "width": 533,
+   "height": 795
+  },
+  "m_g_osso_compacto_4": {
+   "file": "pratica-m-g-osso-compacto-4.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 7.12",
+   "caption": "Osso compacto descalcificado: ósteons com lamelas concêntricas e canal de Volkmann",
+   "topics": [
+    "compacto"
+   ],
+   "key": [],
+   "arrowOf": "g_osso_compacto",
+   "width": 533,
+   "height": 795
+  },
+  "m_g_osso_desgastado_1": {
+   "file": "pratica-m-g-osso-desgastado-1.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 7.11",
+   "caption": "Osso desgastado não descalcificado: canal de Havers, lamelas concêntricas, lacunas e canalículos",
+   "topics": [
+    "compacto"
+   ],
+   "key": [],
+   "arrowOf": "g_osso_desgastado",
+   "width": 517,
+   "height": 577
+  },
+  "m_g_osso_desgastado_2": {
+   "file": "pratica-m-g-osso-desgastado-2.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 7.11",
+   "caption": "Osso desgastado não descalcificado: canal de Havers, lamelas concêntricas, lacunas e canalículos",
+   "topics": [
+    "compacto"
+   ],
+   "key": [],
+   "arrowOf": "g_osso_desgastado",
+   "width": 517,
+   "height": 577
+  },
+  "m_g_osso_desgastado_3": {
+   "file": "pratica-m-g-osso-desgastado-3.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 7.11",
+   "caption": "Osso desgastado não descalcificado: canal de Havers, lamelas concêntricas, lacunas e canalículos",
+   "topics": [
+    "compacto"
+   ],
+   "key": [],
+   "arrowOf": "g_osso_desgastado",
+   "width": 517,
+   "height": 577
+  },
+  "m_g_tendao_long_1": {
+   "file": "pratica-m-g-tendao-long-1.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 6.18",
+   "caption": "Tecido conjuntivo denso modelado (tendão): feixes paralelos de colágeno e núcleos alongados de fibroblastos",
+   "topics": [
+    "denso"
+   ],
+   "key": [],
+   "arrowOf": "g_tendao_long",
+   "width": 472,
+   "height": 488
+  },
+  "m_g_tendao_long_2": {
+   "file": "pratica-m-g-tendao-long-2.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 6.18",
+   "caption": "Tecido conjuntivo denso modelado (tendão): feixes paralelos de colágeno e núcleos alongados de fibroblastos",
+   "topics": [
+    "denso"
+   ],
+   "key": [],
+   "arrowOf": "g_tendao_long",
+   "width": 472,
+   "height": 488
+  },
+  "m_g_nervo_long_1": {
+   "file": "pratica-m-g-nervo-long-1.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 9.20",
+   "caption": "Nervo periférico, corte longitudinal: fibras mielinizadas e núcleos de células de Schwann",
+   "topics": [
+    "nervo"
+   ],
+   "key": [],
+   "arrowOf": "g_nervo_long",
+   "width": 533,
+   "height": 548
+  },
+  "m_g_nervo_long_2": {
+   "file": "pratica-m-g-nervo-long-2.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 9.20",
+   "caption": "Nervo periférico, corte longitudinal: fibras mielinizadas e núcleos de células de Schwann",
+   "topics": [
+    "nervo"
+   ],
+   "key": [],
+   "arrowOf": "g_nervo_long",
+   "width": 533,
+   "height": 548
+  },
+  "m_g_nervo_trans_1": {
+   "file": "pratica-m-g-nervo-trans-1.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 9.21",
+   "caption": "Nervo periférico, corte transversal: axônios e perineuro envolvendo o fascículo",
+   "topics": [
+    "nervo"
+   ],
+   "key": [],
+   "arrowOf": "g_nervo_trans",
+   "width": 518,
+   "height": 668
+  },
+  "m_g_nervo_trans_2": {
+   "file": "pratica-m-g-nervo-trans-2.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 9.21",
+   "caption": "Nervo periférico, corte transversal: axônios e perineuro envolvendo o fascículo",
+   "topics": [
+    "nervo"
+   ],
+   "key": [],
+   "arrowOf": "g_nervo_trans",
+   "width": 518,
+   "height": 668
+  },
+  "m_g_nervo_trans_3": {
+   "file": "pratica-m-g-nervo-trans-3.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 9.21",
+   "caption": "Nervo periférico, corte transversal: axônios e perineuro envolvendo o fascículo",
+   "topics": [
+    "nervo"
+   ],
+   "key": [],
+   "arrowOf": "g_nervo_trans",
+   "width": 518,
+   "height": 668
+  },
+  "m_g_nervo_trans_4": {
+   "file": "pratica-m-g-nervo-trans-4.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 9.21",
+   "caption": "Nervo periférico, corte transversal: axônios e perineuro envolvendo o fascículo",
+   "topics": [
+    "nervo"
+   ],
+   "key": [],
+   "arrowOf": "g_nervo_trans",
+   "width": 518,
+   "height": 668
+  },
+  "m_g_nervo_trans_5": {
+   "file": "pratica-m-g-nervo-trans-5.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 9.21",
+   "caption": "Nervo periférico, corte transversal: axônios e perineuro envolvendo o fascículo",
+   "topics": [
+    "nervo"
+   ],
+   "key": [],
+   "arrowOf": "g_nervo_trans",
+   "width": 518,
+   "height": 668
+  },
+  "m_g_foliculo_antral_1": {
+   "file": "pratica-m-g-foliculo-antral-1.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 20.5",
+   "caption": "Folículo com antro (o Gartner chama de \"secundário\"; no roteiro = terciário/antral)",
+   "topics": [
+    "ovario"
+   ],
+   "key": [],
+   "arrowOf": "g_foliculo_antral",
+   "width": 518,
+   "height": 533
+  },
+  "m_g_foliculo_antral_2": {
+   "file": "pratica-m-g-foliculo-antral-2.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 20.5",
+   "caption": "Folículo com antro (o Gartner chama de \"secundário\"; no roteiro = terciário/antral)",
+   "topics": [
+    "ovario"
+   ],
+   "key": [],
+   "arrowOf": "g_foliculo_antral",
+   "width": 518,
+   "height": 533
+  },
+  "m_g_foliculo_antral_3": {
+   "file": "pratica-m-g-foliculo-antral-3.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 20.5",
+   "caption": "Folículo com antro (o Gartner chama de \"secundário\"; no roteiro = terciário/antral)",
+   "topics": [
+    "ovario"
+   ],
+   "key": [],
+   "arrowOf": "g_foliculo_antral",
+   "width": 518,
+   "height": 533
+  },
+  "m_g_ovario_primordiais_1": {
+   "file": "pratica-m-g-ovario-primordiais-1.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 20.3",
+   "caption": "Córtex do ovário com folículos primordiais",
+   "topics": [
+    "ovario"
+   ],
+   "key": [],
+   "arrowOf": "g_ovario_primordiais",
+   "width": 510,
+   "height": 525
+  },
+  "m_g_ovario_primordiais_2": {
+   "file": "pratica-m-g-ovario-primordiais-2.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 20.3",
+   "caption": "Córtex do ovário com folículos primordiais",
+   "topics": [
+    "ovario"
+   ],
+   "key": [],
+   "arrowOf": "g_ovario_primordiais",
+   "width": 510,
+   "height": 525
+  },
+  "m_g_ovario_primordiais_3": {
+   "file": "pratica-m-g-ovario-primordiais-3.jpg",
+   "source": "Gartner & Hiatt — Tratado de Histologia",
+   "ref": "Fig. 20.3",
+   "caption": "Córtex do ovário com folículos primordiais",
+   "topics": [
+    "ovario"
+   ],
+   "key": [],
+   "arrowOf": "g_ovario_primordiais",
+   "width": 510,
+   "height": 525
+  },
+  "m_moore_145_1": {
+   "file": "pratica-m-moore-145-1.jpg",
+   "source": "Moore — Embriologia Básica, 10ª ed.",
+   "ref": "Figura 8.4",
+   "caption": "US endovaginal: saco coriônico de 3 semanas — o \"saco gestacional\" do caso",
+   "topics": [
+    "extra"
+   ],
+   "key": [],
+   "arrowOf": "moore_145",
+   "width": 451,
+   "height": 351
+  }
+ },
+ "topics": [
+  {
+   "id": "gastr",
+   "area": "embriologia",
+   "region": null,
+   "title": "3ª semana: gastrulação e folhetos",
+   "schema": "Epiblasto → surge a **linha primitiva** (dorsal, caudal) → células migram/invaginam → 1º substituem o hipoblasto = **endoderma** → 2º entre as camadas = **mesoderma** → epiblasto restante = **ectoderma**.\nDisco **bilaminar** (epiblasto + hipoblasto) ⟶ disco **trilaminar**.",
+   "five": {
+    "identification": "**Gastrulação**: transformação do disco bilaminar em **trilaminar** pela formação da **linha primitiva**.",
+    "location": "Linha primitiva na superfície do **epiblasto**; ectoderma voltado para a cavidade amniótica, endoderma para o saco vitelino.",
+    "function": "Origina os **três folhetos germinativos** e estabelece os eixos do corpo.",
+    "origin": "**Ectoderma**: epiderme e sistema nervoso. **Mesoderma**: músculos, ossos, cartilagens, conjuntivo e vasos. **Endoderma**: revestimento epitelial dos sistemas digestório e respiratório.",
+    "clinical": "Ocorre na **3ª semana pós-fecundação** (≈5 semanas de IG, como a paciente do caso): período muito sensível a agressões."
+   },
+   "asks": [
+    "Identificar ectoderma, mesoderma e endoderma num esquema de corte transversal",
+    "Dizer de onde vêm os 3 folhetos (epiblasto)",
+    "Citar 1–2 derivados de cada folheto",
+    "Relacionar IG de 5 semanas com a 3ª semana do desenvolvimento"
+   ],
+   "model": "Esta é a **gastrulação**, que ocorre na **3ª semana**. Começa com a **linha primitiva** no epiblasto; as células do epiblasto migram por ela e formam o disco **trilaminar**: o **endoderma** substitui o hipoblasto, o **mesoderma** fica entre as camadas e o restante do epiblasto vira **ectoderma**. Ectoderma → epiderme e sistema nervoso; mesoderma → músculo, osso, cartilagem, conjuntivo e vasos; endoderma → epitélio digestório e respiratório.",
+   "memo": "Epiblasto faz os três: ecto fora, meso meio, endo dentro.",
+   "review": [
+    {
+     "q": "Qual camada do disco bilaminar dá origem aos três folhetos?",
+     "a": "O epiblasto."
+    },
+    {
+     "q": "Onde se forma a linha primitiva?",
+     "a": "Na superfície (dorsal) do epiblasto, na região caudal do disco."
+    },
+    {
+     "q": "Cite um derivado de cada folheto.",
+     "a": "Ectoderma: sistema nervoso/epiderme; mesoderma: osso/músculo/vasos; endoderma: epitélio do tubo digestório/respiratório."
+    }
+   ],
+   "traps": [
+    "O **hipoblasto não forma o endoderma definitivo**: ele é deslocado pelas células do epiblasto.",
+    "Todos os folhetos vêm do **epiblasto**.",
+    "Idade gestacional (pela DUM) ≈ idade embrionária + 2 semanas: **5 semanas de IG ≈ 3ª semana** do desenvolvimento."
+   ]
+  },
+  {
+   "id": "neuro",
+   "area": "embriologia",
+   "region": null,
+   "title": "Notocorda, neurulação e somitos",
+   "schema": "**Notocorda** (mesoderma, linha mediana) —sinaliza→ ectoderma acima se espessa = **placa neural** → **sulco neural** + **pregas neurais** → pregas se fundem = **tubo neural** (encéfalo + medula).\nAo lado do tubo: **mesoderma paraxial** → **somitos** → esclerótomo (vértebras/costelas) · miótomo (músculo esquelético) · dermátomo (derme).",
+   "five": {
+    "identification": "**Notocorda**: bastão mesodérmico mediano. **Tubo neural**: resultado da neurulação. **Somitos**: blocos segmentados de mesoderma paraxial.",
+    "location": "Notocorda na **linha mediana**, **ventral** ao tubo neural; somitos **bilaterais** ao tubo neural.",
+    "function": "Notocorda = **centro de sinalização**: induz a placa neural e organiza o eixo. Tubo neural → **encéfalo e medula espinal**.",
+    "origin": "Notocorda: **mesoderma**. Tubo neural: **ectoderma**. Somitos: **mesoderma paraxial** → esclerótomo, miótomo, dermátomo.",
+    "clinical": "Falhas no fechamento do tubo neural = **defeitos do tubo neural**; por isso o **ácido fólico** (a paciente usa) é recomendado no início da gestação."
+   },
+   "asks": [
+    "Identificar notocorda, sulco/pregas neurais, tubo neural e somitos",
+    "Origem embrionária da notocorda (mesoderma) × tubo neural (ectoderma)",
+    "Sequência da neurulação",
+    "Derivados de esclerótomo, miótomo e dermátomo"
+   ],
+   "model": "A estrutura mediana, ventral ao tubo neural, é a **notocorda**, de origem **mesodérmica**. Ela é um **centro de sinalização** que **induz o ectoderma** sobrejacente a formar a **placa neural**. A placa forma o **sulco neural**, delimitado pelas **pregas neurais**, que se fundem e formam o **tubo neural**, origem do encéfalo e da medula. Lateralmente, o **mesoderma paraxial** forma os **somitos**: esclerótomo (vértebras e costelas), miótomo (músculo esquelético) e dermátomo (derme).",
+   "memo": "Notocorda manda, ectoderma dobra, tubo fecha; somito vira osso-músculo-derme.",
+   "review": [
+    {
+     "q": "Qual a principal função da notocorda?",
+     "a": "Centro de sinalização: induz a placa neural e organiza o eixo corporal."
+    },
+    {
+     "q": "Ordem da neurulação?",
+     "a": "Placa neural → sulco neural (com pregas neurais) → fusão das pregas → tubo neural."
+    },
+    {
+     "q": "O que o esclerótomo forma?",
+     "a": "Principalmente vértebras e costelas."
+    }
+   ],
+   "traps": [
+    "Notocorda é **mesoderma**; tubo neural é **ectoderma** — não troque.",
+    "**Dermátomo** (embrionário) forma a **derme**, não a epiderme (que é ectodérmica).",
+    "Somito = mesoderma **paraxial** (não intermediário nem lateral)."
+   ]
+  },
+  {
+   "id": "extra",
+   "area": "embriologia",
+   "region": null,
+   "title": "Saco gestacional e estruturas extraembrionárias",
+   "schema": "**Córion** = trofoblasto + mesoderma extraembrionário somático → delimita a **cavidade coriônica** e forma a **parte fetal da placenta**.\n**Âmnio** → cavidade amniótica com **líquido amniótico** (proteção).\n**Saco vitelino** → hematopoiese primitiva · células germinativas primordiais · intestino primitivo (no dobramento).",
+   "five": {
+    "identification": "**Córion**, **âmnio/cavidade amniótica** e **saco vitelino**: estruturas extraembrionárias.",
+    "location": "Córion é o envoltório mais externo (cavidade coriônica). Cavidade amniótica do lado do **epiblasto/ectoderma**; saco vitelino do lado do **hipoblasto/endoderma**.",
+    "function": "Córion: **porção fetal da placenta**. Saco vitelino: **hematopoiese primitiva**, **células germinativas primordiais**, contribui para o **intestino primitivo**. Âmnio: líquido amniótico, **proteção mecânica** e ambiente adequado.",
+    "origin": "Córion: **trofoblasto + mesoderma extraembrionário somático**.",
+    "clinical": "Na US de ≈5 semanas IG vê-se o **saco gestacional** (cavidade coriônica) antes de estruturas embrionárias seguras — exatamente o achado do caso."
+   },
+   "asks": [
+    "Identificar âmnio, saco vitelino e córion num modelo/esquema",
+    "Composição do córion",
+    "3 funções do saco vitelino",
+    "Funções do líquido amniótico"
+   ],
+   "model": "O **córion** é formado pelo **trofoblasto e pelo mesoderma extraembrionário somático**, delimita a **cavidade coriônica** e forma a **porção fetal da placenta**. O **saco vitelino** participa da **hematopoiese primitiva**, da origem das **células germinativas primordiais** e contribui para o **intestino primitivo** no dobramento. A **cavidade amniótica** contém o líquido amniótico; o âmnio envolve o embrião e dá **proteção mecânica**.",
+   "memo": "Córion vira placenta; vitelino faz sangue, germe e intestino.",
+   "review": [
+    {
+     "q": "Do que é formado o córion?",
+     "a": "Trofoblasto + mesoderma extraembrionário somático."
+    },
+    {
+     "q": "Cite três funções do saco vitelino.",
+     "a": "Hematopoiese primitiva, origem das células germinativas primordiais, formação do intestino primitivo."
+    },
+    {
+     "q": "Função do âmnio/líquido amniótico?",
+     "a": "Proteção mecânica e ambiente adequado ao desenvolvimento."
+    }
+   ],
+   "traps": [
+    "Cavidade amniótica fica do lado do **epiblasto**; saco vitelino do lado do **hipoblasto**.",
+    "Córion inclui **trofoblasto** — não é só mesoderma.",
+    "Modelo do laboratório: nos atlas, convenção comum é ectoderma **azul**, mesoderma **vermelho**, endoderma **amarelo**; confirme a legenda de cores do modelo com o professor."
+   ]
+  },
+  {
+   "id": "ovario",
+   "area": "embriologia",
+   "region": null,
+   "title": "Ovário e folículos ovarianos",
+   "schema": "**Córtex** (folículos) · **medula** (vasos + conjuntivo).\nPrimordial (1 camada **achatada**) → Primário (**cúbicas**, surge a **zona pelúcida**) → Secundário/pré-antral (várias camadas de granulosa, **tecas**, **sem antro**) → Terciário/antral (**antro** + cúmulo oóforo) → Maduro/de Graaf (**antro volumoso**, **corona radiata**, cúmulo oóforo).",
+   "five": {
+    "identification": "Estágios foliculares: **primordial, primário, secundário (pré-antral), terciário (antral) e maduro (de Graaf)**.",
+    "location": "Folículos no **córtex** ovariano; medula rica em vasos e tecido conjuntivo.",
+    "function": "Maturação do **ovócito** e produção de **hormônios sexuais**.",
+    "origin": "—",
+    "clinical": "US do caso: ovários de morfologia preservada — **morfologia na US ≠ preservação histológica**."
+   },
+   "asks": [
+    "Identificar o estágio do folículo pela lâmina/esquema",
+    "Reconhecer zona pelúcida, antro, cúmulo oóforo, corona radiata e tecas",
+    "Diferenciar córtex de medula",
+    "Critério que separa pré-antral de antral"
+   ],
+   "model": "Folículos ficam no **córtex**. **Primordial**: ovócito primário com **uma camada de células achatadas**. **Primário**: células **cúbicas** e surgimento da **zona pelúcida**. **Secundário (pré-antral)**: várias camadas de **granulosa**, tecas interna e externa, **ainda sem antro**. **Terciário (antral)**: aparece o **antro** com líquido e o cúmulo oóforo. **Maduro (de Graaf)**: **antro volumoso**, ovócito com **corona radiata** apoiado no **cúmulo oóforo**, pronto para ovular.",
+   "memo": "Achatada, cúbica, camadas, antro, Graaf: siga o antro.",
+   "review": [
+    {
+     "q": "O que define o folículo primordial?",
+     "a": "Ovócito primário + uma única camada de células foliculares achatadas."
+    },
+    {
+     "q": "O que diferencia o secundário (pré-antral) do terciário?",
+     "a": "O antro: ausente no secundário (pré-antral), presente no terciário (antral)."
+    },
+    {
+     "q": "O que é a corona radiata?",
+     "a": "Camada de células da granulosa que envolve o ovócito no folículo maduro."
+    }
+   ],
+   "traps": [
+    "Nomenclatura varia entre livros (alguns chamam o antral de \"secundário\"); **siga o roteiro**: secundário = **pré-antral**.",
+    "Zona pelúcida surge no **primário**, não no primordial.",
+    "Teca aparece a partir do **secundário**."
+   ]
+  },
+  {
+   "id": "luteo",
+   "area": "embriologia",
+   "region": null,
+   "title": "Corpo lúteo, trofoblasto e β-hCG",
+   "schema": "**Sinciciotrofoblasto** → **hCG** → mantém o **corpo lúteo** → **progesterona** → endométrio decidualizado → gestação inicial mantida (até a placenta assumir).",
+   "five": {
+    "identification": "**Corpo lúteo**: glândula endócrina temporária pós-ovulação. **Trofoblasto**: citotrofoblasto + sinciciotrofoblasto.",
+    "location": "Corpo lúteo no ovário (folículo rompido). Sinciciotrofoblasto **externo**, invadindo o endométrio; citotrofoblasto **interno**.",
+    "function": "Corpo lúteo: **progesterona**. Sinciciotrofoblasto: **invasão endometrial** e produção de **hCG**. hCG **mantém o corpo lúteo** ativo.",
+    "origin": "Corpo lúteo: **células granulosa-luteínicas** e **teca-luteínicas**. Trofoblasto: camada externa do blastocisto.",
+    "clinical": "**β-hCG** = subunidade dosada nos **testes de gravidez**; o caso usa β-hCG seriado para acompanhar a gestação inicial."
+   },
+   "asks": [
+    "Identificar cito × sinciciotrofoblasto",
+    "Qual célula produz hCG",
+    "Células do corpo lúteo e seu hormônio",
+    "Explicar o eixo hCG → corpo lúteo → progesterona"
+   ],
+   "model": "Após a ovulação, o folículo rompido vira **corpo lúteo**, com células **granulosa-luteínicas** e **teca-luteínicas**, que produz **progesterona** e mantém o endométrio decidualizado. O trofoblasto tem o **citotrofoblasto** (interno, mononucleado, proliferativo) e o **sinciciotrofoblasto** (externo, multinucleado, sem limites celulares, invasivo). O sinciciotrofoblasto produz **hCG**, que **mantém o corpo lúteo** até a placenta assumir a produção hormonal; o **β-hCG** é o usado nos testes.",
+   "memo": "Sincício faz hCG; hCG segura o lúteo; lúteo faz progesterona.",
+   "review": [
+    {
+     "q": "Quem produz hCG?",
+     "a": "O sinciciotrofoblasto."
+    },
+    {
+     "q": "Qual a principal função do corpo lúteo?",
+     "a": "Produzir progesterona para manter o endométrio e a gestação inicial."
+    },
+    {
+     "q": "Como diferenciar cito de sinciciotrofoblasto?",
+     "a": "Cito: interno, células individualizadas, mononucleadas, proliferativas. Sincício: externo, multinucleado, sem limites celulares."
+    }
+   ],
+   "traps": [
+    "hCG vem do **sinciciotrofoblasto**, não do citotrofoblasto nem do corpo lúteo.",
+    "Corpo lúteo produz **progesterona**; não produz hCG.",
+    "\"Sem limites celulares\" = **sincício**."
+   ]
+  },
+  {
+   "id": "umero",
+   "area": "anatomia",
+   "region": "MS",
+   "title": "Úmero",
+   "schema": "**Proximal**: cabeça · tubérculo maior · tubérculo menor · sulco intertubercular\n**Diáfise**: tuberosidade deltoidea · **sulco do nervo radial** (posterior)\n**Distal**: tróclea (ulna) · capítulo (rádio) · epicôndilo medial (flexores) · epicôndilo lateral (extensores)",
+   "five": {
+    "identification": "Osso longo do braço: extremidade proximal, diáfise e extremidade distal.",
+    "location": "Articula-se com a **escápula** (cabeça ↔ cavidade glenoidal) e com **rádio e ulna** (capítulo ↔ cabeça do rádio; tróclea ↔ incisura troclear da ulna).",
+    "function": "Tubérculo maior: **supraespinal, infraespinal, redondo menor**. Tubérculo menor: **subescapular**. Sulco intertubercular: **tendão da cabeça longa do bíceps**. Tuberosidade deltoidea: **deltoide**. Epicôndilo medial: **flexores**; lateral: **extensores**.",
+    "origin": "Sulco do nervo radial (face posterior): **nervo radial + a. braquial profunda**.",
+    "clinical": "**Fratura diafisária** (caso: úmero D com desvio) pode lesar o **nervo radial** no sulco → **mão caída**."
+   },
+   "asks": [
+    "\"Identifique a estrutura assinalada\" (tubérculos, sulcos, tróclea, capítulo, epicôndilos)",
+    "Qual músculo/tendão se relaciona com a estrutura",
+    "Qual nervo passa no sulco do nervo radial",
+    "Consequência da fratura da diáfise"
+   ],
+   "model": "Úmero, osso longo do braço. Proximal: **cabeça** (articula com a cavidade glenoidal), **tubérculo maior** (supraespinal, infraespinal, redondo menor), **tubérculo menor** (subescapular) e **sulco intertubercular** (tendão da cabeça longa do bíceps). Na diáfise: **tuberosidade deltoidea** e, posteriormente, o **sulco do nervo radial**, com o nervo radial e a artéria braquial profunda. Distal: **tróclea** (ulna), **capítulo** (rádio), epicôndilos **medial** (flexores) e **lateral** (extensores). Fratura diafisária pode lesar o nervo radial.",
+   "memo": "Diáfise quebrou atrás? Pense no radial: mão caída.",
+   "review": [
+    {
+     "q": "Com o que o capítulo se articula?",
+     "a": "Com a cabeça do rádio (articulação umerorradial)."
+    },
+    {
+     "q": "Que tendão passa no sulco intertubercular?",
+     "a": "Tendão da cabeça longa do bíceps braquial."
+    },
+    {
+     "q": "O que passa no sulco do nervo radial?",
+     "a": "Nervo radial e artéria braquial profunda."
+    }
+   ],
+   "traps": [
+    "Tubérculo **menor** = só o subescapular; os outros três vão no **maior**.",
+    "**Capítulo ↔ rádio** (lateral); **tróclea ↔ ulna** (medial).",
+    "Sulco do nervo radial é **posterior**; sulco intertubercular é **anterior**.",
+    "Tuberosidade **deltoidea** (úmero) ≠ tuberosidade **radial** (rádio)."
+   ]
+  },
+  {
+   "id": "radial",
+   "area": "anatomia",
+   "region": "MS",
+   "title": "Nervo radial",
+   "schema": "Plexo braquial (C5–T1) → **fascículo posterior** → nervo radial → face posterior do braço no **sulco do nervo radial** (com a. braquial profunda) → atravessa o **septo intermuscular lateral** → anterior ao cotovelo → divide-se em **ramo superficial** e **ramo profundo**.",
+   "five": {
+    "identification": "**Nervo radial**, ramo terminal do fascículo posterior do plexo braquial.",
+    "location": "Face posterior do úmero, no **sulco do nervo radial**, junto à **artéria braquial profunda**.",
+    "function": "**Motora**: extensão do **cotovelo, punho e dedos**. **Sensitiva**: região posterior do braço, posterior do antebraço e parte dorsolateral da mão — teste-chave: **dorso do 1º espaço interdigital**.",
+    "origin": "Raízes **C5–T1**, **fascículo posterior**.",
+    "clinical": "Lesão (caso: fratura umeral): **mão caída**, perda de extensão de punho e dedos, hipoestesia no **dorso do 1º espaço interdigital**; sensibilidade palmar preservada."
+   },
+   "asks": [
+    "Origem (fascículo + raízes)",
+    "Trajeto pelo sulco do nervo radial",
+    "Área sensitiva para testar",
+    "Quadro clínico da lesão (mão caída)"
+   ],
+   "model": "O **nervo radial** vem do **fascículo posterior** do plexo braquial, raízes **C5 a T1**. Percorre a face posterior do braço no **sulco do nervo radial** do úmero, com a artéria braquial profunda, e por isso é lesado na **fratura diafisária**. Motor: **extensão do cotovelo, punho e dedos**. Sensitivo: face posterior do braço e antebraço e dorso lateral da mão, testado no **dorso do 1º espaço interdigital**. Lesão: **mão caída**.",
+   "memo": "Radial estende tudo e sente o dorso do polegar.",
+   "review": [
+    {
+     "q": "De qual fascículo se origina o nervo radial?",
+     "a": "Fascículo posterior (C5–T1)."
+    },
+    {
+     "q": "Qual área sensitiva testar?",
+     "a": "Dorso do 1º espaço interdigital da mão."
+    },
+    {
+     "q": "Qual o sinal clássico da lesão?",
+     "a": "Mão caída: incapacidade de estender punho e dedos."
+    }
+   ],
+   "traps": [
+    "Na lesão no **sulco**, a extensão do cotovelo pode estar **parcialmente preservada**: ramos para o tríceps saem antes do sulco (o caso descreve isso).",
+    "Sensibilidade **palmar preservada** — dorso alterado.",
+    "Flexão do cotovelo e supinação pelo bíceps = **musculocutâneo**, não radial."
+   ]
+  },
+  {
+   "id": "biceps",
+   "area": "anatomia",
+   "region": "MS",
+   "title": "Bíceps braquial e rádio",
+   "schema": "Cabeça **longa**: tubérculo supraglenoidal → sulco intertubercular · Cabeça **curta**: processo coracoide → ventre único → **tendão distal** → **tuberosidade do rádio** (+ **aponeurose bicipital**).\nRádio proximal: **cabeça → colo → tuberosidade radial**.",
+   "five": {
+    "identification": "**Bíceps braquial** (2 cabeças) e extremidade proximal do **rádio**.",
+    "location": "Bíceps: **compartimento anterior do braço**. Rádio: **lateral** no antebraço (posição anatômica). Tendão distal na **tuberosidade do rádio**.",
+    "function": "**Supinação** do antebraço (principal, sobretudo com cotovelo fletido) e **flexão do cotovelo** (com braquial e braquiorradial).",
+    "origin": "**Nervo musculocutâneo**, principalmente **C5–C6**.",
+    "clinical": "**Ruptura do tendão distal** (caso, confirmada por US): alteração do contorno do bíceps, **↓ supinação** e **↓ força de flexão** do cotovelo."
+   },
+   "asks": [
+    "Origem das cabeças longa e curta",
+    "Identificar tuberosidade do rádio, cabeça e colo",
+    "Inervação e raízes",
+    "Consequência da ruptura do tendão distal"
+   ],
+   "model": "**Bíceps braquial**, compartimento anterior do braço. Cabeça **longa**: tubérculo supraglenoidal, passando pelo sulco intertubercular; cabeça **curta**: processo coracoide. O **tendão distal** insere-se na **tuberosidade do rádio**, com a **aponeurose bicipital** como expansão. Funções: **supinação** (principal, com cotovelo fletido) e **flexão do cotovelo**. Inervação: **musculocutâneo, C5–C6**. A **ruptura distal** reduz a supinação e a força de flexão.",
+   "memo": "Bíceps puxa a tuberosidade: supina e flete; musculocutâneo C5-C6.",
+   "review": [
+    {
+     "q": "Onde se insere o tendão distal do bíceps?",
+     "a": "Na tuberosidade do rádio."
+    },
+    {
+     "q": "Qual a principal função do bíceps?",
+     "a": "Supinação do antebraço (além de flexão do cotovelo)."
+    },
+    {
+     "q": "Quais as 3 estruturas da extremidade proximal do rádio?",
+     "a": "Cabeça, colo e tuberosidade radial."
+    }
+   ],
+   "traps": [
+    "Ruptura distal **reduz** a flexão, mas **não abole** (braquial e braquiorradial).",
+    "Cabeça **longa** = supraglenoidal; **curta** = coracoide.",
+    "Aponeurose bicipital é **expansão** do tendão, não o ponto de inserção no rádio."
+   ]
+  },
+  {
+   "id": "cotovelo",
+   "area": "anatomia",
+   "region": "MS",
+   "title": "Cotovelo e extensores do antebraço",
+   "schema": "Cápsula comum com 3 articulações: **umeroulnar** (tróclea ↔ incisura troclear: flexão/extensão) · **umerorradial** (capítulo ↔ cabeça do rádio) · **radioulnar proximal** (cabeça do rádio ↔ incisura radial: pronação/supinação). **Ligamento anular** abraça a cabeça do rádio.\nExtensores (compartimento posterior, n. radial): ERLC · ERCC · EUC · extensor dos dedos.",
+   "five": {
+    "identification": "**Articulação do cotovelo**: complexo de 3 articulações; **extensores** do punho e dos dedos.",
+    "location": "Extensores no **compartimento posterior do antebraço**, com origem comum no **epicôndilo lateral**.",
+    "function": "Flexão: braquial, bíceps, braquiorradial. Extensão: tríceps. Supinação: bíceps e supinador. ERLC: extensão + abdução do punho; ERCC: auxilia extensão + abdução; EUC: extensão + adução; extensor dos dedos: extensão das MCF (auxilia IF).",
+    "origin": "Extensores: **nervo radial** ou seus ramos.",
+    "clinical": "Lesão radial → perda dos extensores → **mão caída**; ruptura do bíceps → ↓ flexão e supinação."
+   },
+   "asks": [
+    "Nomear as 3 articulações e as superfícies",
+    "Função do ligamento anular",
+    "Qual articulação faz prono-supinação",
+    "Extensores e sua inervação"
+   ],
+   "model": "O cotovelo tem três articulações numa **cápsula comum**: **umeroulnar** (tróclea com incisura troclear da ulna, flexão/extensão), **umerorradial** (capítulo com cabeça do rádio) e **radioulnar proximal** (cabeça do rádio com incisura radial da ulna, **pronação e supinação**). O **ligamento anular** envolve a cabeça do rádio e a estabiliza na rotação. Os extensores do punho e dedos ficam no **compartimento posterior** e são inervados pelo **nervo radial**.",
+   "memo": "Três articulações, uma cápsula; anular segura a cabeça que gira.",
+   "review": [
+    {
+     "q": "Qual articulação permite pronação e supinação?",
+     "a": "Radioulnar proximal."
+    },
+    {
+     "q": "O que o ligamento anular envolve?",
+     "a": "A cabeça do rádio."
+    },
+    {
+     "q": "Qual extensor faz adução do punho?",
+     "a": "Extensor ulnar do carpo."
+    }
+   ],
+   "traps": [
+    "Umeroulnar = **flexão/extensão**; prono-supinação é na **radioulnar**.",
+    "Extensores = epicôndilo **lateral**; flexores = **medial**.",
+    "Os extensores **radiais** abduzem; o **ulnar** aduz."
+   ]
+  },
+  {
+   "id": "femur",
+   "area": "anatomia",
+   "region": "MI",
+   "title": "Fêmur",
+   "schema": "**Proximal**: cabeça (acetábulo) · colo · trocânter maior (lateral, glúteos) · trocânter menor (posteromedial, iliopsoas)\n**Diáfise**: osso compacto · **linha áspera** (posterior)\n**Distal**: côndilos medial/lateral (tíbia) · epicôndilos (ligamentos) · superfície patelar (patela)",
+   "five": {
+    "identification": "**Fêmur**: maior osso do corpo, esqueleto da coxa.",
+    "location": "Articula-se com o **acetábulo** (cabeça), com a **tíbia** (côndilos) e com a **patela** (superfície patelar).",
+    "function": "Trocânter maior: músculos da **região glútea**. Trocânter menor: **iliopsoas**. Linha áspera: inserção de músculos da coxa. Epicôndilos: fixação ligamentar.",
+    "origin": "—",
+    "clinical": "**Fratura diafisária** (caso: fêmur E com desvio): incapacidade de apoio, dor, limitação do joelho; imobilidade associada a **TVP/TEP** no caso."
+   },
+   "asks": [
+    "Identificar cabeça, colo, trocânteres, diáfise, linha áspera, côndilos",
+    "Face anterior × posterior da peça",
+    "Músculo do trocânter menor",
+    "Com que osso cada superfície articula"
+   ],
+   "model": "**Fêmur**, maior osso do corpo. Proximal: **cabeça** (articula com o acetábulo), **colo**, **trocânter maior** (lateral, músculos glúteos) e **trocânter menor** (posteromedial, iliopsoas). **Diáfise** de osso compacto, com a **linha áspera** na face posterior para inserções musculares. Distal: **côndilos** medial e lateral (articulam com a tíbia), **epicôndilos** (ligamentos) e **superfície patelar** (patela).",
+   "memo": "Linha áspera atrás; patelar na frente; menor recebe iliopsoas.",
+   "review": [
+    {
+     "q": "Qual músculo se insere no trocânter menor?",
+     "a": "Iliopsoas."
+    },
+    {
+     "q": "Em que face fica a linha áspera?",
+     "a": "Face posterior da diáfise."
+    },
+    {
+     "q": "Com o que articula a superfície patelar?",
+     "a": "Com a patela (articulação femoropatelar)."
+    }
+   ],
+   "traps": [
+    "Linha áspera é **posterior** — use-a para orientar a peça.",
+    "Trocânter menor é **posteromedial**, maior é **lateral**.",
+    "**Côndilos** articulam; **epicôndilos** são para ligamentos."
+   ]
+  },
+  {
+   "id": "joelho",
+   "area": "anatomia",
+   "region": "MI",
+   "title": "Quadríceps femoral e joelho",
+   "schema": "Reto femoral + vasto medial + vasto lateral + vasto intermédio → **tendão do quadríceps** → **patela** → **ligamento patelar** → **tuberosidade da tíbia** = **extensão do joelho**. Nervo **femoral (L2–L4)**.\nJoelho: femorotibial + femoropatelar · côndilos · platôs · patela · meniscos.",
+   "five": {
+    "identification": "**Quadríceps femoral** (4 músculos) e **articulação do joelho**.",
+    "location": "Quadríceps no **compartimento anterior da coxa**; vasto intermédio **profundo** ao reto femoral.",
+    "function": "Extensão do joelho; **reto femoral** também flete o quadril; vasto medial estabiliza a patela. Flexão do joelho: **músculos posteriores da coxa**. Patela (sesamoide) aumenta a eficiência da extensão. Meniscos: distribuição de carga e estabilidade.",
+    "origin": "**Nervo femoral, L2–L4**.",
+    "clinical": "Fratura do fêmur (caso) → dor e limitação do joelho; extensão depende do aparelho extensor (quadríceps → patela → tíbia)."
+   },
+   "asks": [
+    "Nomear os 4 componentes do quadríceps",
+    "Sequência do aparelho extensor",
+    "Inervação e raízes",
+    "Identificar patela, meniscos, côndilos e platôs"
+   ],
+   "model": "O **quadríceps femoral** tem **reto femoral, vasto medial, vasto lateral e vasto intermédio**, no compartimento anterior da coxa. Convergem no **tendão do quadríceps**, que se fixa à **patela**; a força segue pelo **ligamento patelar** até a **tuberosidade da tíbia**, fazendo a **extensão do joelho**. Inervação: **nervo femoral, L2–L4**. O joelho tem as articulações **femorotibial** e **femoropatelar**, com meniscos fibrocartilaginosos; a flexão é feita pelos **posteriores da coxa**.",
+   "memo": "Quatro cabeças, um tendão, patela, ligamento, tuberosidade: estende.",
+   "review": [
+    {
+     "q": "Qual componente do quadríceps também flete o quadril?",
+     "a": "Reto femoral."
+    },
+    {
+     "q": "Qual estrutura liga a patela à tíbia?",
+     "a": "Ligamento patelar (até a tuberosidade da tíbia)."
+    },
+    {
+     "q": "Qual a inervação do quadríceps?",
+     "a": "Nervo femoral, L2–L4."
+    }
+   ],
+   "traps": [
+    "Ligamento patelar vai da patela à **tuberosidade da tíbia** (não à fíbula).",
+    "**Vasto intermédio** é profundo ao reto femoral.",
+    "Patela é **osso sesamoide** dentro do tendão do quadríceps.",
+    "Meniscos são **fibrocartilagem**."
+   ]
+  },
+  {
+   "id": "compacto",
+   "area": "histologia",
+   "region": null,
+   "title": "Tecido ósseo compacto",
+   "schema": "Matriz mineralizada = **colágeno I** (tração) + **hidroxiapatita** (compressão).\n**Ósteon** = lamelas concêntricas + **canal de Havers** (vasos e nervos). **Canais de Volkmann** conectam canais vasculares. Osteócitos em **lacunas**.",
+   "five": {
+    "identification": "**Osso compacto** com **ósteons** (sistemas de Havers).",
+    "location": "Predomina na **diáfise** dos ossos longos.",
+    "function": "Resistência mecânica. **Osteoblastos**: produzem matriz orgânica. **Osteócitos**: manutenção e percepção de estímulos mecânicos. **Osteoclastos**: multinucleados, reabsorção.",
+    "origin": "Tecido conjuntivo especializado (origem **mesodérmica**).",
+    "clinical": "Fraturas diafisárias do úmero e do fêmur no caso: a diáfise é **osso compacto**."
+   },
+   "asks": [
+    "Identificar ósteon, canal de Havers, canal de Volkmann, lamelas, lacunas",
+    "Composição da matriz",
+    "Função de cada célula"
+   ],
+   "model": "Tecido **ósseo compacto**, conjuntivo especializado de matriz mineralizada com **colágeno tipo I** e **hidroxiapatita**. A unidade é o **ósteon**: **lamelas concêntricas** em torno do **canal de Havers**, que contém vasos e nervos; os **canais de Volkmann** conectam os canais vasculares. Os **osteócitos** ficam em lacunas e mantêm a matriz; **osteoblastos** produzem matriz orgânica; **osteoclastos**, multinucleados, reabsorvem.",
+   "memo": "Havers no centro, Volkmann atravessa; blasto faz, clasto desfaz.",
+   "review": [
+    {
+     "q": "O que há no canal de Havers?",
+     "a": "Vasos sanguíneos e nervos."
+    },
+    {
+     "q": "Qual a função dos canais de Volkmann?",
+     "a": "Conectar canais vasculares (Havers entre si e com a superfície)."
+    },
+    {
+     "q": "Qual célula é multinucleada e reabsorve osso?",
+     "a": "Osteoclasto."
+    }
+   ],
+   "traps": [
+    "Volkmann **não** tem lamelas concêntricas ao redor e corre transversal/oblíquo.",
+    "**Osteócito** está **dentro** da lacuna; osteoblasto na **superfície**.",
+    "Colágeno = tração; hidroxiapatita = compressão."
+   ]
+  },
+  {
+   "id": "esponjoso",
+   "area": "histologia",
+   "region": null,
+   "title": "Tecido ósseo esponjoso",
+   "schema": "**Trabéculas** interconectadas + espaços com **medula óssea**. Osteócitos em lacunas; osteoblastos e osteoclastos nas **superfícies**. **Sem ósteons completos**.",
+   "five": {
+    "identification": "**Osso esponjoso** (trabecular).",
+    "location": "Interior dos ossos; espaços ocupados pela **medula óssea**.",
+    "function": "Distribuir forças mecânicas e **reduzir o peso** do esqueleto; participa da reparação/remodelação.",
+    "origin": "Tecido conjuntivo especializado (**mesodérmico**).",
+    "clinical": "Consolidação das fraturas do caso envolve **formação e remodelação** óssea."
+   },
+   "asks": [
+    "Diferenciar esponjoso de compacto na lâmina",
+    "Identificar trabécula, medula, osteócito, osteoblasto, osteoclasto"
+   ],
+   "model": "Tecido **ósseo esponjoso**: **trabéculas** ósseas interconectadas, com **medula óssea** nos espaços entre elas. As trabéculas têm matriz mineralizada e **osteócitos em lacunas**, com **osteoblastos** e **osteoclastos** nas superfícies. Diferente do compacto, **não tem ósteons completos**. Distribui forças e reduz o peso do esqueleto.",
+   "memo": "Esponjoso: trabéculas e medula; compacto: ósteons e Havers.",
+   "review": [
+    {
+     "q": "O que preenche os espaços entre as trabéculas?",
+     "a": "Medula óssea."
+    },
+    {
+     "q": "Principal diferença em relação ao compacto?",
+     "a": "Não apresenta ósteons completos; é formado por trabéculas."
+    },
+    {
+     "q": "Onde ficam os osteoblastos?",
+     "a": "Na superfície das trabéculas."
+    }
+   ],
+   "traps": [
+    "Ver \"traves rosadas + muitas células roxas entre elas\" = **esponjoso com medula**, não tecido hematopoético isolado.",
+    "Esponjoso tem **osteócitos** sim (em lacunas)."
+   ]
+  },
+  {
+   "id": "denso",
+   "area": "histologia",
+   "region": null,
+   "title": "Tecido conjuntivo denso modelado (tendão)",
+   "schema": "Feixes **paralelos** de **colágeno tipo I** + fileiras de **fibroblastos alongados/achatados** entre os feixes → resistência à **tração longitudinal**; vascularização **limitada**.",
+   "five": {
+    "identification": "**Tecido conjuntivo denso modelado** — tendão.",
+    "location": "Tendões (ex.: **tendão distal do bíceps**), conectando músculo a osso.",
+    "function": "**Transmitir a força** da contração muscular ao osso; resistir à tração.",
+    "origin": "Conjuntivo (**mesodérmico**).",
+    "clinical": "**Vascularização limitada** → reparo lento; caso: ruptura completa do tendão distal do bíceps."
+   },
+   "asks": [
+    "Reconhecer na lâmina (feixes paralelos + núcleos alongados)",
+    "Tipo de colágeno",
+    "Por que cicatriza mal"
+   ],
+   "model": "Tecido **conjuntivo denso modelado**: **feixes paralelos** de fibras colágenas, predominantemente **tipo I**, com **fibroblastos de núcleo alongado e achatado** entre os feixes. A organização paralela dá alta **resistência à tração longitudinal**. Forma os **tendões**, que transmitem a força do músculo ao osso. Tem **vascularização limitada**, o que dificulta a reparação.",
+   "memo": "Paralelo resiste à tração; pouco vaso, cicatriza devagar.",
+   "review": [
+    {
+     "q": "Qual o colágeno predominante?",
+     "a": "Colágeno tipo I."
+    },
+    {
+     "q": "Como são os núcleos dos fibroblastos?",
+     "a": "Alongados e achatados, entre os feixes."
+    },
+    {
+     "q": "Por que o reparo é lento?",
+     "a": "Vascularização limitada."
+    }
+   ],
+   "traps": [
+    "Denso **não modelado** (derme) tem feixes em **várias direções**.",
+    "Não confundir com **nervo** em corte longitudinal (ondulado, com núcleos de Schwann) nem com músculo liso (núcleos centrais em células fusiformes)."
+   ]
+  },
+  {
+   "id": "nervo",
+   "area": "histologia",
+   "region": null,
+   "title": "Tecido nervoso periférico (nervo)",
+   "schema": "Nervo → **epineuro** (todo o nervo, com vasos) → **fascículos** envoltos por **perineuro** → fibras envoltas por **endoneuro**. Fibra = **axônio** ± **mielina** (células de **Schwann**).",
+   "five": {
+    "identification": "**Nervo periférico** em corte transversal.",
+    "location": "Ex.: **nervo radial** no sulco do nervo radial.",
+    "function": "Conduzir impulsos; a **mielina** aumenta a velocidade de condução.",
+    "origin": "Mielina no SNP: **células de Schwann**.",
+    "clinical": "Caso: **neuropatia do nervo radial** após fratura do úmero (déficit motor e sensitivo)."
+   },
+   "asks": [
+    "Identificar endoneuro, perineuro, epineuro e fascículo",
+    "Quem forma a mielina no SNP",
+    "Função da mielina"
+   ],
+   "model": "**Nervo periférico**: **fibras nervosas** (axônios, muitos com **bainha de mielina**), **células de Schwann** e conjuntivo de sustentação. No SNP a mielina é produzida pelas **células de Schwann** e aumenta a velocidade de condução. Envoltórios: **endoneuro** em cada fibra, **perineuro** em cada fascículo, protegendo o ambiente endoneural, e **epineuro** em todo o nervo, com vasos sanguíneos.",
+   "memo": "Endo na fibra, peri no fascículo, epi no nervo.",
+   "review": [
+    {
+     "q": "Qual envoltório circunda o fascículo?",
+     "a": "Perineuro."
+    },
+    {
+     "q": "Quem produz mielina no SNP?",
+     "a": "Célula de Schwann."
+    },
+    {
+     "q": "Onde estão os vasos maiores do nervo?",
+     "a": "No epineuro."
+    }
+   ],
+   "traps": [
+    "Ordem de dentro para fora: **endo → peri → epi**.",
+    "Mielina no SNP = **Schwann** (oligodendrócito é no SNC).",
+    "Halo claro em volta do axônio na HE = mielina (lipídios removidos)."
+   ]
+  }
+ ],
+ "stations": [
+  {
+   "id": "st1",
+   "area": "anatomia",
+   "topic": "umero",
+   "figure": "n400",
+   "context": "Peça (Netter, ficha 6-1): úmero e escápula direitos, vista anterior.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Identifique a estrutura 4.",
+     "options": [
+      "Sulco intertubercular",
+      "Sulco do nervo radial",
+      "Fossa coronóidea",
+      "Incisura da escápula"
+     ],
+     "answer": 0,
+     "why": "Fica entre o tubérculo maior (2) e o menor (3); por ele passa o tendão da cabeça longa do bíceps.",
+     "model": "Sulco intertubercular: tendão da cabeça longa do bíceps."
+    },
+    {
+     "type": "mc",
+     "q": "Identifique a estrutura 6 e com o que se articula.",
+     "options": [
+      "Capítulo — cabeça do rádio",
+      "Tróclea — incisura troclear da ulna",
+      "Capítulo — olécrano",
+      "Epicôndilo lateral — cabeça do rádio"
+     ],
+     "answer": 0,
+     "why": "**Capítulo do úmero**, lateral, articula com a cabeça do rádio (umerorradial).",
+     "model": "Capítulo + cabeça do rádio = umerorradial."
+    }
+   ]
+  },
+  {
+   "id": "st2",
+   "area": "anatomia",
+   "topic": "biceps",
+   "figure": "n408",
+   "context": "Peça (Netter, ficha 6-5): ossos do cotovelo direito em extensão.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Identifique a estrutura 3.",
+     "options": [
+      "Tuberosidade do rádio",
+      "Tuberosidade da ulna",
+      "Colo do rádio",
+      "Processo coronoide"
+     ],
+     "answer": 0,
+     "why": "Abaixo do colo do rádio; recebe o **tendão distal do bíceps**.",
+     "model": "Tuberosidade do rádio: inserção do bíceps."
+    },
+    {
+     "type": "mc",
+     "q": "Identifique a estrutura 5.",
+     "options": [
+      "Colo do rádio",
+      "Cabeça do rádio",
+      "Tuberosidade do rádio",
+      "Diáfise da ulna"
+     ],
+     "answer": 0,
+     "why": "Região estreita logo abaixo da cabeça do rádio.",
+     "model": "Colo do rádio: entre cabeça e tuberosidade."
+    }
+   ]
+  },
+  {
+   "id": "st3",
+   "area": "anatomia",
+   "topic": "cotovelo",
+   "figure": "n412",
+   "context": "Peça (Netter, ficha 6-7): ligamentos do cotovelo.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Identifique a estrutura 6.",
+     "options": [
+      "Ligamento anular do rádio",
+      "Ligamento colateral radial",
+      "Ligamento colateral ulnar",
+      "Cápsula articular"
+     ],
+     "answer": 0,
+     "why": "Abraça a **cabeça do rádio** e a estabiliza na rotação (radioulnar proximal).",
+     "model": "Ligamento anular: abraça a cabeça do rádio."
+    },
+    {
+     "type": "mc",
+     "q": "Identifique a estrutura 5.",
+     "options": [
+      "Tendão do bíceps braquial",
+      "Tendão do tríceps braquial",
+      "Membrana sinovial",
+      "Ligamento colateral radial"
+     ],
+     "answer": 0,
+     "why": "Tendão distal do bíceps, que segue para a tuberosidade do rádio.",
+     "model": "Tendão do bíceps vai à tuberosidade do rádio."
+    }
+   ]
+  },
+  {
+   "id": "st4",
+   "area": "anatomia",
+   "topic": "radial",
+   "figure": "n450",
+   "context": "Peça (Netter, ficha 6-26): cortes transversais seriados do braço. Caso: fratura diafisária do úmero com mão caída.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Identifique a estrutura 5.",
+     "options": [
+      "Nervo radial",
+      "Nervo musculocutâneo",
+      "Nervo ulnar",
+      "Artéria braquial"
+     ],
+     "answer": 0,
+     "why": "Nervo junto à face posterior do úmero, entre as cabeças do tríceps — o **nervo radial** no sulco.",
+     "model": "Nervo radial colado à face posterior do úmero."
+    },
+    {
+     "type": "open",
+     "q": "Por que esse nervo é lesado na fratura diafisária do úmero e qual o quadro?",
+     "model": "Percorre o **sulco do nervo radial**, em contato com a diáfise. Lesão: **mão caída** (sem extensão de punho e dedos) e hipoestesia no **dorso do 1º espaço interdigital**."
+    }
+   ]
+  },
+  {
+   "id": "st5",
+   "area": "anatomia",
+   "topic": "radial",
+   "figure": "n514",
+   "context": "Peça (Netter, ficha 6-58): nervos da região posterior do ombro e do braço.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Identifique a estrutura 4.",
+     "options": [
+      "Nervo radial",
+      "Nervo axilar",
+      "Nervo supraescapular",
+      "Nervo cutâneo posterior do antebraço"
+     ],
+     "answer": 0,
+     "why": "Nervo que desce pela face posterior do braço: **nervo radial** (C5–C8, T1).",
+     "model": "Radial desce posterior ao úmero."
+    },
+    {
+     "type": "mc",
+     "q": "Esse nervo origina-se de:",
+     "options": [
+      "Fascículo posterior, C5–T1",
+      "Fascículo lateral, C5–C7",
+      "Fascículo medial, C8–T1",
+      "Tronco superior, C5–C6"
+     ],
+     "answer": 0,
+     "why": "O radial é ramo terminal do **fascículo posterior**.",
+     "model": "Radial: fascículo posterior, C5 a T1."
+    }
+   ]
+  },
+  {
+   "id": "st6",
+   "area": "anatomia",
+   "topic": "femur",
+   "figure": "n542",
+   "context": "Peça (Netter, ficha 7-5): fêmur, vistas anterior e posterior.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Identifique a estrutura 9.",
+     "options": [
+      "Trocanter menor",
+      "Trocanter maior",
+      "Tubérculo do adutor",
+      "Crista intertrocantérica"
+     ],
+     "answer": 0,
+     "why": "Proeminência **posteromedial**; inserção do **iliopsoas**.",
+     "model": "Trocanter menor: iliopsoas."
+    },
+    {
+     "type": "mc",
+     "q": "Identifique a estrutura 8.",
+     "options": [
+      "Linha áspera",
+      "Crista intertrocantérica",
+      "Diáfise anterior",
+      "Epicôndilo medial"
+     ],
+     "answer": 0,
+     "why": "Crista na **face posterior** da diáfise (lábios medial e lateral).",
+     "model": "Linha áspera: face posterior."
+    }
+   ]
+  },
+  {
+   "id": "st7",
+   "area": "anatomia",
+   "topic": "joelho",
+   "figure": "n548",
+   "context": "Peça (Netter, ficha 7-8): joelho, vista superior do platô tibial.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Identifique a estrutura 6.",
+     "options": [
+      "Menisco medial",
+      "Menisco lateral",
+      "Ligamento cruzado anterior",
+      "Ligamento da patela"
+     ],
+     "answer": 0,
+     "why": "Fibrocartilagem em \"C\" do lado medial.",
+     "model": "Meniscos: fibrocartilagem para carga e estabilidade."
+    },
+    {
+     "type": "mc",
+     "q": "Identifique a estrutura 3.",
+     "options": [
+      "Ligamento da patela",
+      "Ligamento cruzado anterior",
+      "Trato iliotibial",
+      "Ligamento poplíteo oblíquo"
+     ],
+     "answer": 0,
+     "why": "Anterior: liga a patela à **tuberosidade da tíbia**.",
+     "model": "Ligamento da patela: patela → tuberosidade da tíbia."
+    }
+   ]
+  },
+  {
+   "id": "st8",
+   "area": "anatomia",
+   "topic": "joelho",
+   "figure": "n574",
+   "context": "Peça (Netter, ficha 7-21): coxa direita, vista anterior.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Identifique o músculo 1.",
+     "options": [
+      "Vasto medial",
+      "Vasto lateral",
+      "Reto femoral",
+      "Sartório"
+     ],
+     "answer": 0,
+     "why": "Porção anteromedial do quadríceps, chegando à borda medial da patela.",
+     "model": "Vasto medial: lado medial, estabiliza a patela."
+    },
+    {
+     "type": "mc",
+     "q": "Qual a inervação desse músculo?",
+     "options": [
+      "Nervo femoral, L2–L4",
+      "Nervo obturatório, L2–L4",
+      "Nervo isquiático, L4–S3",
+      "Nervo femoral, S1–S2"
+     ],
+     "answer": 0,
+     "why": "Todo o quadríceps: **nervo femoral (L2–L4)**.",
+     "model": "Quadríceps: femoral L2–L4."
+    }
+   ]
+  },
+  {
+   "id": "st9",
+   "area": "embriologia",
+   "topic": "extra",
+   "figure": "moore_145",
+   "context": "Imagem (Moore, fig. 8.4): ultrassonografia endovaginal de útero grávido. Caso: ≈5 semanas de IG.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "A estrutura 1 é:",
+     "options": [
+      "Saco coriônico (saco gestacional)",
+      "Embrião com batimentos",
+      "Corpo lúteo",
+      "Placenta definitiva"
+     ],
+     "answer": 0,
+     "why": "Saco coriônico de 3 semanas — o \"saco gestacional\" visto na US do caso.",
+     "model": "Saco gestacional = cavidade coriônica."
+    },
+    {
+     "type": "open",
+     "q": "Do que é formado o córion que delimita essa cavidade?",
+     "model": "**Trofoblasto + mesoderma extraembrionário somático**; forma a porção fetal da placenta."
+    }
+   ]
+  },
+  {
+   "id": "st10",
+   "area": "embriologia",
+   "topic": "ovario",
+   "figure": "moore_51",
+   "context": "Lâmina (Moore, fig. 2.9): fotomicrografias de ovário de mulher adulta.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "A estrutura 1 é:",
+     "options": [
+      "Folículos primordiais",
+      "Corpos lúteos",
+      "Folículos de Graaf",
+      "Corpos albicans"
+     ],
+     "answer": 0,
+     "why": "Ovócito primário com uma camada de células achatadas.",
+     "model": "P = primordial: uma camada achatada."
+    },
+    {
+     "type": "mc",
+     "q": "Em B, a estrutura 2 (antro) classifica o folículo, pelo roteiro, como:",
+     "options": [
+      "Terciário (antral)",
+      "Primário",
+      "Primordial",
+      "Secundário pré-antral"
+     ],
+     "answer": 0,
+     "why": "Com antro = **terciário/antral**; sem antro = secundário/pré-antral.",
+     "model": "Viu antro? Terciário."
+    }
+   ]
+  },
+  {
+   "id": "st11",
+   "area": "embriologia",
+   "topic": "luteo",
+   "figure": "moore_80",
+   "context": "Esquema (Moore, fig. 4.2): blastocistos implantados aos 10 e 12 dias.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "A camada externa, multinucleada, que invade o endométrio é:",
+     "options": [
+      "Sinciciotrofoblasto",
+      "Citotrofoblasto",
+      "Epiblasto",
+      "Hipoblasto"
+     ],
+     "answer": 0,
+     "why": "Sincício: sem limites celulares, invasivo; nele surge a rede lacunar.",
+     "model": "Sinciciotrofoblasto: externo, invasivo, faz hCG."
+    },
+    {
+     "type": "mc",
+     "q": "Qual hormônio essa camada produz e qual o efeito?",
+     "options": [
+      "hCG — mantém o corpo lúteo",
+      "Progesterona — induz a ovulação",
+      "FSH — cresce o folículo",
+      "LH — forma o antro"
+     ],
+     "answer": 0,
+     "why": "hCG mantém o corpo lúteo, que segue produzindo progesterona.",
+     "model": "hCG segura o corpo lúteo."
+    }
+   ]
+  },
+  {
+   "id": "st12",
+   "area": "embriologia",
+   "topic": "neuro",
+   "figure": "moore_441",
+   "context": "Esquema (Moore, fig. 16.1): placa neural e seu dobramento.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual a sequência correta?",
+     "options": [
+      "Placa neural → sulco e pregas neurais → tubo neural",
+      "Tubo neural → placa → sulco",
+      "Sulco → notocorda → placa",
+      "Pregas → placa → notocorda"
+     ],
+     "answer": 0,
+     "why": "O ectoderma espessado forma a placa; surgem sulco e pregas, que se fundem.",
+     "model": "Placa, sulco, pregas, tubo."
+    },
+    {
+     "type": "mc",
+     "q": "O tubo neural tem origem em:",
+     "options": [
+      "Ectoderma",
+      "Mesoderma paraxial",
+      "Endoderma",
+      "Notocorda"
+     ],
+     "answer": 0,
+     "why": "Tubo neural = **ectoderma**, induzido pela notocorda (mesoderma).",
+     "model": "Tubo neural é ectoderma."
+    }
+   ]
+  },
+  {
+   "id": "st13",
+   "area": "embriologia",
+   "topic": "ovario",
+   "figure": "g_foliculo_antral",
+   "context": "Lâmina (Gartner, fig. 20.5): ovário, 132×.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Classifique o folículo segundo o roteiro da prova.",
+     "options": [
+      "Terciário (antral)",
+      "Secundário (pré-antral)",
+      "Primário",
+      "Primordial"
+     ],
+     "answer": 0,
+     "why": "Há **antro**. O Gartner chama de \"folículo secundário\" — pegadinha de nomenclatura.",
+     "model": "Antro presente = terciário no roteiro."
+    },
+    {
+     "type": "open",
+     "q": "O que envolve diretamente o ovócito e o que o sustenta no folículo maduro?",
+     "model": "**Zona pelúcida** e **corona radiata** envolvem o ovócito; o **cúmulo oóforo** o sustenta."
+    }
+   ]
+  },
+  {
+   "id": "st14",
+   "area": "histologia",
+   "topic": "compacto",
+   "figure": "g_osso_compacto",
+   "context": "Lâmina (Gartner, fig. 7.12): osso descalcificado, 162×. Caso: fraturas diafisárias.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual tecido é este?",
+     "options": [
+      "Osso compacto",
+      "Osso esponjoso",
+      "Cartilagem hialina",
+      "Conjuntivo denso modelado"
+     ],
+     "answer": 0,
+     "why": "Ósteons com lamelas concêntricas ao redor de canais vasculares.",
+     "model": "Ósteons = osso compacto."
+    },
+    {
+     "type": "mc",
+     "q": "A estrutura 1 é:",
+     "options": [
+      "Canal de Volkmann",
+      "Canal de Havers",
+      "Lacuna",
+      "Linha cementante"
+     ],
+     "answer": 0,
+     "why": "Canal que **conecta** canais de Havers, sem lamelas concêntricas próprias.",
+     "model": "V de Volkmann: conecta Havers."
+    }
+   ]
+  },
+  {
+   "id": "st15",
+   "area": "histologia",
+   "topic": "compacto",
+   "figure": "g_osso_desgastado",
+   "context": "Lâmina (Gartner, fig. 7.11): osso desgastado não descalcificado, 270×.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "A estrutura 1, no centro, é:",
+     "options": [
+      "Canal de Havers",
+      "Canal de Volkmann",
+      "Osteoclasto",
+      "Medula óssea"
+     ],
+     "answer": 0,
+     "why": "Canal central do ósteon, com vasos e nervos.",
+     "model": "Havers no centro do ósteon."
+    },
+    {
+     "type": "mc",
+     "q": "A estrutura 2 é uma lacuna. Que célula ela abriga?",
+     "options": [
+      "Osteócitos",
+      "Osteoclastos",
+      "Osteoblastos",
+      "Condrócitos"
+     ],
+     "answer": 0,
+     "why": "Lacunas + canalículos = espaço dos **osteócitos**.",
+     "model": "Lacuna com canalículos = osteócito."
+    }
+   ]
+  },
+  {
+   "id": "st16",
+   "area": "histologia",
+   "topic": "denso",
+   "figure": "g_tendao_long",
+   "context": "Lâmina (Gartner, fig. 6.18): tendão, 270×. Caso: ruptura do tendão distal do bíceps.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual tecido é este?",
+     "options": [
+      "Conjuntivo denso modelado",
+      "Conjuntivo denso não modelado",
+      "Músculo liso",
+      "Nervo periférico longitudinal"
+     ],
+     "answer": 0,
+     "why": "Feixes de colágeno **paralelos** com núcleos alongados entre eles.",
+     "model": "Paralelo = denso modelado."
+    },
+    {
+     "type": "mc",
+     "q": "A estrutura 1 é o núcleo de qual célula?",
+     "options": [
+      "Fibroblastos",
+      "Células de Schwann",
+      "Fibras musculares lisas",
+      "Osteócitos"
+     ],
+     "answer": 0,
+     "why": "Fibroblastos alongados e achatados entre os feixes.",
+     "model": "N = fibroblastos achatados."
+    }
+   ]
+  },
+  {
+   "id": "st17",
+   "area": "histologia",
+   "topic": "nervo",
+   "figure": "g_nervo_trans",
+   "context": "Lâmina (Gartner, fig. 9.21): corte transversal, 132×. Caso: neuropatia do nervo radial.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual estrutura aparece nesta lâmina?",
+     "options": [
+      "Nervo periférico em corte transversal",
+      "Tendão em corte transversal",
+      "Músculo estriado",
+      "Osso esponjoso"
+     ],
+     "answer": 0,
+     "why": "Fascículo com muitas fibras pequenas de halo claro, delimitado por conjuntivo.",
+     "model": "Fascículos com fibras = nervo."
+    },
+    {
+     "type": "mc",
+     "q": "A camada de conjuntivo que delimita o fascículo é o:",
+     "options": [
+      "Perineuro",
+      "Endoneuro",
+      "Epineuro",
+      "Neurilema"
+     ],
+     "answer": 0,
+     "why": "**Perineuro** envolve cada fascículo.",
+     "model": "Peri no fascículo."
+    }
+   ]
+  },
+  {
+   "id": "st18",
+   "area": "histologia",
+   "topic": "nervo",
+   "figure": "g_nervo_long",
+   "context": "Lâmina (Gartner, fig. 9.20): corte longitudinal, 270×.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual estrutura aparece nesta lâmina?",
+     "options": [
+      "Nervo periférico em corte longitudinal",
+      "Tendão",
+      "Músculo liso",
+      "Cartilagem"
+     ],
+     "answer": 0,
+     "why": "Fibras onduladas com mielina e núcleos de células de Schwann.",
+     "model": "Ondulado com mielina = nervo."
+    },
+    {
+     "type": "mc",
+     "q": "Quem produz a mielina dessas fibras?",
+     "options": [
+      "Células de Schwann",
+      "Oligodendrócitos",
+      "Fibroblastos",
+      "Astrócitos"
+     ],
+     "answer": 0,
+     "why": "No SNP, a mielina é das **células de Schwann**.",
+     "model": "SNP: Schwann faz mielina."
+    }
+   ]
+  },
+  {
+   "id": "st19",
+   "area": "embriologia",
+   "topic": "extra",
+   "figure": "modelo",
+   "context": "Peça do laboratório: modelo do desenvolvimento embrionário (clivagem, blastocisto, implantação e embrião).",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Identifique a peça 1.",
+     "options": [
+      "Mórula",
+      "Zigoto",
+      "Blastocisto",
+      "Disco bilaminar"
+     ],
+     "answer": 0,
+     "why": "Esfera maciça de blastômeros (\"amora\"), etapa final da clivagem antes do blastocisto.",
+     "model": "Mórula: bola maciça de blastômeros."
+    },
+    {
+     "type": "open",
+     "q": "A estrutura 2 é o saco vitelino. Cite três funções.",
+     "model": "**Hematopoiese primitiva**, origem das **células germinativas primordiais** e formação do **intestino primitivo** no dobramento."
+    }
+   ],
+   "points": [
+    "morula",
+    "sacoVit"
+   ]
+  },
+  {
+   "id": "st20",
+   "area": "anatomia",
+   "topic": "umero",
+   "figure": "n402",
+   "context": "Peça (Netter, ficha 6-2): úmero e escápula direitos, vista posterior.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Identifique a estrutura 10 e o músculo que nela se insere.",
+     "options": [
+      "Tuberosidade deltoidea — deltoide",
+      "Tubérculo maior — supraespinal",
+      "Sulco do nervo radial — tríceps",
+      "Epicôndilo lateral — extensores"
+     ],
+     "answer": 0,
+     "why": "Proeminência na face lateral da diáfise: inserção do **deltoide**.",
+     "model": "Tuberosidade deltoidea: inserção do deltoide."
+    },
+    {
+     "type": "mc",
+     "q": "A estrutura 8 articula-se com:",
+     "options": [
+      "Incisura troclear da ulna",
+      "Cabeça do rádio",
+      "Cavidade glenoidal",
+      "Incisura radial da ulna"
+     ],
+     "answer": 0,
+     "why": "Estrutura 8 = **tróclea do úmero** → articulação umeroulnar (flexão/extensão).",
+     "model": "Tróclea + incisura troclear = umeroulnar."
+    }
+   ]
+  },
+  {
+   "id": "st21",
+   "area": "anatomia",
+   "topic": "cotovelo",
+   "figure": "n410",
+   "context": "Peça (Netter, ficha 6-6): ossos do cotovelo em 90° de flexão, vistas lateral e medial.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Identifique a estrutura 4.",
+     "options": [
+      "Tuberosidade do rádio",
+      "Processo coronoide",
+      "Olécrano",
+      "Epicôndilo medial"
+     ],
+     "answer": 0,
+     "why": "Na face medial do rádio proximal: inserção do **tendão distal do bíceps**.",
+     "model": "Tuberosidade do rádio recebe o bíceps."
+    },
+    {
+     "type": "mc",
+     "q": "A estrutura 3 forma, com a tróclea, qual articulação e movimento?",
+     "options": [
+      "Umeroulnar — flexão e extensão",
+      "Radioulnar proximal — pronação e supinação",
+      "Umerorradial — abdução",
+      "Radioulnar distal — supinação"
+     ],
+     "answer": 0,
+     "why": "Estrutura 3 = **incisura troclear da ulna** → umeroulnar.",
+     "model": "Umeroulnar: flexão e extensão."
+    }
+   ]
+  },
+  {
+   "id": "st22",
+   "area": "anatomia",
+   "topic": "biceps",
+   "figure": "n414",
+   "context": "Peça (Netter, ficha 6-8): rádio e ulna direitos em supinação e pronação.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Identifique as estruturas 1, 2 e 3, nesta ordem.",
+     "options": [
+      "Cabeça, colo e tuberosidade do rádio",
+      "Cabeça, colo e tuberosidade da ulna",
+      "Olécrano, processo coronoide e tuberosidade da ulna",
+      "Capítulo, colo e tuberosidade do úmero"
+     ],
+     "answer": 0,
+     "why": "Extremidade proximal do **rádio**: cabeça → colo → tuberosidade.",
+     "model": "Rádio proximal: cabeça, colo, tuberosidade."
+    },
+    {
+     "type": "open",
+     "q": "O que se insere na estrutura 3 e o que acontece se esse tendão romper?",
+     "model": "O **tendão distal do bíceps braquial**. A ruptura reduz a **supinação** e a **força de flexão do cotovelo**."
+    }
+   ]
+  },
+  {
+   "id": "st23",
+   "area": "anatomia",
+   "topic": "biceps",
+   "figure": "n442",
+   "context": "Peça (Netter, ficha 6-22): músculos do braço, camada superficial. Caso: alteração do contorno do bíceps após trauma.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "O músculo 1 tem origens em:",
+     "options": [
+      "Processo coracoide (curta) e tubérculo supraglenoidal (longa)",
+      "Tubérculo infraglenoidal e face posterior do úmero",
+      "Crista supraepicondilar lateral",
+      "Metade distal anterior do úmero"
+     ],
+     "answer": 0,
+     "why": "**Bíceps braquial**: curta no coracoide, longa no supraglenoidal.",
+     "model": "Curta no coracoide, longa no supraglenoidal."
+    },
+    {
+     "type": "mc",
+     "q": "Qual a inervação e a ação principal do músculo 1?",
+     "options": [
+      "Musculocutâneo (C5–C6) — supinação potente e flexão do cotovelo",
+      "Radial (C5–T1) — extensão do cotovelo",
+      "Mediano (C6–C7) — pronação",
+      "Axilar (C5–C6) — abdução do ombro"
+     ],
+     "answer": 0,
+     "why": "Supinador potente com o antebraço fletido; inervado pelo **musculocutâneo**.",
+     "model": "Bíceps: musculocutâneo, supina e flete."
+    }
+   ]
+  },
+  {
+   "id": "st24",
+   "area": "anatomia",
+   "topic": "biceps",
+   "figure": "n446",
+   "context": "Peça (Netter, ficha 6-24): braço, camada profunda (bíceps rebatido).",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "O músculo 1 é:",
+     "options": [
+      "Braquial",
+      "Bíceps braquial",
+      "Coracobraquial",
+      "Braquiorradial"
+     ],
+     "answer": 0,
+     "why": "Profundo ao bíceps, da metade distal do úmero à tuberosidade da ulna.",
+     "model": "Braquial: flexor profundo ao bíceps."
+    },
+    {
+     "type": "open",
+     "q": "Por que, na ruptura do tendão distal do bíceps, a flexão do cotovelo fica reduzida mas não abolida?",
+     "model": "Porque o **braquial** (e o braquiorradial) continuam fletindo o cotovelo. A **supinação** é a mais prejudicada."
+    }
+   ]
+  },
+  {
+   "id": "st25",
+   "area": "anatomia",
+   "topic": "cotovelo",
+   "figure": "n470",
+   "context": "Peça (Netter, ficha 6-36): antebraço direito, vista posterior. Caso: paciente não estende o punho.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "O músculo 1 e sua ação são:",
+     "options": [
+      "Extensor radial longo do carpo — extensão e abdução do punho",
+      "Extensor ulnar do carpo — extensão e adução",
+      "Flexor radial do carpo — flexão",
+      "Braquiorradial — flexão do cotovelo"
+     ],
+     "answer": 0,
+     "why": "**ERLC**, compartimento posterior, inervado pelo nervo radial (C6–C7).",
+     "model": "ERLC estende e abduz o punho."
+    },
+    {
+     "type": "mc",
+     "q": "Lesão de qual nervo paralisaria esse músculo e daria \"mão caída\"?",
+     "options": [
+      "Radial",
+      "Ulnar",
+      "Mediano",
+      "Musculocutâneo"
+     ],
+     "answer": 0,
+     "why": "Extensores do punho e dedos = **nervo radial**.",
+     "model": "Extensores parados = radial lesado."
+    }
+   ]
+  },
+  {
+   "id": "st26",
+   "area": "anatomia",
+   "topic": "radial",
+   "figure": "n516",
+   "context": "Peça (Netter, ficha 6-59): nervos do membro superior, vista anterior.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "A estrutura 2 é o nervo radial. Em que ramos ele se divide?",
+     "options": [
+      "Ramo superficial (sensitivo) e ramo profundo (motor)",
+      "Ramos palmar e digital",
+      "Ramo recorrente e ramo tenar",
+      "Ramos medial e lateral do fascículo"
+     ],
+     "answer": 0,
+     "why": "Anterior ao cotovelo, divide-se em **superficial** e **profundo**.",
+     "model": "Radial: superficial sente, profundo move."
+    },
+    {
+     "type": "mc",
+     "q": "Qual área da mão confirma lesão desse nervo?",
+     "options": [
+      "Dorso do 1º espaço interdigital",
+      "Polpa do 5º dedo",
+      "Palma do polegar",
+      "Eminência hipotenar"
+     ],
+     "answer": 0,
+     "why": "Área-chave do radial; a palma fica preservada.",
+     "model": "Dorso do 1º espaço: radial."
+    }
+   ]
+  },
+  {
+   "id": "st27",
+   "area": "anatomia",
+   "topic": "joelho",
+   "figure": "n546",
+   "context": "Peça (Netter, ficha 7-7): joelho direito, ligamentos e meniscos.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "A estrutura 4 é feita de qual tecido e qual a sua função?",
+     "options": [
+      "Fibrocartilagem — distribui cargas e estabiliza",
+      "Cartilagem hialina — reveste o osso",
+      "Tecido denso modelado — transmite força muscular",
+      "Osso esponjoso — sustenta o peso"
+     ],
+     "answer": 0,
+     "why": "Estrutura 4 = **menisco lateral**.",
+     "model": "Menisco: fibrocartilagem para carga e estabilidade."
+    },
+    {
+     "type": "mc",
+     "q": "As superfícies articulares do fêmur visíveis acima dos meniscos são os:",
+     "options": [
+      "Côndilos femorais",
+      "Epicôndilos",
+      "Trocanteres",
+      "Platôs tibiais"
+     ],
+     "answer": 0,
+     "why": "**Côndilos** articulam com os **platôs tibiais** (femorotibial).",
+     "model": "Côndilos sobre os platôs: femorotibial."
+    }
+   ]
+  },
+  {
+   "id": "st28",
+   "area": "anatomia",
+   "topic": "joelho",
+   "figure": "n568",
+   "context": "Peça (Netter, ficha 7-18): coxa direita, vista anterior. Caso: fratura do fêmur com limitação do joelho.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "O músculo 1 é o único do quadríceps que também:",
+     "options": [
+      "Flete o quadril (reto femoral)",
+      "Aduz a coxa (vasto medial)",
+      "Flete o joelho (vasto lateral)",
+      "Roda a tíbia (vasto intermédio)"
+     ],
+     "answer": 0,
+     "why": "**Reto femoral** cruza quadril e joelho.",
+     "model": "Reto femoral cruza duas articulações."
+    },
+    {
+     "type": "open",
+     "q": "Descreva o caminho da força desse músculo até a tíbia.",
+     "model": "**Tendão do quadríceps → patela → ligamento da patela → tuberosidade da tíbia** = extensão do joelho; nervo femoral (L2–L4)."
+    }
+   ]
+  },
+  {
+   "id": "st29",
+   "area": "anatomia",
+   "topic": "joelho",
+   "figure": "n570",
+   "context": "Peça (Netter, ficha 7-19): coxa direita, vista anterior.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Identifique o músculo 1.",
+     "options": [
+      "Vasto lateral",
+      "Vasto medial",
+      "Reto femoral",
+      "Tensor da fáscia lata"
+     ],
+     "answer": 0,
+     "why": "Ocupa a face lateral da coxa; parte do quadríceps.",
+     "model": "Vasto lateral: lado de fora da coxa."
+    },
+    {
+     "type": "mc",
+     "q": "Qual o osso sesamoide onde converge o tendão desse grupo?",
+     "options": [
+      "Patela",
+      "Fíbula",
+      "Tíbia",
+      "Pisiforme"
+     ],
+     "answer": 0,
+     "why": "A **patela** aumenta a eficiência da extensão.",
+     "model": "Patela: sesamoide do quadríceps."
+    }
+   ]
+  },
+  {
+   "id": "st30",
+   "area": "embriologia",
+   "topic": "gastr",
+   "figure": "moore_88",
+   "context": "Esquema (Moore, fig. 5.2): formação do disco embrionário trilaminar (dias 15–16). Caso: ≈5 semanas de IG.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "As células que migram pela linha primitiva vêm de qual camada?",
+     "options": [
+      "Epiblasto (ectoderma embrionário)",
+      "Hipoblasto",
+      "Trofoblasto",
+      "Mesoderma extraembrionário"
+     ],
+     "answer": 0,
+     "why": "Todos os folhetos se originam do **epiblasto**.",
+     "model": "Epiblasto faz os três folhetos."
+    },
+    {
+     "type": "mc",
+     "q": "O primeiro folheto formado, que substitui o hipoblasto, é o:",
+     "options": [
+      "Endoderma",
+      "Mesoderma",
+      "Ectoderma",
+      "Âmnio"
+     ],
+     "answer": 0,
+     "why": "Depois vem o mesoderma; o epiblasto restante vira ectoderma.",
+     "model": "Endoderma substitui o hipoblasto."
+    }
+   ]
+  },
+  {
+   "id": "st31",
+   "area": "embriologia",
+   "topic": "gastr",
+   "figure": "moore_89",
+   "context": "Esquema (Moore, fig. 5.3): embrião de 16 dias, vista dorsal e corte.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Esta etapa (linha primitiva, nó primitivo) caracteriza:",
+     "options": [
+      "Gastrulação, na 3ª semana",
+      "Clivagem, na 1ª semana",
+      "Implantação, na 2ª semana",
+      "Dobramento, na 4ª semana"
+     ],
+     "answer": 0,
+     "why": "Gastrulação: disco bilaminar → trilaminar.",
+     "model": "Linha primitiva = gastrulação, 3ª semana."
+    },
+    {
+     "type": "open",
+     "q": "Cite um derivado de cada folheto formado nessa etapa.",
+     "model": "**Ectoderma**: epiderme/sistema nervoso. **Mesoderma**: músculos, ossos, cartilagens, conjuntivo, vasos. **Endoderma**: epitélio digestório e respiratório."
+    }
+   ]
+  },
+  {
+   "id": "st32",
+   "area": "embriologia",
+   "topic": "neuro",
+   "figure": "moore_91",
+   "context": "Esquema (Moore, fig. 5.5): desenvolvimento do processo notocordal.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "O processo notocordal dá origem à notocorda, que é:",
+     "options": [
+      "Mesodérmica, mediana, ventral ao tubo neural",
+      "Ectodérmica, dorsal ao tubo neural",
+      "Endodérmica, no teto do saco vitelino",
+      "Trofoblástica, no córion"
+     ],
+     "answer": 0,
+     "why": "Bastão mesodérmico na linha mediana.",
+     "model": "Notocorda: mesoderma mediano."
+    },
+    {
+     "type": "mc",
+     "q": "Qual a principal função da notocorda?",
+     "options": [
+      "Induzir a placa neural e organizar o eixo",
+      "Formar a medula espinal",
+      "Produzir hCG",
+      "Formar o intestino primitivo"
+     ],
+     "answer": 0,
+     "why": "Centro de **sinalização**: induz o ectoderma a formar a placa neural.",
+     "model": "Notocorda manda o ectoderma virar placa neural."
+    }
+   ]
+  },
+  {
+   "id": "st33",
+   "area": "embriologia",
+   "topic": "neuro",
+   "figure": "moore_395",
+   "context": "Esquema (Moore, fig. 15.1): formação e diferenciação dos somitos.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Os somitos derivam do:",
+     "options": [
+      "Mesoderma paraxial",
+      "Mesoderma intermediário",
+      "Mesoderma lateral",
+      "Ectoderma superficial"
+     ],
+     "answer": 0,
+     "why": "Blocos segmentados bilaterais ao tubo neural.",
+     "model": "Somito = mesoderma paraxial."
+    },
+    {
+     "type": "mc",
+     "q": "Esclerótomo, miótomo e dermátomo originam, respectivamente:",
+     "options": [
+      "Vértebras/costelas, músculo esquelético, derme",
+      "Derme, vértebras, músculo",
+      "Músculo liso, osso, epiderme",
+      "Medula, músculo, epiderme"
+     ],
+     "answer": 0,
+     "why": "Dermátomo forma **derme** (não epiderme).",
+     "model": "Esclerótomo osso, miótomo músculo, dermátomo derme."
+    }
+   ]
+  },
+  {
+   "id": "st34",
+   "area": "embriologia",
+   "topic": "extra",
+   "figure": "moore_81",
+   "context": "Esquema (Moore, fig. 4.3): embriões implantados (~13 dias).",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual função NÃO é da vesícula umbilical (saco vitelino)?",
+     "options": [
+      "Produzir hCG",
+      "Hematopoiese primitiva",
+      "Origem das células germinativas primordiais",
+      "Contribuir para o intestino primitivo"
+     ],
+     "answer": 0,
+     "why": "hCG é do **sinciciotrofoblasto**.",
+     "model": "Vitelino: sangue, germe e intestino."
+    },
+    {
+     "type": "mc",
+     "q": "A cavidade amniótica fica do lado de qual camada do disco?",
+     "options": [
+      "Epiblasto",
+      "Hipoblasto",
+      "Citotrofoblasto",
+      "Endométrio"
+     ],
+     "answer": 0,
+     "why": "Âmnio do lado do epiblasto; vesícula umbilical do lado do hipoblasto.",
+     "model": "Âmnio em cima do epiblasto."
+    }
+   ]
+  },
+  {
+   "id": "st35",
+   "area": "embriologia",
+   "topic": "extra",
+   "figure": "moore_83",
+   "context": "Esquema (Moore, fig. 4.4): parede do saco coriônico e vilosidades coriônicas primárias.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "O córion é formado por:",
+     "options": [
+      "Trofoblasto + mesoderma extraembrionário somático",
+      "Âmnio + endoderma",
+      "Epiblasto + hipoblasto",
+      "Decídua + endométrio"
+     ],
+     "answer": 0,
+     "why": "Delimita a cavidade coriônica.",
+     "model": "Córion: trofoblasto mais mesoderma somático."
+    },
+    {
+     "type": "mc",
+     "q": "Qual a principal função do córion?",
+     "options": [
+      "Formar a porção fetal da placenta",
+      "Produzir líquido amniótico",
+      "Formar o tubo neural",
+      "Produzir as células germinativas"
+     ],
+     "answer": 0,
+     "why": "As vilosidades coriônicas formam a placenta fetal.",
+     "model": "Córion vira placenta fetal."
+    }
+   ]
+  },
+  {
+   "id": "st36",
+   "area": "embriologia",
+   "topic": "ovario",
+   "figure": "g_ovario_primordiais",
+   "context": "Lâmina (Gartner, fig. 20.3): córtex do ovário, 270×. Caso: ovários morfologicamente preservados na US.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "A estrutura 1 é:",
+     "options": [
+      "Folículos primordiais",
+      "Folículos antrais",
+      "Corpos lúteos",
+      "Corpos albicans"
+     ],
+     "answer": 0,
+     "why": "Ovócito primário + uma camada de células foliculares **achatadas**.",
+     "model": "P: primordial, uma camada achatada."
+    },
+    {
+     "type": "mc",
+     "q": "Em que região do ovário elas ficam?",
+     "options": [
+      "Córtex",
+      "Medula",
+      "Hilo",
+      "Túnica albugínea"
+     ],
+     "answer": 0,
+     "why": "Folículos no córtex; medula com vasos e conjuntivo.",
+     "model": "Folículos no córtex."
+    }
+   ]
+  },
+  {
+   "id": "st37",
+   "area": "embriologia",
+   "topic": "luteo",
+   "figure": "g_ovario_diagrama",
+   "context": "Diagrama (Gartner, fig. 20.2): ovário, desenvolvimento folicular e corpo lúteo. Caso: β-hCG positivo.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "O corpo lúteo do diagrama é formado por células:",
+     "options": [
+      "Teca-luteínicas e granulosa-luteínicas",
+      "Cito e sinciciotrofoblasto",
+      "Da corona radiata e do cúmulo",
+      "Do epitélio germinativo"
+     ],
+     "answer": 0,
+     "why": "Formado a partir do folículo rompido após a ovulação.",
+     "model": "Lúteo: teca-luteínicas e granulosa-luteínicas."
+    },
+    {
+     "type": "open",
+     "q": "Qual hormônio o corpo lúteo produz e o que o mantém no início da gestação?",
+     "model": "**Progesterona**; é mantido pelo **hCG** do sinciciotrofoblasto até a placenta assumir."
+    }
+   ]
+  },
+  {
+   "id": "st38",
+   "area": "histologia",
+   "topic": "esponjoso",
+   "figure": "g_osso_diagrama",
+   "context": "Diagrama (Gartner, fig. 7.10): osso compacto e osso esponjoso.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Na parte interna do diagrama, o osso esponjoso diferencia-se do compacto por:",
+     "options": [
+      "Trabéculas com medula entre elas, sem ósteons completos",
+      "Ósteons com canal de Havers",
+      "Lamelas circunferenciais externas",
+      "Ausência de osteócitos"
+     ],
+     "answer": 0,
+     "why": "Esponjoso = trabéculas + medula.",
+     "model": "Esponjoso: trabéculas e medula; compacto: ósteons."
+    },
+    {
+     "type": "mc",
+     "q": "Qual a vantagem funcional do osso esponjoso?",
+     "options": [
+      "Distribuir forças e reduzir o peso",
+      "Conduzir impulsos",
+      "Produzir colágeno tipo II",
+      "Formar a diáfise"
+     ],
+     "answer": 0,
+     "why": "A diáfise é sobretudo compacta.",
+     "model": "Esponjoso alivia o peso e distribui força."
+    }
+   ]
+  },
+  {
+   "id": "st39",
+   "area": "histologia",
+   "topic": "denso",
+   "figure": "g_tendao_trans",
+   "context": "Lâmina (Gartner, fig. 6.19): tendão em corte transversal, 270×.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual o colágeno predominante neste tecido?",
+     "options": [
+      "Tipo I",
+      "Tipo II",
+      "Tipo III",
+      "Tipo IV"
+     ],
+     "answer": 0,
+     "why": "Denso modelado = feixes de colágeno **tipo I**.",
+     "model": "Tendão: colágeno tipo I."
+    },
+    {
+     "type": "mc",
+     "q": "Por que este tecido cicatriza lentamente?",
+     "options": [
+      "Vascularização limitada",
+      "Excesso de células",
+      "Ausência de colágeno",
+      "Mielina abundante"
+     ],
+     "answer": 0,
+     "why": "Relevante na ruptura do tendão do bíceps.",
+     "model": "Pouco vaso, reparo lento."
+    }
+   ]
+  },
+  {
+   "id": "st40",
+   "area": "histologia",
+   "topic": "nervo",
+   "figure": "g_nervo_diagrama",
+   "context": "Diagrama (Gartner, fig. 9.22): estrutura de um nervo periférico.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "A ordem dos envoltórios, de fora para dentro, é:",
+     "options": [
+      "Epineuro → perineuro → endoneuro",
+      "Endoneuro → perineuro → epineuro",
+      "Perineuro → epineuro → endoneuro",
+      "Epineuro → endoneuro → perineuro"
+     ],
+     "answer": 0,
+     "why": "Epi = nervo; peri = fascículo; endo = fibra.",
+     "model": "Epi nervo, peri fascículo, endo fibra."
+    },
+    {
+     "type": "mc",
+     "q": "Onde estão os vasos sanguíneos maiores do nervo?",
+     "options": [
+      "Epineuro",
+      "Endoneuro",
+      "Bainha de mielina",
+      "Axônio"
+     ],
+     "answer": 0,
+     "why": "O epineuro envolve o nervo inteiro e contém vasos.",
+     "model": "Vasos no epineuro."
+    }
+   ]
+  },
+  {
+   "id": "st41",
+   "area": "histologia",
+   "topic": "compacto",
+   "figure": "g_osso_diagrama",
+   "context": "Diagrama (Gartner, fig. 7.10): estrutura do osso compacto.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "O que há dentro do canal de Havers?",
+     "options": [
+      "Vasos sanguíneos e nervos",
+      "Medula óssea vermelha",
+      "Cartilagem",
+      "Osteoclastos"
+     ],
+     "answer": 0,
+     "why": "Canal central do ósteon.",
+     "model": "Havers: vasos e nervos."
+    },
+    {
+     "type": "mc",
+     "q": "A matriz das lamelas é composta por:",
+     "options": [
+      "Colágeno tipo I + hidroxiapatita",
+      "Colágeno tipo II + condroitina",
+      "Elastina + fibrilina",
+      "Queratina + melanina"
+     ],
+     "answer": 0,
+     "why": "Colágeno = tração; hidroxiapatita = compressão.",
+     "model": "Colágeno I traciona, hidroxiapatita comprime."
+    }
+   ]
+  },
+  {
+   "id": "occ-moore_80",
+   "area": "embriologia",
+   "topic": "luteo",
+   "figure": "moore_80",
+   "context": "Moore · Figura 4.2: Blastocistos implantados aos 10 e 12 dias: sinciciotrofoblasto, citotrofoblasto, rede lacunar.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 1?",
+     "options": [
+      "Sinciciotrofoblasto",
+      "Disco embrionário",
+      "Hipoblasto",
+      "Epiblasto"
+     ],
+     "answer": 0,
+     "why": "Na Moore (Figura 4.2), o número 1 é **Sinciciotrofoblasto**.",
+     "model": "Sinciciotrofoblasto",
+     "box": [
+      26.17,
+      -1.04,
+      8.05,
+      4.7
+     ]
+    },
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 6?",
+     "options": [
+      "Âmnio",
+      "Vesícula umbilical primária (saco vitelino)",
+      "Rede lacunar (no sinciciotrofoblasto)",
+      "Sinciciotrofoblasto"
+     ],
+     "answer": 0,
+     "why": "Na Moore (Figura 4.2), o número 6 é **Âmnio**.",
+     "model": "Âmnio",
+     "box": [
+      1.12,
+      -1.04,
+      8.05,
+      4.7
+     ]
+    }
+   ]
+  },
+  {
+   "id": "occ-moore_88",
+   "area": "embriologia",
+   "topic": "gastr",
+   "figure": "moore_88",
+   "context": "Moore · Figura 5.2: Formação do disco embrionário trilaminar (dias 15–16): invaginação de células do epiblasto pela linha primitiva.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 1?",
+     "options": [
+      "Âmnio",
+      "Nó primitivo",
+      "Disco embrionário trilaminar",
+      "Linha primitiva"
+     ],
+     "answer": 0,
+     "why": "Na Moore (Figura 5.2), o número 1 é **Âmnio**.",
+     "model": "Âmnio",
+     "box": [
+      12.46,
+      -1.32,
+      5.49,
+      4.54
+     ]
+    },
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 6?",
+     "options": [
+      "Mesoderma intraembrionário",
+      "Processo notocordal",
+      "Âmnio",
+      "Vesícula umbilical (saco vitelino)"
+     ],
+     "answer": 0,
+     "why": "Na Moore (Figura 5.2), o número 6 é **Mesoderma intraembrionário**.",
+     "model": "Mesoderma intraembrionário",
+     "box": [
+      53.83,
+      41.44,
+      5.49,
+      4.54
+     ]
+    }
+   ]
+  },
+  {
+   "id": "occ-moore_395",
+   "area": "embriologia",
+   "topic": "neuro",
+   "figure": "moore_395",
+   "context": "Moore · Figura 15.1: Formação e diferenciação inicial dos somitos (esclerótomo, miótomo, dermátomo).",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 1?",
+     "options": [
+      "Placa neural",
+      "Esclerótomo",
+      "Tubo neural",
+      "Sulco neural"
+     ],
+     "answer": 0,
+     "why": "Na Moore (Figura 15.1), o número 1 é **Placa neural**.",
+     "model": "Placa neural",
+     "box": [
+      31.12,
+      2.51,
+      5.68,
+      4.82
+     ]
+    },
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 7?",
+     "options": [
+      "Notocorda",
+      "Intestino primitivo",
+      "Prega neural",
+      "Dermátomo"
+     ],
+     "answer": 0,
+     "why": "Na Moore (Figura 15.1), o número 7 é **Notocorda**.",
+     "model": "Notocorda",
+     "box": [
+      60.24,
+      27.74,
+      5.68,
+      4.82
+     ]
+    }
+   ]
+  },
+  {
+   "id": "occ-moore_441",
+   "area": "embriologia",
+   "topic": "neuro",
+   "figure": "moore_441",
+   "context": "Moore · Figura 16.1: Placa neural e seu dobramento para formar o tubo neural.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 1?",
+     "options": [
+      "Placa neural",
+      "Sulco neural",
+      "Nó primitivo",
+      "Crista neural"
+     ],
+     "answer": 0,
+     "why": "Na Moore (Figura 16.1), o número 1 é **Placa neural**.",
+     "model": "Placa neural",
+     "box": [
+      2.91,
+      2.0,
+      5.83,
+      4.58
+     ]
+    },
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 7?",
+     "options": [
+      "Crista neural",
+      "Prega neural",
+      "Sulco neural",
+      "Linha primitiva"
+     ],
+     "answer": 0,
+     "why": "Na Moore (Figura 16.1), o número 7 é **Crista neural**.",
+     "model": "Crista neural",
+     "box": [
+      79.61,
+      31.01,
+      5.83,
+      4.58
+     ]
+    }
+   ]
+  },
+  {
+   "id": "occ-moore_81",
+   "area": "embriologia",
+   "topic": "extra",
+   "figure": "moore_81",
+   "context": "Moore · Figura 4.3: Embriões implantados (~13 dias): vesícula umbilical secundária e saco coriônico.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 1?",
+     "options": [
+      "Rede lacunar",
+      "Vilosidade coriônica primária",
+      "Endométrio",
+      "Vesícula umbilical secundária"
+     ],
+     "answer": 0,
+     "why": "Na Moore (Figura 4.3), o número 1 é **Rede lacunar**.",
+     "model": "Rede lacunar",
+     "box": [
+      26.86,
+      6.96,
+      4.51,
+      9.28
+     ]
+    },
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 5?",
+     "options": [
+      "Vesícula umbilical primária",
+      "Rede lacunar",
+      "Endométrio",
+      "Celoma extraembrionário"
+     ],
+     "answer": 0,
+     "why": "Na Moore (Figura 4.3), o número 5 é **Vesícula umbilical primária**.",
+     "model": "Vesícula umbilical primária",
+     "box": [
+      41.2,
+      80.05,
+      4.51,
+      9.28
+     ]
+    }
+   ]
+  },
+  {
+   "id": "occ-g_nervo_diagrama",
+   "area": "histologia",
+   "topic": "nervo",
+   "figure": "g_nervo_diagrama",
+   "context": "Gartner & Hiatt · Fig. 9.22: Estrutura de um nervo: epineuro, perineuro, endoneuro, células de Schwann e axônio.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 1?",
+     "options": [
+      "Epineuro",
+      "Endoneuro",
+      "Células de Schwann",
+      "Axônio"
+     ],
+     "answer": 0,
+     "why": "Na Gartner & Hiatt (Fig. 9.22), o número 1 é **Epineuro**.",
+     "model": "Epineuro",
+     "box": [
+      14.44,
+      9.43,
+      6.3,
+      6.97
+     ]
+    },
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 3?",
+     "options": [
+      "Endoneuro",
+      "Epineuro",
+      "Perineuro",
+      "Células de Schwann"
+     ],
+     "answer": 0,
+     "why": "Na Gartner & Hiatt (Fig. 9.22), o número 3 é **Endoneuro**.",
+     "model": "Endoneuro",
+     "box": [
+      15.37,
+      42.62,
+      6.3,
+      6.97
+     ]
+    }
+   ]
+  },
+  {
+   "id": "occ-g_ovario_diagrama",
+   "area": "embriologia",
+   "topic": "ovario",
+   "figure": "g_ovario_diagrama",
+   "context": "Gartner & Hiatt · Fig. 20.2: Ovário e desenvolvimento folicular; corpo lúteo com células teca-luteínicas e granulosa-luteínicas.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 1?",
+     "options": [
+      "Folículo primordial",
+      "Folículo maduro (de Graaf)",
+      "Folículo secundário do Gartner (com antro = terciário/antral no roteiro)",
+      "Folículo primário multilaminar"
+     ],
+     "answer": 0,
+     "why": "Na Gartner & Hiatt (Fig. 20.2), o número 1 é **Folículo primordial**.",
+     "model": "Folículo primordial",
+     "box": [
+      11.22,
+      -0.14,
+      4.22,
+      5.22
+     ]
+    },
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 7?",
+     "options": [
+      "Corpo lúteo: células granulosa-luteínicas",
+      "Folículo primário multilaminar",
+      "Corpo lúteo: células teca-luteínicas",
+      "Folículo primordial"
+     ],
+     "answer": 0,
+     "why": "Na Gartner & Hiatt (Fig. 20.2), o número 7 é **Corpo lúteo: células granulosa-luteínicas**.",
+     "model": "Corpo lúteo: células granulosa-luteínicas",
+     "box": [
+      41.44,
+      46.84,
+      4.22,
+      5.22
+     ]
+    }
+   ]
+  },
+  {
+   "id": "occ-g_osso_diagrama",
+   "area": "histologia",
+   "topic": "compacto",
+   "figure": "g_osso_diagrama",
+   "context": "Gartner & Hiatt · Fig. 7.10: Osso compacto e esponjoso: ósteons, lamelas, canais de Havers e de Volkmann, lacunas, canalículos.",
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 1?",
+     "options": [
+      "Lamelas concêntricas",
+      "Canal de Volkmann (com vaso)",
+      "Lacuna (abriga o osteócito)",
+      "Ósteon (sistema de Havers)"
+     ],
+     "answer": 0,
+     "why": "Na Gartner & Hiatt (Fig. 7.10), o número 1 é **Lamelas concêntricas**.",
+     "model": "Lamelas concêntricas",
+     "box": [
+      31.0,
+      5.33,
+      4.67,
+      4.97
+     ]
+    },
+    {
+     "type": "mc",
+     "q": "Qual é a estrutura de número 7?",
+     "options": [
+      "Periósteo",
+      "Lamelas circunferenciais externas",
+      "Lacuna (abriga o osteócito)",
+      "Canalículos"
+     ],
+     "answer": 0,
+     "why": "Na Gartner & Hiatt (Fig. 7.10), o número 7 é **Periósteo**.",
+     "model": "Periósteo",
+     "box": [
+      60.44,
+      41.89,
+      4.67,
+      4.97
+     ]
+    }
+   ]
+  },
+  {
+   "id": "seta-g_osso_compacto",
+   "area": "histologia",
+   "topic": "compacto",
+   "figure": "g_osso_compacto",
+   "context": "Gartner & Hiatt · Fig. 7.12. Uma seta amarela indica a estrutura.",
+   "questions": [
+    {
+     "type": "mc",
+     "figure": "m_g_osso_compacto_1",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Canal de Volkmann",
+      "Canal de Havers (centro do ósteon)",
+      "Lamelas concêntricas do ósteon",
+      "Osteócito em lacuna"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Canal de Volkmann** (Gartner & Hiatt, Fig. 7.12).",
+     "model": "Canal de Volkmann"
+    },
+    {
+     "type": "mc",
+     "figure": "m_g_osso_compacto_2",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Canal de Havers (centro do ósteon)",
+      "Canal de Volkmann",
+      "Lamelas concêntricas do ósteon",
+      "Osteócito em lacuna"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Canal de Havers (centro do ósteon)** (Gartner & Hiatt, Fig. 7.12).",
+     "model": "Canal de Havers (centro do ósteon)"
+    }
+   ]
+  },
+  {
+   "id": "seta-g_osso_desgastado",
+   "area": "histologia",
+   "topic": "compacto",
+   "figure": "g_osso_desgastado",
+   "context": "Gartner & Hiatt · Fig. 7.11. Uma seta amarela indica a estrutura.",
+   "questions": [
+    {
+     "type": "mc",
+     "figure": "m_g_osso_desgastado_1",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Canal de Havers",
+      "Lacuna (osteócito)",
+      "Canalículos",
+      "Canal de Havers (centro do ósteon)"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Canal de Havers** (Gartner & Hiatt, Fig. 7.11).",
+     "model": "Canal de Havers"
+    },
+    {
+     "type": "mc",
+     "figure": "m_g_osso_desgastado_2",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Lacuna (osteócito)",
+      "Canal de Havers",
+      "Canalículos",
+      "Vaso sanguíneo no epineuro"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Lacuna (osteócito)** (Gartner & Hiatt, Fig. 7.11).",
+     "model": "Lacuna (osteócito)"
+    }
+   ]
+  },
+  {
+   "id": "seta-g_tendao_long",
+   "area": "histologia",
+   "topic": "denso",
+   "figure": "g_tendao_long",
+   "context": "Gartner & Hiatt · Fig. 6.18. Uma seta amarela indica a estrutura.",
+   "questions": [
+    {
+     "type": "mc",
+     "figure": "m_g_tendao_long_1",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Núcleo de fibroblasto",
+      "Feixes paralelos de colágeno tipo I",
+      "Fascículo nervoso",
+      "Canal de Havers (centro do ósteon)"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Núcleo de fibroblasto** (Gartner & Hiatt, Fig. 6.18).",
+     "model": "Núcleo de fibroblasto"
+    },
+    {
+     "type": "mc",
+     "figure": "m_g_tendao_long_2",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Feixes paralelos de colágeno tipo I",
+      "Núcleo de fibroblasto",
+      "Ovócito",
+      "Saco coriônico (saco gestacional)"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Feixes paralelos de colágeno tipo I** (Gartner & Hiatt, Fig. 6.18).",
+     "model": "Feixes paralelos de colágeno tipo I"
+    }
+   ]
+  },
+  {
+   "id": "seta-g_nervo_long",
+   "area": "histologia",
+   "topic": "nervo",
+   "figure": "g_nervo_long",
+   "context": "Gartner & Hiatt · Fig. 9.20. Uma seta amarela indica a estrutura.",
+   "questions": [
+    {
+     "type": "mc",
+     "figure": "m_g_nervo_long_1",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Núcleo de célula de Schwann",
+      "Fibras nervosas mielinizadas (corte longitudinal)",
+      "Osteócito em lacuna",
+      "Vaso sanguíneo no epineuro"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Núcleo de célula de Schwann** (Gartner & Hiatt, Fig. 9.20).",
+     "model": "Núcleo de célula de Schwann"
+    },
+    {
+     "type": "mc",
+     "figure": "m_g_nervo_long_2",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Fibras nervosas mielinizadas (corte longitudinal)",
+      "Núcleo de célula de Schwann",
+      "Ovócito",
+      "Osteócito em lacuna"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Fibras nervosas mielinizadas (corte longitudinal)** (Gartner & Hiatt, Fig. 9.20).",
+     "model": "Fibras nervosas mielinizadas (corte longitudinal)"
+    }
+   ]
+  },
+  {
+   "id": "seta-g_nervo_trans",
+   "area": "histologia",
+   "topic": "nervo",
+   "figure": "g_nervo_trans",
+   "context": "Gartner & Hiatt · Fig. 9.21. Uma seta amarela indica a estrutura.",
+   "questions": [
+    {
+     "type": "mc",
+     "figure": "m_g_nervo_trans_1",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Fascículo nervoso",
+      "Perineuro",
+      "Epineuro (conjuntivo com adipócitos)",
+      "Vaso sanguíneo no epineuro"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Fascículo nervoso** (Gartner & Hiatt, Fig. 9.21).",
+     "model": "Fascículo nervoso"
+    },
+    {
+     "type": "mc",
+     "figure": "m_g_nervo_trans_2",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Perineuro",
+      "Fascículo nervoso",
+      "Epineuro (conjuntivo com adipócitos)",
+      "Vaso sanguíneo no epineuro"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Perineuro** (Gartner & Hiatt, Fig. 9.21).",
+     "model": "Perineuro"
+    }
+   ]
+  },
+  {
+   "id": "seta-g_foliculo_antral",
+   "area": "embriologia",
+   "topic": "ovario",
+   "figure": "g_foliculo_antral",
+   "context": "Gartner & Hiatt · Fig. 20.5. Uma seta amarela indica a estrutura.",
+   "questions": [
+    {
+     "type": "mc",
+     "figure": "m_g_foliculo_antral_1",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Antro folicular",
+      "Ovócito",
+      "Células da granulosa",
+      "Feixes paralelos de colágeno tipo I"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Antro folicular** (Gartner & Hiatt, Fig. 20.5).",
+     "model": "Antro folicular"
+    },
+    {
+     "type": "mc",
+     "figure": "m_g_foliculo_antral_2",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Ovócito",
+      "Antro folicular",
+      "Células da granulosa",
+      "Canalículos"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Ovócito** (Gartner & Hiatt, Fig. 20.5).",
+     "model": "Ovócito"
+    }
+   ]
+  },
+  {
+   "id": "seta-g_ovario_primordiais",
+   "area": "embriologia",
+   "topic": "ovario",
+   "figure": "g_ovario_primordiais",
+   "context": "Gartner & Hiatt · Fig. 20.3. Uma seta amarela indica a estrutura.",
+   "questions": [
+    {
+     "type": "mc",
+     "figure": "m_g_ovario_primordiais_1",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Folículo primordial",
+      "Ovócito primário do folículo primordial",
+      "Estroma do córtex ovariano",
+      "Canalículos"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Folículo primordial** (Gartner & Hiatt, Fig. 20.3).",
+     "model": "Folículo primordial"
+    },
+    {
+     "type": "mc",
+     "figure": "m_g_ovario_primordiais_2",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Ovócito primário do folículo primordial",
+      "Folículo primordial",
+      "Estroma do córtex ovariano",
+      "Lamelas concêntricas do ósteon"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Ovócito primário do folículo primordial** (Gartner & Hiatt, Fig. 20.3).",
+     "model": "Ovócito primário do folículo primordial"
+    }
+   ]
+  },
+  {
+   "id": "seta-moore_145",
+   "area": "embriologia",
+   "topic": "extra",
+   "figure": "moore_145",
+   "context": "Moore · Figura 8.4. Uma seta amarela indica a estrutura.",
+   "questions": [
+    {
+     "type": "mc",
+     "figure": "m_moore_145_1",
+     "q": "Qual estrutura a seta amarela indica?",
+     "options": [
+      "Saco coriônico (saco gestacional)",
+      "Fibras nervosas mielinizadas (corte transversal)",
+      "Folículo primordial",
+      "Núcleo de fibroblasto"
+     ],
+     "answer": 0,
+     "why": "A seta aponta **Saco coriônico (saco gestacional)** (Moore, Figura 8.4).",
+     "model": "Saco coriônico (saco gestacional)"
+    },
+    {
+     "type": "open",
+     "figure": "m_moore_145_1",
+     "q": "Que tecido ou estrutura é esta lâmina, e por qual característica você reconhece?",
+     "model": "US endovaginal: saco coriônico de 3 semanas — o \"saco gestacional\" do caso."
+    }
+   ]
+  }
+ ],
+ "bank": [
+  {
+   "area": "anatomia",
+   "topic": "umero",
+   "q": "Identifique a superfície articular arredondada da extremidade proximal do úmero. Com o que se articula?",
+   "a": "Cabeça do úmero — cavidade glenoidal da escápula.",
+   "why": "Forma a articulação do ombro.",
+   "trap": "Não é o acetábulo (esse recebe a cabeça do fêmur)."
+  },
+  {
+   "area": "anatomia",
+   "topic": "umero",
+   "q": "Quais músculos se inserem no tubérculo maior?",
+   "a": "Supraespinal, infraespinal e redondo menor.",
+   "why": "Tubérculo maior é a proeminência lateral.",
+   "trap": "Subescapular vai no tubérculo menor."
+  },
+  {
+   "area": "anatomia",
+   "topic": "umero",
+   "q": "Qual estrutura passa no sulco intertubercular?",
+   "a": "Tendão da cabeça longa do bíceps braquial.",
+   "why": "Sulco entre os tubérculos maior e menor, face anterior.",
+   "trap": "Não é o nervo radial (sulco do nervo radial é posterior)."
+  },
+  {
+   "area": "anatomia",
+   "topic": "umero",
+   "q": "Qual músculo se insere na tuberosidade deltoidea?",
+   "a": "Deltoide.",
+   "why": "Face lateral da diáfise.",
+   "trap": "Não confundir com tuberosidade do rádio (bíceps)."
+  },
+  {
+   "area": "anatomia",
+   "topic": "umero",
+   "q": "A tróclea do úmero articula-se com qual estrutura?",
+   "a": "Incisura troclear da ulna (umeroulnar).",
+   "why": "Tróclea é medial, em forma de carretel.",
+   "trap": "Capítulo (lateral) é que articula com o rádio."
+  },
+  {
+   "area": "anatomia",
+   "topic": "umero",
+   "q": "Qual grupo muscular tem origem no epicôndilo lateral?",
+   "a": "Extensores do antebraço (inervados pelo nervo radial).",
+   "why": "Origem comum dos extensores.",
+   "trap": "Epicôndilo medial = flexores."
+  },
+  {
+   "area": "anatomia",
+   "topic": "radial",
+   "q": "Qual a origem do nervo radial?",
+   "a": "Fascículo posterior do plexo braquial, raízes C5–T1.",
+   "why": "Maior ramo do fascículo posterior.",
+   "trap": "Musculocutâneo vem do fascículo lateral."
+  },
+  {
+   "area": "anatomia",
+   "topic": "radial",
+   "q": "Descreva o trajeto do nervo radial no braço.",
+   "a": "Face posterior no sulco do nervo radial (com a. braquial profunda), atravessa o septo intermuscular lateral e, anterior ao cotovelo, divide-se em ramos superficial e profundo.",
+   "why": "Contato direto com a diáfise explica a lesão na fratura.",
+   "trap": "A artéria acompanhante é a braquial profunda, não a braquial."
+  },
+  {
+   "area": "anatomia",
+   "topic": "radial",
+   "q": "Qual a função motora do nervo radial?",
+   "a": "Extensão do cotovelo, do punho e dos dedos.",
+   "why": "Inerva os músculos do compartimento posterior.",
+   "trap": "Flexão do cotovelo pelo bíceps é do musculocutâneo."
+  },
+  {
+   "area": "anatomia",
+   "topic": "radial",
+   "q": "Qual área sensitiva é a mais específica para testar o nervo radial?",
+   "a": "Dorso do 1º espaço interdigital da mão.",
+   "why": "No caso, havia redução de sensibilidade justamente aí.",
+   "trap": "A sensibilidade palmar fica preservada na lesão radial."
+  },
+  {
+   "area": "anatomia",
+   "topic": "radial",
+   "q": "Fratura diafisária do úmero + mão caída: qual nervo e por quê?",
+   "a": "Nervo radial, porque percorre o sulco do nervo radial em contato com a face posterior da diáfise.",
+   "why": "Lesão por estiramento/compressão no foco de fratura.",
+   "trap": "Não é o ulnar (mão em garra) nem o mediano."
+  },
+  {
+   "area": "anatomia",
+   "topic": "radial",
+   "q": "Por que, na lesão do radial no sulco, a extensão do cotovelo pode estar parcialmente preservada?",
+   "a": "Os ramos para o tríceps saem antes (proximais ao) sulco do nervo radial.",
+   "why": "O caso descreve extensão do cotovelo parcialmente preservada.",
+   "trap": "Mão caída não significa paralisia completa do tríceps."
+  },
+  {
+   "area": "anatomia",
+   "topic": "biceps",
+   "q": "Quais as origens das cabeças do bíceps?",
+   "a": "Longa: tubérculo supraglenoidal; curta: processo coracoide.",
+   "why": "O tendão da cabeça longa passa no sulco intertubercular.",
+   "trap": "Inverter as origens é erro clássico."
+  },
+  {
+   "area": "anatomia",
+   "topic": "biceps",
+   "q": "Onde se insere o tendão distal do bíceps?",
+   "a": "Tuberosidade do rádio (com expansão pela aponeurose bicipital).",
+   "why": "A inserção no rádio permite a supinação.",
+   "trap": "Não se insere na ulna."
+  },
+  {
+   "area": "anatomia",
+   "topic": "biceps",
+   "q": "Quais as funções do bíceps braquial?",
+   "a": "Supinação do antebraço (principal, com cotovelo fletido) e flexão do cotovelo.",
+   "why": "Na flexão atua com braquial e braquiorradial.",
+   "trap": "Supinador forte é o bíceps com o cotovelo FLETIDO."
+  },
+  {
+   "area": "anatomia",
+   "topic": "biceps",
+   "q": "Qual a inervação do bíceps e suas raízes?",
+   "a": "Nervo musculocutâneo, principalmente C5–C6.",
+   "why": "Compartimento anterior do braço.",
+   "trap": "Não é o radial."
+  },
+  {
+   "area": "anatomia",
+   "topic": "biceps",
+   "q": "Qual a consequência da ruptura do tendão distal do bíceps?",
+   "a": "Redução importante da supinação e diminuição da força de flexão do cotovelo; contorno do músculo alterado.",
+   "why": "A força não é transmitida ao rádio.",
+   "trap": "A flexão não é abolida: braquial e braquiorradial continuam."
+  },
+  {
+   "area": "anatomia",
+   "topic": "biceps",
+   "q": "Identifique as três estruturas da extremidade proximal do rádio.",
+   "a": "Cabeça, colo e tuberosidade radial.",
+   "why": "Tuberosidade logo abaixo do colo.",
+   "trap": "A tuberosidade é do rádio, não do úmero."
+  },
+  {
+   "area": "anatomia",
+   "topic": "biceps",
+   "q": "Com o que se articula a cabeça do rádio?",
+   "a": "Capítulo do úmero e incisura radial da ulna.",
+   "why": "Participa da umerorradial e da radioulnar proximal.",
+   "trap": "Não articula com a tróclea."
+  },
+  {
+   "area": "anatomia",
+   "topic": "cotovelo",
+   "q": "Quais as três articulações do cotovelo?",
+   "a": "Umeroulnar, umerorradial e radioulnar proximal, em cápsula comum.",
+   "why": "Complexo articular único.",
+   "trap": "A radioulnar distal não faz parte do cotovelo."
+  },
+  {
+   "area": "anatomia",
+   "topic": "cotovelo",
+   "q": "O que o ligamento anular envolve e qual sua função?",
+   "a": "Envolve a cabeça do rádio e a estabiliza durante a rotação.",
+   "why": "Mantém a cabeça junto à incisura radial da ulna.",
+   "trap": "Não envolve a ulna nem o úmero."
+  },
+  {
+   "area": "anatomia",
+   "topic": "cotovelo",
+   "q": "Cite os principais extensores do punho e dos dedos e sua inervação.",
+   "a": "Extensor radial longo do carpo, extensor radial curto do carpo, extensor ulnar do carpo e extensor dos dedos — nervo radial.",
+   "why": "Compartimento posterior do antebraço.",
+   "trap": "Os radiais abduzem e o ulnar aduz o punho."
+  },
+  {
+   "area": "anatomia",
+   "topic": "femur",
+   "q": "Qual a posição do trocânter menor e qual músculo nele se insere?",
+   "a": "Posteromedial; iliopsoas.",
+   "why": "Abaixo do colo.",
+   "trap": "O trocânter maior é lateral (músculos glúteos)."
+  },
+  {
+   "area": "anatomia",
+   "topic": "femur",
+   "q": "Onde fica a linha áspera e qual sua importância?",
+   "a": "Face posterior da diáfise; inserção de músculos da coxa.",
+   "why": "Ajuda a orientar a peça.",
+   "trap": "A face anterior da diáfise é lisa."
+  },
+  {
+   "area": "anatomia",
+   "topic": "femur",
+   "q": "Com o que articula a superfície patelar e com o que articulam os côndilos?",
+   "a": "Superfície patelar → patela; côndilos → tíbia (platôs).",
+   "why": "Femoropatelar e femorotibial.",
+   "trap": "Epicôndilos não são articulares (fixação ligamentar)."
+  },
+  {
+   "area": "anatomia",
+   "topic": "femur",
+   "q": "Qual a função do colo do fêmur?",
+   "a": "Conectar a cabeça femoral à região trocantérica.",
+   "why": "Fica entre a cabeça e os trocânteres.",
+   "trap": "Não confundir colo com diáfise."
+  },
+  {
+   "area": "anatomia",
+   "topic": "joelho",
+   "q": "Quais os quatro músculos do quadríceps e qual cruza o quadril?",
+   "a": "Reto femoral, vasto medial, vasto lateral, vasto intermédio; o reto femoral também flete o quadril.",
+   "why": "Vasto intermédio fica profundo ao reto femoral.",
+   "trap": "Os vastos só estendem o joelho."
+  },
+  {
+   "area": "anatomia",
+   "topic": "joelho",
+   "q": "Descreva a sequência do aparelho extensor do joelho.",
+   "a": "Tendão do quadríceps → patela → ligamento patelar → tuberosidade da tíbia.",
+   "why": "Transmite a força para estender o joelho.",
+   "trap": "O ligamento patelar não se insere na fíbula."
+  },
+  {
+   "area": "anatomia",
+   "topic": "joelho",
+   "q": "Qual a inervação do quadríceps?",
+   "a": "Nervo femoral, raízes L2–L4.",
+   "why": "Compartimento anterior da coxa.",
+   "trap": "Não é o isquiático (posteriores da coxa)."
+  },
+  {
+   "area": "anatomia",
+   "topic": "joelho",
+   "q": "Do que são feitos os meniscos e qual sua função?",
+   "a": "Fibrocartilagem; distribuem cargas e dão estabilidade.",
+   "why": "Ficam entre côndilos femorais e platôs tibiais.",
+   "trap": "Não são cartilagem hialina."
+  },
+  {
+   "area": "embriologia",
+   "topic": "gastr",
+   "q": "O que é a gastrulação e quando ocorre?",
+   "a": "Transformação do disco bilaminar em trilaminar (3 folhetos), na 3ª semana.",
+   "why": "Começa com a linha primitiva.",
+   "trap": "5 semanas de IG ≈ 3ª semana do desenvolvimento."
+  },
+  {
+   "area": "embriologia",
+   "topic": "gastr",
+   "q": "Onde surge a linha primitiva?",
+   "a": "Na superfície do epiblasto, na região caudal do disco.",
+   "why": "Células do epiblasto migram por ela.",
+   "trap": "Não surge no hipoblasto."
+  },
+  {
+   "area": "embriologia",
+   "topic": "gastr",
+   "q": "Qual camada origina os três folhetos germinativos?",
+   "a": "O epiblasto.",
+   "why": "Endoderma, mesoderma e ectoderma vêm do epiblasto.",
+   "trap": "O hipoblasto é deslocado, não forma endoderma definitivo."
+  },
+  {
+   "area": "embriologia",
+   "topic": "gastr",
+   "q": "Quais os principais derivados do ectoderma?",
+   "a": "Epiderme e sistema nervoso.",
+   "why": "Camada mais externa.",
+   "trap": "Derme é mesodérmica (dermátomo)."
+  },
+  {
+   "area": "embriologia",
+   "topic": "gastr",
+   "q": "Quais os principais derivados do mesoderma e do endoderma?",
+   "a": "Mesoderma: músculos, ossos, cartilagens, conjuntivo, vasos. Endoderma: revestimento epitelial digestório e respiratório.",
+   "why": "Meso intermediário; endo interno.",
+   "trap": "Os ossos do caso (úmero e fêmur) são mesodérmicos."
+  },
+  {
+   "area": "embriologia",
+   "topic": "neuro",
+   "q": "Qual a origem e a posição da notocorda?",
+   "a": "Mesodérmica, na linha mediana, ventral ao tubo neural.",
+   "why": "Bastão mediano.",
+   "trap": "Não é ectodérmica."
+  },
+  {
+   "area": "embriologia",
+   "topic": "neuro",
+   "q": "Qual a função da notocorda?",
+   "a": "Centro de sinalização: induz a placa neural e organiza o eixo corporal.",
+   "why": "Indução do ectoderma sobrejacente.",
+   "trap": "A notocorda não \"vira\" o tubo neural."
+  },
+  {
+   "area": "embriologia",
+   "topic": "neuro",
+   "q": "Qual a sequência da neurulação?",
+   "a": "Placa neural → sulco neural (delimitado pelas pregas neurais) → fusão das pregas → tubo neural.",
+   "why": "Ectoderma espessado forma a placa.",
+   "trap": "As pregas delimitam o sulco; não são o tubo."
+  },
+  {
+   "area": "embriologia",
+   "topic": "neuro",
+   "q": "O que o tubo neural origina?",
+   "a": "Encéfalo e medula espinal.",
+   "why": "Estrutura ectodérmica.",
+   "trap": "Falha de fechamento = defeito do tubo neural (prevenção: ácido fólico)."
+  },
+  {
+   "area": "embriologia",
+   "topic": "neuro",
+   "q": "Qual a origem e a localização dos somitos?",
+   "a": "Mesoderma paraxial, em blocos segmentados bilaterais ao tubo neural.",
+   "why": "Aparecem na 3ª semana.",
+   "trap": "Não vêm do mesoderma lateral."
+  },
+  {
+   "area": "embriologia",
+   "topic": "neuro",
+   "q": "Quais os derivados de esclerótomo, miótomo e dermátomo?",
+   "a": "Esclerótomo: vértebras e costelas; miótomo: músculo esquelético; dermátomo: derme.",
+   "why": "Divisões do somito.",
+   "trap": "Dermátomo forma DERME, não epiderme."
+  },
+  {
+   "area": "embriologia",
+   "topic": "extra",
+   "q": "Do que é formado o córion?",
+   "a": "Trofoblasto + mesoderma extraembrionário somático.",
+   "why": "Envoltório mais externo.",
+   "trap": "Não é só mesoderma."
+  },
+  {
+   "area": "embriologia",
+   "topic": "extra",
+   "q": "Qual a função do córion?",
+   "a": "Forma a porção fetal da placenta e delimita a cavidade coriônica.",
+   "why": "Na US, a cavidade coriônica corresponde ao saco gestacional.",
+   "trap": "A porção materna da placenta vem do endométrio (decídua)."
+  },
+  {
+   "area": "embriologia",
+   "topic": "extra",
+   "q": "Cite três funções do saco vitelino.",
+   "a": "Hematopoiese primitiva, origem das células germinativas primordiais e contribuição para o intestino primitivo.",
+   "why": "Incorporado parcialmente no dobramento.",
+   "trap": "Não produz líquido amniótico."
+  },
+  {
+   "area": "embriologia",
+   "topic": "extra",
+   "q": "Qual a função da cavidade amniótica e do âmnio?",
+   "a": "Contêm o líquido amniótico; proteção mecânica e ambiente adequado ao desenvolvimento.",
+   "why": "Âmnio envolve progressivamente o embrião.",
+   "trap": "A cavidade amniótica fica do lado do epiblasto."
+  },
+  {
+   "area": "embriologia",
+   "topic": "extra",
+   "q": "Na US de ≈5 semanas do caso, por que se vê o saco gestacional mas não estruturas embrionárias seguras?",
+   "a": "Idade gestacional muito precoce: o embrião ainda é muito pequeno; acompanha-se com β-hCG seriado e nova US.",
+   "why": "Achado esperado nessa fase.",
+   "trap": "Não ver embrião às 5 semanas não é, por si, sinal de perda."
+  },
+  {
+   "area": "embriologia",
+   "topic": "ovario",
+   "q": "Como se organiza o ovário?",
+   "a": "Córtex com folículos ovarianos; medula rica em vasos sanguíneos e tecido conjuntivo.",
+   "why": "Folículos ficam no córtex.",
+   "trap": "Folículos não ficam na medula."
+  },
+  {
+   "area": "embriologia",
+   "topic": "ovario",
+   "q": "Como é o folículo primordial?",
+   "a": "Ovócito primário envolvido por uma única camada de células foliculares achatadas.",
+   "why": "Estágio mais inicial.",
+   "trap": "Cúbicas = primário."
+  },
+  {
+   "area": "embriologia",
+   "topic": "ovario",
+   "q": "O que caracteriza o folículo primário?",
+   "a": "Ovócito aumentado, células foliculares cúbicas, formação da zona pelúcida e depois multiplicação da granulosa.",
+   "why": "Zona pelúcida surge aqui.",
+   "trap": "Ainda sem tecas desenvolvidas."
+  },
+  {
+   "area": "embriologia",
+   "topic": "ovario",
+   "q": "O que diferencia o folículo secundário (pré-antral) do terciário (antral)?",
+   "a": "O antro: ausente no pré-antral, presente no antral.",
+   "why": "Secundário: várias camadas de granulosa, ZP e tecas.",
+   "trap": "Nomenclatura varia nos livros; use a do roteiro."
+  },
+  {
+   "area": "embriologia",
+   "topic": "ovario",
+   "q": "O que caracteriza o folículo maduro (de Graaf)?",
+   "a": "Antro volumoso, ovócito com corona radiata sustentado pelo cúmulo oóforo; pronto para ovular.",
+   "why": "Último estágio.",
+   "trap": "Corona radiata envolve o ovócito; cúmulo o sustenta."
+  },
+  {
+   "area": "embriologia",
+   "topic": "luteo",
+   "q": "Quais as células do corpo lúteo?",
+   "a": "Granulosa-luteínicas e teca-luteínicas.",
+   "why": "Formam-se do folículo rompido após a ovulação.",
+   "trap": "Não confundir com cito/sinciciotrofoblasto."
+  },
+  {
+   "area": "embriologia",
+   "topic": "luteo",
+   "q": "Qual a função do corpo lúteo e o que o mantém na gestação?",
+   "a": "Produz progesterona (endométrio decidualizado); mantido pelo hCG até a placenta assumir.",
+   "why": "Estrutura endócrina temporária.",
+   "trap": "O corpo lúteo não produz hCG."
+  },
+  {
+   "area": "embriologia",
+   "topic": "luteo",
+   "q": "Diferencie citotrofoblasto de sinciciotrofoblasto.",
+   "a": "Cito: interno, células individualizadas, mononucleadas, proliferativas. Sincício: externo, multinucleado, sem limites celulares, invasivo.",
+   "why": "Ambos derivam do trofoblasto.",
+   "trap": "\"Sem limites celulares\" = sincício."
+  },
+  {
+   "area": "embriologia",
+   "topic": "luteo",
+   "q": "Quem produz hCG e para que serve o β-hCG?",
+   "a": "Sinciciotrofoblasto; o β-hCG é a subunidade dosada nos testes de gravidez. O hCG mantém o corpo lúteo.",
+   "why": "Eixo hCG → corpo lúteo → progesterona.",
+   "trap": "Não é o citotrofoblasto."
+  },
+  {
+   "area": "histologia",
+   "topic": "compacto",
+   "q": "Qual a composição da matriz óssea e o que cada componente confere?",
+   "a": "Colágeno tipo I (tração) e hidroxiapatita (compressão).",
+   "why": "Matriz extracelular mineralizada.",
+   "trap": "Não é colágeno tipo II (cartilagem)."
+  },
+  {
+   "area": "histologia",
+   "topic": "compacto",
+   "q": "O que é o ósteon?",
+   "a": "Unidade estrutural do osso compacto: lamelas concêntricas ao redor do canal de Havers.",
+   "why": "Também chamado sistema de Havers.",
+   "trap": "Osso esponjoso não tem ósteons completos."
+  },
+  {
+   "area": "histologia",
+   "topic": "compacto",
+   "q": "O que contém o canal de Havers?",
+   "a": "Vasos sanguíneos e nervos.",
+   "why": "Fica no centro do ósteon.",
+   "trap": "Não contém medula óssea."
+  },
+  {
+   "area": "histologia",
+   "topic": "compacto",
+   "q": "Qual a função dos canais de Volkmann?",
+   "a": "Conectar canais vasculares (canais de Havers entre si e com a superfície).",
+   "why": "Transversais/oblíquos.",
+   "trap": "Não têm lamelas concêntricas ao redor."
+  },
+  {
+   "area": "histologia",
+   "topic": "compacto",
+   "q": "Qual a função do osteoblasto?",
+   "a": "Produzir a matriz óssea orgânica.",
+   "why": "Fica na superfície óssea.",
+   "trap": "Não está dentro de lacuna (esse é o osteócito)."
+  },
+  {
+   "area": "histologia",
+   "topic": "compacto",
+   "q": "Onde ficam e o que fazem os osteócitos?",
+   "a": "Em lacunas na matriz; manutenção da matriz e percepção de estímulos mecânicos.",
+   "why": "Comunicam-se por canalículos.",
+   "trap": "Não reabsorvem osso."
+  },
+  {
+   "area": "histologia",
+   "topic": "compacto",
+   "q": "Como é e o que faz o osteoclasto?",
+   "a": "Célula multinucleada responsável pela reabsorção óssea.",
+   "why": "Fica na superfície óssea.",
+   "trap": "Não é osteoblasto \"grande\"."
+  },
+  {
+   "area": "histologia",
+   "topic": "compacto",
+   "q": "Qual tecido forma predominantemente a diáfise dos ossos longos?",
+   "a": "Tecido ósseo compacto.",
+   "why": "Confere resistência mecânica.",
+   "trap": "O caso tem fraturas diafisárias: osso compacto."
+  },
+  {
+   "area": "histologia",
+   "topic": "esponjoso",
+   "q": "Como se organiza o osso esponjoso?",
+   "a": "Trabéculas ósseas interconectadas, com medula óssea nos espaços.",
+   "why": "Aspecto em rede.",
+   "trap": "Os espaços não são canais de Havers."
+  },
+  {
+   "area": "histologia",
+   "topic": "esponjoso",
+   "q": "Qual a principal diferença histológica em relação ao compacto?",
+   "a": "O esponjoso geralmente não apresenta ósteons completos.",
+   "why": "Organizado em trabéculas.",
+   "trap": "Ambos têm matriz mineralizada e osteócitos."
+  },
+  {
+   "area": "histologia",
+   "topic": "esponjoso",
+   "q": "Onde estão osteócitos, osteoblastos e osteoclastos no esponjoso?",
+   "a": "Osteócitos em lacunas dentro das trabéculas; osteoblastos e osteoclastos nas superfícies.",
+   "why": "Superfície ativa de remodelação.",
+   "trap": "Osteoclasto não fica dentro da lacuna de osteócito."
+  },
+  {
+   "area": "histologia",
+   "topic": "esponjoso",
+   "q": "Qual a vantagem funcional do osso esponjoso?",
+   "a": "Distribuir forças mecânicas e reduzir o peso do esqueleto.",
+   "why": "Participa da reparação/remodelação.",
+   "trap": "Não é \"osso fraco\" sem função."
+  },
+  {
+   "area": "histologia",
+   "topic": "esponjoso",
+   "q": "Lâmina com traves eosinófilas e espaços cheios de células hematopoéticas: qual tecido?",
+   "a": "Osso esponjoso com medula óssea.",
+   "why": "Trabéculas + medula.",
+   "trap": "Não é cartilagem nem compacto."
+  },
+  {
+   "area": "histologia",
+   "topic": "denso",
+   "q": "Defina tecido conjuntivo denso modelado.",
+   "a": "Feixes paralelos de fibras colágenas, predominantemente tipo I, com fibroblastos entre eles.",
+   "why": "Forma os tendões.",
+   "trap": "Denso não modelado tem fibras em várias direções."
+  },
+  {
+   "area": "histologia",
+   "topic": "denso",
+   "q": "Como são as células do denso modelado?",
+   "a": "Fibroblastos com núcleos alongados e achatados entre os feixes.",
+   "why": "Poucas células.",
+   "trap": "Núcleos alongados ≠ fibras musculares lisas."
+  },
+  {
+   "area": "histologia",
+   "topic": "denso",
+   "q": "Qual a função dos tendões?",
+   "a": "Conectar músculo ao osso e transmitir a força da contração.",
+   "why": "Ex.: tendão distal do bíceps → tuberosidade do rádio.",
+   "trap": "Ligamento une osso a osso."
+  },
+  {
+   "area": "histologia",
+   "topic": "denso",
+   "q": "Por que tendões cicatrizam lentamente?",
+   "a": "Vascularização relativamente limitada.",
+   "why": "Relevante para a ruptura do bíceps do caso.",
+   "trap": "Não é por falta de colágeno."
+  },
+  {
+   "area": "histologia",
+   "topic": "denso",
+   "q": "Por que as fibras paralelas são importantes?",
+   "a": "Conferem alta resistência à tração longitudinal.",
+   "why": "Força em uma direção predominante.",
+   "trap": "Organização paralela = modelado."
+  },
+  {
+   "area": "histologia",
+   "topic": "denso",
+   "q": "Lâmina com faixas rosadas paralelas e núcleos finos em fileiras: qual tecido?",
+   "a": "Conjuntivo denso modelado (tendão).",
+   "why": "Corte longitudinal.",
+   "trap": "Não confundir com nervo (ondulado, com mielina) ou músculo liso."
+  },
+  {
+   "area": "histologia",
+   "topic": "nervo",
+   "q": "Quais os componentes do tecido nervoso periférico?",
+   "a": "Fibras nervosas (axônios), células de Schwann e tecido conjuntivo de sustentação.",
+   "why": "Organizados em fascículos.",
+   "trap": "Corpos de neurônios ficam em gânglios, não ao longo do nervo."
+  },
+  {
+   "area": "histologia",
+   "topic": "nervo",
+   "q": "Quem produz a mielina no SNP e qual sua função?",
+   "a": "Células de Schwann; aumenta a velocidade de condução.",
+   "why": "Bainha ao redor do axônio.",
+   "trap": "Oligodendrócito é no SNC."
+  },
+  {
+   "area": "histologia",
+   "topic": "nervo",
+   "q": "O que é o endoneuro?",
+   "a": "Conjuntivo que envolve individualmente cada fibra nervosa.",
+   "why": "Camada mais interna.",
+   "trap": "Não envolve o fascículo (esse é o perineuro)."
+  },
+  {
+   "area": "histologia",
+   "topic": "nervo",
+   "q": "O que é o perineuro?",
+   "a": "Envoltório de cada fascículo nervoso; protege o ambiente endoneural.",
+   "why": "Camada intermediária.",
+   "trap": "Não envolve o nervo todo."
+  },
+  {
+   "area": "histologia",
+   "topic": "nervo",
+   "q": "O que é o epineuro?",
+   "a": "Envoltório do nervo como um todo, com vasos sanguíneos.",
+   "why": "Camada mais externa.",
+   "trap": "Vasos maiores ficam no epineuro."
+  },
+  {
+   "area": "histologia",
+   "topic": "nervo",
+   "q": "Lâmina com fascículos circundados por conjuntivo e fibras com halo claro: qual estrutura?",
+   "a": "Nervo periférico em corte transversal (fibras mielinizadas).",
+   "why": "Halo claro = mielina.",
+   "trap": "Não é tendão em corte transversal."
+  }
+ ],
+ "chains": [
+  {
+   "title": "Úmero → mão caída",
+   "area": "anatomia",
+   "steps": [
+    {
+     "name": "Fratura diafisária do úmero",
+     "text": "Caso: fratura com desvio dos fragmentos no úmero D.",
+     "figure": "n402"
+    },
+    {
+     "name": "Sulco do nervo radial",
+     "text": "Face posterior da diáfise; contém nervo radial + a. braquial profunda.",
+     "figure": "n450"
+    },
+    {
+     "name": "Nervo radial",
+     "text": "Fascículo posterior, C5–T1; extensão de cotovelo, punho e dedos.",
+     "figure": "n514"
+    },
+    {
+     "name": "Mão caída",
+     "text": "Sem extensão de punho/dedos + hipoestesia no dorso do 1º espaço interdigital.",
+     "figure": "n470"
+    }
+   ]
+  },
+  {
+   "title": "Bíceps → supinação",
+   "area": "anatomia",
+   "steps": [
+    {
+     "name": "Ruptura do tendão distal do bíceps",
+     "text": "Caso: confirmada por US; contorno do músculo alterado.",
+     "figure": "n442"
+    },
+    {
+     "name": "Tuberosidade radial",
+     "text": "Ponto de inserção do tendão distal.",
+     "figure": "n408"
+    },
+    {
+     "name": "Perda de supinação",
+     "text": "Bíceps é o principal supinador (cotovelo fletido); também ↓ força de flexão.",
+     "figure": "n414"
+    }
+   ]
+  },
+  {
+   "title": "Fêmur → extensão do joelho",
+   "area": "anatomia",
+   "steps": [
+    {
+     "name": "Fratura do fêmur",
+     "text": "Caso: fratura diafisária do fêmur E, sem apoio do membro.",
+     "figure": "n542"
+    },
+    {
+     "name": "Quadríceps femoral",
+     "text": "4 componentes; nervo femoral L2–L4.",
+     "figure": "n568"
+    },
+    {
+     "name": "Patela",
+     "text": "Sesamoide no tendão do quadríceps; ligamento patelar até a tuberosidade da tíbia.",
+     "figure": "n548"
+    },
+    {
+     "name": "Extensão do joelho",
+     "text": "Função do aparelho extensor; limitada pela dor no caso.",
+     "figure": "n570"
+    }
+   ]
+  },
+  {
+   "title": "3ª semana",
+   "area": "embriologia",
+   "steps": [
+    {
+     "name": "Gastrulação",
+     "text": "Linha primitiva no epiblasto; bilaminar → trilaminar.",
+     "figure": "moore_89"
+    },
+    {
+     "name": "Folhetos",
+     "text": "Ecto (pele, SN), meso (osso, músculo, vasos), endo (epitélio digestório/respiratório).",
+     "figure": "moore_88"
+    },
+    {
+     "name": "Notocorda",
+     "text": "Mesoderma mediano; sinaliza para o ectoderma.",
+     "figure": "moore_91"
+    },
+    {
+     "name": "Neurulação",
+     "text": "Placa → sulco + pregas → fusão.",
+     "figure": "moore_441"
+    },
+    {
+     "name": "Tubo neural",
+     "text": "Encéfalo e medula; ácido fólico previne defeitos.",
+     "figure": "moore_441"
+    },
+    {
+     "name": "Somitos",
+     "text": "Mesoderma paraxial → esclerótomo, miótomo, dermátomo.",
+     "figure": "moore_395"
+    }
+   ]
+  },
+  {
+   "title": "Manutenção da gestação",
+   "area": "embriologia",
+   "steps": [
+    {
+     "name": "Sinciciotrofoblasto",
+     "text": "Externo, multinucleado, invasivo.",
+     "figure": "moore_80"
+    },
+    {
+     "name": "β-hCG",
+     "text": "Produzido pelo sincício; dosado nos testes de gravidez.",
+     "figure": "moore_80"
+    },
+    {
+     "name": "Corpo lúteo",
+     "text": "Granulosa-luteínicas + teca-luteínicas, mantido pelo hCG.",
+     "figure": "g_ovario_diagrama"
+    },
+    {
+     "name": "Progesterona",
+     "text": "Mantém o endométrio decidualizado.",
+     "figure": "g_ovario_diagrama"
+    },
+    {
+     "name": "Gestação inicial mantida",
+     "text": "Até a placenta assumir progressivamente a produção hormonal.",
+     "figure": "moore_145"
+    }
+   ]
+  }
+ ]
+}

@@ -203,11 +203,11 @@ export default async function HomePage() {
       stat: "142 músculos · 52 ossos · 120 acidentes",
     },
     {
-      href: "/estudar",
+      href: "/estudar/pratica",
       icon: Stethoscope,
       title: "Prova prática",
-      text: "Estações cronometradas de anatomia, histologia e embriologia.",
-      soon: true,
+      text: "Estações cronometradas de anatomia, embriologia e histologia, com gabarito comentado.",
+      stat: "57 estações · 15 temas",
     },
   ];
 

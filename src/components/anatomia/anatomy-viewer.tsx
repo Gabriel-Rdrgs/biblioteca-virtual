@@ -53,6 +53,8 @@ export interface AnatomyPick {
   readonly key: string;
   readonly layer: AnatomyLayer;
   readonly name: string;
+  /** Onde o toque acertou a superfície, no espaço do mundo (só no toque, não no passar do mouse). */
+  readonly point?: readonly number[];
 }
 
 export interface FocusRequest {
@@ -104,6 +106,8 @@ export interface Spot {
   readonly side: "left" | "right" | "auto";
   /** Pergunta (vermelho) ou acerto (verde). */
   readonly tone?: "ask" | "correct";
+  /** Acidente em linha (crista, margem): a faixa segue estes pontos, no lado esquerdo. */
+  readonly path?: readonly (readonly number[])[];
 }
 
 export interface AnatomyViewerProps {
@@ -440,6 +444,9 @@ export function AnatomyViewer({
         uRadius: { value: 0.02 },
         uSpotColor: { value: new THREE.Color(0xff3b2a) },
         uTime: { value: 0 },
+        // Até 8 pontos de uma linha; uCount < 2 = acidente pontual.
+        uPath: { value: Array.from({ length: 8 }, () => new THREE.Vector3()) },
+        uCount: { value: 0 },
       };
       mats.spot.onBeforeCompile = (shader) => {
         Object.assign(shader.uniforms, spotUniforms);
@@ -461,13 +468,27 @@ export function AnatomyViewer({
               "uniform float uTime;",
               "float spotCore;",
               "float spotRing;",
+              "uniform vec3 uPath[8];",
+              "uniform int uCount;",
+              "float spotDist(vec3 p) {",
+              "  if (uCount < 2) return distance(p, uSpot);",
+              "  float d = 1e9;",
+              "  for (int i = 0; i < 7; i++) {",
+              "    if (i + 1 >= uCount) break;",
+              "    vec3 a = uPath[i];",
+              "    vec3 ab = uPath[i + 1] - a;",
+              "    float t = clamp(dot(p - a, ab) / max(dot(ab, ab), 1e-8), 0.0, 1.0);",
+              "    d = min(d, distance(p, a + ab * t));",
+              "  }",
+              "  return d;",
+              "}",
             ].join("\n"),
           )
           .replace(
             "#include <color_fragment>",
             [
               "#include <color_fragment>",
-              "float spotD = distance(vSpotWorld, uSpot);",
+              "float spotD = spotDist(vSpotWorld);",
               "spotCore = 1.0 - smoothstep(uRadius * 0.55, uRadius, spotD);",
               "spotRing = smoothstep(uRadius * 0.92, uRadius * 1.02, spotD) * (1.0 - smoothstep(uRadius * 1.02, uRadius * 1.18, spotD));",
               "diffuseColor.rgb = mix(diffuseColor.rgb, uSpotColor, clamp(spotCore * 0.85 + spotRing, 0.0, 1.0));",
@@ -492,6 +513,11 @@ export function AnatomyViewer({
         const sx = spotState.mirror && !left ? -1 : 1;
         spotPos.set((p[0] ?? 0) * sx, p[1] ?? 0, p[2] ?? 0);
         spotUniforms.uSpot.value.copy(spotPos);
+        const path = spotState.path ?? [];
+        spotUniforms.uCount.value = Math.min(path.length, 8);
+        path.slice(0, 8).forEach((q, i) => {
+          spotUniforms.uPath.value[i]?.set((q[0] ?? 0) * sx, q[1] ?? 0, q[2] ?? 0);
+        });
       };
       controls.enableDamping = true;
       controls.dampingFactor = 0.09;
@@ -935,7 +961,9 @@ export function AnatomyViewer({
       /* ----------------------------------------------------- tocar */
       const raycaster = new THREE.Raycaster();
       raycaster.layers.enableAll();
+      let lastHit: number[] | null = null;
       const pickAt = (clientX: number, clientY: number): Entry | null => {
+        lastHit = null;
         const rect = canvas.getBoundingClientRect();
         if (rect.width === 0 || rect.height === 0) return null;
         const pointer = new THREE.Vector2(
@@ -948,6 +976,7 @@ export function AnatomyViewer({
         const hit =
           (priority.length ? raycaster.intersectObjects(priority, false)[0] : undefined) ??
           raycaster.intersectObjects(pickable, false)[0];
+        lastHit = hit ? hit.point.toArray() : null;
         return hit ? (byMesh.get(hit.object as Mesh) ?? null) : null;
       };
       let down: { x: number; y: number; t: number } | null = null;
@@ -961,7 +990,8 @@ export function AnatomyViewer({
         const moved = Math.hypot(event.clientX - start.x, event.clientY - start.y);
         if (moved > 6 || performance.now() - start.t > 600) return; // foi um giro, não um toque
         const entry = pickAt(event.clientX, event.clientY);
-        pickRef.current?.(entry ? toPick(entry) : null);
+        const point = lastHit;
+        pickRef.current?.(entry ? { ...toPick(entry), ...(point ? { point } : {}) } : null);
       };
       const onMove = (event: PointerEvent) => {
         if (event.pointerType !== "mouse" || event.buttons !== 0) return;
@@ -1016,7 +1046,9 @@ export function AnatomyViewer({
             const box = new THREE.Box3();
             entries.filter((e) => keys.has(e.key)).forEach((e) => box.union(e.box));
             const size = box.isEmpty() ? 0.3 : box.getSize(new THREE.Vector3()).length();
-            spotUniforms.uRadius.value = THREE.MathUtils.clamp(size * 0.07, 0.011, 0.03);
+            // Numa linha, a faixa é mais estreita: parece uma borda, não uma mancha.
+            const wide = THREE.MathUtils.clamp(size * 0.07, 0.011, 0.03);
+            spotUniforms.uRadius.value = (next.path?.length ?? 0) >= 2 ? wide * 0.6 : wide;
             placeSpot();
           }
           invalidate();
@@ -1090,7 +1122,7 @@ export function AnatomyViewer({
   const resultSig = result ? `${result.ok}:${result.keys.join("|")}` : "";
   const hiddenSig = hiddenKeys.join("|");
   const spotSig = spot
-    ? `${spot.keys.join("|")}:${spot.pos.join(",")}:${spot.side}:${spot.mirror}:${spot.tone ?? "ask"}`
+    ? `${spot.keys.join("|")}:${spot.pos.join(",")}:${spot.side}:${spot.mirror}:${spot.tone ?? "ask"}:${spot.path?.length ?? 0}`
     : "";
   const layerSig = LAYERS.map((l) => (layers[l] ? 1 : 0)).join("");
 

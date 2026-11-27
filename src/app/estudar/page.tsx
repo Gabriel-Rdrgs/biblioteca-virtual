@@ -148,6 +148,13 @@ export default async function EstudarPage() {
       stat: "142 músculos · 52 ossos · 120 acidentes",
     },
     {
+      href: "/estudar/pratica",
+      icon: Stethoscope,
+      title: "Prova prática",
+      text: "Estações cronometradas de anatomia, embriologia e histologia, como na N2 prática de MAC I, com gabarito comentado.",
+      stat: "57 estações · 15 temas",
+    },
+    {
       href: "/estudar/imagem",
       icon: Images,
       title: "Simulado de imagem",
@@ -260,20 +267,6 @@ export default async function EstudarPage() {
           {modes.map((mode) => (
             <ModeTile key={mode.href} mode={mode} />
           ))}
-          <li className="rounded-panel border-line-strong flex gap-4 border border-dashed p-5 opacity-80">
-            <span className="bg-accent-soft text-accent grid size-11 shrink-0 place-items-center rounded-full">
-              <Stethoscope className="size-5" aria-hidden="true" />
-            </span>
-            <span className="min-w-0">
-              <span className="flex flex-wrap items-center gap-2">
-                <span className="font-semibold">Prova prática</span>
-                <Badge tom="acento">em breve</Badge>
-              </span>
-              <span className="text-ink-muted mt-1 block text-sm leading-relaxed">
-                Estações cronometradas de anatomia, histologia e embriologia, como na N2 prática.
-              </span>
-            </span>
-          </li>
         </ul>
       </section>
 
